@@ -1,6 +1,6 @@
 # Community Fault Model 
 
-###https://www.scec.org/research/cfm
+### https://www.scec.org/research/cfm
 
 ## CFM viewer
 
