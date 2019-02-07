@@ -5,9 +5,10 @@ Community Fault Model
 ## CFM viewer
 
 A 2D viewer based on Leaflet, an open-source JavaScript library for interactive maps,
-https://leafletjs.com, data services from OpenStreetMap, https://www.openstreetmap.org,
+https://leafletjs.com, map data services from OpenStreetMap, https://www.openstreetmap.org,
 OpenTopoMap, https://www.opentopomap.org and leaflet ersi plugin,
-https://esri.github.io/esri-leaflet, for Ersi basemap from ArcGIS
+https://esri.github.io/esri-leaflet, for Ersi basemap from ArcGIS and the CFM 
+CFM5_release_2017 release from https://www.scec.org/research/cfm
 
 ### Hosted at http://asperity.scec.org/CFM/web/cfm_view.html
 
@@ -53,7 +54,7 @@ are in doc/
 Data preprocessing instructions are in doc/ and the scripts are in schema/scripts 
 
 
-## Layout 
+### Layout 
 
 ### Server Side 
        
