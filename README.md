@@ -2,10 +2,9 @@
 
 Community Fault Model
 
-## Live demo ![](doc/cfm_demo.png), 
+## Hosted at http://asperity.scec.org/CFM/web/cfm_view.html
 
-http://asperity.scec.org/CFM/web/cfm_view.html
-
+![](doc/cfm_demo.png) 
 
 
 ## Software requirements
