@@ -2,12 +2,19 @@
 
 Community Fault Model
 
-## Hosted at http://asperity.scec.org/CFM/web/cfm_view.html
+## CFM viewer
+
+A 2D viewer based on Leaflet, an open-source JavaScript library for interactive maps,
+https://leafletjs.com, data services from OpenStreetMap, https://www.openstreetmap.org,
+OpenTopoMap, https://www.opentopomap.org and leaflet ersi plugin,
+https://esri.github.io/esri-leaflet, for Ersi basemap from ArcGIS
+
+### Hosted at http://asperity.scec.org/CFM/web/cfm_view.html
 
 ![](doc/cfm_demo.png) 
 
 
-## Software requirements
+## CFM data service
 
 Software stack at the backend server node when postgres and postgis are
 being built from source:
@@ -43,7 +50,7 @@ are in doc/
     `run-as-httpd`, for installing and starting up the web service
 
 
-Data preprocessing instruction are in doc/ and the scripts are in schema/scripts 
+Data preprocessing instructions are in doc/ and the scripts are in schema/scripts 
 
 
 ## Layout 
