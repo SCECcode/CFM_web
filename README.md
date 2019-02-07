@@ -2,7 +2,7 @@
 
 Community Fault Model
 
-## Live demo (doc/cfm_demo.png), 
+## Live demo ![](doc/cfm_demo.png), 
 
 http://asperity.scec.org/CFM/web/cfm_view.html
 
