@@ -56,7 +56,7 @@ Data preprocessing instructions are in doc/ and the scripts are in schema/script
 
 ### Layout 
 
-### Server Side 
+#### Server Side 
        
     Postgres/Postgis database
     TS/SHP data files
@@ -64,7 +64,7 @@ Data preprocessing instructions are in doc/ and the scripts are in schema/script
     Apache web service to manage incoming
        and outgoing instruction/data
 
-### Client Side 
+#### Client Side 
 
     JS scripts to process and manage data product
     Html web page for graphics display and user dashboard
