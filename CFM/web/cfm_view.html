@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+<head>
+
+<!-- for aws
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+-->
+
+<link rel="stylesheet" href="css/vendor/leaflet.css">
+<link rel="stylesheet" href="css/vendor/bootstrap.css">
+<link rel="stylesheet" href="css/vendor/jquery-ui.css">
+<link rel="stylesheet" href="css/cfm-ui.css">
+<link rel="stylesheet" href="css/sidebar.css">
+
+<script type="text/javascript" src="js/vendor/leaflet-src.js"></script>
+<script type='text/javascript' src='js/vendor/jquery.min.js'></script>
+<script type='text/javascript' src='js/vendor/bootstrap.min.js'></script>
+<script type='text/javascript' src='js/vendor/jquery-ui.js'></script>
+<script type='text/javascript' src='js/vendor/ersi-leaflet.js'></script>
+<script type='text/javascript' src='js/vendor/FileSaver.js'></script>
+<script type='text/javascript' src='js/vendor/jszip.js'></script>
+
+<!--
+https://leaflet.github.io/Leaflet.draw/docs/Leaflet.draw-latest.html#l-draw
+this is for including the Leaflet.draw plugin 
+-->
+<link rel="stylesheet" href="plugin/Leaflet.draw/leaflet.draw.css">
+<script type='text/javascript' src="plugin/Leaflet.draw/Leaflet.draw.js"></script>
+<script type='text/javascript' src="plugin/Leaflet.draw/Leaflet.Draw.Event.js"></script>
+<script type='text/javascript' src="plugin/Leaflet.draw/Toolbar.js"></script>
+<script type='text/javascript' src="plugin/Leaflet.draw/Tooltip.js"></script>
+<script type='text/javascript' src="plugin/Leaflet.draw/ext/GeometryUtil.js"></script>
+<script type='text/javascript' src="plugin/Leaflet.draw/ext/LatLngUtil.js"></script>
+<script type='text/javascript' src="plugin/Leaflet.draw/ext/LineUtil.Intersect.js"></script>
+<script type='text/javascript' src="plugin/Leaflet.draw/ext/Polygon.Intersect.js"></script>
+<script type='text/javascript' src="plugin/Leaflet.draw/ext/Polyline.Intersect.js"></script>
+<script type='text/javascript' src="plugin/Leaflet.draw/ext/TouchEvents.js"></script>
+<script type='text/javascript' src="plugin/Leaflet.draw/draw/DrawToolbar.js"></script>
+<script type='text/javascript' src="plugin/Leaflet.draw/draw/handler/Draw.Feature.js"></script>
+<script type='text/javascript' src="plugin/Leaflet.draw/draw/handler/Draw.SimpleShape.js"></script>
+<script type='text/javascript' src="plugin/Leaflet.draw/draw/handler/Draw.Polyline.js"></script>
+<script type='text/javascript' src="plugin/Leaflet.draw/draw/handler/Draw.Marker.js"></script>
+<script type='text/javascript' src="plugin/Leaflet.draw/draw/handler/Draw.Circle.js"></script>
+<script type='text/javascript' src="plugin/Leaflet.draw/draw/handler/Draw.CircleMarker.js"></script>
+<script type='text/javascript' src="plugin/Leaflet.draw/draw/handler/Draw.Polygon.js"></script>
+<script type='text/javascript' src="plugin/Leaflet.draw/draw/handler/Draw.Rectangle.js"></script>
+<script type='text/javascript' src="plugin/Leaflet.draw/edit/EditToolbar.js"></script>
+<script type='text/javascript' src="plugin/Leaflet.draw/edit/handler/EditToolbar.Edit.js"></script>
+<script type='text/javascript' src="plugin/Leaflet.draw/edit/handler/EditToolbar.Delete.js"></script>
+<script type='text/javascript' src="plugin/Leaflet.draw/Control.Draw.js"></script>
+<script type='text/javascript' src="plugin/Leaflet.draw/edit/handler/Edit.Poly.js"></script>
+<script type='text/javascript' src="plugin/Leaflet.draw/edit/handler/Edit.SimpleShape.js"></script>
+<script type='text/javascript' src="plugin/Leaflet.draw/edit/handler/Edit.Rectangle.js"></script>
+<script type='text/javascript' src="plugin/Leaflet.draw/edit/handler/Edit.Marker.js"></script>
+<script type='text/javascript' src="plugin/Leaflet.draw/edit/handler/Edit.CircleMarker.js"></script>
+<script type='text/javascript' src="plugin/Leaflet.draw/edit/handler/Edit.Circle.js"></script>
+
+<!-- cfm js -->
+<script type="text/javascript" src="js/debug.js"></script>
+<script type="text/javascript" src="js/cfm_leaflet.js"></script>
+<script type="text/javascript" src="js/cfm_layer.js"></script>
+<script type="text/javascript" src="js/cfm_util.js"></script>
+<script type="text/javascript" src="js/cfm_ui.js"></script>
+<script type="text/javascript" src="js/cfm_main.js"></script>
+<script type="text/javascript" src="js/cfm_query.js"></script>
+<script type="text/javascript" src="js/cfm_sidebar.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-495056-12"></script>
+<script>
+  var myhost= location.hostname;
+  if(myhost == "asperity.scec.org") {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+ 
+    gtag('config', 'UA-495056-12');
+  }
+</script>
+
+</head>
+<body>
+<div class="container-fluid">
+  <div align="left" id="controlBlock" style="margin:10px 0px 10px 0px; width:100%;display:flex;justify-content:center">
+    <div class="row col-md-12 col-xs-12" style="display:inline-block;overflow:hidden;">
+      <button id="systemBtn" class="btn cfm-top-btn" title="search by system" onclick="systemClick();">
+       <span class="glyphicon glyphicon-search"></span> System</button>
+      <button id="regionBtn" class="btn cfm-top-btn" title="search by region" onclick="regionClick();">
+       <span class="glyphicon glyphicon-search"></span> Region</button>
+      <button id="sectionBtn" class="btn cfm-top-btn" title="search by section" onclick="sectionClick();">
+       <span class="glyphicon glyphicon-search"></span> Section</button>
+      <button id="nameBtn" class="btn cfm-top-btn" title="search by name" onclick="nameClick();">
+       <span class="glyphicon glyphicon-search"></span> Name</button>
+      <button id="keywordBtn" class="btn cfm-top-btn" title="search by keyword" onclick="keywordClick();">
+       <span class="glyphicon glyphicon-search"></span> Keyword</button>
+      <button id="latlonBtn" class="btn cfm-top-btn" title="search by latlon" onclick="latlonClick();">
+       <span class="glyphicon glyphicon-search"></span> Latlon</button>
+      <button id="strikeBtn" class="btn cfm-top-btn" title="search by strike" onclick="strikeClick();">
+       <span class="glyphicon glyphicon-search"></span> Strike</button>
+      <button id="dipBtn" class="btn cfm-top-btn" title="search by dip" onclick="dipClick();">
+       <span class="glyphicon glyphicon-search"></span> Dip</button>
+    </div>
+      <div id="external_leaflet_control"></div>
+
+      <button id="colorBtn" class="btn cfm-top-small-btn" onMouseEnter="expandColorsControl()">
+        <span class="glyphicon glyphicon-star"></span></button>
+      <div id="colorSelect" class="cfm-control-colors" onMouseLeave="removeColorsControl()"></div>
+
+      <button id="toggleBtn" class="btn cfm-top-small-btn" title="toggle to display all faults" onclick="toggleAll()">
+        <span class="glyphicon glyphicon-adjust"></span></button>
+
+      <button id="refreshBtn" class="btn cfm-top-small-btn" title="refresh to initial state" onclick="refreshAll();">
+        <span class="glyphicon glyphicon-refresh"></span></button>
+
+      <button id="basketBtn" class="btn cfm-top-small-btn" title="download selected faults metadata" onMouseEnter="expandDownloadControl()">
+        <span class="glyphicon glyphicon-download-alt"></span></button>
+      <div id="itemCount"></div>
+      <div id="downloadSelect" class="cfm-control-download" onMouseLeave="removeDownloadControl()"></div>
+   </div> <!-- controlBlock -->
+<div class="row col-md-12 col-xs-12" style="position:absolute;display:inline-block;left:20px;top:8vh;">
+
+  <div id='CFM_plot' style="position:fixed;width:55%;height:90%;left:43%;border:solid 4px gray"></div>
+
+  <div id='queryBlock' style="position:fixed; background-color:transparent;top:7vh; width:40%;overflow:hidden;">
+
+<div id="pull-out" style="width:80%;">
+<ul id="sidebar" class="navigation"  >
+  <li id='system' class='navigationLi col-md-12 col-xs-12' style="display:none">
+    <div id='systemMenu' class='menu'>
+      <div id='systemLabel' class='menuLabel' style="margin-left:20px;font-size:14px;font-weight:bold">Query for Fault by system:<button class="pull-right" title="dismiss" onclick="systemClick()" style="border:none;background-color:transparent"><span class="glyphicon glyphicon-remove"></span>
+</button>
+      </div>
+      <div class="row col-md-12 col-xs-12">
+           <div class="row col-md-12 col-xs-12" style="margin-left:20px; margin-top:20px">
+
+      <div class="cfm-div" id="systemList"></div>
+
+           </div>
+       </div>
+    </div>
+  </li>
+  <li id='region' class='navigationLi col-md-12 col-xs-12' style="display:none">
+    <div id='regionMenu' class='menu'>
+      <div id='regionLabel' class='menuLabel' style="margin-left:20px;font-size:14px;font-weight:bold">Query for Fault by region:<button class="pull-right" title="dismiss" onclick="regionClick()" style="border:none;background-color:transparent"><span class="glyphicon glyphicon-remove"></span>
+</button>
+      </div>
+      <div class="row col-md-12 col-xs-12">
+           <div class="row col-md-12 col-xs-12" style="margin-left:20px; margin-top:20px">
+
+      <div class="cfm-div" id="regionList"></div>
+
+           </div>
+       </div>
+    </div>
+  </li>
+  <li id='section' class='navigationLi col-md-12 col-xs-12' style="display:none">
+    <div id='sectionMenu' class='menu'>
+      <div id='sectionLabel' class='menuLabel' style="margin-left:20px;font-size:14px;font-weight:bold">Query for Fault by section:<button class="pull-right" title="dismiss" onclick="sectionClick()" style="border:none;background-color:transparent"><span class="glyphicon glyphicon-remove"></span>
+</button>
+      </div>
+      <div class="row col-md-12 col-xs-12">
+           <div class="row col-md-12 col-xs-12" style="margin-left:20px; margin-top:20px">
+
+      <div class="cfm-div" id="sectionList"></div>
+
+           </div>
+       </div>
+    </div>
+  </li>
+  <li id='name' class='navigationLi col-md-12 col-xs-12' style="display:none">
+    <div id='nameMenu' class='menu'>
+      <div id='nameLabel' class='menuLabel' style="margin-left:20px;font-size:14px;font-weight:bold">Query for Fault by name:<button class="pull-right" title="dismiss" onclick="nameClick()" style="border:none;background-color:transparent"><span class="glyphicon glyphicon-remove"></span>
+</button>
+      </div>
+      <div class="row col-md-12 col-xs-12">
+           <div class="row col-md-12 col-xs-12" style="margin-left:20px; margin-top:20px">
+
+      <div class="cfm-div" id="nameList"></div>
+
+           </div>
+       </div>
+    </div>
+  </li>
+
+  <li id='strike' class='navigationLi col-md-12 col-xs-12' style="display:none">
+    <div id='strikeMenu' class='menu'>
+      <div id='strikeLabel' class='menuLabel' style="margin-left:20px;font-size:14px;font-weight:bold">Query for Fault by strike range:<button class="pull-right" title="dismiss" onclick="strikeClick()" style="border:none;background-color:transparent"><span class="glyphicon glyphicon-remove"></span>
+</button>
+      </div>
+      <div class="row col-md-12 col-xs-12">
+           <div class="row col-md-12 col-xs-12" style="margin-left:20px; margin-top:20px">
+             <div class="cfm-div" id="strikeRange" style="padding-left:10px; padding-right:10px; overflow:hidden;"></div>
+           </div>
+       </div>
+    </div>
+  </li>
+
+  <li id='dip' class='navigationLi col-md-12 col-xs-12' style="display:none">
+    <div id='dipMenu' class='menu'>
+      <div id='dipLabel' class='menuLabel' style="margin-left:20px;font-size:14px;font-weight:bold">Query for Fault by Dip range:<button class="pull-right" title="dismiss" onclick="dipClick()" style="border:none;background-color:transparent"><span class="glyphicon glyphicon-remove"></span>
+</button>
+      </div>
+      <div class="row col-md-12 col-xs-12">
+           <div class="row col-md-12 col-xs-12" style="margin-left:20px; margin-top:20px">
+             <div class="cfm-div" id="dipRange" style="padding-left:10px; padding-right:10px; overflow:hidden;"></div>
+           </div>
+       </div>
+    </div>
+  </li>
+
+  <li id='keyword' class='navigationLi col-md-12 col-xs-12' style="display:none">
+    <div id='keywordMenu' class='menu'>
+      <div id='keywordLabel' class='menuLabel' style="margin-left:20px;font-size:14px;font-weight:bold">Query for Fault by keyword: <button class="pull-right" title="dismiss" onclick="keywordClick()" style="border:none;background-color:transparent"><span class="glyphicon glyphicon-remove"></span>
+</button>
+      </div>
+      <div class="row col-md-12 col-xs-12">
+           <div class="row col-md-12 col-xs-12" style="margin-left:20px; margin-top:20px">
+
+      <div class="cfm-div"> Keyword:&nbsp;<input type="text" id="keywordTxt" onfocus="this.value=''" style="right-margin:10px; width:20vw;border:1px solid black; color:orange; text-align:center;">
+       <button id="keywordBtn" type="button" title="search with keyword" class="btn btn-default cfm-small-btn" onclick="searchByKeyword()">
+            <span class="glyphicon glyphicon-search"></span>
+       </button>
+      </div>
+
+           </div>
+       </div>
+    </div>
+  </li>
+  <li id='latlon' class='navigationLi col-md-12 col-xs-12' style="display:none">
+    <div id='latlonMenu' class='menu'>
+      <div id='latlonLabel' class='menuLabel' style="margin-left:20px;font-size:14px;font-weight:bold;">Query for Fault by latlon:<button id="markerBtn" class="btn cfm-small-btn" title="select latlon on map" onclick="markLatlon()" style="border:none;background-color:transparent"><span class="glyphicon glyphicon-unchecked"></span></button><button class="pull-right" title="dismiss" onclick="latlonClick()" style="border:none;background-color:transparent"><span class="glyphicon glyphicon-remove"></span></button>
+      </div>
+      <div class="row col-md-12 col-xs-12">
+           <div class="row col-md-12 col-xs-12" style="margin-left:20px; margin-top:20px;">
+
+      <div class="cfm-div"> Lat:&nbsp<input type="text" id="firstLatTxt" title="first lat"  onfocus="this.value=''" style="width:10vw; right-margin:10px; border:1px solid black; color:orange; text-align:center;"> &nbsp <input type="text" id="secondLatTxt" title-"optional second lat" value='optional' onfocus="this.value=''" style="width:10vw; right-margin:10px; border:1px solid black; color:orange; text-align:center;"> 
+      <button id="latlonBtn" type="button" title="search with latlon" class="btn btn-default cfm-small-btn" onclick="searchByLatlon()">
+          <span class="glyphicon glyphicon-search"></span>
+      </button></div>
+      <div clss="cfm-div"> &nbsp Lon:<input type="text" id="firstLonTxt" title="first lon" onfocus="this.value=''" style="width:10vw; right-margin:10px; border:1px solid black; color:orange; text-align:center;"> &nbsp <input type="text" id="secondLonTxt" title="optional second lon" value='optional' onfocus="this.value=''" style="width:10vw; right-margin:10px; border:1px solid black; color:orange; text-align:center;"> </div>
+       </div>
+    </div>
+  </li>
+<!-- debug purpose
+  <li id='gid' class='navigationLi col-md-12 col-xs-12' style="display:none">
+    <div id='gidMenu' class='menu'>
+      <div id='gidLabel' class='menuLabel' style="margin-left:20px;font-size:14px;font-weight:bold">Query for GEO JSON Object by object_tb_gid:<button class="pull-right" title="dismiss" onclick="gidClick()" style="border:none;background-color:transparent"><span class="glyphicon glyphicon-remove"></span>
+</button>
+      </div>
+      <div class="row col-md-12 col-xs-12">
+           <div class="row col-md-12 col-xs-12" style="margin-left:20px; margin-top:10px">
+
+      <div class="cfm-div"> Object gid:&nbsp;<input type="text" id="objGidTxt" onfocus="this.value=''" style="right-margin:10px; border:1px solid black; color:orange; text-align:center;">
+       <button id="objGidBtn" type="button" title="search with object gid" class="btn btn-default" onclick="getGeoJSONbyObjGid()">
+            <span class="glyphicon glyphicon-search"></span>
+       </button>
+     </div>
+           </div>
+       </div>
+    </div>
+  </li>
+-->
+</ul>
+</div><!-- pull-out -->
+  </div><!-- queryBlock -->
+<div id='resultBlock' style="position:fixed; top:25vh; left:30px;width:40%;height:90%;">
+  <div id="searchResult" class="table-responsive"></div>
+  <div id="geoSearchByObjGidResult" style="display:none"></div>
+  <div id="phpResponseTxt"></div>
+</div>
+<br>
+</div>
+</div><!-- container-fluid -->
+
+</body>
+</html>
+

@@ -1,0 +1,229 @@
+/* required styles */
+
+hr { 
+  display: block;
+  margin-top: 0.3em;
+  margin-bottom: 0.4em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 2px;
+}
+
+.ui-slider-range { background:linear-gradient(to right, rgb(255,0,0), rgb(0,0,255) ) }
+
+table { width: 100%; border-collapse: collapse;}
+table, td, th { border: 1px solid grey; padding: 2px;}
+th {text-align: left;}
+
+.glyphicon-ok-circle {
+      color:red;
+}
+
+.leaflet-control-container {
+      display: none;
+}
+
+.leaflet-control-layers {
+        background: white; 
+        margin-left: 4px;
+        box-shadow: none;
+        width: 3em;
+        height: 3vh;
+}
+.leaflet-control-layers-expanded {
+        overflow: auto;
+        position:absolute;
+        left:85%;
+        top: 10px;
+        border: 2px solid grey;
+        box-shadow: none;
+        background: #D9D9D9;
+        min-width: 180px;
+        min-height: 170px;
+        z-index: 1000;
+        border-radius: 4px;
+}
+
+
+.leaflet-control-layers-base {
+        margin-left: 10px;
+        text-align: left;
+        border:2px solid transparent;
+}
+
+.leaflet-control-layers-toggle {
+         margin-top:0px;
+}
+
+.leaflet-control-layers-label {
+        display: none;
+}
+
+/* added to add a label to the popup */
+.leaflet-control-layers-expanded .leaflet-control-layers-label {
+        display: block;
+        position: relative;
+}
+
+.cfm-control-colors-expanded {
+        overflow: hidden;
+        position:absolute;
+        left:88%;
+        border: 2px solid grey;
+        box-shadow: none;
+        background: #D9D9D9;
+        min-width: 150px;
+        min-height: 110px;
+        z-index: 1000;
+        border-radius: 4px;
+}
+
+.cfm-control-colors-list {
+        display: none;
+}
+
+.cfm-control-colors-expanded .cfm-control-colors-list {
+	display: block;
+	position: relative;
+	}
+
+.cfm-control-colors-selector {
+	margin-top: 2px;
+	position: relative;
+	}
+
+.cfm-control-colors label {
+	display: block;
+	}
+
+.cfm-control-colors-base {
+        margin-left: 10px;
+        text-align: left;
+        border:2px solid transparent;
+}
+
+.cfm-control-download-expanded {
+        overflow: hidden;
+        position:absolute;
+        right:10px;
+        border: 2px solid grey;
+        box-shadow: none;
+        background: #D9D9D9;
+        min-width: 160px;
+        min-height: 130px;
+        z-index: 1000;
+        border-radius: 4px;
+}
+
+.cfm-control-download-list {
+        display: none;
+}
+
+.cfm-control-download-expanded .cfm-control-download-list {
+	display: block;
+	position: relative;
+	}
+
+.cfm-control-download-selector {
+	margin-top: 2px;
+	position: relative;
+	top: 1px;
+	}
+
+.cfm-control-download label {
+	display: block;
+	}
+
+.cfm-control-download-base {
+        margin-left: 10px;
+        text-align: left;
+        border:2px solid transparent;
+}
+
+#itemCount {
+  display:none;
+  position:absolute;
+  top: 10px;
+  left: 98%;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+  text-align: center;
+}
+
+.cfm-top-small-btn {
+          background: white; 
+          padding: 6px 6px;
+          font-size: 14px;
+          color: blue;
+/*
+          color: #6c6cff;
+*/
+          width: 3vw;
+          height: 3vh;
+          display: inline-block;
+          border-radius: 2px;
+          }
+
+.cfm-small-btn {
+          background: transparent ; 
+          color: blue;
+          border: none; 
+          display: inline-block;
+          }
+
+.cfm-small-btn:disabled {
+         color: white;
+        }
+
+.cfm-table {
+          max-height: 67vh;
+          border: 1px solid grey;
+          overflow: auto;
+        }
+
+.cfm-top-btn {
+          background: #D5D5D5; 
+          padding: 1px 3px;
+          border: 2px solid #D5D5D5;
+          color: blue;
+          width: 10vw;
+          height: 5vh;
+          display: inline-block;
+        }
+
+.cfm-btn {
+          background: white; 
+          border: 0px solid #D5D5D5;
+          color: blue;
+          width: 5em;
+          height: 3vh;
+          display: inline-block;
+        }
+
+
+.cfm-btn:disabled {
+         color: white;
+        }
+
+.cfm-div {
+        position:relative;
+        left: 10px;
+        width:90%;
+        }
+
+select {
+    width: 100%;
+    border: 2px solid grey;
+    border-radius: 2px;
+}
+
+input[type=text] {
+    width: 140px;
+    padding: 0px 5px 0px 5px;
+}
+

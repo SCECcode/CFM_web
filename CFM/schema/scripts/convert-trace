@@ -1,0 +1,33 @@
+
+To convert shp file to postgres sql statments,
+
+  shp2pgsql -I -s NAD_1927_UTM_Zone_11N /Users/mei/scec/cfm/CFM5_release_2017/obj/CFM5_preferred_traces/CFM5_preferred_traces.shp TRACE_tb > CFM5_preferred_traces.sql
+
+  MeiPro:CFM5_preferred_traces mei$ more SRID-from-Prj2EPSG 
+26711 - NAD_1927_UTM_Zone_11N
+
+  >>MeiPro:CFM5_preferred_traces mei$ ./r-convert
+  >>Shapefile type: ArcZ
+  >>Postgis type: MULTILINESTRING[4]
+
+To extract SRID information,
+
+  SRID-from-Prj2EPSG 
+
+  converted into:
+
+  PROJCS["NAD_1927_UTM_Zone_11N",
+  GEOGCS["GCS_North_American_1927",
+  DATUM["D_North_American_1927",
+  SPHEROID["Clarke_1866",6378206.4,294.9786982]],
+  PRIMEM["Greenwich",0],
+  UNIT["Degree",0.017453292519943295]],
+  PROJECTION["Transverse_Mercator"],
+  PARAMETER["latitude_of_origin",0],
+  PARAMETER["central_meridian",-117],
+  PARAMETER["scale_factor",0.9996],
+  PARAMETER["false_easting",500000],
+  PARAMETER["false_northing",0],
+  UNIT["Meter",1]] 
+
+

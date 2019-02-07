@@ -1,0 +1,67 @@
+## run as installer of the system stack
+
+   yum install git
+   git clone https://github.com/SCECcode/CFM_web.git
+   yum install gcc
+   yum install readline-devel
+   yum install zlib-devel
+   yum install json-c
+   
+   wget https://ftp.postgresql.org/pub/source/v10.5/postgresql-10.5.tar.gz
+   tar -xzf postgresql-10.5.tar.gz
+   cd postgresql-10.5
+   ./configure --prefix=/usr/local
+   make
+   sudo make install
+   
+   
+   echo "Update postgres user  .. "
+   sudo /usr/sbin/userdel postgres 
+   #scec
+   sudo /usr/sbin/useradd -d /home/postgres -m postgres
+   read -s -p "Enter password for postgres: " password
+   echo $password |sudo passwd --stdin postgres
+   sudo chage postgres -M -1
+
+   #bring in g++
+   sudo yum install gcc-c++.x86_64 
+   sudo yum install autoconf
+   sudo yum install libxml2-devel
+   sudo yum install libtool
+   
+   
+   ##geos
+   tar xjf geos-3.7.0.tar.bz2
+   cd geos-3.7.0
+   ./configure --prefix=/usr/local
+   make
+   sudo make install
+   
+   #proj5
+   tar xzf proj-5.0.0.tar.gz
+   cd proj-5.0.0/nad  
+   unzip ../../proj-datumgrid-1.7.zip  
+   cd ..  
+   ./configure --prefix=/usr/local  
+   make  
+   sudo make install
+   
+   #gdal
+   tar xzf gdal-2.3.2.tar.gz
+   cd gdal-2.3.2
+   ./configure --prefix=/usr/local --with-python
+   make
+   sudo make install
+   
+   #postgis
+   tar xzf postgis-2.5.1.tar.gz
+   cd postgis-2.5.1
+   ./configure --with-geosconfig=/usr/local/bin/geos-config
+   make
+   sudo make instal
+   
+##to test 
+
+   psql 
+      select name, default_version,installed_version FROM pg_available_extensions;
+   

@@ -1,0 +1,14 @@
+Carve out db space
+  initdb /home/postgres/cfm_db
+
+Start PostgreSQL server
+  pg_ctl -D /home/postgres/cfm_db -l logfile start
+
+
+run schema/load_up_db
+  
+
+
+
+
+
