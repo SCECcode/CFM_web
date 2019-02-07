@@ -2,6 +2,8 @@
 
 Community Fault Model
 
+##
+
 ## Software requirements
 
 Software stack at the backend server node when postgres and postgis are
