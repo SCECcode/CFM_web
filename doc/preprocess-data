@@ -1,8 +1,0 @@
-
-When there is an update to Faults Model xlsx file, CFM5.2-Fault_ID_preferred.xlsx,
-several csv files in schema/data need to be regenerated. Scripts are in schema/scripts.
-
-When the T-surf files get updated, or moved, depending on the changes,
-schema/data/object_1000m_tb.csv, schema/data/object_500m_tb.csv,
-schema/data/object_native_tb.csv might need to be tweaked. The initial set came
-from https://github.com/SCECcode/CFM

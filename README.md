@@ -51,7 +51,8 @@ are in doc/
     `run-as-httpd`, for installing and starting up the web service
 
 
-Data preprocessing instructions are in doc/ and the scripts are in schema/scripts 
+Data preprocessing instructions are in doc/run-preprocess-data, xlsx file is in 
+schema/CFM5_release_2017 and the scripts are in schema/scripts 
 
 
 ### Layout 
