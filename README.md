@@ -6,7 +6,7 @@
 
 A 2D viewer based on Leaflet, an open-source JavaScript library for interactive maps,
 https://leafletjs.com, map data services from OpenStreetMap, https://www.openstreetmap.org,
-OpenTopoMap, https://www.opentopomap.org and leaflet ersi plugin,
+OpenTopoMap, https://www.opentopomap.org and leaflet esri plugin,
 https://esri.github.io/esri-leaflet, for Ersi basemap from ArcGIS and the CFM 
 CFM5_release_2017 release from https://www.scec.org/research/cfm
 

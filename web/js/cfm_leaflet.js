@@ -30,10 +30,10 @@ function refresh_map()
 
 function setup_viewer()
 {
-// ersi 
-  var ersi_topographic = L.esri.basemapLayer("Topographic");
-  var ersi_imagery = L.esri.basemapLayer("Imagery");
-  var ersi_ng = L.esri.basemapLayer("NationalGeographic");
+// esri 
+  var esri_topographic = L.esri.basemapLayer("Topographic");
+  var esri_imagery = L.esri.basemapLayer("Imagery");
+  var esri_ng = L.esri.basemapLayer("NationalGeographic");
 
 // otm topo
   var topoURL='https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png';
@@ -48,9 +48,9 @@ function setup_viewer()
   var osm_street=L.tileLayer(openURL, {attribution: openAttribution});
 
   var baseLayers = {
-    "ersi topo" : ersi_topographic,
-    "ersi NG" : ersi_ng,
-    "ersi imagery" : ersi_imagery,
+    "esri topo" : esri_topographic,
+    "esri NG" : esri_ng,
+    "esri imagery" : esri_imagery,
     "otm topo": otm_topographic,
     "osm street" : osm_street
   };
@@ -58,7 +58,7 @@ function setup_viewer()
   var basemap = L.layerGroup();
 
 // ==> mymap <==
-  var mymap = L.map('CFM_plot', { drawControl:false, layers: [ersi_topographic, basemap], zoomControl:false}).setView([34.3, -118.4], 7);
+  var mymap = L.map('CFM_plot', { drawControl:false, layers: [esri_topographic, basemap], zoomControl:false}).setView([34.3, -118.4], 7);
 
 // basemap selection
   var ctrl_div=document.getElementById('external_leaflet_control');
