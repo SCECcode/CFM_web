@@ -1,11 +1,3 @@
-#!/bin/bash
-
-dropdb CFM5_db 
-createdb CFM5_db
-mkdir -p /home/postgres/CFM
-cp -Rv /app/schema /home/postgres/CFM/
-psql postgresql://postgres:example@localhost/CFM5_db << AAA
-
   CREATE EXTENSION postgis;
   SELECT PostGIS_Version();
 
@@ -25,5 +17,3 @@ psql postgresql://postgres:example@localhost/CFM5_db << AAA
 
   \dp
   \q
-
-AAA

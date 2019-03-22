@@ -1,0 +1,12 @@
+FROM amazonlinux
+
+WORKDIR /app
+
+COPY . /app
+
+RUN /app/doc/run-for-httpd
+
+COPY ./cfm.conf /etc/httpd/conf.d/
+
+CMD apachectl -D FOREGROUND
+
