@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dropdb CFM5_db 
+dropdb --if-exists CFM5_db 
 createdb CFM5_db
 mkdir -p /home/postgres/CFM
 cp -Rv /app/schema /home/postgres/CFM/

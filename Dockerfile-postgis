@@ -1,5 +1,4 @@
 FROM mdillon/postgis:10-alpine
-# ENV POSTGRES_DB CFM5_db
 ENV POSTGRES_USER postgres
 ENV POSTGRES_DB CFM5_db
 ENV PGDATA=/home/postgres/cfm_db
@@ -8,13 +7,12 @@ WORKDIR /app
 
 COPY . /app
 
-# ONBUILD COPY /app/schema/load_db_up /docker-entrypoint-initdb.d/load_db_up.sh
-
 RUN mkdir /home/postgres
 RUN chown postgres /home/postgres
 RUN su postgres -c /app/doc/run-as-postgres
-# RUN su postgres -c /app/schema/load_db_up
 
-RUN su postgres -c "pg_ctl -D /home/postgres/cfm_db -l /home/postgres/logfile start"
+RUN echo "host all  all    0.0.0.0/0  trust" >> /home/postgres/cfm_db/pg_hba.conf
+
+# RUN su postgres -c "pg_ctl -D /home/postgres/cfm_db -l /home/postgres/logfile start"
 
 

@@ -62,6 +62,6 @@
    
 ##to test 
 
-   psql 
-      select name, default_version,installed_version FROM pg_available_extensions;
+#   psql 
+ #     select name, default_version,installed_version FROM pg_available_extensions;
    

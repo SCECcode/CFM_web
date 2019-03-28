@@ -8,7 +8,7 @@
   \i '/home/postgres/CFM/schema/sql/linkup_traces.sql';
   \i '/home/postgres/CFM/schema/sql/add_foreign_key.sql';
 
-  DROP ROLE webonly;
+  DROP ROLE IF EXISTS webonly;
   CREATE ROLE webonly WITH LOGIN PASSWORD 'scec';
   GRANT SELECT ON ALL TABLES IN SCHEMA public TO webonly;
   REVOKE CREATE ON SCHEMA public FROM PUBLIC;

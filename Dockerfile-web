@@ -4,9 +4,14 @@ WORKDIR /app
 
 COPY . /app
 
-RUN /app/doc/run-for-httpd
+# RUN /app/doc/run-for-httpd
+RUN yum install -y httpd && \
+	amazon-linux-extras install -y php7.2 && \
+	yum install -y php php-pgsql 
 
-COPY ./cfm.conf /etc/httpd/conf.d/
+# RUN /app/doc/install-composer.sh
 
-CMD apachectl -D FOREGROUND
+COPY ./doc/cfm.conf /etc/httpd/conf.d/
+
+CMD ["apachectl", "-D", "FOREGROUND"]
 
