@@ -94,12 +94,6 @@
 <header class="navbar scec-header" role="banner">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
             <a class="navbar-brand" href="."><img class="scec-logo" src="/img/sceclogo_transparent.png">
                 &nbsp;Community Fault Model Viewer</a>
         </div>
@@ -122,26 +116,27 @@
         </div>
     </div>
 
-    <div class="row">
-        <div id="external_leaflet_control"></div>
-    </div>
+    <div class="row mb-3">
+        <div class="col justify-content-end custom-control-inline">
+            <div id="external_leaflet_control"></div>
+            <button id="colorBtn" class="btn cfm-top-small-btn" onMouseEnter="expandColorsControl()">
+                <span class="glyphicon glyphicon-star"></span></button>
+            <div id="colorSelect" class="cfm-control-colors" onMouseLeave="removeColorsControl()"></div>
 
-    <div class="row">
-        <button id="colorBtn" class="btn cfm-top-small-btn" onMouseEnter="expandColorsControl()">
-            <span class="glyphicon glyphicon-star"></span></button>
-        <div id="colorSelect" class="cfm-control-colors" onMouseLeave="removeColorsControl()"></div>
+            <button id="toggleBtn" class="btn cfm-top-small-btn" title="toggle to display all faults"
+                    onclick="toggleAll()">
+                <span class="glyphicon glyphicon-adjust"></span></button>
 
-        <button id="toggleBtn" class="btn cfm-top-small-btn" title="toggle to display all faults" onclick="toggleAll()">
-            <span class="glyphicon glyphicon-adjust"></span></button>
+            <button id="refreshBtn" class="btn cfm-top-small-btn" title="refresh to initial state"
+                    onclick="refreshAll();">
+                <span class="glyphicon glyphicon-refresh"></span></button>
 
-        <button id="refreshBtn" class="btn cfm-top-small-btn" title="refresh to initial state" onclick="refreshAll();">
-            <span class="glyphicon glyphicon-refresh"></span></button>
-
-        <button id="basketBtn" class="btn cfm-top-small-btn" title="download selected faults metadata"
-                onMouseEnter="expandDownloadControl()">
-            <span class="glyphicon glyphicon-download-alt"></span></button>
-        <div id="itemCount"></div>
-        <div id="downloadSelect" class="cfm-control-download" onMouseLeave="removeDownloadControl()"></div>
+            <button id="basketBtn" class="btn cfm-top-small-btn" title="download selected faults metadata"
+                    onMouseEnter="expandDownloadControl()">
+                <span class="glyphicon glyphicon-download-alt"></span></button>
+            <div id="itemCount"></div>
+            <div id="downloadSelect" class="cfm-control-download" onMouseLeave="removeDownloadControl()"></div>
+        </div>
     </div>
     <div class="row">
         <div class="col-6 button-container" style="overflow:hidden;">
@@ -153,7 +148,8 @@
                 <option value="sectionClick"><span class="glyphicon glyphicon-search"></span> Section</option>
                 <option value="nameClick"><span class="glyphicon glyphicon-search"></span> Name</option>
                 <option value="keywordClick"><span class="glyphicon glyphicon-search"></span> Keyword</option>
-                <option value="latlonClick"><span class="glyphicon glyphicon-search"></span> Latlon</option>
+                <option value="latlonClick"><span class="glyphicon glyphicon-search"></span> Longitude & Latitude
+                </option>
                 <option value="strikeClick"><span class="glyphicon glyphicon-search"></span> Strike</option>
                 <option value="dipClick"><span class="glyphicon glyphicon-search"></span> Dip</option>
             </select>
@@ -241,24 +237,29 @@
                 </li>
                 <li id='latlon' class='navigationLi ' style="display:none">
                     <div id='latlonMenu' class='menu'>
+                        <div class="row mt-2">
+                            <div class="col-12">
+                                <p>Draw a rectangle on the map or enter latitudes and longitudes below.</p>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-6">
-                                <label for="firstLatTxt">Top Left Corner</label> <input type="text"
-                                                                                        placeholder="Latitude"
-                                                                                        id="firstLatTxt"
-                                                                                        title="first lat"
-                                                                                        onfocus="this.value=''"
-                                                                                        class="form-control">
+                                <label for="firstLatTxt">Bottom Left Corner</label> <input type="text"
+                                                                                           placeholder="Latitude"
+                                                                                           id="firstLatTxt"
+                                                                                           title="first lat"
+                                                                                           onfocus="this.value=''"
+                                                                                           class="form-control">
                                 <input type="text" id="firstLonTxt" placeholder='Longitude' title="first lon"
                                        onfocus="this.value=''" class="form-control mt-1">
                             </div>
                             <div class="col-6">
-                                <label for="secondLatTxt">Bottom Right Corner</label> <input type="text"
-                                                                                             id="secondLatTxt"
-                                                                                             title="optional second lat"
-                                                                                             value='optional'
-                                                                                             onfocus="this.value=''"
-                                                                                             class="form-control">
+                                <label for="secondLatTxt">Top Right Corner</label> <input type="text"
+                                                                                          id="secondLatTxt"
+                                                                                          title="optional second lat"
+                                                                                          value='optional'
+                                                                                          onfocus="this.value=''"
+                                                                                          class="form-control">
                                 <input type="text"
                                        id="secondLonTxt"
                                        title="optional second lon"

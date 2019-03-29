@@ -284,3 +284,7 @@ a {
         border: 0px;
     }
 }
+
+label {
+    font-weight: bold;
+}
