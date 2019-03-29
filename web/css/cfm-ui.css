@@ -176,6 +176,13 @@ th {text-align: left;}
          color: white;
         }
 
+div.button-container button {
+    background: transparent ;
+    color: blue;
+    border: none;
+    display: inline-block;
+}
+
 .cfm-table {
           max-height: 67vh;
           border: 1px solid grey;
@@ -219,7 +226,61 @@ select {
 }
 
 input[type=text] {
-    width: 140px;
-    padding: 0px 5px 0px 5px;
+    /*width: 140px;*/
+    /*padding: 0px 5px 0px 5px;*/
 }
 
+.scec-header {
+    background-color: #990000;
+    border-radius: 0px;
+}
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}
+
+.navbar-brand > img {
+    display: block;
+}
+
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+    margin-left: -15px;
+}
+
+.navbar-brand {
+    float: left;
+    height: 50px;
+    padding: 6px 15px;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.navbar-header a {
+    color: white;
+}
+.navbar-brand .scec-logo {
+    height: 40px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+img {
+    vertical-align: middle;
+}
+
+a {
+    color: #990000;
+    text-decoration: none;
+}
+
+.scec-main-container {
+    /*border: 1px solid #333333;*/
+    background-color: #FFFFFF;
+}
+@media only screen and (max-width: 768px) {
+    .scec-main-container {
+        border: 0px;
+    }
+}

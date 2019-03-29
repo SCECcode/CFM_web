@@ -60,7 +60,7 @@ function makeRegionList() {
     if (str == undefined)
       return "";
 
-    var html= "<form autocomplete=\"off\"> <select id=\"selectRegion\" onchange=\"searchByRegion(this.value)\"> <option value=\"\">  Click to select a Region</option>";
+    var html= "<form autocomplete=\"off\"> <select class=\"form-control\"  id=\"selectRegion\" onchange=\"searchByRegion(this.value)\"> <option value=\"\">  Click to select a Region</option>";
 
     var sz=(Object.keys(str).length);
     for( var i=0; i< sz; i++) {
@@ -79,7 +79,7 @@ function makeSectionList() {
     if (str == undefined)
       return "";
 
-    var html= "<form autocomplete=\"off\"><select id=\"selectSection\" onchange=\"searchBySection(this.value)\"> <option value=\"\">  Click to select a Section</option>";
+    var html= "<form autocomplete=\"off\"><select class=\"form-control\"  id=\"selectSection\" onchange=\"searchBySection(this.value)\"> <option value=\"\">  Click to select a Section</option>";
 
     var sz=(Object.keys(str).length);
     for( var i=0; i< sz; i++) {
@@ -98,7 +98,7 @@ function makeSystemList() {
     if (str == undefined)
       return "";
 
-    var html= "<form autocomplete=\"off\"> <select id=\"selectSystem\" onchange=\"searchBySystem(this.value)\"> <option value=\"\">  Click to select a System</option>";
+    var html= "<form autocomplete=\"off\"> <select class=\"form-control\"  id=\"selectSystem\" onchange=\"searchBySystem(this.value)\"> <option value=\"\">  Click to select a System</option>";
 
     var sz=(Object.keys(str).length);
     for( var i=0; i< sz; i++) {
@@ -117,7 +117,7 @@ function makeNameList() {
     if (str == undefined)
       return "";
 
-    var html= "<form autocomplete=\"off\"> <select id=\"selectName\" onchange=\"searchByName(this.value)\"> <option value=\"\">  Click to select a Name</option>";
+    var html= "<form autocomplete=\"off\"> <select class=\"form-control\"  id=\"selectName\" onchange=\"searchByName(this.value)\"> <option value=\"\">  Click to select a Name</option>";
 
     var sz=(Object.keys(str).length);
     for( var i=0; i< sz; i++) {
