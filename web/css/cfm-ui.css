@@ -305,12 +305,27 @@ ul li {
 }
 
 .download-queue-container {
-    border: 1px solid #ced4da;
+
     padding: 10px;
+    border: 1px solid #ced4da;
+
+
+}
+
+
+#download-queue {
     overflow-y: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
 }
 
 .wrapper {
-    flex: 1 1 auto;
-    position: relative;
+     flex: 1 1 auto;
+     position: relative;
+ }
+
+hr {
+    width: 100%;
 }

@@ -151,7 +151,7 @@
         <div class="col">
             <label for="highlight-faults">Highlight Faults</label>
         </div>
-        <div class="col"> &nbsp; </div>
+        <div class="col"> &nbsp;</div>
         <div class="w-100"></div>
         <div class="col filters">
             <select id="search-type" class="form-control">
@@ -343,36 +343,35 @@
     </div>
     <div class="row mapData">
         <div class="col-4 button-container" style="overflow:hidden;">
-            <div id='resultBlock'>
-                <div id="searchResult" class="table-responsive"></div>
-                <div id="geoSearchByObjGidResult" style="display:none"></div>
-                <div id="phpResponseTxt"></div>
-            </div>
+            <div id="searchResult" class="table-responsive"></div>
+            <div id="geoSearchByObjGidResult" style="display:none"></div>
+            <div id="phpResponseTxt"></div>
         </div>
-        <div class="col-8 ">
-            <div class="row">
-                <div class="col">
-                    <div id='CFM_plot' style="position:relative;border:solid 4px gray; height:40rem;"></div>
+        <div class="col-8 d-flex flex-column">
+            <div class="row w-100 mb-3" id='CFM_plot'
+                 style="position:relative;border:solid 4px gray; height:40rem;"></div>
+            <div class="row w-100 download-queue-container wrapper">
+                <div class="row w-100">
+                    <div class="col-6 text-left">
+                        <h5>Queued for Download <span id="download-counter"></span></h5>
+                    </div>
+                    <div class="col-6 text-right">
+                        <a class="ui-button">Download Now</a>
+                    </div>
                 </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col text-left download-queue-container">
-                    <h5>Download Queue <span id="download-counter"></span></h5>
+                <div class="row w-100 text-left position-relative" style="width:95px;height:95%;">
                     <ul id="download-queue"></ul>
                 </div>
             </div>
+
         </div>
 
     </div>
-    <div class="row">
-
-    </div>
-</div>
 
 
-<div id='queryBlock' class="col-6" style="overflow:hidden;display:none;">
+    <div id='queryBlock' class="col-6" style="overflow:hidden;display:none;">
 
-</div> <!-- query block -->
+    </div> <!-- query block -->
 </div>
 </body>
 </html>
