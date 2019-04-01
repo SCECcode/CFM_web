@@ -259,6 +259,21 @@ input[type=text] {
 .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
     margin-left: -15px;
 }
+.navbar-brand, .navbar-nav>a {
+    text-shadow: 0 1px 0 rgba(255,255,255,.25);
+}
+.navbar-nav a {
+    color:white;
+    padding-right: 20px;
+    font-size: 1.45rem;
+}
+
+
+@media (min-width: 768px)
+    .navbar-nav>li>a {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
 
 .navbar-brand {
     float: left;
@@ -282,7 +297,7 @@ img {
 }
 
 a {
-    color: #990000;
+    /*color: #990000;*/
     text-decoration: none;
 }
 
@@ -308,6 +323,7 @@ ul li {
 
     padding: 10px;
     border: 1px solid #ced4da;
+    min-height: 200px;
 
 
 }
@@ -329,3 +345,4 @@ ul li {
 hr {
     width: 100%;
 }
+

@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/cfm-ui.css">
     <link rel="stylesheet" href="css/sidebar.css">
 
+    <script type='text/javascript' src='js/vendor/popper.min.js'></script>
     <script type="text/javascript" src="js/vendor/leaflet-src.js"></script>
     <script type='text/javascript' src='js/vendor/jquery.min.js'></script>
     <script type='text/javascript' src='js/vendor/bootstrap.min.js'></script>
@@ -100,11 +101,18 @@
             <a class="navbar-brand" href="."><img class="scec-logo" src="/img/sceclogo_transparent.png">
                 &nbsp;Community Fault Model Viewer</a>
         </div>
+        <div class="row d-inline-block navbar-nav">
+            <div class="col float-right">
+                <a href="https://www.scec.org">SCEC.org</a>
+                <a href="https://www.scec.org/research/cfm">CFM Research Page</a>
+            </div>
+
+        </div>
     </div>
 </header>
 <div class="container scec-main-container">
     <div class="row">
-        <div>
+        <div class="col">
             <p>The SCEC Community Fault Model (CFM) is an object-oriented, three-dimensional representation of active
                 faults in southern California and adjacent offshore basins that includes 105 complex fault systems
                 (Plesch et al., 2016; Nicholson et al., 2017) composed from more than 380 individually named fault
@@ -119,9 +127,9 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row" style="display:none;">
         <div class="col justify-content-end custom-control-inline">
-            <div id="external_leaflet_control"></div>
+            <div style="display:none;" id="external_leaflet_control"></div>
             <button id="colorBtn" class="btn cfm-top-small-btn" onMouseEnter="expandColorsControl()">
                 <span class="glyphicon glyphicon-star"></span></button>
             <div id="colorSelect" class="cfm-control-colors" onMouseLeave="removeColorsControl()"></div>
@@ -353,10 +361,22 @@
             <div class="row w-100 download-queue-container wrapper">
                 <div class="row w-100">
                     <div class="col-6 text-left">
-                        <h5>Queued for Download <span id="download-counter"></span></h5>
+                        <h5>Queued for Download</h5>
                     </div>
                     <div class="col-6 text-right">
-                        <a class="ui-button">Download Now</a>
+                        <!--<a class="ui-button">Download Now</a>-->
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                Download <span id="download-counter"></span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <button class="dropdown-item" type="button" value="meta" onclick="executeDownload(this.value);">Metadata</button>
+                                <button class="dropdown-item" type="button" value="native" onclick="executeDownload(this.value);">Native + Metadata</button>
+                                <button class="dropdown-item" type="button" value="500m" onclick="executeDownload(this.value);">500m + Metadata</button>
+                                <button class="dropdown-item" type="button" value="1000m" onclick="executeDownload(this.value);">1000m + Metadata</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="row w-100 text-left position-relative" style="width:95px;height:95%;">

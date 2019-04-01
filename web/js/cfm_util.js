@@ -197,6 +197,11 @@ function changeDownloadSet() {
     startDownload();
 }
 
+function executeDownload(type) {
+    use_download_set = type;
+    startDownload();
+}
+
 function startDownload()
 {
   // collect up the meta data from the highlighted set of traces
