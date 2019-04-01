@@ -20,7 +20,7 @@ hr {
 .ui-slider-range { background:linear-gradient(to right, rgb(255,0,0), rgb(0,0,255) ) }
 
 table { width: 100%; border-collapse: collapse;}
-table, td, th { border: 1px solid grey; padding: 2px;}
+table, td, th { border: 1px solid #ced4da; padding: 2px;}
 th {text-align: left;}
 
 .glyphicon-ok-circle {
@@ -196,7 +196,7 @@ div.button-container button {
 
 .cfm-table {
           max-height: 67vh;
-          border: 1px solid grey;
+          border: 1px solid #ced4da;
           overflow: auto;
         }
 
@@ -298,4 +298,19 @@ a {
 
 label {
     font-weight: bold;
+}
+
+ul li {
+    list-style: none;
+}
+
+.download-queue-container {
+    border: 1px solid #ced4da;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.wrapper {
+    flex: 1 1 auto;
+    position: relative;
 }

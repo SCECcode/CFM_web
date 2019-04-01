@@ -295,7 +295,7 @@ function in_active_gid_list(target) {
 
 // find a layer from the layer list
 function find_layer_list(target) { 
-   var found=undefined;
+   var found="";
    cfm_layer_list.forEach(function(element) {
      if ( element['gid'] == target )
         found=element;
@@ -310,6 +310,7 @@ function reset_layer_list() {
      var s=find_style_list(gid);
      if( s['highlight']==1 && s['visible']==1 ) {
        toggle_highlight(gid);
+        addRemoveFromDownloadQueue(gid);
      }
    });
 }
@@ -326,7 +327,7 @@ function select_layer_list() {
 }
 
 function find_style_list(target) { 
-   var found=undefined;
+   var found="";
    cfm_style_list.forEach(function(element) {
      if ( element['gid'] == target )
         found=element;
@@ -344,6 +345,30 @@ function get_highlight_list() {
    return hlist;
 }
 
+
+function toggleOnDownloadQueue(event) {
+    let rowElem = $(this).parents("tr");
+    let gid_string = rowElem.attr("id");
+    let gid_string_components = gid_string.split("_");
+    let gid = gid_string_components[1];
+    addRemoveFromDownloadQueue(gid);
+
+}
+
+function addRemoveFromDownloadQueue(gid) {
+    let downloadQueueElem = $("#download-queue");
+    let faultName = $("#row_"+gid).find("td:nth-child(3)").html();
+    var s = find_style_list(gid);
+    var h = s['highlight'];
+    if (h == 0) {
+        // exists, remove it
+        let elemToRemove = downloadQueueElem.find("li[data-fault-id=" + gid + "]");
+        elemToRemove.remove();
+    } else {
+        downloadQueueElem.prepend("<li data-fault-id='" + gid + "' >" + faultName + "</li>");
+    }
+    $("#download-counter").html("(" + cfm_select_count + ")");
+}
 
 function toggle_highlight(gid) {
    var s=find_style_list(gid);
@@ -389,6 +414,8 @@ function toggle_highlight(gid) {
           }); 
        }
    }
+
+    addRemoveFromDownloadQueue(gid);
 }
 
 function get_leaflet_id(layer) {

@@ -70,6 +70,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-495056-12"></script>
     <script type="text/javascript">
+        $ = jQuery;
         var myhost = location.hostname;
         if (myhost == "asperity.scec.org") {
             window.dataLayer = window.dataLayer || [];
@@ -87,6 +88,8 @@
                 var funcToRun = $(this).val();
                 window[funcToRun]();
             });
+
+            // $(document).on("click", "#searchResult div.cfm-table button span", toggleOnDownloadQueue);
         });
     </script>
 </head>
@@ -340,16 +343,24 @@
     </div>
     <div class="row mapData">
         <div class="col-4 button-container" style="overflow:hidden;">
-
-
             <div id='resultBlock'>
                 <div id="searchResult" class="table-responsive"></div>
                 <div id="geoSearchByObjGidResult" style="display:none"></div>
                 <div id="phpResponseTxt"></div>
             </div>
         </div>
-        <div class="col-8">
-            <div id='CFM_plot' style="position:relative;border:solid 4px gray; height:40rem;" class="col"></div>
+        <div class="col-8 ">
+            <div class="row">
+                <div class="col">
+                    <div id='CFM_plot' style="position:relative;border:solid 4px gray; height:40rem;"></div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col text-left download-queue-container">
+                    <h5>Download Queue <span id="download-counter"></span></h5>
+                    <ul id="download-queue"></ul>
+                </div>
+            </div>
         </div>
 
     </div>
