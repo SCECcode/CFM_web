@@ -1,5 +1,12 @@
 /* required styles */
 
+:root {
+    font-size: 62.5%;
+}
+.container {
+    font-size: 1.25rem;
+}
+
 hr { 
   display: block;
   margin-top: 0.3em;
@@ -144,11 +151,15 @@ th {text-align: left;}
   left: 98%;
   width: 20px;
   height: 20px;
-  font-size: 12px;
+  font-size: 1.2rem;
   border-radius: 50%;
   background: red;
   color: white;
   text-align: center;
+}
+
+div.mapData {
+    max-height: 95%;
 }
 
 .cfm-top-small-btn {

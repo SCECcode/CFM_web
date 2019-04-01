@@ -96,11 +96,12 @@ function removeColorsControl() {
 // default -- all black
 // by strike
 // by dip
-function changeFaultColor() {
-    val=$('input[name=cfm-fault-colors]:checked').val() 
-    use_fault_color=val;
+function changeFaultColor(type) {
+    // val=$('input[name=cfm-fault-colors]:checked').val()
+    use_fault_color=type;
     reset_fault_color();
 }
+
 
 // for native, 500m, 1000m
 // with added metadata file
