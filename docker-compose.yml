@@ -11,8 +11,6 @@ services:
     environment:
       name: edric
       POSTGRES_PASSWORD: example
-    ports:
-      - 5432:5432
 
   web:
     build:
@@ -22,6 +20,4 @@ services:
     ports:
       - 8081:8081
       - 8080:80
-    volumes:
-      - ./:/app
 
