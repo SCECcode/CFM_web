@@ -269,11 +269,12 @@ input[type=text] {
 }
 
 
-@media (min-width: 768px)
-    .navbar-nav>li>a {
+@media (min-width: 768px) {
+    .navbar-nav > li > a {
         padding-top: 15px;
         padding-bottom: 15px;
     }
+}
 
 .navbar-brand {
     float: left;
@@ -342,7 +343,8 @@ ul li {
      position: relative;
  }
 
-hr {
-    width: 100%;
+div.download-now button {
+    font-size: 1.25rem;
+    cursor: pointer;
 }
 
