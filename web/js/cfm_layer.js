@@ -374,9 +374,11 @@ function toggle_highlight(gid) {
    var s=find_style_list(gid);
    var h=s['highlight'];
    var star='#'+"highlight_"+gid;
+   let rowSelected = '#row'+'_'+gid;
 
    if(h==0) {
-     $(star).removeClass('glyphicon-ok').addClass('glyphicon-ok-circle');
+     $(rowSelected).addClass("row-selected");
+     $(star).removeClass('glyphicon-unchecked').addClass('glyphicon-check');
      s['highlight']=1;
      var l=find_layer_list(gid);
      var geolayer=l['layer'];
@@ -393,7 +395,8 @@ function toggle_highlight(gid) {
      if(cfm_select_count == 100)
         $('#itemCount').html(cfm_select_count).css("width","30px");
      } else {
-       $(star).removeClass('glyphicon-ok-circle').addClass('glyphicon-ok');
+       $(star).removeClass('glyphicon-check').addClass('glyphicon-unchecked');
+       $(rowSelected).removeClass("row-selected");
        if(cfm_select_count == 99) // reset font size
          $('#itemCount').html(cfm_select_count).css("width","20px");
        cfm_select_count--;

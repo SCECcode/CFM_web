@@ -166,7 +166,7 @@ div.mapData {
           background: white; 
           padding: 6px 6px;
           font-size: 14px;
-          color: blue;
+          color: #011638;
 /*
           color: #6c6cff;
 */
@@ -177,9 +177,9 @@ div.mapData {
           }
 
 .cfm-small-btn {
-          background: transparent ; 
-          color: blue;
-          border: none; 
+          background: transparent ;
+          color: #53A2BE;
+          border: none;
           display: inline-block;
           }
 
@@ -189,31 +189,32 @@ div.mapData {
 
 div.button-container button {
     background: transparent ;
-    color: blue;
+    color: #011638;
     border: none;
     display: inline-block;
+    font-size: 1em;
 }
 
 .cfm-table {
-          max-height: 67vh;
+          max-height: 40rem;
           border: 1px solid #ced4da;
           overflow: auto;
         }
 
 .cfm-top-btn {
-          background: #D5D5D5; 
+          background: #D5D5D5;
           padding: 1px 3px;
           border: 2px solid #D5D5D5;
-          color: blue;
+          color: #011638;
           width: 10vw;
           height: 5vh;
           display: inline-block;
         }
 
 .cfm-btn {
-          background: white; 
+          background: white;
           border: 0px solid #D5D5D5;
-          color: blue;
+          color: #011638;
           width: 5em;
           height: 3vh;
           display: inline-block;
@@ -348,3 +349,19 @@ div.download-now button {
     cursor: pointer;
 }
 
+tr.row-selected {
+    background-color: #E8E9F3;
+}
+
+.container a.ui-button {
+    /*background-color: #FBF5F3;*/
+}
+
+.form-control {
+    font-size: 1.25rem;
+}
+
+/*div.control-buttons a.ui-button {*/
+/*    height: 24px;*/
+
+/*}*/
