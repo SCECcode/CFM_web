@@ -118,7 +118,8 @@ function downloadURLsAsZip(mlist) {
   // put in the metadata
   var fname="CFM_metadata_"+timestamp+".json"; 
   nzip.file(fname, data);
-  
+  var cnt=mlist.length;
+
   for(var i=0; i<cnt; i++) {
     var meta=mlist[i];
     var gid=meta['gid'];
