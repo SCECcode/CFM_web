@@ -376,6 +376,10 @@ function toggle_highlight(gid) {
    var star='#'+"highlight_"+gid;
    let rowSelected = '#row'+'_'+gid;
 
+   if ($(rowSelected).hasClass("layer-hidden")) {
+       return;
+   }
+
    if(h==0) {
      $(rowSelected).addClass("row-selected");
      $(star).removeClass('glyphicon-unchecked').addClass('glyphicon-check');
@@ -600,11 +604,19 @@ function toggle_layer(gid)
   var geolayer=c['layer'];
   var vis=s['visible'];
   var eye='#'+"toggle_"+gid;
+  let toggledRow = '#row_'+gid;
+
   if(vis == 1) {
+      if ($(toggledRow).hasClass("row-selected")) {
+            toggle_highlight(gid);
+      }
+
     $(eye).removeClass('glyphicon-eye-open').addClass('glyphicon-eye-close');
+    $(toggledRow).addClass("layer-hidden");
     viewermap.removeLayer(geolayer);
     s['visible'] = 0;
     } else {
+      $(toggledRow).removeClass("layer-hidden");
       if( s['dirty_visible'] != undefined ){ // do nothing
         s['dirty_visible'] = undefined;
         return;

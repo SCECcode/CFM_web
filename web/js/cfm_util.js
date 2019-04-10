@@ -244,12 +244,10 @@ function selectAll() {
   if(select_all_flag == 0) {
     select_layer_list();
     select_all_flag=1;
-    // $('#allBtn').css("color","red");
       $('#allBtn span').removeClass("glyphicon-unchecked").addClass("glyphicon-check");
     } else {
        reset_layer_list();
        select_all_flag=0;
-      // $('#allBtn').css("color","blue");
       $('#allBtn span').removeClass("glyphicon-check").addClass("glyphicon-unchecked");
   }
 } 

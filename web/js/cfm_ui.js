@@ -60,7 +60,7 @@ function makeRegionList() {
     if (str == undefined)
       return "";
 
-    var html= "<form autocomplete=\"off\"> <select class=\"form-control\"  id=\"selectRegion\" onchange=\"searchByRegion(this.value)\"> <option value=\"\">  Click to select a Region</option>";
+    var html= "<form autocomplete=\"off\"> <select class=\"custom-select\"  id=\"selectRegion\" onchange=\"searchByRegion(this.value)\"> <option value=\"\">  Click to select a Region</option>";
 
     var sz=(Object.keys(str).length);
     for( var i=0; i< sz; i++) {
@@ -79,7 +79,7 @@ function makeSectionList() {
     if (str == undefined)
       return "";
 
-    var html= "<form autocomplete=\"off\"><select class=\"form-control\"  id=\"selectSection\" onchange=\"searchBySection(this.value)\"> <option value=\"\">  Click to select a Section</option>";
+    var html= "<form autocomplete=\"off\"><select class=\"custom-select\"  id=\"selectSection\" onchange=\"searchBySection(this.value)\"> <option value=\"\">  Click to select a Section</option>";
 
     var sz=(Object.keys(str).length);
     for( var i=0; i< sz; i++) {
@@ -98,7 +98,7 @@ function makeSystemList() {
     if (str == undefined)
       return "";
 
-    var html= "<form autocomplete=\"off\"> <select class=\"form-control\"  id=\"selectSystem\" onchange=\"searchBySystem(this.value)\"> <option value=\"\">  Click to select a System</option>";
+    var html= "<form autocomplete=\"off\"> <select class=\"custom-select\"  id=\"selectSystem\" onchange=\"searchBySystem(this.value)\"> <option value=\"\">  Click to select a System</option>";
 
     var sz=(Object.keys(str).length);
     for( var i=0; i< sz; i++) {
@@ -117,7 +117,7 @@ function makeNameList() {
     if (str == undefined)
       return "";
 
-    var html= "<form autocomplete=\"off\"> <select class=\"form-control\"  id=\"selectName\" onchange=\"searchByName(this.value)\"> <option value=\"\">  Click to select a Name</option>";
+    var html= "<form autocomplete=\"off\"> <select class=\"custom-select\"  id=\"selectName\" onchange=\"searchByName(this.value)\"> <option value=\"\">  Click to select a Name</option>";
 
     var sz=(Object.keys(str).length);
     for( var i=0; i< sz; i++) {
@@ -174,7 +174,7 @@ function makeResultTable(str)
     // var html="<table><tr><th style=\"border:1px solid white;\">CFM5.2 Fault Objects<button id=\"allBtn\" class=\"btn cfm-small-btn\" title=\"select all visible faults\" onclick=\"selectAll()\"><span class=\"glyphicon glyphicon-unchecked\"></span></button></th></tr></table>";
     var html = "";
     html=html+"<div class=\"cfm-table\" ><table>";
-    html+="<tr><th><button id=\"allBtn\" class=\"btn btn-sm cfm-small-btn\" title=\"select all visible faults\" onclick=\"selectAll()\"><span class=\"glyphicon glyphicon-unchecked\"></span></button></th><th class='text-center'>A</th><th>Fault</th></tr>";
+    html+="<tr><th class='text-center'><button id=\"allBtn\" class=\"btn btn-sm cfm-small-btn\" title=\"select all visible faults\" onclick=\"selectAll();\"><span class=\"glyphicon glyphicon-unchecked\"></span></button></th><th class='text-center'></th><th>Fault</th></tr>";
     var sz=(Object.keys(str).length);
     var tmp="";
     for( var i=0; i< sz; i++) {
@@ -207,7 +207,8 @@ function _makeResultTableWithGList(glist)
     // var html="<table><tr><th style=\"border:1px solid white\">CFM5.2 Fault Objects<button id=\"allBtn\" class=\"btn cfm-small-btn\" title=\"select all visible faults\" onclick=\"selectAll()\"><span class=\"glyphicon glyphicon-unchecked\"></span></button></th></tr></table>";
     var html = "";
     html=html+"<div class=\"cfm-table\" ><table>";
-    html+="<tr><th class='text-center'><input id='allBtn' onclick='selectAll();' type='checkbox'/></th><th class='text-center'>A</th><th>Fault</th></tr>";
+    html+="<tr><th class='text-center'><button id=\"allBtn\" class=\"btn btn-sm cfm-small-btn\" title=\"select all visible faults\" onclick=\"selectAll();\"><span class=\"glyphicon glyphicon-unchecked\"></span></button></th><th class='text-center'></th><th>Fault</th></tr>";
+
     var sz=glist.length;
     var tmp="";
     for( var i=0; i< sz; i++) {

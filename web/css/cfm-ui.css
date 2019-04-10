@@ -321,11 +321,11 @@ ul li {
     list-style: none;
 }
 
-.download-queue-container {
+.box {
 
     padding: 10px;
     border: 1px solid #ced4da;
-    min-height: 200px;
+    min-height: 130px;
 
 
 }
@@ -339,13 +339,26 @@ ul li {
     width: 100%;
 }
 
+#download-queue::-webkit-scrollbar:vertical {
+    width: 11px;
+}
+
+#download-queue::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+#download-queue::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 2px solid white; /* should match background, can't be transparent */
+    background-color: gray;/*rgba(0, 0, 0, .5);*/
+}
+
 .wrapper {
      flex: 1 1 auto;
      position: relative;
  }
 
 div.download-now button {
-    font-size: 1.25rem;
+    font-size: 1.0rem;
     cursor: pointer;
 }
 
@@ -361,7 +374,16 @@ tr.row-selected {
     font-size: 1.25rem;
 }
 
-/*div.control-buttons a.ui-button {*/
-/*    height: 24px;*/
+tr.layer-hidden * {
+    color: #ced4da;
+}
 
-/*}*/
+.container .btn-dark {
+    background-color: #e9ecef;
+    border-color: #e9ecef;
+    color: #495057;
+}
+
+#searchResult {
+    min-height: 400px;
+}

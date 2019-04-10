@@ -110,20 +110,14 @@
         </div>
     </div>
 </header>
-<div class="container scec-main-container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col">
+        <div class="col-md-6 col-sm-12 ">
             <p>The SCEC Community Fault Model (CFM) is an object-oriented, three-dimensional representation of active
                 faults in southern California and adjacent offshore basins that includes 105 complex fault systems
                 (Plesch et al., 2016; Nicholson et al., 2017) composed from more than 380 individually named fault
                 representations. The model incorporates more than 820 objects, which include triangulated surface
-                representations (t-surfs) and associated meta data. The CFM faults are defined based on surfaces traces,
-                seismicity, seismic reflection profiles, wells, geologic cross sections, and various other types of
-                models. The CFM serves the Southern California Earthquake Center (SCEC) as a unified resource for
-                physics-based fault systems modeling, strong ground-motion prediction, and probabilistic seismic hazards
-                assessment (e.g., UCERF3). Together with the Community Velocity Model (CVM-H 15.1.0), the CFM comprises
-                SCEC's Unified Structural Representation of the Southern California crust and upper mantle (Shaw et al.,
-                2015).test3</p>
+                representations (t-surfs) and associated meta data.</p>
         </div>
     </div>
 
@@ -166,7 +160,7 @@
                     <option value="dipClick">Dip</option>
                 </select>
                 <div class="input-group-append">
-                    <button onclick="refreshAll();" class="btn btn-outline-secondary" type="button">Reset</button>
+                    <button onclick="refreshAll();" class="btn btn-dark pl-4 pr-4" type="button">Reset</button>
                 </div>
             </div>
             <div class="row">
@@ -332,7 +326,7 @@
                     <option value="osm street">OSM Street</option>
                 </select>
 
-                <div class="input-group-prepend ml-2">
+                <div class="input-group-prepend ml-md-2 ml-sm-0">
                     <label class="input-group-text" for="inputGroupSelect01">Highlight Faults</label>
                 </div>
                 <select id="highlight-faults" class="custom-select" onchange="changeFaultColor(this.value);">
@@ -341,7 +335,7 @@
                     <option value="dip">By Dip</option>
                 </select>
             </div>
-<!--            <a class="ui-button" onclick="toggleAll();">Show/Hide Faults</a>-->
+            <!--            <a class="ui-button" onclick="toggleAll();">Show/Hide Faults</a>-->
 
         </div>
     </div>
@@ -349,21 +343,30 @@
 
     <div class="row mapData">
         <div class="col-5 button-container" style="overflow:hidden;">
-            <div id="searchResult" class="table-responsive"></div>
+            <div id="searchResult" class="table-responsive mb-3"></div>
             <div id="geoSearchByObjGidResult" style="display:none"></div>
             <div id="phpResponseTxt"></div>
+            <div class="row">
+                <div class="col">
+                    <div class="box h-100 d-flex justify-content-center flex-column">
+                        <p>
+                        The CFM Viewer was developed by the Southern California Earthquake Center (SCEC) and SCEC Community Fault Model researchers. More information is available on the <a href="https://www.scec.org/research/cfm">SCEC CFM Research Page</a>. SCEC is funded by NSF Cooperative Agreement EAR-1033462 & USGS Cooperative Agreement G12AC20038.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="col-7 d-flex flex-column pr-0">
             <div class="row w-100 mb-3" id='CFM_plot'
                  style="position:relative;border:solid 1px #ced4da; height:40rem;"></div>
-            <div class="row w-100 download-queue-container wrapper">
+            <div class="row w-100 box wrapper">
                 <div class="row w-100">
                     <div class="col-6 text-left">
                         <h5>Queued for Download</h5>
                     </div>
                     <div class="col-6 text-right">
                         <div class="btn-group download-now">
-                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                            <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                 Download <span id="download-counter"></span>
                             </button>
@@ -384,12 +387,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="row w-100 text-left position-relative" style="width:95px;height:95%;">
+                <div class="row w-75 text-left position-relative" style="width:95px;height:90%;">
                     <ul id="download-queue"></ul>
                 </div>
             </div>
 
         </div>
+    </div>
+    <div class="row">
 
     </div>
 
