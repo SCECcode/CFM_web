@@ -1,7 +1,7 @@
 /* required styles */
 
 :root {
-    font-size: 62.5%;
+    font-size: 90%;
 }
 .container {
     font-size: 1.25rem;
@@ -266,7 +266,6 @@ input[type=text] {
 .navbar-nav a {
     color:white;
     padding-right: 20px;
-    font-size: 1.45rem;
 }
 
 
@@ -326,7 +325,7 @@ ul li {
     padding: 10px;
     border: 1px solid #ced4da;
     min-height: 130px;
-
+    background-color: whitesmoke;
 
 }
 
@@ -362,11 +361,7 @@ div.download-now button {
 }
 
 tr.row-selected {
-    background-color: #E8E9F3;
-}
-
-.container a.ui-button {
-    /*background-color: #FBF5F3;*/
+    background-color: whitesmoke;
 }
 
 .form-control {
@@ -385,4 +380,9 @@ tr.layer-hidden * {
 
 #searchResult {
     min-height: 400px;
+}
+
+div.box a {
+    color: #990000;
+    text-decoration: none;
 }

@@ -90,13 +90,12 @@
                 window[funcToRun]();
             });
 
-            // $(document).on("click", "#searchResult div.cfm-table button span", toggleOnDownloadQueue);
         });
     </script>
 </head>
 <body>
 <header class="navbar scec-header" role="banner">
-    <div class="container">
+    <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="."><img class="scec-logo" src="img/sceclogo_transparent.png">
                 &nbsp;Community Fault Model Viewer</a>
@@ -110,9 +109,9 @@
         </div>
     </div>
 </header>
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-6 col-sm-12 ">
+        <div class="col-12 col-xl-8 ">
             <p>The SCEC Community Fault Model (CFM) is an object-oriented, three-dimensional representation of active
                 faults in southern California and adjacent offshore basins that includes 105 complex fault systems
                 (Plesch et al., 2016; Nicholson et al., 2017) composed from more than 380 individually named fault
@@ -312,7 +311,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-5 offset-3 d-flex align-items-end mb-2">
+        <div class="col-4 offset-4 d-flex align-items-end mb-2">
             <div>&nbsp;</div>
             <div class="input-group">
                 <div class="input-group-prepend">
@@ -325,9 +324,11 @@
                     <option value="otm topo">OTM Topographic</option>
                     <option value="osm street">OSM Street</option>
                 </select>
+            </div>
 
-                <div class="input-group-prepend ml-md-2 ml-sm-0">
-                    <label class="input-group-text" for="inputGroupSelect01">Highlight Faults</label>
+            <div class="input-group ml-md-2 ml-sm-0">
+                <div class="input-group-prepend ">
+                    <label class="input-group-text" for="highlight-faults">Highlight Faults</label>
                 </div>
                 <select id="highlight-faults" class="custom-select" onchange="changeFaultColor(this.value);">
                     <option value="">Default</option>
@@ -343,7 +344,7 @@
 
     <div class="row mapData">
         <div class="col-5 button-container" style="overflow:hidden;">
-            <div id="searchResult" class="table-responsive mb-3"></div>
+            <div id="searchResult" class="table-responsive mb-1"></div>
             <div id="geoSearchByObjGidResult" style="display:none"></div>
             <div id="phpResponseTxt"></div>
             <div class="row">
@@ -357,7 +358,7 @@
             </div>
         </div>
         <div class="col-7 d-flex flex-column pr-0">
-            <div class="row w-100 mb-3" id='CFM_plot'
+            <div class="row w-100 mb-1" id='CFM_plot'
                  style="position:relative;border:solid 1px #ced4da; height:40rem;"></div>
             <div class="row w-100 box wrapper">
                 <div class="row w-100">
