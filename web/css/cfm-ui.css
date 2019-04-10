@@ -7,7 +7,7 @@
     font-size: 1.25rem;
 }
 
-hr { 
+hr {
   display: block;
   margin-top: 0.3em;
   margin-bottom: 0.4em;
@@ -358,7 +358,6 @@ ul li {
  }
 
 div.download-now button {
-    font-size: 1.0rem;
     cursor: pointer;
 }
 
@@ -379,9 +378,9 @@ tr.layer-hidden * {
 }
 
 .container .btn-dark {
-    background-color: #e9ecef;
-    border-color: #e9ecef;
-    color: #495057;
+    background-color: #495057;
+    border-color: #495057;
+    color: white;
 }
 
 #searchResult {
