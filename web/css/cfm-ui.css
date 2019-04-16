@@ -204,7 +204,6 @@ div.button-container button {
 
 .cfm-table {
           max-height: 40rem;
-          border: 1px solid #ced4da;
           overflow: auto;
         }
 
@@ -371,10 +370,6 @@ tr.row-selected {
     background-color: whitesmoke;
 }
 
-.form-control {
-    font-size: 1.25rem;
-}
-
 tr.layer-hidden * {
     color: #ced4da;
 }
@@ -387,8 +382,26 @@ tr.layer-hidden * {
 
 #searchResult {
     min-height: 576px;
+    border: 1px solid #ced4da;
 }
 
+#searchResult table tr:first-child th {
+    border-top: 0;
+}
+
+#searchResult table {
+    border: 0;
+}
+
+#searchResult table th:first-child,
+#searchResult table td:first-child {
+    border-left: 0;
+}
+
+#searchResult table th:last-child,
+#searchResult table td:last-child {
+    border-right: 0;
+}
 div.box a {
     color: #990000;
     text-decoration: none;

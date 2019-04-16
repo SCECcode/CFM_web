@@ -41,8 +41,8 @@ if($firstlat > $secondlat) {
   $maxlat = $firstlat;
 }
 
-echo "lat range: ", $minlat,", ",$maxlat,"<br>";
-echo "lon range: ", $minlon,", ",$maxlon,"<br>";
+//echo "lat range: ", $minlat,", ",$maxlat,"<br>";
+//echo "lon range: ", $minlon,", ",$maxlon,"<br>";
 
 $query00 = "SELECT OBJECT_tb.name, TRACE_tb.gid from TRACE_tb INNER JOIN OBJECT_tb ON TRACE_tb.gid = OBJECT_tb.trace_tb_gid where ST_Intersects(ST_MakePoint($1,$2)::geography, (ST_Transform(geom,4326)::geography))";
 
