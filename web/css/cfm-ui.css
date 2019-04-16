@@ -6,6 +6,13 @@
 .container {
     font-size: 1.25rem;
 }
+.container-fluid {
+  min-width: 800px;
+}
+
+.container-fluid.top {
+  padding: 0;
+}
 
 hr {
   display: block;
@@ -379,10 +386,22 @@ tr.layer-hidden * {
 }
 
 #searchResult {
-    min-height: 400px;
+    min-height: 576px;
 }
 
 div.box a {
     color: #990000;
     text-decoration: none;
+}
+
+table tr td label {
+    font-weight: normal;
+}
+
+.input-group {
+    min-width: 222px;
+}
+
+.mapData label {
+    font-weight: normal;
 }

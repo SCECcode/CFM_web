@@ -357,7 +357,7 @@ function toggleOnDownloadQueue(event) {
 
 function addRemoveFromDownloadQueue(gid) {
     let downloadQueueElem = $("#download-queue");
-    let faultName = $("#row_"+gid).find("td:nth-child(3)").html();
+    let faultName = $("#row_"+gid).find("td:nth-child(3) label").html();
     var s = find_style_list(gid);
     var h = s['highlight'];
     if (h == 0) {
