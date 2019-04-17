@@ -60,7 +60,8 @@ function setup_viewer()
   currentLayer = esri_topographic;
 
 // ==> mymap <==
-  mymap = L.map('CFM_plot', { drawControl:false, layers: [esri_topographic, basemap], zoomControl:false} ).fitBounds([ [36.350527, -121.68457], [31.877558, -114.763184]]).setZoom(6);
+  mymap = L.map('CFM_plot', { drawControl:false, layers: [esri_topographic, basemap], zoomControl:false} );
+  mymap.setView([34.3, -118.4], 7);
 
 // basemap selection
   var ctrl_div=document.getElementById('external_leaflet_control');
