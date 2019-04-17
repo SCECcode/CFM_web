@@ -289,6 +289,10 @@ function getAllTraces() {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
             var str=processTraceMeta("metaByAllTraces");
             document.getElementById("searchResult").innerHTML = makeResultTable(str);
+            $.event.trigger({
+                type: "tableLoadCompleted",
+                "message": "completed",
+            })
         }
     };
     xmlhttp.open("GET","php/getAllTraces.php",true);

@@ -22,6 +22,7 @@
     <script type='text/javascript' src='js/vendor/ersi-leaflet.js'></script>
     <script type='text/javascript' src='js/vendor/FileSaver.js'></script>
     <script type='text/javascript' src='js/vendor/jszip.js'></script>
+    <script type='text/javascript' src='js/vendor/jquery.floatThead.min.js'></script>
 
     <!--
     https://leaflet.github.io/Leaflet.draw/docs/Leaflet.draw-latest.html#l-draw
@@ -72,6 +73,7 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-495056-12"></script>
     <script type="text/javascript">
         $ = jQuery;
+        var tableLoadCompleted = false;
         var myhost = location.hostname;
         if (myhost == "asperity.scec.org") {
             window.dataLayer = window.dataLayer || [];
@@ -90,7 +92,18 @@
                 window[funcToRun]();
             });
 
+
         });
+        $(document).on("tableLoadCompleted", function() {
+            tableLoadCompleted = true;
+            var $table = $('div.cfm-table table');
+            $table.floatThead({
+                scrollContainer: function($table){
+                    return $table.closest('div.cfm-table');
+                }
+            });
+        });
+
     </script>
 </head>
 <body>
@@ -339,7 +352,9 @@
 
     <div class="row mapData">
         <div class="col-5 button-container d-flex flex-column" style="overflow:hidden;">
-            <div id="searchResult" class="table-responsive mb-1"></div>
+            <div id="searchResult" class="table-responsive mb-1"><div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+            </div></div>
             <div id="geoSearchByObjGidResult" style="display:none"></div>
             <div id="phpResponseTxt"></div>
             <div class="row wrapper">

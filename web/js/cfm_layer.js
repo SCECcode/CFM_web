@@ -357,6 +357,7 @@ function toggleOnDownloadQueue(event) {
 
 function addRemoveFromDownloadQueue(gid) {
     let downloadQueueElem = $("#download-queue");
+    let downloadCounterElem = $("#download-counter");
     let faultName = $("#row_"+gid).find("td:nth-child(3) label").html();
     var s = find_style_list(gid);
     var h = s['highlight'];
@@ -367,11 +368,20 @@ function addRemoveFromDownloadQueue(gid) {
     } else {
         downloadQueueElem.prepend("<li data-fault-id='" + gid + "' >" + faultName + "</li>");
     }
-    $("#download-counter").html("(" + cfm_select_count + ")");
+    if (cfm_select_count <= 0) {
+        downloadCounterElem.hide();
+    } else {
+       downloadCounterElem.show();
+    }
+    downloadCounterElem.html("(" + cfm_select_count + ")");
 }
 
 function toggle_highlight(gid) {
    var s=find_style_list(gid);
+   if (s == '') {
+       return;
+   }
+
    var h=s['highlight'];
    var star='#'+"highlight_"+gid;
    let rowSelected = '#row'+'_'+gid;
@@ -391,7 +401,7 @@ function toggle_highlight(gid) {
      }); 
      cfm_select_count++;
      // adjust width if needed
-     $('#itemCount').html(cfm_select_count).css('display', 'block')
+     $('#itemCount').html(cfm_select_count).show();
 /* get actual rendored font/width
      var fs = $('#itemCount').html(cfm_select_count).css('font-size');
      var width = $('#itemCount').html(cfm_select_count).css('width');
@@ -405,9 +415,9 @@ function toggle_highlight(gid) {
          $('#itemCount').html(cfm_select_count).css("width","20px");
        cfm_select_count--;
        if(cfm_select_count == 0) {
-         $('#itemCount').html(cfm_select_count).css('display', 'none')
+         $('#itemCount').html(cfm_select_count).hide();
          } else {
-           $('#itemCount').html(cfm_select_count).css('display', 'block')
+           $('#itemCount').html(cfm_select_count).show();
        }
        s['highlight']=0;
        var l=find_layer_list(gid);
