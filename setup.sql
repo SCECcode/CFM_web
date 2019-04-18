@@ -1,11 +1,3 @@
-#!/bin/bash
-
-dropdb --if-exists CFM5_db 
-createdb CFM5_db
-mkdir -p /home/postgres/CFM
-cp -Rv /app/schema /home/postgres/CFM/
-psql postgresql://postgres:example@localhost/CFM5_db << AAA
-
   CREATE EXTENSION postgis;
   SELECT PostGIS_Version();
 
@@ -16,7 +8,7 @@ psql postgresql://postgres:example@localhost/CFM5_db << AAA
   \i '/home/postgres/CFM/schema/sql/linkup_traces.sql';
   \i '/home/postgres/CFM/schema/sql/add_foreign_key.sql';
 
-  DROP ROLE webonly;
+  DROP ROLE IF EXISTS webonly;
   CREATE ROLE webonly WITH LOGIN PASSWORD 'scec';
   GRANT SELECT ON ALL TABLES IN SCHEMA public TO webonly;
   REVOKE CREATE ON SCHEMA public FROM PUBLIC;
@@ -25,5 +17,3 @@ psql postgresql://postgres:example@localhost/CFM5_db << AAA
 
   \dp
   \q
-
-AAA

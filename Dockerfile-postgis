@@ -1,0 +1,18 @@
+FROM mdillon/postgis:10-alpine
+ENV POSTGRES_USER postgres
+ENV POSTGRES_DB CFM5_db
+ENV PGDATA=/home/postgres/cfm_db
+
+WORKDIR /app
+
+COPY . /app
+
+RUN mkdir /home/postgres
+RUN chown postgres /home/postgres
+RUN su postgres -c /app/doc/run-as-postgres
+
+RUN echo "host all  all    0.0.0.0/0  trust" >> /home/postgres/cfm_db/pg_hba.conf
+
+# RUN su postgres -c "pg_ctl -D /home/postgres/cfm_db -l /home/postgres/logfile start"
+
+

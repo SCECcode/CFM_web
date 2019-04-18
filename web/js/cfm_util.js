@@ -96,11 +96,12 @@ function removeColorsControl() {
 // default -- all black
 // by strike
 // by dip
-function changeFaultColor() {
-    val=$('input[name=cfm-fault-colors]:checked').val() 
-    use_fault_color=val;
+function changeFaultColor(type) {
+    // val=$('input[name=cfm-fault-colors]:checked').val()
+    use_fault_color=type;
     reset_fault_color();
 }
+
 
 // for native, 500m, 1000m
 // with added metadata file
@@ -197,6 +198,11 @@ function changeDownloadSet() {
     startDownload();
 }
 
+function executeDownload(type) {
+    use_download_set = type;
+    startDownload();
+}
+
 function startDownload()
 {
   // collect up the meta data from the highlighted set of traces
@@ -238,11 +244,11 @@ function selectAll() {
   if(select_all_flag == 0) {
     select_layer_list();
     select_all_flag=1;
-    $('#allBtn').css("color","red");
+      $('#allBtn span').removeClass("glyphicon-unchecked").addClass("glyphicon-check");
     } else {
        reset_layer_list();
        select_all_flag=0;
-      $('#allBtn').css("color","blue");
+      $('#allBtn span').removeClass("glyphicon-check").addClass("glyphicon-unchecked");
   }
 } 
 function refreshAll() {
@@ -257,6 +263,7 @@ function refreshAll() {
   document.getElementById("geoSearchByObjGidResult").innerHTML = "";
   document.getElementById("searchResult").innerHTML = "";
   document.getElementById("phpResponseTxt").innerHTML = "";
+  $("#search-type").val("");
 //  document.getElementById("objGidTxt").value = '';
   refresh_map();
   dismiss_sidebar();

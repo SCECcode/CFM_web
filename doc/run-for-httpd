@@ -1,13 +1,6 @@
-#setup apache webserver on aws node 
+#setup apache/php 
 
- sudo yum install httpd
- sudo yum install php
- sudo yum install php-pgsql
+yum install -y httpd
+amazon-linux-extras install -y php7.2
+yum install -y php php-pgsql 
 
-sudo service httpd start
-
-## put the html in /var/www/html
-## httpd log in /var/log/httpd
-#
-Also need to unzip contrib/favicon_package_v0.16.zip at /var/www/html
-Some browser is very picking of wanting to see a favicon

@@ -1,0 +1,23 @@
+# Use postgres/example user/password credentials
+version: '3.1'
+
+services:
+
+  db:
+    build:
+      dockerfile: Dockerfile-postgis
+      context: ./
+    restart: always
+    environment:
+      name: edric
+      POSTGRES_PASSWORD: example
+
+  web:
+    build:
+      dockerfile: Dockerfile-web
+      context: ./
+    restart: always
+    ports:
+      - 8081:8081
+      - 8080:80
+

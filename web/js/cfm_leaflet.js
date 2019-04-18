@@ -13,6 +13,7 @@ var rectangle_options = {
          }
 };
 var rectangleDrawer;
+var mymap, baseLayers, layerControl, currentLayer;
 
 function clear_popup()
 {
@@ -47,7 +48,7 @@ function setup_viewer()
   var openAttribution ='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
   var osm_street=L.tileLayer(openURL, {attribution: openAttribution});
 
-  var baseLayers = {
+  baseLayers = {
     "esri topo" : esri_topographic,
     "esri NG" : esri_ng,
     "esri imagery" : esri_imagery,
@@ -56,9 +57,11 @@ function setup_viewer()
   };
   var overLayer = {};
   var basemap = L.layerGroup();
+  currentLayer = esri_topographic;
 
 // ==> mymap <==
-  var mymap = L.map('CFM_plot', { drawControl:false, layers: [esri_topographic, basemap], zoomControl:false}).setView([34.3, -118.4], 7);
+  mymap = L.map('CFM_plot', { drawControl:false, layers: [esri_topographic, basemap], zoomControl:false} );
+  mymap.setView([34.3, -118.4], 7);
 
 // basemap selection
   var ctrl_div=document.getElementById('external_leaflet_control');
@@ -66,7 +69,7 @@ function setup_viewer()
 // ==> layer control <==
 // add and put it in the customized place
 //  L.control.layers(baseLayers, overLayer).addTo(mymap);
-  var layerControl = L.control.layers(baseLayers, overLayer,{collapsed: true });
+  layerControl = L.control.layers(baseLayers, overLayer,{collapsed: true });
   layerControl.addTo(mymap);
   layerControl._container.remove();
   ctrl_div.appendChild(layerControl.onAdd(mymap));
@@ -143,6 +146,7 @@ function setup_viewer()
         var ne=loclist[2];
         add_bounding_rectangle_layer(layer,sw['lat'],sw['lng'],ne['lat'],ne['lng']);
         mymap.addLayer(layer);
+        searchByLatlon();
     }
   });
 
@@ -253,6 +257,13 @@ function addMarkerLayer(lat,lon) {
   var bounds = [lat, lon];
   var layer = new L.marker(bounds).addTo(viewermap);
   return layer;
+}
+
+function switchLayer(layerString) {
+    mymap.removeLayer(currentLayer);
+    mymap.addLayer(baseLayers[layerString]);
+    currentLayer = baseLayers[layerString];
+
 }
 
 

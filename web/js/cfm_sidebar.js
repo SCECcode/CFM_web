@@ -298,6 +298,7 @@ function latlonClick() {
   if(latlon_sidebar) {
     sidebar_latlon_slideOut();
     $('#latlonBtn').addClass('pick');
+    markLatlon();
     } else {
       // enable the popup on map
       sidebar_latlon_slideIn();

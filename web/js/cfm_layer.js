@@ -295,7 +295,7 @@ function in_active_gid_list(target) {
 
 // find a layer from the layer list
 function find_layer_list(target) { 
-   var found=undefined;
+   var found="";
    cfm_layer_list.forEach(function(element) {
      if ( element['gid'] == target )
         found=element;
@@ -310,6 +310,7 @@ function reset_layer_list() {
      var s=find_style_list(gid);
      if( s['highlight']==1 && s['visible']==1 ) {
        toggle_highlight(gid);
+        addRemoveFromDownloadQueue(gid);
      }
    });
 }
@@ -326,7 +327,7 @@ function select_layer_list() {
 }
 
 function find_style_list(target) { 
-   var found=undefined;
+   var found="";
    cfm_style_list.forEach(function(element) {
      if ( element['gid'] == target )
         found=element;
@@ -345,13 +346,53 @@ function get_highlight_list() {
 }
 
 
+function toggleOnDownloadQueue(event) {
+    let rowElem = $(this).parents("tr");
+    let gid_string = rowElem.attr("id");
+    let gid_string_components = gid_string.split("_");
+    let gid = gid_string_components[1];
+    addRemoveFromDownloadQueue(gid);
+
+}
+
+function addRemoveFromDownloadQueue(gid) {
+    let downloadQueueElem = $("#download-queue");
+    let downloadCounterElem = $("#download-counter");
+    let faultName = $("#row_"+gid).find("td:nth-child(3) label").html();
+    var s = find_style_list(gid);
+    var h = s['highlight'];
+    if (h == 0) {
+        // exists, remove it
+        let elemToRemove = downloadQueueElem.find("li[data-fault-id=" + gid + "]");
+        elemToRemove.remove();
+    } else {
+        downloadQueueElem.prepend("<li data-fault-id='" + gid + "' >" + faultName + "</li>");
+    }
+    if (cfm_select_count <= 0) {
+        downloadCounterElem.hide();
+    } else {
+       downloadCounterElem.show();
+    }
+    downloadCounterElem.html("(" + cfm_select_count + ")");
+}
+
 function toggle_highlight(gid) {
    var s=find_style_list(gid);
+   if (s == '') {
+       return;
+   }
+
    var h=s['highlight'];
    var star='#'+"highlight_"+gid;
+   let rowSelected = '#row'+'_'+gid;
+
+   if ($(rowSelected).hasClass("layer-hidden")) {
+       return;
+   }
 
    if(h==0) {
-     $(star).removeClass('glyphicon-ok').addClass('glyphicon-ok-circle');
+     $(rowSelected).addClass("row-selected");
+     $(star).removeClass('glyphicon-unchecked').addClass('glyphicon-check');
      s['highlight']=1;
      var l=find_layer_list(gid);
      var geolayer=l['layer'];
@@ -360,7 +401,7 @@ function toggle_highlight(gid) {
      }); 
      cfm_select_count++;
      // adjust width if needed
-     $('#itemCount').html(cfm_select_count).css('display', 'block')
+     $('#itemCount').html(cfm_select_count).show();
 /* get actual rendored font/width
      var fs = $('#itemCount').html(cfm_select_count).css('font-size');
      var width = $('#itemCount').html(cfm_select_count).css('width');
@@ -368,14 +409,15 @@ function toggle_highlight(gid) {
      if(cfm_select_count == 100)
         $('#itemCount').html(cfm_select_count).css("width","30px");
      } else {
-       $(star).removeClass('glyphicon-ok-circle').addClass('glyphicon-ok');
+       $(star).removeClass('glyphicon-check').addClass('glyphicon-unchecked');
+       $(rowSelected).removeClass("row-selected");
        if(cfm_select_count == 99) // reset font size
          $('#itemCount').html(cfm_select_count).css("width","20px");
        cfm_select_count--;
        if(cfm_select_count == 0) {
-         $('#itemCount').html(cfm_select_count).css('display', 'none')
+         $('#itemCount').html(cfm_select_count).hide();
          } else {
-           $('#itemCount').html(cfm_select_count).css('display', 'block')
+           $('#itemCount').html(cfm_select_count).show();
        }
        s['highlight']=0;
        var l=find_layer_list(gid);
@@ -389,6 +431,8 @@ function toggle_highlight(gid) {
           }); 
        }
    }
+
+    addRemoveFromDownloadQueue(gid);
 }
 
 function get_leaflet_id(layer) {
@@ -570,11 +614,19 @@ function toggle_layer(gid)
   var geolayer=c['layer'];
   var vis=s['visible'];
   var eye='#'+"toggle_"+gid;
+  let toggledRow = '#row_'+gid;
+
   if(vis == 1) {
+      if ($(toggledRow).hasClass("row-selected")) {
+            toggle_highlight(gid);
+      }
+
     $(eye).removeClass('glyphicon-eye-open').addClass('glyphicon-eye-close');
+    $(toggledRow).addClass("layer-hidden");
     viewermap.removeLayer(geolayer);
     s['visible'] = 0;
     } else {
+      $(toggledRow).removeClass("layer-hidden");
       if( s['dirty_visible'] != undefined ){ // do nothing
         s['dirty_visible'] = undefined;
         return;
