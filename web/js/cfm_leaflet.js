@@ -71,7 +71,9 @@ function setup_viewer()
 //  L.control.layers(baseLayers, overLayer).addTo(mymap);
   layerControl = L.control.layers(baseLayers, overLayer,{collapsed: true });
   layerControl.addTo(mymap);
-  layerControl._container.remove();
+  var elem= layerControl._container;
+  elem.parentNode.removeChild(elem);
+
   ctrl_div.appendChild(layerControl.onAdd(mymap));
   // add a label to the leaflet-control-layers-list
   var forms_div=document.getElementsByClassName('leaflet-control-layers-list');

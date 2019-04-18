@@ -364,7 +364,7 @@ function addRemoveFromDownloadQueue(gid) {
     if (h == 0) {
         // exists, remove it
         let elemToRemove = downloadQueueElem.find("li[data-fault-id=" + gid + "]");
-        elemToRemove.remove();
+        elemToRemove.parentNode.removeChild(elemToRemove);
     } else {
         downloadQueueElem.prepend("<li data-fault-id='" + gid + "' >" + faultName + "</li>");
     }
