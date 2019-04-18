@@ -91,10 +91,10 @@ this is for including the Leaflet.draw plugin
 <div class="container-fluid">
   <div align="left" id="controlBlock" style="margin:10px 0px 10px 0px; width:100%;display:flex;justify-content:center">
     <div class="row col-md-12 col-xs-12" style="display:inline-block;overflow:hidden;">
-      <button id="systemBtn" class="btn cfm-top-btn" title="search by area" onclick="systemClick();">
-       <span class="glyphicon glyphicon-search"></span> Area</button>
-      <button id="regionBtn" class="btn cfm-top-btn" title="search by region" onclick="regionClick();">
+      <button id="systemBtn" class="btn cfm-top-btn" title="search by system" onclick="systemClick();">
        <span class="glyphicon glyphicon-search"></span> System</button>
+      <button id="regionBtn" class="btn cfm-top-btn" title="search by region" onclick="regionClick();">
+       <span class="glyphicon glyphicon-search"></span> Region</button>
       <button id="sectionBtn" class="btn cfm-top-btn" title="search by section" onclick="sectionClick();">
        <span class="glyphicon glyphicon-search"></span> Section</button>
       <button id="nameBtn" class="btn cfm-top-btn" title="search by name" onclick="nameClick();">
@@ -135,7 +135,7 @@ this is for including the Leaflet.draw plugin
 <ul id="sidebar" class="navigation"  >
   <li id='system' class='navigationLi col-md-12 col-xs-12' style="display:none">
     <div id='systemMenu' class='menu'>
-      <div id='systemLabel' class='menuLabel' style="margin-left:20px;font-size:14px;font-weight:bold">Query for Fault by area:<button class="pull-right" title="dismiss" onclick="systemClick()" style="border:none;background-color:transparent"><span class="glyphicon glyphicon-remove"></span>
+      <div id='systemLabel' class='menuLabel' style="margin-left:20px;font-size:14px;font-weight:bold">Query for Fault by system:<button class="pull-right" title="dismiss" onclick="systemClick()" style="border:none;background-color:transparent"><span class="glyphicon glyphicon-remove"></span>
 </button>
       </div>
       <div class="row col-md-12 col-xs-12">
@@ -149,7 +149,7 @@ this is for including the Leaflet.draw plugin
   </li>
   <li id='region' class='navigationLi col-md-12 col-xs-12' style="display:none">
     <div id='regionMenu' class='menu'>
-      <div id='regionLabel' class='menuLabel' style="margin-left:20px;font-size:14px;font-weight:bold">Query for Fault by system:<button class="pull-right" title="dismiss" onclick="regionClick()" style="border:none;background-color:transparent"><span class="glyphicon glyphicon-remove"></span>
+      <div id='regionLabel' class='menuLabel' style="margin-left:20px;font-size:14px;font-weight:bold">Query for Fault by region:<button class="pull-right" title="dismiss" onclick="regionClick()" style="border:none;background-color:transparent"><span class="glyphicon glyphicon-remove"></span>
 </button>
       </div>
       <div class="row col-md-12 col-xs-12">

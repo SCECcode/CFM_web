@@ -60,7 +60,7 @@ function makeRegionList() {
     if (str == undefined)
       return "";
 
-    var html= "<form autocomplete=\"off\"> <select id=\"selectRegion\" onchange=\"searchByRegion(this.value)\"> <option value=\"\">  Click to select a System</option>";
+    var html= "<form autocomplete=\"off\"> <select id=\"selectRegion\" onchange=\"searchByRegion(this.value)\"> <option value=\"\">  Click to select a Region</option>";
 
     var sz=(Object.keys(str).length);
     for( var i=0; i< sz; i++) {
@@ -98,7 +98,7 @@ function makeSystemList() {
     if (str == undefined)
       return "";
 
-    var html= "<form autocomplete=\"off\"> <select id=\"selectSystem\" onchange=\"searchBySystem(this.value)\"> <option value=\"\">  Click to select a Area</option>";
+    var html= "<form autocomplete=\"off\"> <select id=\"selectSystem\" onchange=\"searchBySystem(this.value)\"> <option value=\"\">  Click to select a System</option>";
 
     var sz=(Object.keys(str).length);
     for( var i=0; i< sz; i++) {
