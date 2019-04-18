@@ -392,11 +392,10 @@ label.input-group-text {
 }
 
 #download-queue {
-    overflow-y: auto;
-    position: absolute;
-    top: 0;
-    bottom: 0;
+    overflow-y: scroll;
     width: 100%;
+    margin-bottom: 0.25em;
+    height: 70px;
 }
 
 #download-queue::-webkit-scrollbar:vertical {
