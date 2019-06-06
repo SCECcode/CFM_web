@@ -350,6 +350,16 @@ input[type=text] {
     display: inline-block;
 }
 
+.nav-item.active .nav-link {
+    background-color: #770000;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+.navbar-dark .navbar-toggler {
+    color: white;
+}
+
 img {
     vertical-align: middle;
 }
@@ -360,6 +370,14 @@ a {
 
 .container a {
     color: #990000;
+}
+
+nav.navbar.navbar-dark a.nav-link  {
+    color: white;
+}
+
+nav.navbar .nav-link.disabled {
+    color: lightgray;
 }
 
 .scec-main-container {
@@ -470,3 +488,12 @@ table tr td label {
     max-width: 269px;
 }
 
+.info-page-container {
+    border:1px solid gray;
+    padding: 10px;
+    background-color: whitesmoke;
+}
+
+ul.references {
+    padding-left: 0;
+}
