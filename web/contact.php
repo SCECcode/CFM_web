@@ -26,7 +26,7 @@ $header = getHeader("Contact");
 
 <div class="container info-page-container scec-main-container">
 
-    <h3>Contact</h3>
+    <h1>Contact</h1>
 
     <div>
         <p>

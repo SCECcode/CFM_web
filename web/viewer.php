@@ -153,7 +153,7 @@ $header = getHeader("Viewer");
                                 <select id="search-type" class="custom-select">
                                     <option value="">Search by ...</option>
                                     <option value="keywordClick">Keyword</option>
-                                    <option value="latlonClick">Longitude &amp; Latitude</option>
+                                    <option value="latlonClick">Latitude &amp; Longitude </option>
                                     <option disabled>-- Advanced -- </option>
                                     <option value="systemClick">System</option>
                                     <option value="regionClick">Region</option>

@@ -497,3 +497,12 @@ table tr td label {
 ul.references {
     padding-left: 0;
 }
+
+div.guide figure {
+    float: right;
+    padding-top: 0;
+    padding-right: 0;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    width: 50%;
+}

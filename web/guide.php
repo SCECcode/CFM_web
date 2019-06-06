@@ -24,11 +24,17 @@ $header = getHeader("User Guide");
 <body>
 <?php echo $header; ?>
 
-<div class="container info-page-container scec-main-container">
+<div class="container info-page-container scec-main-container guide">
 
-    <h3>User Guide</h3>
+    <h1>User Guide</h1>
 
-    <h4>The SCEC Community Fault Model (CFM) </h4>
+
+    <h4>About the SCEC Community Fault Model (CFM) </h4>
+
+    <figure class="figure">
+        <img src="img/cfm52_perspective.png" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+        <figcaption class="figure-caption">Perspective view of CFM 5.2 showing strike-slip (green), thrust/reverse (red), and normal (blue) faults that comprise the preferred model. Earthquake locations (Hauksson, 2003, updated 2016) are shown by year. Scale is in meters.</figcaption>
+    </figure>
 
     <p>The SCEC Community Fault Model (CFM) is an object-oriented, three-dimensional representation of more than 150
         active faults in southern California (Plesch et al., 2007). The model is organized into more than 350 fault
@@ -55,13 +61,17 @@ $header = getHeader("User Guide");
         representations.
     </p>
 
+    <p>More information about the CFM, including a complete model archive, can be found at: <a href="https://www.scec.org/research/cfm">https://www.scec.org/research/cfm</a>.
+
     <h4>Using This Website</h4>
-    <p>The <a href="viewer">Viewer Page</a> is where the user can view all California faults catalogued in the <a
-                href="https://www.scec.org/research/cfm">CFM version 5.2</a>. When the page is first loaded, all
-        available faults are listed in the box on the left and displayed in their geographic location on the map to the
-        right. Please note that the listing of faults on the left is a scrollable box, and thus can contain more fault
+
+    <p>The CFM Viewer website provides a map-based view of <a
+                href="https://www.scec.org/research/cfm">CFM version 5.2</a> preferred faults. It allows users to view faults and metadata and download data on selected faults rather than downloading the entire CFM model archive. The site provides a number of search criteria, such as keyword and latitude/longitude. Additionally, the advanced search criteria are: system, region, section, name, strike, and dip.</p>
+
+    <p>The main interface of this site is on the <a href="viewer">Viewer Page</a>. When it is first loaded, all available faults are listed in the box on the left and displayed in their geographic location on the map to the right. Please note that the listing of faults on the left is a scrollable box, and thus can contain more fault
         objects than are visible at one time.</p>
-    <p>The pages on this site are the <a href="index">CFM viewer page</a>, this user guide, <a href="disclaimer">a
+
+    <p>The pages on this site are the <a href="viewer">CFM viewer page</a>, this user guide, <a href="disclaimer">a
             disclaimer</a>, and a <a href="contact">contact information</a> page. </p>
 
     <h4>Downloading Metadata and... </h4>
@@ -72,6 +82,8 @@ $header = getHeader("User Guide");
         pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
         laborum. Donec elementum ligula eu sapien consequat eleifend. Donec nec dolor erat, condimentum</p>
 
+    <h4>Projections</h4>
+    <p>Fault representations are provided in Universal Transverse Mercator projection (UTM zone 11 N, North American datum 1927).</p>
 
     <h4>References</h4>
     <ul class="references">
@@ -109,7 +121,6 @@ $header = getHeader("User Guide");
     </ul>
 
 
-    <p>More information about the CFM can be found at: <a href="https://www.scec.org/research/cfm">https://www.scec.org/research/cfm</a>.
     </p>
 </div>
 </body>
