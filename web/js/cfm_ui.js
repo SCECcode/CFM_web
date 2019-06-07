@@ -197,6 +197,10 @@ function makeResultTable(str)
       }
     }
     html=html+ tmp + "</tbody></table></div>";
+
+    if (visibleFaults.getBounds().isValid()) {
+        viewermap.fitBounds(visibleFaults.getBounds());
+    }
     return html;
 }
 

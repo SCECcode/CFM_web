@@ -230,7 +230,7 @@ function unbind_layer_popup() {
     var geolayer=element['layer'];
     geolayer.eachLayer(function(layer) {
        unbindPopupEachFeature(layer);
-    }); 
+    });
   });
 }
 
@@ -399,6 +399,7 @@ function addRemoveFromMetadataTable(gid) {
     } else {
         $("#metadata-viewer tbody").prepend(metadataRow);
         $("#metadata-viewer").trigger('reflow');
+        $(`#metadata-viewer tbody tr#metadata-${gid}`).effect("highlight", {}, 1000);
     }
 }
 
@@ -651,6 +652,7 @@ function toggle_layer(gid)
     $(eye).removeClass('glyphicon-eye-open').addClass('glyphicon-eye-close');
     $(toggledRow).addClass("layer-hidden");
     viewermap.removeLayer(geolayer);
+    visibleFaults.removeLayer(geolayer);
     s['visible'] = 0;
     } else {
       $(toggledRow).removeClass("layer-hidden");
@@ -661,6 +663,7 @@ function toggle_layer(gid)
       s['visible'] = 1;
       $(eye).removeClass('glyphicon-eye-close').addClass('glyphicon-eye-open');
       viewermap.addLayer(geolayer);
+      visibleFaults.addLayer(geolayer);
 // if style is dirty, needs to be updated from the stylelist..
       if( s['dirty_style'] !=  undefined ) {
         var style=s['style'];
