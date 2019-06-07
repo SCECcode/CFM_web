@@ -298,6 +298,33 @@ function add_downloads_btn(meta,str) {
   return str;
 }
 
+function get_downloads_btn(meta) {
+    var str = "";
+    var gid=meta['gid'];
+
+    if(in_native_gid_list(gid)) {
+        var url=url_in_native_list(gid);
+        if(url) {
+            str=str+'<a href=\"'+url+'\" download> <button class=\"btn btn-xs cfm-btn\" title=\"download native tsurf file\"><span id=\"download_native_'+gid+'\" class=\"glyphicon glyphicon-download\"></span>native</button></a>';
+        }
+    }
+    if(in_500m_gid_list(gid)) {
+        var url=url_in_500m_list(gid);
+        if(url) {
+            str=str+'<a href=\"'+url+'\" download> <button class=\"btn btn-xs cfm-btn\" title=\"download 500m tsurf file\"><span id=\"download_500m_'+gid+'\" class=\"glyphicon glyphicon-download\"></span>500m</button></a>';
+        }
+    }
+
+    if(in_1000m_gid_list(gid)) {
+        var url=url_in_1000m_list(gid);
+        if(url) {
+            str=str+'<a href=\"'+url+'\" download> <button class=\"btn btn-xs cfm-btn\" title=\"download 1000m tsurf file\"><span id=\"download_1000m_'+gid+'\" class=\"glyphicon glyphicon-download\"></span>1000m</button></a>';
+        }
+    }
+
+    return str;
+}
+
 
 // very lazy way to inject this into html
 function addFaultColorsSelect() {

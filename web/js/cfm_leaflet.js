@@ -60,7 +60,7 @@ function setup_viewer()
   currentLayer = esri_topographic;
 
 // ==> mymap <==
-  mymap = L.map('CFM_plot', { drawControl:false, layers: [esri_topographic, basemap], zoomControl:false} );
+  mymap = L.map('CFM_plot', { drawControl:false, layers: [esri_topographic, basemap], zoomControl:true} );
   mymap.setView([34.3, -118.4], 7);
 
 // basemap selection
@@ -106,16 +106,16 @@ function setup_viewer()
 */
 
 // ==> mouse location popup <== 
-  var popup = L.popup();
-  function onMapClick(e) {
-    if(!skipPopup) { // suppress if in latlon search ..
-      popup
-        .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
-        .openOn(mymap);
-    }
-  }
-  mymap.on('click', onMapClick);
+//   var popup = L.popup();
+  // function onMapClick(e) {
+  //   if(!skipPopup) { // suppress if in latlon search ..
+  //     popup
+  //       .setLatLng(e.latlng)
+  //       .setContent("You clicked the map at " + e.latlng.toString())
+  //       .openOn(mymap);
+  //   }
+  // }
+  // mymap.on('click', onMapClick);
 
   function onMapMouseOver(e) {
     if(drawing_rectangle) {
@@ -205,16 +205,16 @@ function addGeoToMap(cfmTrace, mymap) {
     var swapped_coordinates = [tmp_coords[1], tmp_coords[0]];  //Swap Lat and Lng
 */
 // leaflet-popup-close-button -- location
-    if (mymap && !skipPopup) {
-       var tmp=e.layer.feature.properties;
-       var level1=tmp.popupMainContent;
-//       layerPopup = L.popup({ autoClose: false, closeOnClick: false })
-       layerPopup = L.popup()
-           .setLatLng(e.latlng) 
-           .setContent(level1) 
-           .openOn(mymap);
-    }
-  });
+//     if (mymap && !skipPopup) {
+//        var tmp=e.layer.feature.properties;
+//        var level1=tmp.popupMainContent;
+// //       layerPopup = L.popup({ autoClose: false, closeOnClick: false })
+//        layerPopup = L.popup()
+//            .setLatLng(e.latlng)
+//            .setContent(level1)
+//            .openOn(mymap);
+//     }
+//   });
 /*** XXX
   geoLayer.on('mouseout', function (e) {
     window.console.log("moues out..layer#"+e.layer.feature.id) 
@@ -224,6 +224,18 @@ function addGeoToMap(cfmTrace, mymap) {
     }
   });
 ***/
+
+    if (mymap) {
+        e.layer.setStyle({weight: 5});
+    }
+   });
+
+   geoLayer.on('mouseout', function(e){
+       if (mymap) {
+           e.layer.setStyle({weight: 2});
+       }
+   });
+
   return geoLayer;
 }
 
@@ -232,10 +244,19 @@ function addGeoToMap(cfmTrace, mymap) {
 function bindPopupEachFeature(feature, layer) {
     var popupContent="";
 
-    if (feature.properties != undefined  && feature.properties.popupContent != undefined ) {
-      popupContent += feature.properties.popupContent;
-    }
-    layer.bindPopup(popupContent);
+    // if (feature.properties != undefined  && feature.properties.popupContent != undefined ) {
+    //   popupContent += feature.properties.popupContent;
+    // }
+    // layer.bindPopup(popupContent);
+    layer.on({
+        click: function(e) {
+            console.log('clicked');
+            let clickedFaultID = feature.id;
+            toggle_highlight(clickedFaultID);
+            // var currentHtml = $("#metadata-viewer tbody").html();
+            // $("#metadata-viewer tbody").html(currentHtml + feature.properties.metadataRow);
+        },
+    })
 }
 
 // https://gis.stackexchange.com/questions/148554/disable-feature-popup-when-creating-new-simple-marker

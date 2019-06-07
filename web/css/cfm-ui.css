@@ -55,7 +55,7 @@ table tr th {
     text-transform: uppercase;
     background-color: #333333;
     border: 1px solid #333333;
-    font-size: 9pt;
+    font-size: 8pt;
 }
 
 th {
@@ -506,3 +506,36 @@ div.guide figure {
     padding-bottom: 15px;
     width: 50%;
 }
+
+#metadata-viewer-container {
+    max-height:400px;
+    overflow:scroll;
+}
+
+#metadata-viewer {
+    width: 100%;
+}
+
+#metadata-viewer .download-link a {
+    display: table-cell;
+}
+
+#metadata-viewer .cfm-btn {
+    background-color: inherit;
+    padding: 0;
+}
+
+#metadata-viewer thead th {
+    white-space: nowrap;
+}
+
+.floatThead-container {
+    overflow: visible !important;
+    overflow-x: hidden;
+}
+
+#metadata-viewer #placeholder-row td {
+    text-align: center;
+    font-style: italic;
+}
+

@@ -297,6 +297,32 @@ function getMainContentFromMeta(meta) {
     return content;
 }
 
+function getMetadataRowForDisplay(meta) {
+   let downloadButtons = get_downloads_btn(meta);
+   var area = "";
+   if (meta['area'] > 0) {
+       area = parseInt(meta['area']).toExponential();
+   }
+
+   var content = `
+   <tr id="metadata-${meta['gid']}">
+       <td>${meta['fault']}</td>
+       <td>${meta['system']}</td>
+       <td>${meta['region']}</td>
+       <td>${meta['section']}</td>
+       <td>${meta['CFM_version']}</td>
+       <td>${meta['USGS_ID']}</td>
+       <td>${meta['strike']}</td>
+       <td>${meta['dip']}</td>
+       <td>${area}</td>
+       <td>${meta['exposure']}</td>
+       <td>${meta['final_slip_sense']}</td>
+       <td class="download-link">${downloadButtons}</td>
+   </tr>
+   `;
+   return content;
+}
+
 function show_details(gid)
 {
    var l=find_layer_list(gid);
@@ -307,6 +333,7 @@ function show_details(gid)
       });
    }
 }
+
 
 function getSecondaryContentFromMeta(meta) {
 // get info on this..

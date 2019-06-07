@@ -133,6 +133,7 @@ function makeGeoJSONFeature(geoJSON, gid, meta) {
              "type":"Feature", 
              "properties": { "popupContent": level2content,
                              "popupMainContent":level1content,
+                            "metadataRow": getMetadataRowForDisplay(meta),
                              "style": style
                            },
              "geometry": blob 
@@ -311,6 +312,7 @@ function reset_layer_list() {
      if( s['highlight']==1 && s['visible']==1 ) {
        toggle_highlight(gid);
         addRemoveFromDownloadQueue(gid);
+        addRemoveFromMetadataTable(gid);
      }
    });
 }
@@ -356,24 +358,48 @@ function toggleOnDownloadQueue(event) {
 }
 
 function addRemoveFromDownloadQueue(gid) {
-    let downloadQueueElem = $("#download-queue");
+    // let downloadQueueElem = $("#download-queue");
+    // let downloadCounterElem = $("#download-counter");
+    // let faultName = $("#row_"+gid).find("td:nth-child(3) label").html();
+    // var s = find_style_list(gid);
+    // var h = s['highlight'];
+    // if (h == 0) {
+    //     // exists, remove it
+    //     let elemToRemove = downloadQueueElem.find("li[data-fault-id=" + gid + "]");
+    //     elemToRemove.remove();
+    // } else {
+    //     downloadQueueElem.prepend("<li data-fault-id='" + gid + "' >" + faultName + "</li>");
+    // }
+
     let downloadCounterElem = $("#download-counter");
-    let faultName = $("#row_"+gid).find("td:nth-child(3) label").html();
-    var s = find_style_list(gid);
-    var h = s['highlight'];
-    if (h == 0) {
-        // exists, remove it
-        let elemToRemove = downloadQueueElem.find("li[data-fault-id=" + gid + "]");
-        elemToRemove.remove();
-    } else {
-        downloadQueueElem.prepend("<li data-fault-id='" + gid + "' >" + faultName + "</li>");
-    }
+    let buttonElem = $("#download-all");
+    let placeholderTextElem = $("#placeholder-row");
     if (cfm_select_count <= 0) {
         downloadCounterElem.hide();
+        buttonElem.prop("disabled", true);
+        placeholderTextElem.show();
     } else {
        downloadCounterElem.show();
+       buttonElem.prop("disabled", false);
+        placeholderTextElem.hide();
     }
     downloadCounterElem.html("(" + cfm_select_count + ")");
+}
+
+function addRemoveFromMetadataTable(gid) {
+    var targetElem = $("#metadata-"+gid);
+    var s = find_style_list(gid);
+    var h = s['highlight'];
+    let features_object = get_feature(gid);
+    let metadataRow = features_object.features[0].properties.metadataRow;
+
+    if (h == 0) {
+        // exists, remove it
+        targetElem.remove();
+    } else {
+        $("#metadata-viewer tbody").prepend(metadataRow);
+        $("#metadata-viewer").trigger('reflow');
+    }
 }
 
 function toggle_highlight(gid) {
@@ -433,6 +459,7 @@ function toggle_highlight(gid) {
    }
 
     addRemoveFromDownloadQueue(gid);
+    addRemoveFromMetadataTable(gid);
 }
 
 function get_leaflet_id(layer) {
