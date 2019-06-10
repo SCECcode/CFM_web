@@ -494,6 +494,15 @@ table tr td label {
     background-color: whitesmoke;
 }
 
+.info-page-container.guide {
+    position: relative;
+}
+
+.info-page-container.guide div {
+    z-index: 100;
+    position: relative;
+}
+
 ul.references {
     padding-left: 0;
 }
@@ -505,6 +514,14 @@ div.guide figure {
     padding-left: 15px;
     padding-bottom: 15px;
     width: 50%;
+}
+
+div.guide div ul li {
+    list-style-type: square;
+}
+
+div.guide ul {
+    padding-left: 20px;
 }
 
 #metadata-viewer-container {
@@ -539,3 +556,13 @@ div.guide figure {
     font-style: italic;
 }
 
+#watermark {
+    position: fixed;
+    top: 530px;
+    left: 50px;
+    opacity: 0.15;
+    z-index: 99;
+    color: gray;
+    font-size: 128px;
+    transform: rotate(-45deg);
+}
