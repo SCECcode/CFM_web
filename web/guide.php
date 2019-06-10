@@ -26,9 +26,7 @@ $header = getHeader("User Guide");
 
 <div class="container info-page-container scec-main-container guide">
 
-    <h1>User Guide</h1>
-
-    <div id="watermark">DRAFT</div>
+    <h1>User Guide <i>(DRAFT)</i></h1>
 
     <div>
         <h4>About the SCEC Community Fault Model (CFM) </h4>

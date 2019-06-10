@@ -555,14 +555,3 @@ div.guide ul {
     text-align: center;
     font-style: italic;
 }
-
-#watermark {
-    position: fixed;
-    top: 530px;
-    left: 50px;
-    opacity: 0.15;
-    z-index: 99;
-    color: gray;
-    font-size: 128px;
-    transform: rotate(-45deg);
-}
