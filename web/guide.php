@@ -115,7 +115,7 @@ $header = getHeader("User Guide");
             controls. When performing a latitude/longitude search, there are two search methods. The first method is to
             enter
             the latitude/longitude values for the bottom left and top right corners of a bounding rectangle into the text boxes,
-            then clicking the search icon (<span style="color:#53A2BE;" class="glyphicon glyphicon-search"></span>). The
+            then clicking the search icon <span style="white-space: nowrap;">(<span style="color:#53A2BE;" class="glyphicon glyphicon-search"></span>).</span> The
             second method is to click and drag on the map to draw a bounding rectangle. In either case, any portion of a
             fault that lies within the bounding rectangle will appear in the search
             results. Once a search is submitted, the matching faults appear on the map and are listed in the box* to the
@@ -147,7 +147,7 @@ $header = getHeader("User Guide");
         <ul>
             <li>
                 Projections: Fault representations are provided in Universal Transverse Mercator projection (UTM zone 11
-                N, North American datum 1927).
+                S, North American datum 1927).
             </li>
             <li>Strike and dip are weighted averages. The true fault surface is non-planar.</li>
             <li>The fault object names are comprised of metadata for each fault. For example,
