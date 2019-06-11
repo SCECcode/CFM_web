@@ -102,9 +102,21 @@ function changeFaultColor(type) {
     reset_fault_color();
     if (type == "") {
        removeKey();
+       highlight_style.color = default_highlight_color;
     } else {
         showKey(type);
+        highlight_style.color = alternate_highlight_color;
     }
+
+    // switch
+    $("#searchResult table tr.row-selected").each(function(){
+        var gid = $(this).attr("id").split("_")[1];
+        var l=find_layer_list(gid);
+        var geolayer=l['layer'];
+        geolayer.eachLayer(function(layer) {
+            layer.setStyle(highlight_style);
+        });
+    });
 }
 
 

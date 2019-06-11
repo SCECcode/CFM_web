@@ -4,11 +4,13 @@
 // control whether the main mouseover popup should be active or not
 var skipPopup=false;
 
+var default_highlight_color = "red";
+var alternate_highlight_color = "#03F7EB";
 var highlight_style = {
 /*
     'color': 'RGB(0, 255, 255)',
 */
-    'color': 'RGB(255, 0, 0)',
+    'color': default_highlight_color,
     'opacity':1,
     'weight': 2,
 };
