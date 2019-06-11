@@ -124,11 +124,9 @@ $header = getHeader("Viewer");
 <div class="container main">
     <div class="row">
         <div class="col-12">
-            <p>The <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model (CFM)</a> is an
-                object-oriented, three-dimensional representation of active faults in southern California and adjacent
-                offshore basins that includes 105 complex fault systems composed from more than 380 individually named
-                fault representations. The model incorporates more than 820 objects, which include triangulated surface
-                representations (t-surfs) and associated meta data.</p>
+            <p>The <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model (CFM)</a> Viewer provides a map-based view of SCEC CFM version 5.2 preferred faults. It allows users to
+               view faults and metadata and download data on selected faults rather than downloading the entire CFM model
+               archive. See the <a href="guide">user guide</a> for more details and site usage instructions.</p>
         </div>
     </div>
 
