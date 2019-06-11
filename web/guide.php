@@ -35,8 +35,7 @@ $header = getHeader("User Guide");
             <img src="img/cfm52_perspective.png" class="figure-img img-fluid rounded"
                  alt="Perspective view of CFM 5.2 showing strike-slip (green), thrust/reverse (red), and normal (blue) faults that comprise the preferred model.">
             <figcaption class="figure-caption">Perspective view of CFM 5.2 showing strike-slip (green), thrust/reverse
-                (red), and normal (blue) faults that comprise the preferred model. Earthquake locations (Hauksson, 2003,
-                updated 2016) are shown by year. Scale is in meters.
+                (red), and normal (blue) faults that comprise the preferred model.
             </figcaption>
         </figure>
 
