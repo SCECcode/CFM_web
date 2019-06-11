@@ -523,6 +523,7 @@ table tr td label {
 
 .info-page-container.guide {
     position: relative;
+    margin-bottom: 10px;
 }
 
 .info-page-container.guide div {
