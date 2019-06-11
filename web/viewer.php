@@ -155,7 +155,7 @@ $header = getHeader("Viewer");
         </div>
     </div>
 
-    <div class="row">
+    <div id="controls-container" class="row">
         <div class="col-4">
             <div class="input-group filters">
                 <select id="search-type" class="custom-select">
@@ -379,12 +379,9 @@ $header = getHeader("Viewer");
                         <th>Region</th>
                         <th>Section</th>
                         <th>CFM Version</th>
-                        <th>USGS ID</th>
                         <th>Strike</th>
                         <th>Dip</th>
                         <th>Area (m<sup>2</sup>) </th>
-                        <th>Exposure</th>
-                        <th>Final Slip Sense</th>
                         <th><div class="col text-center">
                                 <div class="btn-group download-now">
                                     <button id="download-all" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
@@ -431,6 +428,13 @@ $header = getHeader("Viewer");
     <div id='queryBlock' class="col-6" style="overflow:hidden;display:none;">
 
     </div> <!-- query block -->
+</div>
+<div id="dip-strike-key-container" style="display:none;">
+    <div id="dip-strike-key" class="row">
+        <div class="col text-right">
+		<span class="min"></span><span class="ui-slider-range" style="width: 200px;">&nbsp;</span><span class="max"></span>
+            </div>
+	</div>
 </div>
 </body>
 </html>

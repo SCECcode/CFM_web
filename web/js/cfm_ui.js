@@ -3,6 +3,7 @@
 ***/
 
 var cfm_select_count=0;
+var showing_key = false;
 
 // not using the realmin and realmax
 function setupStrikeRangeSlider(realmin,realmax) {
@@ -140,7 +141,34 @@ function makeDipSlider()
 {
     var html="Dip range: <div><input type=\"text\" id=\"dip-range\" readonly style=\"border:0; color:orange; text-align:center;\"><button id=\"dipBtn\" type=\"button\" title=\"search with dip range\" class=\"btn btn-default cfm-small-btn\" style=\"border:0; color:blue\" onclick=\"searchWithDipRange()\"><span class=\"glyphicon glyphicon-search\"></span></button></div><div id=\"slider-dip-range\"></div></div><br>";
     return html;
-} 
+}
+
+function showKey(type) {
+    var min = 0;
+    var max = 0;
+
+    if (showing_key) {
+        removeKey();
+    } else {
+        showing_key = true;
+    }
+
+    if (type == "dip") {
+        min = dip_range_min;
+        max = dip_range_max;
+    } else if (type == "strike") {
+        min = strike_range_min;
+        max = strike_range_max;
+    }
+    $("#CFM_plot").prepend($("#dip-strike-key-container").html());
+    $("#dip-strike-key span.min").html(min);
+    $("#dip-strike-key span.max").html(max);
+}
+
+function removeKey() {
+    $("#CFM_plot #dip-strike-key").remove();
+    showing_key = false;
+}
 
 
 function nullTableEntry(target) {

@@ -399,7 +399,9 @@ function addRemoveFromMetadataTable(gid) {
     } else {
         $("#metadata-viewer tbody").prepend(metadataRow);
         $("#metadata-viewer").trigger('reflow');
-        $(`#metadata-viewer tbody tr#metadata-${gid}`).effect("highlight", {}, 1000);
+        if (!select_all_flag) {
+            $(`#metadata-viewer tbody tr#metadata-${gid}`).effect("highlight", {}, 1000);
+        }
     }
 }
 
@@ -410,16 +412,17 @@ function toggle_highlight(gid) {
    }
 
    var h=s['highlight'];
-   var star='#'+"highlight_"+gid;
-   let rowSelected = '#row'+'_'+gid;
+   let $star=$(`#highlight_${gid}`);
+   let $rowSelected = $(`#row_${gid}`);
+   let $itemCount = $("#itemCount");
 
-   if ($(rowSelected).hasClass("layer-hidden")) {
+   if ($rowSelected.hasClass("layer-hidden")) {
        return;
    }
 
    if(h==0) {
-     $(rowSelected).addClass("row-selected");
-     $(star).removeClass('glyphicon-unchecked').addClass('glyphicon-check');
+     $rowSelected.addClass("row-selected");
+     $star.removeClass('glyphicon-unchecked').addClass('glyphicon-check');
      s['highlight']=1;
      var l=find_layer_list(gid);
      var geolayer=l['layer'];
@@ -428,23 +431,23 @@ function toggle_highlight(gid) {
      }); 
      cfm_select_count++;
      // adjust width if needed
-     $('#itemCount').html(cfm_select_count).show();
+     $itemCount.html(cfm_select_count).show();
 /* get actual rendored font/width
      var fs = $('#itemCount').html(cfm_select_count).css('font-size');
      var width = $('#itemCount').html(cfm_select_count).css('width');
 */
      if(cfm_select_count == 100)
-        $('#itemCount').html(cfm_select_count).css("width","30px");
+        $itemCount.html(cfm_select_count).css("width","30px");
      } else {
-       $(star).removeClass('glyphicon-check').addClass('glyphicon-unchecked');
-       $(rowSelected).removeClass("row-selected");
+       $star.removeClass('glyphicon-check').addClass('glyphicon-unchecked');
+       $rowSelected.removeClass("row-selected");
        if(cfm_select_count == 99) // reset font size
-         $('#itemCount').html(cfm_select_count).css("width","20px");
+         $itemCount.html(cfm_select_count).css("width","20px");
        cfm_select_count--;
        if(cfm_select_count == 0) {
-         $('#itemCount').html(cfm_select_count).hide();
+         $itemCount.html(cfm_select_count).hide();
          } else {
-           $('#itemCount').html(cfm_select_count).show();
+           $itemCount.html(cfm_select_count).show();
        }
        s['highlight']=0;
        var l=find_layer_list(gid);

@@ -34,7 +34,34 @@ hr {
 }
 
 .ui-slider-range {
-    background: linear-gradient(to right, rgb(255, 0, 0), rgb(0, 0, 255))
+    background: linear-gradient(to right, rgb(255, 0, 0), rgb(0, 0, 255));
+}
+
+#dip-strike-key {
+    z-index: 9999;
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    background-color: #F2F2F2;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#dip-strike-key .ui-slider-range {
+    width: 200px;
+    display: inline-block;
+}
+
+#dip-strike-key div {
+    padding:0;
+}
+
+#dip-strike-key span.min {
+    margin-right: 5px;
+}
+
+#dip-strike-key span.max {
+    margin-left: 5px;
 }
 
 table {
@@ -531,7 +558,7 @@ div.guide ul {
 
 #metadata-viewer-container {
     max-height:400px;
-    overflow:scroll;
+    overflow-y:scroll;
 }
 
 #metadata-viewer {

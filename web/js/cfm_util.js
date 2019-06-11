@@ -100,6 +100,11 @@ function changeFaultColor(type) {
     // val=$('input[name=cfm-fault-colors]:checked').val()
     use_fault_color=type;
     reset_fault_color();
+    if (type == "") {
+       removeKey();
+    } else {
+        showKey(type);
+    }
 }
 
 
@@ -242,8 +247,8 @@ function toggleAll() {
 
 function selectAll() {
   if(select_all_flag == 0) {
-    select_layer_list();
     select_all_flag=1;
+    select_layer_list();
       $('#allBtn span').removeClass("glyphicon-unchecked").addClass("glyphicon-check");
     } else {
        reset_layer_list();
@@ -311,12 +316,9 @@ function getMetadataRowForDisplay(meta) {
        <td>${meta['region']}</td>
        <td>${meta['section']}</td>
        <td>${meta['CFM_version']}</td>
-       <td>${meta['USGS_ID']}</td>
        <td>${meta['strike']}</td>
        <td>${meta['dip']}</td>
        <td>${area}</td>
-       <td>${meta['exposure']}</td>
-       <td>${meta['final_slip_sense']}</td>
        <td class="download-link">${downloadButtons}</td>
    </tr>
    `;
