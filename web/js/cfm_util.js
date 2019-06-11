@@ -100,6 +100,23 @@ function changeFaultColor(type) {
     // val=$('input[name=cfm-fault-colors]:checked').val()
     use_fault_color=type;
     reset_fault_color();
+    if (type == "") {
+       removeKey();
+       highlight_style.color = default_highlight_color;
+    } else {
+        showKey(type);
+        highlight_style.color = alternate_highlight_color;
+    }
+
+    // switch
+    $("#searchResult table tr.row-selected").each(function(){
+        var gid = $(this).attr("id").split("_")[1];
+        var l=find_layer_list(gid);
+        var geolayer=l['layer'];
+        geolayer.eachLayer(function(layer) {
+            layer.setStyle(highlight_style);
+        });
+    });
 }
 
 
@@ -242,8 +259,8 @@ function toggleAll() {
 
 function selectAll() {
   if(select_all_flag == 0) {
-    select_layer_list();
     select_all_flag=1;
+    select_layer_list();
       $('#allBtn span').removeClass("glyphicon-unchecked").addClass("glyphicon-check");
     } else {
        reset_layer_list();
@@ -297,6 +314,29 @@ function getMainContentFromMeta(meta) {
     return content;
 }
 
+function getMetadataRowForDisplay(meta) {
+   let downloadButtons = get_downloads_btn(meta);
+   var area = "";
+   if (meta['area'] > 0) {
+       area = parseInt(meta['area']).toExponential();
+   }
+
+   var content = `
+   <tr id="metadata-${meta['gid']}">
+       <td>${meta['fault']}</td>
+       <td>${meta['system']}</td>
+       <td>${meta['region']}</td>
+       <td>${meta['section']}</td>
+       <td>${meta['CFM_version']}</td>
+       <td>${meta['strike']}</td>
+       <td>${meta['dip']}</td>
+       <td>${area}</td>
+       <td class="download-link">${downloadButtons}</td>
+   </tr>
+   `;
+   return content;
+}
+
 function show_details(gid)
 {
    var l=find_layer_list(gid);
@@ -307,6 +347,7 @@ function show_details(gid)
       });
    }
 }
+
 
 function getSecondaryContentFromMeta(meta) {
 // get info on this..

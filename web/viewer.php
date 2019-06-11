@@ -1,10 +1,14 @@
+<?php
+require_once("php/navigation.php");
+$header = getHeader("Viewer");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Community Fault Model Viewer</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/vendor/font-awesome.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="css/vendor/leaflet.css">
     <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
@@ -94,37 +98,35 @@
 
 
         });
-        $(document).on("tableLoadCompleted", function() {
+        $(document).on("tableLoadCompleted", function () {
             tableLoadCompleted = true;
             var $table = $('div.cfm-table table');
             $table.floatThead({
-                scrollContainer: function($table){
+                scrollContainer: function ($table) {
                     return $table.closest('div.cfm-table');
                 }
             });
+
+            var $download_queue_table = $('#metadata-viewer');
+            $download_queue_table.floatThead({
+                scrollContainer: function ($table) {
+                    return $table.closest('div#metadata-viewer-container');
+                },
+            });
+
         });
 
     </script>
 </head>
 <body>
-<div class="banner-container">
-    <div class="container top">
-        <header class="navbar scec-header" role="banner">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="."><img class="scec-logo" src="img/sceclogo_transparent.png">
-                    &nbsp;Community Fault Model Viewer</a>
-            </div>
-        </header>
-    </div>
-</div>
+<?php echo $header; ?>
+
 <div class="container main">
     <div class="row">
         <div class="col-12">
-            <p>The <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model (CFM)</a> is an
-                object-oriented, three-dimensional representation of active faults in southern California and adjacent
-                offshore basins that includes 105 complex fault systems composed from more than 380 individually named
-                fault representations. The model incorporates more than 820 objects, which include triangulated surface
-                representations (t-surfs) and associated meta data.</p>
+            <p>The <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model (CFM)</a> Viewer provides a map-based view of SCEC CFM version 5.2 preferred faults. It allows users to
+               view faults and metadata and download data on selected faults rather than downloading the entire CFM model
+               archive. See the <a href="guide">user guide</a> for more details and site usage instructions.</p>
         </div>
     </div>
 
@@ -151,17 +153,18 @@
         </div>
     </div>
 
-    <div class="row">
+    <div id="controls-container" class="row">
         <div class="col-4">
             <div class="input-group filters">
                 <select id="search-type" class="custom-select">
                     <option value="">Search by ...</option>
+                    <option value="keywordClick">Keyword</option>
+                    <option value="latlonClick">Latitude &amp; Longitude</option>
+                    <option disabled>-- Advanced --</option>
                     <option value="systemClick">System</option>
                     <option value="regionClick">Region</option>
-                    <option value="sectionClick">Section</option>
                     <option value="nameClick">Name</option>
-                    <option value="keywordClick">Keyword</option>
-                    <option value="latlonClick">Longitude &amp; Latitude</option>
+                    <option value="sectionClick">Section</option>
                     <option value="strikeClick">Strike</option>
                     <option value="dipClick">Dip</option>
                 </select>
@@ -295,24 +298,24 @@
                             </div>
                         </li>
                         <!-- debug purpose
-                          <li id='gid' class='navigationLi ' style="display:none">
-                            <div id='gidMenu' class='menu'>
-                              <div id='gidLabel' class='menuLabel' style="margin-left:20px;font-size:14px;font-weight:bold">Query for GEO JSON Object by object_tb_gid:<button class="pull-right" title="dismiss" onclick="gidClick()" style="border:none;background-color:transparent"><span class="glyphicon glyphicon-remove"></span>
-                        </button>
-                              </div>
-                              <div class="">
-                                   <div class="" style="margin-left:20px; margin-top:10px">
+						  <li id='gid' class='navigationLi ' style="display:none">
+							<div id='gidMenu' class='menu'>
+							  <div id='gidLabel' class='menuLabel' style="margin-left:20px;font-size:14px;font-weight:bold">Query for GEO JSON Object by object_tb_gid:<button class="pull-right" title="dismiss" onclick="gidClick()" style="border:none;background-color:transparent"><span class="glyphicon glyphicon-remove"></span>
+						</button>
+							  </div>
+							  <div class="">
+								   <div class="" style="margin-left:20px; margin-top:10px">
 
-                              <div class=""> Object gid:&nbsp;<input type="text" id="objGidTxt" onfocus="this.value=''" style="right-margin:10px; border:1px solid black; color:orange; text-align:center;">
-                               <button id="objGidBtn" type="button" title="search with object gid" class="btn btn-default" onclick="getGeoJSONbyObjGid()">
-                                    <span class="glyphicon glyphicon-search"></span>
-                               </button>
-                             </div>
-                                   </div>
-                               </div>
-                            </div>
-                          </li>
-                        -->
+							  <div class=""> Object gid:&nbsp;<input type="text" id="objGidTxt" onfocus="this.value=''" style="right-margin:10px; border:1px solid black; color:orange; text-align:center;">
+							   <button id="objGidBtn" type="button" title="search with object gid" class="btn btn-default" onclick="getGeoJSONbyObjGid()">
+									<span class="glyphicon glyphicon-search"></span>
+							   </button>
+							 </div>
+								   </div>
+							   </div>
+							</div>
+						  </li>
+						-->
                     </ul>
                     <!-- pull-out -->
                 </div>
@@ -356,18 +359,32 @@
             </div>
             <div id="geoSearchByObjGidResult" style="display:none"></div>
             <div id="phpResponseTxt"></div>
-            <div class="row wrapper">
-                <div class="col d-flex flex-column" style="height:200px;">
-                    <div class="box">
-                        <div class="row">
-                            <div class="col-6 text-left">
-                                <label>Queued for Download</label>
-                            </div>
-                            <div class="col-6 text-right">
+        </div>
+        <div class="col-7 pr-0 pl-2 ">
+            <div class="row w-100 mb-1" id='CFM_plot'
+                 style="position:relative;border:solid 1px #ced4da; height:576px;"></div>
+
+
+        </div>
+    </div>
+        <div class="row">
+            <div class="col-12" id="metadata-viewer-container">
+                <table id="metadata-viewer">
+                    <thead>
+                    <tr>
+                        <th>Fault</th>
+                        <th>System</th>
+                        <th>Region</th>
+                        <th>Section</th>
+                        <th>CFM Version</th>
+                        <th>Strike</th>
+                        <th>Dip</th>
+                        <th>Area (m<sup>2</sup>) </th>
+                        <th><div class="col text-center">
                                 <div class="btn-group download-now">
-                                    <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
-                                            aria-haspopup="true" aria-expanded="false">
-                                        Download Data <span id="download-counter"></span>
+                                    <button id="download-all" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false" disabled>
+                                        Download All <span id="download-counter"></span>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <button class="dropdown-item" type="button" value="meta"
@@ -384,30 +401,21 @@
                                         </button>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row w-100 text-left position-relative mt-1" style="height:90%;">
-                            <ul id="download-queue"></ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-        <div class="col-7 pr-0 pl-2 ">
-            <div class="row w-100 mb-1" id='CFM_plot'
-                 style="position:relative;border:solid 1px #ced4da; height:576px;"></div>
-
-            <div class="row w-100">
-                <div class="box h-100 d-flex justify-content-center flex-column">
-                    <p>
-                        The CFM Viewer was developed by the <a href="https://www.scec.org/">Southern California Earthquake Center</a> (SCEC) and SCEC
-                        Community Fault Model researchers. More information is available on the <a
-                            href="https://www.scec.org/research/cfm">SCEC CFM Research Page</a>. SCEC is funded by
-                        <a href="https://www.nsf.gov">National Science Foundation</a> and the <a href="https://www.usgs.gov">United States Geological Survey</a>.
-                    </p>
-                </div>
+                            </div></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr id="placeholder-row">
+                        <td colspan="12">Metadata for selected faults will appear here. </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <!--                    <p>-->
+                <!--                        The CFM Viewer was developed by the <a href="https://www.scec.org/">Southern California Earthquake Center</a> (SCEC) and SCEC-->
+                <!--                        Community Fault Model researchers. More information is available on the <a-->
+                <!--                            href="https://www.scec.org/research/cfm">SCEC CFM Research Page</a>. SCEC is funded by-->
+                <!--                        <a href="https://www.nsf.gov">National Science Foundation</a> and the <a href="https://www.usgs.gov">United States Geological Survey</a>.-->
+                <!--                    </p>-->
             </div>
         </div>
 
@@ -418,6 +426,13 @@
     <div id='queryBlock' class="col-6" style="overflow:hidden;display:none;">
 
     </div> <!-- query block -->
+</div>
+<div id="dip-strike-key-container" style="display:none;">
+    <div id="dip-strike-key" class="row">
+        <div class="col text-right">
+		<span class="min"></span><span class="ui-slider-range" style="width: 200px;">&nbsp;</span><span class="max"></span>
+            </div>
+	</div>
 </div>
 </body>
 </html>

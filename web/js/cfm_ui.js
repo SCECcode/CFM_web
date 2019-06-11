@@ -3,6 +3,7 @@
 ***/
 
 var cfm_select_count=0;
+var showing_key = false;
 
 // not using the realmin and realmax
 function setupStrikeRangeSlider(realmin,realmax) {
@@ -60,7 +61,7 @@ function makeRegionList() {
     if (str == undefined)
       return "";
 
-    var html= "<form autocomplete=\"off\"> <select class=\"custom-select\"  id=\"selectRegion\" onchange=\"searchByRegion(this.value)\"> <option value=\"\">  Click to select a Region</option>";
+    var html= "<form autocomplete=\"off\"> <select class=\"custom-select\"  id=\"selectRegion\" onchange=\"searchByRegion(this.value)\"> <option value=\"\">  Select... </option>";
 
     var sz=(Object.keys(str).length);
     for( var i=0; i< sz; i++) {
@@ -79,7 +80,7 @@ function makeSectionList() {
     if (str == undefined)
       return "";
 
-    var html= "<form autocomplete=\"off\"><select class=\"custom-select\"  id=\"selectSection\" onchange=\"searchBySection(this.value)\"> <option value=\"\">  Click to select a Section</option>";
+    var html= "<form autocomplete=\"off\"><select class=\"custom-select\"  id=\"selectSection\" onchange=\"searchBySection(this.value)\"> <option value=\"\">  Select...</option>";
 
     var sz=(Object.keys(str).length);
     for( var i=0; i< sz; i++) {
@@ -98,7 +99,7 @@ function makeSystemList() {
     if (str == undefined)
       return "";
 
-    var html= "<form autocomplete=\"off\"> <select class=\"custom-select\"  id=\"selectSystem\" onchange=\"searchBySystem(this.value)\"> <option value=\"\">  Click to select a System</option>";
+    var html= "<form autocomplete=\"off\"> <select class=\"custom-select\"  id=\"selectSystem\" onchange=\"searchBySystem(this.value)\"> <option value=\"\">  Select...</option>";
 
     var sz=(Object.keys(str).length);
     for( var i=0; i< sz; i++) {
@@ -117,7 +118,7 @@ function makeNameList() {
     if (str == undefined)
       return "";
 
-    var html= "<form autocomplete=\"off\"> <select class=\"custom-select\"  id=\"selectName\" onchange=\"searchByName(this.value)\"> <option value=\"\">  Click to select a Name</option>";
+    var html= "<form autocomplete=\"off\"> <select class=\"custom-select\"  id=\"selectName\" onchange=\"searchByName(this.value)\"> <option value=\"\">  Select...</option>";
 
     var sz=(Object.keys(str).length);
     for( var i=0; i< sz; i++) {
@@ -140,7 +141,34 @@ function makeDipSlider()
 {
     var html="Dip range: <div><input type=\"text\" id=\"dip-range\" readonly style=\"border:0; color:orange; text-align:center;\"><button id=\"dipBtn\" type=\"button\" title=\"search with dip range\" class=\"btn btn-default cfm-small-btn\" style=\"border:0; color:blue\" onclick=\"searchWithDipRange()\"><span class=\"glyphicon glyphicon-search\"></span></button></div><div id=\"slider-dip-range\"></div></div><br>";
     return html;
-} 
+}
+
+function showKey(type) {
+    var min = 0;
+    var max = 0;
+
+    if (showing_key) {
+        removeKey();
+    } else {
+        showing_key = true;
+    }
+
+    if (type == "dip") {
+        min = dip_range_min;
+        max = dip_range_max;
+    } else if (type == "strike") {
+        min = strike_range_min;
+        max = strike_range_max;
+    }
+    $("#CFM_plot").prepend($("#dip-strike-key-container").html());
+    $("#dip-strike-key span.min").html(min);
+    $("#dip-strike-key span.max").html(max);
+}
+
+function removeKey() {
+    $("#CFM_plot #dip-strike-key").remove();
+    showing_key = false;
+}
 
 
 function nullTableEntry(target) {
@@ -197,6 +225,10 @@ function makeResultTable(str)
       }
     }
     html=html+ tmp + "</tbody></table></div>";
+
+    if (visibleFaults.getBounds().isValid()) {
+        viewermap.fitBounds(visibleFaults.getBounds());
+    }
     return html;
 }
 
@@ -296,6 +328,33 @@ function add_downloads_btn(meta,str) {
     }
   }
   return str;
+}
+
+function get_downloads_btn(meta) {
+    var str = "";
+    var gid=meta['gid'];
+
+    if(in_native_gid_list(gid)) {
+        var url=url_in_native_list(gid);
+        if(url) {
+            str=str+'<a href=\"'+url+'\" download> <button class=\"btn btn-xs cfm-btn\" title=\"download native tsurf file\"><span id=\"download_native_'+gid+'\" class=\"glyphicon glyphicon-download\"></span>native</button></a>';
+        }
+    }
+    if(in_500m_gid_list(gid)) {
+        var url=url_in_500m_list(gid);
+        if(url) {
+            str=str+'<a href=\"'+url+'\" download> <button class=\"btn btn-xs cfm-btn\" title=\"download 500m tsurf file\"><span id=\"download_500m_'+gid+'\" class=\"glyphicon glyphicon-download\"></span>500m</button></a>';
+        }
+    }
+
+    if(in_1000m_gid_list(gid)) {
+        var url=url_in_1000m_list(gid);
+        if(url) {
+            str=str+'<a href=\"'+url+'\" download> <button class=\"btn btn-xs cfm-btn\" title=\"download 1000m tsurf file\"><span id=\"download_1000m_'+gid+'\" class=\"glyphicon glyphicon-download\"></span>1000m</button></a>';
+        }
+    }
+
+    return str;
 }
 
 

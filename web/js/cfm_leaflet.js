@@ -14,6 +14,7 @@ var rectangle_options = {
 };
 var rectangleDrawer;
 var mymap, baseLayers, layerControl, currentLayer;
+var visibleFaults = new L.FeatureGroup();
 
 function clear_popup()
 {
@@ -31,7 +32,7 @@ function refresh_map()
 
 function setup_viewer()
 {
-// esri 
+// esri
   var esri_topographic = L.esri.basemapLayer("Topographic");
   var esri_imagery = L.esri.basemapLayer("Imagery");
   var esri_ng = L.esri.basemapLayer("NationalGeographic");
@@ -43,8 +44,8 @@ function setup_viewer()
 
   var otm_topographic = L.tileLayer(topoURL, { detectRetina: true, attribution: topoAttribution});
 
-// osm street 
-  var openURL='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'; 
+// osm street
+  var openURL='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
   var openAttribution ='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
   var osm_street=L.tileLayer(openURL, {attribution: openAttribution});
 
@@ -60,7 +61,7 @@ function setup_viewer()
   currentLayer = esri_topographic;
 
 // ==> mymap <==
-  mymap = L.map('CFM_plot', { drawControl:false, layers: [esri_topographic, basemap], zoomControl:false} );
+  mymap = L.map('CFM_plot', { drawControl:false, layers: [esri_topographic, basemap], zoomControl:true} );
   mymap.setView([34.3, -118.4], 7);
 
 // basemap selection
@@ -71,7 +72,9 @@ function setup_viewer()
 //  L.control.layers(baseLayers, overLayer).addTo(mymap);
   layerControl = L.control.layers(baseLayers, overLayer,{collapsed: true });
   layerControl.addTo(mymap);
-  layerControl._container.remove();
+  var elem= layerControl._container;
+  elem.parentNode.removeChild(elem);
+
   ctrl_div.appendChild(layerControl.onAdd(mymap));
   // add a label to the leaflet-control-layers-list
   var forms_div=document.getElementsByClassName('leaflet-control-layers-list');
@@ -81,9 +84,9 @@ function setup_viewer()
   span.className="leaflet-control-layers-label";
   span.innerHTML = 'Select background';
   parent_div.insertBefore(span, forms_div[0]);
-  
+
 // ==> scalebar <==
-  L.control.scale({metric: 'false', imperial:'false', position: 'bottomleft'}).addTo(mymap);  
+  L.control.scale({metric: 'false', imperial:'false', position: 'bottomleft'}).addTo(mymap);
 
 /* TODO
  watermark XXX
@@ -103,17 +106,17 @@ function setup_viewer()
   }
 */
 
-// ==> mouse location popup <== 
-  var popup = L.popup();
-  function onMapClick(e) {
-    if(!skipPopup) { // suppress if in latlon search ..
-      popup
-        .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
-        .openOn(mymap);
-    }
-  }
-  mymap.on('click', onMapClick);
+// ==> mouse location popup <==
+//   var popup = L.popup();
+  // function onMapClick(e) {
+  //   if(!skipPopup) { // suppress if in latlon search ..
+  //     popup
+  //       .setLatLng(e.latlng)
+  //       .setContent("You clicked the map at " + e.latlng.toString())
+  //       .openOn(mymap);
+  //   }
+  // }
+  // mymap.on('click', onMapClick);
 
   function onMapMouseOver(e) {
     if(drawing_rectangle) {
@@ -128,18 +131,18 @@ function setup_viewer()
   mymap.addLayer(drawnItems);
   var drawControl = new L.Control.Draw({
        draw: false,
-       edit: { featureGroup: drawnItems } 
+       edit: { featureGroup: drawnItems }
   });
   mymap.addControl(drawControl);
 */
-  rectangleDrawer = new L.Draw.Rectangle(mymap, rectangle_options);     
+  rectangleDrawer = new L.Draw.Rectangle(mymap, rectangle_options);
   mymap.on(L.Draw.Event.CREATED, function (e) {
     var type = e.layerType,
         layer = e.layer;
     if (type === 'rectangle') {  // only tracks retangles
         // get the boundary of the rectangle
         var latlngs=layer.getLatLngs();
-        // first one is always the south-west, 
+        // first one is always the south-west,
         // third one is always the north-east
         var loclist=latlngs[0];
         var sw=loclist[0];
@@ -151,7 +154,7 @@ function setup_viewer()
   });
 
 
-// finally, 
+// finally,
   return mymap;
 }
 
@@ -191,9 +194,10 @@ function addGeoToMap(cfmTrace, mymap) {
      },
      onEachFeature: bindPopupEachFeature
    }).addTo(mymap);
+   visibleFaults.addLayer(geoLayer);
 
-   var layerPopup;
-   geoLayer.on('mouseover', function(e){
+   // var layerPopup;
+   // geoLayer.on('mouseover', function(e){
 /* not used..
     // array of array
     var coordinates = e.layer.feature.geometry.coordinates;
@@ -203,25 +207,38 @@ function addGeoToMap(cfmTrace, mymap) {
     var swapped_coordinates = [tmp_coords[1], tmp_coords[0]];  //Swap Lat and Lng
 */
 // leaflet-popup-close-button -- location
-    if (mymap && !skipPopup) {
-       var tmp=e.layer.feature.properties;
-       var level1=tmp.popupMainContent;
-//       layerPopup = L.popup({ autoClose: false, closeOnClick: false })
-       layerPopup = L.popup()
-           .setLatLng(e.latlng) 
-           .setContent(level1) 
-           .openOn(mymap);
-    }
-  });
+//     if (mymap && !skipPopup) {
+//        var tmp=e.layer.feature.properties;
+//        var level1=tmp.popupMainContent;
+// //       layerPopup = L.popup({ autoClose: false, closeOnClick: false })
+//        layerPopup = L.popup()
+//            .setLatLng(e.latlng)
+//            .setContent(level1)
+//            .openOn(mymap);
+//     }
+//   });
 /*** XXX
   geoLayer.on('mouseout', function (e) {
-    window.console.log("moues out..layer#"+e.layer.feature.id) 
+    window.console.log("moues out..layer#"+e.layer.feature.id)
     if (layerPopup && mymap) {
         mymap.closePopup(layerPopup);
         layerPopup = null;
     }
   });
 ***/
+
+    geoLayer.on('mouseover', function(e){
+        if (mymap && !drawing_rectangle) {
+            e.layer.setStyle({weight: 5});
+        }
+   });
+
+   geoLayer.on('mouseout', function(e){
+       if (mymap && !drawing_rectangle) {
+           e.layer.setStyle({weight: 2});
+       }
+   });
+
   return geoLayer;
 }
 
@@ -230,15 +247,22 @@ function addGeoToMap(cfmTrace, mymap) {
 function bindPopupEachFeature(feature, layer) {
     var popupContent="";
 
-    if (feature.properties != undefined  && feature.properties.popupContent != undefined ) {
-      popupContent += feature.properties.popupContent;
-    }
-    layer.bindPopup(popupContent);
+    // if (feature.properties != undefined  && feature.properties.popupContent != undefined ) {
+    //   popupContent += feature.properties.popupContent;
+    // }
+    // layer.bindPopup(popupContent);
+    layer.on({
+        click: function(e) {
+            let clickedFaultID = feature.id;
+            toggle_highlight(clickedFaultID);
+        },
+    })
 }
 
 // https://gis.stackexchange.com/questions/148554/disable-feature-popup-when-creating-new-simple-marker
 function unbindPopupEachFeature(layer) {
     layer.unbindPopup();
+    layer.off('click');
 }
 
 function addRectangleLayer(latA,lonA,latB,lonB) {
@@ -248,7 +272,7 @@ function addRectangleLayer(latA,lonA,latB,lonB) {
   var bounds=L.latLngBounds(viewermap.containerPointToLatLng(pointA),
                                   viewermap.containerPointToLatLng(pointB));
 */
-  var bounds = [[latA, lonA], [latB, lonB]];     
+  var bounds = [[latA, lonA], [latB, lonB]];
   var layer=L.rectangle(bounds).addTo(viewermap);
   return layer;
 }
