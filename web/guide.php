@@ -83,14 +83,13 @@ $header = getHeader("User Guide");
         <p>The CFM Viewer website provides a map-based view of <a
                     href="https://www.scec.org/research/cfm">CFM version 5.2</a> preferred faults. It allows users to
             view faults and metadata and download data on selected faults rather than downloading the entire CFM model
-            archive.The pages on this site are the <a href="viewer">CFM viewer page</a>, this user guide, <a href="disclaimer">a
-                disclaimer</a>, and a <a href="contact">contact information</a> page.
+            archive. The pages on this site are the <a href="<?php echo $host_site_actual_path; ?>">CFM viewer page</a>, this user guide, <a href="disclaimer">a disclaimer</a>, and a <a href="contact">contact information</a> page.
         </p>
 
-        <p>The main interface of this site is on the <a href="viewer">Viewer Page</a>. When it is first loaded, all
-            available faults are listed in the box* on the left. Click on the checkbox to select a fault <strong>Viewing
-                and Downloading Metadata</strong> below). This can also be accomplished by
-            clicking on faults on the map. Click on the eye icon (<span class="glyphicon glyphicon-eye-open"></span>) to
+        <p>The main interface is on the <a href="<?php echo $host_site_actual_path; ?>">Viewer Page</a>. When it is first loaded, all
+            available faults are listed in the box* on the left. Click on the checkboxes in the fault table
+            to select faults or click on faults on the map. (See <strong>Viewing and Downloading Metadata</strong>
+            below for more details.) Click on the eye icon (<span class="glyphicon glyphicon-eye-open"></span>) to
             hide or show a fault.
         </p>
         <p>
@@ -113,10 +112,14 @@ $header = getHeader("User Guide");
             The site provides a number of search criteria, primarily keyword and latitude/longitude but also the
             following advanced search criteria: fault area, fault system, section, name, strike, and dip. Once a search
             type is selected, controls will appear below in the form of another dropdown, text input boxes, or slider
-            controls. When performing a latitude/longitude search, there are two search methods. The first method is to enter
-            the latitude/longitude values for the bottom left and top right of a bounding rectangle into the text boxes,
-            then clicking the search icon (<span style="color:#53A2BE;" class="glyphicon glyphicon-search"></span>). The second method is to click and drag on the map to draw a bounding rectangle. In either case, any portion of a fault that lies within the bounding rectangle will appear in the search
-            results. Once a search is submitted, the matching faults appear on the map and are listed in the box* to the left.
+            controls. When performing a latitude/longitude search, there are two search methods. The first method is to
+            enter
+            the latitude/longitude values for the bottom left and top right corners of a bounding rectangle into the text boxes,
+            then clicking the search icon (<span style="color:#53A2BE;" class="glyphicon glyphicon-search"></span>). The
+            second method is to click and drag on the map to draw a bounding rectangle. In either case, any portion of a
+            fault that lies within the bounding rectangle will appear in the search
+            results. Once a search is submitted, the matching faults appear on the map and are listed in the box* to the
+            left.
         </p>
         <p>To return to viewing all the faults, click the "RESET" button.</p>
     </div>
@@ -127,25 +130,32 @@ $header = getHeader("User Guide");
         <p>
             Metadata files in JSON format and tsurf files are available for download from this site. First, select the
             desired faults by clicking on the fault displayed on the map or clicking on fault listed in the box* to the
-            left of the map. The selected faults are highlighted in red on the map. The selected faults' metadata appear in the metadata
+            left of the map. The selected faults are highlighted in red on the map. The selected faults' metadata appear
+            in the metadata
             table* at the bottom of the page. Click on the links on the rightmost column of the metadata table to
             download data for one fault. Click on the "DOWNLOAD ALL" button to download data for all selected faults.
+            The download options are: metadata only, or metadata along with tsurf files in native, 500m, or 1000m
+            resolution in a ZIP archive file.
         </p>
 
-		<p>* The starred item is a scrollable box, and thus can contain more data than is visible at one time.</p>
+        <p>* The scrollable boxes on this site can contain more data than is visible at one time.</p>
     </div>
 
     <div>
 
         <h4>Notes</h4>
-        <ul><li>
-                Projections: Fault representations are provided in Universal Transverse Mercator projection (UTM zone 11 N, North American datum 1927).</li>
-            <li>Strike and dip are weighted averages. The true fault surface is non-planar. </li>
-            <li>The fault object names are comprised of metadata for each fault. For example, "SAFS-SAFZ-MULT-Banning_fault_strand-CFM4" represents:
+        <ul>
+            <li>
+                Projections: Fault representations are provided in Universal Transverse Mercator projection (UTM zone 11
+                N, North American datum 1927).
+            </li>
+            <li>Strike and dip are weighted averages. The true fault surface is non-planar.</li>
+            <li>The fault object names are comprised of metadata for each fault. For example,
+                "SAFS-SAFZ-MULT-Banning_fault_strand-CFM4" represents:
                 <ul>
-                    <li>Fault Area: SAFS </li>
-                    <li>Fault Zone: SAFZ </li>
-                    <li>Fault Section: MULT </li>
+                    <li>Fault Area: SAFS</li>
+                    <li>Fault Zone: SAFZ</li>
+                    <li>Fault Section: MULT</li>
                     <li>Fault Name: Banning fault strand</li>
                     <li>CFM Version when added: CFM4</li>
                 </ul>

@@ -1,16 +1,18 @@
 <?php
+// this site will be hosted by reverse proxy so for some links we need to know
+// the path we're actually hosted on
+$host_site_actual_path = "/";
+if (isset($_SERVER['HTTP_X_FORWARDED_SERVER'])) {
+	// check that we're behind a proxy
+	$host_site_actual_path = "/research/cfm-viewer/";
+}
+
 
 /**
  * Generate the navigation bar for all our pages
  */
 function getHeader($this_page) {
-	// this site will be hosted by reverse proxy so for some links we need to know
-	// the path we're actually hosted on
-	$host_site_actual_path = "/";
-	if (isset($_SERVER['HTTP_X_FORWARDED_SERVER'])) {
-		// check that we're behind a proxy
-		$host_site_actual_path = "/research/cfm-viewer/";
-	}
+	global $host_site_actual_path;
 
 	$all_pages = [
 		$host_site_actual_path => "Viewer",

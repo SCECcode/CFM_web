@@ -513,7 +513,12 @@ div.guide figure {
     padding-right: 0;
     padding-left: 15px;
     padding-bottom: 15px;
-    width: 50%;
+    width: 544px;
+}
+
+div.guide figure img {
+    width: 544px;
+    height: 379px;
 }
 
 div.guide div ul li {
