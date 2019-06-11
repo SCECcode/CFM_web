@@ -28,6 +28,97 @@ $header = getHeader("User Guide");
 
     <h1>User Guide <i>(DRAFT)</i></h1>
 
+
+
+    <div class="overview">
+        <h4>Community Fault Model (CFM) Viewer Overview</h4>
+        <figure class="figure">
+            <img src="img/cfm-viewer.png" class="figure-img img-fluid rounded"
+                 alt="Screen capture of CFM Viewer interface">
+            <figcaption class="figure-caption">Screen capture of CFM Viewer interface</figcaption>
+        </figure>
+        <p>The CFM Viewer provides a map-based view of <a
+                    href="https://www.scec.org/research/cfm">CFM version 5.2</a> preferred faults. It allows users to
+            view faults and metadata and download data on selected faults rather than downloading the entire CFM model
+            archive. The pages on this site are the <a href="<?php echo $host_site_actual_path; ?>">CFM viewer page</a>, this user guide, <a href="disclaimer">a disclaimer</a>, and a <a href="contact">contact information</a> page.
+        </p>
+
+        <p>The main interface is on the <a href="<?php echo $host_site_actual_path; ?>">Viewer Page</a>. When it is first loaded, all
+            available faults are listed in the box* on the left. Click on the checkboxes in the fault table
+            to select faults or click on faults on the map. (See <strong>Viewing and Downloading Metadata</strong>
+            below for more details.) Click on the eye icon (<span class="glyphicon glyphicon-eye-open"></span>) to
+            hide or show a fault.
+        </p>
+        <p>
+            The map on the right displays each fault in its geographic location. On top of the map, there are two controls. The first allows the base map to be changed. By default, the map shown is <a
+                    href="https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer">ESRI
+                Topographic</a>. The other map types are: <a
+                    href="https://services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer">ESRI
+                National Geographic</a>, <a
+                    href="https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer">ESRI
+                Imagery</a>, <a href="https://opentopomap.org">OTM Topographic</a>, and <a
+                    href="https://www.openstreetmap.org">OSM Street</a>. The other available control color codes the displayed faults by their strike or dip.
+        </p>
+    </div>
+
+    <div>
+        <h4>Search</h4>
+        <p>
+            The site provides a number of search criteria, primarily keyword and latitude/longitude but also the
+            following advanced search criteria: fault area, fault system, section, name, strike, and dip. Once a search
+            type is selected, controls will appear below in the form of another dropdown, text input boxes, or sliders.
+            </p>
+        <p>
+        When performing a latitude/longitude search, there are two search methods. The first method is to
+            enter
+            the latitude/longitude values of the bottom left and top right corners of a bounding rectangle into the text boxes,
+            then clicking the search icon <span style="white-space: nowrap;">(<span style="color:#53A2BE;" class="glyphicon glyphicon-search"></span>).</span> The
+            second method is to click and drag on the map to draw a bounding rectangle. In either case, any portion of a
+            fault that lies within the bounding rectangle will appear in the search
+            results. Once a search is submitted, the matching faults appear on the map and are listed in the box* to the
+            left.
+        </p>
+        <p>To return to the initial view showing all the faults, click the "RESET" button.</p>
+    </div>
+
+    <div>
+        <h4>Viewing and Downloading Data</h4>
+
+        <p>
+            Metadata files in JSON format and tsurf files are available for download from this site. First, select the
+            desired faults by clicking on the fault displayed on the map or clicking on fault listed in the box* to the
+            left of the map. The selected faults are highlighted in red on the map. The selected faults' metadata appear
+            in the metadata
+            table* at the bottom of the page. Click on the links on the rightmost column of the metadata table to
+            download data for one fault. Click on the "DOWNLOAD ALL" button to download data for all selected faults.
+            The download options are: metadata only, or metadata along with tsurf files in native, 500m, or 1000m
+            resolution in a ZIP archive file.
+        </p>
+
+        <p>* The scrollable boxes on this site can contain more data than is visible at one time.</p>
+    </div>
+
+    <div>
+
+        <h4>Notes</h4>
+        <ul>
+            <li>
+                Projections: Fault representations are provided in Universal Transverse Mercator projection (UTM zone 11
+                S, North American datum 1927).
+            </li>
+            <li>Strike and dip are weighted averages. The true fault surface is non-planar.</li>
+            <li>The fault object names are comprised of metadata for each fault. For example,
+                "SAFS-SAFZ-MULT-Banning_fault_strand-CFM4" represents:
+                <ul>
+                    <li>Fault Area: SAFS</li>
+                    <li>Fault Zone: SAFZ</li>
+                    <li>Fault Section: MULT</li>
+                    <li>Fault Name: Banning fault strand</li>
+                    <li>CFM Version when added: CFM4</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
     <div>
         <h4>About the SCEC Community Fault Model (CFM) </h4>
 
@@ -74,92 +165,6 @@ $header = getHeader("User Guide");
 
         <p>More information about the CFM, including a complete model archive, can be found at: <a
                     href="https://www.scec.org/research/cfm">https://www.scec.org/research/cfm</a>.
-    </div>
-
-    <div>
-        <h4>Site Overview</h4>
-
-        <p>The CFM Viewer website provides a map-based view of <a
-                    href="https://www.scec.org/research/cfm">CFM version 5.2</a> preferred faults. It allows users to
-            view faults and metadata and download data on selected faults rather than downloading the entire CFM model
-            archive. The pages on this site are the <a href="<?php echo $host_site_actual_path; ?>">CFM viewer page</a>, this user guide, <a href="disclaimer">a disclaimer</a>, and a <a href="contact">contact information</a> page.
-        </p>
-
-        <p>The main interface is on the <a href="<?php echo $host_site_actual_path; ?>">Viewer Page</a>. When it is first loaded, all
-            available faults are listed in the box* on the left. Click on the checkboxes in the fault table
-            to select faults or click on faults on the map. (See <strong>Viewing and Downloading Metadata</strong>
-            below for more details.) Click on the eye icon (<span class="glyphicon glyphicon-eye-open"></span>) to
-            hide or show a fault.
-        </p>
-        <p>
-            The map on the right displays each fault in its geographic location. On top of the map on the right, the
-            base map can be changed. By default, the map shown is <a
-                    href="https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer">ESRI
-                Topographic</a>. The other map types are: <a
-                    href="https://services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer">ESRI
-                National Geographic</a>, <a
-                    href="https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer">ESRI
-                Imagery</a>, <a href="https://opentopomap.org">OTM Topographic</a>, and <a
-                    href="https://www.openstreetmap.org">OSM Street</a>. The other available control is a tool to
-            highlight the displayed faults by their strike and dip.
-        </p>
-    </div>
-
-    <div>
-        <h4>Search</h4>
-        <p>
-            The site provides a number of search criteria, primarily keyword and latitude/longitude but also the
-            following advanced search criteria: fault area, fault system, section, name, strike, and dip. Once a search
-            type is selected, controls will appear below in the form of another dropdown, text input boxes, or slider
-            controls. When performing a latitude/longitude search, there are two search methods. The first method is to
-            enter
-            the latitude/longitude values for the bottom left and top right corners of a bounding rectangle into the text boxes,
-            then clicking the search icon <span style="white-space: nowrap;">(<span style="color:#53A2BE;" class="glyphicon glyphicon-search"></span>).</span> The
-            second method is to click and drag on the map to draw a bounding rectangle. In either case, any portion of a
-            fault that lies within the bounding rectangle will appear in the search
-            results. Once a search is submitted, the matching faults appear on the map and are listed in the box* to the
-            left.
-        </p>
-        <p>To return to viewing all the faults, click the "RESET" button.</p>
-    </div>
-
-    <div>
-        <h4>Viewing and Downloading Data</h4>
-
-        <p>
-            Metadata files in JSON format and tsurf files are available for download from this site. First, select the
-            desired faults by clicking on the fault displayed on the map or clicking on fault listed in the box* to the
-            left of the map. The selected faults are highlighted in red on the map. The selected faults' metadata appear
-            in the metadata
-            table* at the bottom of the page. Click on the links on the rightmost column of the metadata table to
-            download data for one fault. Click on the "DOWNLOAD ALL" button to download data for all selected faults.
-            The download options are: metadata only, or metadata along with tsurf files in native, 500m, or 1000m
-            resolution in a ZIP archive file.
-        </p>
-
-        <p>* The scrollable boxes on this site can contain more data than is visible at one time.</p>
-    </div>
-
-    <div>
-
-        <h4>Notes</h4>
-        <ul>
-            <li>
-                Projections: Fault representations are provided in Universal Transverse Mercator projection (UTM zone 11
-                S, North American datum 1927).
-            </li>
-            <li>Strike and dip are weighted averages. The true fault surface is non-planar.</li>
-            <li>The fault object names are comprised of metadata for each fault. For example,
-                "SAFS-SAFZ-MULT-Banning_fault_strand-CFM4" represents:
-                <ul>
-                    <li>Fault Area: SAFS</li>
-                    <li>Fault Zone: SAFZ</li>
-                    <li>Fault Section: MULT</li>
-                    <li>Fault Name: Banning fault strand</li>
-                    <li>CFM Version when added: CFM4</li>
-                </ul>
-            </li>
-        </ul>
     </div>
     <div>
         <h4>References</h4>

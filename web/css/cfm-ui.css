@@ -530,17 +530,28 @@ table tr td label {
     position: relative;
 }
 
+.info-page-container.guide div.overview img {
+   border: 1px solid #ddd;
+}
+
 ul.references {
     padding-left: 0;
 }
 
 div.guide figure {
     float: right;
-    padding-top: 0;
-    padding-right: 0;
-    padding-left: 15px;
-    padding-bottom: 15px;
+    padding: 0 0 5px 15px;
+    margin-bottom: 0;
     width: 544px;
+}
+
+div.guide .overview .figure {
+    width: 530px;
+}
+
+div.guide .overview figure img {
+    width: 530px;
+    height: 399px;
 }
 
 div.guide figure img {
