@@ -57,7 +57,7 @@ $header = getHeader("User Guide");
                 National Geographic</a>, <a
                     href="https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer">ESRI
                 Imagery</a>, <a href="https://opentopomap.org">OTM Topographic</a>, and <a
-                    href="https://www.openstreetmap.org">OSM Street</a>. The other available control color codes the displayed faults by their strike or dip.
+                    href="https://www.openstreetmap.org">OSM Street</a>. The other available control highlights the displayed faults by their strike or dip in a color spectrum from red (low values) to blue (high values).
         </p>
     </div>
 
@@ -87,7 +87,7 @@ $header = getHeader("User Guide");
         <p>
             Metadata files in JSON format and tsurf files are available for download from this site. First, select the
             desired faults by clicking on the fault displayed on the map or clicking on fault listed in the box* to the
-            left of the map. The selected faults are highlighted in red on the map. The selected faults' metadata appear
+            left of the map. The selected faults are highlighted in red** on the map. The selected faults' metadata appear
             in the metadata
             table* at the bottom of the page. Click on the links on the rightmost column of the metadata table to
             download data for one fault. Click on the "DOWNLOAD ALL" button to download data for all selected faults.
@@ -95,7 +95,10 @@ $header = getHeader("User Guide");
             resolution in a ZIP archive file.
         </p>
 
-        <p>* The scrollable boxes on this site can contain more data than is visible at one time.</p>
+        <p>* The scrollable boxes on this site can contain more data than is visible at one time.
+            <br/>
+            ** When highlighting faults by strike or slip, selected faults appear turquoise rather than red. This is to avoid confusion with the strike/slip color scale.
+        </p>
     </div>
 
     <div>
