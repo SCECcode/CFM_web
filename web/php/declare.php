@@ -17,7 +17,7 @@ $reference_check=13;
 $ID_comments=14;
 $USGS_ID=15;
 $area=16;
-$region=17;
+$zone=17;
 $section=18;
 $fault=19;
 ?>

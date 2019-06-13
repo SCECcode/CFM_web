@@ -50,25 +50,25 @@ function setupDipRangeSlider(min,max) {
 function queryByType(type)
 {
   if(type == "area") { getAreaList(); }
-  if(type == "region") { getRegionList(); }
+  if(type == "zone") { getZoneList(); }
   if(type == "section") { getSectionList(); }
   if(type == "name") { getNameList(); }
 }
 
-// use the region list from php backend, generate the form html
-function makeRegionList() {
-    var str = $('[data-side="regions"]').data('params');
+// use the zone list from php backend, generate the form html
+function makeZoneList() {
+    var str = $('[data-side="zones"]').data('params');
     if (str == undefined)
       return "";
 
-    var html= "<form autocomplete=\"off\"> <select class=\"custom-select\"  id=\"selectRegion\" onchange=\"searchByRegion(this.value)\"> <option value=\"\">  Select... </option>";
+    var html= "<form autocomplete=\"off\"> <select class=\"custom-select\"  id=\"selectZone\" onchange=\"searchByZone(this.value)\"> <option value=\"\">  Select... </option>";
 
     var sz=(Object.keys(str).length);
     for( var i=0; i< sz; i++) {
        var s = JSON.parse(str[i]);
        var abb=s['abb'];
        var name=s['name'];
-       cfm_region_list.push( {"abb":abb, "name":name } );
+       cfm_zone_list.push( {"abb":abb, "name":name } );
        html=html+"<option value=\"" + abb + "\">"+ name +"</option>";
     }
     return html;

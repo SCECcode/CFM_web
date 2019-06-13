@@ -5,7 +5,7 @@
 **/
 
 var area_sidebar=false;
-var region_sidebar=false;
+var zone_sidebar=false;
 var section_sidebar=false;
 var name_sidebar=false;
 var keyword_sidebar=false;
@@ -20,7 +20,7 @@ var drawing_rectangle=false;
 // to dismiss the sidebar
 function dismiss_sidebar() {
   clear_popup(); 
-  if(region_sidebar) regionClick();
+  if(zone_sidebar) zoneClick();
   if(section_sidebar) sectionClick();
   if(area_sidebar) areaClick();
   if(name_sidebar) nameClick();
@@ -67,38 +67,36 @@ function sidebar_area_slideIn() {
 }
 
 
-// region sidebar
+// zone sidebar
 // slide out
-function regionClick() {
-  if(!region_sidebar) { dismiss_sidebar(); }
+function zoneClick() {
+  if(!zone_sidebar) { dismiss_sidebar(); }
 
-  region_sidebar = !region_sidebar;
-  if(region_sidebar) {
-    sidebar_region_slideOut();
-    $('#regionBtn').addClass('pick');
+  zone_sidebar = !zone_sidebar;
+  if(zone_sidebar) {
+    sidebar_zone_slideOut();
     } else {
-      sidebar_region_slideIn();
-      $('#regionBtn').removeClass('pick');
+      sidebar_zone_slideIn();
   }
 }
 
-function sidebar_region_slideOut() {
-  if (jQuery('#region').hasClass('menuDisabled')) {
+function sidebar_zone_slideOut() {
+  if (jQuery('#zone').hasClass('menuDisabled')) {
     // if this menu is disabled, don't slide
     return;
   }
-  var panelptr=$('#region');
+  var panelptr=$('#zone');
   var sidebarptr=$('#sidebar');
   panelptr.css("display","");
   sidebarptr.css("display","");
   panelptr.removeClass('fade-out').addClass('fade-in');
 }
-function sidebar_region_slideIn() {
-  if (jQuery('#region').hasClass('menuDisabled')) {
+function sidebar_zone_slideIn() {
+  if (jQuery('#zone').hasClass('menuDisabled')) {
     // if this menu is disabled, don't slide
     return;
   }
-  var panelptr=$('#region');
+  var panelptr=$('#zone');
   panelptr.removeClass('fade-in').addClass('fade-out');
   panelptr.css("display","none");
 }

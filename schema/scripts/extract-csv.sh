@@ -18,7 +18,7 @@ name,abb
 #name,abb
 csvcut -c 'Fault Zone/Region','Region Abb' CFM5.2-Fault_ID_preferred.csv |csvcut -K 1 | sort |uniq | sed "1i\\
 name,abb
-"> region_tb.csv
+"> zone_tb.csv
 
 #name,abb
 csvcut -c 'Fault Section','Section Abb' CFM5.2-Fault_ID_preferred.csv |csvcut -K 1 | sort |uniq | sed "1i\\
@@ -30,9 +30,9 @@ csvcut -c 'Fault Area/Major Fault System','System Abb' CFM5.2-Fault_ID_preferred
 name,abb
 "> area_tb.csv
 
-#name,area,sabb,region,rabb,section,ssabb,fault,fabb
+#name,area,sabb,zone,rabb,section,ssabb,fault,fabb
 csvcut -c 'CFM5.2 Fault Object Name','Fault Area/Major Fault System','System Abb','Fault Zone/Region','Region Abb','Fault Section','Section Abb','Fault Name','Name Abb' CFM5.2-Fault_ID_preferred.csv |csvcut -K 1|sort |uniq | sed "1i\\
-name,area,sabb,region,rabb,section,ssabb,fault,fabb
+name,area,sabb,zone,rabb,section,ssabb,fault,fabb
 "> object_tb_head.csv
 
 #name,Alternative,source author,CFM Version,model description,Descriptor,strike,dip,Area,Exposure,final slip sense,reference,Reference check,ID comments,USGS ID

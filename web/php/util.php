@@ -22,7 +22,7 @@ $myObj->reference_check=$row[$reference_check];
 $myObj->ID_comments=$row[$ID_comments];
 $myObj->USGS_ID=$row[$USGS_ID];
 $myObj->area=$row[$area];
-$myObj->region=$row[$region];
+$myObj->zone=$row[$zone];
 $myObj->section=$row[$section];
 $myObj->fault=$row[$fault];
 

@@ -37,8 +37,8 @@ function setup_dip_range(min,max)
    dip_range_max=max;
 }
 
-function reset_select_region() {
-  document.getElementById('selectRegion').selectedIndex=0;
+function reset_select_zone() {
+  document.getElementById('selectZone').selectedIndex=0;
 }
 
 function reset_select_section() {
@@ -269,7 +269,7 @@ function selectAll() {
   }
 } 
 function refreshAll() {
-  reset_select_region();
+  reset_select_zone();
   reset_select_section();
   reset_select_area();
   reset_select_name();
@@ -298,23 +298,6 @@ function _item(meta,str,type,name) {
     return str;
 }
 
-// TODO: remove?
-// function getMainContentFromMeta(meta) {
-//     var content=meta['fault'];
-//     content=content+"<hr>";
-//     content=content+"AREA: "+meta['area'];
-//     content=content+"<br>REGION: "+meta['region'];
-//     content=content+"<br>SECTION: "+meta['section'];
-//     content=content+"<br><br>";
-//     content=_item(meta,content,'source_Author','AUTHOR');
-//     content=content+"<br>VERSION: "+meta['CFM_version'];
-//     content=content+"<br>USGS_ID: "+meta['USGS_ID'];
-//     content=content+"<br><br>";
-//     content=add_details_btn(meta,content);
-//     content=add_highlight_btn(meta,content);
-//     return content;
-// }
-
 function getMetadataRowForDisplay(meta) {
    let downloadButtons = get_downloads_btn(meta);
    var area_m2 = "";
@@ -326,7 +309,7 @@ function getMetadataRowForDisplay(meta) {
    <tr id="metadata-${meta['gid']}">
        <td>${meta['fault']}</td>
        <td>${meta['area']}</td>
-       <td>${meta['region']}</td>
+       <td>${meta['zone']}</td>
        <td>${meta['section']}</td>
        <td>${meta['CFM_version']}</td>
        <td>${meta['strike']}</td>
@@ -349,25 +332,6 @@ function show_details(gid)
    }
 }
 
-
-// TODO: remove?
-// function getSecondaryContentFromMeta(meta) {
-// // get info on this..
-//     var content=meta['fault'];
-//     content=content+"<hr>";
-//     content=_item(meta,content,'strike','STRIKE');
-//     content=content+"<br>";
-//     content=_item(meta,content,'dip','DIP');
-//     content=content+"<br>";
-//     content=_item(meta,content,'area','AREA');
-//     content=content+"<br>";
-//     content=_item(meta,content,'exposure','EXPOSURE');
-//     content=content+"<br>";
-//     content=_item(meta,content,'final_slip_sense','FINAL_SLIP_SENSE');
-//     content=content+"<br><br>";
-//     content=add_downloads_btn(meta,content);
-//     return content;
-// }
 
 function getLevel3ContentFromMeta(meta) {
 // get info on this..
@@ -505,8 +469,8 @@ function processSearchResult(rlist) {
     if (rlist == 'searchByArea') {
         str = $('[data-side="resultByArea"]').data('params');
     }
-    if (rlist == 'searchByRegion') {
-        str = $('[data-side="resultByRegion"]').data('params');
+    if (rlist == 'searchByZone') {
+        str = $('[data-side="resultByZone"]').data('params');
     }
     if (rlist == 'searchBySection') {
         str = $('[data-side="resultBySection"]').data('params');

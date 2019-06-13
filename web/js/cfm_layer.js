@@ -25,7 +25,7 @@ var use_fault_color = "default";
 var use_download_set = "";
 
 // [ { "abb": abb1, "name" : name1 }, {"abb": abb2, "name": name2 }, ... ]
-var cfm_region_list=[];
+var cfm_zone_list=[];
 
 // [ { "abb": abb1, "name" : name1 }, {"abb": abb2, "name": name2 }, ... ]
 var cfm_area_list=[];

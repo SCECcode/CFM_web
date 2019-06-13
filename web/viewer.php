@@ -162,7 +162,7 @@ $header = getHeader("Viewer");
                     <option value="latlonClick">Latitude &amp; Longitude</option>
                     <option disabled>-- Advanced --</option>
                     <option value="areaClick">Area</option>
-                    <option value="regionClick">Region</option>
+                    <option value="zoneClick">Zone</option>
                     <option value="nameClick">Name</option>
                     <option value="sectionClick">Section</option>
                     <option value="strikeClick">Strike</option>
@@ -185,12 +185,12 @@ $header = getHeader("Viewer");
                                 </div>
                             </div>
                         </li>
-                        <li id='region' class='navigationLi ' style="display:none">
-                            <div id='regionMenu' class='menu'>
+                        <li id='zone' class='navigationLi ' style="display:none">
+                            <div id='zoneMenu' class='menu'>
                                 <div class="">
                                     <div class="" style="">
 
-                                        <div class="" id="regionList"></div>
+                                        <div class="" id="zoneList"></div>
                                     </div>
                                 </div>
                             </div>
@@ -374,7 +374,7 @@ $header = getHeader("Viewer");
                     <tr>
                         <th>Fault</th>
                         <th>Area</th>
-                        <th>Region</th>
+                        <th>Zone</th>
                         <th>Section</th>
                         <th>CFM Version</th>
                         <th>Strike</th>
