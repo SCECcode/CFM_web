@@ -16,12 +16,12 @@ CREATE TABLE OBJECT_native_tb (
    url VARCHAR(200) UNIQUE
 );
 
-CREATE TABLE REGION_tb (
+CREATE TABLE ZONE_tb (
    gid serial PRIMARY KEY,
    name VARCHAR(100) NOT NULL,
    abb VARCHAR(5) NOT NULL
 );
-CREATE TABLE SYSTEM_tb (
+CREATE TABLE AREA_tb (
    gid serial PRIMARY KEY,
    name VARCHAR(100) NOT NULL,
    abb VARCHAR(5) NOT NULL
@@ -42,9 +42,9 @@ CREATE TABLE FAULT_tb (
 CREATE TABLE OBJECT_tb (
    gid serial PRIMARY KEY,
 
-   SYSTEM_tb_gid integer DEFAULT NULL,
+   AREA_tb_gid integer DEFAULT NULL,
 
-   REGION_tb_gid integer DEFAULT NULL,
+   ZONE_tb_gid integer DEFAULT NULL,
 
    SECTION_tb_gid integer DEFAULT NULL,
 

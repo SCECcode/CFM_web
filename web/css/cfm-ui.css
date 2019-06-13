@@ -531,8 +531,14 @@ table tr td label {
     position: relative;
 }
 
-.info-page-container.guide div.overview img {
+.info-page-container.guide .cfm-interface img {
    border: 1px solid #ddd;
+    max-width: 630px;
+    width: 100%;
+}
+
+.info-page-container.guide .cfm-perspective-view {
+    max-width: 600px;
 }
 
 ul.references {
@@ -540,24 +546,8 @@ ul.references {
 }
 
 div.guide figure {
-    float: right;
     padding: 0 0 5px 15px;
     margin-bottom: 0;
-    width: 544px;
-}
-
-div.guide .overview .figure {
-    width: 530px;
-}
-
-div.guide .overview figure img {
-    width: 530px;
-    height: 399px;
-}
-
-div.guide figure img {
-    width: 544px;
-    height: 379px;
 }
 
 div.guide div ul li {

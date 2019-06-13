@@ -149,7 +149,7 @@ function searchByLatlon() {
     }
 }
 
-function searchByRegion(str) {
+function searchByZone(str) {
     if (str == "") {
         document.getElementById("searchResult").innerHTML = "";
         return;
@@ -166,11 +166,11 @@ function searchByRegion(str) {
                 toggle_off_all_layer();
                 cfm_active_gid_list=[];
                 document.getElementById("phpResponseTxt").innerHTML = this.responseText;
-                var str=processSearchResult("searchByRegion");
+                var str=processSearchResult("searchByZone");
                 document.getElementById("searchResult").innerHTML = makeResultTable(str);
             }
         };
-        xmlhttp.open("GET","php/byRegion.php?q="+str,true);
+        xmlhttp.open("GET","php/byZone.php?q="+str,true);
         xmlhttp.send();
     }
 }
@@ -201,7 +201,7 @@ function searchBySection(str) {
     }
 }
 
-function searchBySystem(str) {
+function searchByArea(str) {
     if (str == "") {
         document.getElementById("searchResult").innerHTML = "";
         return;
@@ -218,11 +218,11 @@ function searchBySystem(str) {
                 toggle_off_all_layer();
                 cfm_active_gid_list=[];
                 document.getElementById("phpResponseTxt").innerHTML = this.responseText;
-                var str=processSearchResult("searchBySystem");
+                var str=processSearchResult("searchByArea");
                 document.getElementById("searchResult").innerHTML = makeResultTable(str);
             }
         };
-        xmlhttp.open("GET","php/bySystem.php?q="+str,true);
+        xmlhttp.open("GET","php/byArea.php?q="+str,true);
         xmlhttp.send();
     }
 }
@@ -299,7 +299,7 @@ function getAllTraces() {
     xmlhttp.send();
 }
 
-function getRegionList() {
+function getZoneList() {
     if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
@@ -310,10 +310,10 @@ function getRegionList() {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
-            document.getElementById("regionList").innerHTML = makeRegionList();
+            document.getElementById("zoneList").innerHTML = makeZoneList();
         }
     };
-    xmlhttp.open("GET","php/getRegionList.php",true);
+    xmlhttp.open("GET","php/getZoneList.php",true);
     xmlhttp.send();
 }
 
@@ -354,7 +354,7 @@ function getNameList() {
 }
 
 
-function getSystemList() {
+function getAreaList() {
     if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
@@ -365,10 +365,10 @@ function getSystemList() {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
-            document.getElementById("systemList").innerHTML = makeSystemList();
+            document.getElementById("areaList").innerHTML = makeAreaList();
         }
     };
-    xmlhttp.open("GET","php/getSystemList.php",true);
+    xmlhttp.open("GET","php/getAreaList.php",true);
     xmlhttp.send();
 }
 
@@ -500,8 +500,8 @@ function getGeoJSONbyObjGid(gidstr, meta) {
 
 function setupSearch()
 {
-   queryByType("system");
-   queryByType("region");
+   queryByType("area");
+   queryByType("zone");
    queryByType("section");
    queryByType("name");
    getStrikeRange();

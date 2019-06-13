@@ -4,8 +4,8 @@
 
 **/
 
-var system_sidebar=false;
-var region_sidebar=false;
+var area_sidebar=false;
+var zone_sidebar=false;
 var section_sidebar=false;
 var name_sidebar=false;
 var keyword_sidebar=false;
@@ -20,9 +20,9 @@ var drawing_rectangle=false;
 // to dismiss the sidebar
 function dismiss_sidebar() {
   clear_popup(); 
-  if(region_sidebar) regionClick();
+  if(zone_sidebar) zoneClick();
   if(section_sidebar) sectionClick();
-  if(system_sidebar) systemClick();
+  if(area_sidebar) areaClick();
   if(name_sidebar) nameClick();
   if(keyword_sidebar) keywordClick();
   if(latlon_sidebar) latlonClick();
@@ -31,76 +31,72 @@ function dismiss_sidebar() {
   if(gid_sidebar) gidClick();
 }
 
-// system sidebar js
+// area sidebar js
 
 // slide out
-function systemClick() {
-  if(!system_sidebar) { dismiss_sidebar(); }
+function areaClick() {
+  if(!area_sidebar) { dismiss_sidebar(); }
 
-  system_sidebar = !system_sidebar;
-  if(system_sidebar) {
-    sidebar_system_slideOut();
-    $('#systemBtn').addClass('pick');
+  area_sidebar = !area_sidebar;
+  if(area_sidebar) {
+    sidebar_area_slideOut();
     } else {
-      sidebar_system_slideIn();
-      $('#systemBtn').removeClass('pick');
+      sidebar_area_slideIn();
   }
 }
 
-function sidebar_system_slideOut() {
-  if (jQuery('#system').hasClass('menuDisabled')) {
+function sidebar_area_slideOut() {
+  if (jQuery('#area').hasClass('menuDisabled')) {
     // if this menu is disabled, don't slide
     return;
   }
-  var panelptr=$('#system');
+  var panelptr=$('#area');
   var sidebarptr=$('#sidebar');
   panelptr.css("display","");
   sidebarptr.css("display","");
   panelptr.removeClass('fade-out').addClass('fade-in');
 }
-function sidebar_system_slideIn() {
-  if (jQuery('#system').hasClass('menuDisabled')) {
+function sidebar_area_slideIn() {
+  if (jQuery('#area').hasClass('menuDisabled')) {
     // if this menu is disabled, don't slide
     return;
   }
-  var panelptr=$('#system');
+  var panelptr=$('#area');
   panelptr.removeClass('fade-in').addClass('fade-out');
   panelptr.css("display","none");
 }
 
 
-// region sidebar
+// zone sidebar
 // slide out
-function regionClick() {
-  if(!region_sidebar) { dismiss_sidebar(); }
+function zoneClick() {
+  if(!zone_sidebar) { dismiss_sidebar(); }
 
-  region_sidebar = !region_sidebar;
-  if(region_sidebar) {
-    sidebar_region_slideOut();
-    $('#regionBtn').addClass('pick');
+  zone_sidebar = !zone_sidebar;
+  if(zone_sidebar) {
+    sidebar_zone_slideOut();
     } else {
-      sidebar_region_slideIn();
-      $('#regionBtn').removeClass('pick');
+      sidebar_zone_slideIn();
   }
 }
 
-function sidebar_region_slideOut() {
-  if (jQuery('#region').hasClass('menuDisabled')) {
+function sidebar_zone_slideOut() {
+  if (jQuery('#zone').hasClass('menuDisabled')) {
     // if this menu is disabled, don't slide
     return;
   }
-  var panelptr=$('#region');
+  var panelptr=$('#zone');
   var sidebarptr=$('#sidebar');
   panelptr.css("display","");
   sidebarptr.css("display","");
   panelptr.removeClass('fade-out').addClass('fade-in');
 }
-function sidebar_region_slideIn() {
-  if (jQuery('#region').hasClass('menuDisabled')) {
+function sidebar_zone_slideIn() {
+  if (jQuery('#zone').hasClass('menuDisabled')) {
     // if this menu is disabled, don't slide
     return;
   }
-  var panelptr=$('#region');
+  var panelptr=$('#zone');
   panelptr.removeClass('fade-in').addClass('fade-out');
   panelptr.css("display","none");
 }

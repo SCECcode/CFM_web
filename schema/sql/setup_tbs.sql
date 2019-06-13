@@ -1,7 +1,7 @@
-COPY SYSTEM_tb(name, abb)
-FROM '/home/postgres/CFM/schema/data/system_tb.csv' DELIMITER ',' CSV HEADER;
-COPY REGION_tb(name, abb)
-FROM '/home/postgres/CFM/schema/data/region_tb.csv' DELIMITER ',' CSV HEADER;
+COPY AREA_tb(name, abb)
+FROM '/home/postgres/CFM/schema/data/area_tb.csv' DELIMITER ',' CSV HEADER;
+COPY ZONE_tb(name, abb)
+FROM '/home/postgres/CFM/schema/data/zone_tb.csv' DELIMITER ',' CSV HEADER;
 COPY SECTION_tb(name, abb)
 FROM '/home/postgres/CFM/schema/data/section_tb.csv' DELIMITER ',' CSV HEADER;
 COPY FAULT_tb(name, abb)
