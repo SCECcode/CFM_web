@@ -28,7 +28,7 @@ var use_download_set = "";
 var cfm_region_list=[];
 
 // [ { "abb": abb1, "name" : name1 }, {"abb": abb2, "name": name2 }, ... ]
-var cfm_system_list=[];
+var cfm_area_list=[];
 
 // [ { "abb": abb1, "name" : name1 }, {"abb": abb2, "name": name2 }, ... ]
 var cfm_section_list=[];
@@ -123,8 +123,9 @@ function makeGeoJSONFeature(geoJSON, gid, meta) {
        blob=JSON.parse(geoJSON);
   }
 
-  var level2content=getSecondaryContentFromMeta(meta);
-  var level1content=getMainContentFromMeta(meta);
+  // TODO: remove?
+  // var level2content=getSecondaryContentFromMeta(meta);
+  // var level1content=getMainContentFromMeta(meta);
   var color=getColorFromMeta(meta);
   var style= { "weight":2,
                "opacity":0.8,
@@ -133,8 +134,8 @@ function makeGeoJSONFeature(geoJSON, gid, meta) {
 
   var tmp= { "id":gid,
              "type":"Feature", 
-             "properties": { "popupContent": level2content,
-                             "popupMainContent":level1content,
+             "properties": { //"popupContent": level2content,
+                             //"popupMainContent":level1content,
                             "metadataRow": getMetadataRowForDisplay(meta),
                              "style": style
                            },

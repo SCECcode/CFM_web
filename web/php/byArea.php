@@ -11,7 +11,7 @@ if (!$dbconn) { die('Could not connect'); }
 
 $q = ($_GET['q']);
 
-$query = "SELECT OBJECT_tb.gid,OBJECT_tb.name FROM OBJECT_tb,SYSTEM_tb where SYSTEM_tb.abb=$1 and SYSTEM_tb.gid=OBJECT_tb.SYSTEM_tb_gid";
+$query = "SELECT OBJECT_tb.gid,OBJECT_tb.name FROM OBJECT_tb,AREA_tb where AREA_tb.abb=$1 and AREA_tb.gid=OBJECT_tb.AREA_tb_gid";
 
 $result = pg_prepare($dbconn, "my_query", $query);
 
@@ -30,7 +30,7 @@ while($row = pg_fetch_row($result)) {
 
 $resultstring = htmlspecialchars(json_encode($resultList), ENT_QUOTES, 'UTF-8');
 
-echo "<div data-side=\"resultBySystem\" data-params=\"";
+echo "<div data-side=\"resultByArea\" data-params=\"";
 echo $resultstring;
 echo "\" style=\"display:flex\"></div>";
 pg_close($dbconn);

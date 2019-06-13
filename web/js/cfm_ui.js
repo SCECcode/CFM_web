@@ -49,7 +49,7 @@ function setupDipRangeSlider(min,max) {
 
 function queryByType(type)
 {
-  if(type == "system") { getSystemList(); }
+  if(type == "area") { getAreaList(); }
   if(type == "region") { getRegionList(); }
   if(type == "section") { getSectionList(); }
   if(type == "name") { getNameList(); }
@@ -93,20 +93,20 @@ function makeSectionList() {
     return html;
 }
 
-// use the system list from php backend, generate the form html
-function makeSystemList() {
-    var str = $('[data-side="systems"]').data('params');
+// use the area list from php backend, generate the form html
+function makeAreaList() {
+    var str = $('[data-side="areas"]').data('params');
     if (str == undefined)
       return "";
 
-    var html= "<form autocomplete=\"off\"> <select class=\"custom-select\"  id=\"selectSystem\" onchange=\"searchBySystem(this.value)\"> <option value=\"\">  Select...</option>";
+    var html= "<form autocomplete=\"off\"> <select class=\"custom-select\"  id=\"selectArea\" onchange=\"searchByArea(this.value)\"> <option value=\"\">  Select...</option>";
 
     var sz=(Object.keys(str).length);
     for( var i=0; i< sz; i++) {
        var s = JSON.parse(str[i]);
        var abb=s['abb'];
        var name=s['name'];
-       cfm_system_list.push( {"abb":abb, "name":name } );
+       cfm_area_list.push( {"abb":abb, "name":name } );
        html=html+"<option value=\"" + abb + "\">"+ name +"</option>";
     }
     return html;

@@ -45,8 +45,8 @@ function reset_select_section() {
   document.getElementById('selectSection').selectedIndex = 0;
 }
 
-function reset_select_system() {
-  document.getElementById('selectSystem').selectedIndex = 0;
+function reset_select_area() {
+  document.getElementById('selectArea').selectedIndex = 0;
 }
 
 function reset_select_name() {
@@ -271,7 +271,7 @@ function selectAll() {
 function refreshAll() {
   reset_select_region();
   reset_select_section();
-  reset_select_system();
+  reset_select_area();
   reset_select_name();
   reset_strike_range();
   reset_dip_range();
@@ -298,39 +298,40 @@ function _item(meta,str,type,name) {
     return str;
 }
 
-function getMainContentFromMeta(meta) {
-    var content=meta['fault'];
-    content=content+"<hr>";
-    content=content+"SYSTEM: "+meta['system'];
-    content=content+"<br>REGION: "+meta['region'];
-    content=content+"<br>SECTION: "+meta['section'];
-    content=content+"<br><br>";
-    content=_item(meta,content,'source_Author','AUTHOR');
-    content=content+"<br>VERSION: "+meta['CFM_version'];
-    content=content+"<br>USGS_ID: "+meta['USGS_ID'];
-    content=content+"<br><br>";
-    content=add_details_btn(meta,content);
-    content=add_highlight_btn(meta,content);
-    return content;
-}
+// TODO: remove?
+// function getMainContentFromMeta(meta) {
+//     var content=meta['fault'];
+//     content=content+"<hr>";
+//     content=content+"AREA: "+meta['area'];
+//     content=content+"<br>REGION: "+meta['region'];
+//     content=content+"<br>SECTION: "+meta['section'];
+//     content=content+"<br><br>";
+//     content=_item(meta,content,'source_Author','AUTHOR');
+//     content=content+"<br>VERSION: "+meta['CFM_version'];
+//     content=content+"<br>USGS_ID: "+meta['USGS_ID'];
+//     content=content+"<br><br>";
+//     content=add_details_btn(meta,content);
+//     content=add_highlight_btn(meta,content);
+//     return content;
+// }
 
 function getMetadataRowForDisplay(meta) {
    let downloadButtons = get_downloads_btn(meta);
-   var area = "";
-   if (meta['area'] > 0) {
-       area = parseInt(meta['area']).toExponential();
+   var area_m2 = "";
+   if (meta['area_m2'] > 0) {
+       area_m2 = parseInt(meta['area_m2']).toExponential();
    }
 
    var content = `
    <tr id="metadata-${meta['gid']}">
        <td>${meta['fault']}</td>
-       <td>${meta['system']}</td>
+       <td>${meta['area']}</td>
        <td>${meta['region']}</td>
        <td>${meta['section']}</td>
        <td>${meta['CFM_version']}</td>
        <td>${meta['strike']}</td>
        <td>${meta['dip']}</td>
-       <td>${area}</td>
+       <td>${area_m2}</td>
        <td class="download-link">${downloadButtons}</td>
    </tr>
    `;
@@ -349,23 +350,24 @@ function show_details(gid)
 }
 
 
-function getSecondaryContentFromMeta(meta) {
-// get info on this..
-    var content=meta['fault'];
-    content=content+"<hr>";
-    content=_item(meta,content,'strike','STRIKE');
-    content=content+"<br>";
-    content=_item(meta,content,'dip','DIP');
-    content=content+"<br>";
-    content=_item(meta,content,'area','AREA');
-    content=content+"<br>";
-    content=_item(meta,content,'exposure','EXPOSURE');
-    content=content+"<br>";
-    content=_item(meta,content,'final_slip_sense','FINAL_SLIP_SENSE');
-    content=content+"<br><br>";
-    content=add_downloads_btn(meta,content);
-    return content;
-}
+// TODO: remove?
+// function getSecondaryContentFromMeta(meta) {
+// // get info on this..
+//     var content=meta['fault'];
+//     content=content+"<hr>";
+//     content=_item(meta,content,'strike','STRIKE');
+//     content=content+"<br>";
+//     content=_item(meta,content,'dip','DIP');
+//     content=content+"<br>";
+//     content=_item(meta,content,'area','AREA');
+//     content=content+"<br>";
+//     content=_item(meta,content,'exposure','EXPOSURE');
+//     content=content+"<br>";
+//     content=_item(meta,content,'final_slip_sense','FINAL_SLIP_SENSE');
+//     content=content+"<br><br>";
+//     content=add_downloads_btn(meta,content);
+//     return content;
+// }
 
 function getLevel3ContentFromMeta(meta) {
 // get info on this..
@@ -500,8 +502,8 @@ function processSearchResult(rlist) {
     if (rlist == 'searchByKeyword') {
         str = $('[data-side="resultByKeyword"]').data('params');
     }
-    if (rlist == 'searchBySystem') {
-        str = $('[data-side="resultBySystem"]').data('params');
+    if (rlist == 'searchByArea') {
+        str = $('[data-side="resultByArea"]').data('params');
     }
     if (rlist == 'searchByRegion') {
         str = $('[data-side="resultByRegion"]').data('params');

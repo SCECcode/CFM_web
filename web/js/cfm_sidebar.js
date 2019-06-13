@@ -4,7 +4,7 @@
 
 **/
 
-var system_sidebar=false;
+var area_sidebar=false;
 var region_sidebar=false;
 var section_sidebar=false;
 var name_sidebar=false;
@@ -22,7 +22,7 @@ function dismiss_sidebar() {
   clear_popup(); 
   if(region_sidebar) regionClick();
   if(section_sidebar) sectionClick();
-  if(system_sidebar) systemClick();
+  if(area_sidebar) areaClick();
   if(name_sidebar) nameClick();
   if(keyword_sidebar) keywordClick();
   if(latlon_sidebar) latlonClick();
@@ -31,39 +31,37 @@ function dismiss_sidebar() {
   if(gid_sidebar) gidClick();
 }
 
-// system sidebar js
+// area sidebar js
 
 // slide out
-function systemClick() {
-  if(!system_sidebar) { dismiss_sidebar(); }
+function areaClick() {
+  if(!area_sidebar) { dismiss_sidebar(); }
 
-  system_sidebar = !system_sidebar;
-  if(system_sidebar) {
-    sidebar_system_slideOut();
-    $('#systemBtn').addClass('pick');
+  area_sidebar = !area_sidebar;
+  if(area_sidebar) {
+    sidebar_area_slideOut();
     } else {
-      sidebar_system_slideIn();
-      $('#systemBtn').removeClass('pick');
+      sidebar_area_slideIn();
   }
 }
 
-function sidebar_system_slideOut() {
-  if (jQuery('#system').hasClass('menuDisabled')) {
+function sidebar_area_slideOut() {
+  if (jQuery('#area').hasClass('menuDisabled')) {
     // if this menu is disabled, don't slide
     return;
   }
-  var panelptr=$('#system');
+  var panelptr=$('#area');
   var sidebarptr=$('#sidebar');
   panelptr.css("display","");
   sidebarptr.css("display","");
   panelptr.removeClass('fade-out').addClass('fade-in');
 }
-function sidebar_system_slideIn() {
-  if (jQuery('#system').hasClass('menuDisabled')) {
+function sidebar_area_slideIn() {
+  if (jQuery('#area').hasClass('menuDisabled')) {
     // if this menu is disabled, don't slide
     return;
   }
-  var panelptr=$('#system');
+  var panelptr=$('#area');
   panelptr.removeClass('fade-in').addClass('fade-out');
   panelptr.css("display","none");
 }

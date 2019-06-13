@@ -1,4 +1,4 @@
-name,system,sabb,region,rabb,section,ssabb,fault,fabb
+name,area,sabb,region,rabb,section,ssabb,fault,fabb
 SAFS-SAFZ-MULT-Banning_fault_strand-CFM4,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,San Bernardino-Coachella Valley,MULT,Banning fault strand,BNFS
 SAFS-SAFZ-PARK-San_Andreas_fault-CFM4,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Parkfield,PARK,San Andreas fault,SAF
 SAFS-SAFZ-CLCZ-San_Andreas_fault-CHLM-CFM4,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Cholame-Carrizo,CLCZ,San Andreas fault,SAF
