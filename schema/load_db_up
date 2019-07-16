@@ -1,15 +1,16 @@
 #!/bin/bash
 
-dropdb --if-exists CFM5_db 
-createdb CFM5_db
+dropdb --if-exists CFM52_db 
+createdb CFM52_db
 mkdir -p /home/postgres/CFM
 cp -Rv /app/schema /home/postgres/CFM/
-psql postgresql://postgres:example@localhost/CFM5_db << AAA
+psql postgresql://postgres:example@localhost/CFM52_db << AAA
 
   CREATE EXTENSION postgis;
   SELECT PostGIS_Version();
 
-  \i '/home/postgres/CFM/schema/sql/CFM5_preferred_traces.sql';
+  \i '/home/postgres/CFM/schema/sql/CFM52_preferred_traces_nonblind.sql';
+  \i '/home/postgres/CFM/schema/sql/CFM52_preferred_traces_blind.sql';
   \i '/home/postgres/CFM/schema/sql/setup_schema.sql';
   \i '/home/postgres/CFM/schema/sql/setup_tbs.sql';
   \i '/home/postgres/CFM/schema/sql/setup_object_tb.sql';

@@ -1,5 +1,7 @@
 name,abb
-Eastern San Bernardino Mtns,SBMT
+ Eastern San Bernardino Mtns,SBMT
+1812 Rupture-Mojave SAF+nSJF,1812
+1857 Rupture-Parkfield-Mojave,1857
 1872 rupture,1872
 1992 Big Bear rupture,1992
 1992 Joshua Tree rupture,1992
@@ -46,6 +48,7 @@ Detachment,DTMT
 East Bullion,EBLS
 East Huasna,EHSN
 East Santa Cruz Basin,ESCB
+East,EAST
 Eastern Big Pine,EAST
 Eastern splay - south,EAST
 Eastern splay,EAST
@@ -62,8 +65,10 @@ Gravel Hills,GVHS
 Gravel Hills-Harper Lake,MULT
 Harper Valley,HPVS
 Hector Mine rupture,1999
+Homestead Valley,HMSV
 Huasna Valley,HSNV
 Hunter Mtn-Saline Valley,MULT
+Icehouse Canyon,ICHC
 Imperial Valley,IMPV
 Independence,INDP
 Independence-Haiwee Reservoir,MULT
@@ -94,7 +99,9 @@ Mojave,MJVS
 Morales,MRLS
 Morongo Valley,MORV
 Multiple Sections,MULT
+Multiple sections,
 Multiple sections,MULT
+Multiple sections-offshore,RSCN
 Multiple-Los  Angeles basin,LABS
 North Channel,NCHN
 North-South Johnson Valley,MULT
@@ -132,7 +139,6 @@ San Bernardino,SBRN
 San Bernardino-Coachella Valley,MULT
 San Clemente Basin region,SCBR
 San Clemente Island,SCLI
-San Diego section,SNDG
 San Felipe,SFLS
 San Fernando Valley,SFNV
 San Fernando Valley,SNFV
@@ -160,13 +166,16 @@ Santa Ynez Valley,SYNV
 Sante Fe Springs,STFS
 Shoreline,SHRL
 Sierra Cucapah,SRCP
+Sierra Madre D section,SMDD
 Sierra Madre E section,SMDE
 Sierra Madre-Clamshell Canyon,SMCC
 Smoketree Wash,STWS
 South Cuyama,SCYM
+South,SOUT
 Southern Cleghorn,SCHS
 Southern Coronado Bank,SCBF
 Southern Johnson Valley,SJVS
+Stoddard Canyon,STDC
 Sulphur Mountain,SPMT
 Superstition Hills,SSHS
 Superstition Mountain,SSMT
@@ -175,6 +184,7 @@ Temecula,TMCL
 Thirtymile Bank,30MB
 Tiefort Mountains,TFMT
 TopaTopa Mountains,TOPA
+Upper San Gabriel River,USGR
 Upper Santa Ana Valley,USAV
 Ventura basin,VNTB
 Ventura basin,VNTR
