@@ -163,8 +163,8 @@ $header = getHeader("Viewer");
                     <option disabled>-- Advanced --</option>
                     <option value="areaClick">Area</option>
                     <option value="zoneClick">Zone</option>
-                    <option value="nameClick">Name</option>
                     <option value="sectionClick">Section</option>
+                    <option value="nameClick">Name</option>
                     <option value="strikeClick">Strike</option>
                     <option value="dipClick">Dip</option>
                 </select>
