@@ -60,7 +60,7 @@ $header = getHeader("User Guide");
             <h4>Search</h4>
             <p>
                 The site provides a number of search criteria, primarily keyword and latitude/longitude but also the
-                following advanced search criteria: fault area, fault system, section, name, strike, and dip. Once a
+                following advanced search criteria: fault area, fault zone, section, name, strike, and dip. Once a
                 search type is selected, controls will appear below in the form of another dropdown, text input boxes, or
                 sliders. </p>
             <p>
