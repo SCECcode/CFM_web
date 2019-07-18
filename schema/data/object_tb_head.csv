@@ -87,9 +87,9 @@ MJVA-HPFZ-GVHS-Harper_Valley_fault-CFM5,Mojave Fault Area,MJVA,Harper fault zone
 MJVA-HPFZ-HPVS-Harper_Valley_Mt_General_fault-CFM5,Mojave Fault Area,MJVA,Harper fault zone,HPFZ,Harper Valley,HPVS,Harper Valley – Mt_General fault,HMGF
 MJVA-HPFZ-MULT-Gravel_Hills_Harper_Lake_fault-CFM5,Mojave Fault Area,MJVA,Harper fault zone,HPFZ,Gravel Hills-Harper Lake,MULT,Gravel Hills-Harper Lake fault,GHLF
 MJVA-HSLZ-MULT-Helendale_South_Lockhart_fault-CFM5,Mojave Fault Area,MJVA,Helendale-South Lockhart fault zone,HSLZ,Multiple sections,MULT,Helendale-South Lockhart fault,HSLF
-MJVA-HSLZ-SBMT-Pipes_Canyon_fault-CFM5,Mojave Fault Area,MJVA,Helendale-South Lockhart fault zone,HSLZ, Eastern San Bernardino Mtns,SBMT,Pipes Canyon,PPCF
-MJVA-HSLZ-SBMT-Pipes_Canyon_fault_north_extension-CFM5,Mojave Fault Area,MJVA,Helendale-South Lockhart fault zone,HSLZ, Eastern San Bernardino Mtns,SBMT,Pipes Canyon-north-extension,PPCE
-MJVA-HSLZ-SBMT-Southern_Helendale_fault-CFM5,Mojave Fault Area,MJVA,Helendale-South Lockhart fault zone,HSLZ, Eastern San Bernardino Mtns,SBMT,Southern Helendale fault,SHDF
+MJVA-HSLZ-SBMT-Pipes_Canyon_fault-CFM5,Mojave Fault Area,MJVA,Helendale-South Lockhart fault zone,HSLZ,Eastern San Bernardino Mtns,SBMT,Pipes Canyon,PPCF
+MJVA-HSLZ-SBMT-Pipes_Canyon_fault_north_extension-CFM5,Mojave Fault Area,MJVA,Helendale-South Lockhart fault zone,HSLZ,Eastern San Bernardino Mtns,SBMT,Pipes Canyon-north-extension,PPCE
+MJVA-HSLZ-SBMT-Southern_Helendale_fault-CFM5,Mojave Fault Area,MJVA,Helendale-South Lockhart fault zone,HSLZ,Eastern San Bernardino Mtns,SBMT,Southern Helendale fault,SHDF
 MJVA-JVFZ-MULT-Johnson_Valley_fault-CFM5,Mojave Fault Area,MJVA,Johnson Valley-Homestead Valley fault zone,JVHZ,North-South Johnson Valley,MULT,Johnson Valley fault,JSVF
 MJVA-JVFZ-SJVS-Kickapoo_fault-CFM3,Mojave Fault Area,MJVA,Johnson Valley-Homestead Valley fault zone,JVHZ,Southern Johnson Valley,SJVS,Kickapoo fault,KCPF
 MJVA-JVHZ-HMSV-Homestead_Valley_fault-CFM3,Mojave Fault Area,MJVA,Johnson Valley-Homestead Valley fault zone,JVHZ,Homestead Valley,HMSV,Homestead Valley fault,HSVF
@@ -151,102 +151,102 @@ OCBA-SMCS-SMTO-San_Onofre_fault_upper-SRLN-CFM5,Offshore Continental Borderland 
 OCBA-SPBZ-NTHS-San_Pedro_Basin_fault_north-CFM5,Offshore Continental Borderland Area,OCBA,San Pedro Basin fault zone,SPBZ,Santa Monica Bay-San Pedro Basin,NTHS,San Pedro Basin fault-north,SPBN
 OCBA-SPBZ-STHS-San_Pedro_Basin_fault_south-LEGG-CFM5,Offshore Continental Borderland Area,OCBA,San Pedro Basin fault zone,SPBZ,San Pedro Basin-San Diego Trough,STHS,San Pedro Basin fault-south,SPBS
 OCCA-HSFZ-MULT-Hosgri_San_Simeon_fault-CFM1,Offshore Central California Area,OCCA,Hosgri fault zone,HSFZ,Multiple sections,MULT,Hosgri fault,HSGF
-PNRA-ATEV-MULT-Agua_Tibia_Earthquake_Valley_fault_east-CFM4,Peninsular Ranges  Area,PNRA,Agua Tibia-Earthquake Valley fault zone,ATEV,Multiple sections,MULT,Agua Tibia-Earthquake Valley fault-east,EQVE
-PNRA-ATEV-MULT-Agua_Tibia_Earthquake_Valley_fault_main-CFM4,Peninsular Ranges  Area,PNRA,Agua Tibia-Earthquake Valley fault zone,ATEV,Multiple sections,MULT,Agua Tibia-Earthquake Valley fault,EQVF
-PNRA-ATEV-MULT-Agua_Tibia_Earthquake_Valley_fault_west-CFM4,Peninsular Ranges  Area,PNRA,Agua Tibia-Earthquake Valley fault zone,ATEV,Multiple sections,MULT,Agua Tibia-Earthquake Valley fault-west,EQVW
-PNRA-CEPS-BLDH-Compton-Los_Alamitos_fault-CFM2,Peninsular Ranges  Area,PNRA,Compton-Lower Elysian Park fault system,CLEP,Baldwin Hills,BLDH,Compton-Los_Alamitos fault,CLAF
-PNRA-CEPS-LABS-Anaheim_fault-CFM1,Peninsular Ranges  Area,PNRA,Compton-Lower Elysian Park fault system,CLEP,Los Angeles Basin,LABS,Anaheim fault,ANHF
-PNRA-CEPS-LABS-Compton-Los_Alamitos_fault-CFM2,Peninsular Ranges  Area,PNRA,Compton-Lower Elysian Park fault system,CLEP,Los Angeles Basin,LABS,Compton-Los_Alamitos fault,CLAF
-PNRA-CEPS-PHLS-Lower_Elysian_Park_fault-CFM1,Peninsular Ranges  Area,PNRA,Compton-Lower Elysian Park fault system,CLEP,Puente Hills,PHLS,Lower Elysian Park fault,LEPF
-PNRA-CRSF-ALCM-Sawtooth_Range_fault-CFM4,Peninsular Ranges  Area,PNRA,Cross Faults,CRSF,Allicito Mountains,ALCM,Sawtooth Range fault,SWRF
-PNRA-CRSF-CHNH-Yorba_Linda_lineament-CFM2,Peninsular Ranges  Area,PNRA,Cross Faults,CRSF,Chino Hills,CHNH,Yorba Linda Lineament,YRLL
-PNRA-CRSF-CYMT-Devils_Canyon_fault-CFM4,Peninsular Ranges  Area,PNRA,Cross Faults,CRSF,Coyote Mountains,CYMT,Devil's Canyon fault,DVCF
-PNRA-CRSF-EMCP-El_Mayor_Cucapah_normal_fault-CFM4,Peninsular Ranges  Area,PNRA,Cross Faults,CRSF,El Mayor-Cucapah,EMCP,El Mayor-Cucapah normal fault,EMNF
-PNRA-CRSF-EMCP-El_Mayor_Cucapah_west_fault-CFM4,Peninsular Ranges  Area,PNRA,Cross Faults,CRSF,El Mayor-Cucapah,EMCP,El Mayor-Cucapah west fault,EMWF
-PNRA-CRSF-OCOT-Ocotillo_fault-CFM5,Peninsular Ranges  Area,PNRA,Cross Faults,CRSF,Ocotillo,OCOT,Ocotillo fault,OCTF
-PNRA-CRSF-OCOT-Ocotillo_set1-CFM4,Peninsular Ranges  Area,PNRA,Cross Faults,CRSF,Ocotillo,OCOT,Ocotillo set1,OCS1
-PNRA-CRSF-OCOT-Ocotillo_set2-CFM4,Peninsular Ranges  Area,PNRA,Cross Faults,CRSF,Ocotillo,OCOT,Ocotillo set2,OCS2
-PNRA-CRSF-OCOT-Ocotillo_set3-CFM4,Peninsular Ranges  Area,PNRA,Cross Faults,CRSF,Ocotillo,OCOT,Ocotillo set3,OCS3
-PNRA-CRSF-OCOT-Ocotillo_set4-CFM4,Peninsular Ranges  Area,PNRA,Cross Faults,CRSF,Ocotillo,OCOT,Ocotillo set4,OCS4
-PNRA-CRSF-OCOT-Ocotillo_set5-CFM4,Peninsular Ranges  Area,PNRA,Cross Faults,CRSF,Ocotillo,OCOT,Ocotillo set5,OCS5
-PNRA-CRSF-PGWS-Painted_Gorge_Wash_fault-CFM4,Peninsular Ranges  Area,PNRA,Cross Faults,CRSF,Painted Gorge Wash,PGWS,Painted Gorge Wash fault,PGWF
-PNRA-CRSF-USAV-Fontana_Seismicity_lineament-CFM1,Peninsular Ranges  Area,PNRA,Cross Faults,CRSF,Upper Santa Ana Valley,USAV,Fontana Seismicity lineament,FNTS
+PNRA-ATEV-MULT-Agua_Tibia_Earthquake_Valley_fault_east-CFM4,Peninsular Ranges Area,PNRA,Agua Tibia-Earthquake Valley fault zone,ATEV,Multiple sections,MULT,Agua Tibia-Earthquake Valley fault-east,EQVE
+PNRA-ATEV-MULT-Agua_Tibia_Earthquake_Valley_fault_main-CFM4,Peninsular Ranges Area,PNRA,Agua Tibia-Earthquake Valley fault zone,ATEV,Multiple sections,MULT,Agua Tibia-Earthquake Valley fault,EQVF
+PNRA-ATEV-MULT-Agua_Tibia_Earthquake_Valley_fault_west-CFM4,Peninsular Ranges Area,PNRA,Agua Tibia-Earthquake Valley fault zone,ATEV,Multiple sections,MULT,Agua Tibia-Earthquake Valley fault-west,EQVW
+PNRA-CEPS-BLDH-Compton-Los_Alamitos_fault-CFM2,Peninsular Ranges Area,PNRA,Compton-Lower Elysian Park fault system,CLEP,Baldwin Hills,BLDH,Compton-Los_Alamitos fault,CLAF
+PNRA-CEPS-LABS-Anaheim_fault-CFM1,Peninsular Ranges Area,PNRA,Compton-Lower Elysian Park fault system,CLEP,Los Angeles Basin,LABS,Anaheim fault,ANHF
+PNRA-CEPS-LABS-Compton-Los_Alamitos_fault-CFM2,Peninsular Ranges Area,PNRA,Compton-Lower Elysian Park fault system,CLEP,Los Angeles Basin,LABS,Compton-Los_Alamitos fault,CLAF
+PNRA-CEPS-PHLS-Lower_Elysian_Park_fault-CFM1,Peninsular Ranges Area,PNRA,Compton-Lower Elysian Park fault system,CLEP,Puente Hills,PHLS,Lower Elysian Park fault,LEPF
+PNRA-CRSF-ALCM-Sawtooth_Range_fault-CFM4,Peninsular Ranges Area,PNRA,Cross Faults,CRSF,Allicito Mountains,ALCM,Sawtooth Range fault,SWRF
+PNRA-CRSF-CHNH-Yorba_Linda_lineament-CFM2,Peninsular Ranges Area,PNRA,Cross Faults,CRSF,Chino Hills,CHNH,Yorba Linda Lineament,YRLL
+PNRA-CRSF-CYMT-Devils_Canyon_fault-CFM4,Peninsular Ranges Area,PNRA,Cross Faults,CRSF,Coyote Mountains,CYMT,Devil's Canyon fault,DVCF
+PNRA-CRSF-EMCP-El_Mayor_Cucapah_normal_fault-CFM4,Peninsular Ranges Area,PNRA,Cross Faults,CRSF,El Mayor-Cucapah,EMCP,El Mayor-Cucapah normal fault,EMNF
+PNRA-CRSF-EMCP-El_Mayor_Cucapah_west_fault-CFM4,Peninsular Ranges Area,PNRA,Cross Faults,CRSF,El Mayor-Cucapah,EMCP,El Mayor-Cucapah west fault,EMWF
+PNRA-CRSF-OCOT-Ocotillo_fault-CFM5,Peninsular Ranges Area,PNRA,Cross Faults,CRSF,Ocotillo,OCOT,Ocotillo fault,OCTF
+PNRA-CRSF-OCOT-Ocotillo_set1-CFM4,Peninsular Ranges Area,PNRA,Cross Faults,CRSF,Ocotillo,OCOT,Ocotillo set1,OCS1
+PNRA-CRSF-OCOT-Ocotillo_set2-CFM4,Peninsular Ranges Area,PNRA,Cross Faults,CRSF,Ocotillo,OCOT,Ocotillo set2,OCS2
+PNRA-CRSF-OCOT-Ocotillo_set3-CFM4,Peninsular Ranges Area,PNRA,Cross Faults,CRSF,Ocotillo,OCOT,Ocotillo set3,OCS3
+PNRA-CRSF-OCOT-Ocotillo_set4-CFM4,Peninsular Ranges Area,PNRA,Cross Faults,CRSF,Ocotillo,OCOT,Ocotillo set4,OCS4
+PNRA-CRSF-OCOT-Ocotillo_set5-CFM4,Peninsular Ranges Area,PNRA,Cross Faults,CRSF,Ocotillo,OCOT,Ocotillo set5,OCS5
+PNRA-CRSF-PGWS-Painted_Gorge_Wash_fault-CFM4,Peninsular Ranges Area,PNRA,Cross Faults,CRSF,Painted Gorge Wash,PGWS,Painted Gorge Wash fault,PGWF
+PNRA-CRSF-USAV-Fontana_Seismicity_lineament-CFM1,Peninsular Ranges Area,PNRA,Cross Faults,CRSF,Upper Santa Ana Valley,USAV,Fontana Seismicity lineament,FNTS
 PNRA-CRSF-USAV-Red_Hill_fault-CFM5,Peninsular Ranges Area,PNRA,Cross Faults,CRSF,Upper Santa Ana Valley,USAV,Red Hill fault,RDHF
-PNRA-CRSF-YUHA-Shell_Beds_fault-CFM5,Peninsular Ranges  Area,PNRA,Cross Faults,CRSF,Yuha Desert,YUHA,Shell Beds fault,SBDF
-PNRA-CRSF-YUHA-Yuha_Wash_fault-CFM5,Peninsular Ranges  Area,PNRA,Cross Faults,CRSF,Yuha Desert,YUHA,Yuha Wash fault,YWSF
-PNRA-CRSF-YUHA-Yuha_Well_Vista_del_Anza_fault_truncated-CFM5,Peninsular Ranges  Area,PNRA,Cross Faults,CRSF,Yuha Desert,YUHA,Yuha Well-Vista del Anza_fault,YWVA
-PNRA-CRSF-YUHA-Yuha_Well_fault-CFM5,Peninsular Ranges  Area,PNRA,Cross Faults,CRSF,Yuha Desert,YUHA,Yuha Well fault zone,YWLF
-PNRA-CRSF-YUHA-Yuha_Well_fault_north_set1-CFM5,Peninsular Ranges  Area,PNRA,Cross Faults,CRSF,Yuha Desert,YUHA,Yuha Well fault-north set1,YWLN
-PNRA-CRSF-YUHA-Yuha_Well_fault_northwest_steep-CFM5,Peninsular Ranges  Area,PNRA,Cross Faults,CRSF,Yuha Desert,YUHA,Yuha Well fault-northwest,YWNW
-PNRA-CRSF-YUHA-Yuha_Well_fault_west_steep-CFM5,Peninsular Ranges  Area,PNRA,Cross Faults,CRSF,Yuha Desert,YUHA,Yuha Well fault-west,YWLW
-PNRA-CRSF-YUHA-Yuha_fault-CFM5,Peninsular Ranges  Area,PNRA,Cross Faults,CRSF,Yuha Desert,YUHA,Yuha fault,YUHA
-PNRA-CSTF-SJQH-San_Joaquin_Hills_fault_truncated-CFM3,Peninsular Ranges  Area,PNRA,Coastal Faults,CSTF,San Joaquin Hills,SJQH,San Joaquin Hills fault,SJHF
-PNRA-DVVZ-DVSV-Davies_Valley_fault-CFM5,Peninsular Ranges  Area,PNRA,Davies Valley fault zone,DVVZ,Davies Valley,DVSV,Davies Valley fault,DVVF
-PNRA-DVVZ-NDVV-Northern_Davies_Valley_set1-CFM4,Peninsular Ranges  Area,PNRA,Davies Valley fault zone,DVVZ,Northern Davies Valley,NDVS,Northern Davies Valley fault,NDVV
-PNRA-ELSZ-CHNO-Chino_fault_Central_Ave-CFM4,Peninsular Ranges  Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Chino,CHNO,Chino Fault,CHNF
-PNRA-ELSZ-CHNO-Chino_fault_main-CFM4,Peninsular Ranges  Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Chino,CHNO,Chino Fault,CHNF
-PNRA-ELSZ-CYMT-Elsinore_fault-CFM4,Peninsular Ranges  Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Coyote Mountain,CYMT,Elsinore fault,ELSF
-PNRA-ELSZ-GLIV-Glen_Ivy_North_fault-CFM4,Peninsular Ranges  Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Glen Ivy,GLIV,Glen Ivy North fault,GINF
-PNRA-ELSZ-GLIV-Glen_Ivy_South_fault-CFM4,Peninsular Ranges  Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Glen Ivy,GLIV,Glen Ivy South fault,GISF
-PNRA-ELSZ-INDV-Indiviso_fault-CFM4,Peninsular Ranges  Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Indiviso,INDV,Indiviso fault,INDF
-PNRA-ELSZ-INDV-Indiviso_fault_splay-CFM4,Peninsular Ranges  Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Indiviso,INDV,Indiviso fault,INDF
-PNRA-ELSZ-JULN-Elsinore_fault_Wildomar_link-CFM4,Peninsular Ranges  Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Julian,JULN,Elsinore-Wildomar link,ELWL
-PNRA-ELSZ-JULN-Elsinore_fault_north-CFM4,Peninsular Ranges  Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Julian,JULN,Elsinore fault-north,ELNF
-PNRA-ELSZ-JULN-Elsinore_fault_south-CFM4,Peninsular Ranges  Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Julian,JULN,Elsinore fault-south,ELSF
-PNRA-ELSZ-LGSD-Laguna_Salada_fault_east_branch_dipping-CFM5,Peninsular Ranges  Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Laguna Salada,LGSD,Laguna Salada fault-east branch,LSFE
-PNRA-ELSZ-LGSD-Laguna_Salada_fault_east_branch_dipping_splay-CFM5,Peninsular Ranges  Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Laguna Salada,LGSD,Laguna Salada fault-east branch,LSFE
-PNRA-ELSZ-LGSD-Laguna_Salada_fault_north-CFM5,Peninsular Ranges  Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Laguna Salada,LGSD,Laguna Salada fault-north,LSFN
-PNRA-ELSZ-LGSD-Laguna_Salada_fault_south-CFM5,Peninsular Ranges  Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Laguna Salada,LGSD,Laguna Salada fault-south,LSFS
-PNRA-ELSZ-LGSD-Laguna_Salada_fault_west_branch_center-CFM5,Peninsular Ranges  Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Laguna Salada,LGSD,Laguna Salada fault-west branch,LSFW
-PNRA-ELSZ-LGSD-Laguna_Salada_fault_west_branch_deep_splay-CFM5,Peninsular Ranges  Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Laguna Salada,LGSD,Laguna Salada fault-west branch,LSFW
-PNRA-ELSZ-LGSD-Laguna_Salada_fault_west_branch_east-CFM5,Peninsular Ranges  Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Laguna Salada,LGSD,Laguna Salada fault-west branch,LSFW
-PNRA-ELSZ-LGSD-Laguna_Salada_fault_west_branch_west-CFM5,Peninsular Ranges  Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Laguna Salada,LGSD,Laguna Salada fault-west branch,LSFW
-PNRA-ELSZ-SRCP-Borrego_fault-CFM4,Peninsular Ranges  Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Sierra Cucapah,SRCP,Borrego fault,BRGF
-PNRA-ELSZ-SRCP-Paso_Inferior_fault-CFM4,Peninsular Ranges  Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Sierra Cucapah,SRCP,Paso Inferior fault,PSIF
-PNRA-ELSZ-SRCP-Paso_Superior_fault-CFM4,Peninsular Ranges  Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Sierra Cucapah,SRCP,Paso Superior detachment,PSSD
-PNRA-ELSZ-SRCP-Pescadores_fault-CFM4,Peninsular Ranges  Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Sierra Cucapah,SRCP,Pescadores fault,PSDF
-PNRA-ELSZ-SRCP-Sierra_Cucapah_fault-CFM4,Peninsular Ranges  Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Sierra Cucapah,SRCP,Sierra Cucapah fault,SCPF
-PNRA-ELSZ-TMCL-Wildomar_fault-CFM4,Peninsular Ranges  Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Temecula,TMCL,Wildomar fault,WLDF
-PNRA-ELSZ-TMCL-Willard_fault-CFM4,Peninsular Ranges  Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Temecula,TMCL,Willard fault,WLRF
-PNRA-ELSZ-WHIT-East_Montebello_fault-CFM3,Peninsular Ranges  Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Whittier,WHIT,East Montebello fault,EMBF
-PNRA-ELSZ-WHIT-Whittier_Heights_fault-CFM1,Peninsular Ranges  Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Whittier,WHIT,Whittier Heights fault,WHTF
-PNRA-ELSZ-WHIT-Whittier_fault-CFM4,Peninsular Ranges  Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Whittier,WHIT,Whittier fault,WTRF
-PNRA-ELSZ-WHIT-Workman_Hill_fault-CFM1,Peninsular Ranges  Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Whittier,WHIT,Workman Hill fault,WMHF
-PNRA-ELSZ-YUHA-Sierra_Cucapah_fault_NW_splay-CFM5,Peninsular Ranges  Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Yuha Desert,YUHA,Sierra Cucapah fault-NW_splay,SCPF
-PNRA-ELSZ-YUHA-Sierra_Cucapah_fault_blind_north-CFM5,Peninsular Ranges  Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Yuha Desert,YUHA,Sierra Cucapah fault-blind,SCPB
-PNRA-HSSF-AGCT-Agua_Caliente_fault_zone-CFM4,Peninsular Ranges  Area,PNRA,Hot Springs-San Felipe fault zone,HSSF,Agua Caliente,AGCT,Agua Caliente fault zone,ACFZ
-PNRA-HSSF-HOTS-Hot_Springs_fault-CFM4,Peninsular Ranges  Area,PNRA,Hot Springs-San Felipe fault zone,HSSF,San Felipe,SFLS,San Felipe fault,SFLF
-PNRA-HSSF-MRHS-Murrieta_Hotsprings_fault-CFM4,Peninsular Ranges  Area,PNRA,Hot Springs-San Felipe fault zone,HSSF,Fish Creek Mountain,FCMS,Fish Creek Mountain fault,FCMF
-PNRA-NBJD-CDVD-Canada_David_detachment-CFM3,Peninsular Ranges  Area,PNRA,Northern Baja detachments,NBJD,Canada David,CDVD,Canada David detachment,CNDD
-PNRA-NBJD-SRCP-Cerro_Centinela_fault-CFM2,Peninsular Ranges  Area,PNRA,Northern Baja detachments,NBJD,Sierra Cucapah,SRCP,Cerro-Centinela fault,CRCF
-PNRA-NIRC-LABS-Newport_Inglewood_fault_dip_w_splays_split-CFM5,Peninsular Ranges  Area,PNRA,Newport-Inglewood-Rose Canyon fault zone,NIRC,Multiple-Los  Angeles basin,LABS,Newport-Inglewood fault,NIWF
-PNRA-SJFZ-ANZA-Buck_Ridge_fault-CFM4,Peninsular Ranges  Area,PNRA,San Jacinto fault zone,SJFZ,Anza,ANZA,Buck Ridge fault,BKRF
-PNRA-SJFZ-ANZA-Clark_fault_north-CFM4,Peninsular Ranges  Area,PNRA,San Jacinto fault zone,SJFZ,Anza,ANZA,Clark fault-north,CLFN
-PNRA-SJFZ-ANZA-Clark_fault_south_east-CFM4,Peninsular Ranges  Area,PNRA,San Jacinto fault zone,SJFZ,Anza,ANZA,Clark fault-south-east,CFSE
-PNRA-SJFZ-ANZA-Clark_fault_south_main-CFM4,Peninsular Ranges  Area,PNRA,San Jacinto fault zone,SJFZ,Anza,ANZA,Clark fault-south,CLFS
-PNRA-SJFZ-ANZA-Clark_fault_south_west-CFM4,Peninsular Ranges  Area,PNRA,San Jacinto fault zone,SJFZ,Anza,ANZA,Clark fault-south-west,CFSW
-PNRA-SJFZ-ANZA-Clark_fault_south_west_link-CFM4,Peninsular Ranges  Area,PNRA,San Jacinto fault zone,SJFZ,Anza,ANZA,Clark fault-south-west,CFSW
-PNRA-SJFZ-ANZA-Hot_Springs_Buck_Ridge_link-CFM4,Peninsular Ranges  Area,PNRA,San Jacinto fault zone,SJFZ,Anza,ANZA,Buck Ridge-Hot Springs link,BRHS
-PNRA-SJFZ-BRMT-Coyote_Creek_blind_fault_north_east-CFM4,Peninsular Ranges  Area,PNRA,San Jacinto fault zone,SJFZ,Borrego Mountain,BRMT,Coyote Creek fault-northeast,CCRF
-PNRA-SJFZ-BRMT-Coyote_Creek_fault-CFM4,Peninsular Ranges  Area,PNRA,San Jacinto fault zone,SJFZ,Borrego Mountain,BRMT,Coyote Creek fault,CCRF
-PNRA-SJFZ-CYTC-Coyote_Creek_fault-CFM4,Peninsular Ranges  Area,PNRA,San Jacinto fault zone,SJFZ,Coyote Creek,CYTC,Coyote Creek fault,CCRF
+PNRA-CRSF-YUHA-Shell_Beds_fault-CFM5,Peninsular Ranges Area,PNRA,Cross Faults,CRSF,Yuha Desert,YUHA,Shell Beds fault,SBDF
+PNRA-CRSF-YUHA-Yuha_Wash_fault-CFM5,Peninsular Ranges Area,PNRA,Cross Faults,CRSF,Yuha Desert,YUHA,Yuha Wash fault,YWSF
+PNRA-CRSF-YUHA-Yuha_Well_Vista_del_Anza_fault_truncated-CFM5,Peninsular Ranges Area,PNRA,Cross Faults,CRSF,Yuha Desert,YUHA,Yuha Well-Vista del Anza_fault,YWVA
+PNRA-CRSF-YUHA-Yuha_Well_fault-CFM5,Peninsular Ranges Area,PNRA,Cross Faults,CRSF,Yuha Desert,YUHA,Yuha Well fault zone,YWLF
+PNRA-CRSF-YUHA-Yuha_Well_fault_north_set1-CFM5,Peninsular Ranges Area,PNRA,Cross Faults,CRSF,Yuha Desert,YUHA,Yuha Well fault-north set1,YWLN
+PNRA-CRSF-YUHA-Yuha_Well_fault_northwest_steep-CFM5,Peninsular Ranges Area,PNRA,Cross Faults,CRSF,Yuha Desert,YUHA,Yuha Well fault-northwest,YWNW
+PNRA-CRSF-YUHA-Yuha_Well_fault_west_steep-CFM5,Peninsular Ranges Area,PNRA,Cross Faults,CRSF,Yuha Desert,YUHA,Yuha Well fault-west,YWLW
+PNRA-CRSF-YUHA-Yuha_fault-CFM5,Peninsular Ranges Area,PNRA,Cross Faults,CRSF,Yuha Desert,YUHA,Yuha fault,YUHA
+PNRA-CSTF-SJQH-San_Joaquin_Hills_fault_truncated-CFM3,Peninsular Ranges Area,PNRA,Coastal Faults,CSTF,San Joaquin Hills,SJQH,San Joaquin Hills fault,SJHF
+PNRA-DVVZ-DVSV-Davies_Valley_fault-CFM5,Peninsular Ranges Area,PNRA,Davies Valley fault zone,DVVZ,Davies Valley,DVSV,Davies Valley fault,DVVF
+PNRA-DVVZ-NDVV-Northern_Davies_Valley_set1-CFM4,Peninsular Ranges Area,PNRA,Davies Valley fault zone,DVVZ,Northern Davies Valley,NDVS,Northern Davies Valley fault,NDVV
+PNRA-ELSZ-CHNO-Chino_fault_Central_Ave-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Chino,CHNO,Chino Fault,CHNF
+PNRA-ELSZ-CHNO-Chino_fault_main-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Chino,CHNO,Chino Fault,CHNF
+PNRA-ELSZ-CYMT-Elsinore_fault-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Coyote Mountain,CYMT,Elsinore fault,ELSF
+PNRA-ELSZ-GLIV-Glen_Ivy_North_fault-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Glen Ivy,GLIV,Glen Ivy North fault,GINF
+PNRA-ELSZ-GLIV-Glen_Ivy_South_fault-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Glen Ivy,GLIV,Glen Ivy South fault,GISF
+PNRA-ELSZ-INDV-Indiviso_fault-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Indiviso,INDV,Indiviso fault,INDF
+PNRA-ELSZ-INDV-Indiviso_fault_splay-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Indiviso,INDV,Indiviso fault,INDF
+PNRA-ELSZ-JULN-Elsinore_fault_Wildomar_link-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Julian,JULN,Elsinore-Wildomar link,ELWL
+PNRA-ELSZ-JULN-Elsinore_fault_north-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Julian,JULN,Elsinore fault-north,ELNF
+PNRA-ELSZ-JULN-Elsinore_fault_south-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Julian,JULN,Elsinore fault-south,ELSF
+PNRA-ELSZ-LGSD-Laguna_Salada_fault_east_branch_dipping-CFM5,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Laguna Salada,LGSD,Laguna Salada fault-east branch,LSFE
+PNRA-ELSZ-LGSD-Laguna_Salada_fault_east_branch_dipping_splay-CFM5,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Laguna Salada,LGSD,Laguna Salada fault-east branch,LSFE
+PNRA-ELSZ-LGSD-Laguna_Salada_fault_north-CFM5,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Laguna Salada,LGSD,Laguna Salada fault-north,LSFN
+PNRA-ELSZ-LGSD-Laguna_Salada_fault_south-CFM5,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Laguna Salada,LGSD,Laguna Salada fault-south,LSFS
+PNRA-ELSZ-LGSD-Laguna_Salada_fault_west_branch_center-CFM5,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Laguna Salada,LGSD,Laguna Salada fault-west branch,LSFW
+PNRA-ELSZ-LGSD-Laguna_Salada_fault_west_branch_deep_splay-CFM5,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Laguna Salada,LGSD,Laguna Salada fault-west branch,LSFW
+PNRA-ELSZ-LGSD-Laguna_Salada_fault_west_branch_east-CFM5,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Laguna Salada,LGSD,Laguna Salada fault-west branch,LSFW
+PNRA-ELSZ-LGSD-Laguna_Salada_fault_west_branch_west-CFM5,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Laguna Salada,LGSD,Laguna Salada fault-west branch,LSFW
+PNRA-ELSZ-SRCP-Borrego_fault-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Sierra Cucapah,SRCP,Borrego fault,BRGF
+PNRA-ELSZ-SRCP-Paso_Inferior_fault-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Sierra Cucapah,SRCP,Paso Inferior fault,PSIF
+PNRA-ELSZ-SRCP-Paso_Superior_fault-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Sierra Cucapah,SRCP,Paso Superior detachment,PSSD
+PNRA-ELSZ-SRCP-Pescadores_fault-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Sierra Cucapah,SRCP,Pescadores fault,PSDF
+PNRA-ELSZ-SRCP-Sierra_Cucapah_fault-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Sierra Cucapah,SRCP,Sierra Cucapah fault,SCPF
+PNRA-ELSZ-TMCL-Wildomar_fault-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Temecula,TMCL,Wildomar fault,WLDF
+PNRA-ELSZ-TMCL-Willard_fault-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Temecula,TMCL,Willard fault,WLRF
+PNRA-ELSZ-WHIT-East_Montebello_fault-CFM3,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Whittier,WHIT,East Montebello fault,EMBF
+PNRA-ELSZ-WHIT-Whittier_Heights_fault-CFM1,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Whittier,WHIT,Whittier Heights fault,WHTF
+PNRA-ELSZ-WHIT-Whittier_fault-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Whittier,WHIT,Whittier fault,WTRF
+PNRA-ELSZ-WHIT-Workman_Hill_fault-CFM1,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Whittier,WHIT,Workman Hill fault,WMHF
+PNRA-ELSZ-YUHA-Sierra_Cucapah_fault_NW_splay-CFM5,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Yuha Desert,YUHA,Sierra Cucapah fault-NW_splay,SCPF
+PNRA-ELSZ-YUHA-Sierra_Cucapah_fault_blind_north-CFM5,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Yuha Desert,YUHA,Sierra Cucapah fault-blind,SCPB
+PNRA-HSSF-AGCT-Agua_Caliente_fault_zone-CFM4,Peninsular Ranges Area,PNRA,Hot Springs-San Felipe fault zone,HSSF,Agua Caliente,AGCT,Agua Caliente fault zone,ACFZ
+PNRA-HSSF-HOTS-Hot_Springs_fault-CFM4,Peninsular Ranges Area,PNRA,Hot Springs-San Felipe fault zone,HSSF,San Felipe,SFLS,San Felipe fault,SFLF
+PNRA-HSSF-MRHS-Murrieta_Hotsprings_fault-CFM4,Peninsular Ranges Area,PNRA,Hot Springs-San Felipe fault zone,HSSF,Fish Creek Mountain,FCMS,Fish Creek Mountain fault,FCMF
+PNRA-NBJD-CDVD-Canada_David_detachment-CFM3,Peninsular Ranges Area,PNRA,Northern Baja detachments,NBJD,Canada David,CDVD,Canada David detachment,CNDD
+PNRA-NBJD-SRCP-Cerro_Centinela_fault-CFM2,Peninsular Ranges Area,PNRA,Northern Baja detachments,NBJD,Sierra Cucapah,SRCP,Cerro-Centinela fault,CRCF
+PNRA-NIRC-LABS-Newport_Inglewood_fault_dip_w_splays_split-CFM5,Peninsular Ranges Area,PNRA,Newport-Inglewood-Rose Canyon fault zone,NIRC,Multiple-Los Angeles basin,LABS,Newport-Inglewood fault,NIWF
+PNRA-SJFZ-ANZA-Buck_Ridge_fault-CFM4,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,Anza,ANZA,Buck Ridge fault,BKRF
+PNRA-SJFZ-ANZA-Clark_fault_north-CFM4,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,Anza,ANZA,Clark fault-north,CLFN
+PNRA-SJFZ-ANZA-Clark_fault_south_east-CFM4,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,Anza,ANZA,Clark fault-south-east,CFSE
+PNRA-SJFZ-ANZA-Clark_fault_south_main-CFM4,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,Anza,ANZA,Clark fault-south,CLFS
+PNRA-SJFZ-ANZA-Clark_fault_south_west-CFM4,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,Anza,ANZA,Clark fault-south-west,CFSW
+PNRA-SJFZ-ANZA-Clark_fault_south_west_link-CFM4,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,Anza,ANZA,Clark fault-south-west,CFSW
+PNRA-SJFZ-ANZA-Hot_Springs_Buck_Ridge_link-CFM4,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,Anza,ANZA,Buck Ridge-Hot Springs link,BRHS
+PNRA-SJFZ-BRMT-Coyote_Creek_blind_fault_north_east-CFM4,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,Borrego Mountain,BRMT,Coyote Creek fault-northeast,CCRF
+PNRA-SJFZ-BRMT-Coyote_Creek_fault-CFM4,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,Borrego Mountain,BRMT,Coyote Creek fault,CCRF
+PNRA-SJFZ-CYTC-Coyote_Creek_fault-CFM4,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,Coyote Creek,CYTC,Coyote Creek fault,CCRF
 PNRA-SJFZ-CYTC-Coyote_Creek_fault_center_east_splay-CFM4,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,Coyote Creek,CYTC,Coyote Creek fault-center,CCFC
-PNRA-SJFZ-IMPV-Dixieland_fault-CFM5,Peninsular Ranges  Area,PNRA,San Jacinto fault zone,SJFZ,Imperial Valley,IMPV,Dixieland_fault,DXLF
-PNRA-SJFZ-IMPV-Weinert_El_Centro_fault-CFM5,Peninsular Ranges  Area,PNRA,San Jacinto fault zone,SJFZ,Imperial Valley,IMPV,Weinert-El Centro fault,WECF
-PNRA-SJFZ-IMPV-Weinert_Superstition_Hills_link-CFM5,Peninsular Ranges  Area,PNRA,San Jacinto fault zone,SJFZ,Imperial Valley,IMPV,Weinert-Superstition Hills link,WSHL
-PNRA-SJFZ-SBRN-Glen_Helen_fault-CFM4,Peninsular Ranges  Area,PNRA,San Jacinto fault zone,SJFZ,San Bernardino,SBRN,Glen Helen fault,GHNF
-PNRA-SJFZ-SBRN-Loma_Linda_fault-CFM4,Peninsular Ranges  Area,PNRA,San Jacinto fault zone,SJFZ,San Bernardino,SBRN,Loma Linda fault,LLNF
-PNRA-SJFZ-SBRN-Lytle_Creek_fault-CFM4,Peninsular Ranges  Area,PNRA,San Jacinto fault zone,SJFZ,San Bernardino,SBRN,Lytle Creek fault,LTCF
-PNRA-SJFZ-SBRN-Rialto_Colton_fault-CFM4,Peninsular Ranges  Area,PNRA,San Jacinto fault zone,SJFZ,San Bernardino,SBRN,Rialto-Colton fault,RCLF
-PNRA-SJFZ-SBRN-San_Jacinto_Claremont_fault-CFM4,Peninsular Ranges  Area,PNRA,San Jacinto fault zone,SJFZ,San Bernardino,SBRN,San Jacinto-Claremont fault,SJCF
-PNRA-SJFZ-SJCV-Casa_Loma_fault-CFM4,Peninsular Ranges  Area,PNRA,San Jacinto fault zone,SJFZ,San Jacinto Valley,SJCV,Casa Loma fault,CSLF
-PNRA-SJFZ-SJCV-Claremont_fault-CFM4,Peninsular Ranges  Area,PNRA,San Jacinto fault zone,SJFZ,San Jacinto Valley,SJCV,Claremont fault,CLMF
-PNRA-SJFZ-SJCV-Hot_Springs_fault-CFM4,Peninsular Ranges  Area,PNRA,San Jacinto fault zone,SJFZ,San Jacinto Valley,SJCV,Hot Springs fault,HSPF
-PNRA-SJFZ-SJCV-Hot_Springs_fault_west-CFM4,Peninsular Ranges  Area,PNRA,San Jacinto fault zone,SJFZ,San Jacinto Valley,SJCV,Hot Springs fault-west,HSFW
-PNRA-SJFZ-SJCV-San_Jacinto_Claremont_fault-east-CFM4,Peninsular Ranges  Area,PNRA,San Jacinto fault zone,SJFZ,San Jacinto Valley,SJCV,Claremont fault,CLMF
-PNRA-SJFZ-SSHS-Superstition_Hills_fault-CFM4,Peninsular Ranges  Area,PNRA,San Jacinto fault zone,SJFZ,Superstition Hills,SSHS,Superstition Hills fault,SSHF
-PNRA-SJFZ-SSMT-Superstition_Mountain_fault-CFM4,Peninsular Ranges  Area,PNRA,San Jacinto fault zone,SJFZ,Superstition Mountain,SSMT,Superstition Mountain fault,SSMF
-PNRA-SJFZ-SSMT-West_Mesa_fault-CFM5,Peninsular Ranges  Area,PNRA,San Jacinto fault zone,SJFZ,Superstition Mountain,SSMT,West Mesa fault,WMSF
+PNRA-SJFZ-IMPV-Dixieland_fault-CFM5,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,Imperial Valley,IMPV,Dixieland_fault,DXLF
+PNRA-SJFZ-IMPV-Weinert_El_Centro_fault-CFM5,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,Imperial Valley,IMPV,Weinert-El Centro fault,WECF
+PNRA-SJFZ-IMPV-Weinert_Superstition_Hills_link-CFM5,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,Imperial Valley,IMPV,Weinert-Superstition Hills link,WSHL
+PNRA-SJFZ-SBRN-Glen_Helen_fault-CFM4,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,San Bernardino,SBRN,Glen Helen fault,GHNF
+PNRA-SJFZ-SBRN-Loma_Linda_fault-CFM4,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,San Bernardino,SBRN,Loma Linda fault,LLNF
+PNRA-SJFZ-SBRN-Lytle_Creek_fault-CFM4,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,San Bernardino,SBRN,Lytle Creek fault,LTCF
+PNRA-SJFZ-SBRN-Rialto_Colton_fault-CFM4,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,San Bernardino,SBRN,Rialto-Colton fault,RCLF
+PNRA-SJFZ-SBRN-San_Jacinto_Claremont_fault-CFM4,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,San Bernardino,SBRN,San Jacinto-Claremont fault,SJCF
+PNRA-SJFZ-SJCV-Casa_Loma_fault-CFM4,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,San Jacinto Valley,SJCV,Casa Loma fault,CSLF
+PNRA-SJFZ-SJCV-Claremont_fault-CFM4,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,San Jacinto Valley,SJCV,Claremont fault,CLMF
+PNRA-SJFZ-SJCV-Hot_Springs_fault-CFM4,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,San Jacinto Valley,SJCV,Hot Springs fault,HSPF
+PNRA-SJFZ-SJCV-Hot_Springs_fault_west-CFM4,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,San Jacinto Valley,SJCV,Hot Springs fault-west,HSFW
+PNRA-SJFZ-SJCV-San_Jacinto_Claremont_fault-east-CFM4,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,San Jacinto Valley,SJCV,Claremont fault,CLMF
+PNRA-SJFZ-SSHS-Superstition_Hills_fault-CFM4,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,Superstition Hills,SSHS,Superstition Hills fault,SSHF
+PNRA-SJFZ-SSMT-Superstition_Mountain_fault-CFM4,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,Superstition Mountain,SSMT,Superstition Mountain fault,SSMF
+PNRA-SJFZ-SSMT-West_Mesa_fault-CFM5,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,Superstition Mountain,SSMT,West Mesa fault,WMSF
 SAFS-MHFZ-LSBM-Berdoo_Canyon_fault-CFM4,San Andreas Fault System,SAFS,Mecca Hills-Hidden Springs fault zone,MHFZ,Little San Bernardino Mts,LSBM,Berdoo Canyon fault,BDCF
 SAFS-MHFZ-LSBM-Indio_Hills_fault-CFM4,San Andreas Fault System,SAFS,Mecca Hills-Hidden Springs fault zone,MHFZ,Little San Bernardino Mts,LSBM,Indio Hills fault,INHF
 SAFS-MHFZ-MCHS-Hidden_Springs_fault-CFM4,San Andreas Fault System,SAFS,Mecca Hills-Hidden Springs fault zone,MHFZ,Mecca Hills,MCHS,Hidden Springs fault,HDSF
@@ -307,78 +307,78 @@ SNFA-OVFZ-1872-Owens_Valley_fault_rupture-CFM1,Sierra Nevada Fault Area,SNFA,Owe
 SNFA-PMVZ-MULT-Panamint_Valley_fault_steep-CFM2,Sierra Nevada Fault Area,SNFA,Panamint Valley fault zone,PMVZ,Northern Panamint-Brown Mtn,MULT,Panamint Valley fault,PMVF
 SNFA-SSNZ-INDP-Independence_fault-CFM1,Sierra Nevada Fault Area,SNFA,Southern Sierra Nevada fault zone,SSNZ,Independence,INDP,Independence fault,INDF
 SNFA-SSNZ-MULT-Independence_Sierra_Nevada_fault-CFM1,Sierra Nevada Fault Area,SNFA,Southern Sierra Nevada fault zone,SSNZ,Independence-Haiwee Reservoir,MULT,Independence-Sierra Nevada fault,ISNF
-WTRA-MRFS-MULT-Mission_Ridge_Arroyo_Parida_fault_dip-CFM5,Western Transverse Ranges  Area,WTRA,Mission Ridge fault system,MRFS,Multiple sections,MULT,Mission Ridge-Arroyo Parida fault,MRAF
-WTRA-NCVS-NCPP-North_Channel_fault_east-SRLN-CFM5,Western Transverse Ranges  Area,WTRA,North Channel-Ventura fault system,NCVS,North Channel,NCHN,North Channel fault-east,NCHE
-WTRA-NCVS-NCPP-North_Channel_fault_west-SRLN-CVMH-CFM5,Western Transverse Ranges  Area,WTRA,North Channel-Ventura fault system,NCVS,North Channel,NCHN,North Channel fault-west,NCHW
-WTRA-NCVS-NCPP-North_Channel_fault_west_end-SRLN-CVMH-CFM5,Western Transverse Ranges  Area,WTRA,North Channel-Ventura fault system,NCVS,North Channel,NCHN,North Channel fault-west-end-top,NCWT
-WTRA-NCVS-PPTV-Pitas_Point_Ventura_fault_link-CFM5,Western Transverse Ranges  Area,WTRA,North Channel-Ventura fault system,NCVS,Pitas Point-Ventura,PPTV,Pitas Point-Ventura fault link,PPVL
-WTRA-NCVS-PPTV-Pitas_Point_fault_east-CFM5,Western Transverse Ranges  Area,WTRA,North Channel-Ventura fault system,NCVS,Pitas Point-Ventura,PPTV,Pitas Point fault-east,PPTE
+WTRA-MRFS-MULT-Mission_Ridge_Arroyo_Parida_fault_dip-CFM5,Western Transverse Ranges Area,WTRA,Mission Ridge fault system,MRFS,Multiple sections,MULT,Mission Ridge-Arroyo Parida fault,MRAF
+WTRA-NCVS-NCPP-North_Channel_fault_east-SRLN-CFM5,Western Transverse Ranges Area,WTRA,North Channel-Ventura fault system,NCVS,North Channel,NCHN,North Channel fault-east,NCHE
+WTRA-NCVS-NCPP-North_Channel_fault_west-SRLN-CVMH-CFM5,Western Transverse Ranges Area,WTRA,North Channel-Ventura fault system,NCVS,North Channel,NCHN,North Channel fault-west,NCHW
+WTRA-NCVS-NCPP-North_Channel_fault_west_end-SRLN-CVMH-CFM5,Western Transverse Ranges Area,WTRA,North Channel-Ventura fault system,NCVS,North Channel,NCHN,North Channel fault-west-end-top,NCWT
+WTRA-NCVS-PPTV-Pitas_Point_Ventura_fault_link-CFM5,Western Transverse Ranges Area,WTRA,North Channel-Ventura fault system,NCVS,Pitas Point-Ventura,PPTV,Pitas Point-Ventura fault link,PPVL
+WTRA-NCVS-PPTV-Pitas_Point_fault_east-CFM5,Western Transverse Ranges Area,WTRA,North Channel-Ventura fault system,NCVS,Pitas Point-Ventura,PPTV,Pitas Point fault-east,PPTE
 WTRA-NCVS-PPTV-Pitas_Point_fault_west-CFM5,Western Transverse Ranges Area,WTRA,North Channel-Ventura fault system,NCVS,Pitas Point-Ventura,PPTV,Pitas Point fault-west,PPTW
-WTRA-NCVS-PPTV-Pitas_Point_fault_west_S-SRLN-CVMH-CFM5,Western Transverse Ranges  Area,WTRA,North Channel-Ventura fault system,NCVS,Pitas Point-Ventura,PPTV,Pitas Point fault-west-S,PPWS
-WTRA-NCVS-RDMT-Red_Mountain_fault_N_strand-CFM5,Western Transverse Ranges  Area,WTRA,North Channel-Ventura fault system,NCVS,Red Mountain,RDMT,Red Mountain fault-north strand,RMTN
-WTRA-NCVS-RDMT-Red_Mountain_fault_SW_strand-SRLN-CVMH-CFM5,Western Transverse Ranges  Area,WTRA,North Channel-Ventura fault system,NCVS,Red Mountain,RDMT,Red Mountain fault-SW-strand,RMSW
-WTRA-NCVS-RDMT-Red_Mountain_fault_S_strand-CFM5,Western Transverse Ranges  Area,WTRA,North Channel-Ventura fault system,NCVS,Red Mountain,RDMT,Red Mountain fault-south strand,RMTS
-WTRA-NCVS-VNTB-Southern_San_Cayetano_fault_steep-JHAP-CFM5,Western Transverse Ranges  Area,WTRA,North Channel-Ventura fault system,NCVS,Ventura basin,VNTB,Southern San Cayetano fault,SSCF
-WTRA-NCVS-VNTB-Ventura_fault_steep-CFM5,Western Transverse Ranges  Area,WTRA,North Channel-Ventura fault system,NCVS,Ventura basin,VNTB,Ventura fault,VNTF
-WTRA-ORFZ-MULT-Oak_Ridge_fault-CFM5,Western Transverse Ranges  Area,WTRA,Oak Ridge fault zone,ORFZ,Multiple sections,MULT,Oak Ridge fault,ORF
-WTRA-ORFZ-OFFS-Mid_Channel_fault-SRLN-CVMH-CFM5,Western Transverse Ranges  Area,WTRA,Oak Ridge fault zone,ORFZ,Offshore-Mid-Channel trend,OFFS,Mid-Channel fault,MCHF
-WTRA-ORFZ-SFNV-Northridge_Frew_fault-CFM2,Western Transverse Ranges  Area,WTRA,Oak Ridge fault zone,ORFZ,San Fernando Valley,SNFV,Northridge-Frew fault,NRDF
-WTRA-ORFZ-VNTB-Oak_Ridge_fault-MRSH-CFM5,Western Transverse Ranges  Area,WTRA,Oak Ridge fault zone,ORFZ,Ventura basin,VNTR,Oak Ridge fault,ORF
-WTRA-PHTS-COYT-Puente_Hills_Thrust_fault-CFM2,Western Transverse Ranges  Area,WTRA,Puente Hills Thrust system,PHTS,Coyote Hills,COYT,Puente Hills thrust,PHTF
-WTRA-PHTS-LABS-Las_Cienagas_fault_truncated-CFM1,Western Transverse Ranges  Area,WTRA,Puente Hills Thrust system,PHTS,Los Angeles Basin,LABS,Las Cienagas fault,LCGF
-WTRA-PHTS-LABS-Puente_Hills_Thrust_fault-CFM1,Western Transverse Ranges  Area,WTRA,Puente Hills Thrust system,PHTS,Los Angeles Basin,LABS,Puente Hills thrust,PHTF
-WTRA-PHTS-LABS-San_Vicente_fault-CFM1,Western Transverse Ranges  Area,WTRA,Puente Hills Thrust system,PHTS,Los Angeles Basin,LABS,San Vicente fault,SVCF
-WTRA-PHTS-LABS-Upper_Elysian_Park_fault-CFM1,Western Transverse Ranges  Area,WTRA,Puente Hills Thrust system,PHTS,Los Angeles Basin,LABS,Upper Elysian Park fault,UEPF
-WTRA-PHTS-PRTH-Peralta_Hills_fault-CFM1,Western Transverse Ranges  Area,WTRA,Puente Hills Thrust system,PHTS,Peralta Hills,PRTH,Peralta Hills fault,PRHF
-WTRA-PHTS-RICH-Puente_Hills_Thrust_fault-CFM2,Western Transverse Ranges  Area,WTRA,Puente Hills Thrust system,PHTS,Richfield,RICH,Puente Hills thrust,PHTF
-WTRA-PHTS-STFS-Puente_Hills_Thrust_fault-CFM2,Western Transverse Ranges  Area,WTRA,Puente Hills Thrust system,PHTS,Sante Fe Springs,STFS,Puente Hills thrust,PHTF
-WTRA-SBCF-MULT-Western_Deep_fault-SRLN-CVMH-CFM5,Western Transverse Ranges  Area,WTRA,Santa Barbara Channel faults,SBCF,Multiple sections,,Western Deep fault,WSDF
-WTRA-SBCF-WEST-Hondo_detachment_S_dip-SRLN-CVMH-CFM5,Western Transverse Ranges  Area,WTRA,Santa Barbara Channel faults,SBCF,Western,WEST,Hondo detachment-S-dip,HNDD
-WTRA-SBTS-ANCP-Anacapa_Dume_fault-CFM3,Western Transverse Ranges  Area,WTRA,Southern Boundary thrust system,SBTS,Anacapa-Dume,ANCP,Anacapa-Dume fault,ADMF
-WTRA-SBTS-MULT-Channel_Islands_Thrust_fault-SHAW-CFM1,Western Transverse Ranges  Area,WTRA,Southern Boundary thrust system,SBTS,Santa Cruz Is-Anacapa,MULT,Channel Islands thrust,CIT
+WTRA-NCVS-PPTV-Pitas_Point_fault_west_S-SRLN-CVMH-CFM5,Western Transverse Ranges Area,WTRA,North Channel-Ventura fault system,NCVS,Pitas Point-Ventura,PPTV,Pitas Point fault-west-S,PPWS
+WTRA-NCVS-RDMT-Red_Mountain_fault_N_strand-CFM5,Western Transverse Ranges Area,WTRA,North Channel-Ventura fault system,NCVS,Red Mountain,RDMT,Red Mountain fault-north strand,RMTN
+WTRA-NCVS-RDMT-Red_Mountain_fault_SW_strand-SRLN-CVMH-CFM5,Western Transverse Ranges Area,WTRA,North Channel-Ventura fault system,NCVS,Red Mountain,RDMT,Red Mountain fault-SW-strand,RMSW
+WTRA-NCVS-RDMT-Red_Mountain_fault_S_strand-CFM5,Western Transverse Ranges Area,WTRA,North Channel-Ventura fault system,NCVS,Red Mountain,RDMT,Red Mountain fault-south strand,RMTS
+WTRA-NCVS-VNTB-Southern_San_Cayetano_fault_steep-JHAP-CFM5,Western Transverse Ranges Area,WTRA,North Channel-Ventura fault system,NCVS,Ventura basin,VNTB,Southern San Cayetano fault,SSCF
+WTRA-NCVS-VNTB-Ventura_fault_steep-CFM5,Western Transverse Ranges Area,WTRA,North Channel-Ventura fault system,NCVS,Ventura basin,VNTB,Ventura fault,VNTF
+WTRA-ORFZ-MULT-Oak_Ridge_fault-CFM5,Western Transverse Ranges Area,WTRA,Oak Ridge fault zone,ORFZ,Multiple sections,MULT,Oak Ridge fault,ORF
+WTRA-ORFZ-OFFS-Mid_Channel_fault-SRLN-CVMH-CFM5,Western Transverse Ranges Area,WTRA,Oak Ridge fault zone,ORFZ,Offshore-Mid-Channel trend,OFFS,Mid-Channel fault,MCHF
+WTRA-ORFZ-SFNV-Northridge_Frew_fault-CFM2,Western Transverse Ranges Area,WTRA,Oak Ridge fault zone,ORFZ,San Fernando Valley,SNFV,Northridge-Frew fault,NRDF
+WTRA-ORFZ-VNTB-Oak_Ridge_fault-MRSH-CFM5,Western Transverse Ranges Area,WTRA,Oak Ridge fault zone,ORFZ,Ventura basin,VNTR,Oak Ridge fault,ORF
+WTRA-PHTS-COYT-Puente_Hills_Thrust_fault-CFM2,Western Transverse Ranges Area,WTRA,Puente Hills Thrust system,PHTS,Coyote Hills,COYT,Puente Hills thrust,PHTF
+WTRA-PHTS-LABS-Las_Cienagas_fault_truncated-CFM1,Western Transverse Ranges Area,WTRA,Puente Hills Thrust system,PHTS,Los Angeles Basin,LABS,Las Cienagas fault,LCGF
+WTRA-PHTS-LABS-Puente_Hills_Thrust_fault-CFM1,Western Transverse Ranges Area,WTRA,Puente Hills Thrust system,PHTS,Los Angeles Basin,LABS,Puente Hills thrust,PHTF
+WTRA-PHTS-LABS-San_Vicente_fault-CFM1,Western Transverse Ranges Area,WTRA,Puente Hills Thrust system,PHTS,Los Angeles Basin,LABS,San Vicente fault,SVCF
+WTRA-PHTS-LABS-Upper_Elysian_Park_fault-CFM1,Western Transverse Ranges Area,WTRA,Puente Hills Thrust system,PHTS,Los Angeles Basin,LABS,Upper Elysian Park fault,UEPF
+WTRA-PHTS-PRTH-Peralta_Hills_fault-CFM1,Western Transverse Ranges Area,WTRA,Puente Hills Thrust system,PHTS,Peralta Hills,PRTH,Peralta Hills fault,PRHF
+WTRA-PHTS-RICH-Puente_Hills_Thrust_fault-CFM2,Western Transverse Ranges Area,WTRA,Puente Hills Thrust system,PHTS,Richfield,RICH,Puente Hills thrust,PHTF
+WTRA-PHTS-STFS-Puente_Hills_Thrust_fault-CFM2,Western Transverse Ranges Area,WTRA,Puente Hills Thrust system,PHTS,Sante Fe Springs,STFS,Puente Hills thrust,PHTF
+WTRA-SBCF-MULT-Western_Deep_fault-SRLN-CVMH-CFM5,Western Transverse Ranges Area,WTRA,Santa Barbara Channel faults,SBCF,Multiple sections,,Western Deep fault,WSDF
+WTRA-SBCF-WEST-Hondo_detachment_S_dip-SRLN-CVMH-CFM5,Western Transverse Ranges Area,WTRA,Santa Barbara Channel faults,SBCF,Western,WEST,Hondo detachment-S-dip,HNDD
+WTRA-SBTS-ANCP-Anacapa_Dume_fault-CFM3,Western Transverse Ranges Area,WTRA,Southern Boundary thrust system,SBTS,Anacapa-Dume,ANCP,Anacapa-Dume fault,ADMF
+WTRA-SBTS-MULT-Channel_Islands_Thrust_fault-SHAW-CFM1,Western Transverse Ranges Area,WTRA,Southern Boundary thrust system,SBTS,Santa Cruz Is-Anacapa,MULT,Channel Islands thrust,CIT
 WTRA-SBTS-SMNB-Santa_Monica_thrust_fault-CFM1,Western Transverse Ranges Area,WTRA,Southern Boundary thrust system,SBTS,Santa Monica Bay,SMNB,Santa Monica thrust,SMNT
-WTRA-SCFZ-SCVA-Del_Valle_fault-CFM2,Western Transverse Ranges  Area,WTRA,San Cayetano fault zone,SCFZ,Santa Clarita Valley,SCLV,Del Valle fault,DVLF
-WTRA-SCFZ-SCVA-Holser_fault-CFM2,Western Transverse Ranges  Area,WTRA,San Cayetano fault zone,SCFZ,Santa Clarita Valley,SCLV,Holser fault,HLSF
-WTRA-SCFZ-TOPA-San_Cayetano_fault-HBRD-CFM5,Western Transverse Ranges  Area,WTRA,San Cayetano fault zone,SCFZ,TopaTopa Mountains,TOPA,San Cayetano fault,SCTF
-WTRA-SFFS-ANCP-Malibu_Coast_fault_west_steep_alt2-CFM5,Western Transverse Ranges  Area,WTRA,Southern Frontal fault system,SFFS,Anacapa Passage,ANCP,Malibu Coast fault-west,MBCW
-WTRA-SFFS-LABS-Hollywood_fault-CFM5,Western Transverse Ranges  Area,WTRA,Southern Frontal fault system,SFFS,Los  Angeles Basin,LABS,Hollywood fault,HLWD
-WTRA-SFFS-LABS-North_Salt_Lake_blind_fault-CFM3,Western Transverse Ranges  Area,WTRA,Southern Frontal fault system,SFFS,Los  Angeles Basin,LABS,North Salt Lake fault,NSLF
-WTRA-SFFS-SGVS-Raymond_fault_extended-CFM5,Western Transverse Ranges  Area,WTRA,Southern Frontal fault system,SFFS,San Gabriel Valley,SGVS,Raymond fault,RYMF
-WTRA-SFFS-SMMT-Malibu_Coast_fault_east_steep_alt2-CFM5,Western Transverse Ranges  Area,WTRA,Southern Frontal fault system,SFFS,Santa Monica Mountains,SMMT,Malibu Coast fault-east,MBCE
-WTRA-SFFS-SMMT-Santa_Monica_fault-steep-CFM5,Western Transverse Ranges  Area,WTRA,Southern Frontal fault system,SFFS,Santa Monica Mountains,SMMT,Santa Monica fault,SMCF
-WTRA-SFFS-SNCZ-Santa_Cruz_Island_fault-CFM5,Western Transverse Ranges  Area,WTRA,Southern Frontal fault system,SFFS,Santa Cruz Island,SNCZ,Santa Cruz Island fault,SCIF
-WTRA-SFFS-SNRS-Santa_Rosa_Island_fault-CFM5,Western Transverse Ranges  Area,WTRA,Southern Frontal fault system,SFFS,Santa Rosa-San Miguel Islands,SNRS,Santa Rosa Island fault,SRIF
-WTRA-SFNS-MSNH-Mission_Hills_fault-CFM4,Western Transverse Ranges  Area,WTRA,San Fernando fault system,SFNS,Mission Hills,MSNH,Mission Hills fault,MSHF
-WTRA-SFNS-SFNV-Northridge_Hills_fault_truncated-CFM3,Western Transverse Ranges  Area,WTRA,San Fernando fault system,SFNS,San Fernando Valley,SFNV,Northridge Hills fault,NRHF
-WTRA-SFNS-SFNV-San_Fernando_fault-CFM4,Western Transverse Ranges  Area,WTRA,San Fernando fault system,SFNS,San Fernando Valley,SFNV,San Fernando fault,SFNF
-WTRA-SFNS-VRDM-Eagle_Rock_fault_steep-CFM5,Western Transverse Ranges  Area,WTRA,San Fernando fault system,SFNS,Verdugo Mountains,VRDM,Eage Rock fault,ERKF
-WTRA-SFNS-VRDM-Verdugo_fault_steep-CFM5,Western Transverse Ranges  Area,WTRA,San Fernando fault system,SFNS,Verdugo Mountains,VRDM,Verdugo fault,VRDF
-WTRA-SGFZ-BTJG-San_Gabriel_fault_splay-CFM4,Western Transverse Ranges  Area,WTRA,San Gabriel fault zone,SGFZ,Big Tujunga,BTJG,San Gabriel fault splay,SGFS
-WTRA-SGFZ-MULT-Southern_San_Gabriel_fault-CFM4,Western Transverse Ranges  Area,WTRA,San Gabriel fault zone,SGFZ,Multiple sections,MULT,Southern San Gabriel fault,SSGF
-WTRA-SGFZ-PLMS-Northern_San_Gabriel_fault-CFM4,Western Transverse Ranges  Area,WTRA,San Gabriel fault zone,SGFZ,Palomas,PLMS,Northern San Gabriel fault,NSGF
+WTRA-SCFZ-SCVA-Del_Valle_fault-CFM2,Western Transverse Ranges Area,WTRA,San Cayetano fault zone,SCFZ,Santa Clarita Valley,SCLV,Del Valle fault,DVLF
+WTRA-SCFZ-SCVA-Holser_fault-CFM2,Western Transverse Ranges Area,WTRA,San Cayetano fault zone,SCFZ,Santa Clarita Valley,SCLV,Holser fault,HLSF
+WTRA-SCFZ-TOPA-San_Cayetano_fault-HBRD-CFM5,Western Transverse Ranges Area,WTRA,San Cayetano fault zone,SCFZ,TopaTopa Mountains,TOPA,San Cayetano fault,SCTF
+WTRA-SFFS-ANCP-Malibu_Coast_fault_west_steep_alt2-CFM5,Western Transverse Ranges Area,WTRA,Southern Frontal fault system,SFFS,Anacapa Passage,ANCP,Malibu Coast fault-west,MBCW
+WTRA-SFFS-LABS-Hollywood_fault-CFM5,Western Transverse Ranges Area,WTRA,Southern Frontal fault system,SFFS,Los Angeles Basin,LABS,Hollywood fault,HLWD
+WTRA-SFFS-LABS-North_Salt_Lake_blind_fault-CFM3,Western Transverse Ranges Area,WTRA,Southern Frontal fault system,SFFS,Los Angeles Basin,LABS,North Salt Lake fault,NSLF
+WTRA-SFFS-SGVS-Raymond_fault_extended-CFM5,Western Transverse Ranges Area,WTRA,Southern Frontal fault system,SFFS,San Gabriel Valley,SGVS,Raymond fault,RYMF
+WTRA-SFFS-SMMT-Malibu_Coast_fault_east_steep_alt2-CFM5,Western Transverse Ranges Area,WTRA,Southern Frontal fault system,SFFS,Santa Monica Mountains,SMMT,Malibu Coast fault-east,MBCE
+WTRA-SFFS-SMMT-Santa_Monica_fault-steep-CFM5,Western Transverse Ranges Area,WTRA,Southern Frontal fault system,SFFS,Santa Monica Mountains,SMMT,Santa Monica fault,SMCF
+WTRA-SFFS-SNCZ-Santa_Cruz_Island_fault-CFM5,Western Transverse Ranges Area,WTRA,Southern Frontal fault system,SFFS,Santa Cruz Island,SNCZ,Santa Cruz Island fault,SCIF
+WTRA-SFFS-SNRS-Santa_Rosa_Island_fault-CFM5,Western Transverse Ranges Area,WTRA,Southern Frontal fault system,SFFS,Santa Rosa-San Miguel Islands,SNRS,Santa Rosa Island fault,SRIF
+WTRA-SFNS-MSNH-Mission_Hills_fault-CFM4,Western Transverse Ranges Area,WTRA,San Fernando fault system,SFNS,Mission Hills,MSNH,Mission Hills fault,MSHF
+WTRA-SFNS-SFNV-Northridge_Hills_fault_truncated-CFM3,Western Transverse Ranges Area,WTRA,San Fernando fault system,SFNS,San Fernando Valley,SFNV,Northridge Hills fault,NRHF
+WTRA-SFNS-SFNV-San_Fernando_fault-CFM4,Western Transverse Ranges Area,WTRA,San Fernando fault system,SFNS,San Fernando Valley,SFNV,San Fernando fault,SFNF
+WTRA-SFNS-VRDM-Eagle_Rock_fault_steep-CFM5,Western Transverse Ranges Area,WTRA,San Fernando fault system,SFNS,Verdugo Mountains,VRDM,Eage Rock fault,ERKF
+WTRA-SFNS-VRDM-Verdugo_fault_steep-CFM5,Western Transverse Ranges Area,WTRA,San Fernando fault system,SFNS,Verdugo Mountains,VRDM,Verdugo fault,VRDF
+WTRA-SGFZ-BTJG-San_Gabriel_fault_splay-CFM4,Western Transverse Ranges Area,WTRA,San Gabriel fault zone,SGFZ,Big Tujunga,BTJG,San Gabriel fault splay,SGFS
+WTRA-SGFZ-MULT-Southern_San_Gabriel_fault-CFM4,Western Transverse Ranges Area,WTRA,San Gabriel fault zone,SGFZ,Multiple sections,MULT,Southern San Gabriel fault,SSGF
+WTRA-SGFZ-PLMS-Northern_San_Gabriel_fault-CFM4,Western Transverse Ranges Area,WTRA,San Gabriel fault zone,SGFZ,Palomas,PLMS,Northern San Gabriel fault,NSGF
 WTRA-SGFZ-USGR-Weber_fault-CFM5,Western Transverse Ranges Area,WTRA,San Gabriel fault zone,SGFZ,Upper San Gabriel River,USGR,Weber fault,WBRF
 WTRA-SGFZ-USGR-Weber_fault_NE_extension-CFM5,Western Transverse Ranges Area,WTRA,San Gabriel fault zone,SGFZ,Upper San Gabriel River,USGR,Weber fault-NE extension,WBRE
 WTRA-SGMF-ICHC-Icehouse_Canyon_fault_truncated-CFM5,Western Transverse Ranges Area,WTRA,San Gabriel Mountain faults,SGMF,Icehouse Canyon,ICHC,Icehouse Canyon fault-truncated,IHCF
-WTRA-SGMF-SANC-San_Antonio_Canyon_fault-CFM5,Western Transverse Ranges  Area,WTRA,San Gabriel Mountain faults,SGMF,San Antonio Canyon,SANC,San Antonio Canyon fault-truncated,SACF
+WTRA-SGMF-SANC-San_Antonio_Canyon_fault-CFM5,Western Transverse Ranges Area,WTRA,San Gabriel Mountain faults,SGMF,San Antonio Canyon,SANC,San Antonio Canyon fault-truncated,SACF
 WTRA-SGMF-SANC-San_Antonio_Canyon_fault_splay_truncated-CFM5,Western Transverse Ranges Area,WTRA,San Gabriel Mountain faults,SGMF,San Antonio Canyon,SANC,San Antonio Canyon fault splay-truncated,SACF
 WTRA-SGMF-STDC-South_Fork_Stoddard_Canyon_fault_truncated-CFM5,Western Transverse Ranges Area,WTRA,San Gabriel Mountain faults,SGMF,Stoddard Canyon,STDC,South Fork-Stoddard Canyon fault-truncated,SFSC
 WTRA-SGMF-STDC-Stoddard_Canyon_fault_truncated-CFM5,Western Transverse Ranges Area,WTRA,San Gabriel Mountain faults,SGMF,Stoddard Canyon,STDC,Stoddard Canyon fault-truncated,SDCF
-WTRA-SMFZ-CCMG-Cucamonga_fault_low_dip-CFM5,Western Transverse Ranges  Area,WTRA,Sierra Madre fault zone,SMFZ,Cucamonga,CCMG,Cucamonga fault,CMGF
-WTRA-SMFZ-CSPC-Clamshell_Sawpit_Canyon_fault-CFM4,Western Transverse Ranges  Area,WTRA,Sierra Madre fault zone,SMFZ,Clamshell-Sawpit,CSPC,Clamshell-Sawpit Canyon fault,CSCF
-WTRA-SMFZ-MULT-Sierra_Madre_fault_west-CFM4,Western Transverse Ranges  Area,WTRA,Sierra Madre fault zone,SMFZ,Multiple sections,MULT,Sierra Madre fault-west,SMDW
+WTRA-SMFZ-CCMG-Cucamonga_fault_low_dip-CFM5,Western Transverse Ranges Area,WTRA,Sierra Madre fault zone,SMFZ,Cucamonga,CCMG,Cucamonga fault,CMGF
+WTRA-SMFZ-CSPC-Clamshell_Sawpit_Canyon_fault-CFM4,Western Transverse Ranges Area,WTRA,Sierra Madre fault zone,SMFZ,Clamshell-Sawpit,CSPC,Clamshell-Sawpit Canyon fault,CSCF
+WTRA-SMFZ-MULT-Sierra_Madre_fault_west-CFM4,Western Transverse Ranges Area,WTRA,Sierra Madre fault zone,SMFZ,Multiple sections,MULT,Sierra Madre fault-west,SMDW
 WTRA-SMFZ-SMDD-Sierra_Madre_fault_low_dip-CFM4,Western Transverse Ranges Area,WTRA,Sierra Madre fault zone,SMFZ,Sierra Madre D section,SMDD,Sierra Madre fault,SMDF
-WTRA-SMFZ-SMDE-Sierra_Madre_Cucamonga_connector-CFM5,Western Transverse Ranges  Area,WTRA,Sierra Madre fault zone,SMFZ,Sierra Madre E section,SMDE,Sierra Madre-Cucamonga connector,SMCC
-WTRA-SMFZ-SMDE-Sierra_Madre_fault_low_dip-CFM4,Western Transverse Ranges  Area,WTRA,Sierra Madre fault zone,SMFZ,Sierra Madre E section,SMDE,Sierra Madre fault,SMDF
-WTRA-SMFZ-SWCC-Sierra_Madre_fault_low_dip-CFM4,Western Transverse Ranges  Area,WTRA,Sierra Madre fault zone,SMFZ,Sierra Madre-Clamshell Canyon,SMCC,Sierra Madre fault,SMDF
-WTRA-SPJD-OFFS-Padre_Juan_fault_lower-SRLN-CVMH-CFM5,Western Transverse Ranges  Area,WTRA,Sisar-Padre Juan detachment system,SPJD,Offshore,OFFS,Padre Juan fault-lower,PJFL
-WTRA-SPJD-OFFS-Padre_Juan_fault_upper-SRLN-CVMH-CFM5,Western Transverse Ranges  Area,WTRA,Sisar-Padre Juan detachment system,SPJD,Offshore,OFFS,Padre Juan fault-upper,PJFU
-WTRA-SPJD-SPMT-Lion_Canyon_fault-HBRD-CFM5,Western Transverse Ranges  Area,WTRA,Sisar-Padre Juan detachment system,SPJD,Sulphur Mountain,SPMT,Lion Canyon fault,LNCF
-WTRA-SSFZ-MULT-Santa_Susana_fault-CFM1,Western Transverse Ranges  Area,WTRA,Santa Susana fault zone,SSFZ,Multiple sections,MULT,Santa Susana fault,SSNF
-WTRA-SSRZ-MULT-Simi_Santa_Rosa_fault_listric-CFM5,Western Transverse Ranges  Area,WTRA,Simi-Santa Rosa fault zone,SSRZ,Multiple sections,MULT,Simi-Santa Rosa fault-listric,SSRF
-WTRA-SSRZ-OXNP-Bailey_fault_steep-CFM5,Western Transverse Ranges  Area,WTRA,Simi-Santa Rosa fault zone,SSRZ,Oxnard Plain,OXNP,Bailey fault,BLYF
-WTRA-SYFZ-MULT-Santa_Ynez_fault_75dip-CFM5,Western Transverse Ranges  Area,WTRA,Santa Ynez fault zone,SYFZ,Multiple sections,MULT,Santa Ynez fault,SYZF
-WTRA-SYRZ-MULT-Santa_Ynez_River_fault-CFM5,Western Transverse Ranges  Area,WTRA,Santa Ynez River fault zone,SYRZ,Multiple sections,MULT,Santa Ynez River fault,SYRF
-WTRA-USAV-INDH-Indian_Hill_fault-CFM5,Western Transverse Ranges  Area,WTRA,Upper Santa Ana Valley fault system,USAV,Upper Santa Ana Valley,USAV,Indian Hill fault,INHF
-WTRA-USAV-SNJH-San_Jose_fault-CFM5,Western Transverse Ranges  Area,WTRA,Upper Santa Ana Valley fault system,USAV,Upper Santa Ana Valley,USAV,San Jose fault,SJSF
-WTRA-USAV-UPLD-Upland_fault_dipslip-CFM1,Western Transverse Ranges  Area,WTRA,Upper Santa Ana Valley fault system,USAV,Upper Santa Ana Valley,USAV,Upland fault,UPLF
-WTRA-USAV-WLNC-Walnut_Creek_fault-CFM5,Western Transverse Ranges  Area,WTRA,Upper Santa Ana Valley fault system,USAV,Upper Santa Ana Valley,USAV,Walnut Creek fault,WNCF
+WTRA-SMFZ-SMDE-Sierra_Madre_Cucamonga_connector-CFM5,Western Transverse Ranges Area,WTRA,Sierra Madre fault zone,SMFZ,Sierra Madre E section,SMDE,Sierra Madre-Cucamonga connector,SMCC
+WTRA-SMFZ-SMDE-Sierra_Madre_fault_low_dip-CFM4,Western Transverse Ranges Area,WTRA,Sierra Madre fault zone,SMFZ,Sierra Madre E section,SMDE,Sierra Madre fault,SMDF
+WTRA-SMFZ-SWCC-Sierra_Madre_fault_low_dip-CFM4,Western Transverse Ranges Area,WTRA,Sierra Madre fault zone,SMFZ,Sierra Madre-Clamshell Canyon,SMCC,Sierra Madre fault,SMDF
+WTRA-SPJD-OFFS-Padre_Juan_fault_lower-SRLN-CVMH-CFM5,Western Transverse Ranges Area,WTRA,Sisar-Padre Juan detachment system,SPJD,Offshore,OFFS,Padre Juan fault-lower,PJFL
+WTRA-SPJD-OFFS-Padre_Juan_fault_upper-SRLN-CVMH-CFM5,Western Transverse Ranges Area,WTRA,Sisar-Padre Juan detachment system,SPJD,Offshore,OFFS,Padre Juan fault-upper,PJFU
+WTRA-SPJD-SPMT-Lion_Canyon_fault-HBRD-CFM5,Western Transverse Ranges Area,WTRA,Sisar-Padre Juan detachment system,SPJD,Sulphur Mountain,SPMT,Lion Canyon fault,LNCF
+WTRA-SSFZ-MULT-Santa_Susana_fault-CFM1,Western Transverse Ranges Area,WTRA,Santa Susana fault zone,SSFZ,Multiple sections,MULT,Santa Susana fault,SSNF
+WTRA-SSRZ-MULT-Simi_Santa_Rosa_fault_listric-CFM5,Western Transverse Ranges Area,WTRA,Simi-Santa Rosa fault zone,SSRZ,Multiple sections,MULT,Simi-Santa Rosa fault-listric,SSRF
+WTRA-SSRZ-OXNP-Bailey_fault_steep-CFM5,Western Transverse Ranges Area,WTRA,Simi-Santa Rosa fault zone,SSRZ,Oxnard Plain,OXNP,Bailey fault,BLYF
+WTRA-SYFZ-MULT-Santa_Ynez_fault_75dip-CFM5,Western Transverse Ranges Area,WTRA,Santa Ynez fault zone,SYFZ,Multiple sections,MULT,Santa Ynez fault,SYZF
+WTRA-SYRZ-MULT-Santa_Ynez_River_fault-CFM5,Western Transverse Ranges Area,WTRA,Santa Ynez River fault zone,SYRZ,Multiple sections,MULT,Santa Ynez River fault,SYRF
+WTRA-USAV-INDH-Indian_Hill_fault-CFM5,Western Transverse Ranges Area,WTRA,Upper Santa Ana Valley fault system,USAV,Upper Santa Ana Valley,USAV,Indian Hill fault,INHF
+WTRA-USAV-SNJH-San_Jose_fault-CFM5,Western Transverse Ranges Area,WTRA,Upper Santa Ana Valley fault system,USAV,Upper Santa Ana Valley,USAV,San Jose fault,SJSF
+WTRA-USAV-UPLD-Upland_fault_dipslip-CFM1,Western Transverse Ranges Area,WTRA,Upper Santa Ana Valley fault system,USAV,Upper Santa Ana Valley,USAV,Upland fault,UPLF
+WTRA-USAV-WLNC-Walnut_Creek_fault-CFM5,Western Transverse Ranges Area,WTRA,Upper Santa Ana Valley fault system,USAV,Upper Santa Ana Valley,USAV,Walnut Creek fault,WNCF

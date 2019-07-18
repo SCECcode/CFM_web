@@ -1,5 +1,4 @@
 name,abb
-Eastern San Bernardino Mtns,SBMT
 1812 Rupture-Mojave SAF+nSJF,1812
 1857 Rupture-Parkfield-Mojave,1857
 1872 rupture,1872
@@ -50,6 +49,7 @@ East Huasna,EHSN
 East Santa Cruz Basin,ESCB
 East,EAST
 Eastern Big Pine,EAST
+Eastern San Bernardino Mtns,SBMT
 Eastern splay - south,EAST
 Eastern splay,EAST
 Eastern,EAST
@@ -84,7 +84,6 @@ Little Pine,LPNS
 Little San Bernardino Mts,LSBM
 Lockwood Valley,LKWV
 Long Canyon,LGCS
-Los  Angeles Basin,LABS
 Los Alamos,LALM
 Los Angeles Basin,LABS
 Los Osos,LSOS
@@ -99,8 +98,10 @@ Mojave,MJVS
 Morales,MRLS
 Morongo Valley,MORV
 Multiple Sections,MULT
+Multiple sections,
+Multiple sections,MULT
 Multiple sections-offshore,RSCN
-Multiple-Los  Angeles basin,LABS
+Multiple-Los Angeles basin,LABS
 North Channel,NCHN
 North-South Johnson Valley,MULT
 Northern Cleghorn,NCHS

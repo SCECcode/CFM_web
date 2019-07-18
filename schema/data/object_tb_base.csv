@@ -51,7 +51,7 @@ ETRA-SBMT-WEST-Waterman_Canyon_fault-CFM5,1,CMDT,CFM5,,,94.358,86.5857,283900000
 GRFS-GRFZ-EAST-Garlock_fault-CFM5,1,UCSB,CFM5,,,166.747,0.754282,1803130000,surface,llss,,,,69b-c
 GRFS-GRFZ-EAST-Owl_Lake_fault-CFM5,1,UCSB,CFM5,,,57.416,88.2124,239487000,surface,olln,,,,70
 GRFS-GRFZ-WEST-Garlock_fault-CFM5,1,UCSB,CFM5,,,239.83,90,1432110000,surface,llss,,,,69a
-GVFA-KRCS-KRCN-Kern_Canyon_fault-CFM5,1,CMDT,CFM5,,,5.4497,60.4861,2058290000,,,,,,missing
+GVFA-KRCS-KRCN-Kern_Canyon_fault-CFM5,1,CMDT,CFM5,,,5.44970000000001,60.4861,2058290000,,,,,,missing
 GVFA-KRCS-LISA-Lake_Isabella_lineament-CFM2,1,HRVD,CFM2,,,12.378,89.0003,840553000,,,,,,missing
 GVFA-PLFZ-MULT-Pleito_fault-CFM2,1,HRVD,CFM2,,CFM,91.246,43.5499,760361000,surface,r,,,,76a-b
 GVFA-TDRS-COAL-Coalinga_blind_fault-CFM2,1,HRVD,CFM2,,,138.25,10.7612,499844000,,,,,,missing
@@ -91,7 +91,7 @@ MJVA-HSLZ-SBMT-Pipes_Canyon_fault-CFM5,1,UCSB,CFM5,,,145.121,85.3993,267889000,,
 MJVA-HSLZ-SBMT-Pipes_Canyon_fault_north_extension-CFM5,1,UCSB,CFM5,,,124.965,86.1887,129412000,,,,,proposed 320a,320
 MJVA-HSLZ-SBMT-Southern_Helendale_fault-CFM5,1,UCSB,CFM5,,,,,409358000,,,,,,110c
 MJVA-JVFZ-MULT-Johnson_Valley_fault-CFM5,1,CMDT,CFM5,,,55.525,90,842460000,surface,rlss,,,,115a-b
-MJVA-JVFZ-SJVS-Kickapoo_fault-CFM3,1,HRVD,CFM3,,,7.3274,89.9369,89335900,,,,,,115b
+MJVA-JVFZ-SJVS-Kickapoo_fault-CFM3,1,HRVD,CFM3,,,7.32740000000001,89.9369,89335900,,,,,,115b
 MJVA-JVHZ-HMSV-Homestead_Valley_fault-CFM3,1,HRVD,CFM3,,,,,,,,,,,116
 MJVA-LCLZ-CLGL-Cleghorn_Lake_fault-CFM5,1,CMDT,CFM5,in CFM5-Mojave Gocad project,,154.018,84.7977,234723000,,,,,,349
 MJVA-LCLZ-LDLW-Ludlow_fault-CFM5,1,UCSB,CFM5,,,329.1035,84.511,794551000,surface,rlss,,,,346
@@ -295,7 +295,7 @@ SALT-CRSF-SLTS-Extra_fault-CFM3,1,HRVD,CFM3,,,231.495,90,524930000,,,,,,missing
 SALT-IMFZ-IMPV-Imperial_fault_Edip_Nend-CFM5,2,CMDT,CFM5,E-dipping at north end-FUIS,FUIS,,,,surface,rlss,,,,132
 SALT-IMFZ-IMPV-Imperial_fault_east_strand_north-CFM5,3,UCSB,CFM5,inferred east strand-north,NRTH,147.827,90,222822000,surface,rlss,,,,132
 SALT-IMFZ-IMPV-Imperial_fault_east_strand_south-CFM5,4,UCSB,CFM5,inferred east strand-south,SOTH,328.9588,90,162498000,surface,rlss,,,,132
-SALT-IMFZ-IMPV-Imperial_fault_north_end-CFM5,3,UCSB,CFM5,small segment at north end,NSEG,8.439,87.8065,18072700,surface,rlss,,,,132
+SALT-IMFZ-IMPV-Imperial_fault_north_end-CFM5,3,UCSB,CFM5,small segment at north end,NSEG,8.43899999999996,87.8065,18072700,surface,rlss,,,,132
 SNFA-AHTC-ASHH-Ash_Hill_fault-CFM2,1,HRVD,CFM2,,,157.147,76.44,194033000,,orln,,,,233
 SNFA-AHTC-TANK-Tank_Canyon_fault-CFM2,1,HRVD,CFM2,,CFM,176.139,55.0151,135673000,surface,n,,X,,71
 SNFA-ALFZ-COSO-Airport_Lake_fault-CFM5,1,CMDT,CFM5,,,359.9348,86.2172,592354000,,,,,,73
