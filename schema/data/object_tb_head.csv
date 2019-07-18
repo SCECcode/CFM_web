@@ -332,7 +332,7 @@ WTRA-PHTS-LABS-Upper_Elysian_Park_fault-CFM1,Western Transverse Ranges Area,WTRA
 WTRA-PHTS-PRTH-Peralta_Hills_fault-CFM1,Western Transverse Ranges Area,WTRA,Puente Hills Thrust system,PHTS,Peralta Hills,PRTH,Peralta Hills fault,PRHF
 WTRA-PHTS-RICH-Puente_Hills_Thrust_fault-CFM2,Western Transverse Ranges Area,WTRA,Puente Hills Thrust system,PHTS,Richfield,RICH,Puente Hills thrust,PHTF
 WTRA-PHTS-STFS-Puente_Hills_Thrust_fault-CFM2,Western Transverse Ranges Area,WTRA,Puente Hills Thrust system,PHTS,Sante Fe Springs,STFS,Puente Hills thrust,PHTF
-WTRA-SBCF-MULT-Western_Deep_fault-SRLN-CVMH-CFM5,Western Transverse Ranges Area,WTRA,Santa Barbara Channel faults,SBCF,Multiple sections,,Western Deep fault,WSDF
+WTRA-SBCF-MULT-Western_Deep_fault-SRLN-CVMH-CFM5,Western Transverse Ranges Area,WTRA,Santa Barbara Channel faults,SBCF,Multiple sections,MULT,Western Deep fault,WSDF
 WTRA-SBCF-WEST-Hondo_detachment_S_dip-SRLN-CVMH-CFM5,Western Transverse Ranges Area,WTRA,Santa Barbara Channel faults,SBCF,Western,WEST,Hondo detachment-S-dip,HNDD
 WTRA-SBTS-ANCP-Anacapa_Dume_fault-CFM3,Western Transverse Ranges Area,WTRA,Southern Boundary thrust system,SBTS,Anacapa-Dume,ANCP,Anacapa-Dume fault,ADMF
 WTRA-SBTS-MULT-Channel_Islands_Thrust_fault-SHAW-CFM1,Western Transverse Ranges Area,WTRA,Southern Boundary thrust system,SBTS,Santa Cruz Is-Anacapa,MULT,Channel Islands thrust,CIT
