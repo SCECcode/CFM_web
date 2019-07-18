@@ -72,7 +72,7 @@ CREATE TABLE OBJECT_tb (
    exposure VARCHAR(10),
    final_slip_sense VARCHAR(6),
    reference VARCHAR(100),
-   reference_check boolean,
+   reference_check VARCHAR(6),
    ID_comments VARCHAR(100),
    USGS_ID VARCHAR(100)
 );

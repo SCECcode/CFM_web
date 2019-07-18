@@ -10,7 +10,7 @@ CREATE TEMP TABLE tmp_x
          fault VARCHAR(60), fabb VARCHAR(5));
 
 
-COPY tmp_x(name,system,sabb,zone,zabb,section,sabb,fault,fabb)
+COPY tmp_x(name,area,aabb,zone,zabb,section,sabb,fault,fabb)
 FROM '/home/postgres/CFM/schema/data/object_tb_head.csv' DELIMITER ',' CSV HEADER;
 
 UPDATE OBJECT_tb o SET 

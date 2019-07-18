@@ -230,7 +230,7 @@ PNRA-SJFZ-ANZA-Hot_Springs_Buck_Ridge_link-CFM4,1,CMDT,CFM4,,LINK,144.448,88.723
 PNRA-SJFZ-BRMT-Coyote_Creek_blind_fault_north_east-CFM4,1,UCSB,CFM4,east,,307.5101,83.6782,175085000,surface,rlss,,,,125e
 PNRA-SJFZ-BRMT-Coyote_Creek_fault-CFM4,1,UCSB,CFM4,,,,,628534000,surface,rlss,,,,125e
 PNRA-SJFZ-CYTC-Coyote_Creek_fault-CFM4,1,UCSB,CFM4,main,MAIN,,,728983000,surface,rlss,,,,125d
-PNRA-SJFZ-CYTC-Coyote_Creek_fault_center_east_splay-CFM4,2,UCSB,CFM4,center-east_splay,,CFM4,,,,,,,,125d
+PNRA-SJFZ-CYTC-Coyote_Creek_fault_center_east_splay-CFM4,2,UCSB,CFM4,center-east_splay,,,,,,,,,,125d
 PNRA-SJFZ-IMPV-Dixieland_fault-CFM5,1,CMDT,CFM5,complete; previously Superstition_Mtn-New_River_extension,CMPL,42.289,90,497846000,,,,,,proposed 125h
 PNRA-SJFZ-IMPV-Weinert_El_Centro_fault-CFM5,1,UCSB,CFM4,CFM4 model,CFM4,314.7584,89.1452,323928000,,,,,proposed 125h,125f
 PNRA-SJFZ-IMPV-Weinert_Superstition_Hills_link-CFM5,1,CMDT,CFM4,CFM4 model,CFM4,139.383,89.9975,8596280,,,,,,proposed 125h
@@ -301,8 +301,8 @@ SNFA-AHTC-TANK-Tank_Canyon_fault-CFM2,1,HRVD,CFM2,,CFM,176.139,55.0151,135673000
 SNFA-ALFZ-COSO-Airport_Lake_fault-CFM5,1,CMDT,CFM5,,,359.9348,86.2172,592354000,,,,,,73
 SNFA-HMFZ-MULT-Hunter_Mountain_fault-CFM1,1,HRVD,CFM1,,,312.7791,86.1595,1064050000,surface,orln,,,,66a-b
 SNFA-LLFZ-CNTR-Little_Lake_fault-CFM1,2,HRVD,CFM1,,CFMA,58.281,90,483503000,surface,rlss,,,,72
-SNFA-LLFZ-EAST-Eastern_Little_Lake_fault_00-CFM5,1,HRVD,CFM5,,,CFM5,,,,,,,,72
-SNFA-LLFZ-SOUT-Southern_Little_Lake_fault_00-CFM5,1,HRVD,CFM5,,,CFM5,,,,,,,,72
+SNFA-LLFZ-EAST-Eastern_Little_Lake_fault_00-CFM5,1,HRVD,CFM5,,,,,,,,,,,72
+SNFA-LLFZ-SOUT-Southern_Little_Lake_fault_00-CFM5,1,HRVD,CFM5,,,,,,,,,,,72
 SNFA-OVFZ-1872-Owens_Valley_fault_rupture-CFM1,1,HRVD,CFM1,,,72.037,90,1056770000,surface,orln,,,,51b
 SNFA-PMVZ-MULT-Panamint_Valley_fault_steep-CFM2,1,HRVD,CFM2,steep dip model,CFM,70.679,1.78705,772093000,,orln,,,,67a-d
 SNFA-SSNZ-INDP-Independence_fault-CFM1,1,HRVD,CFM1,,,336.1443,60.9996,770149000,surface,n,,,,65a
@@ -366,7 +366,7 @@ WTRA-SGMF-STDC-Stoddard_Canyon_fault_truncated-CFM5,1,UCSB,CFM5,,,,,,,,,,,329
 WTRA-SMFZ-CCMG-Cucamonga_fault_low_dip-CFM5,1,UCSB,CFM5,,,,,,,,,,,105h
 WTRA-SMFZ-CSPC-Clamshell_Sawpit_Canyon_fault-CFM4,1,UCSB,CFM4,,,244.011,64.7162,222244000,surface,r,,X,,105e
 WTRA-SMFZ-MULT-Sierra_Madre_fault_west-CFM4,1,UCSB,CFM4,west,,295.7041,59.0527,492231000,surface,ollr,,,,105c-d 
-WTRA-SMFZ-SMDD-Sierra_Madre_fault_low_dip-CFM4,1,UCSB,CFM4,,,CFM4,,,,,,,,105f
+WTRA-SMFZ-SMDD-Sierra_Madre_fault_low_dip-CFM4,1,UCSB,CFM4,,,,,,,,,,,105f
 WTRA-SMFZ-SMDE-Sierra_Madre_Cucamonga_connector-CFM5,1,UCSB,CFM5,,,,,,,,,,,105g
 WTRA-SMFZ-SMDE-Sierra_Madre_fault_low_dip-CFM4,1,UCSB,CFM4,low dip,,273.98547,58.0451,306342000,surface,t,,,,105g
 WTRA-SMFZ-SWCC-Sierra_Madre_fault_low_dip-CFM4,1,UCSB,CFM4,low-dip-north strand-SMF+Clamshell,,272.7003,53.6141,244022000,,,,,,
