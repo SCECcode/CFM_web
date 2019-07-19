@@ -7,6 +7,12 @@ UPDATE OBJECT_tb
     WHERE TRACE_tb.layer = tmp_x.concat
     AND tmp_x.gid = OBJECT_tb.gid;
 
+UPDATE OBJECT_tb 
+    SET blind = TRACE_tb.___isblind
+    FROM tmp_x, TRACE_tb
+    WHERE TRACE_tb.layer = tmp_x.concat
+    AND tmp_x.gid = OBJECT_tb.gid;
+
 DROP TABLE tmp_x;
 
 CREATE TEMP TABLE tmp_x AS
