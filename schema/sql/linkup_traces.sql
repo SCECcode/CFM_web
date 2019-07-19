@@ -8,10 +8,11 @@ UPDATE OBJECT_tb
     AND tmp_x.gid = OBJECT_tb.gid;
 
 UPDATE OBJECT_tb 
-    SET blind = TRACE_tb.___isblind
+    SET blind = 1
     FROM tmp_x, TRACE_tb
     WHERE TRACE_tb.layer = tmp_x.concat
-    AND tmp_x.gid = OBJECT_tb.gid;
+    AND tmp_x.gid = OBJECT_tb.gid
+    AND TRACE_tb.___isblind = 1;
 
 DROP TABLE tmp_x;
 
