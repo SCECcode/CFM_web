@@ -57,6 +57,13 @@ var cfm_1000m_list=[];
 // {gid, gid, ...}
 var cfm_1000m_gid_list=[];
 
+// [{ gid, name, url, objgid }, {gid, name, url, objgid}, ... ], gid that is from 2000m list
+var cfm_2000m_list=[];
+
+// gid is objgid
+// {gid, gid, ...}
+var cfm_2000m_gid_list=[];
+
 // gid is objgid
 // { gid1, gid2, ... }, all objects 
 var cfm_gid_list=[];
@@ -545,9 +552,29 @@ function in_1000m_gid_list(target) {
    return found;
 }
 
+function in_2000m_gid_list(target) {
+   var found=0;
+   cfm_2000m_gid_list.forEach(function(element) {
+          if (element == target) {
+             found=1;
+          }
+   });
+   return found;
+}
+
 function url_in_1000m_list(target) {
    var url=null;
    cfm_1000m_list.forEach(function(element) {
+         if(element['objgid']==target) {
+            url=element['url'];
+         }
+   });
+   return url;
+}
+
+function url_in_2000m_list(target) {
+   var url=null;
+   cfm_2000m_list.forEach(function(element) {
          if(element['objgid']==target) {
             url=element['url'];
          }

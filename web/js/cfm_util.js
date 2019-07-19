@@ -120,7 +120,7 @@ function changeFaultColor(type) {
 }
 
 
-// for native, 500m, 1000m
+// for native, 500m, 1000m, 2000m
 // with added metadata file
 // mlist should not be null
 function downloadURLsAsZip(mlist) {
@@ -165,6 +165,17 @@ function downloadURLsAsZip(mlist) {
     if (use_download_set == '1000m') {
       if(in_1000m_gid_list(gid)) {
         url=url_in_1000m_list(gid);
+        if(url) {
+          dname=url.substring(url.lastIndexOf('/')+1);
+          var promise = $.get(url);
+          nzip.file(dname,promise);
+        }
+      }
+      continue;
+    }
+    if (use_download_set == '2000m') {
+      if(in_2000m_gid_list(gid)) {
+        url=url_in_2000m_list(gid);
         if(url) {
           dname=url.substring(url.lastIndexOf('/')+1);
           var promise = $.get(url);
@@ -584,5 +595,22 @@ function make1000mList() {
        var objgid=parseInt(s['objgid']);
        cfm_1000m_list.push( {"gid":gid, "name":name, "url":url, "objgid":objgid } );
        cfm_1000m_gid_list.push(objgid);
+    }
+}
+
+function make2000mList() {
+    var str = $('[data-side="obj2000m"]').data('params');
+    if (str == undefined)
+      return "";
+
+    var sz=(Object.keys(str).length);
+    for( var i=0; i< sz; i++) {
+       var s = JSON.parse(str[i]);
+       var gid=parseInt(s['gid']);
+       var name=s['name'];
+       var url=s['url'];
+       var objgid=parseInt(s['objgid']);
+       cfm_2000m_list.push( {"gid":gid, "name":name, "url":url, "objgid":objgid } );
+       cfm_2000m_gid_list.push(objgid);
     }
 }
