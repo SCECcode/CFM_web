@@ -78,7 +78,7 @@ MJVA-CRSF-TFMT-Coyote_Canyon_fault-CFM5,Mojave Fault Area,MJVA,Cross Faults,CRSF
 MJVA-ECSZ-1992_Barstow_Trend-CFM5,Mojave Fault Area,MJVA,Eastern California shear zone,ECSZ,Landers rupture,1992,Landers-Barstow trend,LNBT
 MJVA-ECSZ-1992_Landers_cross_fault_North_I-CFM5,Mojave Fault Area,MJVA,Eastern California shear zone,ECSZ,Landers cross faults,1992,Landers cross fault-north-I,LCF1
 MJVA-ECSZ-1992_Landers_cross_fault_North_II-CFM5,Mojave Fault Area,MJVA,Eastern California shear zone,ECSZ,Landers cross faults,1992,Landers cross fault-north-II,LCF2
-MJVA-ECSZ-1992_Landers_rupture_detailed_splays-CFM3,Mojave Fault Area,MJVA,Eastern California shear zone,ECSZ,Landers rupture,1992,Landers rupture detailed,LRDD
+MJVA-ECSZ-1992_Landers_rupture_detailed_splays-CFM3,Mojave Fault Area,MJVA,Eastern California shear zone,ECSZ,Landers rupture,1992,Landers rupture detailed ,LNCF
 MJVA-ECSZ-1999-Hector_Mine_rupture_dipping-CFM2,Mojave Fault Area,MJVA,Eastern California shear zone,ECSZ,Hector Mine rupture,1999,Hector Mine rupture,HCMR
 MJVA-GLPS-GLDS-Goldstone_Lake_fault-CFM5,Mojave Fault Area,MJVA,Goldstone Lake-Paradise fault system,GLPS,Goldstone Lake,GLDS,Goldstone Lake fault,GLSF
 MJVA-GLPS-PRDS-Paradise_fault-CFM5,Mojave Fault Area,MJVA,Goldstone Lake-Paradise fault system,GLPS,Paradise,PRDS,Paradise fault,PRDF
@@ -332,7 +332,7 @@ WTRA-PHTS-LABS-Upper_Elysian_Park_fault-CFM1,Western Transverse Ranges Area,WTRA
 WTRA-PHTS-PRTH-Peralta_Hills_fault-CFM1,Western Transverse Ranges Area,WTRA,Puente Hills Thrust system,PHTS,Peralta Hills,PRTH,Peralta Hills fault,PRHF
 WTRA-PHTS-RICH-Puente_Hills_Thrust_fault-CFM2,Western Transverse Ranges Area,WTRA,Puente Hills Thrust system,PHTS,Richfield,RICH,Puente Hills thrust,PHTF
 WTRA-PHTS-STFS-Puente_Hills_Thrust_fault-CFM2,Western Transverse Ranges Area,WTRA,Puente Hills Thrust system,PHTS,Sante Fe Springs,STFS,Puente Hills thrust,PHTF
-WTRA-SBCF-MULT-Western_Deep_fault-SRLN-CVMH-CFM5,Western Transverse Ranges Area,WTRA,Santa Barbara Channel faults,SBCF,Multiple sections,MULT,Western Deep fault,WSDF
+WTRA-SBCF-MULT-Western_Deep_fault-SRLN-CVMH-CFM5,Western Transverse Ranges Area,WTRA,Santa Barbara Channel faults,SBCF,Multiple sections,,Western Deep fault,WSDF
 WTRA-SBCF-WEST-Hondo_detachment_S_dip-SRLN-CVMH-CFM5,Western Transverse Ranges Area,WTRA,Santa Barbara Channel faults,SBCF,Western,WEST,Hondo detachment-S-dip,HNDD
 WTRA-SBTS-ANCP-Anacapa_Dume_fault-CFM3,Western Transverse Ranges Area,WTRA,Southern Boundary thrust system,SBTS,Anacapa-Dume,ANCP,Anacapa-Dume fault,ADMF
 WTRA-SBTS-MULT-Channel_Islands_Thrust_fault-SHAW-CFM1,Western Transverse Ranges Area,WTRA,Southern Boundary thrust system,SBTS,Santa Cruz Is-Anacapa,MULT,Channel Islands thrust,CIT
