@@ -1,3 +1,9 @@
+CREATE TABLE OBJECT_2000m_tb (
+   gid serial PRIMARY KEY,
+   name VARCHAR(100) NOT NULL,
+   url VARCHAR(200) UNIQUE
+);
+
 CREATE TABLE OBJECT_1000m_tb (
    gid serial PRIMARY KEY,
    name VARCHAR(100) NOT NULL,
