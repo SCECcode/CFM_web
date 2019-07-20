@@ -24,7 +24,7 @@ name,abb
 "> zone_tb.csv
 
 #name,abb
-csvcut -c 'Fault Section','Code_3' ${EXCEL_NM}.csv |csvcut -K 1 | sort |uniq | sed "1i\\
+csvcut -c 'CFM5.2 Fault Object Name','Fault Section','Code_3' ${EXCEL_NM}.csv |csvcut -K 1 | sort |uniq | sed "1i\\
 name,abb
 "> section_tb.csv
 
@@ -40,5 +40,5 @@ name,area,aabb,zone,zabb,section,sabb,fault,fabb
 
 #name,Alternative,source author,CFM Version,model description,Descriptor,strike,dip,Area,Exposure,final slip sense,reference,Reference check,ID comments,USGS ID
 csvcut -c 'CFM5.2 Fault Object Name','Alternative','Source/Author','CFM Version','Fault Strand/Model Description','Descriptor','Strike','Dip','Area[m^2]','Exposure','Slip Sense','References','Reference Check','ID comments','USGS ID' ${EXCEL_NM}.csv |csvcut -K 1|sort |uniq | sed "1i\\
-name,Alternative,source author,CFM Version,model description,Descriptor,Strike,Dip,Area,Exposure,Slip Sense,References,Reference Check,ID comments,USGS ID
+name,Alternative,source author,CFM Version,model description,Descriptor,Strike,Dip,Area,Exposure,Slip Sense,Reference,Reference Check,ID comments,USGS ID
 "> object_tb_base.csv 

@@ -1,4 +1,4 @@
-name,Alternative,source author,CFM Version,model description,Descriptor,Strike,Dip,Area,Exposure,Slip Sense,References,Reference Check,ID comments,USGS ID
+name,Alternative,source author,CFM Version,model description,Descriptor,Strike,Dip,Area,Exposure,Slip Sense,Reference,Reference Check,ID comments,USGS ID
 BNRA-BMFZ-MULT-Black_Mountain_fault-CFM3,1,HRVD,CFM3,,,167.587,24.063,804367000,,,,,,142a-d
 BNRA-NDVZ-MULT-Northern_Death_Valley_fault-CFM2,1,HRVD,CFM2,,,49.07,90,684475000,surface,orln,,,,141a-c
 BNRA-SDVZ-MULT-Southern_Death_Valley_fault_vertical-CFM3,1,HRVD,CFM3,,,53.764,90,439679000,,,,,,143a-b

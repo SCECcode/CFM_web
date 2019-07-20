@@ -351,7 +351,7 @@ function getLevel3ContentFromMeta(meta) {
     content=_item(meta,content,'alternative','ALTERNATIVE');
     content=_item(meta,content,'model_description','MODEL_DESCRIPTION');
     content=_item(meta,content,'descriptor','DESCRIPTOR');
-    content=_item(meta,content,'references','REFERENCES');
+    content=_item(meta,content,'reference','REFERENCE');
     content=_item(meta,content,'reference_check','REFERENCE_CHECK');
     content=_item(meta,content,'ID_comments','ID_COMMENTS');
     return content;

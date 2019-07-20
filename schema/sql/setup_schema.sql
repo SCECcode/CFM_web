@@ -71,7 +71,7 @@ CREATE TABLE OBJECT_tb (
    area numeric DEFAULT 0,
    exposure VARCHAR(10),
    slip_sense VARCHAR(6),
-   references VARCHAR(100),
+   reference VARCHAR(100),
    reference_check VARCHAR(6),
    ID_comments VARCHAR(100),
    USGS_ID VARCHAR(100),

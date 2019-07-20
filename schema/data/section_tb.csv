@@ -1,199 +1,384 @@
 name,abb
-1812 Rupture-Mojave SAF+nSJF,1812
-1857 Rupture-Parkfield-Mojave,1857
-1872 rupture,1872
-1992 Big Bear rupture,1992
-1992 Joshua Tree rupture,1992
-Agua Caliente,AGCT
-Allicito Mountains,ALCM
-Anacapa Passage,ANCP
-Anacapa-Dume,ANCP
-Anza,ANZA
-Ash Hill,ASHH
-Baldwin Hills,BLDH
-Bicycle Lake,BCYL
-Big Tujunga,BTJG
-Borrego Mountain,BRMT
-Brawley Seismic Zone,BSZ
-Brawley Seismic Zone,BSZS
-Burnt Mountain,BRMT
-Cady,CADY
-Camp Rock,CMPR
-Canada David,CDVD
-Casmalia,CSML
-Catalina Basin,CTLB
-Central,CNTL
-Cerro Prieto basin,CRPB
-Chimineas,CHMN
-Chino Hills,CHNH
-Chino,CHNO
-Cholame-Carrizo,CLCZ
-Clamshell-Sawpit,CSPC
-Cleghorn Lake,CLGL
-Coachella,COAV
-Coalinga,COAL
-Copper Mountain,CPMT
-Coso,COSO
-Coyote Creek,CYTC
-Coyote Hills,COYT
-Coyote Lake,CYTL
-Coyote Mountain,CYMT
-Coyote Mountains,CYMT
-Crafton Hills fault zone,CHFZ
-Cucamonga,CCMG
-Dana Point section,DANA
-Davies Valley,DVSV
-Detachment,DTMT
-East Bullion,EBLS
-East Huasna,EHSN
-East Santa Cruz Basin,ESCB
-East,EAST
-Eastern Big Pine,EAST
-Eastern San Bernardino Mtns,SBMT
-Eastern splay - south,EAST
-Eastern splay,EAST
-Eastern,EAST
-El Mayor-Cucapah,EMCP
-Emerson,EMRS
-Eureka Peak,ERPK
-Fish Creek Mountain,FCMS
-Garlic Springs,GRLS
-Glen Ivy,GLIV
-Goldstone Lake,GLDS
-Granite Mountains,GNTM
-Gravel Hills,GVHS
-Gravel Hills-Harper Lake,MULT
-Harper Valley,HPVS
-Hector Mine rupture,1999
-Homestead Valley,HMSV
-Huasna Valley,HSNV
-Hunter Mtn-Saline Valley,MULT
-Icehouse Canyon,ICHC
-Imperial Valley,IMPV
-Independence,INDP
-Independence-Haiwee Reservoir,MULT
-Indiviso,INDV
-Julian,JULN
-Kern Canyon,KRCN
-Kettleman Hills,KTLM
-Laguna Salada,LGSD
-Lake Isabella,LISA
-Landers cross faults,1992
-Landers rupture,1992
-Little Pine,LPNS
-Little San Bernardino Mts,LSBM
-Lockwood Valley,LKWV
-Long Canyon,LGCS
-Los Alamos,LALM
-Los Angeles Basin,LABS
-Los Osos,LSOS
-Lost Hills,LSTH
-Ludlow,LDLW
-Main-central strand,MAIN
-Manix,MANX
-Mecca Hills,MCHS
-Mesquite Lake,MSQL
-Mission Hills,MSNH
-Mojave,MJVS
-Morales,MRLS
-Morongo Valley,MORV
-Multiple Sections,MULT
-Multiple sections,
-Multiple sections,MULT
-Multiple sections-offshore,RSCN
-Multiple-Los Angeles basin,LABS
-North Channel,NCHN
-North-South Johnson Valley,MULT
-Northern Cleghorn,NCHS
-Northern Coronado Bank,NCBF
-Northern Davies Valley,NDVS
-Northern Panamint-Brown Mtn,MULT
-Northern section,NRTH
-Oceanside section,OCNS
-Oceanside,OCNS
-Ocotillo,OCOT
-Offshore,OFFS
-Offshore-Mid-Channel trend,OFFS
-Orcutt,ORCT
-Oxnard Plain,OXNP
-Painted Gorge Wash,PGWS
-Palomas,PLMS
-Paradise,PRDS
-Parkfield,PARK
-Peralta Hills,PRTH
-Pezzoni-Casmalia,PEZN
-Pine Mountain,PMTS
-Pisgah-West_Bullion,MULT
-Pitas Point-Ventura,PPTV
-Puente Hills,PHLS
-Red Mountain,RDMT
-Red Pass,RDPS
-Redondo Canyon,RDNC
-Richfield,RICH
-Rose Canyon transfer,RCNT
-Salton Sea,SLTS
-San Antonio Canyon,SANC
-San Bernardino Mountains,SBMT
-San Bernardino,SBRN
-San Bernardino-Coachella Valley,MULT
-San Clemente Basin region,SCBR
-San Clemente Island,SCLI
-San Felipe,SFLS
-San Fernando Valley,SFNV
-San Fernando Valley,SNFV
-San Gabriel Valley,SGVS
-San Gorgonio Pass,SGPS
-San Jacinto Mountains,SJMT
-San Jacinto Valley,SJCV
-San Joaquin Hills,SJQH
-San Luis Bay,SLBS
-San Mateo,SMTO
-San Pedro Basin-San Diego Trough,STHS
-Santa Barbara Island area,SBRI
-Santa Catalina Island,SCTI
-Santa Clarita Valley,SCLV
-Santa Cruz Is-Anacapa,MULT
-Santa Cruz Island,SNCZ
-Santa Lucia Range-north,SLRN
-Santa Monica Bay,SMBY
-Santa Monica Bay,SMNB
-Santa Monica Bay-San Pedro Basin,NTHS
-Santa Monica Mountains,SMMT
-Santa Rosa Ridge,SRSR
-Santa Rosa-San Miguel Islands,SNRS
-Santa Ynez Valley,SYNV
-Sante Fe Springs,STFS
-Shoreline,SHRL
-Sierra Cucapah,SRCP
-Sierra Madre D section,SMDD
-Sierra Madre E section,SMDE
-Sierra Madre-Clamshell Canyon,SMCC
-Smoketree Wash,STWS
-South Cuyama,SCYM
-South,SOUT
-Southern Cleghorn,SCHS
-Southern Coronado Bank,SCBF
-Southern Johnson Valley,SJVS
-Stoddard Canyon,STDC
-Sulphur Mountain,SPMT
-Superstition Hills,SSHS
-Superstition Mountain,SSMT
-Tank Canyon,TANK
-Temecula,TMCL
-Thirtymile Bank,30MB
-Tiefort Mountains,TFMT
-TopaTopa Mountains,TOPA
-Upper San Gabriel River,USGR
-Upper Santa Ana Valley,USAV
-Ventura basin,VNTB
-Ventura basin,VNTR
-Verdugo Mountains,VRDM
-West Bullion,WBLS
-West Calico section,WCLS
-Western Big Pine,WEST
-Western splay - north,WEST
-Western splay,WEST
-Western,WEST
-Whittier,WHIT
-Yuha Desert,YUHA
-Zaca,ZACA
+BNRA-BMFZ-MULT-Black_Mountain_fault-CFM3,Multiple sections,MULT
+BNRA-NDVZ-MULT-Northern_Death_Valley_fault-CFM2,Multiple sections,MULT
+BNRA-SDVZ-MULT-Southern_Death_Valley_fault_vertical-CFM3,Multiple sections,MULT
+CRFA-BPPM-EAST-Big_Pine_fault-CFM4,Eastern Big Pine,EAST
+CRFA-BPPM-LKWV-Lockwood_Valley_fault-CFM2,Lockwood Valley,LKWV
+CRFA-BPPM-PMTS-Pine_Mountain_fault-CFM2,Pine Mountain,PMTS
+CRFA-BPPM-WEST-Big_Pine_fault-CFM2,Western Big Pine,WEST
+CRFA-CSBL-CSML-Casmalia_fault-CFM4,Casmalia,CSML
+CRFA-CSBL-LALM-Los_Alamos_fault_steep-CFM5,Los Alamos,LALM
+CRFA-CSBL-ORCT-Orcutt_blind_fault-CFM5,Orcutt,ORCT
+CRFA-CSBL-PEZN-Pezzoni_Casmalia_fault_truncated-CFM5,Pezzoni-Casmalia,PEZN
+CRFA-CSBL-ZACA-Zaca_blind_fault-CFM5,Zaca,ZACA
+CRFA-LMPZ-EAST-Lompoc_blind_ramp-CFM5,Eastern,EAST
+CRFA-LMPZ-WEST-Lompoc_blind_ramp-CFM5,Western,WEST
+CRFA-LNHZ-MULT-Lions_Head_fault-CFM4,Multiple sections,MULT
+CRFA-LOSO-LSOS-Los_Osos_fault-CFM4,Los Osos,LSOS
+CRFA-LPNZ-MULT-La_Panza_fault-CFM4,Multiple sections,MULT
+CRFA-NAFZ-MULT-Nacimiento_fault_south-CFM2,Multiple sections,MULT
+CRFA-OCNZ-HSNV-West_Huasna_fault-CFM5,Huasna Valley,HSNV
+CRFA-OCNZ-MULT-Oceanic_fault-CFM5,Multiple sections,MULT
+CRFA-OCNZ-SLCN-Oceanic_backthrust_n-CFM4,Santa Lucia Range-north,SLRN
+CRFA-REHZ-EHSN-East_Huasna_fault-CFM4,East Huasna,EHSN
+CRFA-REHZ-MULT-Rinconada_fault-CFM4,Multiple sections,MULT
+CRFA-SCFZ-SCYM-South_Cuyama_fault-CFM3,South Cuyama,SCYM
+CRFA-SJMZ-CHMN-Big_Spring_fault_35dip-CFM5,Chimineas,CHMN
+CRFA-SJMZ-MRLS-Morales_fault-CFM3,Morales,MRLS
+CRFA-SJMZ-MULT-San_Juan_fault-CFM5,Multiple sections,MULT
+CRFA-SLRS-LPNS-Little_Pine_fault-CFM5,Little Pine,LPNS
+CRFA-SLRS-MULT-San_Luis_Range_fault_system-CFM4,Multiple sections,MULT
+CRFA-SLRS-SHRL-Shoreline_fault-CFM4,Shoreline,SHRL
+CRFA-SLRS-SLBS-San_Luis_Bay_fault-CFM4,San Luis Bay,SLBS
+CRFA-SLRS-SYNV-Santa_Ynez_Valley_blind_fault-CFM5,Santa Ynez Valley,SYNV
+ETRA-BBFS-1992_Big_Bear_rupture-CFM2,1992 Big Bear rupture,1992
+ETRA-BCFZ-MULT-Blue_Cut_fault-CFM5,Multiple sections,MULT
+ETRA-CHRC-STWS-Smoketree_Wash_fault_vertical-CFM5,Smoketree Wash,STWS
+ETRA-CLGZ-NCHS-Grass_Valley_fault_steep-CFM5,Northern Cleghorn,NCHS
+ETRA-CLGZ-SBMT-Tunnel_Ridge_Arrastre_Canyon_fault_steep-CFM5,San Bernardino Mountains,SBMT
+ETRA-CLGZ-SCHS-Cleghorn_fault_steep-CFM5,Southern Cleghorn,SCHS
+ETRA-LSBM-1992_Joshua_Tree_sequence-CFM5,1992 Joshua Tree rupture,1992
+ETRA-LSBM-LGCS-Long_Canyon_fault-CFM5,Long Canyon,LGCS
+ETRA-LSBM-MULT-Burnt_Mountain_East_Wide_Canyon_fault-CFM5,Burnt Mountain,BRMT
+ETRA-LSBM-MULT-Eureka_Peak_West_Deception_Canyon_fault-CFM5,Eureka Peak,ERPK
+ETRA-NFTS-DTMT-Deep_detachment-CFM5,Detachment,DTMT
+ETRA-NFTS-EAST-North_Frontal_Thrust_fault_lowdip-CFM5,Eastern,EAST
+ETRA-NFTS-WEST-North_Frontal_Thrust_fault_lowdip-CFM5,Western,WEST
+ETRA-PMFZ-MRVS-Morongo_Valley_fault-CFM5,Morongo Valley,MORV
+ETRA-PMFZ-MULT-Pinto_Mountain_fault-CFM5,Multiple sections,MULT
+ETRA-SANA-MULT-Santa_Ana_fault-CFM5,Multiple sections,MULT
+ETRA-SBMT-WEST-Waterman_Canyon_fault-CFM5,Western,WEST
+GRFS-GRFZ-EAST-Garlock_fault-CFM5,Eastern,EAST
+GRFS-GRFZ-EAST-Owl_Lake_fault-CFM5,Eastern,EAST
+GRFS-GRFZ-WEST-Garlock_fault-CFM5,Western,WEST
+GVFA-KRCS-KRCN-Kern_Canyon_fault-CFM5,Kern Canyon,KRCN
+GVFA-KRCS-LISA-Lake_Isabella_lineament-CFM2,Lake Isabella,LISA
+GVFA-PLFZ-MULT-Pleito_fault-CFM2,Multiple sections,MULT
+GVFA-TDRS-COAL-Coalinga_blind_fault-CFM2,Coalinga,COAL
+GVFA-TDRS-KTLM-Kettleman_Hills_blind_fault_North_Dome-CFM2,Kettleman Hills,KTLM
+GVFA-TDRS-LSTH-Lost_Hills_blind_fault-CFM2,Lost Hills,LSTH
+GVFA-WWFZ-MULT-White_Wolf_fault-CFM1,Multiple Sections,MULT
+MJVA-BWFZ-MULT-Blackwater_fault-CFM5,Multiple sections,MULT
+MJVA-CHFZ-MULT-Calico_Hidalgo_fault-CFM5,Multiple sections,MULT
+MJVA-CHFZ-WCLS-West_Calico_FaultA_fault-CFM5,West Calico section,WCLS
+MJVA-CREC-CMPR-Camp_Rock_fault-CFM5,Camp Rock,CMPR
+MJVA-CREC-CPMT-Copper_Mountain_fault-CFM5,Copper Mountain,CPMT
+MJVA-CREC-EMRS-Emerson_fault-CFM5,Emerson,EMRS
+MJVA-CREC-EMRS-Galway_Lake_fault-CFM2,Emerson,EMRS
+MJVA-CREC-EMRS-North_Emerson_fault-CFM3,Emerson,EMRS
+MJVA-CRSF-BLBS-Bicycle_Lake_fault-CFM5,Bicycle Lake,BCYL
+MJVA-CRSF-BLBS-Bitter_Springs_fault-CFM5,Bicycle Lake,BCYL
+MJVA-CRSF-CADY-Cady_fault-CFM5,Cady,CADY
+MJVA-CRSF-CYTL-Coyote_Lake_fault-CFM5,Coyote Lake,CYTL
+MJVA-CRSF-GNTM-Granite_Mountains_fault_west-CFM5,Granite Mountains,GNTM
+MJVA-CRSF-GNTM-McLean_Lake_Drinkwater_Lake_fault-CFM5,Granite Mountains,GNTM
+MJVA-CRSF-GNTM-Nelson_Lake_fault-CFM5,Granite Mountains,GNTM
+MJVA-CRSF-MANX-Manix_fault-CFM5,Manix,MANX
+MJVA-CRSF-TFMT-Coyote_Canyon_fault-CFM5,Tiefort Mountains,TFMT
+MJVA-ECSZ-1992_Barstow_Trend-CFM5,Landers rupture,1992
+MJVA-ECSZ-1992_Landers_cross_fault_North_I-CFM5,Landers cross faults,1992
+MJVA-ECSZ-1992_Landers_cross_fault_North_II-CFM5,Landers cross faults,1992
+MJVA-ECSZ-1992_Landers_rupture_detailed_splays-CFM3,Landers rupture,1992
+MJVA-ECSZ-1999-Hector_Mine_rupture_dipping-CFM2,Hector Mine rupture,1999
+MJVA-GLPS-GLDS-Goldstone_Lake_fault-CFM5,Goldstone Lake,GLDS
+MJVA-GLPS-PRDS-Paradise_fault-CFM5,Paradise,PRDS
+MJVA-HPFZ-GVHS-Gravel_Hills_fault_nw-CFM5,Gravel Hills,GVHS
+MJVA-HPFZ-GVHS-Harper_Valley_fault-CFM5,Gravel Hills,GVHS
+MJVA-HPFZ-HPVS-Harper_Valley_Mt_General_fault-CFM5,Harper Valley,HPVS
+MJVA-HPFZ-MULT-Gravel_Hills_Harper_Lake_fault-CFM5,Gravel Hills-Harper Lake,MULT
+MJVA-HSLZ-MULT-Helendale_South_Lockhart_fault-CFM5,Multiple sections,MULT
+MJVA-HSLZ-SBMT-Pipes_Canyon_fault-CFM5,Eastern San Bernardino Mtns,SBMT
+MJVA-HSLZ-SBMT-Pipes_Canyon_fault_north_extension-CFM5,Eastern San Bernardino Mtns,SBMT
+MJVA-HSLZ-SBMT-Southern_Helendale_fault-CFM5,Eastern San Bernardino Mtns,SBMT
+MJVA-JVFZ-MULT-Johnson_Valley_fault-CFM5,North-South Johnson Valley,MULT
+MJVA-JVFZ-SJVS-Kickapoo_fault-CFM3,Southern Johnson Valley,SJVS
+MJVA-JVHZ-HMSV-Homestead_Valley_fault-CFM3,Homestead Valley,HMSV
+MJVA-LCLZ-CLGL-Cleghorn_Lake_fault-CFM5,Cleghorn Lake,CLGL
+MJVA-LCLZ-LDLW-Ludlow_fault-CFM5,Ludlow,LDLW
+MJVA-LLBM-MULT-Lavic_Lake_North_West_Bullion_fault-CFM3,Multiple sections,MULT
+MJVA-LWLZ-MULT-Lenwood_Lockhart_fault-CFM5,Multiple sections,MULT
+MJVA-NEMV-GRLS-Garlic_Spring_fault-CFM5,Garlic Springs,GRLS
+MJVA-NEMV-RDPS-Red_Pass_fault-CFM5,Red Pass,RDPS
+MJVA-PBMZ-EBLS-East_Bullion_Valley_Mountain_fault-CFM5,East Bullion,EBLS
+MJVA-PBMZ-MSQL-Mesquite_Lake_fault-CFM5,Mesquite Lake,MSQL
+MJVA-PBMZ-MULT-Pisgah_Bullion_West_Bullion_fault-CFM5,Pisgah-West_Bullion,MULT
+MJVA-PBMZ-WBLS-West_Bullion_fault-CFM5,West Bullion,WBLS
+OCBA-CBFZ-EAST-Coronado_Bank_east_splay-SRLN-CFM5,Eastern splay,EAST
+OCBA-CBFZ-NCBF-Coronado_Bank_fault_north-SRLN-CFM5,Northern Coronado Bank,NCBF
+OCBA-CBFZ-SCBF-Coronado_Bank_fault_south-SRLN-CFM5,Southern Coronado Bank,SCBF
+OCBA-CBFZ-WEST-Coronado_Bank_west_splay-SRLN-CFM5,Western splay,WEST
+OCBA-CBKD-MULT-Coronado_Bank_detachment_upper-SRLN-CFM5,Multiple sections,MULT
+OCBA-CRSF-RDNC-Redondo_Canyon_fault-ZION-CFM2,Redondo Canyon,RDNC
+OCBA-DSCS-EAST-Descanso_fault_east_splay-SRLN-CFM5,Eastern splay - south,EAST
+OCBA-DSCS-MAIN-Descanso_fault-SRLN-CFM5,Main-central strand,MAIN
+OCBA-DSCS-NRTH-Descanso_fault_A-SRLN-CFM5,Northern section,NRTH
+OCBA-DSCS-NRTH-Descanso_fault_B-SRLN-CFM5,Northern section,NRTH
+OCBA-DSCS-NRTH-Descanso_fault_C-SRLN-CFM5,Northern section,NRTH
+OCBA-DSCS-RCNT-Descanso_RC_transfer_fault_alt1-SRLN-CVMH-CFM5,Rose Canyon transfer,RCNT
+OCBA-DSCS-WEST-Descanso_fault_west_splay-SRLN-CFM5,Western splay - north,WEST
+OCBA-ESCS-ESCB-East_Santa_Cruz_Basin_fault_A-SRLN-CFM5,East Santa Cruz Basin,ESCB
+OCBA-ESCS-ESCB-East_Santa_Cruz_Basin_fault_B-SRLN-CFM5,East Santa Cruz Basin,ESCB
+OCBA-ESCS-ESCB-East_Santa_Cruz_Basin_fault_D-SRLN-CFM5,East Santa Cruz Basin,ESCB
+OCBA-ESCS-ESCB-East_Santa_Cruz_Basin_fault_E-SRLN-CFM5,East Santa Cruz Basin,ESCB
+OCBA-ESCS-ESCB-East_Santa_Cruz_Basin_fault_main-SRLN-CFM5,East Santa Cruz Basin,ESCB
+OCBA-FRFZ-SRRS-Ferrelo_fault_upper-SRLN-CFM5,Santa Rosa Ridge,SRSR
+OCBA-IBFS-SCTI-Catalina_Island_detachment_upper_alt1-SRLN-CVMH-CFM5,Santa Catalina Island,SCTI
+OCBA-IBFS-SMBY-Santa_Monica_Bay_detachment_east-SRLN-CFM5,Santa Monica Bay,SMBY
+OCBA-IBFS-SMBY-Santa_Monica_Bay_detachment_mid-SRLN-CFM5,Santa Monica Bay,SMBY
+OCBA-IBFS-SMBY-Santa_Monica_Bay_detachment_west_regrid-SRLN-CFM5,Santa Monica Bay,SMBY
+OCBA-IBFS-SMBY-Santa_Monica_Bay_fault_east-SRLN-CFM5,Santa Monica Bay,SMBY
+OCBA-IBFS-SMBY-Santa_Monica_Bay_fault_west-SRLN-CFM5,Santa Monica Bay,SMBY
+OCBA-NIRC-DANA-Newport_Inglewood_fault-SRLN-CVMH-CFM5,Dana Point section,DANA
+OCBA-NIRC-OCNS-Newport_Inglewood_Rose_Canyon_link-CFM5,Oceanside section,OCNS
+OCBA-NIRC-RSCN-Rose_Canyon_fault-CFM5,Multiple sections-offshore,RSCN
+OCBA-OCSD-OCNS-Oceanside_detachment_alt1-SRLN-CVMH-CFM5,Oceanside,OCNS
+OCBA-OCSD-OCNS-Oceanside_fault_north-SRLN-CFM5,Oceanside,OCNS
+OCBA-OCSD-OCNS-Oceanside_fault_south_east_A-SRLN-CFM5,Oceanside,OCNS
+OCBA-OCSD-OCNS-Oceanside_fault_south_east_B-SRLN-CFM5,Oceanside,OCNS
+OCBA-OCSD-OCNS-Oceanside_fault_south_east_C-SRLN-CFM5,Oceanside,OCNS
+OCBA-OCSD-OCNS-Oceanside_fault_south_west-SRLN-CFM5,Oceanside,OCNS
+OCBA-PVFZ-MULT-Palos_Verdes_fault-CFM5,Multiple sections,MULT
+OCBA-SCCR-MULT-Santa_Cruz_Catalina_Ridge_fault-CFM5,Multiple Sections,MULT
+OCBA-SCFZ-CTLB-San_Clemente_fault_splay-CFM5,Catalina Basin,CTLB
+OCBA-SCFZ-SBRI-San_Clemente_fault_nw_strand-CFM5,Santa Barbara Island area,SBRI
+OCBA-SCFZ-SCBR-San_Clemente_fault-LEGG-CFM5,San Clemente Basin region,SCBR
+OCBA-SCFZ-SCLI-San_Clemente_fault-LEGG-CFM5,San Clemente Island,SCLI
+OCBA-SDTZ-30MB-San_Diego_Trough_fault-LEGG-CFM5,Thirtymile Bank,30MB
+OCBA-SDTZ-CTLB-San_Diego_Trough_fault-LEGG-CFM5,Catalina Basin,CTLB
+OCBA-SMCS-MULT-San_Mateo_Carlsbad_fault-SRLN-CFM5,Multiple sections,MULT
+OCBA-SMCS-SMTO-San_Mateo_splay-SRLN-CFM5,San Mateo,SMTO
+OCBA-SMCS-SMTO-San_Onofre_fault_upper-SRLN-CFM5,San Mateo,SMTO
+OCBA-SPBZ-NTHS-San_Pedro_Basin_fault_north-CFM5,Santa Monica Bay-San Pedro Basin,NTHS
+OCBA-SPBZ-STHS-San_Pedro_Basin_fault_south-LEGG-CFM5,San Pedro Basin-San Diego Trough,STHS
+OCCA-HSFZ-MULT-Hosgri_San_Simeon_fault-CFM1,Multiple sections,MULT
+PNRA-ATEV-MULT-Agua_Tibia_Earthquake_Valley_fault_east-CFM4,Multiple sections,MULT
+PNRA-ATEV-MULT-Agua_Tibia_Earthquake_Valley_fault_main-CFM4,Multiple sections,MULT
+PNRA-ATEV-MULT-Agua_Tibia_Earthquake_Valley_fault_west-CFM4,Multiple sections,MULT
+PNRA-CEPS-BLDH-Compton-Los_Alamitos_fault-CFM2,Baldwin Hills,BLDH
+PNRA-CEPS-LABS-Anaheim_fault-CFM1,Los Angeles Basin,LABS
+PNRA-CEPS-LABS-Compton-Los_Alamitos_fault-CFM2,Los Angeles Basin,LABS
+PNRA-CEPS-PHLS-Lower_Elysian_Park_fault-CFM1,Puente Hills,PHLS
+PNRA-CRSF-ALCM-Sawtooth_Range_fault-CFM4,Allicito Mountains,ALCM
+PNRA-CRSF-CHNH-Yorba_Linda_lineament-CFM2,Chino Hills,CHNH
+PNRA-CRSF-CYMT-Devils_Canyon_fault-CFM4,Coyote Mountains,CYMT
+PNRA-CRSF-EMCP-El_Mayor_Cucapah_normal_fault-CFM4,El Mayor-Cucapah,EMCP
+PNRA-CRSF-EMCP-El_Mayor_Cucapah_west_fault-CFM4,El Mayor-Cucapah,EMCP
+PNRA-CRSF-OCOT-Ocotillo_fault-CFM5,Ocotillo,OCOT
+PNRA-CRSF-OCOT-Ocotillo_set1-CFM4,Ocotillo,OCOT
+PNRA-CRSF-OCOT-Ocotillo_set2-CFM4,Ocotillo,OCOT
+PNRA-CRSF-OCOT-Ocotillo_set3-CFM4,Ocotillo,OCOT
+PNRA-CRSF-OCOT-Ocotillo_set4-CFM4,Ocotillo,OCOT
+PNRA-CRSF-OCOT-Ocotillo_set5-CFM4,Ocotillo,OCOT
+PNRA-CRSF-PGWS-Painted_Gorge_Wash_fault-CFM4,Painted Gorge Wash,PGWS
+PNRA-CRSF-USAV-Fontana_Seismicity_lineament-CFM1,Upper Santa Ana Valley,USAV
+PNRA-CRSF-USAV-Red_Hill_fault-CFM5,Upper Santa Ana Valley,USAV
+PNRA-CRSF-YUHA-Shell_Beds_fault-CFM5,Yuha Desert,YUHA
+PNRA-CRSF-YUHA-Yuha_Wash_fault-CFM5,Yuha Desert,YUHA
+PNRA-CRSF-YUHA-Yuha_Well_Vista_del_Anza_fault_truncated-CFM5,Yuha Desert,YUHA
+PNRA-CRSF-YUHA-Yuha_Well_fault-CFM5,Yuha Desert,YUHA
+PNRA-CRSF-YUHA-Yuha_Well_fault_north_set1-CFM5,Yuha Desert,YUHA
+PNRA-CRSF-YUHA-Yuha_Well_fault_northwest_steep-CFM5,Yuha Desert,YUHA
+PNRA-CRSF-YUHA-Yuha_Well_fault_west_steep-CFM5,Yuha Desert,YUHA
+PNRA-CRSF-YUHA-Yuha_fault-CFM5,Yuha Desert,YUHA
+PNRA-CSTF-SJQH-San_Joaquin_Hills_fault_truncated-CFM3,San Joaquin Hills,SJQH
+PNRA-DVVZ-DVSV-Davies_Valley_fault-CFM5,Davies Valley,DVSV
+PNRA-DVVZ-NDVV-Northern_Davies_Valley_set1-CFM4,Northern Davies Valley,NDVS
+PNRA-ELSZ-CHNO-Chino_fault_Central_Ave-CFM4,Chino,CHNO
+PNRA-ELSZ-CHNO-Chino_fault_main-CFM4,Chino,CHNO
+PNRA-ELSZ-CYMT-Elsinore_fault-CFM4,Coyote Mountain,CYMT
+PNRA-ELSZ-GLIV-Glen_Ivy_North_fault-CFM4,Glen Ivy,GLIV
+PNRA-ELSZ-GLIV-Glen_Ivy_South_fault-CFM4,Glen Ivy,GLIV
+PNRA-ELSZ-INDV-Indiviso_fault-CFM4,Indiviso,INDV
+PNRA-ELSZ-INDV-Indiviso_fault_splay-CFM4,Indiviso,INDV
+PNRA-ELSZ-JULN-Elsinore_fault_Wildomar_link-CFM4,Julian,JULN
+PNRA-ELSZ-JULN-Elsinore_fault_north-CFM4,Julian,JULN
+PNRA-ELSZ-JULN-Elsinore_fault_south-CFM4,Julian,JULN
+PNRA-ELSZ-LGSD-Laguna_Salada_fault_east_branch_dipping-CFM5,Laguna Salada,LGSD
+PNRA-ELSZ-LGSD-Laguna_Salada_fault_east_branch_dipping_splay-CFM5,Laguna Salada,LGSD
+PNRA-ELSZ-LGSD-Laguna_Salada_fault_north-CFM5,Laguna Salada,LGSD
+PNRA-ELSZ-LGSD-Laguna_Salada_fault_south-CFM5,Laguna Salada,LGSD
+PNRA-ELSZ-LGSD-Laguna_Salada_fault_west_branch_center-CFM5,Laguna Salada,LGSD
+PNRA-ELSZ-LGSD-Laguna_Salada_fault_west_branch_deep_splay-CFM5,Laguna Salada,LGSD
+PNRA-ELSZ-LGSD-Laguna_Salada_fault_west_branch_east-CFM5,Laguna Salada,LGSD
+PNRA-ELSZ-LGSD-Laguna_Salada_fault_west_branch_west-CFM5,Laguna Salada,LGSD
+PNRA-ELSZ-SRCP-Borrego_fault-CFM4,Sierra Cucapah,SRCP
+PNRA-ELSZ-SRCP-Paso_Inferior_fault-CFM4,Sierra Cucapah,SRCP
+PNRA-ELSZ-SRCP-Paso_Superior_fault-CFM4,Sierra Cucapah,SRCP
+PNRA-ELSZ-SRCP-Pescadores_fault-CFM4,Sierra Cucapah,SRCP
+PNRA-ELSZ-SRCP-Sierra_Cucapah_fault-CFM4,Sierra Cucapah,SRCP
+PNRA-ELSZ-TMCL-Wildomar_fault-CFM4,Temecula,TMCL
+PNRA-ELSZ-TMCL-Willard_fault-CFM4,Temecula,TMCL
+PNRA-ELSZ-WHIT-East_Montebello_fault-CFM3,Whittier,WHIT
+PNRA-ELSZ-WHIT-Whittier_Heights_fault-CFM1,Whittier,WHIT
+PNRA-ELSZ-WHIT-Whittier_fault-CFM4,Whittier,WHIT
+PNRA-ELSZ-WHIT-Workman_Hill_fault-CFM1,Whittier,WHIT
+PNRA-ELSZ-YUHA-Sierra_Cucapah_fault_NW_splay-CFM5,Yuha Desert,YUHA
+PNRA-ELSZ-YUHA-Sierra_Cucapah_fault_blind_north-CFM5,Yuha Desert,YUHA
+PNRA-HSSF-AGCT-Agua_Caliente_fault_zone-CFM4,Agua Caliente,AGCT
+PNRA-HSSF-HOTS-Hot_Springs_fault-CFM4,San Felipe,SFLS
+PNRA-HSSF-MRHS-Murrieta_Hotsprings_fault-CFM4,Fish Creek Mountain,FCMS
+PNRA-NBJD-CDVD-Canada_David_detachment-CFM3,Canada David,CDVD
+PNRA-NBJD-SRCP-Cerro_Centinela_fault-CFM2,Sierra Cucapah,SRCP
+PNRA-NIRC-LABS-Newport_Inglewood_fault_dip_w_splays_split-CFM5,Multiple-Los Angeles basin,LABS
+PNRA-SJFZ-ANZA-Buck_Ridge_fault-CFM4,Anza,ANZA
+PNRA-SJFZ-ANZA-Clark_fault_north-CFM4,Anza,ANZA
+PNRA-SJFZ-ANZA-Clark_fault_south_east-CFM4,Anza,ANZA
+PNRA-SJFZ-ANZA-Clark_fault_south_main-CFM4,Anza,ANZA
+PNRA-SJFZ-ANZA-Clark_fault_south_west-CFM4,Anza,ANZA
+PNRA-SJFZ-ANZA-Clark_fault_south_west_link-CFM4,Anza,ANZA
+PNRA-SJFZ-ANZA-Hot_Springs_Buck_Ridge_link-CFM4,Anza,ANZA
+PNRA-SJFZ-BRMT-Coyote_Creek_blind_fault_north_east-CFM4,Borrego Mountain,BRMT
+PNRA-SJFZ-BRMT-Coyote_Creek_fault-CFM4,Borrego Mountain,BRMT
+PNRA-SJFZ-CYTC-Coyote_Creek_fault-CFM4,Coyote Creek,CYTC
+PNRA-SJFZ-CYTC-Coyote_Creek_fault_center_east_splay-CFM4,Coyote Creek,CYTC
+PNRA-SJFZ-IMPV-Dixieland_fault-CFM5,Imperial Valley,IMPV
+PNRA-SJFZ-IMPV-Weinert_El_Centro_fault-CFM5,Imperial Valley,IMPV
+PNRA-SJFZ-IMPV-Weinert_Superstition_Hills_link-CFM5,Imperial Valley,IMPV
+PNRA-SJFZ-SBRN-Glen_Helen_fault-CFM4,San Bernardino,SBRN
+PNRA-SJFZ-SBRN-Loma_Linda_fault-CFM4,San Bernardino,SBRN
+PNRA-SJFZ-SBRN-Lytle_Creek_fault-CFM4,San Bernardino,SBRN
+PNRA-SJFZ-SBRN-Rialto_Colton_fault-CFM4,San Bernardino,SBRN
+PNRA-SJFZ-SBRN-San_Jacinto_Claremont_fault-CFM4,San Bernardino,SBRN
+PNRA-SJFZ-SJCV-Casa_Loma_fault-CFM4,San Jacinto Valley,SJCV
+PNRA-SJFZ-SJCV-Claremont_fault-CFM4,San Jacinto Valley,SJCV
+PNRA-SJFZ-SJCV-Hot_Springs_fault-CFM4,San Jacinto Valley,SJCV
+PNRA-SJFZ-SJCV-Hot_Springs_fault_west-CFM4,San Jacinto Valley,SJCV
+PNRA-SJFZ-SJCV-San_Jacinto_Claremont_fault-east-CFM4,San Jacinto Valley,SJCV
+PNRA-SJFZ-SSHS-Superstition_Hills_fault-CFM4,Superstition Hills,SSHS
+PNRA-SJFZ-SSMT-Superstition_Mountain_fault-CFM4,Superstition Mountain,SSMT
+PNRA-SJFZ-SSMT-West_Mesa_fault-CFM5,Superstition Mountain,SSMT
+SAFS-MHFZ-LSBM-Berdoo_Canyon_fault-CFM4,Little San Bernardino Mts,LSBM
+SAFS-MHFZ-LSBM-Indio_Hills_fault-CFM4,Little San Bernardino Mts,LSBM
+SAFS-MHFZ-MCHS-Hidden_Springs_fault-CFM4,Mecca Hills,MCHS
+SAFS-MHFZ-MCHS-Mecca_Hills_fault-CFM4,Mecca Hills,MCHS
+SAFS-MHFZ-MCHS-Painted_Canyon_fault-CFM4,Mecca Hills,MCHS
+SAFS-MHFZ-MULT-Mecca_Hills_Hidden_Springs_fault_deep-CFM4,Multiple sections,MULT
+SAFS-SAFZ-1812-San_Andreas_fault_rupture-LOZS-CFM5,1812 Rupture-Mojave SAF+nSJF,1812
+SAFS-SAFZ-1857-San_Andreas_fault_rupture-CFM5,1857 Rupture-Parkfield-Mojave,1857
+SAFS-SAFZ-BSZS-Southern_San_Andreas_blind_extension-CFM4,Brawley Seismic Zone,BSZS
+SAFS-SAFZ-CLCZ-San_Andreas_fault-CHLM-CFM4,Cholame-Carrizo,CLCZ
+SAFS-SAFZ-CLCZ-San_Andreas_fault-CRRZ-CFM4,Cholame-Carrizo,CLCZ
+SAFS-SAFZ-COAV-Banning_NPS_fault_splay-CFM4,Coachella,COAV
+SAFS-SAFZ-COAV-Mission_Creek_fault_strand-CFM4,Coachella,COAV
+SAFS-SAFZ-COAV-North_Palm_Springs_fault-CFM4,Coachella,COAV
+SAFS-SAFZ-COAV-Southern_San_Andreas_fault-CFM4,Coachella,COAV
+SAFS-SAFZ-MJVS-San_Andreas_fault-CFM4,Mojave,MJVS
+SAFS-SAFZ-MULT-Banning_fault_strand-CFM4,San Bernardino-Coachella Valley,MULT
+SAFS-SAFZ-MULT-Garnet_Hill_fault_strand-CFM4,Multiple sections,MULT
+SAFS-SAFZ-PARK-San_Andreas_fault-CFM4,Parkfield,PARK
+SAFS-SAFZ-SBMT-Mill_Creek_fault_strand-CFM4,San Bernardino Mountains,SBMT
+SAFS-SAFZ-SBMT-Mission_Creek_fault_strand_steep-CFM4,San Bernardino Mountains,SBMT
+SAFS-SAFZ-SBMT-San_Andreas_fault-CFM4,San Bernardino Mountains,SBMT
+SAFS-SGPR-CHFZ-Casa_Blanca_fault-CFM5,Crafton Hills fault zone,CHFZ
+SAFS-SGPR-CHFZ-Chicken_Hill_fault-CFM5,Crafton Hills fault zone,CHFZ
+SAFS-SGPR-CHFZ-Live_Oak_Canyon_fault-CFM5,Crafton Hills fault zone,CHFZ
+SAFS-SGPR-CHFZ-Redlands_fault-CFM5,Crafton Hills fault zone,CHFZ
+SAFS-SGPR-CHFZ-Reservoir_Canyon_fault-CFM5,Crafton Hills fault zone,CHFZ
+SAFS-SGPR-CHFZ-Western_Heights_fault-CFM5,Crafton Hills fault zone,CHFZ
+SAFS-SGPR-DTMT-San_Gorgonio_Pass_deep_detachment-CFM5,San Jacinto Mountains,SJMT
+SAFS-SGPR-DTMT-San_Gorgonio_Pass_midcrust_detachment-CFM5,San Jacinto Mountains,SJMT
+SAFS-SGPR-SBRN-Del_Rosa_cross_fault-CFM5,San Bernardino,SBRN
+SAFS-SGPR-SBRN-San_Bernardino_cross_fault-CFM5,San Bernardino,SBRN
+SAFS-SGPR-SGPS-San_Gorgonio_Pass_thrust-CFM4,San Gorgonio Pass,SGPS
+SAFS-SGPR-SJMT-Beaumont_A_blind_fault-CFM5,San Jacinto Mountains,SJMT
+SAFS-SGPR-SJMT-Beaumont_B_blind_fault-CFM5,San Jacinto Mountains,SJMT
+SAFS-SGPR-SJMT-Beaumont_C_blind_fault-CFM5,San Jacinto Mountains,SJMT
+SAFS-SGPR-SJMT-Beaumont_D_blind_fault-CFM5,San Jacinto Mountains,SJMT
+SAFS-SGPR-SJMT-Palm_Springs_blind_fault-CFM4,San Jacinto Mountains,SJMT
+SALT-BRSZ-BRSZ-Brawley_Seismic_Zone_boundary-CFM1,Brawley Seismic Zone,BSZ
+SALT-BRSZ-BRSZ-Brawley_fault-CFM5,Brawley Seismic Zone,BSZ
+SALT-CPFZ-CRPR-Cierro_Prieto_fault-CFM1,Cerro Prieto basin,CRPB
+SALT-CRSF-IMPV-Elmore_Ranch_fault-CFM1,Imperial Valley,IMPV
+SALT-CRSF-IMPV-Westmorland_fault_main-CFM4,Imperial Valley,IMPV
+SALT-CRSF-IMPV-Westmorland_fault_splay-CFM4,Imperial Valley,IMPV
+SALT-CRSF-SLTS-Extra_fault-CFM3,Salton Sea,SLTS
+SALT-IMFZ-IMPV-Imperial_fault_Edip_Nend-CFM5,Imperial Valley,IMPV
+SALT-IMFZ-IMPV-Imperial_fault_east_strand_north-CFM5,Imperial Valley,IMPV
+SALT-IMFZ-IMPV-Imperial_fault_east_strand_south-CFM5,Imperial Valley,IMPV
+SALT-IMFZ-IMPV-Imperial_fault_north_end-CFM5,Imperial Valley,IMPV
+SNFA-AHTC-ASHH-Ash_Hill_fault-CFM2,Ash Hill,ASHH
+SNFA-AHTC-TANK-Tank_Canyon_fault-CFM2,Tank Canyon,TANK
+SNFA-ALFZ-COSO-Airport_Lake_fault-CFM5,Coso,COSO
+SNFA-HMFZ-MULT-Hunter_Mountain_fault-CFM1,Hunter Mtn-Saline Valley,MULT
+SNFA-LLFZ-CNTR-Little_Lake_fault-CFM1,Central,CNTL
+SNFA-LLFZ-EAST-Eastern_Little_Lake_fault_00-CFM5,East,EAST
+SNFA-LLFZ-SOUT-Southern_Little_Lake_fault_00-CFM5,South,SOUT
+SNFA-OVFZ-1872-Owens_Valley_fault_rupture-CFM1,1872 rupture,1872
+SNFA-PMVZ-MULT-Panamint_Valley_fault_steep-CFM2,Northern Panamint-Brown Mtn,MULT
+SNFA-SSNZ-INDP-Independence_fault-CFM1,Independence,INDP
+SNFA-SSNZ-MULT-Independence_Sierra_Nevada_fault-CFM1,Independence-Haiwee Reservoir,MULT
+WTRA-MRFS-MULT-Mission_Ridge_Arroyo_Parida_fault_dip-CFM5,Multiple sections,MULT
+WTRA-NCVS-NCPP-North_Channel_fault_east-SRLN-CFM5,North Channel,NCHN
+WTRA-NCVS-NCPP-North_Channel_fault_west-SRLN-CVMH-CFM5,North Channel,NCHN
+WTRA-NCVS-NCPP-North_Channel_fault_west_end-SRLN-CVMH-CFM5,North Channel,NCHN
+WTRA-NCVS-PPTV-Pitas_Point_Ventura_fault_link-CFM5,Pitas Point-Ventura,PPTV
+WTRA-NCVS-PPTV-Pitas_Point_fault_east-CFM5,Pitas Point-Ventura,PPTV
+WTRA-NCVS-PPTV-Pitas_Point_fault_west-CFM5,Pitas Point-Ventura,PPTV
+WTRA-NCVS-PPTV-Pitas_Point_fault_west_S-SRLN-CVMH-CFM5,Pitas Point-Ventura,PPTV
+WTRA-NCVS-RDMT-Red_Mountain_fault_N_strand-CFM5,Red Mountain,RDMT
+WTRA-NCVS-RDMT-Red_Mountain_fault_SW_strand-SRLN-CVMH-CFM5,Red Mountain,RDMT
+WTRA-NCVS-RDMT-Red_Mountain_fault_S_strand-CFM5,Red Mountain,RDMT
+WTRA-NCVS-VNTB-Southern_San_Cayetano_fault_steep-JHAP-CFM5,Ventura basin,VNTB
+WTRA-NCVS-VNTB-Ventura_fault_steep-CFM5,Ventura basin,VNTB
+WTRA-ORFZ-MULT-Oak_Ridge_fault-CFM5,Multiple sections,MULT
+WTRA-ORFZ-OFFS-Mid_Channel_fault-SRLN-CVMH-CFM5,Offshore-Mid-Channel trend,OFFS
+WTRA-ORFZ-SFNV-Northridge_Frew_fault-CFM2,San Fernando Valley,SNFV
+WTRA-ORFZ-VNTB-Oak_Ridge_fault-MRSH-CFM5,Ventura basin,VNTR
+WTRA-PHTS-COYT-Puente_Hills_Thrust_fault-CFM2,Coyote Hills,COYT
+WTRA-PHTS-LABS-Las_Cienagas_fault_truncated-CFM1,Los Angeles Basin,LABS
+WTRA-PHTS-LABS-Puente_Hills_Thrust_fault-CFM1,Los Angeles Basin,LABS
+WTRA-PHTS-LABS-San_Vicente_fault-CFM1,Los Angeles Basin,LABS
+WTRA-PHTS-LABS-Upper_Elysian_Park_fault-CFM1,Los Angeles Basin,LABS
+WTRA-PHTS-PRTH-Peralta_Hills_fault-CFM1,Peralta Hills,PRTH
+WTRA-PHTS-RICH-Puente_Hills_Thrust_fault-CFM2,Richfield,RICH
+WTRA-PHTS-STFS-Puente_Hills_Thrust_fault-CFM2,Sante Fe Springs,STFS
+WTRA-SBCF-MULT-Western_Deep_fault-SRLN-CVMH-CFM5,Multiple sections,MULT
+WTRA-SBCF-WEST-Hondo_detachment_S_dip-SRLN-CVMH-CFM5,Western,WEST
+WTRA-SBTS-ANCP-Anacapa_Dume_fault-CFM3,Anacapa-Dume,ANCP
+WTRA-SBTS-MULT-Channel_Islands_Thrust_fault-SHAW-CFM1,Santa Cruz Is-Anacapa,MULT
+WTRA-SBTS-SMNB-Santa_Monica_thrust_fault-CFM1,Santa Monica Bay,SMNB
+WTRA-SCFZ-SCVA-Del_Valle_fault-CFM2,Santa Clarita Valley,SCLV
+WTRA-SCFZ-SCVA-Holser_fault-CFM2,Santa Clarita Valley,SCLV
+WTRA-SCFZ-TOPA-San_Cayetano_fault-HBRD-CFM5,TopaTopa Mountains,TOPA
+WTRA-SFFS-ANCP-Malibu_Coast_fault_west_steep_alt2-CFM5,Anacapa Passage,ANCP
+WTRA-SFFS-LABS-Hollywood_fault-CFM5,Los Angeles Basin,LABS
+WTRA-SFFS-LABS-North_Salt_Lake_blind_fault-CFM3,Los Angeles Basin,LABS
+WTRA-SFFS-SGVS-Raymond_fault_extended-CFM5,San Gabriel Valley,SGVS
+WTRA-SFFS-SMMT-Malibu_Coast_fault_east_steep_alt2-CFM5,Santa Monica Mountains,SMMT
+WTRA-SFFS-SMMT-Santa_Monica_fault-steep-CFM5,Santa Monica Mountains,SMMT
+WTRA-SFFS-SNCZ-Santa_Cruz_Island_fault-CFM5,Santa Cruz Island,SNCZ
+WTRA-SFFS-SNRS-Santa_Rosa_Island_fault-CFM5,Santa Rosa-San Miguel Islands,SNRS
+WTRA-SFNS-MSNH-Mission_Hills_fault-CFM4,Mission Hills,MSNH
+WTRA-SFNS-SFNV-Northridge_Hills_fault_truncated-CFM3,San Fernando Valley,SFNV
+WTRA-SFNS-SFNV-San_Fernando_fault-CFM4,San Fernando Valley,SFNV
+WTRA-SFNS-VRDM-Eagle_Rock_fault_steep-CFM5,Verdugo Mountains,VRDM
+WTRA-SFNS-VRDM-Verdugo_fault_steep-CFM5,Verdugo Mountains,VRDM
+WTRA-SGFZ-BTJG-San_Gabriel_fault_splay-CFM4,Big Tujunga,BTJG
+WTRA-SGFZ-MULT-Southern_San_Gabriel_fault-CFM4,Multiple sections,MULT
+WTRA-SGFZ-PLMS-Northern_San_Gabriel_fault-CFM4,Palomas,PLMS
+WTRA-SGFZ-USGR-Weber_fault-CFM5,Upper San Gabriel River,USGR
+WTRA-SGFZ-USGR-Weber_fault_NE_extension-CFM5,Upper San Gabriel River,USGR
+WTRA-SGMF-ICHC-Icehouse_Canyon_fault_truncated-CFM5,Icehouse Canyon,ICHC
+WTRA-SGMF-SANC-San_Antonio_Canyon_fault-CFM5,San Antonio Canyon,SANC
+WTRA-SGMF-SANC-San_Antonio_Canyon_fault_splay_truncated-CFM5,San Antonio Canyon,SANC
+WTRA-SGMF-STDC-South_Fork_Stoddard_Canyon_fault_truncated-CFM5,Stoddard Canyon,STDC
+WTRA-SGMF-STDC-Stoddard_Canyon_fault_truncated-CFM5,Stoddard Canyon,STDC
+WTRA-SMFZ-CCMG-Cucamonga_fault_low_dip-CFM5,Cucamonga,CCMG
+WTRA-SMFZ-CSPC-Clamshell_Sawpit_Canyon_fault-CFM4,Clamshell-Sawpit,CSPC
+WTRA-SMFZ-MULT-Sierra_Madre_fault_west-CFM4,Multiple sections,MULT
+WTRA-SMFZ-SMDD-Sierra_Madre_fault_low_dip-CFM4,Sierra Madre D section,SMDD
+WTRA-SMFZ-SMDE-Sierra_Madre_Cucamonga_connector-CFM5,Sierra Madre E section,SMDE
+WTRA-SMFZ-SMDE-Sierra_Madre_fault_low_dip-CFM4,Sierra Madre E section,SMDE
+WTRA-SMFZ-SWCC-Sierra_Madre_fault_low_dip-CFM4,Sierra Madre-Clamshell Canyon,SMCC
+WTRA-SPJD-OFFS-Padre_Juan_fault_lower-SRLN-CVMH-CFM5,Offshore,OFFS
+WTRA-SPJD-OFFS-Padre_Juan_fault_upper-SRLN-CVMH-CFM5,Offshore,OFFS
+WTRA-SPJD-SPMT-Lion_Canyon_fault-HBRD-CFM5,Sulphur Mountain,SPMT
+WTRA-SSFZ-MULT-Santa_Susana_fault-CFM1,Multiple sections,MULT
+WTRA-SSRZ-MULT-Simi_Santa_Rosa_fault_listric-CFM5,Multiple sections,MULT
+WTRA-SSRZ-OXNP-Bailey_fault_steep-CFM5,Oxnard Plain,OXNP
+WTRA-SYFZ-MULT-Santa_Ynez_fault_75dip-CFM5,Multiple sections,MULT
+WTRA-SYRZ-MULT-Santa_Ynez_River_fault-CFM5,Multiple sections,MULT
+WTRA-USAV-INDH-Indian_Hill_fault-CFM5,Upper Santa Ana Valley,USAV
+WTRA-USAV-SNJH-San_Jose_fault-CFM5,Upper Santa Ana Valley,USAV
+WTRA-USAV-UPLD-Upland_fault_dipslip-CFM1,Upper Santa Ana Valley,USAV
+WTRA-USAV-WLNC-Walnut_Creek_fault-CFM5,Upper Santa Ana Valley,USAV
