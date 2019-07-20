@@ -24,7 +24,7 @@ name,abb
 "> zone_tb.csv
 
 #name,abb
-csvcut -c 'CFM5.2 Fault Object Name','Fault Section','Code_3' ${EXCEL_NM}.csv |csvcut -K 1 | sort |uniq | sed "1i\\
+csvcut -c 'Fault Section','Code_3' ${EXCEL_NM}.csv |csvcut -K 1 | sort |uniq | sed "1i\\
 name,abb
 "> section_tb.csv
 
