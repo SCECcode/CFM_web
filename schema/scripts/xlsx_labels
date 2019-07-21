@@ -25,3 +25,18 @@
  25: Reference Check
  26: ID comments
  27: USGS ID
+
+
+Num ---> Area index
+Code ---> Area Abb
+Num_2 ---> Zone index
+Code_2 ---> Zone Abb
+Num_3 ---> Section index
+Code_3 ---> Section Abb
+Num_4 ---> Name index
+Code_4 ---> Name Abb
+Strike ---> strike
+Dip ---> dip
+Slip Sense ---> final slip sense
+Reference Check ---> Reference check
+

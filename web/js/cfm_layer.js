@@ -72,7 +72,7 @@ var cfm_gid_list=[];
 // { gid1, gid2, ... }, only without geo
 var cfm_nogeo_gid_list=[];
 
-// all objgid ==> gid from object_tb, all objects
+// all objgid ==> gid from object_tb, all objects (meta has 'blind')
 //  [ { "gid": gid1,  "meta": mmm1 }, {  "gid": gid2, "meta": mmm2 }, ... } 
 var cfm_fault_meta_list=[];
 
