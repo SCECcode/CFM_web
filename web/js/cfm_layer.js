@@ -277,6 +277,7 @@ function get_meta_list(gidlist) {
 
 function is_fault_blind(gid) {
    var m=find_meta_list(gid);
+window.console.log("blind..%s",m['blind']);
    if(m['blind']="1") {
      return 1;
    } else {
