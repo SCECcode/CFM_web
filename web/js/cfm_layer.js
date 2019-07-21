@@ -275,6 +275,15 @@ function get_meta_list(gidlist) {
    return mlist;
 }
 
+function is_fault_blind(gid) {
+   var m=find_meta_list(gid);
+   if(m['blind']="1") {
+     return 1;
+   } else {
+     return 0;
+   }
+}
+
 /* return true if target is in the trace list */
 function in_trace_list(target) {
    var found=0;
@@ -285,7 +294,7 @@ function in_trace_list(target) {
    return found;
 }
 
-/* return true if target is in the trace list */
+/* return true if target is in the active list */
 function in_active_gid_list(target) {
    var found=0;
 
