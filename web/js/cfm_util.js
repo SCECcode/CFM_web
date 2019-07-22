@@ -453,6 +453,9 @@ function processTraceMeta(metaList) {
        var meta = JSON.parse(str[i]);
        var gidstr=meta['gid'];
        var gid=parseInt(gidstr);
+       var blindstr=meta['blind'];
+       var bval=parseInt(blindstr);
+       window.console.log(" %d is a blind.. %d\n", gid, bval);
        if(metaList == 'metaByAllTraces') {
          cfm_fault_meta_list.push({"gid":gid, "meta": meta });
          if( !in_nogeo_gid_list(gid)) {
