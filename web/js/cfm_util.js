@@ -455,7 +455,9 @@ function processTraceMeta(metaList) {
        var gid=parseInt(gidstr);
        if(metaList == 'metaByAllTraces') {
          cfm_fault_meta_list.push({"gid":gid, "meta": meta });
+// XXX
          var blind=meta['blind'];
+         window.console.log("blind...%s\n",blind);
          if( !in_nogeo_gid_list(gid)) {
            getGeoJSONbyObjGid(gidstr,meta);
          }
