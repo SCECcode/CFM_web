@@ -16,7 +16,6 @@ $query = "SELECT OBJECT_tb.gid,OBJECT_tb.name,alternative,source_Author,CFM_vers
 
 $result = pg_query($dbconn, $query);
 
-
 $metaList=array();
 
 while($row = pg_fetch_row($result)) {
