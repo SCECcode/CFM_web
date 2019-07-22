@@ -399,6 +399,9 @@ $header = getHeader("Viewer");
                                         <button class="dropdown-item" type="button" value="1000m"
                                                 onclick="executeDownload(this.value);">1000m + Metadata
                                         </button>
+                                        <button class="dropdown-item" type="button" value="2000m"
+                                                onclick="executeDownload(this.value);">2000m + Metadata
+                                        </button>
                                     </div>
                                 </div>
                             </div></th>
