@@ -456,7 +456,7 @@ function processTraceMeta(metaList) {
        var blindstr=meta['blind'];
        var bval=parseInt(blindstr);
        if (bval == 1) {
-           cfm_blind_gid_list.push(gid);
+           addto_blind_gid_list(gid);
        }
        if(metaList == 'metaByAllTraces') {
          cfm_fault_meta_list.push({"gid":gid, "meta": meta });

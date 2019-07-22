@@ -279,6 +279,10 @@ function get_meta_list(gidlist) {
    return mlist;
 }
 
+function addto_blind_gid_list(gid) {
+   cfm_blind_gid_list.push(gid);
+}
+
 function in_blind_gid_list(target) {
    var found=0;
    cfm_blind_gid_list.forEach(function(element) {
