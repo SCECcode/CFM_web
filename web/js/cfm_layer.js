@@ -99,6 +99,10 @@ var cfm_active_gid_list=[];
 // [ {"layer":layer1, "latlngs":[ {latA,lonA}, {latB,lonB}]},...];
 var cfm_latlon_area_list=[];
 
+// gid is obgid, 
+// { gid1, gid2, ... }, tracking which object is 'blind'
+var cfm_blind_gid_list=[];
+
 /*********************************************************
 *********************************************************/
 
@@ -275,14 +279,25 @@ function get_meta_list(gidlist) {
    return mlist;
 }
 
+function in_blind_gid_list(target) {
+   var found=0;
+   cfm_blind_gid_list.forEach(function(element) {
+          if (element == target) {
+             found=1;
+          }
+   });
+   return found;
+}
+
 function is_fault_blind(gid) {
    var m=find_meta_list(gid);
-window.console.log("is_fault_blind..%s:%s\n",m['name'],m['blind']);
-   if(m['blind']="1") {
-     return 1;
-   } else {
-     return 0;
+   if(m) {
+      var blindstr=m['blind'];
+      var b=parseInt(blindstr);
+      if (b==1)
+        return 1;
    }
+   return 0;
 }
 
 /* return true if target is in the trace list */
