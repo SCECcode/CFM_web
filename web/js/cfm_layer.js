@@ -582,6 +582,7 @@ function in_1000m_gid_list(target) {
 }
 
 function in_2000m_gid_list(target) {
+   window.console.log("checking into 2000m list %d\n",target);
    var found=0;
    cfm_2000m_gid_list.forEach(function(element) {
           if (element == target) {
