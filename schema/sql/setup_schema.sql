@@ -58,6 +58,8 @@ CREATE TABLE OBJECT_tb (
 
    TRACE_tb_gid integer DEFAULT NULL,
 
+   OBJECT_2000m_tb_gid integer DEFAULT NULL,
+
    OBJECT_1000m_tb_gid integer DEFAULT NULL,
 
    OBJECT_500m_tb_gid integer DEFAULT NULL,

@@ -308,7 +308,6 @@ function add_highlight_btn(meta,str) {
 // for native, 500m, 1000m, 2000m
 function add_downloads_btn(meta,str) {
   var gid=meta['gid'];
-  window.console.log("look into download gidlist %d..",gid);
   if(in_native_gid_list(gid)) {
     var url=url_in_native_list(gid);
     if(url) {
@@ -328,10 +327,8 @@ function add_downloads_btn(meta,str) {
        str=str+'<a href=\"'+url+'\" download> <button class=\"btn btn-xs cfm-btn\" title=\"download 1000m tsurf file\"><span id=\"download_1000m_'+gid+'\" class=\"glyphicon glyphicon-download\"></span>1000m</button></a>';
     }
   }
-  window.console.log("look into 2000m gidlist %d..",gid);
   if(in_2000m_gid_list(gid)) {
     var url=url_in_2000m_list(gid);
-    window.console.log("2000m %s..",url);
     if(url) {
        str=str+'<a href=\"'+url+'\" download> <button class=\"btn btn-xs cfm-btn\" title=\"download 2000m tsurf file\"><span id=\"download_2000m_'+gid+'\" class=\"glyphicon glyphicon-download\"></span>2000m</button></a>';
     }
