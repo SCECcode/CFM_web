@@ -7,13 +7,19 @@ var skipPopup=false;
 var default_highlight_color = "red";
 var alternate_highlight_color = "#03F7EB";
 var highlight_style = {
-/*
-    'color': 'RGB(0, 255, 255)',
-*/
     'color': default_highlight_color,
     'opacity':1,
     'weight': 2,
 };
+
+var blind_dash_value = 6;
+var blind_highlight_style = {
+    'color': default_highlight_color,
+    'opacity':1,
+    'weight': 2,
+    'dashArray': blind_dash_value
+};
+
 
 // for toggleAll option
 var cfm_toggle_plot=1;
@@ -139,6 +145,10 @@ function makeGeoJSONFeature(geoJSON, gid, meta) {
                "opacity":0.8,
                "color": color
               };
+
+  if (is_fault_blind(gid)) {
+      style.dashArray = blind_dash_value;
+  }
 
   var tmp= { "id":gid,
              "type":"Feature", 
@@ -296,7 +306,7 @@ function in_blind_gid_list(target) {
 function is_fault_blind(gid) {
    var m=find_meta_list(gid);
    if(m) {
-      var blindstr=m['blind'];
+      var blindstr=m.meta['blind'];
       var b=parseInt(blindstr);
       if (b==1)
         return 1;
@@ -441,10 +451,17 @@ function addRemoveFromMetadataTable(gid) {
 }
 
 function toggle_highlight(gid) {
+    var this_highlight_style;
    var s=find_style_list(gid);
    if (s == '') {
        return;
    }
+
+    if (is_fault_blind(gid)) {
+        this_highlight_style = blind_highlight_style;
+    } else {
+        this_highlight_style = highlight_style;
+    }
 
    var h=s['highlight'];
    let $star=$(`#highlight_${gid}`);
@@ -462,8 +479,8 @@ function toggle_highlight(gid) {
      var l=find_layer_list(gid);
      var geolayer=l['layer'];
      geolayer.eachLayer(function(layer) {
-       layer.setStyle(highlight_style);
-     }); 
+       layer.setStyle(this_highlight_style);
+     });
      cfm_select_count++;
      // adjust width if needed
      $itemCount.html(cfm_select_count).show();

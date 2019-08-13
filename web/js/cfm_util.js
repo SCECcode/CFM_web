@@ -103,9 +103,11 @@ function changeFaultColor(type) {
     if (type == "") {
        removeKey();
        highlight_style.color = default_highlight_color;
+       blind_highlight_style.color = default_highlight_color;
     } else {
         showKey(type);
         highlight_style.color = alternate_highlight_color;
+        blind_highlight_style.color = alternate_highlight_color;
     }
 
     // switch
