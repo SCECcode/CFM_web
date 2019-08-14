@@ -50,12 +50,16 @@ $query01 = "SELECT OBJECT_tb.gid, OBJECT_tb.name, TRACE_tb.gid from TRACE_tb INN
 
 $query02 = "SELECT OBJECT_tb.gid,OBJECT_tb.name FROM TRACE_tb INNER JOIN OBJECT_tb ON TRACE_tb.gid = OBJECT_tb.trace_tb_gid where TRACE_tb.geom && ST_Transform(ST_MakeEnvelope( $1, $2, $3, $4, 4326), 26711)";
 
-$query = "SELECT OBJECT_tb.gid,OBJECT_tb.name FROM TRACE_tb INNER JOIN OBJECT_tb ON TRACE_tb.gid = OBJECT_tb.trace_tb_gid where ST_INTERSECTS(ST_Transform(ST_MakeEnvelope( $1, $2, $3, $4, 4326), 26711), TRACE_tb.geom)";
+$query = "SELECT OBJECT_tb.gid,OBJECT_tb.name FROM TRACE_tb INNER JOIN OBJECT_tb ON TRACE_tb.gid = OBJECT_tb.trace_tb_gid where ST_INTERSECTS(ST_MakeEnvelope( $1, $2, $3, $4, 4326), TRACE_tb.geom)";
 
 $result = pg_prepare($dbconn, "my_query", $query);
 
 $data = array($minlon, $minlat, $maxlon, $maxlat);
 $result = pg_execute($dbconn, "my_query", $data);
+
+echo $query;
+echo $minlon, $minlat, $maxlon, $maxlat;
+echo $result;
 
 $resultList=array();
 while($row = pg_fetch_row($result)) {
