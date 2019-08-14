@@ -44,12 +44,6 @@ if($firstlat > $secondlat) {
 //echo "lat range: ", $minlat,", ",$maxlat,"<br>";
 //echo "lon range: ", $minlon,", ",$maxlon,"<br>";
 
-$query00 = "SELECT OBJECT_tb.name, TRACE_tb.gid from TRACE_tb INNER JOIN OBJECT_tb ON TRACE_tb.gid = OBJECT_tb.trace_tb_gid where ST_Intersects(ST_MakePoint($1,$2)::geography, (ST_Transform(geom,4326)::geography))";
-
-$query01 = "SELECT OBJECT_tb.gid, OBJECT_tb.name, TRACE_tb.gid from TRACE_tb INNER JOIN OBJECT_tb ON TRACE_tb.gid = OBJECT_tb.trace_tb_gid where TRACE_tb.geom && ST_Transform(ST_MakeEnvelope( $1, $2, $3, $4, 4326), 26711)";
-
-$query02 = "SELECT OBJECT_tb.gid,OBJECT_tb.name FROM TRACE_tb INNER JOIN OBJECT_tb ON TRACE_tb.gid = OBJECT_tb.trace_tb_gid where TRACE_tb.geom && ST_Transform(ST_MakeEnvelope( $1, $2, $3, $4, 4326), 26711)";
-
 $query = "SELECT OBJECT_tb.gid,OBJECT_tb.name FROM TRACE_tb INNER JOIN OBJECT_tb ON TRACE_tb.gid = OBJECT_tb.trace_tb_gid where ST_INTERSECTS(ST_MakeEnvelope( $1, $2, $3, $4, 4326), TRACE_tb.geom)";
 
 $result = pg_prepare($dbconn, "my_query", $query);
