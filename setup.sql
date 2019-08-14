@@ -1,7 +1,8 @@
   CREATE EXTENSION postgis;
   SELECT PostGIS_Version();
 
-  \i '/home/postgres/CFM/schema/sql/CFM5_preferred_traces.sql';
+  \i '/home/postgres/CFM/schema/sql/CFM52_preferred_traces_nonblind.sql';
+  \i '/home/postgres/CFM/schema/sql/CFM52_preferred_traces_blind.sql';
   \i '/home/postgres/CFM/schema/sql/setup_schema.sql';
   \i '/home/postgres/CFM/schema/sql/setup_tbs.sql';
   \i '/home/postgres/CFM/schema/sql/setup_object_tb.sql';

@@ -58,7 +58,13 @@ jQuery(document).ready(function() {
   setupSearch();
   addFaultColorsSelect();
   addDownloadSelect();
-}) // end of MAIN
+    $("#search-type").change(function () {
+        var funcToRun = $(this).val();
+        window[funcToRun]();
+    });
+
+    $("#search-type").trigger("change");
+}); // end of MAIN
 
 
 

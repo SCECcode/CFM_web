@@ -1,5 +1,4 @@
 name,abb
-ABC,ABC
 Agua Caliente fault zone,ACFZ
 Agua Tibia-Earthquake Valley fault,EQVF
 Agua Tibia-Earthquake Valley fault-east,EQVE
@@ -11,6 +10,10 @@ Ash Hill fault,ASHF
 Bailey fault,BLYF
 Banning fault strand,BNFS
 Banning-NPS fault splay,BNPS
+Beaumont A fault,BMTA
+Beaumont B fault,BMTB
+Beaumont C fault,BMTC
+Beaumont D fault,BMTD
 Berdoo Canyon fault,BDCF
 Bicycle Lake fault,BCLF
 Big Bear rupture,BGBR
@@ -56,8 +59,8 @@ Coronado Bank fault,CRBF
 Coronado Bank west splay,CRBW
 Coyote Canyon fault,CYCF
 Coyote Creek fault,CCRF
+Coyote Creek fault-center,CCFC
 Coyote Creek fault-northeast,CCRF
-Coyote Creek fault-south,CCFS
 Coyote Lake fault,CYLF
 Cucamonga fault,CMGF
 Davies Valley fault,DVVF
@@ -82,6 +85,7 @@ East Santa Cruz Basin fault-B,ESCB
 East Santa Cruz Basin fault-D,ESCB
 East Santa Cruz Basin fault-E,ESCB
 East Santa Cruz Basin fault-main,ESCB
+Eastern Little Lake fault,LLKF
 Eastern North Frontal fault,ENFT
 El Mayor-Cucapah normal fault,EMNF
 El Mayor-Cucapah west fault,EMWF
@@ -109,17 +113,19 @@ Grass Valley fault,GSVF
 Gravel Hills fault-nw,GVHN
 Gravel Hills-Harper Lake fault,GHLF
 Harper Valley fault,HPVF
-Harper Valley - Mt_General fault,HMGF
+Harper Valley – Mt_General fault,HMGF
 Hector Mine rupture,HCMR
 Helendale-South Lockhart fault,HSLF
 Hidden Springs fault,HDSF
 Hollywood fault,HLWD
 Holser fault,HLSF
+Homestead Valley fault,HSVF
 Hondo detachment-S-dip,HNDD
 Hosgri fault,HSGF
 Hot Springs fault,HSPF
 Hot Springs fault-west,HSFW
 Hunter Mountain fault,HTMF
+Icehouse Canyon fault-truncated,IHCF
 Imperial fault,IMPF
 Imperial fault-east branch,IMPE
 Independence fault,INDF
@@ -140,6 +146,7 @@ Laguna Salada fault-west branch,LSFW
 Lake Isabella lineament,LIBF
 Landers cross fault-north-I,LCF1
 Landers cross fault-north-II,LCF2
+Landers rupture detailed ,LNCF
 Landers-Barstow trend,LNBT
 Las Cienagas fault,LCGF
 Lavic Lake-North West Bullion fault,LLWB
@@ -182,7 +189,6 @@ North Channel fault-west,NCHW
 North Channel fault-west-end-top,NCWT
 North Emerson fault,NEMF
 North Palm Springs fault,NPSF
-North Palm Springs fault-lower splay,NPSS
 North Salt Lake fault,NSLF
 Northern Davies Valley fault,NDVV
 Northern Death Valley fault,NDVF
@@ -226,15 +232,13 @@ Pipes Canyon,PPCF
 Pipes Canyon-north-extension,PPCE
 Pisgah-Bullion-West_Bullion fault,PBWB
 Pitas Point fault-east,PPTE
+Pitas Point fault-west,PPTW
 Pitas Point fault-west-S,PPWS
 Pitas Point-Ventura fault link,PPVL
 Pleito fault,PLTF
-Potatochip1 fault,PC1F
-Potatochip2 fault,PC2F
-Potatochip4 fault,PC4F
-Potatochip5 fault,PC5F
 Puente Hills thrust,PHTF
 Raymond fault,RYMF
+Red Hill fault,RDHF
 Red Mountain fault-SW-strand,RMSW
 Red Mountain fault-north strand,RMTN
 Red Mountain fault-south strand,RMTS
@@ -246,7 +250,8 @@ Rialto-Colton fault,RCLF
 Rinconada fault,RNCF
 Rose Canyon fault,RSCF
 San Andreas fault,SAF
-San Antonio Canyon fault,SACF
+San Antonio Canyon fault splay-truncated,SACF
+San Antonio Canyon fault-truncated,SACF
 San Bernardino cross fault,SBCF
 San Cayetano fault,SCTF
 San Clemente fault nw-strand,SCNW
@@ -277,10 +282,10 @@ Santa Cruz-Catalina Ridge fault,SCRF
 Santa Monica Bay detachment-east,SMDE
 Santa Monica Bay detachment-mid,SMDM
 Santa Monica Bay detachment-west,SMDW
-Santa Monica Bay fault,ABC
 Santa Monica Bay fault-east,SMBE
 Santa Monica Bay fault-west,SMBW
 Santa Monica fault,SMCF
+Santa Monica thrust,SMNT
 Santa Rosa Island fault,SRIF
 Santa Susana fault,SSNF
 Santa Ynez River fault,SYRF
@@ -290,19 +295,22 @@ Sawtooth Range fault,SWRF
 Shell Beds fault,SBDF
 Shoreline fault,SRLF
 Sierra Cucapah fault,SCPF
+Sierra Cucapah fault-NW_splay,SCPF
 Sierra Cucapah fault-blind,SCPB
-Sierra Cucapah fault-nw_splay,SCPF
 Sierra Madre fault,SMDF
 Sierra Madre fault-west,SMDW
 Sierra Madre-Cucamonga connector,SMCC
 Simi-Santa Rosa fault-listric,SSRF
 Smoketree Wash fault,STWF
 South Cuyuma fault,SCYF
+South Fork-Stoddard Canyon fault-truncated,SFSC
 Southern Death Valley fault,SDVF
 Southern Helendale fault,SHDF
+Southern Little Lake fault,LLKF
 Southern San Andreas fault,SSAF
 Southern San Cayetano fault,SSCF
 Southern San Gabriel fault,SSGF
+Stoddard Canyon fault-truncated,SDCF
 Superstition Hills fault,SSHF
 Superstition Mountain fault,SSMF
 Tank Canyon fault,TNKF
@@ -313,6 +321,8 @@ Ventura fault,VNTF
 Verdugo fault,VRDF
 Walnut Creek fault,WNCF
 Waterman Canyon fault,WMCF
+Weber fault,WBRF
+Weber fault-NE extension,WBRE
 Weinert-El Centro fault,WECF
 Weinert-Superstition Hills link,WSHL
 West Bullion fault,WBLF

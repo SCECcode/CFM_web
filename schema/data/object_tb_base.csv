@@ -1,376 +1,384 @@
-name,Alternative,source author,CFM Version,model description,Descriptor,strike,dip,Area,Exposure,final slip sense,reference,Reference check,ID comments,USGS ID
-SAFS-SAFZ-MULT-Banning_fault_strand-CFM4,01,CMDT,CFM4,CFM4 model,ALT1,,,1.5187E+09,surface,rlss,,,,1 i-j
-SAFS-SAFZ-PARK-San_Andreas_fault-CFM4,01,UCSB,CFM4,,,141.486,83.9146,3.6485E+08,,,,,,1f
-SAFS-SAFZ-CLCZ-San_Andreas_fault-CHLM-CFM4,01,UCSB,CFM4,Cholame section,CHLM,142.812,87.1311,6.6957E+08,surface,rlss,,,,1g
-SAFS-SAFZ-CLCZ-San_Andreas_fault-CRRZ-CFM4,02,UCSB,CFM4,Carrizo section,CRRZ,27.782,0.095083,2.2355E+09,surface,rlss,,,,1g
-SAFS-SAFZ-MJVS-San_Andreas_fault-CFM4,01,UCSB,CFM4,,,296.2961,90,1.1895E+09,surface,rlss,,,,1h
-SAFS-SAFZ-SBMT-San_Andreas_fault-CFM4,01,UCSB,CFM4,,ALT1,299.2683,90,1.0513E+09,surface,rlss,,,,1i
-SAFS-SAFZ-SBMT-Mill_Creek_fault_strand-CFM4,01,UCSB,CFM4,,ALT1,283.6801,83.2946,1.0896E+09,surface,rlss,"Seeber and Armbruster, 1994; Nicholson et al., 2012",1,,1i
-SAFS-SAFZ-SBMT-Mission_Creek_fault_strand-steep-CFM4,01,UCSB,CFM4,CFM4 model- steep dip,ALT1,278.95167,81.4967,8.3177E+08,surface,rlss,"Seeber and Armbruster, 1994; Nicholson et al., 2012",,,1i
-SAFS-SAFZ-COAV-Southern_San_Andreas_fault-CFM4,01,UCSB,CFM4,CFM4 model,ALT1,314.1265,90,1.0436E+09,surface,rlss,"Nicholson et al., 2010, 2014",,,1j
-SAFS-SAFZ-COAV-Mission_Creek_fault_strand-CFM4,01,UCSB,CFM4,CFM4 model-south,,310.0468,85.9967,6.0669E+08,surface,rlss,"Nicholson et al., 2010, 2012, 2014",1,,1j
-SAFS-SAFZ-COAV-Garnet_Hill_fault_strand-CFM4,01,UCSB,CFM4,CFM4 model,ALT1,270,,9.6844E+08,,rlss,"Nicholson et al., 2010, 2012, 2014",,,1j
-SAFS-SAFZ-COAV-North_Palm_Springs_fault-CFM4,01,CMDT,CFM4,CFM4 model-blind,BLND,285.6376,44.0268,2.0264E+08,,,"Nicholson and Lees, 1992; Seeber and Armbruster, 1994; Nicholson, 1996; Nicholson et al., 2012",,,1j
-SAFS-SAFZ-COAV-Banning_NPS_fault_splay-CFM4,01,UCSB,CFM4,upper down-dip splay between Banning & NPS,CFM4,,,,,,,,,
-SAFS-SAFZ-COAV-North_Palm_Springs_fault-lower_splay-CFM4,01,UCSB,CFM4,lower fault splay of blind NPS fault,BLND,,,,,,,,,
-SAFS-SAFZ-BSZS-Southern_San_Andreas_blind_extension-CFM4,01,UCSB,CFM4,blind vertical extension @ Bombay Beach,,321.0436,90,7.2974E+07,,,"Nicholson et al., 2010, 2014",,proposed qfaults id,1k
-SAFS-SGPR-SGPS-San_Gorgonio_Pass_thrust-CFM4,01,CMDT,CFM4,CFM4 model,ALT1,273.98383,20.6234,8.8195E+07,,rlss,"Seeber and Armbruster, 1994; Nicholson et al., 2012",,,250
-SAFS-SGPR-SJMT-Palm_Springs_blind_fault-CFM4,01,UCSB,CFM4,CFM4 model-blind,BLND,302.6944,58.4493,2.6762E+08,,,"Seeber and Armbruster, 1994; Nicholson et al., 2012",,,missing
-SAFS-SGPR-SJMT-Potatochip1_blind_fault-CFM5,01,UCSB,CFM5,CFM5 model-blind,BLND,311.8299,63.1495,2.1367E+08,,,"Seeber and Armbruster, 1994; Nicholson et al., 2012",,,missing
-SAFS-SGPR-SJMT-Potatochip2_blind_fault-CFM5,01,UCSB,CFM5,CFM4 model-blind,BLND,302.9029,57.1089,1.8169E+08,,,"Seeber and Armbruster, 1994; Nicholson et al., 2012",,,missing
-SAFS-SGPR-SJMT-Potatochip4_blind_fault-CFM5,01,UCSB,CFM5,,,296.8248,60.0044,3.0415E+08,,,"Seeber and Armbruster, 1994; Nicholson et al., 2012",,,missing
-SAFS-SGPR-SJMT-Potatochip5_blind_fault-CFM5,01,UCSB,CFM5,,,299.9505,54.7357,2.2683E+08,,,"Seeber and Armbruster, 1994; Nicholson et al., 2012",,,missing
-SAFS-SGPR-DTMT-San_Gorgonio_Pass_deep_detachment-CFM5,01,UCSB,CFM5,,,282.622,9.26401,7.1342E+08,,,"Nicholson et al., 1986; Seeber and Armbruster, 1994",,,missing
-SAFS-SGPR-DTMT-San_Gorgonio_Pass_midcrust_detachment-CFM5,01,UCSB,CFM5,,,282.4403,3.25584,9.1379E+08,,,"Nicholson and Lees, 1992; Nicholson, 1996",,,missing
-SAFS-SGPR-CHFZ-Casa_Blanca_fault-CFM5,01,UCSB,CFM5,,,220.585,88.3788,5.9287E+07,,,,,,336
-SAFS-SGPR-CHFZ-Chicken_Hill_fault-CFM5,01,UCSB,CFM5,,,235.783,88.6882,1.5717E+08,,,,,,336
-SAFS-SGPR-CHFZ-Live_Oak_Canyon_fault-CFM5,01,UCSB,CFM5,,,275.37516,84.2576,2.2433E+08,,,,,,336
-SAFS-SGPR-CHFZ-Redlands_fault-CFM5,01,UCSB,CFM5,,,245.626,87.5059,7.0689E+07,,,,,,336
-SAFS-SGPR-CHFZ-Reservoir_Canyon_fault-CFM5,01,UCSB,CFM5,,,224.423,88.2459,1.5197E+08,,,,,,336
-SAFS-SGPR-CHFZ-Western_Heights_fault-CFM5,01,UCSB,CFM5,,,270,,1.7399E+08,,,,,,336
-SAFS-SGPR-SBRN-San_Bernardino_cross_fault-CFM5,01,UCSB,CFM5,,,40.677,90,1.2774E+08,,,"Nicholson et al., 1986",,,missing
-SAFS-SGPR-SBRN-Del_Rosa_cross_fault-CFM5,01,UCSB,CFM5,,,227.112,88.6928,9.4857E+07,,,"Nicholson et al., 1986",,,missing
-SAFS-MHFZ-MULT-Mecca_Hills-Hidden_Springs_fault-deep-CFM4,01,CMDT,CFM4,,,315.9473,64.7978,6.2760E+08,,,"Williams et al., 1990; Lin et al., 2007; Nicholson et al., 2010, 2014",,,297+265+313+316+314
-SAFS-MHFZ-LSBM-Indio_Hills_fault-CFM4,01,UCSB,CFM4,,,144.392,90,8.0725E+07,,,,,,297
-SAFS-MHFZ-LSBM-Berdoo_Canyon_fault-CFM4,01,UCSB,CFM4,,,153.14,77.8487,6.6317E+07,,,,,,265
-SAFS-MHFZ-MCHS-Painted_Canyon_fault-CFM4,01,UCSB,CFM4,,,316.9936,86.5853,9.4719E+07,,,,,,316
-SAFS-MHFZ-MCHS-Mecca_Hills_fault-CFM4,01,UCSB,CFM4,CFM4 model,CFM4,321.989,79.0154,1.4468E+08,,,,,,316
-SAFS-MHFZ-MCHS-Hidden_Springs_fault-CFM4,01,UCSB,CFM4,CFM4 model,CFM4,152.463,85.0594,1.1408E+08,,,"Williams et al., 1990; Lin et al., 2007; Nicholson et al., 2010, 2014",,,313+314
-SALT-BRSZ-BSZ-Brawley_Seismic_Zone_boundary-CFM1,01,HRVD,CFM1,,,,,1.4286E+09,surface,rlss,,,,124
-SALT-BRSZ-BSZ-Brawley_fault-CFM5,01,UCSB,CFM5,,,,,2.5893E+08,surface,rlss,,,,124
-SALT-IMFZ-IMPV-Imperial_fault-Edip-Nend-CFM5,02,CMDT,CFM5,E-dipping at north end-FUIS,FUIS,,,,surface,rlss,,,,132
-SALT-IMFZ-IMPV-Imperial_fault-north_end-CFM5,03,UCSB,CFM5,small segment at north end,NSEG,8.439,87.8065,1.8073E+07,surface,rlss,,,,132
-SALT-IMFZ-IMPV-Imperial_fault-east_strand-north-CFM5,03,UCSB,CFM5,inferred east strand-north,NRTH,147.827,90,2.2282E+08,surface,rlss,,,,132
-SALT-IMFZ-IMPV-Imperial_fault-east_strand-south-CFM5,04,UCSB,CFM5,inferred east strand-south,SOTH,328.9588,90,1.6250E+08,surface,rlss,,,,132
-SALT-CPFZ-CRPR-Cierro_Prieto_fault-CFM1,01,HRVD,CFM1,,,39.804,90,1.2053E+08,,,,,,missing
-SALT-CRSF-SLTS-Extra_fault-CFM3,01,HRVD,CFM3,,,231.495,90,5.2493E+08,,,,,,missing
-SALT-CRSF-IMPV-Elmore_Ranch_fault-CFM1,01,HRVD,CFM1,,CFM,213.552,90,3.9643E+08,surface,llss,,,propose crossfault id,125f
-SALT-CRSF-IMPV-Westmorland_fault-main-CFM4,01,CMDT,CFM4,main,MAIN,126.665,90,1.6939E+08,,,,,,missing
-SALT-CRSF-IMPV-Westmorland_fault-splay-CFM4,01,CMDT,CFM4,splay,SPLY,59.462,90,6.6883E+07,,,,,,missing
-PNRA-SJFZ-SBRN-San_Jacinto-Claremont_fault-CFM4,01,UCSB,CFM4,,Main,316.1648,86.9975,8.1799E+08,,,,,,125a
-PNRA-SJFZ-SBRN-Loma_Linda_fault-CFM4,01,UCSB,CFM4,CFM4 model,CFM4,319.7344,87.4697,2.2371E+08,surface,rlss,,,,125a
-PNRA-SJFZ-SBRN-Rialto-Colton_fault-CFM4,01,UCSB,CFM4,CFM4 model,CFM4,308.2211,85.0564,2.2581E+08,surface,rlss,,,,125a
-PNRA-SJFZ-SBRN-Glen_Helen_fault-CFM4,01,UCSB,CFM4,,ALT1,309.3948,87.3382,2.2787E+08,surface,rlss,,,,125a
-PNRA-SJFZ-SBRN-Lytle_Creek_fault-CFM4,01,UCSB,CFM4,,CFM4,315.5661,89.9542,1.3686E+08,surface,rlss,,,,125a
-PNRA-SJFZ-SJCV-Claremont_fault-CFM4,01,UCSB,CFM4,Main,CFM4,131.292,84.249,6.8550E+08,surface,rlss,,,,125b
-PNRA-SJFZ-SJCV-San_Jacinto-Claremont_fault-east-CFM4,02,UCSB,CFM4,east branch,EAST,311.9362,88.3481,1.8683E+08,surface,rlss,,,,125b
-PNRA-SJFZ-SJCV-Casa_Loma_fault-CFM4,01,UCSB,CFM4,,ALT1,134.024,88.3275,4.6710E+08,surface,rlss,,,,125b
-PNRA-SJFZ-SJCV-Hot_Springs_fault-CFM4,01,UCSB,CFM4,,MAIN,129.011,86.5252,6.8791E+08,surface,rlss,,,,125b
-PNRA-SJFZ-SJCV-Hot_Springs_fault-west-CFM4,03,UCSB,CFM4,west branch,WEST,98.229,85.1338,1.4509E+08,surface,rlss,,,,125b
-PNRA-SJFZ-ANZA-Clark_fault-north-lower-CFM4,02,UCSB,CFM4,north-lower,NLWR,307.6222,80.8629,1.7900E+08,surface,rlss,,1,,125c
-PNRA-SJFZ-ANZA-Clark_fault-north-upper-CFM4,03,CMDT,CFM4,north-upper,NUP1,306.0179,83.2849,6.4201E+08,surface,rlss,,1,,125c
-PNRA-SJFZ-ANZA-Clark_fault-south-main-CFM4,01,UCSB,CFM4,south-main,SM,301.358,87.5132,9.9627E+08,surface,rlss,,1,,125c
-PNRA-SJFZ-ANZA-Clark_fault-south-east-CFM4,01,UCSB,CFM4,south-east,SE1,303.1609,87.2301,2.6328E+08,surface,rlss,,1,,125c
-PNRA-SJFZ-ANZA-Clark_fault-south-west-CFM4,01,CMDT,CFM4,south-west,SE2,117.617,88.5804,8.2249E+07,surface,rlss,,1,,125c
-PNRA-SJFZ-ANZA-Clark_fault-south-west-link-CFM4,02,CMDT,CFM4,south-west-link,SE1T,314.4124,85.7714,9.3683E+07,surface,rlss,,1,,125c
-PNRA-SJFZ-ANZA-Buck_Ridge_fault-CFM4,01,UCSB,CFM4,CFM4 model,CFM4,298.4795,89.1468,6.2261E+08,surface,rlss,,1,,125c
-PNRA-SJFZ-ANZA-Hot_Springs-Buck_Ridge_link-CFM4,01,CMDT,CFM4,,LINK,144.448,88.7236,2.6424E+08,surface,rlss,,1,,125c
-PNRA-SJFZ-CYTC-Coyote_Creek_fault-CFM4,01,UCSB,CFM4,main,MAIN,,,7.2898E+08,surface,rlss,,,,125d
-PNRA-SJFZ-CYTC-Coyote_Creek_fault-south-ext-CFM4,02,UCSB,CFM4,south-extension,,135.917,88.7492,1.4495E+08,surface,rlss,,,,125d
-PNRA-SJFZ-BRMT-Coyote_Creek_fault-CFM4,01,UCSB,CFM4,,,,,6.2853E+08,surface,rlss,,,,125e
-PNRA-SJFZ-BRMT-Coyote_Creek_blind_fault-northeast-CFM4,01,UCSB,CFM4,east,,307.5101,83.6782,1.7509E+08,surface,rlss,,,,125e
-PNRA-SJFZ-SSHS-Superstition_Hills_fault-CFM4,01,UCSB,CFM4,CFM4 model,CFM4,306.312,90,3.5887E+08,surface,rlss,,,,125f
-PNRA-SJFZ-SSMT-Superstition_Mountain_fault-CFM4,01,UCSB,CFM4,CFM4 model,CFM4,297.6223,90,2.8745E+08,surface,rlss,,,,125g
-PNRA-SJFZ-SSMT-West_Mesa_fault-CFM5,01,UCSB,CFM5,CFM5 model,,120.982,88.1906,1.8070E+08,surface,rlss,,,,125g
-PNRA-SJFZ-IMPV-Weinert_El_Centro_fault-CFM5,01,UCSB,CFM4,CFM4 model,CFM4,314.7584,89.1452,3.2393E+08,,,,,proposed 125h,125f
-PNRA-SJFZ-IMPV-Weinert_Superstition_Hills_link-CFM5,01,CMDT,CFM4,CFM4 model,CFM4,139.383,89.9975,8.5963E+06,,,,,,proposed 125h
-PNRA-SJFZ-IMPV-Dixieland_fault-CFM5,01,CMDT,CFM5,complete; previously Superstition_Mtn-New_River_extension,CMPL,42.289,90,4.9785E+08,,,,,,proposed 125h
-PNRA-ELSZ-WHIT-Whittier_fault-CFM4,01,UCSB,CFM4,CFM4 model,CFM4,297.5599,74.7334,6.7861E+08,surface,orlr,,,,126a
-PNRA-ELSZ-WHIT-Whittier_Heights_fault-CFM1,01,HRVD,CFM1,,,329.1021,81.5696,1.0906E+08,,,,,,126a
-PNRA-ELSZ-WHIT-Workman_Hill_fault-CFM1,01,HRVD,CFM1,,,310.0777,75.3643,1.1382E+08,,,,,,126a
-PNRA-ELSZ-WHIT-East_Montebello_fault-CFM3,01,HRVD,CFM3,,,329.3206,89.8103,1.9822E+08,surface,rlss,,,,356
-PNRA-ELSZ-CHNO-Chino_fault-main-CFM4,01,UCSB,CFM4,main,MAIN,142.52,74.4497,2.7007E+08,surface,orlr,,1,,126b
-PNRA-ELSZ-CHNO-Chino_fault-Central_Ave-CFM4,02,CMDT,CFM4,Central Avenue,CTLA,141.635,68.9943,1.6951E+08,surface,orlr,,1,,126b
-PNRA-ELSZ-GLIV-Glen_Ivy_North_fault-CFM4,01,UCSB,CFM4,CFM4 model,CFM4,127.18,87.4591,5.9966E+08,surface,rlss,,1,,126c
-PNRA-ELSZ-GLIV-Glen_Ivy_South_fault-CFM4,01,CMDT,CFM4,CFM4 model,CFM4,131.992,88.7793,2.0433E+08,surface,rlss,,1,,126d
-PNRA-ELSZ-TMCL-Wildomar_fault-CFM4,01,UCSB,CFM4,CFM4 model,CFM4,314.0782,83.8195,6.8307E+08,surface,rlss,,,,126d
-PNRA-ELSZ-TMCL-Willard_fault-CFM4,01,UCSB,CFM4,CFM4 model,CFM4,313.6765,84.5996,5.6194E+08,surface,rlss,,,,126d
-PNRA-ELSZ-JULN-Elsinore_fault-north-CFM4,01,UCSB,CFM4,CFM4 model,CFM4,303.8718,85.0492,4.6244E+08,surface,rlss,,,,126e
-PNRA-ELSZ-JULN-Elsinore_fault-south-CFM4,01,UCSB,CFM4,CFM4 model,CFM4,129.861,87.6665,9.2396E+08,surface,rlss,,,,126e
-PNRA-ELSZ-JULN-Elsinore_fault-Wildomar-link-CFM4,01,CMDT,CFM4,Wildomar-link,LINK,309.6298,81.0128,1.6144E+08,surface,rlss,,,,126e
-PNRA-ELSZ-CYMT-Elsinore_fault-CFM4,01,CMDT,CFM4,,CFM4,306.3383,83.0033,6.1265E+08,surface,orlr,,,,126f
-PNRA-ELSZ-LGSD-Laguna_Salada_fault-east branch-dipping-CFM5,01,UCSB,CFM5,east branch-dipping,EAST,156.499,64.9716,1.2299E+08,surface,orln,,1,,126g
-PNRA-ELSZ-LGSD-Laguna_Salada_fault-east branch-dipping-splay-CFM5,03,UCSB,CFM5,,,178.061,64.8893,4.0423E+07,surface,orln,,1,,126g
-PNRA-ELSZ-LGSD-Laguna_Salada_fault-west branch-west-CFM4,06,UCSB,CFM4,,,,,9.2870E+07,surface,orln,,1,,126g
-PNRA-ELSZ-LGSD-Laguna_Salada_fault-west branch-center-CFM4,04,UCSB,CFM4,,,143.017,81.0758,5.4166E+07,surface,orln,,1,,126g
-PNRA-ELSZ-LGSD-Laguna_Salada_fault-west-branch-east-CFM5,01,CMDT,CFM5,West Branch-east,WBRE,138.108,81.0354,8.0691E+07,surface,orln,,1,,126g
-PNRA-ELSZ-LGSD-Laguna_Salada_fault-west-branch-deep_splay-CFM5,02,CMDT,CFM5,West Branch-deep_splay_east,WBRE,317.7208,87.2572,2.8633E+07,surface,orln,,1,,126g
-PNRA-ELSZ-LGSD-Laguna_Salada_fault-north-CFM5,01,CMDT,CFM5,north section-main,NRTH,125.561,81.898,4.4896E+08,surface,orln,,1,,126g
-PNRA-ELSZ-LGSD-Laguna_Salada_fault-south-CFM5,01,CMDT,CFM5,south section-main,SOTH,128.34,81.6304,8.3573E+08,surface,orln,,1,,126g
-PNRA-ELSZ-INDV-Indiviso_fault-CFM4,01,UCSB,CFM4,CFM4 model-main,MAIN,128.861,76.9097,8.2610E+08,,,,,Proposed new id,proposed 126h
-PNRA-ELSZ-INDV-Indiviso_fault-splay-CFM4,02,UCSB,CFM4,CFM4 model-splay,SPLY,309.7105,73.8618,2.9845E+08,,,,,Proposed new id,proposed 126h
-PNRA-ELSZ-YUHA-Sierra_Cucapah_fault-nw_splay-CFM5,01,CMDT,CFM5,northwest splay w/trace; previously -NW-extension-Laguna Salada fault-Treiman,NWST,314.4268,82.737,9.5469E+07,,,,,Proposed new id,proposed 126i
-PNRA-ELSZ-YUHA-Sierra_Cucapah_fault-blind-north-CFM5,01,CMDT,CFM5,Blind northern,NRTH,305.8572,88.4169,8.5766E+07,,,,,Proposed new id,proposed 126i
-PNRA-ELSZ-SRCP-Sierra_Cucapah_fault-CFM4,01,CMDT,CFM4,deep from seismicity,DEEP,312.3304,72.0734,1.1584E+09,,,,,Proposed new id,proposed 126j
-PNRA-ELSZ-SRCP-Pescadores_fault-CFM4,01,CMDT,CFM4,shallow SCPF from trace; previously PNRA-ELSZ-SRCP-Sierra_Cucapah-Pescadores_fault,SSCF,131.8,50.8415,5.6353E+07,,,ECMT=El Mayor Cucapah Mapping Team,,Proposed new id,proposed 126j
-PNRA-ELSZ-SRCP-Borrego_fault-CFM4,01,CMDT,CFM4,shallow SCPF from trace; previously PNRA-ELSZ-SRCP-Sierra_Cucapah-Borrego_fault,SSCF,46.066,90,2.3916E+07,,,,,Proposed new id,proposed 126j
-PNRA-ELSZ-SRCP-Paso_Inferior_fault-CFM4,01,CMDT,CFM4,shallow SCPF from trace,SSCF,146.343,58.0006,1.3355E+07,,,,,Proposed new id,proposed 126j
-PNRA-ELSZ-SRCP-Paso_Superior_fault-CFM4,01,CMDT,CFM4,shallow SCPF from trace,SSCF,328.759,71.0885,1.9155E+08,,,,,Proposed new id,proposed 126j
-PNRA-ATEV-MULT-Agua Tibia-Earthquake_Valley_fault-main-CFM4,01,UCSB,CFM4,,MAIN,307.6028,86.5371,1.2641E+09,surface,rlss,"Rockwell et al., 2013; Gordon et al. 2015",,Proposed new id,126e
-PNRA-ATEV-MULT-Agua Tibia-Earthquake_Valley_fault-east-CFM4,02,UCSB,CFM4,,EAST,307.5666,84.3614,2.9793E+08,surface,rlss,"Rockwell et al., 2013; Gordon et al. 2015",,Proposed new id,126e
-PNRA-ATEV-MULT-Agua Tibia-Earthquake_Valley_fault-west-CFM4,03,UCSB,CFM4,,WEST,310.6107,88.6642,3.6185E+08,surface,rlss,"Rockwell et al., 2013; Gordon et al. 2015",,Proposed new id,126e
-PNRA-HSSF-AGCT-Agua_Caliente_fault_zone-CFM4,01,UCSB,CFM4,,ZONE,,,1.3175E+09,,,"Rockwell et al., 2013; Gordon et al. 2015",,496b?,496
-PNRA-HSSF-HOTS-Hot_Springs_fault-CFM4,,,,,,300.6327,82.5424,6.3948E+08,,,"Janecke et al., 2010; Gordon et al., 2015",,496c?,496
-PNRA-HSSF-MRHS-Murrieta-Hotsprings_fault-CFM4,,,,,,290.9734,83.4263,5.5232E+08,,,"Janecke et al., 2010; Gordon et al., 2015",,496d?,496
-PNRA-NIRC-LABS-Newport-Inglewood_fault-dip_w_splays-CFM5,01,UCSB,CFM5,,,,,1.4576E+09,surface,rlss,,1,,127a-b
-PNRA-CEPS-LABS-Compton-Los_Alamitos_fault-CFM2,01,HRVD,CFM2,,CFM2,304.3503,20.4284,5.7253E+08,,,,,assigned blind fault but not in shapefile,133
-PNRA-CEPS-LABS-Anaheim_fault-CFM1,02,HRVD,CFM1,,CFM1,314.1386,71.0467,1.7208E+08,surface,,,1,assigned blind fault but not in shapefile,363
-PNRA-CEPS-BLDH-Compton-Los_Alamitos_fault-CFM2,01,HRVD,CFM2,,,314.3793,16.3657,3.5447E+08,surface,r,,,assigned blind fault but not in shapefile,133
-PNRA-CEPS-PHLS-Lower_Elysian_Park_fault-CFM1,01,HRVD,CFM1,,CFMA,299.928,19.151,7.3837E+08,surface,t,,,assigned blind fault but not in shapefile,134
-PNRA-CRSF-USAV-Fontana seismicity lineament-CFM1,01,HRVD,CFM1,"bestfit, CFMA model",CFMA,222.871,80.225,3.9638E+08,,,,,,missing
-PNRA-CRSF-CHNH-Yorba_Linda_lineament-CFM2,01,HRVD,CFM2,,CFM,243.298,90,2.2904E+08,,,,,,missing
-PNRA-CRSF-ALCM-Sawtooth_Range_fault-CFM4,01,CMDT,CFM4,CFM4 model,,29.089,87.5983,1.1343E+08,,,,,,missing
-PNRA-CRSF-CYMT-Devil's_Canyon_fault-CFM4,01,CMDT,CFM4,CFM4 model,,121.928,90,3.0695E+08,,,,,,missing
-PNRA-CRSF-OCOT-Ocotillo_fault-CFM5,01,UCSB,CFM5,CGS map - CFM5 model,,,,9.2846E+07,,,,,"mapped by CGS, probably has id",missing
-PNRA-CRSF-OCOT-Ocotillo_set1-CFM4,01,CMDT,CFM4,CFM4 model,,,,,,,,,,
-PNRA-CRSF-OCOT-Ocotillo_set2-CFM4,01,CMDT,CFM4,CFM4 model,,,,,,,,,,
-PNRA-CRSF-OCOT-Ocotillo_set3-CFM4,01,CMDT,CFM4,CFM4 model,,,,,,,,,,
-PNRA-CRSF-OCOT-Ocotillo_set4-CFM4,01,CMDT,CFM4,CFM4 model,,,,,,,,,,
-PNRA-CRSF-OCOT-Ocotillo_set5-CFM4,01,CMDT,CFM4,CFM4 model,,,,,,,,,,
-PNRA-CRSF-PGWS-Painted Gorge Wash fault-CFM4,01,CMDT,CFM4,CFM4 model,,,,3.5537E+08,,,,,,312
-PNRA-CRSF-YUHA-Yuha_Well_fault-CFM5,01,CMDT,CFM5,CFM5 model,,202.649,88.7626,6.9575E+07,,,,,,309
-PNRA-CRSF-YUHA-Yuha_Well_fault-northwest-steep-CFM5,01,UCSB,CFM5,CFM5 model,,211.759,89.6835,1.0537E+07,,,,,,309
-PNRA-CRSF-YUHA-Yuha_Well_fault-west-steep-CFM5,01,UCSB,CFM5,steep-CFM5 model,,30.955,89.928,2.0516E+07,,,,,,309
-PNRA-CRSF-YUHA-Yuha_Well_fault-north_set1-CFM5,01,CMDT,CFM5,CFM5 model,,19.05,89.341,1.3975E+06,,,,,,309
-PNRA-CRSF-YUHA-Yuha_Well-Vista_del_Anza_fault-truncated-CFM5,01,CMDT,CFM5,truncated-CFM5 model,,20.077,86.4962,1.7085E+07,,,,,,309
-PNRA-CRSF-YUHA-Shell_Beds_fault-CFM5,01,CMDT,CFM5,CFM5 model,,200.534,82.5059,4.5054E+07,,,,,"mapped by CGS, probably has id",missing
-PNRA-CRSF-YUHA-Yuha_Wash_fault-CFM5,01,CMDT,CFM5,CFM5 model,,198.859,80.5846,3.3843E+07,,,,,"mapped by CGS, probably has id",missing
-PNRA-CRSF-YUHA-Yuha_fault-CFM5,01,CMDT,CFM5,CFM5 model,,213.264,79.4309,9.8763E+07,,,,,"mapped by CGS, probably has id",missing
-PNRA-CRSF-EMCP-El_Mayor-Cucapah-normal_fault-CFM4,01,UCSB,CFM4,CFM4 model,,6.6687,77.75,4.9616E+08,,,,,,missing
-PNRA-CRSF-EMCP-El_Mayor-Cucapah-west_fault-CFM4,01,UCSB,CFM4,CFM4 model,,181.017,89.9827,4.3286E+08,,,,,,missing
-PNRA-CSTF-SJQH-San_Joaquin_Hills_fault-truncated-CFM3,01,HRVD,CFM3,,,125.781,24.4278,3.8981E+08,,r,,,,186
-PNRA-DVVZ-DVSV-Davies_Valley_fault-CFM5,01,UCSB,CFM5,CFM5 model,,157.351,85.795,3.9387E+07,,,,,,310
-PNRA-DVVZ-NDVV-Northern_Davies_Valley_set1-CFM4,01,CMDT,CFM4,set1 - CFM4 model,,143.881,76.9692,8.8428E+06,,,,,,310
-PNRA-NBJD-SRCP-Cerro-Centinela_fault-CFM2,,HRVD,CFM2,,,229.821,24.7046,1.1399E+08,,,,,but mapped,missing
-PNRA-NBJD-CDVD-Canada-David-Detachment_fault-CFM3,,HRVD,CFM3,,,193.16,24.8365,1.4337E+09,,,,,,missing
-OCBA-PVFZ-MULT-Palos_Verdes_fault-CFM5,01,UCSB,CFM5,,,144.956,20.6337,1.6718E+09,surface,orlr,"Sorlien et al., 2013",,,128a-e
-OCBA-SMCS-MULT-San_Mateo-Carlsbad_fault-SRLN-CFM5,02,UCSB,CFM5,Sorlien model,SRLN,332.7683,20.9686,5.1240E+08,,,"Sorlien et al., 2015",,,294a-c
-OCBA-SMCS-SMTO-San_Mateo_splay-SRLN-CFM5,01,UCSB,CFM5,,,320.7043,42.2262,1.7542E+07,,,"Sorlien et al., 2015",,,294a
-OCBA-SMCS-SMTO-San_Onofre_fault-upper-SRLN-CFM5,01,UCSB,CFM5,,,323.8244,28.2662,6.6868E+07,,,"Sorlien et al., 2015",,,294b
-OCBA-SMCS-SMTO-San_Onofre_fault-lower-alt1-CFM5,03,UCSB,CFM5,,,,,,,,"Sorlien et al., 2015",,,294b
-OCBA-DSCS-MAIN-Descanso_fault-SRLN-CFM5,01,UCSB,CFM5,main - Sorlien model,SRLN,152.228,40.3175,2.6609E+08,,,"Sorlien et al., 2015",,,missing
-OCBA-DSCS-WEST-Descanso_fault-west_splay-SRLN-CFM5,01,UCSB,CFM5,west splay - Sorlien model,SRLN,154.769,31.6831,6.5051E+07,,,"Sorlien et al., 2015",,,missing
-OCBA-DSCS-EAST-Descanso_fault-east_splay-SRLN-CFM5,01,UCSB,CFM5,east splay - Sorlien model,SRLN,152.503,50.5758,2.7324E+07,,,"Sorlien et al., 2015",,,missing
-OCBA-DSCS-NRTH-Descanso_fault-A-SRLN-CFM5,01,UCSB,CFM5,,,178.669,31.8243,2.7473E+07,,,"Sorlien et al., 2015",,,missing
-OCBA-DSCS-NRTH-Descanso_fault-B-SRLN-CFM5,01,UCSB,CFM5,,,184.174,37.4664,5.5268E+07,,,"Sorlien et al., 2015",,,missing
-OCBA-DSCS-NRTH-Descanso_fault-C-SRLN-CFM5,01,UCSB,CFM5,,,162.726,55.0997,1.2502E+07,,,"Sorlien et al., 2015",,,missing
-OCBA-DSCS-RCNT-Descanso-RC_transfer_fault-alt1-SRLN-CVMH-CFM5,02,UCSB,CFM5,,,,,,,,"Sorlien et al., 2015",,,missing
-OCBA-OCSD-OCNS-Oceanside_detachment-RVRO-CFM1,03,HRVD,CFM1,,,342.8473,21.9018,1.4671E+09,,,"Sorlien et al., 2015",,,missing
-OCBA-OCSD-OCNS-Oceanside_detachment-SRLN-CFM5,01,UCSB,CFM5,,,,,,,,"Sorlien et al., 2015",,,missing
-OCBA-OCSD-OCNS-Oceanside_fault-north-SRLN-CFM5,01,UCSB,CFM5,,,,,,,,"Sorlien et al., 2015",,,293
-OCBA-OCSD-OCNS-Oceanside_fault-south-west-SRLN-CFM5,01,UCSB,CFM5,,,,,,,,"Sorlien et al., 2015",,,293
-OCBA-OCSD-OCNS-Oceanside_fault-south-east-A-SRLN-CFM5,01,UCSB,CFM5,,,,,,,,"Sorlien et al., 2015",,,293
-OCBA-OCSD-OCNS-Oceanside_fault-south-east-B-SRLN-CFM5,01,UCSB,CFM5,,,,,,,,"Sorlien et al., 2015",,,293
-OCBA-OCSD-OCNS-Oceanside_fault-south-east-C-SRLN-CFM5,01,UCSB,CFM5,,,,,,,,"Sorlien et al., 2015",,,293
-OCBA-CBKD-MULT-Coronado_Bank_detachment-upper-SRLN-CFM5,01,UCSB,CFM5,,,324.5314,10.4495,5.0927E+08,,,"Sorlien et al., 2015",,,missing
-OCBA-CBFZ-NCBF-Coronado_Bank_fault-north-SRLN-CFM5,01,UCSB,CFM5,Sorlien model,SRLN,333.2688,59.7009,2.6468E+07,surface,rlss,"Sorlien et al., 2015",,,131a
-OCBA-CBFZ-SCBF-Coronado_Bank_fault-south-SRLN-CFM5,01,UCSB,CFM5,Sorlien model,SRLN,342.1892,17.9667,1.6028E+08,surface,rlss,"Sorlien et al., 2015",,,131b
-OCBA-CBFZ-WEST-Coronado_Bank_west_splay-SRLN-CFM5,01,UCSB,CFM5,Sorlien model,SRLN,339.7369,26.5478,3.5695E+07,surface,rlss,"Sorlien et al., 2015",,,131b
-OCBA-CBFZ-EAST-Coronado_Bank_east_splay-SRLN-CFM5,01,UCSB,CFM5,Sorlien model,SRLN,337.3213,37.8757,1.0570E+08,surface,rlss,"Sorlien et al., 2015",,,131b
-OCBA-SPBZ-NTHS-San_Pedro_Basin_fault-north-CFM5,01,UCSB,CFM5,northern sections,,,,7.9389E+08,,,,,,282
-OCBA-SPBZ-STHS-San_Pedro_Basin_fault-south-LEGG-CFM5,01,UCSB,CFM5,south sections-Legg seafloor trace,,140.138,90,5.3179E+08,,,,,,282
-OCBA-SDTZ-CTLB-San_Diego_Trough_fault-LEGG-CFM5,01,UCSB,CFM5,Legg seafloor trace,,294.2069,83.7632,8.3848E+08,surface,rlss,,,Proposed 292,284
-OCBA-SDTZ-30MB-San_Diego_Trough_fault-LEGG-CFM5,01,UCSB,CFM5,Legg seafloor trace,,327.2155,82.8118,1.3178E+09,,,,,,292
-OCBA-IBFS-SMBY-Santa_Monica_Bay_fault-east-SRLN-CFM5,01,UCSB,CFM5,,,295.2656,16.3662,1.6866E+08,,,"Sorlien et al., 2003",,,missing
-OCBA-IBFS-SMBY-Santa_Monica_Bay_fault-west-SRLN-CFM5,01,UCSB,CFM5,,,270.937314,16.1138,4.8344E+08,,,"Sorlien et al., 2003",,,missing
-OCBA-IBFS-SMBY-Santa_Monica_Bay_detachment-east-SRLN-CFM5,01,UCSB,CFM5,,,315.2409,10.9998,9.5676E+07,,,"Sorlien et al., 2003",,,missing
-OCBA-IBFS-SMBY-Santa_Monica_Bay_detachment-mid-SRLN-CFM5,01,UCSB,CFM5,,,299.1879,8.93987,6.5334E+07,,,"Sorlien et al., 2003",,,missing
-OCBA-IBFS-SMBY-Santa_Monica_Bay_detachment-west-regrid-SRLN-CFM5,01,UCSB,CFM5,,,268.214,10.5514,1.1094E+08,,,"Sorlien et al., 2003",,,missing
-OCBA-IBFS-SCTI-Catalina_Island_detachment-upper-alt1-SRLN-CVMH-CFM5,02,UCSB,CFM5,,,,,,,,"Sorlien et al., 2003",,,missing
-OCBA-SCCR-MULT-Santa_Cruz-Catalina_Ridge_fault-CFM5,01,UCSB,CFM5,Legg seafloor trace,,307.3924,90,1.5357E+09,,,,,,284
-OCBA-SCFZ-SCLI-San_Clemente_fault-LEGG-CFM5,01,UCSB,CFM5,Legg seafloor trace,LEGG,48.887,90,1.6148E+09,,,,,,283
-OCBA-SCFZ-SCBR-San_Clemente_fault-LEGG-CFM5,01,UCSB,CFM5,Legg seafloor trace,LEGG,311.3139,90,1.1948E+09,,,,,,283
-OCBA-SCFZ-CTLB-San_Clemente_fault-splay-CFM5,01,UCSB,CFM5,Legg seafloor trace,,148.996,79.0246,7.2332E+08,,,,,,283
-OCBA-SCFZ-SBRI-San_Clemente_fault_nw-strand-CFM5,01,UCSB,CFM5,,,140.794,84.9111,3.9358E+08,,,,,,283
-OCBA-ESCS-ESCB-East_Santa_Cruz_Basin_fault-main-SRLN-CFM5,01,UCSB,CFM5,Sorlien model,SRLN,314.3149,15.8342,3.3290E+08,,,,,,missing
-OCBA-ESCS-ESCB-East_Santa_Cruz_Basin_fault-A-SRLN-CFM5,01,UCSB,CFM5,Sorlien model,SRLN,302.8573,12.9818,2.3545E+08,,,,,,missing
-OCBA-ESCS-ESCB-East_Santa_Cruz_Basin_fault-B-SRLN-CFM5,01,UCSB,CFM5,Sorlien model,SRLN,299.2662,24.0654,2.0283E+08,,,,,,missing
-OCBA-ESCS-ESCB-East_Santa_Cruz_Basin_fault-D-SRLN-CFM5,01,UCSB,CFM5,Sorlien model,SRLN,318.8224,16.2963,8.2026E+07,,,,,,missing
-OCBA-ESCS-ESCB-East_Santa_Cruz_Basin_fault-E-SRLN-CFM5,01,UCSB,CFM5,Sorlien model,SRLN,335.2898,35.3273,6.5429E+07,,,,,,missing
-OCBA-FRFZ-SRRS-Ferrelo_fault-upper-SRLN-CFM5,01,UCSB,CFM5,Sorlien model,SRLN,331.6588,33.6014,4.0050E+08,,,,,,missing
-OCBA-CRSF-RDNC-Redondo_Canyon_fault-ZION-CFM2,02,HRVD,CFM2,Zioni model,ZION,81.588,89.9678,1.6932E+08,,orlr,,,,130
-OCBA-NIRC-DANA-Newport-Inglewood_fault-SRLN-CVMH-CFM5,01,UCSB,CFM5,Offshore components of NI-RC system,,320.8469,78.7619,5.5042E+08,,,"Sorlien et al., 2015",,,127c
-OCBA-NIRC-OCNS-Newport-Inglewood-Rose_Canyon_link-CFM5,01,UCSB,CFM5,Offshore components of NI-RC system,,132.896,82.7185,1.0114E+08,,,,,,127d
-OCBA-NIRC-SNDG-Rose_Canyon_fault-CFM5,01,UCSB,CFM5,Offshore components of NI-RC system,,,,1.8365E+09,,,,,,127f
-WTRA-SGFZ-MULT-Southern_San_Gabriel_fault-CFM4,01,UCSB,CFM4,,,282.9241,55.4828,1.4244E+09,surface,orlr,,,,89b-d
-WTRA-SGFZ-PLMS-Northern_San_Gabriel_fault-CFM4,01,UCSB,CFM4,,,318.4764,59.4999,8.1326E+08,surface,,,1,,89a
-WTRA-SGFZ-BTJG-San_Gabriel_fault_splay-CFM4,01,UCSB,CFM4,,,310.7589,67.0895,2.1067E+08,,,,,,89e
-WTRA-SYFZ-MULT-Santa_Ynez_fault-75dip-CFM5,02,UCSB,CFM5,75 dip,ALT1,90.497,70.3227,2.3543E+09,,,,,,"87a-b,87d"
-WTRA-SYRZ-MULT-Santa_Ynez_River_fault-CFM5,01,CMDT,CFM5,,,99.197,70.1627,1.1505E+09,surface,ollr,,,,253
-WTRA-SMFZ-MULT-Sierra_Madre_fault-west-CFM4,01,UCSB,CFM4,west,,295.7041,59.0527,4.9223E+08,surface,ollr,,,,105c-d 
-WTRA-SMFZ-SWCC-Sierra_Madre_fault-low-dip-CFM4,01,UCSB,CFM4,low-dip-north strand-SMF+Clamshell,,272.7003,53.6141,2.4402E+08,,,,,,
-WTRA-SMFZ-CSPC-Clamshell_Sawpit_Canyon_fault-CFM4,01,UCSB,CFM4,,,244.011,64.7162,2.2224E+08,surface,r,,1,,105e
-WTRA-SMFZ-SMDE-Sierra_Madre_fault-low-dip-CFM4,01,UCSB,CFM4,low dip,,273.98547,58.0451,3.0634E+08,surface,t,,,,105g
-WTRA-SMFZ-SMDE-Sierra_Madre_fault-steep-CFM4,02,UCSB,CFM4,steep dip,ALT1,226.54,78.2764,1.5930E+08,surface,t,,,,105g
-WTRA-SMFZ-SMDE-Sierra_Madre-Cucamonga_connector-CFM5,01,UCSB,CFM5,,,,,,,,,,,105g
-WTRA-SMFZ-CCMG-Cucamonga_fault-lowdip-CFM5,01,UCSB,CFM5,,,,,,,,,,,105h
-WTRA-SFNS-SFNV-San_Fernando_fault-CFM4,01,CMDT,CFM4,,,278.9678,48.4043,2.9046E+08,,,,,"propose new id, not Sierra Madre",105b
-WTRA-SFNS-SFNV-Northridge_Hills_fault-truncated-CFM3,01,HRVD,CFM3,,,291.135,31.4004,3.8403E+08,,r,,,,274
-WTRA-SFNS-MSNH-Mission_Hills_fault-CFM4,01,UCSB,CFM4,,,269.183,55.1654,4.6865E+07,,,,,,280
-WTRA-SFNS-VRDM-Verdugo_fault-steep-CFM5,01,CMDT,CFM5,steep dip,,304.1184,73.5416,3.5320E+08,surface,r,,,,104
-WTRA-SFNS-VRDM-Eagle_Rock_fault-steep-CFM5,01,CMDT,CFM5,steep dip - Yeats model,,290.9265,74.7454,1.4291E+08,,,,,,275
-WTRA-SSFZ-MULT-Santa_Susana_fault-CFM1,01,HRVD,CFM1,,,280.6474,52.0575,8.2128E+08,surface,r,,,"propose new id, not Sierra Madre",105a
-WTRA-SCFZ-TOPA-San_Cayetano_fault-HBRD-CFM5,01,HRVD,CFM5,Hubbard model,HBRD,274.38848,44.2927,8.1901E+08,surface,r,"Hubbard et al., 2014",,Propose 95a-b,95
-WTRA-SCFZ-SCVA-Del_Valle_fault-CFM2,01,HRVD,CFM2,,,99.328,70.3263,6.7885E+07,surface,,,,,269
-WTRA-SCFZ-SCVA-Holser_fault-CFM2,01,HRVD,CFM2,,,90.896,64.6916,1.4021E+08,surface,r,,1,,96
-WTRA-SPJD-SPMT-Lion_Canyon_fault-HBRD-CFM5,01,HRVD,CFM5,Hubbard model,HBRD,84.595,57.5057,1.4263E+08,surface,,"Hubbard et al., 2014",,,268
-WTRA-SPJD-OFFS-Padre_Juan_fault-upper-edit-SRLN-CVMH-CFM5,01,UCSB,CFM5,,,91.973,39.0685,1.3888E+08,,,,,propose 375a,missing
-WTRA-SPJD-OFFS-Padre_Juan_fault-lower-SRLN-CVMH-CFM5,01,UCSB,CFM5,,,91.222,20.4364,2.2738E+08,,,,,propose 375a,missing
-WTRA-MRFS-MULT-Mission_Ridge-Arroyo_Parida_fault-dip-CFM5,01,UCSB,CFM5,moderately dipping model,,92.407,67.6493,6.6318E+08,surface,r,,1,,88a-d
-WTRA-NCVS-RDMT-Red_Mountain_fault-N-strand-CFM5,01,UCSB,CFM5,North branch,NBRN,273.70542,70.0171,3.8296E+08,surface,r,,,,90
-WTRA-NCVS-RDMT-Red_Mountain_fault-S-strand-CFM5,01,UCSB,CFM5,South branch,SBRN,276.3983,62.0071,7.3299E+08,,,,,,90
-WTRA-NCVS-RDMT-Red_Mountain_fault-SW-strand-SRLN-CVMH-CFM5,01,UCSB,CFM5,,,,,,,,,,,
-WTRA-NCVS-NCPP-North_Channel_fault-west-SRLN-CVMH-CFM5,01,UCSB,CFM5,,,275.27094,35.5564,1.1771E+08,surface,r,,,,missing
-WTRA-NCVS-NCPP-North_Channel_fault-east-SRLN-CFM5,01,UCSB,CFM5,lowdip-en echelon-Sorlien-Kamerling,SRLN,,,6.7733E+08,,,,,,missing
-WTRA-NCVS-NCPP-North_Channel_fault-west-end-SRLN-CVMH-CFM5,01,UCSB,CFM5,,,,,,,,,,,missing
-WTRA-NCVS-PPTV-Pitas_Point_fault-east-CFM5,01,UCSB,CFM5,revised steep model,,278.18341,43.5888,1.2481E+09,surface,ollr,,,propose 180a,180
-WTRA-NCVS-PPTV-Pitas_Point_fault-east-HBRD-CFM5,03,UCSB,CFM5,ramp flat Hubbard model,HBRD,,,2.2825E+09,surface,ollr,"Hubbard et al., 2014",,propose 180b,180
-WTRA-NCVS-PPTV-Pitas_Point_fault-west-S-SRLN-CVMH-CFM5,01,UCSB,CFM5,,,,,,,,,,propose 180a,missing
-WTRA-NCVS-PPTV-Pitas_Point-Ventura_fault-link-CFM5,01,UCSB,CFM5,,,,,,,,,,propose 180b,180
-WTRA-NCVS-VNTB-Ventura_fault-steep-CFM5,01,HRVD,CFM5,revised steep model,,,,,,,"Hubbard et al., 2014; Plesch et al., 2014",,,91
-WTRA-NCVS-VNTB-Southern_San_Cayetano_fault-steep-JHAP-CFM5,02,HRVD,CFM5,steep w/o flat-Hubbard-Plesch,JHAP,,,,,,"Hubbard et al., 2014; Plesch et al., 2014",,,missing
-WTRA-ORFZ-MULT-Oak_Ridge_fault-CFM5,01,UCSB,CFM5,,,87.785,38.2125,2.1962E+09,surface,t,,,,94
-WTRA-ORFZ-OFFS-Mid-Channel_fault-SRLN-CVMH-CFM5,01,UCSB,CFM5,mapped by Sorlien; also known as Montalvo fault near coast & World's End fault farther west,,285.7637,26.7594,3.2481E+08,,,a,,propose 94a,missing
-WTRA-ORFZ-VNTB-Oak_Ridge_fault-MRSH-CFM5,01,MRSH,CFM5,steep Marshall model w/upper part from Sorlien,MRSH,70.429,67.0641,1.0443E+09,surface,r,,,propose 94b,94
-WTRA-ORFZ-SFNV-Northridge-Frew_fault-CFM2,01,HRVD,CFM2,,CFM,118.962,34.5061,8.5972E+08,blind,t,,,propose 94c,
-WTRA-SSRZ-MULT-Simi-Santa_Rosa_fault-listric-CFM5,01,CMDT,CFM5,,,257.618,39.6288,9.6825E+08,surface,ollr,,1,,98a-c
-WTRA-SSRZ-OXNP-Bailey_fault-steep-CFM5,01,UCSB,CFM5,,,219.74,84.8471,2.7867E+08,,,,,,271
-WTRA-SFFS-SGVS-Raymond_fault-extended-CFM5,02,UCSB,CFM5,,,,,,,,,,,103
-WTRA-SFFS-LABS-Hollywood_fault-CFM5,01,UCSB,CFM5,,,258.227,68.0819,2.6404E+08,surface,ollr,,,,102
-WTRA-SFFS-LABS-North_Salt_Lake_blind_fault-CFM3,01,HRVD,CFM3,,,253.914,53.7451,2.1142E+07,surface,,,,,missing
-WTRA-SFFS-SMMT-Santa_Monica_fault-steep-CFM5,01,UCSB,CFM2,,,249.598,77.9173,1.7831E+08,surface,ollr,,,,101
-WTRA-SFFS-SMMT-Malibu_Coast_fault-east-steep-alt2-CFM5,01,UCSB,CFM5,onshore (eastern) section,,,,,,,,,,99
-WTRA-SFFS-ANCP-Malibu_Coast_fault-west-steep-alt2-CFM5,01,UCSB,CFM5,offshore (western) section,,257.919,89.8057,4.0132E+08,surface,ollr,,1,,99
-WTRA-SFFS-SNCZ-Santa_Cruz_Island_fault-CFM5,01,UCSB,CFM5,,,280.9772,82.7849,1.0493E+09,surface,ollr,,,,93
-WTRA-SFFS-SNRS-Santa_Rosa_Island_fault-CFM5,01,UCSB,CFM5,,,273.92015,82.0092,7.5418E+08,surface,ollr,,,,92
-WTRA-PHTS-LABS-Puente_Hills_thrust_fault-CFM1,01,SHAW,CFM1,LA subsection,LABS,294.1256,26.3628,5.8515E+08,blind,r,,,,185
-WTRA-PHTS-STFS-Puente_Hills_thrust_fault-CFM2,01,SHAW,CFM2,Sante Fe Springs subsection,SFSS,265.847,31.6817,2.7139E+08,blind,r,,,,185
-WTRA-PHTS-COYT-Puente_Hills_thrust_fault-CFM2,01,SHAW,CFM2,Coyote Hills subsection,CYHS,262.338,26.9519,4.5764E+08,blind,r,,,,185
-WTRA-PHTS-RICH-Puente_Hills_thrust_fault-CFM2,01,CMDT,CFM2,Richfield subsection,RCHS,262.993,28.0185,1.7153E+08,blind,ollr,,1,,185
-WTRA-PHTS-PRTH-Peralta_Hills_fault-CFM1,01,HRVD,CFM1,,,274.14608,49.6765,2.5193E+08,surface,,,1,,299
-WTRA-PHTS-LABS-Las_Cienagas_fault-truncated-CFM1,02,HRVD,CFM1,previously WTRA-SBTS faults,,316.1695,60.4112,1.2800E+07,surface,,,,,366
-WTRA-PHTS-LABS-San_Vicente_fault-CFM1,01,HRVD,CFM1,previously WTRA-SBTS faults,,,,1.6572E+08,surface,ollr,,,,
-WTRA-PHTS-LABS-Upper_Elysian_Park_fault-CFM1,03,HRVD,CFM1,previously WTRA-SBTS faults,,284.9013,43.5202,1.5858E+08,surface,r,,,,218
-WTRA-USAV-SNJH-San_Jose_fault-CFM5,01,UCSB,CFM5,,,,,7.6184E+08,surface,ollr,,,propose 107a,107
-WTRA-USAV-UPLD-Upland_fault-dipslip-CFM1,01,HRVD,CFM1,dipslip model,,226.501,68.9879,2.3186E+08,,,,,propose 107b,107
-WTRA-USAV-WLNC-Walnut_Creek_fault-CFM5,01,UCSB,CFM5,,,238.859,75.3566,2.2215E+08,surface,,,,,333
-WTRA-USAV-INDH-Indian_Hill_fault-CFM5,01,UCSB,CFM5,,,255.122,76.1954,3.6188E+08,,,,,,331
-WTRA-SBTS-MULT-Channel_Islands_thrust-SHAW-CFM1,02,SHAW,CFM1,,,270.527276,18.2971,1.8904E+09,blind,t,,1,,missing
-WTRA-SBTS-SMNB-Santa_Monica_Bay_fault-CFM3,,CMDT,CFM3,Moved to OCBA-IBFS,,278.52081,27.7612,1.5233E+09,,,,,,
-WTRA-SBTS-ANCP-Anacapa-Dume_fault-CFM3,01,CMDT,CFM3,,,266.364,36.5091,1.5201E+09,surface,t,,1,,100
-WTRA-SGMF-SANC-San_Antonio_Canyon_fault-CFM4,01,UCSB,CFM4,,,231.23,85.8057,2.1902E+08,,,,,,328
-WTRA-SBCF-MULT-Western_Deep_fault-SRLN-CVMH-CFM5,,UCSB,CFM5,,,117.295,9.92433,6.2480E+08,,,,,,missing
-WTRA-SBCF-WEST-Hondo_detachment-S-dip-SRLN-CVMH-CFM5,,UCSB,CFM5,,,78.352,11.2951,5.6479E+08,,,,,,missing
-ETRA-CLHZ-SCHS-Cleghorn_fault-steep-CFM5,01,UCSB,CFM5,,,96.673,77.0694,2.9871E+08,surface,llss,,,,108a
-ETRA-CLHZ-SBMT-Tunnel_Ridge-Arrastre_Canyon_fault-steep-CFM5,02,UCSB,CFM5,,,,,,,,,,,326+327
-ETRA-CLHZ-NCHS-Grass_Valley_fault-steep-CFM5,01,UCSB,CFM5,,,87.915,76.2268,1.7885E+08,,,,,,108b
-ETRA-NFTS-WEST-North_Frontal_Thrust_fault-lowdip-CFM5,01,CMDT,CFM5,in CFM5-Mojave Gocad project,,88.728,35.0632,7.6444E+08,surface,r,,,,109a
-ETRA-NFTS-EAST-North_Frontal_Thrust_fault-unlinked-CFM5,02,CMDT,,in CFM5-Mojave Gocad project,,97.829,59.657,4.7202E+08,surface,r,,,,109b
-ETRA-NFTS-DTMT-Deep_detachment-CFM5,01,UCSB,CFM5,,,74.486,11.0858,1.2544E+09,,,,,,missing
-ETRA-BBFS-1992-Big_Bear_rupture-CFM2,01,HRVD,CFM2,,,270,,7.1411E+08,,,,,,missing
-ETRA-SANA-MULT-Santa_Ana_fault-CFM5,01,CMDT,CFM5,"south dip, gocad project has n dip alternative",,270,,8.9677E+08,,,,,,335+339
-ETRA-SBMT-WEST-Waterman_Canyon_fault-CFM5,01,CMDT,CFM5,,,94.358,86.5857,2.8390E+08,,,,,,334
-ETRA-PMFZ-MULT-Pinto_Mountain_fault-CFM5,01,UCSB,CFM5,,,266.036,86.9358,1.1669E+09,surface,llss,,,,118
-ETRA-PMFZ-MRVS-Morongo_Valley_fault-CFM5,01,UCSB,CFM5,,,230.36,89.2163,2.5366E+08,,,,,proposed 118c,118
-ETRA-LSBM-LGCS-Long_Canyon_fault-CFM5,01,UCSB,CFM5,,,356.1076,85.9938,1.6836E+08,,,,,,337
-ETRA-LSBM-MULT-Burnt_Mountain-East-Wide_Canyon_fault-CFM5,01,UCSB,CFM5,,,174.522,88.8709,3.1556E+08,surface,rlss,,,,119
-ETRA-LSBM-MULT-Eureka_Peak-West_Deception_Canyon_fault-CFM5,01,UCSB,CFM5,,,166.673,88.4476,3.6302E+08,surface,rlss,,,,120
-ETRA-LSBM-1992-Joshua_Tree_sequence-CFM5,01,CMDT,CFM5,,,178.119,89.6577,2.5838E+08,,,,,,395
-ETRA-BCFZ-MULT-Blue_Cut_fault-CFM5,01,UCSB,CFM5,,,87.465,89.003,9.8445E+08,,llss,,,,290
-ETRA-CHRC-STWS-Smoketree_Wash_fault-vertical-CFM5,01,CMDT,CFM5,historal precedent is Chiriaco fault,,171.839,90,3.3145E+08,,,,,,395
-MJVA-ECSZ-1992-Landers_rupture_detailed_splays-CFM3,01,HRVD,CFM3,,,,,1.5594E+09,,,,,,
-MJVA-ECSZ-1992-Barstow_trend-CFM5,01,CMDT,CFM5,,,341.263,89.7279,1.1444E+08,,,,,,missing
-MJVA-ECSZ-1992-Landers_cross_fault-North-I-CFM5,01,CMDT,CFM5,,,82.241,76.66,1.1227E+08,surface,rlss,,,,missing
-MJVA-ECSZ-1992-Landers_cross_fault-North-II-CFM5,01,CMDT,CFM5,,,268.535,85.5784,1.9925E+08,surface,rlss,,,,missing
-MJVA-ECSZ-1999-Hector_Mine_rupture-dipping-CFM2,01,HRVD,CFM2,,,,,8.9981E+08,surface,,,,,
-MJVA-HSLZ-MULT-Helendale-South_Lockhart_fault-CFM5,01,UCSB,CFM5,,,,,1.8036E+09,surface,rlss,,,,110a-c
-MJVA-HSLZ-SBMT-Southern-Helendale_fault-CFM5,01,UCSB,CFM5,,,,,4.0936E+08,,,,,,110c
-MJVA-HSLZ-SBMT-Pipes_Canyon_fault-CFM5,01,UCSB,CFM5,,,145.121,85.3993,2.6789E+08,,,,,proposed 320b,320
-MJVA-HSLZ-SBMT-Pipes_Canyon_fault-north-extension-CFM5,01,UCSB,CFM5,,,124.965,86.1887,1.2941E+08,,,,,proposed 320a,320
-MJVA-LWLZ-MULT-Lenwood_Lockhart_fault-CFM5,01,UCSB,CFM5,,,132.413,76.87,2.7945E+09,surface,orlr,,,,111a-b
-MJVA-JVFZ-MULT-Johnson_Valley_fault-CFM5,01,CMDT,CFM5,,,55.525,90,8.4246E+08,surface,rlss,,,,115a-b
-MJVA-JVFZ-SJVS-Kickapoo_fault-CFM3,01,HRVD,CFM3,,,7.3274,89.9369,8.9336E+07,,,,,,115b
-MJVA-HPFZ-MULT-Gravel_Hills-Harper_Lake_fault-CFM5,01,UCSB,CFM5,,,311.2206,90,6.8567E+08,surface,rlss,,,,112
-MJVA-HPFZ-GVHS-Gravel_Hills_fault-nw-CFM5,01,CMDT,CFM5,nw splay,,300.2746,89.6876,1.0181E+08,,,,,,112
-MJVA-HPFZ-GVHS-Harper_Valley_fault-CFM5,01,CMDT,CFM5,,,317.9516,87.2859,7.8533E+07,,,,,,112
-MJVA-HPFZ-HPVS-Harper_Valley-Mt_General_fault-CFM5,01,CMDT,CFM5,,,137.926,90,3.7331E+08,,,,,Proposed 343a+b,343
-MJVA-CREC-CMPR-Camp_Rock_fault-CFM5,01,UCSB,CFM5,,,310.7657,89.6291,4.5942E+08,,rlss,,,,114a
-MJVA-CREC-EMRS-North_Emerson_fault-CFM3,02,HRVD,CFM3,,,,,5.6863E+08,,,,,,114b
-MJVA-CREC-EMRS-Emerson_fault-CFM5,01,UCSB,CFM5,,,144.397,85.2207,4.5906E+08,surface,rlss,,1,,114b
-MJVA-CREC-EMRS-Galway_Lake_fault-CFM2,01,HRVD,CFM2,,,167.132,89.9771,1.4047E+08,,,,,,114b
-MJVA-CREC-CPMT-Copper_Mountain_fault-CFM5,01,UCSB,CFM5,,,140.412,86.926,1.3297E+08,surface,rlss,,1,,114c
-MJVA-BWFZ-MULT-Blackwater_fault-CFM5,01,UCSB,CFM5,,,145.685,85.6364,5.1343E+08,surface,rlss,,,,113
-MJVA-CHFZ-MULT-Calico-Hidalgo_fault-CFM5,01,UCSB,CFM5,,,323.0319,83.2583,1.7692E+09,surface,rlss,,,,121a-c
-MJVA-CHFZ-WCLS-West_Calico-FaultA_fault-CFM5,01,CMDT,CFM5,,,150.207,88.4861,5.2134E+08,,,,,,121b
-MJVA-PBMZ-MULT-Pisgah-Bullion-West_Bullion_fault-CFM5,01,CMDT,CFM5,,,,,1.4683E+09,surface,rlss,,,,122a-d
-MJVA-PBMZ-EBLS-East_Bullion-Valley_Mountain_fault-CFM5,01,UCSB,CFM5,,,,,6.4496E+08,surface,rlss,,,,122c
-MJVA-PBMZ-WBLS-West_Bullion_fault-CFM5,01,CMDT,CFM5,,,326.543,85.7205,6.3646E+08,surface,rlss,,,,122d
-MJVA-PBMZ-MSQL-Mesquite_Lake_fault-CFM5,01,CMDT,CFM5,,,325.5212,87.8137,5.4520E+08,surface,rlss,,,,123
-MJVA-LLBM-MULT-Lavic_Lake-North_West_Bullion_fault-CFM3,01,HRVD,CFM3,incl. North West Bullion,,333.4602,83.1019,6.4487E+08,,,,,,351+122d
-MJVA-LCLZ-LDLW-Ludlow_fault-CFM5,01,UCSB,CFM5,,,329.1035,84.511,7.9455E+08,surface,rlss,,,,346
-MJVA-LCLZ-CLGL-Cleghorn_Lake_fault-CFM5,01,CMDT,CFM5,in CFM5-Mojave Gocad project,,154.018,84.7977,2.3472E+08,,,,,,349
-MJVA-GLPS-GLDS-Goldstone_Lake_fault-CFM5,01,UCSB,CFM5,,,140.457,88.3385,5.7720E+08,surface,,,,,355
-MJVA-GLPS-PRDS-Paradise_fault-CFM5,01,UCSB,CFM5,,,171.055,85.2018,4.3635E+08,surface,,,,,missing
-MJVA-CRSF-GNTM-McLean_Lake-Drinkwater_Lake_fault-CFM5,01,UCSB,CFM5,,,90.288,89.4481,7.6687E+08,surface,,,,,missing
-MJVA-CRSF-GNTM-Nelson_Lake_fault-CFM5,02,UCSB,CFM5,,,271.23753,89.8623,5.9183E+08,surface,,,,,missing
-MJVA-CRSF-GNTM-Granite_Mountains_fault-west-CFM5,04,UCSB,CFM5,west part,,307.7846,89.9044,2.5319E+08,,,,,,467
-MJVA-CRSF-TFMT-Coyote_Canyon_fault-CFM5,01,UCSB,CFM5,,,269.878,89.3595,5.9245E+08,surface,,,,,362
-MJVA-CRSF-BLBS-Bicycle_Lake_fault-CFM5,01,UCSB,CFM5,,,276.04396,89.5903,2.4993E+08,surface,,,,,357
-MJVA-CRSF-BLBS-Bitter_Springs_fault-CFM5,01,UCSB,CFM5,,,67.528,88.1996,1.3452E+08,,,,,,477
-MJVA-CRSF-CYTL-Coyote_Lake_fault-CFM5,01,CMDT,CFM5,in CFM5-Mojave Gocad project,,165.191,90,5.9356E+08,surface,,,,,354
-MJVA-CRSF-MANX-Manix_fault-CFM5,01,UCSB,CFM5,,,249.467,87.3382,5.2349E+08,surface,llss,,,,344
-MJVA-CRSF-CADY-Cady_fault-CFM5,01,UCSB,CFM5,,,90.401,87.7877,2.8663E+08,surface,llss,,,,345
-MJVA-NEMV-RDPS-Red_Pass_fault-CFM5,01,UCSB,CFM5,,,140.118,83.2762,2.5472E+08,surface,rlss,,,,360
-MJVA-NEMV-GRLS-Garlic_Spring_fault-CFM5,01,UCSB,CFM5,,,132.524,88.2656,2.2288E+08,surface,rlss,,,,358
-GRFS-GRFZ-WEST-Garlock_fault-CFM5,01,UCSB,CFM5,,,239.83,90,1.4321E+09,surface,llss,,,,69a
-GRFS-GRFZ-EAST-Garlock_fault-CFM5,01,UCSB,CFM5,,,166.747,0.754282,1.8031E+09,surface,llss,,,,69b-c
-GRFS-GRFZ-EAST-Owl_Lake_fault-CFM5,01,UCSB,CFM5,,,57.416,88.2124,2.3949E+08,surface,olln,,,,70
-BNRA-BMFZ-MULT-Black_Mountain_fault-CFM3,01,HRVD,CFM3,,,167.587,24.063,8.0437E+08,,,,,,142a-d
-BNRA-NDVZ-MULT-Northern_Death_Valley_fault-CFM2,01,HRVD,CFM2,,,49.07,90,6.8448E+08,surface,orln,,,,141a-c
-BNRA-SDVZ-MULT-Southern_Death_Valley_fault-vertical-CFM3,01,HRVD,CFM3,,,53.764,90,4.3968E+08,,,,,,143a-b
-SNFA-OVFZ-1872-Owens_Valley_fault_rupture-CFM1,01,HRVD,CFM1,,,72.037,90,1.0568E+09,surface,orln,,,,51b
-SNFA-SSNZ-MULT-Independance-Sierra_Nevada_fault-CFM1,01,HRVD,CFM1,,,359.2451,44.1531,2.2035E+09,surface,n,,,,65a-b
-SNFA-SSNZ-INDP-Independance_fault-CFM1,01,HRVD,CFM1,,,336.1443,60.9996,7.7015E+08,surface,n,,,,65a
-SNFA-HMFZ-MULT-Hunter_Mountain_fault-CFM1,01,HRVD,CFM1,,,312.7791,86.1595,1.0641E+09,surface,orln,,,,66a-b
-SNFA-PMVZ-MULT-Panamint_Valley_fault-steep-CFM2,01,HRVD,CFM2,steep dip model,CFM,70.679,1.78705,7.7209E+08,,orln,,,,67a-d
-SNFA-AHTC-ASHH-Ash_Hill_fault-CFM2,01,HRVD,CFM2,,,157.147,76.44,1.9403E+08,,orln,,,,233
-SNFA-AHTC-TANK-Tank_Canyon_fault-CFM2,01,HRVD,CFM2,,CFM,176.139,55.0151,1.3567E+08,surface,n,,1,,71
-SNFA-LLFZ-CNTR-Little_Lake_fault-CFM1,02,HRVD,CFM1,,CFMA,58.281,90,4.8350E+08,surface,rlss,,,,72
-SNFA-ALFZ-COSO-Airport_Lake_fault-CFM5,01,CMDT,CFM5,,,359.9348,86.2172,5.9235E+08,,,,,,73
-GVFA-WWFZ-MULT-White_Wolf_fault-CFM1,01,HRVD,CFM1,,,51.99,75.7565,1.4512E+09,surface,ollr,,1,,74
-GVFA-PLFZ-MULT-Pleito_fault-CFM2,01,HRVD,CFM2,,CFM,91.246,43.5499,7.6036E+08,surface,r,,,,76a-b
-GVFA-KRCS-KRCN-Kern_Canyon_fault-CFM5,01,CMDT,CFM5,,,5.4497,60.4861,2.0583E+09,,,,,,missing
-GVFA-KRCS-LISA-Lake_Isabella_lineament-CFM2,01,HRVD,CFM2,,,12.378,89.0003,8.4055E+08,,,,,,missing
-GVFA-TDRS-COAL-Coalinga_blind_fault-CFM2,01,HRVD,CFM2,,,138.25,10.7612,4.9984E+08,,,,,,missing
-GVFA-TDRS-KTLM-Kettleman_Hills_blind_fault-North_Dome-CFM2,01,HRVD,CFM2,North Dome,,127.074,17.1814,3.5273E+08,,,,,,missing
-GVFA-TDRS-LSTH-Lost_Hills_blind_fault-CFM2,01,HRVD,CFM2,,,144.082,28.6494,1.7131E+08,,,,,,missing
-CRFA-REHZ-MULT-Rinconada_fault-CFM4,01,UCSB,CFM4,,,58.094,90,1.0865E+09,,,,,,63a-c
-CRFA-REHZ-EHSN-East_Huasna_fault-CFM4,01,UCSB,CFM4,,,148.971,90,5.1242E+08,,,,,,251
-CRFA-SCFZ-SCYM-South_Cuyama_fault-CFM3,01,HRVD,CFM3,,,118.527,34.949,4.7120E+08,,,,,,252
-CRFA-SJMZ-MULT-San_Juan_fault-CFM5,01,CMDT,CFM5,,,336.6235,64.0537,7.0551E+08,,,,,,77
-CRFA-SJMZ-CHMN-Big_Spring_fault-35dip-CFM5,01,CMDT,CFM5,35 dip,,300.4278,33.6226,5.1608E+08,,,,,,77
-CRFA-SJMZ-MRLS-Morales_fault-CFM3,01,HRVD,CFM3,,,303.6944,18.1796,7.4331E+08,,,,,,491
-CRFA-LPNZ-MULT-La_Panza_fault-CFM4,01,HRVD,CFM4,,,315.7986,49.9156,1.3493E+09,,,,,,78
-CRFA-BPPM-WEST-Big_Pine_fault-CFM2,01,HRVD,CFM2,North Branch,,273.71229,49.9112,1.5780E+08,surface,llss,,,,86a
-CRFA-BPPM-EAST-Big_Pine_fault-CFM4,01,CMDT,CFM4,,,82.921,66.7966,1.8419E+08,surface,llss,,,,86b
-CRFA-BPPM-LKWV-Lockwood_Valley_fault-CFM2,01,HRVD,CFM2,,,248.814,82.0954,3.2467E+08,,,,,,86c
-CRFA-BPPM-PMTS-Pine_Mountain_fault-CFM2,01,HRVD,CFM2,CFM2,,276.89466,41.9962,1.3148E+09,,,,,,261
-CRFA-NAFZ-MULT-Nacimiento_fault-south-CFM2,01,HRVD,CFM2,,,313.5765,54.3205,1.0809E+09,,,,,,missing
-CRFA-OCNZ-MULT-Oceanic_fault-CFM5,01,CMDT,CFM5,,,315.1971,61.3157,5.7920E+08,,,,,,352
-CRFA-OCNZ-SLCN-Oceanic_backthrust-n-CFM4,01,HRVD,CFM4,,,125.007,43.0349,3.5332E+08,,,"Plesch et al., 2014",,,missing
-CRFA-OCNZ-HSNV-West_Huasna_fault-CFM5,01,CMDT,CFM5,,,328.271,73.3395,3.3303E+08,,,,,,371
-CRFA-LOSO-LSOS-Los_Osos_fault-CFM4,01,HRVD,CFM4,,,122.912,31.6629,3.5764E+08,,,"Plesch et al., 2014",,,79a-d
-CRFA-SLRS-MULT-San_Luis_Range_fault_system-CFM4,01,HRVD,CFM4,,,,,9.0768E+08,,,"Plesch et al., 2014",,,82
-CRFA-SLRS-SHRL-Shoreline_fault-CFM4,01,HRVD,CFM4,,,,,3.0215E+08,,,"Plesch et al., 2014",,,missing
-CRFA-SLRS-SLBS-San_Luis_Bay_fault-CFM4,01,HRVD,CFM4,,,99.994,88.3676,1.6310E+08,,,"Plesch et al., 2014",,,82
-CRFA-SLRS-LPNS-Little_Pine_fault-CFM5,01,CMDT,CFM5,,,311.6624,41.821,3.7499E+08,,,,,,255
-CRFA-SLRS-SYNV-Santa_Ynez_Valley_blind_fault-CFM5,01,CMDT,CFM5,,,304.2142,74.7225,4.8001E+08,,,"Plesch et al., 2014",,,missing
-CRFA-CSBL-PEZN-Pezzoni-Casmalia_fault-truncated-CFM5,01,HRVD,CFM5,,,120.971,72.6471,1.5788E+08,,,"Plesch et al., 2014",,,84
-CRFA-CSBL-CSML-Casmalia_fault-CFM4,01,HRVD,CFM4,,,122.248,65.7383,3.3535E+08,,,"Plesch et al., 2014",,,84
-CRFA-CSBL-LALM-Los_Alamos_fault-steep-CFM5,02,CMDT,CFM5,steep,,120.157,60.2145,2.4883E+08,,,"Plesch et al., 2014",,,85
-CRFA-CSBL-ORCT-Orcutt_blind_fault-CFM5,01,HRVD,CFM5,,,125.549,61.48,3.1093E+08,,,"Plesch et al., 2014",,,missing
-CRFA-CSBL-ZACA-Zaca_blind_fault-CFM5,01,HRVD,CFM5,,,110.631,48.9141,2.6167E+08,,,"Plesch et al., 2014",,,missing
-CRFA-LNHZ-MULT-Lions_Head_fault-CFM4,01,HRVD,CFM4,,,304.4124,51.248,3.7625E+08,,,"Plesch et al., 2014",,,83
-CRFA-LMPZ-WEST-Lompoc_blind_ramp-CFM5,01,HRVD,CFM5,,,108.168,39.4408,1.9277E+08,,,"Plesch et al., 2014",,,missing
-CRFA-LMPZ-EAST-Lompoc_blind_ramp-CFM5,01,HRVD,CFM5,,,115.66,38.3638,3.8974E+08,,,"Plesch et al., 2014",,,missing
-OCCA-HSFZ-MULT-Hosgri-San_Simeon_fault-CFM1,01,CMDT,CFM1,,,244.433,1.30332,1.6929E+09,surface,rlss,,1,,80+81a-e
+name,Alternative,source author,CFM Version,model description,Descriptor,Strike,Dip,Area,Exposure,Slip Sense,Reference,Reference Check,ID comments,USGS ID
+BNRA-BMFZ-MULT-Black_Mountain_fault-CFM3,1,HRVD,CFM3,,,167.587,24.063,804367000,,,,,,142a-d
+BNRA-NDVZ-MULT-Northern_Death_Valley_fault-CFM2,1,HRVD,CFM2,,,49.07,90,684475000,surface,orln,,,,141a-c
+BNRA-SDVZ-MULT-Southern_Death_Valley_fault_vertical-CFM3,1,HRVD,CFM3,,,53.764,90,439679000,,,,,,143a-b
+CRFA-BPPM-EAST-Big_Pine_fault-CFM4,1,CMDT,CFM4,,,82.921,66.7966,184187000,surface,llss,,,,86b
+CRFA-BPPM-LKWV-Lockwood_Valley_fault-CFM2,1,HRVD,CFM2,,,248.814,82.0954,324668000,,,,,,86c
+CRFA-BPPM-PMTS-Pine_Mountain_fault-CFM2,1,HRVD,CFM2,CFM2,,276.89466,41.9962,1314820000,,,,,,261
+CRFA-BPPM-WEST-Big_Pine_fault-CFM2,1,HRVD,CFM2,North Branch,,273.71229,49.9112,157798000,surface,llss,,,,86a
+CRFA-CSBL-CSML-Casmalia_fault-CFM4,1,HRVD,CFM4,,,122.248,65.7383,335352000,,,"Plesch et al., 2014",,,84
+CRFA-CSBL-LALM-Los_Alamos_fault_steep-CFM5,2,CMDT,CFM5,steep,,120.157,60.2145,248828000,,,"Plesch et al., 2014",,,85
+CRFA-CSBL-ORCT-Orcutt_blind_fault-CFM5,1,HRVD,CFM5,,,125.549,61.48,310925000,,,"Plesch et al., 2014",,,missing
+CRFA-CSBL-PEZN-Pezzoni_Casmalia_fault_truncated-CFM5,1,HRVD,CFM5,,,120.971,72.6471,157878000,,,"Plesch et al., 2014",,,84
+CRFA-CSBL-ZACA-Zaca_blind_fault-CFM5,1,HRVD,CFM5,,,110.631,48.9141,261669000,,,"Plesch et al., 2014",,,missing
+CRFA-LMPZ-EAST-Lompoc_blind_ramp-CFM5,1,HRVD,CFM5,,,115.66,38.3638,389743000,,,"Plesch et al., 2014",,,missing
+CRFA-LMPZ-WEST-Lompoc_blind_ramp-CFM5,1,HRVD,CFM5,,,108.168,39.4408,192769000,,,"Plesch et al., 2014",,,missing
+CRFA-LNHZ-MULT-Lions_Head_fault-CFM4,1,HRVD,CFM4,,,304.4124,51.248,376249000,,,"Plesch et al., 2014",,,83
+CRFA-LOSO-LSOS-Los_Osos_fault-CFM4,1,HRVD,CFM4,,,122.912,31.6629,357643000,,,"Plesch et al., 2014",,,79a-d
+CRFA-LPNZ-MULT-La_Panza_fault-CFM4,1,HRVD,CFM4,,,315.7986,49.9156,1349320000,,,,,,78
+CRFA-NAFZ-MULT-Nacimiento_fault_south-CFM2,1,HRVD,CFM2,,,313.5765,54.3205,1080940000,,,,,,missing
+CRFA-OCNZ-HSNV-West_Huasna_fault-CFM5,1,CMDT,CFM5,,,328.271,73.3395,333034000,,,,,,371
+CRFA-OCNZ-MULT-Oceanic_fault-CFM5,1,CMDT,CFM5,,,315.1971,61.3157,579199000,,,,,,352
+CRFA-OCNZ-SLCN-Oceanic_backthrust_n-CFM4,1,HRVD,CFM4,,,125.007,43.0349,353321000,,,"Plesch et al., 2014",,,missing
+CRFA-REHZ-EHSN-East_Huasna_fault-CFM4,1,UCSB,CFM4,,,148.971,90,512421000,,,,,,251
+CRFA-REHZ-MULT-Rinconada_fault-CFM4,1,UCSB,CFM4,,,58.094,90,1086480000,,,,,,63a-c
+CRFA-SCFZ-SCYM-South_Cuyama_fault-CFM3,1,HRVD,CFM3,,,118.527,34.949,471197000,,,,,,252
+CRFA-SJMZ-CHMN-Big_Spring_fault_35dip-CFM5,1,CMDT,CFM5,35 dip,,300.4278,33.6226,516077000,,,,,,77
+CRFA-SJMZ-MRLS-Morales_fault-CFM3,1,HRVD,CFM3,,,303.6944,18.1796,743314000,,,,,,491
+CRFA-SJMZ-MULT-San_Juan_fault-CFM5,1,CMDT,CFM5,,,336.6235,64.0537,705506000,,,,,,77
+CRFA-SLRS-LPNS-Little_Pine_fault-CFM5,1,CMDT,CFM5,,,311.6624,41.821,374986000,,,,,,255
+CRFA-SLRS-MULT-San_Luis_Range_fault_system-CFM4,1,HRVD,CFM4,,,,,907684000,,,"Plesch et al., 2014",,,82
+CRFA-SLRS-SHRL-Shoreline_fault-CFM4,1,HRVD,CFM4,,,,,302152000,,,"Plesch et al., 2014",,,missing
+CRFA-SLRS-SLBS-San_Luis_Bay_fault-CFM4,1,HRVD,CFM4,,,99.994,88.3676,163103000,,,"Plesch et al., 2014",,,82
+CRFA-SLRS-SYNV-Santa_Ynez_Valley_blind_fault-CFM5,1,CMDT,CFM5,,,304.2142,74.7225,480006000,,,"Plesch et al., 2014",,,missing
+ETRA-BBFS-1992_Big_Bear_rupture-CFM2,1,HRVD,CFM2,,,270,,714105000,,,,,,missing
+ETRA-BCFZ-MULT-Blue_Cut_fault-CFM5,1,UCSB,CFM5,,,87.465,89.003,984451000,,llss,,,,290
+ETRA-CHRC-STWS-Smoketree_Wash_fault_vertical-CFM5,1,CMDT,CFM5,historal precedent is Chiriaco fault,,171.839,90,331448000,,,,,,395
+ETRA-CLGZ-NCHS-Grass_Valley_fault_steep-CFM5,1,UCSB,CFM5,,,87.915,76.2268,178845000,,,,,,108b
+ETRA-CLGZ-SBMT-Tunnel_Ridge_Arrastre_Canyon_fault_steep-CFM5,2,UCSB,CFM5,,,,,,,,,,,326+327
+ETRA-CLGZ-SCHS-Cleghorn_fault_steep-CFM5,1,UCSB,CFM5,,,96.673,77.0694,298709000,surface,llss,,,,108a
+ETRA-LSBM-1992_Joshua_Tree_sequence-CFM5,1,CMDT,CFM5,,,178.119,89.6577,258381000,,,,,,395
+ETRA-LSBM-LGCS-Long_Canyon_fault-CFM5,1,UCSB,CFM5,,,356.1076,85.9938,168356000,,,,,,337
+ETRA-LSBM-MULT-Burnt_Mountain_East_Wide_Canyon_fault-CFM5,1,UCSB,CFM5,,,174.522,88.8709,315556000,surface,rlss,,,,119
+ETRA-LSBM-MULT-Eureka_Peak_West_Deception_Canyon_fault-CFM5,1,UCSB,CFM5,,,166.673,88.4476,363017000,surface,rlss,,,,120
+ETRA-NFTS-DTMT-Deep_detachment-CFM5,1,UCSB,CFM5,,,74.486,11.0858,1254440000,,,,,,missing
+ETRA-NFTS-EAST-North_Frontal_Thrust_fault_lowdip-CFM5,2,CMDT,,in CFM5-Mojave Gocad project,,97.829,59.657,472024000,surface,r,,,,109b
+ETRA-NFTS-WEST-North_Frontal_Thrust_fault_lowdip-CFM5,1,CMDT,CFM5,in CFM5-Mojave Gocad project,,88.728,35.0632,764444000,surface,r,,,,109a
+ETRA-PMFZ-MRVS-Morongo_Valley_fault-CFM5,1,UCSB,CFM5,,,230.36,89.2163,253656000,,,,,proposed 118c,118
+ETRA-PMFZ-MULT-Pinto_Mountain_fault-CFM5,1,UCSB,CFM5,,,266.036,86.9358,1166940000,surface,llss,,,,118
+ETRA-SANA-MULT-Santa_Ana_fault-CFM5,1,CMDT,CFM5,"south dip, gocad project has n dip alternative",,270,,896766000,,,,,,335+339
+ETRA-SBMT-WEST-Waterman_Canyon_fault-CFM5,1,CMDT,CFM5,,,94.358,86.5857,283900000,,,,,,334
+GRFS-GRFZ-EAST-Garlock_fault-CFM5,1,UCSB,CFM5,,,166.747,0.754282,1803130000,surface,llss,,,,69b-c
+GRFS-GRFZ-EAST-Owl_Lake_fault-CFM5,1,UCSB,CFM5,,,57.416,88.2124,239487000,surface,olln,,,,70
+GRFS-GRFZ-WEST-Garlock_fault-CFM5,1,UCSB,CFM5,,,239.83,90,1432110000,surface,llss,,,,69a
+GVFA-KRCS-KRCN-Kern_Canyon_fault-CFM5,1,CMDT,CFM5,,,5.44970000000001,60.4861,2058290000,,,,,,missing
+GVFA-KRCS-LISA-Lake_Isabella_lineament-CFM2,1,HRVD,CFM2,,,12.378,89.0003,840553000,,,,,,missing
+GVFA-PLFZ-MULT-Pleito_fault-CFM2,1,HRVD,CFM2,,CFM,91.246,43.5499,760361000,surface,r,,,,76a-b
+GVFA-TDRS-COAL-Coalinga_blind_fault-CFM2,1,HRVD,CFM2,,,138.25,10.7612,499844000,,,,,,missing
+GVFA-TDRS-KTLM-Kettleman_Hills_blind_fault_North_Dome-CFM2,1,HRVD,CFM2,North Dome,,127.074,17.1814,352725000,,,,,,missing
+GVFA-TDRS-LSTH-Lost_Hills_blind_fault-CFM2,1,HRVD,CFM2,,,144.082,28.6494,171314000,,,,,,missing
+GVFA-WWFZ-MULT-White_Wolf_fault-CFM1,1,HRVD,CFM1,,,51.99,75.7565,1451180000,surface,ollr,,X,,74
+MJVA-BWFZ-MULT-Blackwater_fault-CFM5,1,UCSB,CFM5,,,145.685,85.6364,513426000,surface,rlss,,,,113
+MJVA-CHFZ-MULT-Calico_Hidalgo_fault-CFM5,1,UCSB,CFM5,,,323.0319,83.2583,1769240000,surface,rlss,,,,121a-c
+MJVA-CHFZ-WCLS-West_Calico_FaultA_fault-CFM5,1,CMDT,CFM5,,,150.207,88.4861,521341000,,,,,,121b
+MJVA-CREC-CMPR-Camp_Rock_fault-CFM5,1,UCSB,CFM5,,,310.7657,89.6291,459417000,,rlss,,,,114a
+MJVA-CREC-CPMT-Copper_Mountain_fault-CFM5,1,UCSB,CFM5,,,140.412,86.926,132967000,surface,rlss,,X,,114c
+MJVA-CREC-EMRS-Emerson_fault-CFM5,1,UCSB,CFM5,,,144.397,85.2207,459057000,surface,rlss,,X,,114b
+MJVA-CREC-EMRS-Galway_Lake_fault-CFM2,1,HRVD,CFM2,,,167.132,89.9771,140469000,,,,,,114b
+MJVA-CREC-EMRS-North_Emerson_fault-CFM3,2,HRVD,CFM3,,,,,568631000,,,,,,114b
+MJVA-CRSF-BLBS-Bicycle_Lake_fault-CFM5,1,UCSB,CFM5,,,276.04396,89.5903,249926000,surface,,,,,357
+MJVA-CRSF-BLBS-Bitter_Springs_fault-CFM5,1,UCSB,CFM5,,,67.528,88.1996,134516000,,,,,,477
+MJVA-CRSF-CADY-Cady_fault-CFM5,1,UCSB,CFM5,,,90.401,87.7877,286634000,surface,llss,,,,345
+MJVA-CRSF-CYTL-Coyote_Lake_fault-CFM5,1,CMDT,CFM5,in CFM5-Mojave Gocad project,,165.191,90,593557000,surface,,,,,354
+MJVA-CRSF-GNTM-Granite_Mountains_fault_west-CFM5,4,UCSB,CFM5,west part,,307.7846,89.9044,253191000,,,,,,467
+MJVA-CRSF-GNTM-McLean_Lake_Drinkwater_Lake_fault-CFM5,1,UCSB,CFM5,,,90.288,89.4481,766868000,surface,,,,,missing
+MJVA-CRSF-GNTM-Nelson_Lake_fault-CFM5,2,UCSB,CFM5,,,271.23753,89.8623,591826000,surface,,,,,missing
+MJVA-CRSF-MANX-Manix_fault-CFM5,1,UCSB,CFM5,,,249.467,87.3382,523489000,surface,llss,,,,344
+MJVA-CRSF-TFMT-Coyote_Canyon_fault-CFM5,1,UCSB,CFM5,,,269.878,89.3595,592446000,surface,,,,,362
+MJVA-ECSZ-1992_Barstow_Trend-CFM5,1,CMDT,CFM5,,,341.263,89.7279,114440000,,,,,,missing
+MJVA-ECSZ-1992_Landers_cross_fault_North_I-CFM5,1,CMDT,CFM5,,,82.241,76.66,112273000,surface,rlss,,,,missing
+MJVA-ECSZ-1992_Landers_cross_fault_North_II-CFM5,1,CMDT,CFM5,,,268.535,85.5784,199249000,surface,rlss,,,,missing
+MJVA-ECSZ-1992_Landers_rupture_detailed_splays-CFM3,1,HRVD,CFM3,,,,,1559380000,,,,,,
+MJVA-ECSZ-1999-Hector_Mine_rupture_dipping-CFM2,1,HRVD,CFM2,,,,,899812000,surface,,,,,
+MJVA-GLPS-GLDS-Goldstone_Lake_fault-CFM5,1,UCSB,CFM5,,,140.457,88.3385,577197000,surface,,,,,355
+MJVA-GLPS-PRDS-Paradise_fault-CFM5,1,UCSB,CFM5,,,171.055,85.2018,436345000,surface,,,,,missing
+MJVA-HPFZ-GVHS-Gravel_Hills_fault_nw-CFM5,1,CMDT,CFM5,nw splay,,300.2746,89.6876,101814000,,,,,,112
+MJVA-HPFZ-GVHS-Harper_Valley_fault-CFM5,1,CMDT,CFM5,,,317.9516,87.2859,78533100,,,,,,112
+MJVA-HPFZ-HPVS-Harper_Valley_Mt_General_fault-CFM5,1,CMDT,CFM5,,,137.926,90,373307000,,,,,Proposed 343a+b,343
+MJVA-HPFZ-MULT-Gravel_Hills_Harper_Lake_fault-CFM5,1,UCSB,CFM5,,,311.2206,90,685668000,surface,rlss,,,,112
+MJVA-HSLZ-MULT-Helendale_South_Lockhart_fault-CFM5,1,UCSB,CFM5,,,,,1803550000,surface,rlss,,,,110a-c
+MJVA-HSLZ-SBMT-Pipes_Canyon_fault-CFM5,1,UCSB,CFM5,,,145.121,85.3993,267889000,,,,,proposed 320b,320
+MJVA-HSLZ-SBMT-Pipes_Canyon_fault_north_extension-CFM5,1,UCSB,CFM5,,,124.965,86.1887,129412000,,,,,proposed 320a,320
+MJVA-HSLZ-SBMT-Southern_Helendale_fault-CFM5,1,UCSB,CFM5,,,,,409358000,,,,,,110c
+MJVA-JVFZ-MULT-Johnson_Valley_fault-CFM5,1,CMDT,CFM5,,,55.525,90,842460000,surface,rlss,,,,115a-b
+MJVA-JVFZ-SJVS-Kickapoo_fault-CFM3,1,HRVD,CFM3,,,7.32740000000001,89.9369,89335900,,,,,,115b
+MJVA-JVHZ-HMSV-Homestead_Valley_fault-CFM3,1,HRVD,CFM3,,,,,,,,,,,116
+MJVA-LCLZ-CLGL-Cleghorn_Lake_fault-CFM5,1,CMDT,CFM5,in CFM5-Mojave Gocad project,,154.018,84.7977,234723000,,,,,,349
+MJVA-LCLZ-LDLW-Ludlow_fault-CFM5,1,UCSB,CFM5,,,329.1035,84.511,794551000,surface,rlss,,,,346
+MJVA-LLBM-MULT-Lavic_Lake_North_West_Bullion_fault-CFM3,1,HRVD,CFM3,incl. North West Bullion,,333.4602,83.1019,644865000,,,,,,351+122d
+MJVA-LWLZ-MULT-Lenwood_Lockhart_fault-CFM5,1,UCSB,CFM5,,,132.413,76.87,2794490000,surface,orlr,,,,111a-b
+MJVA-NEMV-GRLS-Garlic_Spring_fault-CFM5,1,UCSB,CFM5,,,132.524,88.2656,222879000,surface,rlss,,,,358
+MJVA-NEMV-RDPS-Red_Pass_fault-CFM5,1,UCSB,CFM5,,,140.118,83.2762,254723000,surface,rlss,,,,360
+MJVA-PBMZ-EBLS-East_Bullion_Valley_Mountain_fault-CFM5,1,UCSB,CFM5,,,,,644957000,surface,rlss,,,,122c
+MJVA-PBMZ-MSQL-Mesquite_Lake_fault-CFM5,1,CMDT,CFM5,,,325.5212,87.8137,545204000,surface,rlss,,,,123
+MJVA-PBMZ-MULT-Pisgah_Bullion_West_Bullion_fault-CFM5,1,CMDT,CFM5,,,,,1468290000,surface,rlss,,,,122a-d
+MJVA-PBMZ-WBLS-West_Bullion_fault-CFM5,1,CMDT,CFM5,,,326.543,85.7205,636457000,surface,rlss,,,,122d
+OCBA-CBFZ-EAST-Coronado_Bank_east_splay-SRLN-CFM5,1,UCSB,CFM5,Sorlien model,SRLN,337.3213,37.8757,105704000,surface,rlss,"Sorlien et al., 2015",,,131b
+OCBA-CBFZ-NCBF-Coronado_Bank_fault_north-SRLN-CFM5,1,UCSB,CFM5,Sorlien model,SRLN,333.2688,59.7009,26468300,surface,rlss,"Sorlien et al., 2015",,,131a
+OCBA-CBFZ-SCBF-Coronado_Bank_fault_south-SRLN-CFM5,1,UCSB,CFM5,Sorlien model,SRLN,342.1892,17.9667,160278000,surface,rlss,"Sorlien et al., 2015",,,131b
+OCBA-CBFZ-WEST-Coronado_Bank_west_splay-SRLN-CFM5,1,UCSB,CFM5,Sorlien model,SRLN,339.7369,26.5478,35694600,surface,rlss,"Sorlien et al., 2015",,,131b
+OCBA-CBKD-MULT-Coronado_Bank_detachment_upper-SRLN-CFM5,1,UCSB,CFM5,,,324.5314,10.4495,509268000,,,"Sorlien et al., 2015",,,missing
+OCBA-CRSF-RDNC-Redondo_Canyon_fault-ZION-CFM2,2,HRVD,CFM2,Zioni model,ZION,81.588,89.9678,169319000,,orlr,,,,130
+OCBA-DSCS-EAST-Descanso_fault_east_splay-SRLN-CFM5,1,UCSB,CFM5,east splay - Sorlien model,SRLN,152.503,50.5758,27324300,,,"Sorlien et al., 2015",,,missing
+OCBA-DSCS-MAIN-Descanso_fault-SRLN-CFM5,1,UCSB,CFM5,main - Sorlien model,SRLN,152.228,40.3175,266086000,,,"Sorlien et al., 2015",,,missing
+OCBA-DSCS-NRTH-Descanso_fault_A-SRLN-CFM5,1,UCSB,CFM5,,,178.669,31.8243,27473400,,,"Sorlien et al., 2015",,,missing
+OCBA-DSCS-NRTH-Descanso_fault_B-SRLN-CFM5,1,UCSB,CFM5,,,184.174,37.4664,55268200,,,"Sorlien et al., 2015",,,missing
+OCBA-DSCS-NRTH-Descanso_fault_C-SRLN-CFM5,1,UCSB,CFM5,,,162.726,55.0997,12502200,,,"Sorlien et al., 2015",,,missing
+OCBA-DSCS-RCNT-Descanso_RC_transfer_fault_alt1-SRLN-CVMH-CFM5,2,UCSB,CFM5,,,,,,,,"Sorlien et al., 2015",,,missing
+OCBA-DSCS-WEST-Descanso_fault_west_splay-SRLN-CFM5,1,UCSB,CFM5,west splay - Sorlien model,SRLN,154.769,31.6831,65051100,,,"Sorlien et al., 2015",,,missing
+OCBA-ESCS-ESCB-East_Santa_Cruz_Basin_fault_A-SRLN-CFM5,1,UCSB,CFM5,Sorlien model,SRLN,302.8573,12.9818,235452000,,,,,,missing
+OCBA-ESCS-ESCB-East_Santa_Cruz_Basin_fault_B-SRLN-CFM5,1,UCSB,CFM5,Sorlien model,SRLN,299.2662,24.0654,202828000,,,,,,missing
+OCBA-ESCS-ESCB-East_Santa_Cruz_Basin_fault_D-SRLN-CFM5,1,UCSB,CFM5,Sorlien model,SRLN,318.8224,16.2963,82026000,,,,,,missing
+OCBA-ESCS-ESCB-East_Santa_Cruz_Basin_fault_E-SRLN-CFM5,1,UCSB,CFM5,Sorlien model,SRLN,335.2898,35.3273,65428700,,,,,,missing
+OCBA-ESCS-ESCB-East_Santa_Cruz_Basin_fault_main-SRLN-CFM5,1,UCSB,CFM5,Sorlien model,SRLN,314.3149,15.8342,332902000,,,,,,missing
+OCBA-FRFZ-SRRS-Ferrelo_fault_upper-SRLN-CFM5,1,UCSB,CFM5,Sorlien model,SRLN,331.6588,33.6014,400497000,,,,,,missing
+OCBA-IBFS-SCTI-Catalina_Island_detachment_upper_alt1-SRLN-CVMH-CFM5,2,UCSB,CFM5,,,,,,,,"Sorlien et al., 2003",,,missing
+OCBA-IBFS-SMBY-Santa_Monica_Bay_detachment_east-SRLN-CFM5,1,UCSB,CFM5,,,315.2409,10.9998,95675900,,,"Sorlien et al., 2003",,,missing
+OCBA-IBFS-SMBY-Santa_Monica_Bay_detachment_mid-SRLN-CFM5,1,UCSB,CFM5,,,299.1879,8.93987,65333700,,,"Sorlien et al., 2003",,,missing
+OCBA-IBFS-SMBY-Santa_Monica_Bay_detachment_west_regrid-SRLN-CFM5,1,UCSB,CFM5,,,268.214,10.5514,110937000,,,"Sorlien et al., 2003",,,missing
+OCBA-IBFS-SMBY-Santa_Monica_Bay_fault_east-SRLN-CFM5,1,UCSB,CFM5,,,295.2656,16.3662,168656000,,,"Sorlien et al., 2003",,,missing
+OCBA-IBFS-SMBY-Santa_Monica_Bay_fault_west-SRLN-CFM5,1,UCSB,CFM5,,,270.937314,16.1138,483442000,,,"Sorlien et al., 2003",,,missing
+OCBA-NIRC-DANA-Newport_Inglewood_fault-SRLN-CVMH-CFM5,1,UCSB,CFM5,Offshore components of NI-RC system,,320.8469,78.7619,550418000,,,"Sorlien et al., 2015",,,127c
+OCBA-NIRC-OCNS-Newport_Inglewood_Rose_Canyon_link-CFM5,1,UCSB,CFM5,Offshore components of NI-RC system,,132.896,82.7185,101138000,,,,,,127d
+OCBA-NIRC-RSCN-Rose_Canyon_fault-CFM5,1,UCSB,CFM5,Offshore components of NI-RC system,,,,1836480000,,,,,,127f
+OCBA-OCSD-OCNS-Oceanside_detachment_alt1-SRLN-CVMH-CFM5,1,UCSB,CFM5,,,,,,,,"Sorlien et al., 2015",,,missing
+OCBA-OCSD-OCNS-Oceanside_fault_north-SRLN-CFM5,1,UCSB,CFM5,,,,,,,,"Sorlien et al., 2015",,,293
+OCBA-OCSD-OCNS-Oceanside_fault_south_east_A-SRLN-CFM5,1,UCSB,CFM5,,,,,,,,"Sorlien et al., 2015",,,293
+OCBA-OCSD-OCNS-Oceanside_fault_south_east_B-SRLN-CFM5,1,UCSB,CFM5,,,,,,,,"Sorlien et al., 2015",,,293
+OCBA-OCSD-OCNS-Oceanside_fault_south_east_C-SRLN-CFM5,1,UCSB,CFM5,,,,,,,,"Sorlien et al., 2015",,,293
+OCBA-OCSD-OCNS-Oceanside_fault_south_west-SRLN-CFM5,1,UCSB,CFM5,,,,,,,,"Sorlien et al., 2015",,,293
+OCBA-PVFZ-MULT-Palos_Verdes_fault-CFM5,1,UCSB,CFM5,,,144.956,20.6337,1671750000,surface,orlr,"Sorlien et al., 2013",,,128a-e
+OCBA-SCCR-MULT-Santa_Cruz_Catalina_Ridge_fault-CFM5,1,UCSB,CFM5,Legg seafloor trace,,307.3924,90,1535650000,,,,,,284
+OCBA-SCFZ-CTLB-San_Clemente_fault_splay-CFM5,1,UCSB,CFM5,Legg seafloor trace,,148.996,79.0246,723319000,,,,,,283
+OCBA-SCFZ-SBRI-San_Clemente_fault_nw_strand-CFM5,1,UCSB,CFM5,,,140.794,84.9111,393582000,,,,,,283
+OCBA-SCFZ-SCBR-San_Clemente_fault-LEGG-CFM5,1,UCSB,CFM5,Legg seafloor trace,LEGG,311.3139,90,1194780000,,,,,,283
+OCBA-SCFZ-SCLI-San_Clemente_fault-LEGG-CFM5,1,UCSB,CFM5,Legg seafloor trace,LEGG,48.887,90,1614830000,,,,,,283
+OCBA-SDTZ-30MB-San_Diego_Trough_fault-LEGG-CFM5,1,UCSB,CFM5,Legg seafloor trace,,327.2155,82.8118,1317830000,,,,,,292
+OCBA-SDTZ-CTLB-San_Diego_Trough_fault-LEGG-CFM5,1,UCSB,CFM5,Legg seafloor trace,,294.2069,83.7632,838481000,surface,rlss,,,Proposed 292,284
+OCBA-SMCS-MULT-San_Mateo_Carlsbad_fault-SRLN-CFM5,2,UCSB,CFM5,Sorlien model,SRLN,332.7683,20.9686,512395000,,,"Sorlien et al., 2015",,,294a-c
+OCBA-SMCS-SMTO-San_Mateo_splay-SRLN-CFM5,1,UCSB,CFM5,,,320.7043,42.2262,17541900,,,"Sorlien et al., 2015",,,294a
+OCBA-SMCS-SMTO-San_Onofre_fault_upper-SRLN-CFM5,1,UCSB,CFM5,,,323.8244,28.2662,66867600,,,"Sorlien et al., 2015",,,294b
+OCBA-SPBZ-NTHS-San_Pedro_Basin_fault_north-CFM5,1,UCSB,CFM5,northern sections,,,,793893000,,,,,,282
+OCBA-SPBZ-STHS-San_Pedro_Basin_fault_south-LEGG-CFM5,1,UCSB,CFM5,south sections-Legg seafloor trace,,140.138,90,531788000,,,,,,282
+OCCA-HSFZ-MULT-Hosgri_San_Simeon_fault-CFM1,1,CMDT,CFM1,,,244.433,1.30332,1692930000,surface,rlss,,X,,80+81a-e
+PNRA-ATEV-MULT-Agua_Tibia_Earthquake_Valley_fault_east-CFM4,2,UCSB,CFM4,,EAST,307.5666,84.3614,297925000,surface,rlss,"Rockwell et al., 2013; Gordon et al. 2015",,Proposed new id,126e
+PNRA-ATEV-MULT-Agua_Tibia_Earthquake_Valley_fault_main-CFM4,1,UCSB,CFM4,,MAIN,307.6028,86.5371,1264050000,surface,rlss,"Rockwell et al., 2013; Gordon et al. 2015",,Proposed new id,126e
+PNRA-ATEV-MULT-Agua_Tibia_Earthquake_Valley_fault_west-CFM4,3,UCSB,CFM4,,WEST,310.6107,88.6642,361852000,surface,rlss,"Rockwell et al., 2013; Gordon et al. 2015",,Proposed new id,126e
+PNRA-CEPS-BLDH-Compton-Los_Alamitos_fault-CFM2,1,HRVD,CFM2,,,314.3793,16.3657,354472000,surface,r,,,assigned blind fault but not in shapefile,133
+PNRA-CEPS-LABS-Anaheim_fault-CFM1,2,HRVD,CFM1,,CFM1,314.1386,71.0467,172077000,surface,,,X,assigned blind fault but not in shapefile,363
+PNRA-CEPS-LABS-Compton-Los_Alamitos_fault-CFM2,1,HRVD,CFM2,,CFM2,304.3503,20.4284,572529000,,,,,assigned blind fault but not in shapefile,133
+PNRA-CEPS-PHLS-Lower_Elysian_Park_fault-CFM1,1,HRVD,CFM1,,CFMA,299.928,19.151,738372000,surface,t,,,assigned blind fault but not in shapefile,134
+PNRA-CRSF-ALCM-Sawtooth_Range_fault-CFM4,1,CMDT,CFM4,CFM4 model,,29.089,87.5983,113429000,,,,,,missing
+PNRA-CRSF-CHNH-Yorba_Linda_lineament-CFM2,1,HRVD,CFM2,,CFM,243.298,90,229042000,,,,,,missing
+PNRA-CRSF-CYMT-Devils_Canyon_fault-CFM4,1,CMDT,CFM4,CFM4 model,,121.928,90,306952000,,,,,,missing
+PNRA-CRSF-EMCP-El_Mayor_Cucapah_normal_fault-CFM4,1,UCSB,CFM4,CFM4 model,,6.6687,77.75,496156000,,,,,,missing
+PNRA-CRSF-EMCP-El_Mayor_Cucapah_west_fault-CFM4,1,UCSB,CFM4,CFM4 model,,181.017,89.9827,432857000,,,,,,missing
+PNRA-CRSF-OCOT-Ocotillo_fault-CFM5,1,UCSB,CFM5,CGS map - CFM5 model,,,,92845800,,,,,"mapped by CGS, probably has id",missing
+PNRA-CRSF-OCOT-Ocotillo_set1-CFM4,1,CMDT,CFM4,CFM4 model,,,,,,,,,,
+PNRA-CRSF-OCOT-Ocotillo_set2-CFM4,1,CMDT,CFM4,CFM4 model,,,,,,,,,,
+PNRA-CRSF-OCOT-Ocotillo_set3-CFM4,1,CMDT,CFM4,CFM4 model,,,,,,,,,,
+PNRA-CRSF-OCOT-Ocotillo_set4-CFM4,1,CMDT,CFM4,CFM4 model,,,,,,,,,,
+PNRA-CRSF-OCOT-Ocotillo_set5-CFM4,1,CMDT,CFM4,CFM4 model,,,,,,,,,,
+PNRA-CRSF-PGWS-Painted_Gorge_Wash_fault-CFM4,1,CMDT,CFM4,CFM4 model,,,,355372000,,,,,,312
+PNRA-CRSF-USAV-Fontana_Seismicity_lineament-CFM1,1,HRVD,CFM1,"bestfit, CFMA model",CFMA,222.871,80.225,396376000,,,,,,missing
+PNRA-CRSF-USAV-Red_Hill_fault-CFM5,1,UCSB,CFM5,,,,,,,,,,,332
+PNRA-CRSF-YUHA-Shell_Beds_fault-CFM5,1,CMDT,CFM5,CFM5 model,,200.534,82.5059,45054100,,,,,"mapped by CGS, probably has id",missing
+PNRA-CRSF-YUHA-Yuha_Wash_fault-CFM5,1,CMDT,CFM5,CFM5 model,,198.859,80.5846,33843100,,,,,"mapped by CGS, probably has id",missing
+PNRA-CRSF-YUHA-Yuha_Well_Vista_del_Anza_fault_truncated-CFM5,1,CMDT,CFM5,truncated-CFM5 model,,20.077,86.4962,17084800,,,,,,309
+PNRA-CRSF-YUHA-Yuha_Well_fault-CFM5,1,CMDT,CFM5,CFM5 model,,202.649,88.7626,69574900,,,,,,309
+PNRA-CRSF-YUHA-Yuha_Well_fault_north_set1-CFM5,1,CMDT,CFM5,CFM5 model,,19.05,89.341,1397480,,,,,,309
+PNRA-CRSF-YUHA-Yuha_Well_fault_northwest_steep-CFM5,1,UCSB,CFM5,CFM5 model,,211.759,89.6835,10537300,,,,,,309
+PNRA-CRSF-YUHA-Yuha_Well_fault_west_steep-CFM5,1,UCSB,CFM5,steep-CFM5 model,,30.955,89.928,20516200,,,,,,309
+PNRA-CRSF-YUHA-Yuha_fault-CFM5,1,CMDT,CFM5,CFM5 model,,213.264,79.4309,98763300,,,,,"mapped by CGS, probably has id",missing
+PNRA-CSTF-SJQH-San_Joaquin_Hills_fault_truncated-CFM3,1,HRVD,CFM3,,,125.781,24.4278,389805000,,r,,,,186
+PNRA-DVVZ-DVSV-Davies_Valley_fault-CFM5,1,UCSB,CFM5,CFM5 model,,157.351,85.795,39387400,,,,,,310
+PNRA-DVVZ-NDVV-Northern_Davies_Valley_set1-CFM4,1,CMDT,CFM4,set1 - CFM4 model,,143.881,76.9692,8842820,,,,,,310
+PNRA-ELSZ-CHNO-Chino_fault_Central_Ave-CFM4,2,CMDT,CFM4,Central Avenue,CTLA,141.635,68.9943,169506000,surface,orlr,,X,,126b
+PNRA-ELSZ-CHNO-Chino_fault_main-CFM4,1,UCSB,CFM4,main,MAIN,142.52,74.4497,270072000,surface,orlr,,X,,126b
+PNRA-ELSZ-CYMT-Elsinore_fault-CFM4,1,CMDT,CFM4,,CFM4,306.3383,83.0033,612650000,surface,orlr,,,,126f
+PNRA-ELSZ-GLIV-Glen_Ivy_North_fault-CFM4,1,UCSB,CFM4,CFM4 model,CFM4,127.18,87.4591,599663000,surface,rlss,,X,,126c
+PNRA-ELSZ-GLIV-Glen_Ivy_South_fault-CFM4,1,CMDT,CFM4,CFM4 model,CFM4,131.992,88.7793,204327000,surface,rlss,,X,,126d
+PNRA-ELSZ-INDV-Indiviso_fault-CFM4,1,UCSB,CFM4,CFM4 model-main,MAIN,128.861,76.9097,826104000,,,,,Proposed new id,proposed 126h
+PNRA-ELSZ-INDV-Indiviso_fault_splay-CFM4,2,UCSB,CFM4,CFM4 model-splay,SPLY,309.7105,73.8618,298453000,,,,,Proposed new id,proposed 126h
+PNRA-ELSZ-JULN-Elsinore_fault_Wildomar_link-CFM4,1,CMDT,CFM4,Wildomar-link,LINK,309.6298,81.0128,161435000,surface,rlss,,,,126e
+PNRA-ELSZ-JULN-Elsinore_fault_north-CFM4,1,UCSB,CFM4,CFM4 model,CFM4,303.8718,85.0492,462436000,surface,rlss,,,,126e
+PNRA-ELSZ-JULN-Elsinore_fault_south-CFM4,1,UCSB,CFM4,CFM4 model,CFM4,129.861,87.6665,923964000,surface,rlss,,,,126e
+PNRA-ELSZ-LGSD-Laguna_Salada_fault_east_branch_dipping-CFM5,1,UCSB,CFM5,east branch-dipping,EAST,156.499,64.9716,122989000,surface,orln,,X,,126g
+PNRA-ELSZ-LGSD-Laguna_Salada_fault_east_branch_dipping_splay-CFM5,3,UCSB,CFM5,,,178.061,64.8893,40423100,surface,orln,,X,,126g
+PNRA-ELSZ-LGSD-Laguna_Salada_fault_north-CFM5,1,CMDT,CFM5,north section-main,NRTH,125.561,81.898,448957000,surface,orln,,X,,126g
+PNRA-ELSZ-LGSD-Laguna_Salada_fault_south-CFM5,1,CMDT,CFM5,south section-main,SOTH,128.34,81.6304,835726000,surface,orln,,X,,126g
+PNRA-ELSZ-LGSD-Laguna_Salada_fault_west_branch_center-CFM5,4,UCSB,CFM4,,,143.017,81.0758,54166000,surface,orln,,X,,126g
+PNRA-ELSZ-LGSD-Laguna_Salada_fault_west_branch_deep_splay-CFM5,2,CMDT,CFM5,West Branch-deep_splay_east,WBRE,317.7208,87.2572,28632500,surface,orln,,X,,126g
+PNRA-ELSZ-LGSD-Laguna_Salada_fault_west_branch_east-CFM5,1,CMDT,CFM5,West Branch-east,WBRE,138.108,81.0354,80690800,surface,orln,,X,,126g
+PNRA-ELSZ-LGSD-Laguna_Salada_fault_west_branch_west-CFM5,6,UCSB,CFM4,,,,,92870100,surface,orln,,X,,126g
+PNRA-ELSZ-SRCP-Borrego_fault-CFM4,1,CMDT,CFM4,shallow SCPF from trace; previously PNRA-ELSZ-SRCP-Sierra_Cucapah-Borrego_fault,SSCF,46.066,90,23916300,,,,,Proposed new id,proposed 126j
+PNRA-ELSZ-SRCP-Paso_Inferior_fault-CFM4,1,CMDT,CFM4,shallow SCPF from trace,SSCF,146.343,58.0006,13354600,,,,,Proposed new id,proposed 126j
+PNRA-ELSZ-SRCP-Paso_Superior_fault-CFM4,1,CMDT,CFM4,shallow SCPF from trace,SSCF,328.759,71.0885,191547000,,,,,Proposed new id,proposed 126j
+PNRA-ELSZ-SRCP-Pescadores_fault-CFM4,1,CMDT,CFM4,shallow SCPF from trace; previously PNRA-ELSZ-SRCP-Sierra_Cucapah-Pescadores_fault,SSCF,131.8,50.8415,56353200,,,ECMT=El Mayor Cucapah Mapping Team,,Proposed new id,proposed 126j
+PNRA-ELSZ-SRCP-Sierra_Cucapah_fault-CFM4,1,CMDT,CFM4,deep from seismicity,DEEP,312.3304,72.0734,1158380000,,,,,Proposed new id,proposed 126j
+PNRA-ELSZ-TMCL-Wildomar_fault-CFM4,1,UCSB,CFM4,CFM4 model,CFM4,314.0782,83.8195,683071000,surface,rlss,,,,126d
+PNRA-ELSZ-TMCL-Willard_fault-CFM4,1,UCSB,CFM4,CFM4 model,CFM4,313.6765,84.5996,561935000,surface,rlss,,,,126d
+PNRA-ELSZ-WHIT-East_Montebello_fault-CFM3,1,HRVD,CFM3,,,329.3206,89.8103,198224000,surface,rlss,,,,356
+PNRA-ELSZ-WHIT-Whittier_Heights_fault-CFM1,1,HRVD,CFM1,,,329.1021,81.5696,109063000,,,,,,126a
+PNRA-ELSZ-WHIT-Whittier_fault-CFM4,1,UCSB,CFM4,CFM4 model,CFM4,297.5599,74.7334,678608000,surface,orlr,,,,126a
+PNRA-ELSZ-WHIT-Workman_Hill_fault-CFM1,1,HRVD,CFM1,,,310.0777,75.3643,113820000,,,,,,126a
+PNRA-ELSZ-YUHA-Sierra_Cucapah_fault_NW_splay-CFM5,1,CMDT,CFM5,northwest splay w/trace; previously -NW-extension-Laguna Salada fault-Treiman,NWST,314.4268,82.737,95469200,,,,,Proposed new id,proposed 126i
+PNRA-ELSZ-YUHA-Sierra_Cucapah_fault_blind_north-CFM5,1,CMDT,CFM5,Blind northern,NRTH,305.8572,88.4169,85766000,,,,,Proposed new id,proposed 126i
+PNRA-HSSF-AGCT-Agua_Caliente_fault_zone-CFM4,1,UCSB,CFM4,,ZONE,,,1317540000,,,"Rockwell et al., 2013; Gordon et al. 2015",,496b?,496
+PNRA-HSSF-HOTS-Hot_Springs_fault-CFM4,,,,,,300.6327,82.5424,639484000,,,"Janecke et al., 2010; Gordon et al., 2015",,496c?,496
+PNRA-HSSF-MRHS-Murrieta_Hotsprings_fault-CFM4,,,,,,290.9734,83.4263,552321000,,,"Janecke et al., 2010; Gordon et al., 2015",,496d?,496
+PNRA-NBJD-CDVD-Canada_David_detachment-CFM3,,HRVD,CFM3,,,193.16,24.8365,1433730000,,,,,,missing
+PNRA-NBJD-SRCP-Cerro_Centinela_fault-CFM2,,HRVD,CFM2,,,229.821,24.7046,113989000,,,,,but mapped,missing
+PNRA-NIRC-LABS-Newport_Inglewood_fault_dip_w_splays_split-CFM5,1,UCSB_HRVD,CFM5,,,,,1457600000,surface,rlss,,X,,127a-b
+PNRA-SJFZ-ANZA-Buck_Ridge_fault-CFM4,1,UCSB,CFM4,CFM4 model,CFM4,298.4795,89.1468,622613000,surface,rlss,,X,,125c
+PNRA-SJFZ-ANZA-Clark_fault_north-CFM4,3,CMDT,CFM4,north (upper and lower combined),NUP1,306.0179,83.2849,642011000,surface,rlss,,X,,125c
+PNRA-SJFZ-ANZA-Clark_fault_south_east-CFM4,1,UCSB,CFM4,south-east,SE1,303.1609,87.2301,263280000,surface,rlss,,X,,125c
+PNRA-SJFZ-ANZA-Clark_fault_south_main-CFM4,1,UCSB,CFM4,south-main,SM,301.358,87.5132,996274000,surface,rlss,,X,,125c
+PNRA-SJFZ-ANZA-Clark_fault_south_west-CFM4,1,CMDT,CFM4,south-west,SE2,117.617,88.5804,82249100,surface,rlss,,X,,125c
+PNRA-SJFZ-ANZA-Clark_fault_south_west_link-CFM4,2,CMDT,CFM4,south-west-link,SEXT,314.4124,85.7714,93683400,surface,rlss,,X,,125c
+PNRA-SJFZ-ANZA-Hot_Springs_Buck_Ridge_link-CFM4,1,CMDT,CFM4,,LINK,144.448,88.7236,264241000,surface,rlss,,X,,125c
+PNRA-SJFZ-BRMT-Coyote_Creek_blind_fault_north_east-CFM4,1,UCSB,CFM4,east,,307.5101,83.6782,175085000,surface,rlss,,,,125e
+PNRA-SJFZ-BRMT-Coyote_Creek_fault-CFM4,1,UCSB,CFM4,,,,,628534000,surface,rlss,,,,125e
+PNRA-SJFZ-CYTC-Coyote_Creek_fault-CFM4,1,UCSB,CFM4,main,MAIN,,,728983000,surface,rlss,,,,125d
+PNRA-SJFZ-CYTC-Coyote_Creek_fault_center_east_splay-CFM4,2,UCSB,CFM4,center-east_splay,CFM4,,,,,,,,,125d
+PNRA-SJFZ-IMPV-Dixieland_fault-CFM5,1,CMDT,CFM5,complete; previously Superstition_Mtn-New_River_extension,CMPL,42.289,90,497846000,,,,,,proposed 125h
+PNRA-SJFZ-IMPV-Weinert_El_Centro_fault-CFM5,1,UCSB,CFM4,CFM4 model,CFM4,314.7584,89.1452,323928000,,,,,proposed 125h,125f
+PNRA-SJFZ-IMPV-Weinert_Superstition_Hills_link-CFM5,1,CMDT,CFM4,CFM4 model,CFM4,139.383,89.9975,8596280,,,,,,proposed 125h
+PNRA-SJFZ-SBRN-Glen_Helen_fault-CFM4,1,UCSB,CFM4,,ALT1,309.3948,87.3382,227873000,surface,rlss,,,,125a
+PNRA-SJFZ-SBRN-Loma_Linda_fault-CFM4,1,UCSB,CFM4,CFM4 model,CFM4,319.7344,87.4697,223705000,surface,rlss,,,,125a
+PNRA-SJFZ-SBRN-Lytle_Creek_fault-CFM4,1,UCSB,CFM4,,CFM4,315.5661,89.9542,136858000,surface,rlss,,,,125a
+PNRA-SJFZ-SBRN-Rialto_Colton_fault-CFM4,1,UCSB,CFM4,CFM4 model,CFM4,308.2211,85.0564,225807000,surface,rlss,,,,125a
+PNRA-SJFZ-SBRN-San_Jacinto_Claremont_fault-CFM4,1,UCSB,CFM4,,MAIN,316.1648,86.9975,817993000,,,,,,125a
+PNRA-SJFZ-SJCV-Casa_Loma_fault-CFM4,1,UCSB,CFM4,,ALT1,134.024,88.3275,467104000,surface,rlss,,,,125b
+PNRA-SJFZ-SJCV-Claremont_fault-CFM4,1,UCSB,CFM4,Main,CFM4,131.292,84.249,685499000,surface,rlss,,,,125b
+PNRA-SJFZ-SJCV-Hot_Springs_fault-CFM4,1,UCSB,CFM4,,MAIN,129.011,86.5252,687907000,surface,rlss,,,,125b
+PNRA-SJFZ-SJCV-Hot_Springs_fault_west-CFM4,3,UCSB,CFM4,west branch,WEST,98.229,85.1338,145086000,surface,rlss,,,,125b
+PNRA-SJFZ-SJCV-San_Jacinto_Claremont_fault-east-CFM4,2,UCSB,CFM4,east branch,EAST,311.9362,88.3481,186828000,surface,rlss,,,,125b
+PNRA-SJFZ-SSHS-Superstition_Hills_fault-CFM4,1,UCSB,CFM4,CFM4 model,CFM4,306.312,90,358868000,surface,rlss,,,,125f
+PNRA-SJFZ-SSMT-Superstition_Mountain_fault-CFM4,1,UCSB,CFM4,CFM4 model,CFM4,297.6223,90,287446000,surface,rlss,,,,125g
+PNRA-SJFZ-SSMT-West_Mesa_fault-CFM5,1,UCSB,CFM5,CFM5 model,,120.982,88.1906,180701000,surface,rlss,,,,125g
+SAFS-MHFZ-LSBM-Berdoo_Canyon_fault-CFM4,1,UCSB,CFM4,,,153.14,77.8487,66317100,,,,,,265
+SAFS-MHFZ-LSBM-Indio_Hills_fault-CFM4,1,UCSB,CFM4,,,144.392,90,80725200,,,,,,297
+SAFS-MHFZ-MCHS-Hidden_Springs_fault-CFM4,1,UCSB,CFM4,CFM4 model,CFM4,152.463,85.0594,114076000,,,"Williams et al., 1990; Lin et al., 2007; Nicholson et al., 2010, 2014",,,313+314
+SAFS-MHFZ-MCHS-Mecca_Hills_fault-CFM4,1,UCSB,CFM4,CFM4 model,CFM4,321.989,79.0154,144684000,,,,,,316
+SAFS-MHFZ-MCHS-Painted_Canyon_fault-CFM4,1,UCSB,CFM4,,,316.9936,86.5853,94719100,,,,,,316
+SAFS-MHFZ-MULT-Mecca_Hills_Hidden_Springs_fault_deep-CFM4,1,CMDT,CFM4,,,315.9473,64.7978,627598000,,,"Williams et al., 1990; Lin et al., 2007; Nicholson et al., 2010, 2014",,,297+265+313+316+314
+SAFS-SAFZ-1812-San_Andreas_fault_rupture-LOZS-CFM5,2,UCSB,CFM5,Lozos 1812 rupture model,LOZS,,,,,,,,,
+SAFS-SAFZ-1857-San_Andreas_fault_rupture-CFM5,1,UCSB,CFM5,,,,,,,,,,,1 f-h
+SAFS-SAFZ-BSZS-Southern_San_Andreas_blind_extension-CFM4,1,UCSB,CFM4,blind vertical extension @ Bombay Beach,,321.0436,90,72973800,,,"Nicholson et al., 2010, 2014",,proposed qfaults id,1k
+SAFS-SAFZ-CLCZ-San_Andreas_fault-CHLM-CFM4,1,UCSB,CFM4,Cholame section,CHLM,142.812,87.1311,669574000,surface,rlss,,,,1g
+SAFS-SAFZ-CLCZ-San_Andreas_fault-CRRZ-CFM4,2,UCSB,CFM4,Carrizo section,CRRZ,27.782,0.095083,2235470000,surface,rlss,,,,1g
+SAFS-SAFZ-COAV-Banning_NPS_fault_splay-CFM4,1,UCSB,CFM4,upper down-dip splay between Banning & NPS,CFM4,,,,,,,,,
+SAFS-SAFZ-COAV-Mission_Creek_fault_strand-CFM4,1,UCSB,CFM4,CFM4 model-south,,310.0468,85.9967,606692000,surface,rlss,"Nicholson et al., 2010, 2012, 2014",X,,1j
+SAFS-SAFZ-COAV-North_Palm_Springs_fault-CFM4,1,CMDT,CFM4,CFM4 model-blind,BLND,285.6376,44.0268,202638000,,,"Nicholson and Lees, 1992; Seeber and Armbruster, 1994; Nicholson, 1996; Nicholson et al., 2012",,,1j
+SAFS-SAFZ-COAV-Southern_San_Andreas_fault-CFM4,1,UCSB,CFM4,CFM4 model,ALT1,314.1265,90,1043590000,surface,rlss,"Nicholson et al., 2010, 2014",,,1j
+SAFS-SAFZ-MJVS-San_Andreas_fault-CFM4,1,UCSB,CFM4,,,296.2961,90,1189520000,surface,rlss,,,,1h
+SAFS-SAFZ-MULT-Banning_fault_strand-CFM4,1,CMDT,CFM4,CFM4 model,ALT1,,,1518720000,surface,rlss,,,,1 i-j
+SAFS-SAFZ-MULT-Garnet_Hill_fault_strand-CFM4,1,UCSB,CFM4,CFM4 model,ALT1,270,,968438000,,rlss,"Nicholson et al., 2010, 2012, 2014",,,1j
+SAFS-SAFZ-PARK-San_Andreas_fault-CFM4,1,UCSB,CFM4,,,141.486,83.9146,364853000,,,,,,1f
+SAFS-SAFZ-SBMT-Mill_Creek_fault_strand-CFM4,1,UCSB,CFM4,,ALT1,283.6801,83.2946,1089640000,surface,rlss,"Seeber and Armbruster, 1994; Nicholson et al., 2012",X,,1i
+SAFS-SAFZ-SBMT-Mission_Creek_fault_strand_steep-CFM4,1,UCSB,CFM4,CFM4 model- steep dip,ALT1,278.95167,81.4967,831771000,surface,rlss,"Seeber and Armbruster, 1994; Nicholson et al., 2012",,,1i
+SAFS-SAFZ-SBMT-San_Andreas_fault-CFM4,1,UCSB,CFM4,,ALT1,299.2683,90,1051300000,surface,rlss,,,,1i
+SAFS-SGPR-CHFZ-Casa_Blanca_fault-CFM5,1,UCSB,CFM5,,,220.585,88.3788,59287200,,,,,,336
+SAFS-SGPR-CHFZ-Chicken_Hill_fault-CFM5,1,UCSB,CFM5,,,235.783,88.6882,157172000,,,,,,336
+SAFS-SGPR-CHFZ-Live_Oak_Canyon_fault-CFM5,1,UCSB,CFM5,,,275.37516,84.2576,224326000,,,,,,336
+SAFS-SGPR-CHFZ-Redlands_fault-CFM5,1,UCSB,CFM5,,,245.626,87.5059,70689400,,,,,,336
+SAFS-SGPR-CHFZ-Reservoir_Canyon_fault-CFM5,1,UCSB,CFM5,,,224.423,88.2459,151969000,,,,,,336
+SAFS-SGPR-CHFZ-Western_Heights_fault-CFM5,1,UCSB,CFM5,,,270,,173986000,,,,,,336
+SAFS-SGPR-DTMT-San_Gorgonio_Pass_deep_detachment-CFM5,1,UCSB,CFM5,,,282.622,9.26401,713420000,,,"Nicholson et al., 1986; Seeber and Armbruster, 1994",,,missing
+SAFS-SGPR-DTMT-San_Gorgonio_Pass_midcrust_detachment-CFM5,1,UCSB,CFM5,,,282.4403,3.25584,913794000,,,"Nicholson and Lees, 1992; Nicholson, 1996",,,missing
+SAFS-SGPR-SBRN-Del_Rosa_cross_fault-CFM5,1,UCSB,CFM5,,,227.112,88.6928,94857400,,,"Nicholson et al., 1986",,,missing
+SAFS-SGPR-SBRN-San_Bernardino_cross_fault-CFM5,1,UCSB,CFM5,,,40.677,90,127739000,,,"Nicholson et al., 1986",,,missing
+SAFS-SGPR-SGPS-San_Gorgonio_Pass_thrust-CFM4,1,CMDT,CFM4,CFM4 model,ALT1,273.98383,20.6234,88195300,,rlss,"Seeber and Armbruster, 1994; Nicholson et al., 2012",,,250
+SAFS-SGPR-SJMT-Beaumont_A_blind_fault-CFM5,1,UCSB,CFM5,CFM5 model-blind,BLND,311.8299,63.1495,213672000,,,"Seeber and Armbruster, 1994; Nicholson et al., 2012",,,missing
+SAFS-SGPR-SJMT-Beaumont_B_blind_fault-CFM5,1,UCSB,CFM5,CFM4 model-blind,BLND,302.9029,57.1089,181687000,,,"Seeber and Armbruster, 1994; Nicholson et al., 2012",,,missing
+SAFS-SGPR-SJMT-Beaumont_C_blind_fault-CFM5,1,UCSB,CFM5,,,296.8248,60.0044,304154000,,,"Seeber and Armbruster, 1994; Nicholson et al., 2012",,,missing
+SAFS-SGPR-SJMT-Beaumont_D_blind_fault-CFM5,1,UCSB,CFM5,,,299.9505,54.7357,226832000,,,"Seeber and Armbruster, 1994; Nicholson et al., 2012",,,missing
+SAFS-SGPR-SJMT-Palm_Springs_blind_fault-CFM4,1,UCSB,CFM4,CFM4 model-blind,BLND,302.6944,58.4493,267619000,,,"Seeber and Armbruster, 1994; Nicholson et al., 2012",,,missing
+SALT-BRSZ-BRSZ-Brawley_Seismic_Zone_boundary-CFM1,1,HRVD,CFM1,,,,,1428610000,surface,rlss,,,,124
+SALT-BRSZ-BRSZ-Brawley_fault-CFM5,1,UCSB,CFM5,,,,,258925000,surface,rlss,,,,124
+SALT-CPFZ-CRPR-Cierro_Prieto_fault-CFM1,1,HRVD,CFM1,,,39.804,90,120534000,,,,,,missing
+SALT-CRSF-IMPV-Elmore_Ranch_fault-CFM1,1,HRVD,CFM1,,CFM,213.552,90,396426000,surface,llss,,,propose crossfault id,125f
+SALT-CRSF-IMPV-Westmorland_fault_main-CFM4,1,CMDT,CFM4,main,MAIN,126.665,90,169393000,,,,,,missing
+SALT-CRSF-IMPV-Westmorland_fault_splay-CFM4,1,CMDT,CFM4,splay,SPLY,59.462,90,66882500,,,,,,missing
+SALT-CRSF-SLTS-Extra_fault-CFM3,1,HRVD,CFM3,,,231.495,90,524930000,,,,,,missing
+SALT-IMFZ-IMPV-Imperial_fault_Edip_Nend-CFM5,2,CMDT,CFM5,E-dipping at north end-FUIS,FUIS,,,,surface,rlss,,,,132
+SALT-IMFZ-IMPV-Imperial_fault_east_strand_north-CFM5,3,UCSB,CFM5,inferred east strand-north,NRTH,147.827,90,222822000,surface,rlss,,,,132
+SALT-IMFZ-IMPV-Imperial_fault_east_strand_south-CFM5,4,UCSB,CFM5,inferred east strand-south,SOTH,328.9588,90,162498000,surface,rlss,,,,132
+SALT-IMFZ-IMPV-Imperial_fault_north_end-CFM5,3,UCSB,CFM5,small segment at north end,NSEG,8.43899999999996,87.8065,18072700,surface,rlss,,,,132
+SNFA-AHTC-ASHH-Ash_Hill_fault-CFM2,1,HRVD,CFM2,,,157.147,76.44,194033000,,orln,,,,233
+SNFA-AHTC-TANK-Tank_Canyon_fault-CFM2,1,HRVD,CFM2,,CFM,176.139,55.0151,135673000,surface,n,,X,,71
+SNFA-ALFZ-COSO-Airport_Lake_fault-CFM5,1,CMDT,CFM5,,,359.9348,86.2172,592354000,,,,,,73
+SNFA-HMFZ-MULT-Hunter_Mountain_fault-CFM1,1,HRVD,CFM1,,,312.7791,86.1595,1064050000,surface,orln,,,,66a-b
+SNFA-LLFZ-CNTR-Little_Lake_fault-CFM1,2,HRVD,CFM1,,CFMA,58.281,90,483503000,surface,rlss,,,,72
+SNFA-LLFZ-EAST-Eastern_Little_Lake_fault_00-CFM5,1,HRVD,CFM5,,CFM5,,,,,,,,,72
+SNFA-LLFZ-SOUT-Southern_Little_Lake_fault_00-CFM5,1,HRVD,CFM5,,CFM5,,,,,,,,,72
+SNFA-OVFZ-1872-Owens_Valley_fault_rupture-CFM1,1,HRVD,CFM1,,,72.037,90,1056770000,surface,orln,,,,51b
+SNFA-PMVZ-MULT-Panamint_Valley_fault_steep-CFM2,1,HRVD,CFM2,steep dip model,CFM,70.679,1.78705,772093000,,orln,,,,67a-d
+SNFA-SSNZ-INDP-Independence_fault-CFM1,1,HRVD,CFM1,,,336.1443,60.9996,770149000,surface,n,,,,65a
+SNFA-SSNZ-MULT-Independence_Sierra_Nevada_fault-CFM1,1,HRVD,CFM1,,,359.2451,44.1531,2203510000,surface,n,,,,65a-b
+WTRA-MRFS-MULT-Mission_Ridge_Arroyo_Parida_fault_dip-CFM5,1,UCSB,CFM5,moderately dipping model,,92.407,67.6493,663184000,surface,r,,X,,88a-d
+WTRA-NCVS-NCPP-North_Channel_fault_east-SRLN-CFM5,1,UCSB,CFM5,lowdip-en echelon-Sorlien-Kamerling,SRLN,,,677333000,,,,,,missing
+WTRA-NCVS-NCPP-North_Channel_fault_west-SRLN-CVMH-CFM5,1,UCSB,CFM5,,,275.27094,35.5564,117706000,surface,r,,,,missing
+WTRA-NCVS-NCPP-North_Channel_fault_west_end-SRLN-CVMH-CFM5,1,UCSB,CFM5,,,,,,,,,,,missing
+WTRA-NCVS-PPTV-Pitas_Point_Ventura_fault_link-CFM5,1,UCSB,CFM5,,,,,,,,,,propose 180b,180
+WTRA-NCVS-PPTV-Pitas_Point_fault_east-CFM5,1,UCSB,CFM5,revised steep model,,278.18341,43.5888,1248060000,surface,ollr,,,propose 180a,180
+WTRA-NCVS-PPTV-Pitas_Point_fault_west-CFM5,1,UCSB,CFM5,,,,,,,,,,,missing
+WTRA-NCVS-PPTV-Pitas_Point_fault_west_S-SRLN-CVMH-CFM5,1,UCSB,CFM5,,,,,,,,,,propose 180a,missing
+WTRA-NCVS-RDMT-Red_Mountain_fault_N_strand-CFM5,1,UCSB,CFM5,North branch,NBRN,273.70542,70.0171,382962000,surface,r,,,,90
+WTRA-NCVS-RDMT-Red_Mountain_fault_SW_strand-SRLN-CVMH-CFM5,1,UCSB,CFM5,,,,,,,,,,,
+WTRA-NCVS-RDMT-Red_Mountain_fault_S_strand-CFM5,1,UCSB,CFM5,South branch,SBRN,276.3983,62.0071,732993000,,,,,,90
+WTRA-NCVS-VNTB-Southern_San_Cayetano_fault_steep-JHAP-CFM5,2,HRVD,CFM5,steep w/o flat-Hubbard-Plesch,JHAP,,,,,,"Hubbard et al., 2014; Plesch et al., 2014",,,missing
+WTRA-NCVS-VNTB-Ventura_fault_steep-CFM5,1,HRVD,CFM5,revised steep model,,,,,,,"Hubbard et al., 2014; Plesch et al., 2014",,,91
+WTRA-ORFZ-MULT-Oak_Ridge_fault-CFM5,1,UCSB,CFM5,,,87.785,38.2125,2196210000,surface,t,,,,94
+WTRA-ORFZ-OFFS-Mid_Channel_fault-SRLN-CVMH-CFM5,1,UCSB,CFM5,mapped by Sorlien; also known as Montalvo fault near coast & World's End fault farther west,,285.7637,26.7594,324808000,,,a,,propose 94a,missing
+WTRA-ORFZ-SFNV-Northridge_Frew_fault-CFM2,1,HRVD,CFM2,,CFM,118.962,34.5061,859722000,blind,t,,,propose 94c,
+WTRA-ORFZ-VNTB-Oak_Ridge_fault-MRSH-CFM5,1,MRSH,CFM5,steep Marshall model w/upper part from Sorlien,MRSH,70.429,67.0641,1044250000,surface,r,,,propose 94b,94
+WTRA-PHTS-COYT-Puente_Hills_Thrust_fault-CFM2,1,SHAW,CFM2,Coyote Hills subsection,CYHS,262.338,26.9519,457641000,blind,r,,,,185
+WTRA-PHTS-LABS-Las_Cienagas_fault_truncated-CFM1,2,HRVD,CFM1,previously WTRA-SBTS faults,,316.1695,60.4112,12800400,surface,,,,,366
+WTRA-PHTS-LABS-Puente_Hills_Thrust_fault-CFM1,1,SHAW,CFM1,LA subsection,LABS,294.1256,26.3628,585153000,blind,r,,,,185
+WTRA-PHTS-LABS-San_Vicente_fault-CFM1,1,HRVD,CFM1,previously WTRA-SBTS faults,,,,165718000,surface,ollr,,,,
+WTRA-PHTS-LABS-Upper_Elysian_Park_fault-CFM1,3,HRVD,CFM1,previously WTRA-SBTS faults,,284.9013,43.5202,158578000,surface,r,,,,218
+WTRA-PHTS-PRTH-Peralta_Hills_fault-CFM1,1,HRVD,CFM1,,,274.14608,49.6765,251934000,surface,,,X,,299
+WTRA-PHTS-RICH-Puente_Hills_Thrust_fault-CFM2,1,CMDT,CFM2,Richfield subsection,RCHS,262.993,28.0185,171534000,blind,ollr,,X,,185
+WTRA-PHTS-STFS-Puente_Hills_Thrust_fault-CFM2,1,SHAW,CFM2,Sante Fe Springs subsection,SFSS,265.847,31.6817,271391000,blind,r,,,,185
+WTRA-SBCF-MULT-Western_Deep_fault-SRLN-CVMH-CFM5,,UCSB,CFM5,,,117.295,9.92433,624800000,,,,,,missing
+WTRA-SBCF-WEST-Hondo_detachment_S_dip-SRLN-CVMH-CFM5,,UCSB,CFM5,,,78.352,11.2951,564787000,,,,,,missing
+WTRA-SBTS-ANCP-Anacapa_Dume_fault-CFM3,1,CMDT,CFM3,,,266.364,36.5091,1520120000,surface,t,,X,,100
+WTRA-SBTS-MULT-Channel_Islands_Thrust_fault-SHAW-CFM1,2,SHAW,CFM1,,,270.527276,18.2971,1890400000,blind,t,,X,,missing
+WTRA-SBTS-SMNB-Santa_Monica_thrust_fault-CFM1,2,HRVD,CFM1,,,,,,,,,,,missing
+WTRA-SCFZ-SCVA-Del_Valle_fault-CFM2,1,HRVD,CFM2,,,99.328,70.3263,67884500,surface,,,,,269
+WTRA-SCFZ-SCVA-Holser_fault-CFM2,1,HRVD,CFM2,,,90.896,64.6916,140209000,surface,r,,X,,96
+WTRA-SCFZ-TOPA-San_Cayetano_fault-HBRD-CFM5,1,HRVD,CFM5,Hubbard model,HBRD,274.38848,44.2927,819010000,surface,r,"Hubbard et al., 2014",,Propose 95a-b,95
+WTRA-SFFS-ANCP-Malibu_Coast_fault_west_steep_alt2-CFM5,1,UCSB,CFM5,offshore (western) section,,257.919,89.8057,401321000,surface,ollr,,X,,99
+WTRA-SFFS-LABS-Hollywood_fault-CFM5,1,UCSB,CFM5,,,258.227,68.0819,264041000,surface,ollr,,,,102
+WTRA-SFFS-LABS-North_Salt_Lake_blind_fault-CFM3,1,HRVD,CFM3,,,253.914,53.7451,21141900,surface,,,,,missing
+WTRA-SFFS-SGVS-Raymond_fault_extended-CFM5,2,UCSB,CFM5,,,,,,,,,,,103
+WTRA-SFFS-SMMT-Malibu_Coast_fault_east_steep_alt2-CFM5,1,UCSB,CFM5,onshore (eastern) section,,,,,,,,,,99
+WTRA-SFFS-SMMT-Santa_Monica_fault-steep-CFM5,1,UCSB,CFM2,,,249.598,77.9173,178308000,surface,ollr,,,,101
+WTRA-SFFS-SNCZ-Santa_Cruz_Island_fault-CFM5,1,UCSB,CFM5,,,280.9772,82.7849,1049340000,surface,ollr,,,,93
+WTRA-SFFS-SNRS-Santa_Rosa_Island_fault-CFM5,1,UCSB,CFM5,,,273.92015,82.0092,754184000,surface,ollr,,,,92
+WTRA-SFNS-MSNH-Mission_Hills_fault-CFM4,1,UCSB,CFM4,,,269.183,55.1654,46865000,,,,,,280
+WTRA-SFNS-SFNV-Northridge_Hills_fault_truncated-CFM3,1,HRVD,CFM3,,,291.135,31.4004,384030000,,r,,,,274
+WTRA-SFNS-SFNV-San_Fernando_fault-CFM4,1,CMDT,CFM4,,,278.9678,48.4043,290464000,,,,,"propose new id, not Sierra Madre",105b
+WTRA-SFNS-VRDM-Eagle_Rock_fault_steep-CFM5,1,CMDT,CFM5,steep dip - Yeats model,,290.9265,74.7454,142911000,,,,,,275
+WTRA-SFNS-VRDM-Verdugo_fault_steep-CFM5,1,CMDT,CFM5,steep dip,,304.1184,73.5416,353196000,surface,r,,,,104
+WTRA-SGFZ-BTJG-San_Gabriel_fault_splay-CFM4,1,UCSB,CFM4,,,310.7589,67.0895,210668000,,,,,,89e
+WTRA-SGFZ-MULT-Southern_San_Gabriel_fault-CFM4,1,UCSB,CFM4,,,282.9241,55.4828,1424430000,surface,orlr,,,,89b-d
+WTRA-SGFZ-PLMS-Northern_San_Gabriel_fault-CFM4,1,UCSB,CFM4,,,318.4764,59.4999,813256000,surface,,,X,,89a
+WTRA-SGFZ-USGR-Weber_fault-CFM5,1,UCSB,CFM5,,,,,,,,,,,89d
+WTRA-SGFZ-USGR-Weber_fault_NE_extension-CFM5,1,UCSB,CFM5,,,,,,,,,,,89d
+WTRA-SGMF-ICHC-Icehouse_Canyon_fault_truncated-CFM5,1,UCSB,CFM5,,,,,,,,,,,330
+WTRA-SGMF-SANC-San_Antonio_Canyon_fault-CFM5,1,UCSB,CFM5,,,231.23,85.8057,219019000,,,,,,328
+WTRA-SGMF-SANC-San_Antonio_Canyon_fault_splay_truncated-CFM5,1,UCSB,CFM5,,,,,,,,,,,
+WTRA-SGMF-STDC-South_Fork_Stoddard_Canyon_fault_truncated-CFM5,1,UCSB,CFM5,,,,,,,,,,,125a
+WTRA-SGMF-STDC-Stoddard_Canyon_fault_truncated-CFM5,1,UCSB,CFM5,,,,,,,,,,,329
+WTRA-SMFZ-CCMG-Cucamonga_fault_low_dip-CFM5,1,UCSB,CFM5,,,,,,,,,,,105h
+WTRA-SMFZ-CSPC-Clamshell_Sawpit_Canyon_fault-CFM4,1,UCSB,CFM4,,,244.011,64.7162,222244000,surface,r,,X,,105e
+WTRA-SMFZ-MULT-Sierra_Madre_fault_west-CFM4,1,UCSB,CFM4,west,,295.7041,59.0527,492231000,surface,ollr,,,,105c-d 
+WTRA-SMFZ-SMDD-Sierra_Madre_fault_low_dip-CFM4,1,UCSB,CFM4,,CFM4,,,,,,,,,105f
+WTRA-SMFZ-SMDE-Sierra_Madre_Cucamonga_connector-CFM5,1,UCSB,CFM5,,,,,,,,,,,105g
+WTRA-SMFZ-SMDE-Sierra_Madre_fault_low_dip-CFM4,1,UCSB,CFM4,low dip,,273.98547,58.0451,306342000,surface,t,,,,105g
+WTRA-SMFZ-SWCC-Sierra_Madre_fault_low_dip-CFM4,1,UCSB,CFM4,low-dip-north strand-SMF+Clamshell,,272.7003,53.6141,244022000,,,,,,
+WTRA-SPJD-OFFS-Padre_Juan_fault_lower-SRLN-CVMH-CFM5,1,UCSB,CFM5,,,91.222,20.4364,227384000,,,,,propose 375a,missing
+WTRA-SPJD-OFFS-Padre_Juan_fault_upper-SRLN-CVMH-CFM5,1,UCSB,CFM5,,,91.973,39.0685,138875000,,,,,propose 375a,missing
+WTRA-SPJD-SPMT-Lion_Canyon_fault-HBRD-CFM5,1,HRVD,CFM5,Hubbard model,HBRD,84.595,57.5057,142625000,surface,,"Hubbard et al., 2014",,,268
+WTRA-SSFZ-MULT-Santa_Susana_fault-CFM1,1,HRVD,CFM1,,,280.6474,52.0575,821275000,surface,r,,,"propose new id, not Sierra Madre",105a
+WTRA-SSRZ-MULT-Simi_Santa_Rosa_fault_listric-CFM5,1,CMDT,CFM5,,,257.618,39.6288,968246000,surface,ollr,,X,,98a-c
+WTRA-SSRZ-OXNP-Bailey_fault_steep-CFM5,1,UCSB,CFM5,,,219.74,84.8471,278665000,,,,,,271
+WTRA-SYFZ-MULT-Santa_Ynez_fault_75dip-CFM5,2,UCSB,CFM5,75 dip,ALT1,90.497,70.3227,2354270000,,,,,,"87a-b,87d"
+WTRA-SYRZ-MULT-Santa_Ynez_River_fault-CFM5,1,CMDT,CFM5,,,99.197,70.1627,1150520000,surface,ollr,,,,253
+WTRA-USAV-INDH-Indian_Hill_fault-CFM5,1,UCSB,CFM5,,,255.122,76.1954,361884000,,,,,,331
+WTRA-USAV-SNJH-San_Jose_fault-CFM5,1,UCSB,CFM5,,,,,761839000,surface,ollr,,,propose 107a,107
+WTRA-USAV-UPLD-Upland_fault_dipslip-CFM1,1,HRVD,CFM1,dipslip model,,226.501,68.9879,231859000,,,,,propose 107b,107
+WTRA-USAV-WLNC-Walnut_Creek_fault-CFM5,1,UCSB,CFM5,,,238.859,75.3566,222151000,surface,,,,,333

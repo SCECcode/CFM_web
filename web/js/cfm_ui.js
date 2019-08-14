@@ -305,7 +305,7 @@ function add_highlight_btn(meta,str) {
   return str;
 }
 
-// for native, 500m, 1000m
+// for native, 500m, 1000m, 2000m
 function add_downloads_btn(meta,str) {
   var gid=meta['gid'];
   if(in_native_gid_list(gid)) {
@@ -325,6 +325,12 @@ function add_downloads_btn(meta,str) {
     var url=url_in_1000m_list(gid);
     if(url) {
        str=str+'<a href=\"'+url+'\" download> <button class=\"btn btn-xs cfm-btn\" title=\"download 1000m tsurf file\"><span id=\"download_1000m_'+gid+'\" class=\"glyphicon glyphicon-download\"></span>1000m</button></a>';
+    }
+  }
+  if(in_2000m_gid_list(gid)) {
+    var url=url_in_2000m_list(gid);
+    if(url) {
+       str=str+'<a href=\"'+url+'\" download> <button class=\"btn btn-xs cfm-btn\" title=\"download 2000m tsurf file\"><span id=\"download_2000m_'+gid+'\" class=\"glyphicon glyphicon-download\"></span>2000m</button></a>';
     }
   }
   return str;
@@ -353,6 +359,14 @@ function get_downloads_btn(meta) {
             str=str+'<a href=\"'+url+'\" download> <button class=\"btn btn-xs cfm-btn\" title=\"download 1000m tsurf file\"><span id=\"download_1000m_'+gid+'\" class=\"glyphicon glyphicon-download\"></span>1000m</button></a>';
         }
     }
+
+    if(in_2000m_gid_list(gid)) {
+        var url=url_in_2000m_list(gid);
+        if(url) {
+            str=str+'<a href=\"'+url+'\" download> <button class=\"btn btn-xs cfm-btn\" title=\"download 2000m tsurf file\"><span id=\"download_1000m_'+gid+'\" class=\"glyphicon glyphicon-download\"></span>2000m</button></a>';
+        }
+    }
+
 
     return str;
 }

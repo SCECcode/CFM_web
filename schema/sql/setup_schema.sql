@@ -1,3 +1,9 @@
+CREATE TABLE OBJECT_2000m_tb (
+   gid serial PRIMARY KEY,
+   name VARCHAR(100) NOT NULL,
+   url VARCHAR(200) UNIQUE
+);
+
 CREATE TABLE OBJECT_1000m_tb (
    gid serial PRIMARY KEY,
    name VARCHAR(100) NOT NULL,
@@ -52,6 +58,8 @@ CREATE TABLE OBJECT_tb (
 
    TRACE_tb_gid integer DEFAULT NULL,
 
+   OBJECT_2000m_tb_gid integer DEFAULT NULL,
+
    OBJECT_1000m_tb_gid integer DEFAULT NULL,
 
    OBJECT_500m_tb_gid integer DEFAULT NULL,
@@ -70,9 +78,11 @@ CREATE TABLE OBJECT_tb (
    dip real DEFAULT 0.0,
    area numeric DEFAULT 0,
    exposure VARCHAR(10),
-   final_slip_sense VARCHAR(6),
+   slip_sense VARCHAR(6),
    reference VARCHAR(100),
-   reference_check boolean,
+   reference_check VARCHAR(6),
    ID_comments VARCHAR(100),
-   USGS_ID VARCHAR(100)
+   USGS_ID VARCHAR(100),
+
+   blind integer DEFAULT 0
 );

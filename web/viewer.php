@@ -78,26 +78,16 @@ $header = getHeader("Viewer");
     <script type="text/javascript">
         $ = jQuery;
         var tableLoadCompleted = false;
-        var myhost = location.hostname;
-        if (myhost == "asperity.scec.org") {
-            window.dataLayer = window.dataLayer || [];
+        window.dataLayer = window.dataLayer || [];
 
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-
-            gtag('js', new Date());
-
-            gtag('config', 'UA-495056-12');
+        function gtag() {
+            dataLayer.push(arguments);
         }
-        $(function () {
-            $("#search-type").change(function () {
-                var funcToRun = $(this).val();
-                window[funcToRun]();
-            });
 
+        gtag('js', new Date());
 
-        });
+        gtag('config', 'UA-495056-12');
+
         $(document).on("tableLoadCompleted", function () {
             tableLoadCompleted = true;
             var $table = $('div.cfm-table table');
@@ -398,6 +388,9 @@ $header = getHeader("Viewer");
                                         </button>
                                         <button class="dropdown-item" type="button" value="1000m"
                                                 onclick="executeDownload(this.value);">1000m + Metadata
+                                        </button>
+                                        <button class="dropdown-item" type="button" value="2000m"
+                                                onclick="executeDownload(this.value);">2000m + Metadata
                                         </button>
                                     </div>
                                 </div>

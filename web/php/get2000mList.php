@@ -9,11 +9,11 @@
 $dbconn = pg_connect("host=db port=5432 dbname=CFM52_db user=webonly password=scec");
 if (!$dbconn) { die('Could not connect'); }
 
-$query = "SELECT OBJECT_500m_tb.gid, OBJECT_500m_tb.name, OBJECT_500m_tb.url, OBJECT_tb.gid FROM OBJECT_tb, OBJECT_500m_tb where OBJECT_tb.object_500m_tb_gid=OBJECT_500m_tb.gid ";
+$query = "SELECT OBJECT_2000m_tb.gid, OBJECT_2000m_tb.name, OBJECT_2000m_tb.url, OBJECT_tb.gid FROM OBJECT_tb, OBJECT_2000m_tb where OBJECT_tb.object_2000m_tb_gid=OBJECT_2000m_tb.gid ";
 
 $result = pg_query($dbconn, $query);
 
-$obj500mList=array();
+$obj2000mList=array();
 
 while($row = pg_fetch_row($result)) {
     $item = new \stdClass();
@@ -21,12 +21,12 @@ while($row = pg_fetch_row($result)) {
     $item->name=$row[1];
     $item->url=$row[2];
     $item->objgid=$row[3];
-    array_push($obj500mList, json_encode($item));
+    array_push($obj2000mList, json_encode($item));
 }
 
-$objstring = htmlspecialchars(json_encode($obj500mList), ENT_QUOTES, 'UTF-8');
+$objstring = htmlspecialchars(json_encode($obj2000mList), ENT_QUOTES, 'UTF-8');
 
-echo "<div data-side=\"obj500m\" data-params=\"";
+echo "<div data-side=\"obj2000m\" data-params=\"";
 echo $objstring;
 echo "\" style=\"display:flex\"></div>";
 
