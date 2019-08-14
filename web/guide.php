@@ -49,7 +49,7 @@ $header = getHeader("User Guide");
                below for more details.) Click on the eye icon (<span class="glyphicon glyphicon-eye-open"></span>) to
                hide or show a fault. </p>
             <p>
-                The map on the right displays each fault in its geographic location. On top of the map, there are two
+                The map on the right displays each fault in its geographic location, with blind faults appearing as dashed lines. On top of the map, there are two
                 controls. The first allows the base map to be changed. By default, the map shown is <a
                         href="https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer">ESRI Topographic</a>.
                 The other map types are: <a
@@ -74,7 +74,7 @@ $header = getHeader("User Guide");
             <h4>Viewing and Downloading Data</h4>
 
             <p>
-                Metadata files in JSON format and tsurf files are available for download from this site. First, select the desired faults by clicking on the fault displayed on the map or clicking on fault listed in the box* to the left of the map. The selected faults are highlighted in red** on the map. The selected faults' metadata appear in the metadata table* at the bottom of the page. Click on the links on the rightmost column of the metadata table to download data for one fault. Click on the "DOWNLOAD ALL" button to download data for all selected faults. The download options are: metadata only, or metadata along with tsurf files in native, 500m, or 1000m resolution in a ZIP archive file. </p>
+                Metadata files in JSON format and tsurf files are available for download from this site. First, select the desired faults by clicking on the fault displayed on the map or clicking on fault listed in the box* to the left of the map. The selected faults are highlighted in red** on the map. The selected faults' metadata appear in the metadata table* at the bottom of the page. Click on the links on the rightmost column of the metadata table to download data for one fault. Click on the "DOWNLOAD ALL" button to download data for all selected faults. The download options are: metadata only, or metadata along with tsurf files in native, 500m, 1000m, or 2000m resolution in a ZIP archive file. </p>
 
 
             <p>* The scrollable boxes on this site can contain more data than is visible at one time.

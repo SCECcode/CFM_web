@@ -78,26 +78,16 @@ $header = getHeader("Viewer");
     <script type="text/javascript">
         $ = jQuery;
         var tableLoadCompleted = false;
-        var myhost = location.hostname;
-        if (myhost == "asperity.scec.org") {
-            window.dataLayer = window.dataLayer || [];
+        window.dataLayer = window.dataLayer || [];
 
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-
-            gtag('js', new Date());
-
-            gtag('config', 'UA-495056-12');
+        function gtag() {
+            dataLayer.push(arguments);
         }
-        $(function () {
-            $("#search-type").change(function () {
-                var funcToRun = $(this).val();
-                window[funcToRun]();
-            });
 
+        gtag('js', new Date());
 
-        });
+        gtag('config', 'UA-495056-12');
+
         $(document).on("tableLoadCompleted", function () {
             tableLoadCompleted = true;
             var $table = $('div.cfm-table table');
