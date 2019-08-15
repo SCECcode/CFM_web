@@ -60,7 +60,9 @@ jQuery(document).ready(function() {
   addDownloadSelect();
     $("#search-type").change(function () {
         var funcToRun = $(this).val();
-        window[funcToRun]();
+        if (funcToRun != "") {
+            window[funcToRun]();
+        }
     });
 
     $("#search-type").trigger("change");
