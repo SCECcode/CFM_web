@@ -14,7 +14,7 @@ CFM5_release_2017 release from https://www.scec.org/research/cfm.
 
 Website URL: TBD
 
-![](doc/cfm_demo.png) 
+![](doc/cfm_demo.jpg) 
 
 
 ## CFM data service

@@ -51,9 +51,9 @@ $result = pg_prepare($dbconn, "my_query", $query);
 $data = array($minlon, $minlat, $maxlon, $maxlat);
 $result = pg_execute($dbconn, "my_query", $data);
 
-echo $query;
-echo $minlon, $minlat, $maxlon, $maxlat;
-echo $result;
+//echo $query;
+//echo $minlon, $minlat, $maxlon, $maxlat;
+//echo $result;
 
 $resultList=array();
 while($row = pg_fetch_row($result)) {
