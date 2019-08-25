@@ -6,6 +6,8 @@ mkdir -p /home/postgres/CFM
 cp -Rv /app/schema /home/postgres/CFM/
 psql postgresql://postgres:example@localhost/CFM52_db << AAA
 
+  CREATE EXTENSION intarray;
+
   CREATE EXTENSION postgis;
   SELECT PostGIS_Version();
 
