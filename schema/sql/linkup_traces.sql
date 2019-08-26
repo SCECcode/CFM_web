@@ -1,10 +1,13 @@
 CREATE TEMP TABLE tmp_y AS
      SELECT layer, trim(layer,'-trace'), gid from TRACE_tb;
 
-UPDATE OBJECT_tb 
-    SET TRACE_tb_gid = array_append(TRACE_tb_gid, tmp_y.gid)
-    FROM tmp_y,
-    WHERE OBJECT_tb.name = tmp_y.trim;
+UPDATE OBJECT_tb
+ SET TRACE_tb_gid = array_append(TRACE_tb_gid, tmp_y_gid)
+WHERE
+ tmp_y_gid IN (
+   SELECT gid FROM tmp_y
+      LEFT JOIN tmp_y ON OBJECT_tb.name = tmp_y.btrim
+)
 
 DROP TABLE tmp_y;
 
