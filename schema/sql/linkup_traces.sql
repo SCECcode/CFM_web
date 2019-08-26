@@ -6,8 +6,7 @@ UPDATE OBJECT_tb
 WHERE
  tmp_y_gid IN (
    SELECT gid FROM tmp_y
-      LEFT JOIN tmp_y ON OBJECT_tb.name = tmp_y.btrim
-)
+      LEFT JOIN tmp_y ON OBJECT_tb.name = tmp_y.btrim);
 
 DROP TABLE tmp_y;
 
