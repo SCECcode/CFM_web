@@ -1,7 +1,7 @@
 CREATE TEMP TABLE tmp_y AS
     SELECT o.gid gid, t.gid tgid, o.name
     FROM OBJECT_tb o, TRACE_tb t
-    WHERE o.name = trim(t.layer,'-trace')
+    WHERE o.name = trim(t.layer,'-trace');
 
 UPDATE OBJECT_tb t3
   SET TRACE_tb_gid = array_append(t3.TRACE_tb_gid, t2.tgid)
