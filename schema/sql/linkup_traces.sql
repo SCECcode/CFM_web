@@ -1,17 +1,11 @@
-CREATE TEMP TABLE tmp_y AS
-    SELECT o.gid gid, t.gid tgid, o.name
-    FROM OBJECT_tb o, TRACE_tb t
-    WHERE o.name = trim(t.layer,'-trace');
-
-UPDATE OBJECT_tb t3
-  SET TRACE_tb_gid = array_append(t3.TRACE_tb_gid, t2.tgid)
-  FROM tmp_x t2
-  WHERE t2.gid = t3.gid ;
-
-DROP TABLE tmp_y;
-
 CREATE TEMP TABLE tmp_x AS
      SELECT name, concat(name,'-trace'), gid from OBJECT_tb;
+
+UPDATE OBJECT_tb
+    SET TRACE_tb_gid = TRACE_tb.gid
+    FROM tmp_x, TRACE_tb
+    WHERE TRACE_tb.layer = tmp_x.concat
+    AND tmp_x.gid = OBJECT_tb.gid;
 
 UPDATE OBJECT_tb 
     SET blind = 1

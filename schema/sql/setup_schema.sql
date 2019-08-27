@@ -56,7 +56,7 @@ CREATE TABLE OBJECT_tb (
 
    FAULT_tb_gid integer DEFAULT NULL,
 
-   TRACE_tb_gid integer [],
+   TRACE_tb_gid integer DEFAULT NULL,
 
    OBJECT_2000m_tb_gid integer DEFAULT NULL,
 
