@@ -15,8 +15,8 @@ $header = getHeader("Viewer");
     <link rel="stylesheet" href="css/vendor/bootstrap-grid.min.css">
     <link rel="stylesheet" href="css/vendor/jquery-ui.css">
     <link rel="stylesheet" href="css/vendor/glyphicons.css">
-    <link rel="stylesheet" href="css/cfm-ui.css">
-    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/cfm-ui.css?v=1">
+    <link rel="stylesheet" href="css/sidebar.css?v=1">
 
     <script type='text/javascript' src='js/vendor/popper.min.js'></script>
     <script type="text/javascript" src="js/vendor/leaflet-src.js"></script>
@@ -64,14 +64,14 @@ $header = getHeader("Viewer");
     <script type='text/javascript' src="plugin/Leaflet.draw/edit/handler/Edit.Circle.js"></script>
 
     <!-- cfm js -->
-    <script type="text/javascript" src="js/debug.js"></script>
-    <script type="text/javascript" src="js/cfm_leaflet.js"></script>
-    <script type="text/javascript" src="js/cfm_layer.js"></script>
-    <script type="text/javascript" src="js/cfm_util.js"></script>
-    <script type="text/javascript" src="js/cfm_ui.js"></script>
-    <script type="text/javascript" src="js/cfm_main.js"></script>
-    <script type="text/javascript" src="js/cfm_query.js"></script>
-    <script type="text/javascript" src="js/cfm_sidebar.js"></script>
+    <script type="text/javascript" src="js/debug.js?v=1"></script>
+    <script type="text/javascript" src="js/cfm_leaflet.js?v=1"></script>
+    <script type="text/javascript" src="js/cfm_layer.js?v=1"></script>
+    <script type="text/javascript" src="js/cfm_util.js?v=1"></script>
+    <script type="text/javascript" src="js/cfm_ui.js?v=1"></script>
+    <script type="text/javascript" src="js/cfm_main.js?v=1"></script>
+    <script type="text/javascript" src="js/cfm_query.js?v=1"></script>
+    <script type="text/javascript" src="js/cfm_sidebar.js?v=1"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-495056-12"></script>
