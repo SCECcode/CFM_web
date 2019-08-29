@@ -1,0 +1,9 @@
+./gen_sql_merge_2.sh
+./gen_sql_merge_3.sh
+./gen_sql_merge_4.sh
+./gen_sql_merge_5.sh
+./gen_sql_merge_7.sh
+./gen_sql_merge_8.sh
+./gen_sql_merge_9.sh
+
+echo "done.."
