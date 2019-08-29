@@ -114,9 +114,7 @@ $header = getHeader("Viewer");
 <div class="container main">
     <div class="row">
         <div class="col-12">
-            <p>The <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model (CFM)</a> Viewer provides a map-based view of SCEC CFM version 5.2 preferred faults. It allows users to
-               view faults and metadata and download data on selected faults rather than downloading the entire CFM model
-               archive. See the <a href="guide">user guide</a> for more details and site usage instructions.</p>
+            <p>The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model (CFM)</a> are three-dimensional and non-planar; however, to simplify browsing the model, the viewer below provides a two-dimensional map-based view of the SCEC CFM version 5.2 preferred fault set. The alternative fault representations are only provided in the complete CFM archive. Here, the viewer allows users to view and download fault geometry data as well as metadata for slected faults rather than downloading the entire CFM model archive.  See the <a href="guide">user guide</a> for more details and site usage instructions.</p>
         </div>
     </div>
 
@@ -155,8 +153,10 @@ $header = getHeader("Viewer");
                     <option value="zoneClick">Zone</option>
                     <option value="sectionClick">Section</option>
                     <option value="nameClick">Name</option>
+<!--- WAIT for better strike/dip 
                     <option value="strikeClick">Strike</option>
                     <option value="dipClick">Dip</option>
+--->
                 </select>
                 <div class="input-group-append">
                     <button onclick="refreshAll();" class="btn btn-dark pl-4 pr-4" type="button">Reset</button>
@@ -326,6 +326,7 @@ $header = getHeader("Viewer");
                 </select>
             </div>
 
+<!--- WAIT for better dip/strike data
             <div class="input-group input-group-sm ml-md-2 ml-sm-0">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="highlight-faults">Highlight Faults By</label>
@@ -337,6 +338,7 @@ $header = getHeader("Viewer");
                     <option value="dip">Dip</option>
                 </select>
             </div>
+--->
             <!--            <a class="ui-button" onclick="toggleAll();">Show/Hide Faults</a>-->
 
         </div>
@@ -377,6 +379,9 @@ $header = getHeader("Viewer");
                                         Download All <span id="download-counter"></span>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
+                                        <button class="dropdown-item" type="button" value="all"
+                                                onclick="executeDownload(this.value);">All
+                                        </button>
                                         <button class="dropdown-item" type="button" value="meta"
                                                 onclick="executeDownload(this.value);">Metadata
                                         </button>

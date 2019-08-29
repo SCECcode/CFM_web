@@ -357,6 +357,7 @@ function get_downloads_btn(meta) {
         var url=url_in_1000m_list(gid);
         if(url) {
             str=str+'<a href=\"'+url+'\" download> <button class=\"btn btn-xs cfm-btn\" title=\"download 1000m tsurf file\"><span id=\"download_1000m_'+gid+'\" class=\"glyphicon glyphicon-download\"></span>1000m</button></a>';
+            cnt++;
         }
     }
 
@@ -364,9 +365,9 @@ function get_downloads_btn(meta) {
         var url=url_in_2000m_list(gid);
         if(url) {
             str=str+'<a href=\"'+url+'\" download> <button class=\"btn btn-xs cfm-btn\" title=\"download 2000m tsurf file\"><span id=\"download_1000m_'+gid+'\" class=\"glyphicon glyphicon-download\"></span>2000m</button></a>';
+            cnt++;
         }
     }
-
 
     return str;
 }
