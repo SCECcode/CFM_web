@@ -245,8 +245,10 @@ function startDownload()
   }
   if (use_download_set == 'meta' || use_download_set == 'all') {
     downloadMeta(mlist);
-    } else {
-      downloadURLsAsZip(mlist);
+  }
+
+  if(use_download_set != 'meta') {
+    downloadURLsAsZip(mlist);
   }
 }
 
