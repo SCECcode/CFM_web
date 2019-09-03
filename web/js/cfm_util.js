@@ -142,7 +142,7 @@ function downloadURLsAsZip(mlist) {
   for(var i=0; i<cnt; i++) {
     var meta=mlist[i];
     var gid=meta['gid'];
-    if (use_download_set == 'native') {
+    if (use_download_set == 'native' || use_download_set =='all') {
       if(in_native_gid_list(gid)) {
         url=url_in_native_list(gid);
         if(url) {
@@ -153,7 +153,7 @@ function downloadURLsAsZip(mlist) {
       }
       continue;
     }
-    if (use_download_set == '500m') {
+    if (use_download_set == '500m' || use_download_set == 'all') {
       if(in_500m_gid_list(gid)) {
         url=url_in_500m_list(gid);
         if(url) {
@@ -164,7 +164,7 @@ function downloadURLsAsZip(mlist) {
       }
       continue;
     }
-    if (use_download_set == '1000m') {
+    if (use_download_set == '1000m' || use_download_set == 'all') {
       if(in_1000m_gid_list(gid)) {
         url=url_in_1000m_list(gid);
         if(url) {
@@ -175,7 +175,7 @@ function downloadURLsAsZip(mlist) {
       }
       continue;
     }
-    if (use_download_set == '2000m') {
+    if (use_download_set == '2000m' || use_download_set == 'all') {
       if(in_2000m_gid_list(gid)) {
         url=url_in_2000m_list(gid);
         if(url) {
@@ -243,10 +243,12 @@ function startDownload()
     alert("No fault selected"); 
     return;
   }
-  if (use_download_set == 'meta') {
+  if (use_download_set == 'meta' || use_download_set == 'all') {
     downloadMeta(mlist);
-    } else {
-      downloadURLsAsZip(mlist);
+  }
+
+  if(use_download_set != 'meta') {
+    downloadURLsAsZip(mlist);
   }
 }
 

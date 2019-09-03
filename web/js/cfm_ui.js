@@ -367,7 +367,6 @@ function get_downloads_btn(meta) {
         }
     }
 
-
     return str;
 }
 
