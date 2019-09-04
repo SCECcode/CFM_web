@@ -19,14 +19,14 @@ $header = getHeader("User Guide");
     <script type='text/javascript' src='js/vendor/jquery.min.js'></script>
     <script type='text/javascript' src='js/vendor/bootstrap.min.js'></script>
     <script type='text/javascript' src='js/vendor/jquery-ui.js'></script>
-    <title>Community Fault Model Viewer: User Guide</title>
+    <title>Community Fault Model Viewer (Beta): User Guide</title>
 </head>
 <body>
 <?php echo $header; ?>
 
 <div class="container info-page-container scec-main-container guide">
 
-    <h1>User Guide <i>(DRAFT)</i></h1>
+    <h1>User Guide</h1>
 
     <div class="row">
         <div class="col-12">
@@ -49,18 +49,20 @@ $header = getHeader("User Guide");
                below for more details.) Click on the eye icon (<span class="glyphicon glyphicon-eye-open"></span>) to
                hide or show a fault. </p>
             <p>
-                The map on the right displays each fault in its geographic location, with blind faults appearing as dashed lines. On top of the map, there are two
-                controls. The first allows the base map to be changed. By default, the map shown is <a
+                The map on the right displays each fault in its geographic location, with blind faults appearing as dashed lines. On top of the map, there is a
+                control that allows the base map to be changed. By default, the map shown is <a
                         href="https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer">ESRI Topographic</a>.
                 The other map types are: <a
                         href="https://services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer">ESRI National Geographic</a>, <a
                         href="https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer">ESRI Imagery</a>, <a
-                        href="https://opentopomap.org">OTM Topographic</a>, and <a href="https://www.openstreetmap.org">OSM Street</a>. The other available control highlights the displayed faults by their strike or dip in a color spectrum from red (low values) to blue (high values). </p>
+                        href="https://opentopomap.org">OTM Topographic</a>, and <a href="https://www.openstreetmap.org">OSM Street</a>.</p>
+
+            <p><i>This site is a beta version undergoing active testing and review by the CFM community. To report any bugs or issues, please see the <a href="contact">contact page</a>.</i></p>
 
             <h4>Search</h4>
             <p>
                 The site provides a number of search criteria, primarily keyword and latitude/longitude but also the
-                following advanced search criteria: fault area, fault zone, section, name, strike, and dip. Once a
+                following advanced search criteria: fault area, fault zone, section, and name. Once a
                 search type is selected, controls will appear below in the form of another dropdown, text input boxes, or
                 sliders. </p>
             <p>
@@ -74,20 +76,23 @@ $header = getHeader("User Guide");
             <h4>Viewing and Downloading Data</h4>
 
             <p>
-                Metadata files in JSON format and tsurf files are available for download from this site. First, select the desired faults by clicking on the fault displayed on the map or clicking on fault listed in the box* to the left of the map. The selected faults are highlighted in red** on the map. The selected faults' metadata appear in the metadata table* at the bottom of the page. Click on the links on the rightmost column of the metadata table to download data for one fault. Click on the "DOWNLOAD ALL" button to download data for all selected faults. The download options are: metadata only, or metadata along with tsurf files in native, 500m, 1000m, or 2000m resolution in a ZIP archive file. </p>
+                Metadata files in JSON format and tsurf files are available for download from this site. First, select the desired faults by clicking on the fault displayed on the map or clicking on fault listed in the box* to the left of the map. The selected faults are highlighted in red** on the map. The selected faults' metadata appear in the metadata table* at the bottom of the page. Click on the links on the rightmost column of the metadata table to download data for one fault. Click on the "DOWNLOAD ALL" button to download data for all selected faults. The download options are: metadata only, or metadata along with tsurf files in native, 500m, 1000m, 2000m, or "All of the Above", in a ZIP archive file. </p>
 
 
             <p>* The scrollable boxes on this site can contain more data than is visible at one time.
+                <!--
                 <br/>
-               ** When highlighting faults by strike or slip, selected faults appear turquoise rather than red. This is
-               to avoid confusion with the strike/slip color scale. </p>
+               ** When highlighting faults by strike or dip, selected faults appear turquoise rather than red. This is
+               to avoid confusion with the strike/slip color scale.
+               -->
+            </p>
 
 
             <h4>Notes</h4>
             <ul>
                 <li>
-                    Projections: Fault representations are provided in Universal Transverse Mercator projection (UTM zone 11 S, North American datum 1927). </li>
-                <li>Strike and dip are weighted averages. The true fault surface is non-planar.</li>
+                    Projections: 3D fault representations in gocad format are provided in Universal Transverse Mercator projection (UTM zone 11S, North American datum 1927).</li>
+<!--                <li>Strike and dip are weighted averages. The true fault surface is non-planar.</li>-->
                 <li>The fault object names are comprised of metadata for each fault. For example,
                     "SAFS-SAFZ-MULT-Banning_fault_strand-CFM4" represents:
                     <ul>

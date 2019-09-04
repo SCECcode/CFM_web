@@ -5,7 +5,7 @@ $header = getHeader("Viewer");
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Community Fault Model Viewer</title>
+    <title>Community Fault Model Viewer (Beta)</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/vendor/font-awesome.min.css" rel="stylesheet">
@@ -114,7 +114,7 @@ $header = getHeader("Viewer");
 <div class="container main">
     <div class="row">
         <div class="col-12">
-            <p>The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model (CFM)</a> are three-dimensional and non-planar; however, to simplify browsing the model, the viewer below provides a two-dimensional map-based view of the SCEC CFM version 5.2 preferred fault set. The alternative fault representations are only provided in the complete CFM archive. Here, the viewer allows users to view and download fault geometry data as well as metadata for slected faults rather than downloading the entire CFM model archive.  See the <a href="guide">user guide</a> for more details and site usage instructions.</p>
+            <p>The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model (CFM)</a> are three-dimensional and non-planar; however, to simplify browsing the model, the viewer below provides a two-dimensional map-based view of the SCEC CFM version 5.2 preferred fault set. The alternative fault representations are only provided in the complete CFM archive. Here, the viewer allows users to view and download fault geometry data as well as metadata for selected faults rather than downloading the entire CFM model archive. This site is currently in beta testing. See the <a href="guide">user guide</a> for more details and site usage instructions.</p>
         </div>
     </div>
 
@@ -311,7 +311,7 @@ $header = getHeader("Viewer");
                 </div>
             </div>
         </div>
-        <div class="col-5 d-flex offset-3 align-items-end mb-2">
+        <div class="col-3 d-flex offset-5 align-items-end mb-2">
             <div>&nbsp;</div>
             <div class="input-group input-group-sm" id="map-controls">
                 <div class="input-group-prepend">
@@ -379,9 +379,6 @@ $header = getHeader("Viewer");
                                         Download All <span id="download-counter"></span>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <button class="dropdown-item" type="button" value="all"
-                                                onclick="executeDownload(this.value);">All
-                                        </button>
                                         <button class="dropdown-item" type="button" value="meta"
                                                 onclick="executeDownload(this.value);">Metadata
                                         </button>
@@ -396,6 +393,9 @@ $header = getHeader("Viewer");
                                         </button>
                                         <button class="dropdown-item" type="button" value="2000m"
                                                 onclick="executeDownload(this.value);">2000m + Metadata
+                                        </button>
+                                        <button class="dropdown-item" type="button" value="all"
+                                              onclick="executeDownload(this.value);">All of the Above
                                         </button>
                                     </div>
                                 </div>

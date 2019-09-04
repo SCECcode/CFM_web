@@ -38,7 +38,7 @@ _END;
     <div class="container top">
         <nav class="navbar navbar-expand-lg navbar-dark  scec-header">
             <a class="navbar-brand" href="$host_site_actual_path"><img class="scec-logo" src="img/sceclogo_transparent.png">
-                &nbsp;Community Fault Model Viewer</a>
+                &nbsp;Community Fault Model Viewer (Beta)</a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
