@@ -1,10 +1,28 @@
 CREATE TEMP TABLE tmp_x AS
      SELECT name, concat(name,'-trace'), gid from OBJECT_tb;
 
-UPDATE OBJECT_tb 
+UPDATE OBJECT_tb
     SET TRACE_tb_gid = TRACE_tb.gid
     FROM tmp_x, TRACE_tb
     WHERE TRACE_tb.layer = tmp_x.concat
+    AND tmp_x.gid = OBJECT_tb.gid;
+
+UPDATE OBJECT_tb 
+    SET blind = 1
+    FROM tmp_x, TRACE_tb
+    WHERE TRACE_tb.layer = tmp_x.concat
+    AND tmp_x.gid = OBJECT_tb.gid
+    AND TRACE_tb.___isblind = 1;
+
+DROP TABLE tmp_x;
+
+CREATE TEMP TABLE tmp_x AS
+     SELECT name, concat(name,'_m2000'), gid from OBJECT_tb;
+
+UPDATE OBJECT_tb 
+    SET OBJECT_2000m_tb_gid = OBJECT_2000m_tb.gid
+    FROM tmp_x, OBJECT_2000m_tb
+    WHERE OBJECT_2000m_tb.name = tmp_x.concat
     AND tmp_x.gid = OBJECT_tb.gid;
 
 DROP TABLE tmp_x;

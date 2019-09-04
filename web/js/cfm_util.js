@@ -103,9 +103,11 @@ function changeFaultColor(type) {
     if (type == "") {
        removeKey();
        highlight_style.color = default_highlight_color;
+       blind_highlight_style.color = default_highlight_color;
     } else {
         showKey(type);
         highlight_style.color = alternate_highlight_color;
+        blind_highlight_style.color = alternate_highlight_color;
     }
 
     // switch
@@ -120,7 +122,7 @@ function changeFaultColor(type) {
 }
 
 
-// for native, 500m, 1000m
+// for native, 500m, 1000m, 2000m
 // with added metadata file
 // mlist should not be null
 function downloadURLsAsZip(mlist) {
@@ -140,7 +142,7 @@ function downloadURLsAsZip(mlist) {
   for(var i=0; i<cnt; i++) {
     var meta=mlist[i];
     var gid=meta['gid'];
-    if (use_download_set == 'native') {
+    if (use_download_set == 'native' || use_download_set =='all') {
       if(in_native_gid_list(gid)) {
         url=url_in_native_list(gid);
         if(url) {
@@ -151,7 +153,7 @@ function downloadURLsAsZip(mlist) {
       }
       continue;
     }
-    if (use_download_set == '500m') {
+    if (use_download_set == '500m' || use_download_set == 'all') {
       if(in_500m_gid_list(gid)) {
         url=url_in_500m_list(gid);
         if(url) {
@@ -162,9 +164,20 @@ function downloadURLsAsZip(mlist) {
       }
       continue;
     }
-    if (use_download_set == '1000m') {
+    if (use_download_set == '1000m' || use_download_set == 'all') {
       if(in_1000m_gid_list(gid)) {
         url=url_in_1000m_list(gid);
+        if(url) {
+          dname=url.substring(url.lastIndexOf('/')+1);
+          var promise = $.get(url);
+          nzip.file(dname,promise);
+        }
+      }
+      continue;
+    }
+    if (use_download_set == '2000m' || use_download_set == 'all') {
+      if(in_2000m_gid_list(gid)) {
+        url=url_in_2000m_list(gid);
         if(url) {
           dname=url.substring(url.lastIndexOf('/')+1);
           var promise = $.get(url);
@@ -230,10 +243,12 @@ function startDownload()
     alert("No fault selected"); 
     return;
   }
-  if (use_download_set == 'meta') {
+  if (use_download_set == 'meta' || use_download_set == 'all') {
     downloadMeta(mlist);
-    } else {
-      downloadURLsAsZip(mlist);
+  }
+
+  if(use_download_set != 'meta') {
+    downloadURLsAsZip(mlist);
   }
 }
 
@@ -442,6 +457,11 @@ function processTraceMeta(metaList) {
        var meta = JSON.parse(str[i]);
        var gidstr=meta['gid'];
        var gid=parseInt(gidstr);
+       var blindstr=meta['blind'];
+       var bval=parseInt(blindstr);
+       if (bval == 1) {
+           addto_blind_gid_list(gid);
+       }
        if(metaList == 'metaByAllTraces') {
          cfm_fault_meta_list.push({"gid":gid, "meta": meta });
          if( !in_nogeo_gid_list(gid)) {
@@ -584,5 +604,22 @@ function make1000mList() {
        var objgid=parseInt(s['objgid']);
        cfm_1000m_list.push( {"gid":gid, "name":name, "url":url, "objgid":objgid } );
        cfm_1000m_gid_list.push(objgid);
+    }
+}
+
+function make2000mList() {
+    var str = $('[data-side="obj2000m"]').data('params');
+    if (str == undefined)
+      return "";
+
+    var sz=(Object.keys(str).length);
+    for( var i=0; i< sz; i++) {
+       var s = JSON.parse(str[i]);
+       var gid=parseInt(s['gid']);
+       var name=s['name'];
+       var url=s['url'];
+       var objgid=parseInt(s['objgid']);
+       cfm_2000m_list.push( {"gid":gid, "name":name, "url":url, "objgid":objgid } );
+       cfm_2000m_gid_list.push(objgid);
     }
 }

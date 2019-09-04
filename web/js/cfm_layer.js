@@ -7,13 +7,19 @@ var skipPopup=false;
 var default_highlight_color = "red";
 var alternate_highlight_color = "#03F7EB";
 var highlight_style = {
-/*
-    'color': 'RGB(0, 255, 255)',
-*/
     'color': default_highlight_color,
     'opacity':1,
     'weight': 2,
 };
+
+var blind_dash_value = 6;
+var blind_highlight_style = {
+    'color': default_highlight_color,
+    'opacity':1,
+    'weight': 2,
+    'dashArray': blind_dash_value
+};
+
 
 // for toggleAll option
 var cfm_toggle_plot=1;
@@ -57,6 +63,13 @@ var cfm_1000m_list=[];
 // {gid, gid, ...}
 var cfm_1000m_gid_list=[];
 
+// [{ gid, name, url, objgid }, {gid, name, url, objgid}, ... ], gid that is from 2000m list
+var cfm_2000m_list=[];
+
+// gid is objgid
+// {gid, gid, ...}
+var cfm_2000m_gid_list=[];
+
 // gid is objgid
 // { gid1, gid2, ... }, all objects 
 var cfm_gid_list=[];
@@ -65,7 +78,7 @@ var cfm_gid_list=[];
 // { gid1, gid2, ... }, only without geo
 var cfm_nogeo_gid_list=[];
 
-// all objgid ==> gid from object_tb, all objects
+// all objgid ==> gid from object_tb, all objects (meta has 'blind')
 //  [ { "gid": gid1,  "meta": mmm1 }, {  "gid": gid2, "meta": mmm2 }, ... } 
 var cfm_fault_meta_list=[];
 
@@ -91,6 +104,10 @@ var cfm_active_gid_list=[];
 // for now, expect there is just 1 area only
 // [ {"layer":layer1, "latlngs":[ {latA,lonA}, {latB,lonB}]},...];
 var cfm_latlon_area_list=[];
+
+// gid is obgid, 
+// { gid1, gid2, ... }, tracking which object is 'blind'
+var cfm_blind_gid_list=[];
 
 /*********************************************************
 *********************************************************/
@@ -128,6 +145,10 @@ function makeGeoJSONFeature(geoJSON, gid, meta) {
                "opacity":0.8,
                "color": color
               };
+
+  if (is_fault_blind(gid)) {
+      style.dashArray = blind_dash_value;
+  }
 
   var tmp= { "id":gid,
              "type":"Feature", 
@@ -268,6 +289,31 @@ function get_meta_list(gidlist) {
    return mlist;
 }
 
+function addto_blind_gid_list(gid) {
+   cfm_blind_gid_list.push(gid);
+}
+
+function in_blind_gid_list(target) {
+   var found=0;
+   cfm_blind_gid_list.forEach(function(element) {
+          if (element == target) {
+             found=1;
+          }
+   });
+   return found;
+}
+
+function is_fault_blind(gid) {
+   var m=find_meta_list(gid);
+   if(m) {
+      var blindstr=m.meta['blind'];
+      var b=parseInt(blindstr);
+      if (b==1)
+        return 1;
+   }
+   return 0;
+}
+
 /* return true if target is in the trace list */
 function in_trace_list(target) {
    var found=0;
@@ -278,7 +324,7 @@ function in_trace_list(target) {
    return found;
 }
 
-/* return true if target is in the trace list */
+/* return true if target is in the active list */
 function in_active_gid_list(target) {
    var found=0;
 
@@ -405,10 +451,17 @@ function addRemoveFromMetadataTable(gid) {
 }
 
 function toggle_highlight(gid) {
+    var this_highlight_style;
    var s=find_style_list(gid);
    if (s == '') {
        return;
    }
+
+    if (is_fault_blind(gid)) {
+        this_highlight_style = blind_highlight_style;
+    } else {
+        this_highlight_style = highlight_style;
+    }
 
    var h=s['highlight'];
    let $star=$(`#highlight_${gid}`);
@@ -426,8 +479,8 @@ function toggle_highlight(gid) {
      var l=find_layer_list(gid);
      var geolayer=l['layer'];
      geolayer.eachLayer(function(layer) {
-       layer.setStyle(highlight_style);
-     }); 
+       layer.setStyle(this_highlight_style);
+     });
      cfm_select_count++;
      // adjust width if needed
      $itemCount.html(cfm_select_count).show();
@@ -545,9 +598,29 @@ function in_1000m_gid_list(target) {
    return found;
 }
 
+function in_2000m_gid_list(target) {
+   var found=0;
+   cfm_2000m_gid_list.forEach(function(element) {
+          if (element == target) {
+             found=1;
+          }
+   });
+   return found;
+}
+
 function url_in_1000m_list(target) {
    var url=null;
    cfm_1000m_list.forEach(function(element) {
+         if(element['objgid']==target) {
+            url=element['url'];
+         }
+   });
+   return url;
+}
+
+function url_in_2000m_list(target) {
+   var url=null;
+   cfm_2000m_list.forEach(function(element) {
          if(element['objgid']==target) {
             url=element['url'];
          }

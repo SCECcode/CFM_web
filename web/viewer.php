@@ -5,7 +5,7 @@ $header = getHeader("Viewer");
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Community Fault Model Viewer</title>
+    <title>Community Fault Model Viewer (Beta)</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/vendor/font-awesome.min.css" rel="stylesheet">
@@ -15,8 +15,8 @@ $header = getHeader("Viewer");
     <link rel="stylesheet" href="css/vendor/bootstrap-grid.min.css">
     <link rel="stylesheet" href="css/vendor/jquery-ui.css">
     <link rel="stylesheet" href="css/vendor/glyphicons.css">
-    <link rel="stylesheet" href="css/cfm-ui.css">
-    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/cfm-ui.css?v=1">
+    <link rel="stylesheet" href="css/sidebar.css?v=1">
 
     <script type='text/javascript' src='js/vendor/popper.min.js'></script>
     <script type="text/javascript" src="js/vendor/leaflet-src.js"></script>
@@ -64,40 +64,30 @@ $header = getHeader("Viewer");
     <script type='text/javascript' src="plugin/Leaflet.draw/edit/handler/Edit.Circle.js"></script>
 
     <!-- cfm js -->
-    <script type="text/javascript" src="js/debug.js"></script>
-    <script type="text/javascript" src="js/cfm_leaflet.js"></script>
-    <script type="text/javascript" src="js/cfm_layer.js"></script>
-    <script type="text/javascript" src="js/cfm_util.js"></script>
-    <script type="text/javascript" src="js/cfm_ui.js"></script>
-    <script type="text/javascript" src="js/cfm_main.js"></script>
-    <script type="text/javascript" src="js/cfm_query.js"></script>
-    <script type="text/javascript" src="js/cfm_sidebar.js"></script>
+    <script type="text/javascript" src="js/debug.js?v=1"></script>
+    <script type="text/javascript" src="js/cfm_leaflet.js?v=1"></script>
+    <script type="text/javascript" src="js/cfm_layer.js?v=1"></script>
+    <script type="text/javascript" src="js/cfm_util.js?v=1"></script>
+    <script type="text/javascript" src="js/cfm_ui.js?v=1"></script>
+    <script type="text/javascript" src="js/cfm_main.js?v=1"></script>
+    <script type="text/javascript" src="js/cfm_query.js?v=1"></script>
+    <script type="text/javascript" src="js/cfm_sidebar.js?v=1"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-495056-12"></script>
     <script type="text/javascript">
         $ = jQuery;
         var tableLoadCompleted = false;
-        var myhost = location.hostname;
-        if (myhost == "asperity.scec.org") {
-            window.dataLayer = window.dataLayer || [];
+        window.dataLayer = window.dataLayer || [];
 
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-
-            gtag('js', new Date());
-
-            gtag('config', 'UA-495056-12');
+        function gtag() {
+            dataLayer.push(arguments);
         }
-        $(function () {
-            $("#search-type").change(function () {
-                var funcToRun = $(this).val();
-                window[funcToRun]();
-            });
 
+        gtag('js', new Date());
 
-        });
+        gtag('config', 'UA-495056-12');
+
         $(document).on("tableLoadCompleted", function () {
             tableLoadCompleted = true;
             var $table = $('div.cfm-table table');
@@ -124,9 +114,7 @@ $header = getHeader("Viewer");
 <div class="container main">
     <div class="row">
         <div class="col-12">
-            <p>The <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model (CFM)</a> Viewer provides a map-based view of SCEC CFM version 5.2 preferred faults. It allows users to
-               view faults and metadata and download data on selected faults rather than downloading the entire CFM model
-               archive. See the <a href="guide">user guide</a> for more details and site usage instructions.</p>
+            <p>The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model (CFM)</a> are three-dimensional and non-planar; however, to simplify browsing the model, the viewer below provides a two-dimensional map-based view of the SCEC CFM version 5.2 preferred fault set. The alternative fault representations are only provided in the complete CFM archive. Here, the viewer allows users to view and download fault geometry data as well as metadata for selected faults rather than downloading the entire CFM model archive. This site is currently in beta testing. See the <a href="guide">user guide</a> for more details and site usage instructions.</p>
         </div>
     </div>
 
@@ -165,8 +153,10 @@ $header = getHeader("Viewer");
                     <option value="zoneClick">Zone</option>
                     <option value="sectionClick">Section</option>
                     <option value="nameClick">Name</option>
+<!--- WAIT for better strike/dip 
                     <option value="strikeClick">Strike</option>
                     <option value="dipClick">Dip</option>
+--->
                 </select>
                 <div class="input-group-append">
                     <button onclick="refreshAll();" class="btn btn-dark pl-4 pr-4" type="button">Reset</button>
@@ -321,7 +311,7 @@ $header = getHeader("Viewer");
                 </div>
             </div>
         </div>
-        <div class="col-5 d-flex offset-3 align-items-end mb-2">
+        <div class="col-3 d-flex offset-5 align-items-end mb-2">
             <div>&nbsp;</div>
             <div class="input-group input-group-sm" id="map-controls">
                 <div class="input-group-prepend">
@@ -336,6 +326,7 @@ $header = getHeader("Viewer");
                 </select>
             </div>
 
+<!--- WAIT for better dip/strike data
             <div class="input-group input-group-sm ml-md-2 ml-sm-0">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="highlight-faults">Highlight Faults By</label>
@@ -347,6 +338,7 @@ $header = getHeader("Viewer");
                     <option value="dip">Dip</option>
                 </select>
             </div>
+--->
             <!--            <a class="ui-button" onclick="toggleAll();">Show/Hide Faults</a>-->
 
         </div>
@@ -398,6 +390,12 @@ $header = getHeader("Viewer");
                                         </button>
                                         <button class="dropdown-item" type="button" value="1000m"
                                                 onclick="executeDownload(this.value);">1000m + Metadata
+                                        </button>
+                                        <button class="dropdown-item" type="button" value="2000m"
+                                                onclick="executeDownload(this.value);">2000m + Metadata
+                                        </button>
+                                        <button class="dropdown-item" type="button" value="all"
+                                              onclick="executeDownload(this.value);">All of the Above
                                         </button>
                                     </div>
                                 </div>
