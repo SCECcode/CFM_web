@@ -1,4 +1,4 @@
-/***
+/**
    cfm_util.js
 
 ***/
@@ -151,7 +151,8 @@ function downloadURLsAsZip(mlist) {
           nzip.file(dname,promise);
         }
       }
-      continue;
+      if( use_download_set != 'all')
+        continue;
     }
     if (use_download_set == '500m' || use_download_set == 'all') {
       if(in_500m_gid_list(gid)) {
@@ -162,7 +163,8 @@ function downloadURLsAsZip(mlist) {
           nzip.file(dname,promise);
         }
       }
-      continue;
+      if( use_download_set != 'all')
+        continue;
     }
     if (use_download_set == '1000m' || use_download_set == 'all') {
       if(in_1000m_gid_list(gid)) {
@@ -173,7 +175,8 @@ function downloadURLsAsZip(mlist) {
           nzip.file(dname,promise);
         }
       }
-      continue;
+      if( use_download_set != 'all')
+        continue;
     }
     if (use_download_set == '2000m' || use_download_set == 'all') {
       if(in_2000m_gid_list(gid)) {
@@ -184,7 +187,8 @@ function downloadURLsAsZip(mlist) {
           nzip.file(dname,promise);
         }
       }
-      continue;
+      if( use_download_set != 'all')
+        continue;
     }
   }
 
@@ -239,6 +243,8 @@ function startDownload()
   var hlist=get_highlight_list();
   var mlist=get_meta_list(hlist);
   var cnt=mlist.length;
+  window.console.log("number of entry to download...");
+  window.console.log(cnt);
   if(cnt == 0) {
     alert("No fault selected"); 
     return;
