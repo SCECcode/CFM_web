@@ -369,9 +369,9 @@ $header = getHeader("Viewer");
                         <th>Zone</th>
                         <th>Section</th>
                         <th>CFM Version</th>
-                        <th>Strike</th>
-                        <th>Dip</th>
-                        <th>Area (m<sup>2</sup>) </th>
+<!--                        <th>Strike</th>-->
+<!--                        <th>Dip</th>-->
+<!--                        <th>Area (m<sup>2</sup>) </th>-->
                         <th><div class="col text-center">
                                 <div class="btn-group download-now">
                                     <button id="download-all" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"

@@ -333,9 +333,9 @@ function getMetadataRowForDisplay(meta) {
        <td>${meta['zone']}</td>
        <td>${meta['section']}</td>
        <td>${meta['CFM_version']}</td>
-       <td>${meta['strike']}</td>
+      <!-- <td>${meta['strike']}</td>
        <td>${meta['dip']}</td>
-       <td>${area_m2}</td>
+       <td>${area_m2}</td> -->
        <td class="download-link">${downloadButtons}</td>
    </tr>
    `;
