@@ -5,7 +5,7 @@ $header = getHeader("Viewer");
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Community Fault Model Viewer (Beta)</title>
+    <title>Community Fault Model Viewer (BBBeta)</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/vendor/font-awesome.min.css" rel="stylesheet">
@@ -110,6 +110,7 @@ $header = getHeader("Viewer");
 </head>
 <body>
 <?php echo $header; ?>
+
 
 <div class="container main">
     <div class="row">
@@ -378,6 +379,10 @@ $header = getHeader("Viewer");
                                             aria-haspopup="true" aria-expanded="false" disabled>
                                         Download All <span id="download-counter"></span>
                                     </button>
+                                    <button id="plot3d-all" type="button" class="btn btn-dark"
+                                            data-toggle="modal" data-target="#modal3D">
+                                        View 3 <span id="download-counter"></span>
+                                    </button>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <button class="dropdown-item" type="button" value="meta"
                                                 onclick="executeDownload(this.value);">Metadata
@@ -432,5 +437,28 @@ $header = getHeader("Viewer");
             </div>
 	</div>
 </div>
+
+<!--Modal: Name-->
+<div class="modal" id="modal3D" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+<div class="row col-12">
+<iframe id="plot3DIfram" src="" style="height:500px;width:100%;" frameborder="0" allowfullscreen> </iframe>
+</div>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!--Modal: Name-->
 </body>
 </html>
