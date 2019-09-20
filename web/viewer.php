@@ -378,10 +378,10 @@ $header = getHeader("Viewer");
                                     <button id="download-all" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false" disabled>
                                         Download All <span id="download-counter"></span>
-                                    </button>
-                                    <button id="plot3d-all" type="button" class="btn btn-dark"
+                                    </button>&nbsp;&nbsp;&nbsp;
+                                    <button id="view3d-all" type="button" class="btn btn-dark"
                                             data-toggle="modal" data-target="#modal3D">
-                                        View 3 <span id="download-counter"></span>
+                                        View<span id="download-counter"></span>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <button class="dropdown-item" type="button" value="meta"
@@ -452,7 +452,7 @@ $header = getHeader("Viewer");
       <!--Body-->
       <div class="modal-body">
 <div class="row col-12">
-<iframe id="plot3DIfram" src="" style="height:500px;width:100%;" frameborder="0" allowfullscreen> </iframe>
+<iframe id="view3DIfram" src="" style="height:500px;width:100%;" frameborder="0" allowfullscreen> </iframe>
 </div>
       </div>
     </div>

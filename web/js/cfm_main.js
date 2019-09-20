@@ -7,6 +7,10 @@ jQuery(document).ready(function() {
 
   viewermap=setup_viewer();
 
+p $("#view3d-all").on('click'), function {
+     $('#view3DIfram').attr('src',"https://kitware.github.io/paraview-glance/app/?name=202-t.glance&url=https://raw.githubusercontent.com/Kitware/paraview-glance/v3.0.1/data/202-t.glance");
+  });
+
 // special handle keyword's input completion
   $("#keywordTxt").keyup(function(event) {
         if (event.keyCode === 13) {
