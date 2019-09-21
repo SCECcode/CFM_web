@@ -378,11 +378,14 @@ $header = getHeader("Viewer");
                                     <button id="download-all" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false" disabled>
                                         Download All <span id="download-counter"></span>
-                                    </button>&nbsp;&nbsp;&nbsp;
+                                    </button>
+<!-- MODAL popup button
+&nbsp;&nbsp;&nbsp;
                                     <button id="view3d-all" type="button" class="btn btn-dark"
                                             data-toggle="modal" data-target="#modal3D">
                                         View<span id="download-counter"></span>
                                     </button>
+-->
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <button class="dropdown-item" type="button" value="meta"
                                                 onclick="executeDownload(this.value);">Metadata
@@ -456,7 +459,7 @@ $header = getHeader("Viewer");
 </div>
       </div>
     </div>
-    <!--/.Content-->
+    <!--Content-->
   </div>
 </div>
 <!--Modal: Name-->
