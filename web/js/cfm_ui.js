@@ -412,3 +412,21 @@ function saveAsURLFile(gid,url) {
   delete dload;
 }
 
+/*** iframe housekeeping ***/
+function show3dView(urls) {
+  $('#modal3D').modal('show');
+  $('#view3DIfram').attr('src',"cfm_3d.html?fileURL="+urls);
+}
+
+// should be able to track the initial state and then return to it
+function refresh3Dview() {
+  var urls=get_MODAL_TS_LIST();
+  $('#view3DIfram').attr('src',"");
+  $('#view3DIfram').attr('src',"cfm_3d.html?fileURL="+urls);
+}
+
+//publicAPI.toggleControllerVisibility
+function toggleUI3Dview() {
+  document.getElementById("view3DIfram").contentDocument.getElementById("UIbtn").click();
+}
+

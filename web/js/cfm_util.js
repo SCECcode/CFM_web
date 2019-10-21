@@ -5,13 +5,35 @@
 
 var select_all_flag=0;
 
+// this is to collect up all the names used
+// in composing the selected faults
+// for modal popup
+var MODAL_TS_LIST=[];
+function clear_MODAL_TS_LIST()
+{
+  MODAL_TS_LIST=[];
+}
+
+function save_MODAL_TS_LIST(url)
+{
+   MODAL_TS_LIST.push(url);
+}
+
+function get_MODAL_TS_LIST()
+{
+   var str=MODAL_TS_LIST.toString();
+   return "["+str+"]";
+}
+
+/********************************************************/
+
 // strike range is from 5 to 359
 var strike_range_min = 0;
 var strike_range_max = 360;
 
 // dip range is from ? to ?? 
-var strike_range_min = 0;
-var strike_range_max = 0;
+var dip_range_min = 0;
+var dip_range_max = 0;
 
 function reset_strike_range()
 {
@@ -137,8 +159,8 @@ function downloadURLsAsZip(mlist) {
   // put in the metadata
   var fname="CFM_metadata_"+timestamp+".json"; 
   nzip.file(fname, data);
-  var cnt=mlist.length;
 
+  var cnt=mlist.length;
   for(var i=0; i<cnt; i++) {
     var meta=mlist[i];
     var gid=meta['gid'];
@@ -196,6 +218,10 @@ function downloadURLsAsZip(mlist) {
   nzip.generateAsync({type:"blob"}).then(function (content) {
     // see FileSaver.js
     saveAs(content, zipfname);
+// PARK it here for testing
+//   collectURLsFor3d(mlist);
+//    var str=get_MODAL_TS_LIST();
+//    show3dView(str);
   })
 }
 
@@ -256,6 +282,29 @@ function startDownload()
   if(use_download_set != 'meta') {
     downloadURLsAsZip(mlist);
   }
+}
+
+function executePlot3d(type) {
+    use_download_set = type;
+    startPlot3d();
+}
+
+function startPlot3d()
+{
+  // collect up the meta data from the highlighted set of traces
+  var hlist=get_highlight_list();
+  var mlist=get_meta_list(hlist);
+  var cnt=mlist.length;
+  window.console.log("number of entry to download...");
+  window.console.log(cnt);
+  if(cnt == 0) {
+    alert("No fault selected"); 
+    return;
+  }
+
+  collectURLsFor3d(mlist);
+  var str=get_MODAL_TS_LIST();
+  show3dView(str);
 }
 
 function plotAll() {
@@ -628,4 +677,58 @@ function make2000mList() {
        cfm_2000m_list.push( {"gid":gid, "name":name, "url":url, "objgid":objgid } );
        cfm_2000m_gid_list.push(objgid);
     }
+}
+
+/****************************************************/
+function collectURLsFor3d(mlist) {
+  var url;
+  var dname;
+  clear_MODAL_TS_LIST();
+
+  var cnt=mlist.length;
+  for(var i=0; i<cnt; i++) {
+    var meta=mlist[i];
+    var gid=meta['gid'];
+    if (use_download_set == 'native' || use_download_set =='all') {
+      if(in_native_gid_list(gid)) {
+        url=url_in_native_list(gid);
+        if(url) {
+          save_MODAL_TS_LIST(url);
+        }
+      }
+      if( use_download_set != 'all')
+        continue;
+    }
+    if (use_download_set == '500m' || use_download_set == 'all') {
+      if(in_500m_gid_list(gid)) {
+        url=url_in_500m_list(gid);
+        if(url) {
+          save_MODAL_TS_LIST(url);
+        }
+      }
+      if( use_download_set != 'all')
+        continue;
+    }
+    if (use_download_set == '1000m' || use_download_set == 'all') {
+      if(in_1000m_gid_list(gid)) {
+        url=url_in_1000m_list(gid);
+        if(url) {
+          save_MODAL_TS_LIST(url);
+        }
+      }
+      if( use_download_set != 'all')
+        continue;
+    }
+    if (use_download_set == '2000m' || use_download_set == 'all') {
+      if(in_2000m_gid_list(gid)) {
+        url=url_in_2000m_list(gid);
+        if(url) {
+          save_MODAL_TS_LIST(url);
+        }
+      }
+      if( use_download_set != 'all')
+        continue;
+    }
+  }
+
 }

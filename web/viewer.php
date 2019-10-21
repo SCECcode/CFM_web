@@ -379,13 +379,6 @@ $header = getHeader("Viewer");
                                             aria-haspopup="true" aria-expanded="false" disabled>
                                         Download All <span id="download-counter"></span>
                                     </button>
-<!-- MODAL popup button
-&nbsp;&nbsp;&nbsp;
-                                    <button id="view3d-all" type="button" class="btn btn-dark"
-                                            data-toggle="modal" data-target="#modal3D">
-                                        View<span id="download-counter"></span>
-                                    </button>
--->
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <button class="dropdown-item" type="button" value="meta"
                                                 onclick="executeDownload(this.value);">Metadata
@@ -406,6 +399,32 @@ $header = getHeader("Viewer");
                                               onclick="executeDownload(this.value);">All of the Above
                                         </button>
                                     </div>
+                                </div>
+                                &nbsp; &nbsp;
+                                <div class="btn-group download-now">
+<!-- MODAL popup button, reuse download-counter -->
+                                    <button id="plot3d-all" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false" disabled>
+                                        Plot3d <span id="download-counter"></span>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <button class="dropdown-item" type="button" value="native"
+                                                onclick="executePlot3d(this.value);">Native
+                                        </button>
+                                        <button class="dropdown-item" type="button" value="500m"
+                                                onclick="executePlot3d(this.value);">500m
+                                        </button>
+                                        <button class="dropdown-item" type="button" value="1000m"
+                                                onclick="executePlot3d(this.value);">1000m
+                                        </button>
+                                        <button class="dropdown-item" type="button" value="2000m"
+                                                onclick="executePlot3d(this.value);">2000m
+                                        </button>
+                                        <button class="dropdown-item" type="button" value="all"
+                                              onclick="executePlot3d(this.value);">All of the Above
+                                        </button>
+                                    </div>
+
                                 </div>
                             </div></th>
                     </tr>
@@ -449,7 +468,8 @@ $header = getHeader("Viewer");
     <div class="modal-content">
       <!--Header-->
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <button id="view3DRefreshbtn" class="btn btn-outline-primary btn-md" type="button" onclick="refresh3Dview()">Refresh</button>
+        <button id="view3DToggleUIbtn" class="btn btn-outline-primary btn-md" type="button" onclick="toggleUI3Dview()">UI</button>
       </div>
 
       <!--Body-->
@@ -458,10 +478,13 @@ $header = getHeader("Viewer");
 <iframe id="view3DIfram" src="" style="height:500px;width:100%;" frameborder="0" allowfullscreen> </iframe>
 </div>
       </div>
-    </div>
-    <!--Content-->
+
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-outline-primary btn-md" data-dismiss="modal">Close</button>
+      </div> <!-- footer -->
+
+    </div> <!--Content-->
   </div>
-</div>
-<!--Modal: Name-->
+</div> <!--Modal: Name-->
 </body>
 </html>

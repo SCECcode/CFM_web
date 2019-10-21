@@ -1029,6 +1029,31 @@ function getGeoJSONbyObjGid(gidstr, meta) {
     xmlhttp.send();
 }
 
+// get Gocad file from server and convert to .obj in memory
+function getContentByFileURL(URL) {
+    if (min == undefined || max == undefined) {
+        document.getElementById("searchResult").innerHTML = "";
+        return;
+    } else {
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var blob = this.response;
+                var obj = convertTs2Obj(blob);
+                //XX  send to the 3d viewer
+                document.getElementById("searchResult").innerHTML = obj;
+            }
+        };
+        xmlhttp.open("GET",URL,true);
+        xmlhttp.send();
+    }
+}
 
 function setupSearch()
 {
