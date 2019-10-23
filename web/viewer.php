@@ -468,8 +468,8 @@ $header = getHeader("Viewer");
     <div class="modal-content">
       <!--Header-->
       <div class="modal-header">
-        <button id="view3DRefreshbtn" class="btn btn-outline-primary btn-md" type="button" onclick="refresh3Dview()">Refresh</button>
-        <button id="view3DToggleUIbtn" class="btn btn-outline-primary btn-md" type="button" onclick="toggleUI3Dview()">UI</button>
+        <button id="view3DRefreshbtn" class="btn btn-outline-primary btn-md" type="button" onclick="refresh3Dview()">Reset View</button>
+        <button id="view3DToggleUIbtn" class="btn btn-outline-primary btn-md" type="button" onclick="toggleUI3Dview(this)">Hide Legend</button>
       </div>
 
       <!--Body-->

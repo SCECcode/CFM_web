@@ -425,8 +425,16 @@ function refresh3Dview() {
   $('#view3DIfram').attr('src',"cfm_3d.html?fileURL="+urls);
 }
 
+var track_legend=1; // 1 is on 0 is off
 //publicAPI.toggleControllerVisibility
-function toggleUI3Dview() {
+function toggleUI3Dview(elt) {
   document.getElementById("view3DIfram").contentDocument.getElementById("UIbtn").click();
+  
+  track_legend = !track_legend;
+  if(track_legend) {
+    elt.innerHTML="Hide Legend";
+    } else {
+      elt.innerHTML="Show Legend";
+  }
 }
 
