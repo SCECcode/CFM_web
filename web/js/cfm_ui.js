@@ -413,6 +413,7 @@ function saveAsURLFile(gid,url) {
 }
 
 /*** iframe housekeeping ***/
+/* fileURL=[file1, file2]&filePATH=[path] */
 function show3dView(urls) {
   $('#modal3D').modal('show');
   $('#view3DIfram').attr('src',"cfm_3d.html?fileURL="+urls);
@@ -437,4 +438,22 @@ function toggleUI3Dview(elt) {
       elt.innerHTML="Show Legend";
   }
 }
+
+var track_full=1; // 1 is on 0 is off
+function toggleExpand3Dview(elt) {
+  
+  track_full = !track_full;
+  if(track_full) {
+    elt.innerHTML="Expand";
+    $('#modal3DDialog').removeClass('full_modal-dialog');
+    $('#modal3DContent').removeClass('full_modal-content');
+    document.getElementById("view3DIfram").height = "400";
+    } else {
+      elt.innerHTML="Shrink";
+      $('#modal3DDialog').addClass('full_modal-dialog');
+      $('#modal3DContent').addClass('full_modal-content');
+      document.getElementById("view3DIfram").height = "600";
+  }
+}
+
 

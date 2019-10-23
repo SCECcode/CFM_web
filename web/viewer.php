@@ -462,10 +462,10 @@ $header = getHeader("Viewer");
 
 <!--Modal: Name-->
 <div class="modal" id="modal3D" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
+  <div class="modal-dialog modal-lg" id="modal3DDialog" role="document">
 
     <!--Content-->
-    <div class="modal-content">
+    <div class="modal-content" id="modal3DContent">
       <!--Header-->
       <div class="modal-header">
         <button id="view3DRefreshbtn" class="btn btn-outline-primary btn-md" type="button" onclick="refresh3Dview()">Reset View</button>
@@ -474,13 +474,14 @@ $header = getHeader("Viewer");
 
       <!--Body-->
       <div class="modal-body">
-<div class="row col-12">
-<iframe id="view3DIfram" src="" style="height:500px;width:100%;" frameborder="0" allowfullscreen> </iframe>
+<div id="iframe-container" class="row col-12" style="overflow:hidden">
+<iframe id="view3DIfram" src="" height="400" width="100%" frameborder="2" allowfullscreen> </iframe>
 </div>
       </div>
 
       <div class="modal-footer justify-content-center">
         <button type="button" class="btn btn-outline-primary btn-md" data-dismiss="modal">Close</button>
+        <button id="view3DExpandbtn" class="btn btn-outline-primary btn-md" type="button" onclick="toggleExpand3Dview(this)">Expand</button>
       </div> <!-- footer -->
 
     </div> <!--Content-->

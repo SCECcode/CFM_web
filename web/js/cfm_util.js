@@ -9,19 +9,48 @@ var select_all_flag=0;
 // in composing the selected faults
 // for modal popup
 var MODAL_TS_LIST=[];
+var MODAL_TS_PATH=null;
 function clear_MODAL_TS_LIST()
 {
   MODAL_TS_LIST=[];
+  MODAL_TS_PATH=null;
 }
 
 function save_MODAL_TS_LIST(url)
 {
-   MODAL_TS_LIST.push(url);
+// https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM5/CFM52_preferred/500m/CRFA-BPPM-WEST-Big_Pine_fault-CFM2_m500.ts
+  var n;
+  var path;
+  var file;
+
+  n=url.indexOf('/500m/');
+  if(n == -1) {
+    n=url.indexOf('/1000m/');
+    if( n == -1) {
+      n=url.indexOf('/2000m/');
+      if( n == -1) {
+        n=url.indexOf('/native/');
+      }
+    }
+  }
+  if( n != -1) {
+    path=url.substring(0,n+1);
+    file=url.substring(n+1);
+    MODAL_TS_PATH=path;
+    MODAL_TS_LIST.push(file);
+    } else {
+      MODAL_TS_LIST.push(url);
+  }
 }
 
 function get_MODAL_TS_LIST()
 {
    var str=MODAL_TS_LIST.toString();
+   if(MODAL_TS_PATH != null) {
+     var pstr=MODAL_TS_PATH.toString();
+     var ppstr="&filePATH=["+pstr+"]";
+     return "["+str+"]"+ppstr;
+   }
    return "["+str+"]";
 }
 
@@ -218,10 +247,6 @@ function downloadURLsAsZip(mlist) {
   nzip.generateAsync({type:"blob"}).then(function (content) {
     // see FileSaver.js
     saveAs(content, zipfname);
-// PARK it here for testing
-//   collectURLsFor3d(mlist);
-//    var str=get_MODAL_TS_LIST();
-//    show3dView(str);
   })
 }
 
@@ -295,8 +320,6 @@ function startPlot3d()
   var hlist=get_highlight_list();
   var mlist=get_meta_list(hlist);
   var cnt=mlist.length;
-  window.console.log("number of entry to download...");
-  window.console.log(cnt);
   if(cnt == 0) {
     alert("No fault selected"); 
     return;

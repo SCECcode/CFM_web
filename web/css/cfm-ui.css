@@ -589,3 +589,26 @@ div.guide ul {
     text-align: center;
     font-style: italic;
 }
+
+.full_modal-dialog {
+  width: 98%;
+  height: 92%;
+  min-width: 98%;
+  min-height: 92%;
+  max-width: 98%;
+  max-height: 92%;
+  padding: 0;
+}
+
+.full_modal-content {
+  height: 99%;
+  min-height: 99%;
+  max-height: 99%;
+}
+
+.full_modal-body {
+  height: 99%;
+  min-height: 99%;
+  max-height: 99%;
+}
+
