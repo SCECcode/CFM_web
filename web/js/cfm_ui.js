@@ -416,6 +416,7 @@ function saveAsURLFile(gid,url) {
 /* fileURL=[file1, file2]&filePATH=[path] */
 function show3dView(urls) {
   $('#modal3D').modal('show');
+//  $('#view3DIfram').attr('src',"cfm_3d.html?background=1&fileURL="+urls);
   $('#view3DIfram').attr('src',"cfm_3d.html?fileURL="+urls);
 }
 
@@ -423,6 +424,7 @@ function show3dView(urls) {
 function refresh3Dview() {
   var urls=get_MODAL_TS_LIST();
   $('#view3DIfram').attr('src',"");
+//  $('#view3DIfram').attr('src',"cfm_3d.html?background=1&fileURL="+urls);
   $('#view3DIfram').attr('src',"cfm_3d.html?fileURL="+urls);
 }
 
@@ -452,7 +454,9 @@ function toggleExpand3Dview(elt) {
       elt.innerHTML="Shrink";
       $('#modal3DDialog').addClass('full_modal-dialog');
       $('#modal3DContent').addClass('full_modal-content');
-      document.getElementById("view3DIfram").height = "600";
+      var body=document.getElementById("modal3DBody");
+      var body_height=body.scrollHeight;
+      document.getElementById("view3DIfram").height = body_height-5;
   }
 }
 

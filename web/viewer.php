@@ -461,7 +461,7 @@ $header = getHeader("Viewer");
 </div>
 
 <!--Modal: Name-->
-<div class="modal" id="modal3D" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal" id="modal3D" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" id="modal3DDialog" role="document">
 
     <!--Content-->
@@ -473,9 +473,9 @@ $header = getHeader("Viewer");
       </div>
 
       <!--Body-->
-      <div class="modal-body">
+      <div class="modal-body" id="modal3DBody">
 <div id="iframe-container" class="row col-12" style="overflow:hidden">
-<iframe id="view3DIfram" src="" height="400" width="100%" frameborder="2" allowfullscreen> </iframe>
+<iframe id="view3DIfram" src="" height="400" width="100%" frameborder="2" allowfullscreen></iframe>
 </div>
       </div>
 
