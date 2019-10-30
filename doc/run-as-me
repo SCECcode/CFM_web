@@ -66,11 +66,11 @@
 #     select name, default_version,installed_version FROM pg_available_extensions;
    
 ## bring in paraview-glance
-   sudo yum install npm 
-   git clone https://github.com/Kitware/paraview-glance.git
-   cd paraview-glance/
-   npm install
-   npm run build
-   npm run dev 
-   npm run build:release
+#   sudo yum install npm 
+#   git clone https://github.com/Kitware/paraview-glance.git
+#   cd paraview-glance/
+#   npm install
+#   npm run build
+#   npm run dev 
+#   npm run build:release
 
