@@ -19,7 +19,7 @@ $header = getHeader("Contact");
     <script type='text/javascript' src='js/vendor/jquery.min.js'></script>
     <script type='text/javascript' src='js/vendor/bootstrap.min.js'></script>
     <script type='text/javascript' src='js/vendor/jquery-ui.js'></script>
-    <title>Community Fault Model Viewer (Beta): Contact</title>
+    <title>Community Fault Model Viewer (Provisional): Contact</title>
 </head>
 <body>
 <?php echo $header; ?>

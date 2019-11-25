@@ -19,7 +19,7 @@ $header = getHeader("User Guide");
     <script type='text/javascript' src='js/vendor/jquery.min.js'></script>
     <script type='text/javascript' src='js/vendor/bootstrap.min.js'></script>
     <script type='text/javascript' src='js/vendor/jquery-ui.js'></script>
-    <title>Community Fault Model Viewer (Beta): User Guide</title>
+    <title>Community Fault Model Viewer (Provisional): User Guide</title>
 </head>
 <body>
 <?php echo $header; ?>
@@ -57,7 +57,7 @@ $header = getHeader("User Guide");
                         href="https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer">ESRI Imagery</a>, <a
                         href="https://opentopomap.org">OTM Topographic</a>, and <a href="https://www.openstreetmap.org">OSM Street</a>.</p>
 
-            <p><i>This site is a beta version undergoing active testing and review by the CFM community. To report any bugs or issues, please see the <a href="contact">contact page</a>.</i></p>
+            <p><i>This site is provisional and is undergoing active testing and review by the CFM community. To report any bugs or issues, please see the <a href="contact">contact page</a>.</i></p>
 
             <h4>Search</h4>
             <p>
