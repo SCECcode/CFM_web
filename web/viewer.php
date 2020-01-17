@@ -297,7 +297,7 @@ $header = getHeader("Viewer");
 							  <div class="">
 								   <div class="" style="margin-left:20px; margin-top:10px">
 
-							  <div class=""> Object gid:&nbsp;<input type="text" id="objGidTxt" onfocus="this.value=''" style="right-margin:10px; border:1px solid black; color:orange; text-align:center;">
+							  <div class=""> Object gid:&bsp;<input type="text" id="objGidTxt" onfocus="this.value=''" style="right-margin:10px; border:1px solid black; color:orange; text-align:center;">
 							   <button id="objGidBtn" type="button" title="search with object gid" class="btn btn-default" onclick="getGeoJSONbyObjGid()">
 									<span class="glyphicon glyphicon-search"></span>
 							   </button>
