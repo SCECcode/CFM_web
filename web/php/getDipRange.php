@@ -5,9 +5,8 @@
 <body>
 
 <?php
-
-include ("util.php");
-$dbconn = getConnection();
+$dbconn = pg_connect("host=db port=5432 dbname=CFM52_db user=webonly password=scec");
+if (!$dbconn) { die('Could not connect'); }
 
 $query = "SELECT dip FROM OBJECT_tb";
 $result = pg_query($dbconn, $query);

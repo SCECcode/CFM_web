@@ -29,12 +29,6 @@ function dismiss_sidebar() {
   if(strike_sidebar) strikeClick();
   if(dip_sidebar) dipClick();
   if(gid_sidebar) gidClick();
-  var sidebarptr=$('#sidebar');
-  sidebarptr.css("display","none");
-}
-
-function dismissClick() {
-  dismiss_sidebar();
 }
 
 // area sidebar js

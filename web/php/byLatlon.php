@@ -6,10 +6,12 @@
 
 <?php
 
-include ("util.php");
-$dbconn = getConnection();
+$dbconn = pg_connect("host=db port=5432 dbname=CFM52_db user=webonly password=scec");
+if (!$dbconn) { die('Could not connect'); }
 
 // if there are only 1 set of lat lon, then expand into a range
+
+
 
 $firstlat = floatVal($_GET['firstlat']);
 $secondlat = floatVal($_GET['secondlat']);

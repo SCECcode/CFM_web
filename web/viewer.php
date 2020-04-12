@@ -142,10 +142,10 @@ $header = getHeader("Viewer");
         </div>
     </div>
 
-    <div id="content-container" class="row">
+    <div id="content-container" class="row" border:1px solid black">
 
-      <div id="control-container" class="col-5">
-        <div id="query-block" class="col-12">
+      <div id="control-container" class="col-5" style="border:3px solid red">
+        <div id="query-block" class="col-12"  style="border:1px solid blue">
             <div class="input-group filters">
                 <select id="search-type" class="custom-select">
                     <option value="">Search by ...</option>
@@ -313,16 +313,16 @@ $header = getHeader("Viewer");
                 </div>
             </div>
         </div> <!-- query-block -->
-        <div id="result-block"  class="col-12">
-          <div class="button-container d-flex flex-column style="overflow:hidden;">
+        <div id="result-block"  class="col-12" style="border:solid 1px blue ">
+          <div class="button-container d-flex flex-column style="overflow:hidden;border:solid 1px green;">
             <div id="geoSearchByObjGidResult" style="display:none"></div>
-            <div id="searchResult" style="overflow:hidden" class="mb-1"></div>
+            <div id="searchResult" class="mb-1"></div>
             <div id="phpResponseTxt"></div>
           </div>
         </div> <!-- result-block -->
       </div> <!-- control-container -->
 
-      <div id="map-container" class="col-7">
+      <div id="map-container" class="col-7" style="border:2px solid purple">
           <div class="col-8 d-flex offset-4 align-items-end mb-1">
             <div>&nbsp;</div>
             <div class="input-group input-group-sm" id="map-controls">
@@ -353,13 +353,21 @@ $header = getHeader("Viewer");
 --->
           </div>
 
-          <div class="row mapData">
+          <div class="row mapData" style="border:1px solid blue">
             <div class="col-12 pr-0 pl-2 pt-1">
               <div class="row w-100 mb-1" id='CFM_plot'
                  style="position:relative;border:solid 1px #ced4da; height:576px;"></div>
 
             </div>
           </div>
+
+<!-- search result XXX 
+          <div class="col-5 button-container d-flex flex-column style="overflow:hidden;border:solid 1px green;">
+            <div id="geoSearchByObjGidResult" style="display:none"></div>
+            <div id="searchResult" class="mb-1"></div>
+            <div id="phpResponseTxt"></div>
+          </div>
+-->
 
         </div> <!-- map container -->
         <div id="metadata-viewer-container" class="col-12">

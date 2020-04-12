@@ -117,20 +117,11 @@ function reset_select_latlon() {
 
 // download meta data of selected highlighted faults 
 // mlist should not be null
-function downloadJSONMeta(mlist) {
+function downloadMeta(mlist) {
    var data;
    var timestamp;
    [data,timestamp]=getJSONFromMeta(mlist);
-   saveAsJSONBlobFile(data, timestamp);
-}
-
-// download meta data of selected highlighted faults 
-// mlist should not be null
-function downloadCSVMeta(mlist) {
-   var data;
-   var timestamp;
-   [data,timestamp]=getCSVFromMeta(mlist);
-   saveAsCSVBlobFile(data, timestamp);
+   saveAsBlobFile(data, timestamp);
 }
 
 function expandColorsControl() {
@@ -191,11 +182,11 @@ function downloadURLsAsZip(mlist) {
   var url;
   var dname;
 
-  [data,timestamp]=getCSVFromMeta(mlist);
+  [data,timestamp]=getJSONFromMeta(mlist);
   var nzip=new JSZip();
 
   // put in the metadata
-  var fname="CFM_metadata_"+timestamp+".csv"; 
+  var fname="CFM_metadata_"+timestamp+".json"; 
   nzip.file(fname, data);
 
   var cnt=mlist.length;
@@ -310,7 +301,7 @@ function startDownload()
     return;
   }
   if (use_download_set == 'meta' || use_download_set == 'all') {
-    downloadCSVMeta(mlist);
+    downloadMeta(mlist);
   }
 
   if(use_download_set != 'meta') {
@@ -459,39 +450,6 @@ function getJSONFromMeta(mlist) {
 //http://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript
     return [jsonblob,timestamp];
 }
-
-// build up csv format for output metadata
-// CSV < fault1-meta , fault2-meta ..
-function getCSVFromMeta(mlist) {
-
-    var timestamp = $.now(); //https://stackoverflow.com/questions/221294/how-do-you-get-a-timestamp-in-javascript
-
-    var data={"timestamp":timestamp, "metadata":mlist };
-    var len=mlist.length;  // each data is a meta data format
-    // grab the first meta data and generate the title..
-    var i=0;
-    if(len < 1) {
-        return [ "", timestamp ];
-    } 
-    var last=len-1;
-    var meta=mlist[0];
-    var keys=Object.keys(meta);
-    var kblob=keys.join(",");
-    var csvblob = keys.join(",");
-    csvblob +='\n';
-    for(i=0; i< len; i++) {
-       meta=mlist[i];
-       var values=Object.values(meta)
-       var vblob=values.join(",");
-       csvblob += vblob;
-       if(i != last) {
-         csvblob +='\n';
-       }
-   }
-//http://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript
-    return [csvblob,timestamp];
-}
-
 
 function getGidFromMeta(meta) {
    var gid=meta['gid'];
