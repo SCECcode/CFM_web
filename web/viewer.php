@@ -290,7 +290,7 @@ $header = getHeader("Viewer");
                                 </div>
                             </div>
                         </li>
-                        <!-- debug purpose
+<!-- debug purpose
                           <li id='gid' class='navigationLi ' style="display:none">
                             <div id='gidMenu' class='menu'>
                               <div id='gidLabel' class='menuLabel' style="margin-left:20px;font-size:14px;font-weight:bold">Query for GEO JSON Object by object_tb_gid:<button class="pull-right" title="dismiss" onclick="gidClick()" style="border:none;background-color:transparent"><span class="glyphicon glyphicon-remove"></span>
@@ -308,8 +308,9 @@ $header = getHeader("Viewer");
                                </div>
                             </div>
                           </li>
-                        -->
-                    </ul> <!-- pull-out --> </div>
+-->
+                    </ul> <!-- sidebar pull-out --> 
+                </div>
             </div>
         </div> <!-- query-block -->
         <div id="result-block"  class="col-12">

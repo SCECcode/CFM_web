@@ -26,7 +26,7 @@ function refresh_map()
   if (viewermap == undefined) {
     window.console.log("refresh_map: BAD BAD BAD");
     } else {
-      viewermap.setView([34.3, -118.4], 6);
+      viewermap.setView([34.3, -118.4], 7);
   }
 }
 
@@ -62,7 +62,7 @@ function setup_viewer()
 
 // ==> mymap <==
   mymap = L.map('CFM_plot', { drawControl:false, layers: [esri_topographic, basemap], zoomControl:true} );
-  mymap.setView([34.3, -118.4], 6);
+  mymap.setView([34.3, -118.4], 7);
 
 // basemap selection
   var ctrl_div=document.getElementById('external_leaflet_control');
