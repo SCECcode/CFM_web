@@ -113,19 +113,19 @@ $header = getHeader("Viewer");
 
 
 <div class="container main">
-    <div class="row" id="description">
+    <div class="row">
         <div class="col-12">
             <p>The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model (CFM)</a> are three-dimensional and non-planar; however, to simplify browsing the model, the viewer below provides a two-dimensional map-based view of the SCEC CFM version 5.2 preferred fault set. The alternative fault representations are only provided in the complete CFM archive. Here, the viewer allows users to view and download fault geometry data as well as metadata for selected faults rather than downloading the entire CFM model archive. This site is currently in beta testing. See the <a href="guide">user guide</a> for more details and site usage instructions.</p>
         </div>
     </div>
 
-    <div class="row" id="leaflet control" style="display:none;">
+    <div class="row" style="display:none;">
         <div class="col justify-content-end custom-control-inline">
             <div style="display:none;" id="external_leaflet_control"></div>
-<!--- this is where fault line is colored with dip value of the fault --->
             <button id="colorBtn" class="btn cfm-top-small-btn" onMouseEnter="expandColorsControl()">
                 <span class="glyphicon glyphicon-star"></span></button>
             <div id="colorSelect" class="cfm-control-colors" onMouseLeave="removeColorsControl()"></div>
+
             <button id="toggleBtn" class="btn cfm-top-small-btn" title="toggle to display all faults"
                     onclick="toggleAll()">
                 <span class="glyphicon glyphicon-adjust"></span></button>
@@ -142,10 +142,8 @@ $header = getHeader("Viewer");
         </div>
     </div>
 
-    <div id="content-container" class="row" border:1px solid black">
-
-      <div id="control-container" class="col-5" style="border:3px solid red">
-        <div id="query-block" class="col-12"  style="border:1px solid blue">
+    <div id="controls-container" class="row">
+        <div class="col-4">
             <div class="input-group filters">
                 <select id="search-type" class="custom-select">
                     <option value="">Search by ...</option>
@@ -312,18 +310,8 @@ $header = getHeader("Viewer");
                     </ul> <!-- sidebar pull-out --> 
                 </div>
             </div>
-        </div> <!-- query-block -->
-        <div id="result-block"  class="col-12" style="border:solid 1px blue ">
-          <div class="button-container d-flex flex-column style="overflow:hidden;border:solid 1px green;">
-            <div id="geoSearchByObjGidResult" style="display:none"></div>
-            <div id="searchResult" class="mb-1"></div>
-            <div id="phpResponseTxt"></div>
-          </div>
-        </div> <!-- result-block -->
-      </div> <!-- control-container -->
-
-      <div id="map-container" class="col-7" style="border:2px solid purple">
-          <div class="col-8 d-flex offset-4 align-items-end mb-1">
+        </div>
+        <div class="col-3 d-flex offset-5 align-items-end mb-2">
             <div>&nbsp;</div>
             <div class="input-group input-group-sm" id="map-controls">
                 <div class="input-group-prepend">
@@ -351,113 +339,124 @@ $header = getHeader("Viewer");
                 </select>
             </div>
 --->
-          </div>
+            <!--            <a class="ui-button" onclick="toggleAll();">Show/Hide Faults</a>-->
 
-          <div class="row mapData" style="border:1px solid blue">
-            <div class="col-12 pr-0 pl-2 pt-1">
-              <div class="row w-100 mb-1" id='CFM_plot'
+        </div>
+    </div>
+
+
+    <div class="row mapData">
+        <div class="col-5 button-container d-flex flex-column" style="overflow:hidden;">
+            <div id="searchResult" class="mb-1">
+            </div>
+            <div id="geoSearchByObjGidResult" style="display:none"></div>
+            <div id="phpResponseTxt"></div>
+        </div>
+        <div class="col-7 pr-0 pl-2 ">
+            <div class="row w-100 mb-1" id='CFM_plot'
                  style="position:relative;border:solid 1px #ced4da; height:576px;"></div>
 
-            </div>
-          </div>
 
-<!-- search result XXX 
-          <div class="col-5 button-container d-flex flex-column style="overflow:hidden;border:solid 1px green;">
-            <div id="geoSearchByObjGidResult" style="display:none"></div>
-            <div id="searchResult" class="mb-1"></div>
-            <div id="phpResponseTxt"></div>
-          </div>
--->
-
-        </div> <!-- map container -->
-        <div id="metadata-viewer-container" class="col-12">
-           <table id="metadata-viewer">
-               <thead>
-               <tr>
-                   <th>Fault</th>
-                   <th>Area</th>
-                   <th>Zone</th>
-                   <th>Section</th>
-                   <th>CFM Version</th>
-<!--                   <th>Strike</th>-->
-<!--                   <th>Dip</th>-->
-<!--                   <th>Area (m<sup>2</sup>) </th>-->
-                   <th><div class="col text-center">
-                           <div class="btn-group download-now">
-                               <button id="download-all" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
-                                       aria-haspopup="true" aria-expanded="false" disabled>
-                                   Download All <span id="download-counter"></span>
-                               </button>
-                               <div class="dropdown-menu dropdown-menu-right">
-                                   <button class="dropdown-item" type="button" value="meta"
-                                           onclick="executeDownload(this.value);">Metadata
-                                   </button>
-                                   <button class="dropdown-item" type="button" value="native"
-                                           onclick="executeDownload(this.value);">Native + Metadata
-                                   </button>
-                                   <button class="dropdown-item" type="button" value="500m"
-                                           onclick="executeDownload(this.value);">500m + Metadata
-                                   </button>
-                                   <button class="dropdown-item" type="button" value="1000m"
-                                           onclick="executeDownload(this.value);">1000m + Metadata
-                                   </button>
-                                   <button class="dropdown-item" type="button" value="2000m"
-                                           onclick="executeDownload(this.value);">2000m + Metadata
-                                   </button>
-                                   <button class="dropdown-item" type="button" value="all"
-                                         onclick="executeDownload(this.value);">All of the Above
-                                   </button>
-                               </div>
+        </div>
+    </div>
+        <div class="row">
+            <div class="col-12" id="metadata-viewer-container">
+                <table id="metadata-viewer">
+                    <thead>
+                    <tr>
+                        <th>Fault</th>
+                        <th>Area</th>
+                        <th>Zone</th>
+                        <th>Section</th>
+                        <th>CFM Version</th>
+<!--                        <th>Strike</th>-->
+<!--                        <th>Dip</th>-->
+<!--                        <th>Area (m<sup>2</sup>) </th>-->
+                        <th><div class="col text-center">
+                                <div class="btn-group download-now">
+                                    <button id="download-all" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false" disabled>
+                                        Download All <span id="download-counter"></span>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <button class="dropdown-item" type="button" value="meta"
+                                                onclick="executeDownload(this.value);">Metadata
+                                        </button>
+                                        <button class="dropdown-item" type="button" value="native"
+                                                onclick="executeDownload(this.value);">Native + Metadata
+                                        </button>
+                                        <button class="dropdown-item" type="button" value="500m"
+                                                onclick="executeDownload(this.value);">500m + Metadata
+                                        </button>
+                                        <button class="dropdown-item" type="button" value="1000m"
+                                                onclick="executeDownload(this.value);">1000m + Metadata
+                                        </button>
+                                        <button class="dropdown-item" type="button" value="2000m"
+                                                onclick="executeDownload(this.value);">2000m + Metadata
+                                        </button>
+                                        <button class="dropdown-item" type="button" value="all"
+                                              onclick="executeDownload(this.value);">All of the Above
+                                        </button>
+                                    </div>
                                 </div>
-                           &nbsp; &nbsp;
-                           <div class="btn-group download-now">
+                                &nbsp; &nbsp;
+                                <div class="btn-group download-now">
 <!-- MODAL popup button, reuse download-counter -->
-                               <button id="plot3d-all" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
-                                       aria-haspopup="true" aria-expanded="false" disabled>
-                                   Plot3d <span id="download-counter"></span>
-                               </button>
-                               <div class="dropdown-menu dropdown-menu-right">
-                                   <button class="dropdown-item" type="button" value="native"
-                                           onclick="executePlot3d(this.value);">Native
-                                   </button>
-                                   <button class="dropdown-item" type="button" value="500m"
-                                           onclick="executePlot3d(this.value);">500m
-                                   </button>
-                                   <button class="dropdown-item" type="button" value="1000m"
-                                           onclick="executePlot3d(this.value);">1000m
-                                   </button>
-                                   <button class="dropdown-item" type="button" value="2000m"
-                                           onclick="executePlot3d(this.value);">2000m
-                                   </button>
-                                   <button class="dropdown-item" type="button" value="all"
-                                         onclick="executePlot3d(this.value);">All of the Above
-                                   </button>
-                               </div>
+                                    <button id="plot3d-all" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false" disabled>
+                                        Plot3d <span id="download-counter"></span>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <button class="dropdown-item" type="button" value="native"
+                                                onclick="executePlot3d(this.value);">Native
+                                        </button>
+                                        <button class="dropdown-item" type="button" value="500m"
+                                                onclick="executePlot3d(this.value);">500m
+                                        </button>
+                                        <button class="dropdown-item" type="button" value="1000m"
+                                                onclick="executePlot3d(this.value);">1000m
+                                        </button>
+                                        <button class="dropdown-item" type="button" value="2000m"
+                                                onclick="executePlot3d(this.value);">2000m
+                                        </button>
+                                        <button class="dropdown-item" type="button" value="all"
+                                              onclick="executePlot3d(this.value);">All of the Above
+                                        </button>
+                                    </div>
 
-                           </div>
-                       </div></th>
-               </tr>
-               </thead>
-               <tbody>
-               <tr id="placeholder-row">
-                   <td colspan="12">Metadata for selected faults will appear here. </td>
-               </tr>
-               </tbody>
-           </table>
-       </div>
+                                </div>
+                            </div></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr id="placeholder-row">
+                        <td colspan="12">Metadata for selected faults will appear here. </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <!--                    <p>-->
+                <!--                        The CFM Viewer was developed by the <a href="https://www.scec.org/">Southern California Earthquake Center</a> (SCEC) and SCEC-->
+                <!--                        Community Fault Model researchers. More information is available on the <a-->
+                <!--                            href="https://www.scec.org/research/cfm">SCEC CFM Research Page</a>. SCEC is funded by-->
+                <!--                        <a href="https://www.nsf.gov">National Science Foundation</a> and the <a href="https://www.usgs.gov">United States Geological Survey</a>.-->
+                <!--                    </p>-->
+            </div>
+        </div>
+
     </div>
 
-    </div>
-  </div>
-</div> <!-- content-container -->
+    <div class="row">&nbsp;</div>
 
+    <div id='queryBlock' class="col-6" style="overflow:hidden;display:none;">
 
+    </div> <!-- query block -->
+</div>
 <div id="dip-strike-key-container" style="display:none;">
     <div id="dip-strike-key" class="row">
         <div class="col text-right">
-            <span class="min"></span><span class="ui-slider-range" style="width: 200px;">&nbsp;</span><span class="max"></span>
-        </div>
-    </div>
+		<span class="min"></span><span class="ui-slider-range" style="width: 200px;">&nbsp;</span><span class="max"></span>
+            </div>
+	</div>
 </div>
 
 <!--Modal: Name-->
