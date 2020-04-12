@@ -1,4 +1,33 @@
 /* required styles */
+#content-container {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.skip-padding {
+    padding: 0;
+}
+
+.glyphicon.glyphicon-search {
+    font-size: 25px;
+}
+.cfm-active {
+        color: #DC3545;
+        }
+
+.cfm-small-btn {
+          background: transparent;
+          color: #990000;
+          border: none;
+          display: inline-block;
+          }
+
+.cfm-small-btn:hover {
+          color: #DC3545;
+          border: none;
+          display: inline-block;
+          }
+
 
 :root {
     /*font-size: 90%;*/
@@ -251,17 +280,6 @@ div.mapData {
     border-radius: 2px;
 }
 
-.cfm-small-btn {
-    background: transparent;
-    color: #53A2BE;
-    border: none;
-    display: inline-block;
-}
-
-.cfm-small-btn:disabled {
-    color: white;
-}
-
 div.button-container button {
     background: transparent;
     color: #011638;
@@ -273,6 +291,11 @@ div.button-container button {
 .cfm-table {
     max-height: 576px;
     overflow: auto;
+}
+
+#control-container {
+    max-height: 650px;
+    overflow: hidden;
 }
 
 .cfm-top-btn {
@@ -511,9 +534,11 @@ table tr td label {
     font-weight: normal;
 }
 
+/* ----- not for cfm_web
 .input-group {
     max-width: 269px;
 }
+---*/
 
 .info-page-container {
     border:1px solid gray;

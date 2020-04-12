@@ -1,4 +1,13 @@
 <?php
+function getConnection() {
+  $dbconn = pg_connect("host=localhost port=5432 dbname=CFM52_db user=webonly password=scec");
+
+//  $dbconn = pg_connect("host=db port=5432 dbname=CFM52_db user=webonly password=scec");
+
+  if (!$dbconn) { die('Could not connect'); }
+  return $dbconn;
+}
+
 function makeObj($row) {
 
 include ("declare.php");
