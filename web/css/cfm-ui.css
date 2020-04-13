@@ -252,15 +252,21 @@ div.mapData {
 }
 
 .cfm-small-btn {
-    background: transparent;
-    color: #53A2BE;
-    border: none;
-    display: inline-block;
-}
+          background: transparent;
+          color: #990000;
+          border: none;
+          display: inline-block;
+          }
+
+.cfm-small-btn:hover {
+          color: #DC3545;
+          border: none;
+          display: inline-block;
+          }
 
 .cfm-small-btn:disabled {
-    color: white;
-}
+         color: white;
+        }
 
 div.button-container button {
     background: transparent;
