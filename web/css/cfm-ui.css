@@ -1,5 +1,13 @@
 /* required styles */
 
+.glyphicon.glyphicon-search {
+    font-size: 25px;
+}
+
+.glyphicon.glyphicon-cog {
+    font-size: 30px;
+}
+
 :root {
     /*font-size: 90%;*/
 }
