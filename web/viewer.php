@@ -284,7 +284,7 @@ $header = getHeader("Viewer");
                                     </div>
                                     <div class="col-1 pr-0 align-items-center">
                                         <button id="latlonBtn" type="button" title="search with latlon"
-                                                class="btn btn-default cfm-small-btn " onclick="searchByLatlon()">
+                                                class="btn btn-default cfm-small-btn " onclick="searchByLatlon(0)">
                                             <span class="glyphicon glyphicon-search"></span>
                                         </button>
                                     </div>

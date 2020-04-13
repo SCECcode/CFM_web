@@ -149,7 +149,7 @@ function setup_viewer()
         var ne=loclist[2];
         add_bounding_rectangle_layer(layer,sw['lat'],sw['lng'],ne['lat'],ne['lng']);
         mymap.addLayer(layer);
-        searchByLatlon();
+        searchByLatlon(1);
     }
   });
 
