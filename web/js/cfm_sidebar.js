@@ -328,32 +328,36 @@ function draw_at()
 // need to capture the lat lon and draw a rectangle but
 // not when in the map-marking mode : drawing_rectangle==true
 function chk_and_add_bounding_rectangle() {
-  
-  if(drawing_rectangle) {
+
+  if(!drawing_rectangle) {
     return;
   }
+
   var firstlatstr=document.getElementById("firstLatTxt").value;
   var firstlonstr=document.getElementById("firstLonTxt").value;
   var secondlatstr=document.getElementById("secondLatTxt").value;
   var secondlonstr=document.getElementById("secondLonTxt").value;
 
-  if(secondlatstr == "optional" && secondlonstr == "optional") {
+  if((secondlatstr == "optional" && secondlonstr == "optional") ||
+    (secondlatstr == "" && secondlonstr == "") ||
+    (secondlatstr == "0" && secondlonstr == "0")) {
     if(firstlatstr && firstlonstr) { // 2 values
        var t1=parseFloat(firstlatstr);
        var t2=parseFloat(firstlonstr);
-       park_a=t1-0.001;
-       park_b=t2-0.001;
-       park_c=t1+0.001;
-       park_d=t2+0.001;
+
+       var park_a=t1-0.01;
+       var park_b=t2-0.01;
+       var park_c=t1+0.01;
+       var park_d=t2+0.01;
        add_bounding_rectangle(park_a,park_b,park_c,park_d);
     } 
     } else {
        if(secondlatstr && secondlonstr) {
          if(firstlatstr && firstlonstr) { // 4 values
-           park_a=parseFloat(firstlatstr);
-           park_b=parseFloat(firstlonstr);
-           park_c=parseFloat(secondlatstr);
-           park_d=parseFloat(secondlonstr);
+           var park_a=parseFloat(firstlatstr);
+           var park_b=parseFloat(firstlonstr);
+           var park_c=parseFloat(secondlatstr);
+           var park_d=parseFloat(secondlonstr);
            add_bounding_rectangle(park_a,park_b,park_c,park_d);
          }
        }

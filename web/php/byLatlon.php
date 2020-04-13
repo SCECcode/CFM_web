@@ -17,12 +17,12 @@ $firstlon = floatVal($_GET['firstlon']);
 $secondlon = floatVal($_GET['secondlon']);
 
 if($secondlat == "0") { 
-  $secondlat = $firstlat+0.001;
-  $firstlat = $firstlat-0.001;
+  $secondlat = $firstlat+0.01;
+  $firstlat = $firstlat-0.01;
 }
 if($secondlon == "0") {
-  $secondlon = $firstlon+0.001;
-  $firstlon = $firstlon-0.001;
+  $secondlon = $firstlon+0.01;
+  $firstlon = $firstlon-0.01;
 }
 
 $minlon = $firstlon;
