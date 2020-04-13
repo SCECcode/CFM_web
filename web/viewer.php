@@ -111,6 +111,9 @@ $header = getHeader("Viewer");
 <body>
 <?php echo $header; ?>
 
+<script type="text/javascript">
+   var UI_TEST=0;
+</script>
 
 <div class="container main">
     <div class="row">
@@ -248,10 +251,10 @@ $header = getHeader("Viewer");
                             </div>
                         </li>
 <!-- XXX --->
-                        <li id='latlon' class='navigationLi' style="width:600px; display:none">
+                        <li id='latlon' class='navigationLi' style="width:500px; display:none">
                             <div id='latlonMenu' class='menu'>
-                                <div class="row">
-                                    <div class="col-5">
+                                <div class="row" style="border:1px solid red">
+                                    <div class="col-6">
                                         <p>Draw a rectangle on the map or enter latitudes and longitudes.</p>
                                     </div>
                                     <div class="col-2 pl-0 pr-0">

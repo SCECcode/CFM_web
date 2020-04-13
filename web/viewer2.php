@@ -111,6 +111,9 @@ $header = getHeader("Viewer");
 <body>
 <?php echo $header; ?>
 
+<script type="text/javascript">
+   var UI_TEST=1;
+</script>
 
 <div class="container main">
     <div class="row" id="description">
@@ -144,8 +147,8 @@ $header = getHeader("Viewer");
 
     <div id="content-container" class="row">
 
-      <div id="control-container" class="col-5" style="border:2px solid green">
-        <div id="query-block" class="col-12 mb-2">
+      <div id="control-container" class="row col-5">
+        <div id="query-block" class="col-12">
             <div class="input-group filters">
                 <select id="search-type" class="custom-select">
                     <option value="dismissClick">Search by ...</option>
@@ -249,7 +252,7 @@ $header = getHeader("Viewer");
 
                             </div>
                         </li>
-                        <li id='latlon' class='navigationLi ' style="display:none">
+                        <li id='latlon' class='navigationLi ' style="width:325px;display:none">
                             <div id='latlonMenu' class='menu'>
                                 <div class="row mt-2">
                                     <div class="col-12">
@@ -327,9 +330,8 @@ $header = getHeader("Viewer");
         </div> <!-- result-block -->
       </div> <!-- control-container -->
 
-      <div id="map-container" class="col-7" style="position:relative" >
-          <div class="col-8 d-flex offset-4 align-items-end mb-1">
-            <div>&nbsp;</div>
+      <div id="map-container" class="col-7" style="border:1px solid green;position:relative" >
+          <div class="col-6 d-flex offset-6 align-items-end" style="border:1px solid red;">
             <div class="input-group input-group-sm" id="map-controls">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="mapLayer">Select Map Type</label>
