@@ -202,7 +202,7 @@ function makeResultTable(str)
     // var html="<table><tr><th style=\"border:1px solid white;\">CFM5.2 Fault Objects<button id=\"allBtn\" class=\"btn cfm-small-btn\" title=\"select all visible faults\" onclick=\"selectAll()\"><span class=\"glyphicon glyphicon-unchecked\"></span></button></th></tr></table>";
     var html = "";
     html=html+"<div class=\"cfm-table\" ><table>";
-    html+="<thead><tr><th class='text-center'><button id=\"allBtn\" class=\"btn btn-sm cfm-small-btn\" title=\"select all visible faults\" onclick=\"selectAll();\"><span class=\"glyphicon glyphicon-unchecked\"></span></button></th><th class='text-center'></th><th>CFM5.2 Fault Objects</th></tr></thead><tbody>";
+    html+="<thead><tr><th class='text-center'><button id=\"allBtn\" class=\"btn btn-sm cfm-small-btn\" title=\"select all visible faults\" onclick=\"selectAll();\"><span class=\"glyphicon glyphicon-unchecked\"></span></button></th><th class='text-center'></th><th class='myheader'>FM5.2 Fault Objects</th></tr></thead><tbody>";
     var sz=(Object.keys(str).length);
     var tmp="";
     for( var i=0; i< sz; i++) {
@@ -387,11 +387,23 @@ function addDownloadSelect() {
 }
 
 
-function saveAsBlobFile(data, timestamp)
+function saveAsJSONBlobFile(data, timestamp)
 {
 //http://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript
 //   var rnd= Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
     var fname="CFM_metadata_"+timestamp+".json";
+    var blob = new Blob([data], {
+        type: "text/plain;charset=utf-8"
+    });
+    //FileSaver.js
+    saveAs(blob, fname);
+}
+
+function saveAsCSVBlobFile(data, timestamp)
+{
+//http://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript
+//   var rnd= Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    var fname="CFM_metadata_"+timestamp+".csv";
     var blob = new Blob([data], {
         type: "text/plain;charset=utf-8"
     });

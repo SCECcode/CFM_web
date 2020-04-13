@@ -6,8 +6,8 @@
 
 <?php
 
-$dbconn = pg_connect("host=db port=5432 dbname=CFM52_db user=webonly password=scec");
-if (!$dbconn) { die('Could not connect'); }
+include ("util.php");
+$dbconn = getConnection();
 
 $q = ($_GET['q']);
 

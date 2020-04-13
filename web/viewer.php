@@ -142,11 +142,11 @@ $header = getHeader("Viewer");
         </div>
     </div>
 
-    <div id="controls-container" class="row">
-        <div class="col-4">
-            <div class="input-group filters">
+    <div id="controls-container" class="row mb-2">
+        <div class="col-6 mb-2">
+             <div class="input-group filters">
                 <select id="search-type" class="custom-select">
-                    <option value="">Search by ...</option>
+                    <option value="dismissClick">Search by ...</option>
                     <option value="keywordClick">Keyword</option>
                     <option value="latlonClick">Latitude &amp; Longitude</option>
                     <option disabled>-- Advanced --</option>
@@ -163,9 +163,9 @@ $header = getHeader("Viewer");
                     <button onclick="refreshAll();" class="btn btn-dark pl-4 pr-4" type="button">Reset</button>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="margin-bottom:-10px;">
                 <div class="col input-group">
-                    <ul id="sidebar" class="navigation">
+                    <ul id="sidebar" class="navigation" style="display:none">
                         <li id='area' class='navigationLi ' style="display:none;">
                             <div id='areaMenu' class='menu'>
                                 <div class="">
@@ -247,25 +247,28 @@ $header = getHeader("Viewer");
 
                             </div>
                         </li>
-                        <li id='latlon' class='navigationLi ' style="display:none">
+<!-- XXX --->
+                        <li id='latlon' class='navigationLi' style="width:600px; display:none">
                             <div id='latlonMenu' class='menu'>
-                                <div class="row mt-2">
-                                    <div class="col-12">
-                                        <p>Draw a rectangle on the map or enter latitudes and longitudes below.</p>
+                                <div class="row">
+                                    <div class="col-5">
+                                        <p>Draw a rectangle on the map or enter latitudes and longitudes.</p>
                                     </div>
-                                </div>
-                                <div class="row d-flex ">
-                                    <div class="col-5 pr-0">
+                                    <div class="col-2 pl-0 pr-0">
                                         <input type="text"
                                                placeholder="Latitude"
                                                id="firstLatTxt"
                                                title="first lat"
                                                onfocus="this.value=''"
                                                class="form-control">
-                                        <input type="text" id="firstLonTxt" placeholder='Longitude' title="first lon"
-                                               onfocus="this.value=''" class="form-control mt-1">
+                                        <input type="text" 
+                                               id="firstLonTxt" 
+                                               placeholder='Longitude' 
+                                               title="first lon"
+                                               onfocus="this.value=''" 
+                                               class="form-control mt-1">
                                     </div>
-                                    <div class="col-5 pr-0">
+                                    <div class="col-2 pl-1 pr-0">
                                         <input type="text"
                                                id="secondLatTxt"
                                                title="optional second lat"
@@ -311,7 +314,7 @@ $header = getHeader("Viewer");
                 </div>
             </div>
         </div>
-        <div class="col-3 d-flex offset-5 align-items-end mb-2">
+        <div class="col-3 d-flex offset-3 align-items-end">
             <div>&nbsp;</div>
             <div class="input-group input-group-sm" id="map-controls">
                 <div class="input-group-prepend">
@@ -347,7 +350,7 @@ $header = getHeader("Viewer");
 
     <div class="row mapData">
         <div class="col-5 button-container d-flex flex-column" style="overflow:hidden;">
-            <div id="searchResult" class="mb-1">
+            <div id="searchResult" style="overflow:hidden;" class="mb-1">
             </div>
             <div id="geoSearchByObjGidResult" style="display:none"></div>
             <div id="phpResponseTxt"></div>
