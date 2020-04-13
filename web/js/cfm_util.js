@@ -382,7 +382,7 @@ function refreshAll() {
   document.getElementById("geoSearchByObjGidResult").innerHTML = "";
   document.getElementById("searchResult").innerHTML = "";
   document.getElementById("phpResponseTxt").innerHTML = "";
-  $("#search-type").val("");
+  $("#search-type").val("dismissClick");
 //  document.getElementById("objGidTxt").value = '';
   refresh_map();
   dismiss_sidebar();
