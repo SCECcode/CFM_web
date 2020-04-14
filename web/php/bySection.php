@@ -27,7 +27,7 @@ while($row = pg_fetch_row($result)) {
     array_push($resultList, json_encode($item));
 }
 
-$resultstring = htmlspecialchars($resultList, ENT_QUOTES, 'UTF-8');
+$resultstring = htmlspecialchars(json_encode($resultList), ENT_QUOTES, 'UTF-8');
 
 echo "<div data-side=\"resultBySection\" data-params=\"";
 echo $resultstring;
