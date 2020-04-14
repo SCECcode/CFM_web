@@ -25,7 +25,7 @@ while($row = pg_fetch_row($result)) {
     $item = new \stdClass();
     $item->gid=$row[0];
     $item->name=$row[1];
-    array_push($resultList, json_encode($item));
+    array_push($resultList, $item);
 }
 
 $resultstring = htmlspecialchars(json_encode($resultList), ENT_QUOTES, 'UTF-8');
