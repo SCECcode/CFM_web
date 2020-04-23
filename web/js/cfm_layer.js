@@ -112,6 +112,63 @@ var cfm_blind_gid_list=[];
 /*********************************************************
 *********************************************************/
 
+// create 2 json files cfm_style_list.json, cfm_trace_list.json
+// of current active faults on the leaflet map
+function dumpActiveGeo() {
+  var f = new Date().getTime();
+  var ff= f.toString();
+  var dumpname="cfm_trace_dump.txt"; 
+
+  var csz=cfm_active_gid_list.length;
+
+  var tsz=cfm_trace_list.length;
+  var i;
+  var tlist=[];
+  var cnt=0;
+  for(i=0; i< tsz; i++) {
+    var titem=cfm_trace_list[i];
+    var gid=titem['gid'];
+    // either all, or has a active list
+    if(!csz || in_active_gid_list(gid)) {
+      cnt=cnt+1;
+      tlist.push(titem);
+    }
+  }
+  if(cnt == 0) { // no active faults
+    return;
+  }
+  
+  var dump={ 'cfm_trace_list': tlist }; 
+  var dumpstring=JSON.stringify(dump);
+  var dumpblob = new Blob([dumpstring], { type: "text/plain;charset=utf-8" });
+  saveAs(dumpblob,dumpname);
+}
+
+// Reading files using the HTML5 FileReader.
+function readAndProcessActiveGeo(fobj) {
+
+  var reader = new FileReader();
+
+  reader.onload=function(event) {
+    var evt = event.target.result; 
+    var jblob= JSON.parse(reader.result);
+    var trace_list= jblob["cfm_trace_list"];
+    var cnt=trace_list.length;
+    var i;
+    for(i=0;i<cnt;i++) { 
+       var item=trace_list[i];
+       var gid=item['gid'];
+       var a_trace=item['trace'];
+       
+       // no need to check, just load it
+       var layer=addGeoToMap(a_trace, viewermap);
+       }
+    }
+  };
+  reader.readAsText(fobj);
+};
+
+
 function reset_geo_plot() {
   // can not really 'destroy' layer and so need to reuse..
   cfm_active_gid_list=[];

@@ -16,30 +16,6 @@ var gid_sidebar=false;
 
 var drawing_rectangle=false;
 
-/*
-   1=latlon = 290, 
-   2=other = 450
-   3=orig = 576 */
-var UI_SMALL=1;
-var UI_OTHER=2;
-var UI_ORIG=3;
-function UI_resize_table(sz) {
-  if(UI_TEST) {
-    var ptr=$('#searchResult');
-    switch (sz) {
-      case 1:
-        ptr.css('height',"415px");
-        break;
-      case 2:
-        ptr.css('height',"505px");
-        break;
-      default:
-        ptr.css('height',"576px");
-        break;
-    }
-  }
-}
-
 // initiate a click on the sidebar buttons
 // to dismiss the sidebar
 function dismiss_sidebar() {
@@ -70,10 +46,8 @@ function areaClick() {
   area_sidebar = !area_sidebar;
   if(area_sidebar) {
     sidebar_area_slideOut();
-    UI_resize_table(UI_OTHER);
     } else {
       sidebar_area_slideIn();
-      UI_resize_table(UI_ORIG);
   }
 }
 
@@ -107,10 +81,8 @@ function zoneClick() {
   zone_sidebar = !zone_sidebar;
   if(zone_sidebar) {
     sidebar_zone_slideOut();
-    UI_resize_table(UI_OTHER);
     } else {
       sidebar_zone_slideIn();
-      UI_resize_table(UI_ORIG);
   }
 }
 
@@ -145,11 +117,9 @@ function sectionClick() {
   if(section_sidebar) {
     sidebar_section_slideOut();
     $('#sectionBtn').addClass('pick');
-    UI_resize_table(UI_OTHER);
     } else {
       sidebar_section_slideIn();
       $('#sectionBtn').removeClass('pick');
-      UI_resize_table(UI_ORIG);
   }
 }
 
@@ -183,11 +153,9 @@ function nameClick() {
   if(name_sidebar) {
     sidebar_name_slideOut();
     $('#nameBtn').addClass('pick');
-    UI_resize_table(UI_OTHER);
     } else {
       sidebar_name_slideIn();
       $('#nameBtn').removeClass('pick');
-      UI_resize_table(UI_ORIG);
   }
 }
 
@@ -222,11 +190,9 @@ function keywordClick() {
   if(keyword_sidebar) {
     sidebar_keyword_slideOut();
     $('#keywordBtn').addClass('pick');
-    UI_resize_table(UI_OTHER);
     } else {
       sidebar_keyword_slideIn();
       $('#keywordBtn').removeClass('pick');
-      UI_resize_table(UI_ORIG);
   }
 }
 
@@ -260,11 +226,9 @@ function strikeClick() {
   if(strike_sidebar) {
     sidebar_strike_slideOut();
     $('#strikeBtn').addClass('pick');
-    UI_resize_table(UI_OTHER);
     } else {
       sidebar_strike_slideIn();
       $('#strikeBtn').removeClass('pick');
-      UI_resize_table(UI_ORIG);
   }
 }
 
@@ -299,11 +263,9 @@ function dipClick() {
   if(dip_sidebar) {
     sidebar_dip_slideOut();
     $('#dipBtn').addClass('pick');
-    UI_resize_table(UI_OTHER);
     } else {
       sidebar_dip_slideIn();
       $('#dipBtn').removeClass('pick');
-      UI_resize_table(UI_ORIG);
   }
 }
 
@@ -339,12 +301,10 @@ function latlonClick() {
     sidebar_latlon_slideOut();
     $('#latlonBtn').addClass('pick');
     markLatlon();
-    UI_resize_table(UI_SMALL);
     } else {
       // enable the popup on map
       sidebar_latlon_slideIn();
       $('#latlonBtn').removeClass('pick');
-      UI_resize_table(UI_ORIG);
   }
 }
 

@@ -70,6 +70,7 @@ jQuery(document).ready(function() {
     });
 
     $("#search-type").trigger("change");
+
 }); // end of MAIN
 
 

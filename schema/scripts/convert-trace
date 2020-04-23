@@ -6,7 +6,7 @@ To convert shp file to postgres sql statments,
   MeiPro:CFM5_preferred_traces mei$ more SRID-from-Prj2EPSG 
 26711 - NAD_1927_UTM_Zone_11N
 
-  >>MeiPro:CFM5_preferred_traces mei$ ./r-convert
+  >>MeiPro:CFM5_preferred_traces mei$ ./convert-shp.sh
   >>Shapefile type: ArcZ
   >>Postgis type: MULTILINESTRING[4]
 
