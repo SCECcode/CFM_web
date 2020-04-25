@@ -22,8 +22,10 @@ $header = getHeader("Viewer");
 <script>L_PREFER_CANVAS = true;</script>
     <script type="text/javascript" src="js/vendor/leaflet-src.js"></script>
     <script type="text/javascript" src="js/vendor/leaflet-image.js"></script>
+    <script type='text/javascript' src='js/vendor/leaflet.awesome-markers.min.js'></script>
     <script type="text/javascript" src="js/vendor/html2canvas.js"></script>
     <script type='text/javascript' src='js/vendor/jquery.min.js'></script>
+    <script type='text/javascript' src='js/vendor/jquery.csv.js'></script>
     <script type='text/javascript' src='js/vendor/bootstrap.min.js'></script>
     <script type='text/javascript' src='js/vendor/jquery-ui.js'></script>
     <script type='text/javascript' src='js/vendor/ersi-leaflet.js'></script>
@@ -75,6 +77,7 @@ $header = getHeader("Viewer");
     <script type="text/javascript" src="js/cfm_main.js?v=1"></script>
     <script type="text/javascript" src="js/cfm_query.js?v=1"></script>
     <script type="text/javascript" src="js/cfm_sidebar.js?v=1"></script>
+    <script type="text/javascript" src="js/gfm_region.js?v=1"></script>
     <script type="text/javascript" src="js/cfm_misc_util.js?v=1"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -124,13 +127,15 @@ $header = getHeader("Viewer");
     </div>
 <!--- MISC --->
 <div id="misc tools">
-   <button id="miscBtn" class="btn cfm-small-btn" onClick="dumpActiveGeo()">
-                <span class="glyphicon glyphicon-home"></span></button>
-   <input class="form-control" id='miscGeoJsonBtn' type='file' onchange='readAndProcessActiveGeo(this.files)'  style='display:none;'></input>
-   <button id="fileSelectBtn" class="btn cfm-small-btn" title="open a geoJson file to ingest" onclick='javascript:document.getElementById("miscGeoJsonBtn").click();'>
+   <button id="dumpGeoBtn" class="btn cfm-small-btn"  onClick="dumpActiveGeo()">
+                <span class="glyphicon glyphicon-file"></span> Export active geoJson</button>
+
+   <input class="form-control" id='fileGeoJsonBtn' type='file' onchange='readAndProcessActiveGeo(this.files)'  style='display:none;'></input>
+   <button class="btn cfm-small-btn" title="open a geoJson file to ingest" onclick='javascript:document.getElementById("fileGeoJsonBtn").click();'>
             <span class="glyphicon glyphicon-file"></span> Select geoJson file to use</button>
-   <input class="form-control" id='miscLatlonBtn' type='file' onchange='readAndProcessActiveLatlon(this.files)'  style='display:none;'></input>
-   <button id="fileSelectBtn" class="btn cfm-small-btn" title="open a Latlon file to ingest" onclick='javascript:document.getElementById("miscLatlonBtn").click();'>
+
+   <input class="form-control" id='fileLatlonBtn' type='file' onchange='readAndProcessActiveLatlon(this.files)'  style='display:none;'></input>
+   <button class="btn cfm-small-btn" title="open a Latlon file to ingest" onclick='javascript:document.getElementById("fileLatlonBtn").click();'>
             <span class="glyphicon glyphicon-file"></span> Select Latlon csv file to use</button>
 </div>
 <!-- END of MISC --->

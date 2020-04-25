@@ -4,7 +4,7 @@
 
 a) export 'active' fault's geo out into an external file CFM5.2_geoJson.txt
 b) import external geoJson.txt and create a groupLayer with optional name popup
-
+c) import external latlon.csv with 'name' and create a group Layerof mulitple groups of points with different color 
 **/
 
 // create 2 json files cfm_style_list.json, cfm_trace_list.json
@@ -42,7 +42,6 @@ function dumpActiveGeo() {
   saveAs(dumpblob,dumpname);
 }
 
-// Reading files using the HTML5 FileReader.
 function readAndProcessActiveGeo(urls) {
 
   var reader = new FileReader();
@@ -57,7 +56,7 @@ function readAndProcessActiveGeo(urls) {
        var atrace=trace_list[i];
 
        // change the color
-       atrace.features[0].properties.style.color="green";
+       atrace.features[0].properties.style.color="orange";
        var name= atrace.features[0].properties.name;
        window.console.log("adding trace.. ",name);
     }
@@ -107,4 +106,102 @@ function bindPopupEachFeatureName(feature, layer) {
         },
     });
 }
+
+//domain,xcoord,ycoord
+//Peninsular Range (E),-114.53244,29.43361
+function readAndProcessActiveLatlon(urls) {
+  var reader = new FileReader();
+
+  reader.onload=function(event) {
+    var evt = event.target.result; 
+    var ffline = reader.result.split('\n');
+    var cnt=ffline.length;
+    var fdata=[];
+    if(cnt == 0) {
+      window.console.log("ERROR, can not process the upload file ");
+      return;
+    }
+    var is_csv=0;
+    if(ffline[0].includes(","))
+      is_csv=1;
+
+    // skip the first one
+    for(i=1;i<cnt;i++) {
+       var fline=ffline[i];
+
+       if(is_csv) {
+         $.csv.toArray(fline, {}, function(err, data) {
+           var v=data;
+           if( v != "" ) {
+             fdata.push(v);
+           }
+         });
+       } else {
+// space separated format
+           var v=fline.split(' ');
+           if( v != "" ) {
+             fdata.push(v);
+           } 
+       }   
+    }  
+    addRawLatlonGroupToMap(fdata, viewermap);
+
+  };
+  reader.readAsText(urls[0]);
+}
+
+//domain,xcoord,ycoord
+//Peninsular Range (E),-114.53244,29.43361
+function addRawLatlonGroupToMap(fdataList, mymap) {
+   var cnt=fdataList.length;
+   window.console.log("number of importing points ",cnt);
+   var group = L.layerGroup();
+
+   for(var i=0; i<cnt;i++) {
+     var item=fdataList[i];
+
+     var name=item[0];
+     var lon=parseFloat(item[1]);
+     var lat=parseFloat(item[2]);
+    
+     var color=getRegionColorWithName(name);
+     if(color == undefined) {
+        window.console.log("BAD -- no color for ", name);
+        continue;
+     }
+
+const myCustomColour = '#583470'
+
+const markerHtmlStyles = `
+  background-color: ${color};
+  width: 0.4rem;
+  height: 0.4rem;
+  display: block;
+  opacity: 80%;
+  position: relative;
+  border-radius: 50%;
+  border: 1px solid ${color};
+  transform: rotate(45deg)`
+
+const newIcon = L.divIcon({
+  className: '',
+  html: `<span style="${markerHtmlStyles}" />`
+})
+
+
+     var small_point_options = { icon : newIcon};
+
+     var bounds = [lat,lon ];
+     var marker = L.marker(bounds, small_point_options);
+
+     var icon = marker.options.icon;
+     icon.options.iconSize = [5, 5];
+     marker.setIcon(icon);
+
+     group.addLayer(marker);
+
+   } 
+   mymap.addLayer(group);
+}
+
 
