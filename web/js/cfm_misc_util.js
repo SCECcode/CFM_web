@@ -1,4 +1,3 @@
-
 /**
     cfm_misc_util.c
 
@@ -7,15 +6,16 @@ b) import external geoJson.txt and create a groupLayer with optional name popup
 c) import external latlon.csv with 'name' and create a group Layerof mulitple groups of points with different color 
 **/
 
-// create 2 json files cfm_style_list.json, cfm_trace_list.json
-// of current active faults on the leaflet map
+
+// *** specifically for CFM_web ***
+// create CFM5.2_geoJson.txt json file from cfm_trace_list.json
+// and cfm_active_gid_list of current active faults on the leaflet map
 function dumpActiveGeo() {
   var f = new Date().getTime();
   var ff= f.toString();
   var dumpname="CFM5.2_geoJson.txt"; 
 
   var csz=cfm_active_gid_list.length;
-
   var tsz=cfm_trace_list.length;
   var i;
   var tlist=[];
@@ -42,8 +42,30 @@ function dumpActiveGeo() {
   saveAs(dumpblob,dumpname);
 }
 
-function readAndProcessActiveGeo(urls) {
+// from a local file
+function readLocalAndProcessActiveGeo() {
+  var url="data/CFM5.2_geoJson.txt";
+  var blob=ckExist(url);
+  var jblob=JSON.parse(blob);
 
+  var trace_list= jblob["cfm_trace_list"];
+  var cnt=trace_list.length;
+  var i;
+  for(i=0;i<cnt;i++) { 
+     var atrace=trace_list[i];
+
+     // change the color
+     atrace.features[0].properties.style.color="black";
+     atrace.features[0].properties.style.weight=1;
+     var name= atrace.features[0].properties.name;
+     window.console.log("adding trace.. ",name);
+  }
+  return makeGeoGroup(trace_list);
+}
+
+
+// from an user selected client side file
+function readAndProcessActiveGeo(urls) {
   var reader = new FileReader();
 
   reader.onload=function(event) {
@@ -60,18 +82,24 @@ function readAndProcessActiveGeo(urls) {
        var name= atrace.features[0].properties.name;
        window.console.log("adding trace.. ",name);
     }
-    addGeoGroupToMap(trace_list, viewermap);
+    return makeGeoGroup(trace_list);
   };
   reader.readAsText(urls[0]);
 }
 
-function addGeoGroupToMap(cfmTraceList, mymap) {
-   var cnt=cfmTraceList.length;
+function addGeoGroupToMap(traceList, mymap) {
+   var group=makeGeoGroup(traceList);
+   mymap.addLayer(group);
+   return group;
+}
+
+function makeGeoGroup(traceList) {
+   var cnt=traceList.length;
    window.console.log("number of importing faults ",cnt);
    var group = L.layerGroup();
    for(var i=0; i< cnt; i++) {
-     var cfmTrace=cfmTraceList[i];
-       var geoLayer=L.geoJSON(cfmTrace, {
+     var trace=traceList[i];
+       var geoLayer=L.geoJSON(trace, {
          filter: function (feature, layer) {
            if (feature.properties) {
              var tmp=feature.properties.show_on_map != undefined ? !feature.properties.show_on_map : true;
@@ -91,13 +119,20 @@ function addGeoGroupToMap(cfmTraceList, mymap) {
      });
      group.addLayer(geoLayer);
    } 
-   mymap.addLayer(group);
+   return group;
 }
+
 
 // binding the 'detail' fault content
 function bindPopupEachFeatureName(feature, layer) {
     var popupContent="";
     layer.on({
+        mouseover: function(e) {
+          layer.setStyle({weight: 5});
+        },
+        mouseout: function(e) {
+          layer.setStyle({weight: 1});
+        },
         click: function(e) {
           if (feature.properties != undefined) {
             popupContent = feature.properties.name;
@@ -144,15 +179,56 @@ function readAndProcessActiveLatlon(urls) {
            } 
        }   
     }  
-    addRawLatlonGroupToMap(fdata, viewermap);
+    return makeRawLatlonGroup(fdata);
 
   };
   reader.readAsText(urls[0]);
 }
 
-//domain,xcoord,ycoord
-//Peninsular Range (E),-114.53244,29.43361
+function readLocalAndProcessActiveLatlon() {
+
+  var url="data/CRM_polygons_points_with_corrected_Rift_names_Mar112019.csv";
+  var blob=ckExist(url);
+  var ffline = blob.split('\n');
+  var cnt=ffline.length;
+  var fdata=[];
+  if(cnt == 0) {
+    window.console.log("ERROR, can not process the upload file ");
+    return;
+  }
+  var is_csv=0;
+  if(ffline[0].includes(","))
+    is_csv=1;
+
+  // skip the first one
+  for(i=1;i<cnt;i++) {
+     var fline=ffline[i];
+
+     if(is_csv) {
+       $.csv.toArray(fline, {}, function(err, data) {
+         var v=data;
+         if( v != "" ) {
+           fdata.push(v);
+         }
+       });
+     } else {
+// space separated format
+         var v=fline.split(' ');
+         if( v != "" ) {
+           fdata.push(v);
+         } 
+     }   
+  }  
+  return makeRawLatlonGroup(fdata);
+}
+
 function addRawLatlonGroupToMap(fdataList, mymap) {
+   var group=makeRawLatlonGroup(fdataList);
+   mymap.addLayer(group);
+   return group;
+}
+
+function makeRawLatlonGroup(fdataList) {
    var cnt=fdataList.length;
    window.console.log("number of importing points ",cnt);
    var group = L.layerGroup();
@@ -174,8 +250,8 @@ const myCustomColour = '#583470'
 
 const markerHtmlStyles = `
   background-color: ${color};
-  width: 0.4rem;
-  height: 0.4rem;
+  width: 0.2rem;
+  height: 0.2rem;
   display: block;
   opacity: 80%;
   position: relative;
@@ -201,7 +277,7 @@ const newIcon = L.divIcon({
      group.addLayer(marker);
 
    } 
-   mymap.addLayer(group);
+   return group;
 }
 
 
