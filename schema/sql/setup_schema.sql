@@ -85,5 +85,5 @@ CREATE TABLE OBJECT_tb (
    USGS_ID VARCHAR(100),
 
    blind integer DEFAULT 0,
-   blinds integer [] DEFAULT [0]
+   blinds integer []
 );
