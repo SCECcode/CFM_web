@@ -84,5 +84,6 @@ CREATE TABLE OBJECT_tb (
    ID_comments VARCHAR(100),
    USGS_ID VARCHAR(100),
 
-   blind integer DEFAULT 0
+   blind integer DEFAULT 0,
+   blinds integer [] DEFAULT [0]
 );

@@ -8,7 +8,14 @@ UPDATE OBJECT_tb
     AND tmp_x.gid = OBJECT_tb.gid;
 
 UPDATE OBJECT_tb 
-    SET blind = 1
+    SET blind = 1, blinds = [1]
+    FROM tmp_x, TRACE_tb
+    WHERE TRACE_tb.layer = tmp_x.concat
+    AND tmp_x.gid = OBJECT_tb.gid
+    AND TRACE_tb.___isblind = 1;
+
+UPDATE OBJECT_tb 
+    SET blinds = [1]
     FROM tmp_x, TRACE_tb
     WHERE TRACE_tb.layer = tmp_x.concat
     AND tmp_x.gid = OBJECT_tb.gid
