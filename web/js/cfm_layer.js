@@ -78,7 +78,7 @@ var cfm_gid_list=[];
 // { gid1, gid2, ... }, only without geo
 var cfm_nogeo_gid_list=[];
 
-// all objgid ==> gid from object_tb, all objects (meta has 'blind')
+// all objgid ==> gid from object_tb, all objects (meta has 'blind', 'blinds')
 //  [ { "gid": gid1,  "meta": mmm1 }, {  "gid": gid2, "meta": mmm2 }, ... } 
 var cfm_fault_meta_list=[];
 
@@ -141,10 +141,16 @@ function makeGeoJSONFeature(geoJSON, gid, meta) {
   }
 
   var color=getColorFromMeta(meta);
+
   var style= { "weight":2,
                "opacity":0.8,
                "color": color
               };
+
+  var blinds=meta['blinds']);
+  if(blinds && (blinds.length > 1)) {
+     window.console.log("XXX blinds is more than 1 ",blinds.length);
+  }
 
   if (is_fault_blind(gid)) {
       style.dashArray = blind_dash_value;

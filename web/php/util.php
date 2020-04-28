@@ -33,6 +33,7 @@ $myObj->reference_check=$row[$reference_check];
 $myObj->ID_comments=$row[$ID_comments];
 $myObj->USGS_ID=$row[$USGS_ID];
 $myObj->blind=$row[$blind];
+$myObj->blinds=$row[$blinds];
 $myObj->area=$row[$area];
 $myObj->zone=$row[$zone];
 $myObj->section=$row[$section];
