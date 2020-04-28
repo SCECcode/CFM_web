@@ -279,7 +279,6 @@ UPDATE OBJECT_tb
        SELECT blind from OBJECT_tb where TRACE_tb_gid=477
     )
   WHERE TRACE_tb_gid=348 OR TRACE_tb_gid=349 OR TRACE_tb_gid=477;
-));
 
 
 UPDATE OBJECT_tb 
@@ -292,7 +291,6 @@ UPDATE OBJECT_tb
        SELECT blind from OBJECT_tb where TRACE_tb_gid=283
     )
   WHERE TRACE_tb_gid=281 OR TRACE_tb_gid=282 OR TRACE_tb_gid=283;
-));
 
 
 UPDATE OBJECT_tb 
@@ -305,7 +303,6 @@ UPDATE OBJECT_tb
        SELECT blind from OBJECT_tb where TRACE_tb_gid=91
     )
   WHERE TRACE_tb_gid=92 OR TRACE_tb_gid=93 OR TRACE_tb_gid=91;
-));
 
 
 UPDATE OBJECT_tb 
@@ -318,7 +315,6 @@ UPDATE OBJECT_tb
        SELECT blind from OBJECT_tb where TRACE_tb_gid=28
     )
   WHERE TRACE_tb_gid=26 OR TRACE_tb_gid=27 OR TRACE_tb_gid=28;
-));
 
 
 UPDATE OBJECT_tb 
@@ -331,7 +327,6 @@ UPDATE OBJECT_tb
        SELECT blind from OBJECT_tb where TRACE_tb_gid=149
     )
   WHERE TRACE_tb_gid=147 OR TRACE_tb_gid=148 OR TRACE_tb_gid=149;
-));
 
 
 UPDATE OBJECT_tb 
@@ -344,7 +339,6 @@ UPDATE OBJECT_tb
        SELECT blind from OBJECT_tb where TRACE_tb_gid=471
     )
   WHERE TRACE_tb_gid=470 OR TRACE_tb_gid=469 OR TRACE_tb_gid=471;
-));
 
 
 UPDATE OBJECT_tb 
@@ -357,7 +351,6 @@ UPDATE OBJECT_tb
        SELECT blind from OBJECT_tb where TRACE_tb_gid=111
     )
   WHERE TRACE_tb_gid=109 OR TRACE_tb_gid=110 OR TRACE_tb_gid=111;
-));
 
 
 UPDATE OBJECT_tb 
@@ -370,7 +363,6 @@ UPDATE OBJECT_tb
        SELECT blind from OBJECT_tb where TRACE_tb_gid=104
     )
   WHERE TRACE_tb_gid=102 OR TRACE_tb_gid=103 OR TRACE_tb_gid=104;
-));
 
 
 UPDATE OBJECT_tb 
@@ -383,7 +375,6 @@ UPDATE OBJECT_tb
        SELECT blind from OBJECT_tb where TRACE_tb_gid=297
     )
   WHERE TRACE_tb_gid=295 OR TRACE_tb_gid=296 OR TRACE_tb_gid=297;
-));
 
 
 UPDATE OBJECT_tb 
@@ -396,7 +387,6 @@ UPDATE OBJECT_tb
        SELECT blind from OBJECT_tb where TRACE_tb_gid=207
     )
   WHERE TRACE_tb_gid=205 OR TRACE_tb_gid=206 OR TRACE_tb_gid=207;
-));
 
 
 UPDATE OBJECT_tb 
@@ -409,7 +399,6 @@ UPDATE OBJECT_tb
        SELECT blind from OBJECT_tb where TRACE_tb_gid=460
     )
   WHERE TRACE_tb_gid=336 OR TRACE_tb_gid=459 OR TRACE_tb_gid=460;
-));
 
 
 UPDATE OBJECT_tb 
