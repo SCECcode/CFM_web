@@ -1,5 +1,5 @@
 UPDATE TRACE_tb
-     SET ___isblind = 1
+     SET ___isblind = 0
      WHERE ___isblind IS null;
 
 CREATE TEMP TABLE tmp_x AS
