@@ -147,7 +147,7 @@ function makeGeoJSONFeature(geoJSON, gid, meta) {
                "color": color
               };
 
-  var blinds=meta['blinds']);
+  var blinds=meta['blinds'];
   if(blinds && (blinds.length > 1)) {
      window.console.log("XXX blinds is more than 1 ",blinds.length);
   }

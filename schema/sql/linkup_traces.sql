@@ -19,7 +19,7 @@ UPDATE OBJECT_tb
     FROM tmp_x, TRACE_tb
     WHERE TRACE_tb.layer = tmp_x.concat
     AND tmp_x.gid = OBJECT_tb.gid
-    AND TRACE_tb.___isblind = NULL;
+    AND TRACE_tb.___isblind is NULL;
 
 DROP TABLE tmp_x;
 
