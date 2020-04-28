@@ -126,6 +126,8 @@ function reset_geo_plot() {
 
 // create a feature with just 1 geoJSON, per object_tb's gid
 function makeGeoJSONFeature(geoJSON, gid, meta) {
+  var blob;
+
   if(in_trace_list(gid)) {
     return undefined;
   }

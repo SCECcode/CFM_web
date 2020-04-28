@@ -1,3 +1,7 @@
+UPDATE TRACE_tb
+     SET ___isblind = 1
+     WHERE ___isblind IS null;
+
 CREATE TEMP TABLE tmp_x AS
      SELECT name, concat(name,'-trace'), gid from OBJECT_tb;
 

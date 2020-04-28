@@ -2,9 +2,9 @@
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=259
+       SELECT ___isblind from Trace_tb where gid=259
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=258
+       SELECT ___isblind from Trace_tb where gid=258
     )
   WHERE TRACE_tb_gid=259 OR TRACE_tb_gid=258;
 
@@ -12,9 +12,9 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=85
+       SELECT ___isblind from Trace_tb where gid=85
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=86
+       SELECT ___isblind from Trace_tb where gid=86
     )
   WHERE TRACE_tb_gid=85 OR TRACE_tb_gid=86;
 
@@ -22,9 +22,9 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=279
+       SELECT ___isblind from Trace_tb where gid=279
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=280
+       SELECT ___isblind from Trace_tb where gid=280
     )
   WHERE TRACE_tb_gid=279 OR TRACE_tb_gid=280;
 
@@ -32,9 +32,9 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=24
+       SELECT ___isblind from Trace_tb where gid=24
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=25
+       SELECT ___isblind from Trace_tb where gid=25
     )
   WHERE TRACE_tb_gid=24 OR TRACE_tb_gid=25;
 
@@ -42,9 +42,9 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=15
+       SELECT ___isblind from Trace_tb where gid=15
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=16
+       SELECT ___isblind from Trace_tb where gid=16
     )
   WHERE TRACE_tb_gid=15 OR TRACE_tb_gid=16;
 
@@ -52,9 +52,9 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=451
+       SELECT ___isblind from Trace_tb where gid=451
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=453
+       SELECT ___isblind from Trace_tb where gid=453
     )
   WHERE TRACE_tb_gid=451 OR TRACE_tb_gid=453;
 
@@ -62,9 +62,9 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=106
+       SELECT ___isblind from Trace_tb where gid=106
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=107
+       SELECT ___isblind from Trace_tb where gid=107
     )
   WHERE TRACE_tb_gid=106 OR TRACE_tb_gid=107;
 
@@ -72,9 +72,9 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=363
+       SELECT ___isblind from Trace_tb where gid=363
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=366
+       SELECT ___isblind from Trace_tb where gid=366
     )
   WHERE TRACE_tb_gid=363 OR TRACE_tb_gid=366;
 
@@ -82,9 +82,9 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=29
+       SELECT ___isblind from Trace_tb where gid=29
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=30
+       SELECT ___isblind from Trace_tb where gid=30
     )
   WHERE TRACE_tb_gid=29 OR TRACE_tb_gid=30;
 
@@ -92,9 +92,9 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=429
+       SELECT ___isblind from Trace_tb where gid=429
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=430
+       SELECT ___isblind from Trace_tb where gid=430
     )
   WHERE TRACE_tb_gid=429 OR TRACE_tb_gid=430;
 
@@ -102,9 +102,9 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=389
+       SELECT ___isblind from Trace_tb where gid=389
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=391
+       SELECT ___isblind from Trace_tb where gid=391
     )
   WHERE TRACE_tb_gid=389 OR TRACE_tb_gid=391;
 
@@ -112,9 +112,9 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=76
+       SELECT ___isblind from Trace_tb where gid=76
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=77
+       SELECT ___isblind from Trace_tb where gid=77
     )
   WHERE TRACE_tb_gid=76 OR TRACE_tb_gid=77;
 
@@ -122,9 +122,9 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=217
+       SELECT ___isblind from Trace_tb where gid=217
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=218
+       SELECT ___isblind from Trace_tb where gid=218
     )
   WHERE TRACE_tb_gid=217 OR TRACE_tb_gid=218;
 
@@ -132,9 +132,9 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=49
+       SELECT ___isblind from Trace_tb where gid=49
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=50
+       SELECT ___isblind from Trace_tb where gid=50
     )
   WHERE TRACE_tb_gid=49 OR TRACE_tb_gid=50;
 
@@ -142,9 +142,9 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=89
+       SELECT ___isblind from Trace_tb where gid=89
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=90
+       SELECT ___isblind from Trace_tb where gid=90
     )
   WHERE TRACE_tb_gid=89 OR TRACE_tb_gid=90;
 
@@ -152,9 +152,9 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=354
+       SELECT ___isblind from Trace_tb where gid=354
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=356
+       SELECT ___isblind from Trace_tb where gid=356
     )
   WHERE TRACE_tb_gid=354 OR TRACE_tb_gid=356;
 
@@ -162,9 +162,9 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=358
+       SELECT ___isblind from Trace_tb where gid=358
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=359
+       SELECT ___isblind from Trace_tb where gid=359
     )
   WHERE TRACE_tb_gid=358 OR TRACE_tb_gid=359;
 
@@ -172,9 +172,9 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=370
+       SELECT ___isblind from Trace_tb where gid=370
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=367
+       SELECT ___isblind from Trace_tb where gid=367
     )
   WHERE TRACE_tb_gid=370 OR TRACE_tb_gid=367;
 
@@ -182,9 +182,9 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=263
+       SELECT ___isblind from Trace_tb where gid=263
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=264
+       SELECT ___isblind from Trace_tb where gid=264
     )
   WHERE TRACE_tb_gid=263 OR TRACE_tb_gid=264;
 
@@ -192,9 +192,9 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=261
+       SELECT ___isblind from Trace_tb where gid=261
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=262
+       SELECT ___isblind from Trace_tb where gid=262
     )
   WHERE TRACE_tb_gid=261 OR TRACE_tb_gid=262;
 
@@ -202,9 +202,9 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=136
+       SELECT ___isblind from Trace_tb where gid=136
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=135
+       SELECT ___isblind from Trace_tb where gid=135
     )
   WHERE TRACE_tb_gid=136 OR TRACE_tb_gid=135;
 
@@ -212,9 +212,9 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=403
+       SELECT ___isblind from Trace_tb where gid=403
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=404
+       SELECT ___isblind from Trace_tb where gid=404
     )
   WHERE TRACE_tb_gid=403 OR TRACE_tb_gid=404;
 
@@ -222,9 +222,9 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=82
+       SELECT ___isblind from Trace_tb where gid=82
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=83
+       SELECT ___isblind from Trace_tb where gid=83
     )
   WHERE TRACE_tb_gid=82 OR TRACE_tb_gid=83;
 
@@ -232,9 +232,9 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=395
+       SELECT ___isblind from Trace_tb where gid=395
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=396
+       SELECT ___isblind from Trace_tb where gid=396
     )
   WHERE TRACE_tb_gid=395 OR TRACE_tb_gid=396;
 
@@ -242,9 +242,9 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=426
+       SELECT ___isblind from Trace_tb where gid=426
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=428
+       SELECT ___isblind from Trace_tb where gid=428
     )
   WHERE TRACE_tb_gid=426 OR TRACE_tb_gid=428;
 
@@ -252,9 +252,9 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=58
+       SELECT ___isblind from Trace_tb where gid=58
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=59
+       SELECT ___isblind from Trace_tb where gid=59
     )
   WHERE TRACE_tb_gid=58 OR TRACE_tb_gid=59;
 
@@ -262,9 +262,9 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=319
+       SELECT ___isblind from Trace_tb where gid=319
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=320
+       SELECT ___isblind from Trace_tb where gid=320
     )
   WHERE TRACE_tb_gid=319 OR TRACE_tb_gid=320;
 
@@ -272,11 +272,11 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=348
+       SELECT ___isblind from TRACE_tb where gid=348
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=349
+       SELECT ___isblind from TRACE_tb where gid=349
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=477
+       SELECT ___isblind from TRACE_tb where gid=477
     )
   WHERE TRACE_tb_gid=348 OR TRACE_tb_gid=349 OR TRACE_tb_gid=477;
 
@@ -284,11 +284,11 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=281
+       SELECT ___isblind from TRACE_tb where gid=281
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=282
+       SELECT ___isblind from TRACE_tb where gid=282
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=283
+       SELECT ___isblind from TRACE_tb where gid=283
     )
   WHERE TRACE_tb_gid=281 OR TRACE_tb_gid=282 OR TRACE_tb_gid=283;
 
@@ -296,11 +296,11 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=92
+       SELECT ___isblind from TRACE_tb where gid=92
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=93
+       SELECT ___isblind from TRACE_tb where gid=93
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=91
+       SELECT ___isblind from TRACE_tb where gid=91
     )
   WHERE TRACE_tb_gid=92 OR TRACE_tb_gid=93 OR TRACE_tb_gid=91;
 
@@ -308,11 +308,11 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=26
+       SELECT ___isblind from TRACE_tb where gid=26
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=27
+       SELECT ___isblind from TRACE_tb where gid=27
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=28
+       SELECT ___isblind from TRACE_tb where gid=28
     )
   WHERE TRACE_tb_gid=26 OR TRACE_tb_gid=27 OR TRACE_tb_gid=28;
 
@@ -320,11 +320,11 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=147
+       SELECT ___isblind from TRACE_tb where gid=147
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=148
+       SELECT ___isblind from TRACE_tb where gid=148
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=149
+       SELECT ___isblind from TRACE_tb where gid=149
     )
   WHERE TRACE_tb_gid=147 OR TRACE_tb_gid=148 OR TRACE_tb_gid=149;
 
@@ -332,11 +332,11 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=470
+       SELECT ___isblind from TRACE_tb where gid=470
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=469
+       SELECT ___isblind from TRACE_tb where gid=469
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=471
+       SELECT ___isblind from TRACE_tb where gid=471
     )
   WHERE TRACE_tb_gid=470 OR TRACE_tb_gid=469 OR TRACE_tb_gid=471;
 
@@ -344,11 +344,11 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=109
+       SELECT ___isblind from TRACE_tb where gid=109
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=110
+       SELECT ___isblind from TRACE_tb where gid=110
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=111
+       SELECT ___isblind from TRACE_tb where gid=111
     )
   WHERE TRACE_tb_gid=109 OR TRACE_tb_gid=110 OR TRACE_tb_gid=111;
 
@@ -356,11 +356,11 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=102
+       SELECT ___isblind from TRACE_tb where gid=102
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=103
+       SELECT ___isblind from TRACE_tb where gid=103
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=104
+       SELECT ___isblind from TRACE_tb where gid=104
     )
   WHERE TRACE_tb_gid=102 OR TRACE_tb_gid=103 OR TRACE_tb_gid=104;
 
@@ -368,11 +368,11 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=295
+       SELECT ___isblind from TRACE_tb where gid=295
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=296
+       SELECT ___isblind from TRACE_tb where gid=296
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=297
+       SELECT ___isblind from TRACE_tb where gid=297
     )
   WHERE TRACE_tb_gid=295 OR TRACE_tb_gid=296 OR TRACE_tb_gid=297;
 
@@ -380,11 +380,11 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=205
+       SELECT ___isblind from TRACE_tb where gid=205
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=206
+       SELECT ___isblind from TRACE_tb where gid=206
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=207
+       SELECT ___isblind from TRACE_tb where gid=207
     )
   WHERE TRACE_tb_gid=205 OR TRACE_tb_gid=206 OR TRACE_tb_gid=207;
 
@@ -392,11 +392,11 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=336
+       SELECT ___isblind from TRACE_tb where gid=336
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=459
+       SELECT ___isblind from TRACE_tb where gid=459
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=460
+       SELECT ___isblind from TRACE_tb where gid=460
     )
   WHERE TRACE_tb_gid=336 OR TRACE_tb_gid=459 OR TRACE_tb_gid=460;
 
@@ -404,13 +404,13 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=122
+       SELECT ___isblind from TRACE_tb where gid=122
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=123
+       SELECT ___isblind from TRACE_tb where gid=123
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=124
+       SELECT ___isblind from TRACE_tb where gid=124
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=125
+       SELECT ___isblind from TRACE_tb where gid=125
     )
   WHERE TRACE_tb_gid=122 OR TRACE_tb_gid=123 OR 
         TRACE_tb_gid=124 OR TRACE_tb_gid=125;
@@ -419,13 +419,13 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=342
+       SELECT ___isblind from TRACE_tb where gid=342
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=343
+       SELECT ___isblind from TRACE_tb where gid=343
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=344
+       SELECT ___isblind from TRACE_tb where gid=344
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=345
+       SELECT ___isblind from TRACE_tb where gid=345
     )
   WHERE TRACE_tb_gid=342 OR TRACE_tb_gid=343 OR 
         TRACE_tb_gid=344 OR TRACE_tb_gid=345;
@@ -434,15 +434,15 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=183
+       SELECT ___isblind from TRACE_tb where gid=183
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=184
+       SELECT ___isblind from TRACE_tb where gid=184
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=185
+       SELECT ___isblind from TRACE_tb where gid=185
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=186
+       SELECT ___isblind from TRACE_tb where gid=186
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=187
+       SELECT ___isblind from TRACE_tb where gid=187
     )
   WHERE TRACE_tb_gid=183 OR TRACE_tb_gid=184 OR 
         TRACE_tb_gid=185 OR TRACE_tb_gid=186 OR 
@@ -452,15 +452,15 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=462
+       SELECT ___isblind from TRACE_tb where gid=462
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=464
+       SELECT ___isblind from TRACE_tb where gid=464
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=465
+       SELECT ___isblind from TRACE_tb where gid=465
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=466
+       SELECT ___isblind from TRACE_tb where gid=466
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=467
+       SELECT ___isblind from TRACE_tb where gid=467
     )
   WHERE TRACE_tb_gid=462 OR TRACE_tb_gid=464 OR 
         TRACE_tb_gid=465 OR TRACE_tb_gid=466 OR 
@@ -470,15 +470,15 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=142
+       SELECT ___isblind from TRACE_tb where gid=142
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=143
+       SELECT ___isblind from TRACE_tb where gid=143
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=144
+       SELECT ___isblind from TRACE_tb where gid=144
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=145
+       SELECT ___isblind from TRACE_tb where gid=145
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=146
+       SELECT ___isblind from TRACE_tb where gid=146
     )
   WHERE TRACE_tb_gid=142 OR TRACE_tb_gid=143 OR 
         TRACE_tb_gid=144 OR TRACE_tb_gid=145 OR 
@@ -488,15 +488,15 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=208
+       SELECT ___isblind from TRACE_tb where gid=208
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=209
+       SELECT ___isblind from TRACE_tb where gid=209
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=210
+       SELECT ___isblind from TRACE_tb where gid=210
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=211
+       SELECT ___isblind from TRACE_tb where gid=211
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=212
+       SELECT ___isblind from TRACE_tb where gid=212
     )
   WHERE TRACE_tb_gid=208 OR TRACE_tb_gid=209 OR 
         TRACE_tb_gid=210 OR TRACE_tb_gid=211 OR 
@@ -506,15 +506,15 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=337
+       SELECT ___isblind from TRACE_tb where gid=337
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=338
+       SELECT ___isblind from TRACE_tb where gid=338
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=339
+       SELECT ___isblind from TRACE_tb where gid=339
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=340
+       SELECT ___isblind from TRACE_tb where gid=340
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=341
+       SELECT ___isblind from TRACE_tb where gid=341
     )
   WHERE TRACE_tb_gid=337 OR TRACE_tb_gid=338 OR 
         TRACE_tb_gid=339 OR TRACE_tb_gid=340 OR 
@@ -524,19 +524,19 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=69
+       SELECT ___isblind from TRACE_tb where gid=69
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=70
+       SELECT ___isblind from TRACE_tb where gid=70
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=71
+       SELECT ___isblind from TRACE_tb where gid=71
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=72
+       SELECT ___isblind from TRACE_tb where gid=72
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=73
+       SELECT ___isblind from TRACE_tb where gid=73
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=74
+       SELECT ___isblind from TRACE_tb where gid=74
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=75
+       SELECT ___isblind from TRACE_tb where gid=75
     )
   WHERE TRACE_tb_gid=69 OR TRACE_tb_gid=70 OR 
         TRACE_tb_gid=71 OR TRACE_tb_gid=72 OR 
@@ -547,21 +547,21 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=196
+       SELECT ___isblind from TRACE_tb where gid=196
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=194
+       SELECT ___isblind from TRACE_tb where gid=194
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=195
+       SELECT ___isblind from TRACE_tb where gid=195
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=192
+       SELECT ___isblind from TRACE_tb where gid=192
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=193
+       SELECT ___isblind from TRACE_tb where gid=193
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=197
+       SELECT ___isblind from TRACE_tb where gid=197
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=198
+       SELECT ___isblind from TRACE_tb where gid=198
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=199
+       SELECT ___isblind from TRACE_tb where gid=199
     )
   WHERE TRACE_tb_gid=196 OR TRACE_tb_gid=194 OR 
         TRACE_tb_gid=195 OR TRACE_tb_gid=192 OR 
@@ -572,23 +572,23 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=234
+       SELECT ___isblind from TRACE_tb where gid=234
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=235
+       SELECT ___isblind from TRACE_tb where gid=235
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=236
+       SELECT ___isblind from TRACE_tb where gid=236
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=237
+       SELECT ___isblind from TRACE_tb where gid=237
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=238
+       SELECT ___isblind from TRACE_tb where gid=238
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=239
+       SELECT ___isblind from TRACE_tb where gid=239
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=240
+       SELECT ___isblind from TRACE_tb where gid=240
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=241
+       SELECT ___isblind from TRACE_tb where gid=241
        UNION ALL
-       SELECT blind from OBJECT_tb where TRACE_tb_gid=252
+       SELECT ___isblind from TRACE_tb where gid=252
     )
   WHERE TRACE_tb_gid=235 OR TRACE_tb_gid=236 OR 
         TRACE_tb_gid=237 OR TRACE_tb_gid=238 OR 
