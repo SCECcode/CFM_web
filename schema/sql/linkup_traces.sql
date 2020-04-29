@@ -19,6 +19,13 @@ UPDATE OBJECT_tb
     AND TRACE_tb.___isblind = 1;
 
 UPDATE OBJECT_tb 
+    SET blind = 2, blinds = ARRAY [ 2 ]
+    FROM tmp_x, TRACE_tb
+    WHERE TRACE_tb.layer = tmp_x.concat
+    AND tmp_x.gid = OBJECT_tb.gid
+    AND TRACE_tb.___isblind = 2;
+
+UPDATE OBJECT_tb 
     SET blind = 0, blinds = ARRAY [ 0 ]
     FROM tmp_x, TRACE_tb
     WHERE TRACE_tb.layer = tmp_x.concat
