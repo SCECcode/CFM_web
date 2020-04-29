@@ -92,16 +92,6 @@ UPDATE OBJECT_tb
 UPDATE OBJECT_tb 
   SET blinds = 
     ARRAY(
-       SELECT ___isblind from Trace_tb where gid=429
-       UNION ALL
-       SELECT ___isblind from Trace_tb where gid=430
-    )
-  WHERE TRACE_tb_gid=429 OR TRACE_tb_gid=430;
-
-
-UPDATE OBJECT_tb 
-  SET blinds = 
-    ARRAY(
        SELECT ___isblind from Trace_tb where gid=389
        UNION ALL
        SELECT ___isblind from Trace_tb where gid=391
