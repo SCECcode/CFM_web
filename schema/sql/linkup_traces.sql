@@ -35,14 +35,14 @@ UPDATE OBJECT_tb
 DROP TABLE tmp_x;
 
 CREATE TEMP TABLE tmp_x AS
-     SELECT name, concat(name,'-trace'), gid from OBJECT_tb;
+     SELECT concat(name,'-trace'), gid from OBJECT_tb;
 
 CREATE TEMP TABLE tmp_y AS
      SELECT layer, gid, ___isblind from TRACE_tb;
 
 UPDATE OBJECT_tb 
-   SET TRACES_tb_gid = array_cat(TRACES_tb_gid, ARRAY [ tmp_y.gid ]),
-   blinds = array_cat(blinds, ARRAY [ tmp_y.___isblind ])
+   SET TRACES_tb_gid = TRACES_tb_gid || tmp_y.gid ,
+   blinds = blinds || tmp_y.___isblind
    FROM tmp_y, tmp_x
    WHERE tmp_y.layer = tmp_x.concat 
    AND tmp_x.gid = OBJECT_tb.gid;
