@@ -41,11 +41,22 @@ CREATE TEMP TABLE tmp_y AS
      SELECT layer, gid, ___isblind from TRACE_tb;
 
 UPDATE OBJECT_tb 
-   SET TRACES_tb_gid = TRACES_tb_gid || tmp_y.gid ,
-   blinds = blinds || tmp_y.___isblind
-   FROM tmp_y, tmp_x
-   WHERE tmp_y.layer = tmp_x.concat 
-   AND tmp_x.gid = OBJECT_tb.gid;
+     SET blinds =
+      ( SELECT ARRAY(
+        SELECT tmp_y.___isblind 
+          FROM tmp_y, tmp_x
+          WHERE tmp_y.layer = tmp_x.concat
+          AND tmp_x.gid = OBJECT_tb.gid 
+      ));
+
+UPDATE OBJECT_tb 
+     SET TRACES_tb_gid =
+      ( SELECT ARRAY(
+        SELECT tmp_y.gid 
+          FROM tmp_y, tmp_x
+          WHERE tmp_y.layer = tmp_x.concat 
+          AND tmp_x.gid = OBJECT_tb.gid 
+      ));
 
 DROP TABLE tmp_x;
 DROP TABLE tmp_y;

@@ -85,6 +85,6 @@ CREATE TABLE OBJECT_tb (
    USGS_ID VARCHAR(100),
 
    blind integer DEFAULT 0,
-   blinds integer [],
-   TRACES_tb_gid integer []
+   blinds integer ARRAY,
+   TRACES_tb_gid integer ARRAY
 );
