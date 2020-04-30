@@ -45,7 +45,7 @@ UPDATE OBJECT_tb
    blinds = array_cat(blinds, ARRAY [ tmp_y.___isblind ])
    FROM tmp_y, tmp_x
    WHERE tmp_y.layer = tmp_x.concat 
-   AND tmp_x.gid = OBJECT_tb.gid
+   AND tmp_x.gid = OBJECT_tb.gid;
 
 DROP TABLE tmp_x;
 DROP TABLE tmp_y;
