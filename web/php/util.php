@@ -34,6 +34,7 @@ $myObj->ID_comments=$row[$ID_comments];
 $myObj->USGS_ID=$row[$USGS_ID];
 $myObj->blind=$row[$blind];
 $myObj->blinds=$row[$blinds];
+$myObj->TRACES_tb_gid=$row[$TRACES_tb_gid];
 $myObj->area=$row[$area];
 $myObj->zone=$row[$zone];
 $myObj->section=$row[$section];

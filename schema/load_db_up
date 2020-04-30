@@ -17,7 +17,6 @@ psql postgresql://postgres:example@localhost/CFM52_db << AAA
   \i '/home/postgres/CFM/schema/sql/linkup_traces.sql';
   \i '/home/postgres/CFM/schema/sql/add_foreign_key.sql';
   \i '/home/postgres/CFM/schema/sql/trace_merge.sql';
-  \i '/home/postgres/CFM/schema/sql/blind_merge.sql';
 
   DROP ROLE webonly;
   CREATE ROLE webonly WITH LOGIN PASSWORD 'scec';

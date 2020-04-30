@@ -577,11 +577,21 @@ function processTraceMeta(metaList) {
        var meta = JSON.parse(str[i]);
        var gidstr=meta['gid'];
        var gid=parseInt(gidstr);
-       var blindstr=meta['blind'];
-       var bval=parseInt(blindstr);
-       if (bval == 1) {
-           addto_blind_gid_list(gid);
-       }
+
+       // update blinds and Traces_tb_gid to be arrays
+       var b=meta['blinds']; // '{ 1, 2, 3 }'
+       var nb=b.replace('{','[');
+       var nnb=nb.replace('}',']');
+       var blinds=JSON.parse(nnb);
+       meta['blinds']=blinds;
+
+       // update blinds and Traces_tb_gid to be arrays
+       var t=meta['TRACES_tb_gid']; 
+       var nt=t.replace('{','[');
+       var nnt=nt.replace('}',']');
+       var traces_tb_gid=JSON.parse(nnt);
+       meta['TRACES_tb_gid']=traces_tb_gid;
+
        if(metaList == 'metaByAllTraces') {
          cfm_fault_meta_list.push({"gid":gid, "meta": meta });
          if( !in_nogeo_gid_list(gid)) {
