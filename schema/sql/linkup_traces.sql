@@ -61,6 +61,28 @@ UPDATE OBJECT_tb
 DROP TABLE tmp_x;
 DROP TABLE tmp_y;
 
+SELECT AddGeometryColumn ('','object_tb','geoms',4326,'GEOMETRY',4);
+
+CREATE TEMP TABLE tmp_x AS
+     SELECT concat(name,'-trace'), gid from OBJECT_tb;
+
+CREATE TEMP TABLE tmp_y AS
+     SELECT layer, gid, geom from TRACE_tb;
+
+UPDATE OBJECT_tb
+  SET geoms =
+      (ST_Force4D(ST_Union( ARRAY(
+        SELECT geom
+          FROM tmp_y, tmp_x
+          WHERE tmp_y.layer = tmp_x.concat
+          AND tmp_x.gid = OBJECT_tb.gid
+       ) )))
+  FROM tmp_x
+  WHERE tmp_x.gid = OBJECT_tb.gid;
+
+DROP TABLE tmp_x;
+DROP TABLE tmp_y;
+
 CREATE TEMP TABLE tmp_x AS
      SELECT name, concat(name,'_m2000'), gid from OBJECT_tb;
 
