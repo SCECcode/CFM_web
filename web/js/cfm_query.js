@@ -489,8 +489,7 @@ function getDipRange() {
 }
 
 
-
-function getGeoJSONbyObjGid(gidstr, meta) {
+function getGeoJSON(gidstr, meta) {
     // if gidstr is not set look for it in the input field
     if(typeof gidstr == 'undefined')   
         gidstr=document.getElementById("objGidTxt").value;
@@ -506,7 +505,7 @@ function getGeoJSONbyObjGid(gidstr, meta) {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("geoSearchByObjGidResult").innerHTML = this.responseText;
             // grab the geoJSON
-            var geoJSON=getGeoJSON();
+            var geoJSON=grabGeoJSON();
             var gid=parseInt(gidstr);
             var trace=makeGeoJSONFeature(geoJSON, gid, meta);
             if(trace != undefined)
@@ -516,6 +515,33 @@ function getGeoJSONbyObjGid(gidstr, meta) {
     xmlhttp.open("GET","php/getGeoJSON.php?obj_gid="+gidstr,true);
     xmlhttp.send();
 }
+
+function getGeoJSONbyObjGid(gidstr, meta) {
+    // if gidstr is not set look for it in the input field
+    if(typeof gidstr == 'undefined')    
+        gidstr=document.getElementById("objGidTxt").value;
+        
+    if (window.XMLHttpRequest) {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        // code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }   
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("geoSearchByObjGidResult").innerHTML = this.responseText;      
+            // grab the geoJSON
+            var geoJSONList=grabGeoJSONList();
+            var gid=parseInt(gidstr);
+            var trace=makeGeoJSONFeature(geoJSONList, gid, meta);
+            if(trace != undefined)
+              load_a_trace(gid,trace);
+        }     
+    };  
+    xmlhttp.open("GET","php/getGeoJSONbyObjGid.php?obj_gid="+gidstr,true);
+    xmlhttp.send();
+}   
 
 
 function setupSearch()

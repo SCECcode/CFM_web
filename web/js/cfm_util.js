@@ -595,7 +595,7 @@ function processTraceMeta(metaList) {
        if(metaList == 'metaByAllTraces') {
          cfm_fault_meta_list.push({"gid":gid, "meta": meta });
          if( !in_nogeo_gid_list(gid)) {
-           getGeoJSONbyObjGid(gidstr,meta);
+           getGeoJSONXX(gidstr,meta);
          }
          } else {
            window.console.log("BAD ??");
@@ -662,7 +662,7 @@ function gotAllGeoJSON() {
 }
 
 // extract the geo json blob from the backend php
-function getGeoJSON() {
+function grabGeoJSON() {
     var alist = $('[data-side="geo-json"]').data('params');
     if(alist == undefined) {
       window.console.log("EROR -- geometry is empty");
@@ -670,6 +670,16 @@ function getGeoJSON() {
     }
     var str=alist[0];
     return str;
+}
+
+// extract the geo json blob from the backend php
+function grabGeoJSONList() {
+    var glist = $('[data-side="geos-json"]').data('params');
+    if(glist == undefined) {
+      window.console.log("EROR -- geometry is empty");
+      return "";
+    }
+    return glist;
 }
 
 function getStrikeRangeMinMax() {

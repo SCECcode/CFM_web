@@ -71,12 +71,12 @@ CREATE TEMP TABLE tmp_y AS
 
 UPDATE OBJECT_tb
   SET geoms =
-      (ST_Force4D(ST_Union( ARRAY(
+      (ST_Force4D( ST_setSRID( ST_Union( ARRAY(
         SELECT geom
           FROM tmp_y, tmp_x
           WHERE tmp_y.layer = tmp_x.concat
           AND tmp_x.gid = OBJECT_tb.gid
-       ) )))
+       ) ),4326)))
   FROM tmp_x
   WHERE tmp_x.gid = OBJECT_tb.gid;
 

@@ -17,7 +17,7 @@ $result = pg_prepare($dbconn, "my_query", $query);
 $data = array($objgid);
 $result = pg_execute($dbconn, "my_query", $data);
 
-// should only has 2 row
+// should only has 1 row and 2 data
 $row = pg_fetch_row($result);
 $arrstring = htmlspecialchars(json_encode($row[0]),ENT_QUOTES,'UTF-8');
 
