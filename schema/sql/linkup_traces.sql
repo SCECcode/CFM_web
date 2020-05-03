@@ -6,7 +6,7 @@ CREATE TEMP TABLE tmp_x AS
      SELECT concat(name,'-trace'), gid from OBJECT_tb;
 
 CREATE TEMP TABLE tmp_y AS
-     SELECT layer, gid from TRACE_tb;k
+     SELECT layer, gid from TRACE_tb;
 
 UPDATE OBJECT_tb 
      SET TRACE_tb_gid =

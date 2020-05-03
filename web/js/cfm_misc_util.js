@@ -54,9 +54,14 @@ function readLocalAndProcessActiveGeo() {
   for(i=0;i<cnt;i++) { 
      var atrace=trace_list[i];
 
-     // change the color
-     atrace.features[0].properties.style.color="black";
-     atrace.features[0].properties.style.weight=1;
+// change the color
+     var tcnt=atrace.features.length;
+     for(var j=0; j<tcnt; j++) {
+       atrace.features[j].properties.style.color="black";
+       atrace.features[j].properties.style.weight=1;
+     }
+// SPECIAL CASE
+//   atrace.features[0].properties.style.color="red"; // the first one in all traces
      var name= atrace.features[0].properties.name;
      window.console.log("adding trace.. ",name);
   }
@@ -78,7 +83,10 @@ function readAndProcessActiveGeo(urls) {
        var atrace=trace_list[i];
 
        // change the color
-       atrace.features[0].properties.style.color="orange";
+       var tcnt=atrace.features.length;
+       for(var j=0; j<tcnt; j++) {
+         atrace.features[j].properties.style.color="orange";
+       }
        var name= atrace.features[0].properties.name;
        window.console.log("adding trace.. ",name);
     }

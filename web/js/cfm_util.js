@@ -579,11 +579,11 @@ function processTraceMeta(metaList) {
        var gid=parseInt(gidstr);
 
        // update Traces_tb_gid to be array
-       var t=meta['TRACES_tb_gid']; 
+       var t=meta['TRACE_tb_gid']; 
        var nt=t.replace('{','[');
        var nnt=nt.replace('}',']');
-       var traces_tb_gid=JSON.parse(nnt);
-       meta['TRACES_tb_gid']=traces_tb_gid;
+       var trace_tb_gid=JSON.parse(nnt);
+       meta['TRACE_tb_gid']=trace_tb_gid;
 
        if(metaList == 'metaByAllTraces') {
          cfm_fault_meta_list.push({"gid":gid, "meta": meta });
