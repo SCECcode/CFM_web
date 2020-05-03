@@ -8,7 +8,6 @@ $header = getHeader("Viewer");
     <title>Community Fault Model Viewer (Beta)</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/vendor/font-awesome.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="css/vendor/leaflet.css">
     <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
@@ -21,9 +20,6 @@ $header = getHeader("Viewer");
     <script type='text/javascript' src='js/vendor/popper.min.js'></script>
 <script>L_PREFER_CANVAS = true;</script>
     <script type="text/javascript" src="js/vendor/leaflet-src.js"></script>
-    <script type="text/javascript" src="js/vendor/leaflet-image.js"></script>
-    <script type='text/javascript' src='js/vendor/leaflet.awesome-markers.min.js'></script>
-    <script type="text/javascript" src="js/vendor/html2canvas.js"></script>
     <script type='text/javascript' src='js/vendor/jquery.min.js'></script>
     <script type='text/javascript' src='js/vendor/jquery.csv.js'></script>
     <script type='text/javascript' src='js/vendor/bootstrap.min.js'></script>
