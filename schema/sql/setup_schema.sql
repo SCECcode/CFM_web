@@ -82,5 +82,5 @@ CREATE TABLE OBJECT_tb (
    reference VARCHAR(100),
    reference_check VARCHAR(6),
    ID_comments VARCHAR(100),
-   USGS_ID VARCHAR(100),
+   USGS_ID VARCHAR(100)
 );
