@@ -20,5 +20,5 @@ $area=16;
 $zone=17;
 $section=18;
 $fault=19;
-$TRACES_tb_gid=20;
+$TRACE_tb_gid=20;
 ?>

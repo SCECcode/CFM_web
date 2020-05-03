@@ -12,7 +12,7 @@ $dbconn = getConnection();
 $objgid = intVal($_GET['obj_gid']);
 $data = array($objgid);
 
-$query = "select TRACES_tb_gid from OBJECT_tb where gid=$1;";
+$query = "select TRACE_tb_gid from OBJECT_tb where gid=$1;";
 $result = pg_prepare($dbconn, "my_query", $query);
 $result = pg_execute($dbconn, "my_query", $data);
 

@@ -3,82 +3,19 @@ UPDATE TRACE_tb
      WHERE ___isblind IS null;
 
 CREATE TEMP TABLE tmp_x AS
-     SELECT name, concat(name,'-trace'), gid from OBJECT_tb;
-
-UPDATE OBJECT_tb
-    SET TRACE_tb_gid = TRACE_tb.gid
-    FROM tmp_x, TRACE_tb
-    WHERE TRACE_tb.layer = tmp_x.concat
-    AND tmp_x.gid = OBJECT_tb.gid;
-
-UPDATE OBJECT_tb 
-    SET blind = 1, blinds = ARRAY [ 1 ]
-    FROM tmp_x, TRACE_tb
-    WHERE TRACE_tb.layer = tmp_x.concat
-    AND tmp_x.gid = OBJECT_tb.gid
-    AND TRACE_tb.___isblind = 1;
-
-UPDATE OBJECT_tb 
-    SET blind = 2, blinds = ARRAY [ 2 ]
-    FROM tmp_x, TRACE_tb
-    WHERE TRACE_tb.layer = tmp_x.concat
-    AND tmp_x.gid = OBJECT_tb.gid
-    AND TRACE_tb.___isblind = 2;
-
-UPDATE OBJECT_tb 
-    SET blind = 0, blinds = ARRAY [ 0 ]
-    FROM tmp_x, TRACE_tb
-    WHERE TRACE_tb.layer = tmp_x.concat
-    AND tmp_x.gid = OBJECT_tb.gid
-    AND TRACE_tb.___isblind = 0;
-
-DROP TABLE tmp_x;
-
-CREATE TEMP TABLE tmp_x AS
      SELECT concat(name,'-trace'), gid from OBJECT_tb;
 
 CREATE TEMP TABLE tmp_y AS
-     SELECT layer, gid, ___isblind, geom from TRACE_tb;
+     SELECT layer, gid from TRACE_tb;k
 
 UPDATE OBJECT_tb 
-     SET blinds =
-      ( SELECT ARRAY(
-        SELECT tmp_y.___isblind 
-          FROM tmp_y, tmp_x
-          WHERE tmp_y.layer = tmp_x.concat
-          AND tmp_x.gid = OBJECT_tb.gid 
-      ));
-
-UPDATE OBJECT_tb 
-     SET TRACES_tb_gid =
+     SET TRACE_tb_gid =
       ( SELECT ARRAY(
         SELECT tmp_y.gid 
           FROM tmp_y, tmp_x
           WHERE tmp_y.layer = tmp_x.concat 
           AND tmp_x.gid = OBJECT_tb.gid 
       ));
-
-DROP TABLE tmp_x;
-DROP TABLE tmp_y;
-
-SELECT AddGeometryColumn ('','object_tb','geoms',4326,'GEOMETRY',4);
-
-CREATE TEMP TABLE tmp_x AS
-     SELECT concat(name,'-trace'), gid from OBJECT_tb;
-
-CREATE TEMP TABLE tmp_y AS
-     SELECT layer, gid, geom from TRACE_tb;
-
-UPDATE OBJECT_tb
-  SET geoms =
-      (ST_Force4D( ST_setSRID( ST_Union( ARRAY(
-        SELECT geom
-          FROM tmp_y, tmp_x
-          WHERE tmp_y.layer = tmp_x.concat
-          AND tmp_x.gid = OBJECT_tb.gid
-       ) ),4326)))
-  FROM tmp_x
-  WHERE tmp_x.gid = OBJECT_tb.gid;
 
 DROP TABLE tmp_x;
 DROP TABLE tmp_y;
