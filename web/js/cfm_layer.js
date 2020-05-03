@@ -85,7 +85,7 @@ var cfm_gid_list=[];
 // { gid1, gid2, ... }, only without geo
 var cfm_nogeo_gid_list=[];
 
-// all objgid ==> gid from object_tb, all objects (meta has 'blind', 'blinds')
+// all objgid ==> gid from object_tb, all objects
 //  [ { "gid": gid1,  "meta": mmm1 }, {  "gid": gid2, "meta": mmm2 }, ... } 
 var cfm_fault_meta_list=[];
 
@@ -131,27 +131,32 @@ function reset_geo_plot() {
   toggleAll();
 }
 
-// create a feature with just 1 geoJSON, per object_tb's gid
-function makeGeoJSONFeature(geoJSON, gid, meta) {
-  var blob;
+// create a feature with a geoJSON or a geoJSONList, 
+// per object_tb's gid
+function makeGeoJSONFeature(geoJSON, blinds, gid, meta) {
+
+  var blob=[];
 
   if(in_trace_list(gid)) {
     return undefined;
   }
 
   if(geoJSON == undefined) {
-//    window.console.log("makeGeoJSONFeature, geoJSON is null for ", gid);
+    window.console.log("makeGeoJSONFeature, geoJSON is null for ", gid);
     return undefined;
   }
-  if( typeof geoJSON === 'object') {
-     blob= geoJSON;
-     } else {
-       blob=JSON.parse(geoJSON);
+
+  if(Array.isArray(geoJSON)) { // parse each term
+     geoJSON.forEach(function(s) {
+        blob.push(JSON.parse(s));
+     });
+    } else {
+      blob=geoJSON;
   }
+  
 
   var color=getColorFromMeta(meta);
   var a_trace={"type":"FeatureCollection", "features":[]};
-  var blinds=meta['blinds'];
   var cnt=blinds.length;
 
   var geolist= makeGeoListFromBlob(blob, cnt);
@@ -186,26 +191,37 @@ function makeGeoJSONFeature(geoJSON, gid, meta) {
 }
 
 /* 1 set
-{"type":"MultiLineString","coordinates":
+[ {"type":"MultiLineString","coordinates":
 [
 [[-119.822286421156,34.5605513323743,548],[-119.829713797196,34.5616307222088,416],[-119.834759166436,34.5667231936276,548],[-119.837042048869,34.5681075432669,440
 ]]
 ]
+}]
 */
-
 function makeGeoListFromBlob(blob, cnt) {
-   if(cnt == 1)
+   if(cnt == 1) {
+     if(Array.isArray(blob)) {
+       return blob;
+     }
      return [ blob ];
-
-   var newblob=[];
-   var type=blob["type"];
-   var coordinates=blob["coordinates"];
-   for(var i=0; i<cnt; i++) {
-      var citem=coordinates[i];
-      var nblob= { "type": type, "coordinates": [citem] };
-      newblob.push(nblob);
    }
-   return newblob;
+
+   if(!Array.isArray(blob)) { // it is merged coordinates
+     if('type' in blob) {
+         var newblob=[];
+         var type=blob["type"];
+         var coordinates=blob["coordinates"];
+         for(var i=0; i<cnt; i++) {
+            var citem=coordinates[i];
+          var nblob= { "type": type, "coordinates": [citem] };
+            newblob.push(nblob);
+         }
+         return newblob;
+     } 
+     } else { // do nothing and return the blob
+window.console.log("in split coordinates..");
+     return blob;
+   }
 }
 
 

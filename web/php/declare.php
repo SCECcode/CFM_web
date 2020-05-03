@@ -16,11 +16,9 @@ $references=12;
 $reference_check=13;
 $ID_comments=14;
 $USGS_ID=15;
-$blind=16;
-$area=17;
-$zone=18;
-$section=19;
-$fault=20;
-$blinds=21;
-$TRACES_tb_gid=22;
+$area=16;
+$zone=17;
+$section=18;
+$fault=19;
+$TRACES_tb_gid=20;
 ?>

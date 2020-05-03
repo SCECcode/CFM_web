@@ -19,11 +19,18 @@ $result = pg_execute($dbconn, "my_query", $data);
 
 // should only has 1 row and 2 data
 $row = pg_fetch_row($result);
-$arrstring = htmlspecialchars(json_encode($row[0]),ENT_QUOTES,'UTF-8');
 
-echo "<div data-side=\"geo-json\" data-params=\"[";
+$geomList=array();
+array_push($geomList, $row[0]);
+
+$resultarray = new \stdClass();
+$resultarray->geoms = $geomList;
+
+$arrstring = htmlspecialchars(json_encode($resultarray),ENT_QUOTES,'UTF-8');
+
+echo "<div data-side=\"geo-json\" data-params=\"";
 echo $arrstring;
-echo "]\" style=\"display:flex\">$arrstring</div>";
+echo "\" style=\"display:flex\"></div>";
 
 pg_close($dbconn);
 ?>

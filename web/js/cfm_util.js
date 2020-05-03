@@ -578,14 +578,7 @@ function processTraceMeta(metaList) {
        var gidstr=meta['gid'];
        var gid=parseInt(gidstr);
 
-       // update blinds and Traces_tb_gid to be arrays
-       var b=meta['blinds']; // '{ 1, 2, 3 }'
-       var nb=b.replace('{','[');
-       var nnb=nb.replace('}',']');
-       var blinds=JSON.parse(nnb);
-       meta['blinds']=blinds;
-
-       // update blinds and Traces_tb_gid to be arrays
+       // update Traces_tb_gid to be array
        var t=meta['TRACES_tb_gid']; 
        var nt=t.replace('{','[');
        var nnt=nt.replace('}',']');
@@ -595,10 +588,10 @@ function processTraceMeta(metaList) {
        if(metaList == 'metaByAllTraces') {
          cfm_fault_meta_list.push({"gid":gid, "meta": meta });
          if( !in_nogeo_gid_list(gid)) {
-           getGeoJSONXX(gidstr,meta);
+           getGeoJSONbyObjGid(gidstr,meta);
          }
          } else {
-           window.console.log("BAD ??");
+            window.console.log("BAD ??");
        }
     }
     return str;
@@ -674,13 +667,28 @@ function grabGeoJSON() {
 
 // extract the geo json blob from the backend php
 function grabGeoJSONList() {
-    var glist = $('[data-side="geos-json"]').data('params');
-    if(glist == undefined) {
+    var gdata = $('[data-side="geo-json"]').data('params');
+    if(gdata == undefined) {
       window.console.log("EROR -- geometry is empty");
       return "";
     }
+    var glist=gdata['geoms'];
     return glist;
 }
+
+// extract the blind list from the backend php
+function grabTraceBlindList() {
+    var gdata = $('[data-side="geo-json"]').data('params');
+    if(gdata == undefined) {
+      window.console.log("EROR -- geo-json is empty");
+      return "";
+    }
+//    var tlist=gdata['tgids'];
+//    var olist=gdata['ogids'];
+    var blist=gdata['blinds'];
+    return blist;
+}
+
 
 function getStrikeRangeMinMax() {
     str= $('[data-side="strike-range"]').data('params');

@@ -38,7 +38,7 @@ CREATE TEMP TABLE tmp_x AS
      SELECT concat(name,'-trace'), gid from OBJECT_tb;
 
 CREATE TEMP TABLE tmp_y AS
-     SELECT layer, gid, ___isblind from TRACE_tb;
+     SELECT layer, gid, ___isblind, geom from TRACE_tb;
 
 UPDATE OBJECT_tb 
      SET blinds =
