@@ -9,10 +9,10 @@ psql postgresql://postgres:example@localhost/CRM_db << AAAA
   CREATE EXTENSION postgis;
   SELECT PostGIS_Version();
 
-  \i '/home/postgres/CRM/schema/sql/CRM_polygon_traces.sql';
-  \i '/home/postgres/CRM/schema/sql/setup_schema.sql';
-  \i '/home/postgres/CRM/schema/sql/load_regions.sql';
-  \i '/home/postgres/CRM/schema/sql/linkup_traces.sql';
+  \i '/home/postgres/CRM/schema_crm/sql/CRM_polygon_traces.sql';
+  \i '/home/postgres/CRM/schema_crm/sql/setup_schema.sql';
+  \i '/home/postgres/CRM/schema_crm/sql/load_regions.sql';
+  \i '/home/postgres/CRM/schema_crm/sql/linkup_traces.sql';
 
   DROP ROLE webonly;
   CREATE ROLE webonly WITH LOGIN PASSWORD 'scec';
