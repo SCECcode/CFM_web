@@ -150,6 +150,10 @@ function bindPopupEachFeatureName(feature, layer) {
     });
 }
 
+function loadCRMRegions() {
+  getCRMAllTraces();
+}
+
 //domain,xcoord,ycoord
 //Peninsular Range (E),-114.53244,29.43361
 function readAndProcessActiveLatlon(urls) {
