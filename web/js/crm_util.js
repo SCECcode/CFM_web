@@ -2,11 +2,6 @@
    crm_util.js
 
 ***/
-// all region gid ==> gid from region_tb
-//  [ { "gid": gid1,  "meta": mmm1 }, {  "gid": gid2, "meta": mmm2 }, ... }
-var crm_region_meta_list=[];
-
-
 // extract meta data blob from php backend, extract object_tb's gid and 
 // use that to grab the matching geoJson
 function processCRMTraceMeta(metaList) {
@@ -16,7 +11,7 @@ function processCRMTraceMeta(metaList) {
         str = $('[data-side="allTraces"]').data('params');
     }
 
-    if(str == undefined) {
+    if(str == undefined || str == "") {
        window.console.log("processCRMTraceMeta: BAD BAD BAD");
        return;
     }

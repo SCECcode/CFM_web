@@ -156,6 +156,9 @@ function makeGeoJSONFeature(geoJSON, blinds, gid, meta) {
   
 
   var color=getColorFromMeta(meta);
+  if(color != "black") {
+    window.console.log("BAD color...",gid);
+  }
   var a_trace={"type":"FeatureCollection", "features":[]};
   var cnt=blinds.length;
 
@@ -571,18 +574,20 @@ function find_trace_list(gid) {
 }
 
 function load_a_trace(gid,trace) {
+  window.console.log("calling load_a_trace, inside..",gid);
   var t=find_layer_list(gid);
   if(t) {
     window.console.log("already plotted this layer", gid);
     return;
   }
   var layer=addGeoToMap(trace, viewermap);
-  cfm_layer_list.push({"gid":gid, "layer":layer}); 
   var s =find_style_list(gid);
   if( s == undefined ) {
      window.console.log("BAD!! load_a_trace..", gid);
      return;
   }
+  cfm_layer_list.push({"gid":gid, "layer":layer}); 
+  window.console.log("  loaded a trace..",gid);
   s['visible']=1; // turn it on
 }
 

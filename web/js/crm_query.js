@@ -10,10 +10,12 @@ function getCRMAllTraces() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
             var str=processCRMTraceMeta("metaByAllTraces");
+/****
             $.event.trigger({
                 type: "tableLoadCompleted",
                 "message": "completed",
             })
+***/
         }
     };
     xmlhttp.open("GET","php/getCRMAllTraces.php",true);

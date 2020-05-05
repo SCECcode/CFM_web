@@ -77,10 +77,11 @@ $header = getHeader("Viewer");
     <script type="text/javascript" src="js/gfm_region.js?v=1"></script>
     <script type="text/javascript" src="js/cfm_misc_util.js?v=1"></script>
  
-    <!-- crm js -->
+<!-- crm js 
     <script type="text/javascript" src="js/crm_util.js?v=1"></script>
     <script type="text/javascript" src="js/crm_query.js?v=1"></script>
     <script type="text/javascript" src="js/crm_layer.js?v=1"></script>
+-->
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-495056-12"></script>
@@ -128,20 +129,26 @@ $header = getHeader("Viewer");
         </div>
     </div>
 
-<!--- MISC --->
-<div id="misc tools" style="display:none">
+<!-- MISC -->
+<!--
+<div id="misc_tools" style="display:none">
+-->
+<div id="misc_tools">
    <button id="dumpGeoBtn" class="btn cfm-small-btn"  onClick="dumpActiveGeo()">
                 <span class="glyphicon glyphicon-file"></span> Export active geoJson</button>
+   <button id="loadCRMGeoBtn" class="btn cfm-small-btn"  onClick="loadCRMRegions()">
+                <span class="glyphicon glyphicon-star"></span> Load CRM geoJson</button>
 
-   <input class="form-control" id='fileGeoJsonBtn' type='file' onchange='readAndProcessActiveGeo(this.files)'  style='display:none;'></input>
+
+   <input class="form-control" id='fileGeoJsonBtn' type='file' onchange='readAndProcessActiveGeo(this.files)'  style='display:none;'>
    <button class="btn cfm-small-btn" title="open a geoJson file to ingest" onclick='javascript:document.getElementById("fileGeoJsonBtn").click();'>
             <span class="glyphicon glyphicon-file"></span> Select geoJson file to use</button>
 
-   <input class="form-control" id='fileLatlonBtn' type='file' onchange='readAndProcessActiveLatlon(this.files)'  style='display:none;'></input>
+   <input class="form-control" id='fileLatlonBtn' type='file' onchange='readAndProcessActiveLatlon(this.files)'  style='display:none;'>
    <button class="btn cfm-small-btn" title="open a Latlon file to ingest" onclick='javascript:document.getElementById("fileLatlonBtn").click();'>
             <span class="glyphicon glyphicon-file"></span> Select Latlon csv file to use</button>
 </div>
-<!-- END of MISC --->
+<!-- END of MISC -->
 
     <div class="row" style="display:none;">
         <div class="col justify-content-end custom-control-inline">
@@ -178,10 +185,10 @@ $header = getHeader("Viewer");
                     <option value="zoneClick">Zone</option>
                     <option value="sectionClick">Section</option>
                     <option value="nameClick">Name</option>
-<!--- WAIT for better strike/dip 
+<!-- WAIT for better strike/dip 
                     <option value="strikeClick">Strike</option>
                     <option value="dipClick">Dip</option>
---->
+-->
                 </select>
                 <div class="input-group-append">
                     <button onclick="refreshAll();" class="btn btn-dark pl-4 pr-4" type="button">Reset</button>
@@ -271,7 +278,7 @@ $header = getHeader("Viewer");
 
                             </div>
                         </li>
-<!-- XXX --->
+<!-- XXX -->
                         <li id='latlon' class='navigationLi' style="width:600px; display:none">
                             <div id='latlonMenu' class='menu'>
                                 <div class="row">
@@ -353,7 +360,7 @@ $header = getHeader("Viewer");
                 </select>
             </div>
 
-<!--- WAIT for better dip/strike data
+<!-- WAIT for better dip/strike data
             <div class="input-group input-group-sm ml-md-2 ml-sm-0">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="highlight-faults">Highlight Faults By</label>
@@ -365,7 +372,7 @@ $header = getHeader("Viewer");
                     <option value="dip">Dip</option>
                 </select>
             </div>
---->
+-->
             <!--            <a class="ui-button" onclick="toggleAll();">Show/Hide Faults</a>-->
 
         </div>
@@ -386,108 +393,98 @@ $header = getHeader("Viewer");
 
         </div>
     </div>
-        <div class="row">
-            <div class="col-12" id="metadata-viewer-container">
-                <table id="metadata-viewer">
-                    <thead>
-                    <tr>
-                        <th>Fault</th>
-                        <th>Area</th>
-                        <th>Zone</th>
-                        <th>Section</th>
-                        <th>CFM Version</th>
-<!--                        <th>Strike</th>-->
-<!--                        <th>Dip</th>-->
-<!--                        <th>Area (m<sup>2</sup>) </th>-->
-                        <th><div class="col text-center">
-                                <div class="btn-group download-now">
-                                    <button id="download-all" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
-                                            aria-haspopup="true" aria-expanded="false" disabled>
-                                        Download All <span id="download-counter"></span>
+    <div class="row">
+        <div class="col-12" id="metadata-viewer-container">
+            <table id="metadata-viewer">
+                <thead>
+                <tr>
+                    <th>Fault</th>
+                    <th>Area</th>
+                    <th>Zone</th>
+                    <th>Section</th>
+                    <th>CFM Version</th>
+<!--                    <th>Strike</th>-->
+<!--                    <th>Dip</th>-->
+<!--                    <th>Area (m<sup>2</sup>) </th>-->
+                    <th><div class="col text-center">
+                            <div class="btn-group download-now">
+                                <button id="download-all" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false" disabled>
+                                    Download All <span id="download-counter"></span>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <button class="dropdown-item" type="button" value="meta"
+                                            onclick="executeDownload(this.value);">Metadata
                                     </button>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <button class="dropdown-item" type="button" value="meta"
-                                                onclick="executeDownload(this.value);">Metadata
-                                        </button>
-                                        <button class="dropdown-item" type="button" value="native"
-                                                onclick="executeDownload(this.value);">Native + Metadata
-                                        </button>
-                                        <button class="dropdown-item" type="button" value="500m"
-                                                onclick="executeDownload(this.value);">500m + Metadata
-                                        </button>
-                                        <button class="dropdown-item" type="button" value="1000m"
-                                                onclick="executeDownload(this.value);">1000m + Metadata
-                                        </button>
-                                        <button class="dropdown-item" type="button" value="2000m"
-                                                onclick="executeDownload(this.value);">2000m + Metadata
-                                        </button>
-                                        <button class="dropdown-item" type="button" value="all"
-                                              onclick="executeDownload(this.value);">All of the Above
-                                        </button>
-                                    </div>
+                                    <button class="dropdown-item" type="button" value="native"
+                                            onclick="executeDownload(this.value);">Native + Metadata
+                                    </button>
+                                    <button class="dropdown-item" type="button" value="500m"
+                                            onclick="executeDownload(this.value);">500m + Metadata
+                                    </button>
+                                    <button class="dropdown-item" type="button" value="1000m"
+                                            onclick="executeDownload(this.value);">1000m + Metadata
+                                    </button>
+                                    <button class="dropdown-item" type="button" value="2000m"
+                                            onclick="executeDownload(this.value);">2000m + Metadata
+                                    </button>
+                                    <button class="dropdown-item" type="button" value="all"
+                                          onclick="executeDownload(this.value);">All of the Above
+                                    </button>
                                 </div>
-                                &nbsp; &nbsp;
-                                <div class="btn-group download-now">
+                            </div>
+                            &nbsp; &nbsp;
+                            <div class="btn-group download-now">
 <!-- MODAL popup button, reuse download-counter -->
-                                    <button id="plot3d-all" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
-                                            aria-haspopup="true" aria-expanded="false" disabled>
-                                        Plot3d <span id="download-counter"></span>
+                                <button id="plot3d-all" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false" disabled>
+                                    Plot3d <span id="download-counter"></span>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <button class="dropdown-item" type="button" value="native"
+                                            onclick="executePlot3d(this.value);">Native
                                     </button>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <button class="dropdown-item" type="button" value="native"
-                                                onclick="executePlot3d(this.value);">Native
-                                        </button>
-                                        <button class="dropdown-item" type="button" value="500m"
-                                                onclick="executePlot3d(this.value);">500m
-                                        </button>
-                                        <button class="dropdown-item" type="button" value="1000m"
-                                                onclick="executePlot3d(this.value);">1000m
-                                        </button>
-                                        <button class="dropdown-item" type="button" value="2000m"
-                                                onclick="executePlot3d(this.value);">2000m
-                                        </button>
-                                        <button class="dropdown-item" type="button" value="all"
-                                              onclick="executePlot3d(this.value);">All of the Above
-                                        </button>
-                                    </div>
-
+                                    <button class="dropdown-item" type="button" value="500m"
+                                            onclick="executePlot3d(this.value);">500m
+                                    </button>
+                                    <button class="dropdown-item" type="button" value="1000m"
+                                            onclick="executePlot3d(this.value);">1000m
+                                    </button>
+                                    <button class="dropdown-item" type="button" value="2000m"
+                                            onclick="executePlot3d(this.value);">2000m
+                                    </button>
+                                    <button class="dropdown-item" type="button" value="all"
+                                          onclick="executePlot3d(this.value);">All of the Above
+                                    </button>
                                 </div>
-                            </div></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr id="placeholder-row">
-                        <td colspan="12">Metadata for selected faults will appear here. </td>
-                    </tr>
-                    </tbody>
-                </table>
-                <!--                    <p>-->
-                <!--                        The CFM Viewer was developed by the <a href="https://www.scec.org/">Southern California Earthquake Center</a> (SCEC) and SCEC-->
-                <!--                        Community Fault Model researchers. More information is available on the <a-->
-                <!--                            href="https://www.scec.org/research/cfm">SCEC CFM Research Page</a>. SCEC is funded by-->
-                <!--                        <a href="https://www.nsf.gov">National Science Foundation</a> and the <a href="https://www.usgs.gov">United States Geological Survey</a>.-->
-                <!--                    </p>-->
-            </div>
+
+                            </div>
+                        </div></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr id="placeholder-row">
+                    <td colspan="6">Metadata for selected faults will appear here. </td>
+                </tr>
+                </tbody>
+            </table>
         </div>
-
     </div>
-
-    <div class="row">&nbsp;</div>
-
-    <div id='queryBlock' class="col-6" style="overflow:hidden;display:none;">
-
-    </div> <!-- query block -->
 </div>
+
+<div class="row">&nbsp;</div>
+<div id='queryBlock' class="col-6" style="overflow:hidden;display:;border:1px solid green;"> </div> <!-- query block -->
+
 <div id="dip-strike-key-container" style="display:none;">
     <div id="dip-strike-key" class="row">
         <div class="col text-right">
 		<span class="min"></span><span class="ui-slider-range" style="width: 200px;">&nbsp;</span><span class="max"></span>
-            </div>
-	</div>
+        </div>
+    </div>
 </div>
 
 <!--Modal: Name-->
-<div class="modal" id="modal3D" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal" id="modal3D" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="modal3D" aria-hidden="true">
   <div class="modal-dialog modal-lg" id="modal3DDialog" role="document">
 
     <!--Content-->
@@ -500,9 +497,9 @@ $header = getHeader("Viewer");
 
       <!--Body-->
       <div class="modal-body" id="modal3DBody">
-<div id="iframe-container" class="row col-12" style="overflow:hidden">
-<iframe id="view3DIfram" src="" height="400" width="100%" frameborder="2" allowfullscreen></iframe>
-</div>
+        <div id="iframe-container" class="row col-12" style="overflow:hidden">
+          <iframe id="view3DIfram" src="" height="400" width="100%" allowfullscreen></iframe>
+        </div>
       </div>
 
       <div class="modal-footer justify-content-center">

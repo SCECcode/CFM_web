@@ -1,5 +1,5 @@
 <?php
-function getConnection() {
+function getCRMConnection() {
   $dbconn = @pg_connect("host=db port=5432 dbname=CRM_db user=webonly password=scec");
 
   if (!$dbconn) { // try localhost
@@ -10,7 +10,7 @@ function getConnection() {
   return $dbconn;
 }
 
-function makeObj($row) {
+function makeCRMObj($row) {
 
 include ("declareCRM.php");
 

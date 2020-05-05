@@ -490,6 +490,8 @@ function getDipRange() {
 
 
 function getGeoJSONbyObjGid(gidstr, meta) {
+    window.console.log("calling getGeoJSONbyObjGid",gidstr);
+    var gidorig=parseInt(gidstr);
     // if gidstr is not set look for it in the input field
     if(typeof gidstr == 'undefined')    
         gidstr=document.getElementById("objGidTxt").value;
@@ -510,6 +512,7 @@ function getGeoJSONbyObjGid(gidstr, meta) {
             var gid=parseInt(gidstr);
             var trace=makeGeoJSONFeature(geoJSONList, geoBlindList, gid, meta);
             if(trace != undefined)
+              window.console.log("loading a trace...",gid," with ",gidorig);
               load_a_trace(gid,trace);
         }     
     };  

@@ -10,17 +10,6 @@ function getConnection() {
   return $dbconn;
 }
 
-function getCRMConnection() {
-  $dbconn = @pg_connect("host=db port=5432 dbname=CRM_db user=webonly password=scec");
-
-  if (!$dbconn) { // try localhost
-    $dbconn = pg_connect("host=localhost port=5432 dbname=CRM_db user=webonly password=scec");
-  }
-
-  if (!$dbconn) { die('Could not connect'); }
-  return $dbconn;
-}
-
 function makeObj($row) {
 
 include ("declare.php");

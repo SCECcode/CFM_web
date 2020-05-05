@@ -9,16 +9,15 @@
 include("declareCRM.php");
 include("utilCRM.php");
 
-$dbconn = getConnection();
+$dbconn = getCRMConnection();
 
 $query = "SELECT gid, domain_id, name, sliver, state, color from REGION_tb";
-
 $result = pg_query($dbconn, $query);
 
 $metaList=array();
 
 while($row = pg_fetch_row($result)) {
-    array_push($metaList, makeObj($row));
+    array_push($metaList, makeCRMObj($row));
 }
 
 $metastring = htmlspecialchars(json_encode($metaList), ENT_QUOTES, 'UTF-8');
