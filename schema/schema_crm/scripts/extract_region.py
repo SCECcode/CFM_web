@@ -24,7 +24,7 @@ for item in rlist :
    color=item['color']
    state=str(item['state'])
 
-   string="INSERT INTO \"REGION_tb\" (\"domain_id\",\"name\",\"sliver\",\"color\",\"state\") VALUES ("+id+",\'" +name+"\'," +sliver+",\'" +color+"\'," +state+");"
+   string="INSERT INTO REGION_tb (\"domain_id\",\"name\",\"sliver\",\"color\",\"state\") VALUES ("+id+",\'" +name+"\'," +sliver+",\'" +color+"\'," +state+");"
    fout.write(string);
    fout.write("\n");
 
