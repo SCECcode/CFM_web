@@ -301,7 +301,7 @@ function get_feature(gid) {
   return {};
 }
 
-//           layer.bindPopup(layer.feature.properties.name);
+//layer.bindPopup(layer.feature.properties.name);
 
 // unbind layer's popup on detail content
 function unbind_layer_popup() {
@@ -330,6 +330,16 @@ function find_name_by_gid(target) {
    if(item) {
       var meta=item['meta'];
       found=meta['name'];
+   } 
+   return found;
+}
+
+function find_pretty_name_by_gid(target) {
+   var found="NA";
+   var item=find_meta_list(target);
+   if(item) {
+      var meta=item['meta'];
+      found=meta['fault'];
    } 
    return found;
 }

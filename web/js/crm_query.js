@@ -36,11 +36,11 @@ function getCRMGeoJSONbyObjGid(gidstr, meta) {
             // grab the geoJSON
             var geoJSONList=grabCRMGeoJSONList();
             var gid=parseInt(gidstr);
-            var trace=makeCRMGeoJSONFeature(geoJSONList, geoBlindList, gid, meta);
+            var trace=makeCRMGeoJSONFeature(geoJSONList, gid, meta);
             if(trace != undefined)
               addGeoToMap(trace, viewermap);  //add straight
         }     
     };  
-    xmlhttp.open("GET","php/getCRMGeoJSONbyObjGid.php?domain_gid="+gidstr,true);
+    xmlhttp.open("GET","php/getCRMGeoJSONByRegionGid.php?domain_gid="+gidstr,true);
     xmlhttp.send();
 }   

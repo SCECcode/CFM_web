@@ -6,34 +6,56 @@ b) import external geoJson.txt and create a groupLayer with optional name popup
 c) import external latlon.csv with 'name' and create a group Layerof mulitple groups of points with different color 
 **/
 
+// a list of traces
+// a list of labels
+function collectActiveCFMGeo() {
+  var tracelist = [];
+  var labellist = [];
+
+  var csz=cfm_active_gid_list.length; // there is a search list result
+
+  var tsz=cfm_trace_list.length;
+  var i;
+  for(i=0; i< tsz; i++) {
+    var titem=cfm_trace_list[i];
+    var gid=titem['gid'];
+    var tracename=find_pretty_name_by_gid(gid);
+    var atrace=titem['trace'];
+    // either all, or has a active list
+    if(!csz || in_active_gid_list(gid)) {
+      labellist.push(tracename);
+      tracelist.push(atrace);
+    }
+  }
+  return [tracelist.length, tracelist, labellist];
+}
+
+function dumpActiveCFMGeo() {
+  var cnt;
+  var tlist;
+  var llist;
+  [cnt, tlist, llist] = collectActiveCFMGeo();
+  if(cnt) {
+     dumpActiveGeo("CFM5.2_geoJson.txt", tlist, llist);
+  }
+}
 
 // *** specifically for CFM_web ***
 // create CFM5.2_geoJson.txt json file from cfm_trace_list.json
 // and cfm_active_gid_list of current active faults on the leaflet map
-function dumpActiveGeo() {
-  var f = new Date().getTime();
-  var ff= f.toString();
-  var dumpname="CFM5.2_geoJson.txt"; 
+function dumpActiveGeo(dumpname, trace_list, label_list) {
 
-  var csz=cfm_active_gid_list.length;
-  var tsz=cfm_trace_list.length;
-  var i;
+  var tsz=trace_list.length;
   var tlist=[];
-  var cnt=0;
-  for(i=0; i< tsz; i++) {
-    var titem=cfm_trace_list[i];
-    var gid=titem['gid'];
-    var tracename=find_name_by_gid(gid);
-    var atrace=titem['trace'];
-    // either all, or has a active list
-    if(!csz || in_active_gid_list(gid)) {
-      cnt=cnt+1;
-      atrace.features[0].properties.name=tracename;
-      tlist.push(atrace);
+  var i;
+  for(var i=0; i< tsz; i++) {
+    var atrace=trace_list[i];
+    var tracename=label_list[i];
+    var fsz=atrace.features.length;
+    for(var j=0;j<fsz;j++) {
+      atrace.features[j].properties.name=tracename;
     }
-  }
-  if(cnt == 0) { // no active faults
-    return;
+    tlist.push(atrace);
   }
   
   var dump={ 'cfm_trace_list': tlist }; 
