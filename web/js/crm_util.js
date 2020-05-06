@@ -21,7 +21,6 @@ function processCRMTraceMeta(metaList) {
     // iterate through the list and grab the geo info and update leaflet feature
     // structure one by one
     for( var i=0; i< sz; i++) {
-       var t=str[i];
        var meta = JSON.parse(str[i]);
        var gidstr=meta['gid'];
        var gid=parseInt(gidstr);
