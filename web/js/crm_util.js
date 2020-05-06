@@ -28,6 +28,8 @@ function processCRMTraceMeta(metaList) {
 
        // update Traces_tb_gid to be array
        var t=meta['TRACE_tb_gid']; 
+       if(t == "{}")
+          continue;
        var nt=t.replace('{','[');
        var nnt=nt.replace('}',']');
        var trace_tb_gid=JSON.parse(nnt);

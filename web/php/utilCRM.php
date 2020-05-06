@@ -22,6 +22,7 @@ $myObj->name=$row[$name];
 $myObj->silver=$row[$silver];
 $myObj->state=$row[$state];
 $myObj->color=$row[$color];
+$myObj->TRACE_tb_gid=$row[$TRACE_tb_gid];
 
 $myJSON = json_encode($myObj);
 

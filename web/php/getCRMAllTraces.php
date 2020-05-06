@@ -11,7 +11,7 @@ include("utilCRM.php");
 
 $dbconn = getCRMConnection();
 
-$query = "SELECT gid, domain_id, name, sliver, state, color from REGION_tb";
+$query = "SELECT gid, domain_id, name, sliver, state, color, TRACE_tb_gid from REGION_tb";
 $result = pg_query($dbconn, $query);
 
 $metaList=array();

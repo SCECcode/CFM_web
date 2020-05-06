@@ -7,7 +7,7 @@
 <?php
 
 include ("utilCRM.php");
-$dbconn = getConnection();
+$dbconn = getCRMConnection();
 
 $gid = $_GET['domain_gid'];
 

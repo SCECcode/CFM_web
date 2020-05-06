@@ -587,7 +587,6 @@ function processTraceMeta(metaList) {
 
        if(metaList == 'metaByAllTraces') {
          cfm_fault_meta_list.push({"gid":gid, "meta": meta });
-         window.console.log("checking nogeo and then get geo..",gid);
          if( !in_nogeo_gid_list(gid)) {
            getGeoJSONbyObjGid(gidstr,meta);
          }

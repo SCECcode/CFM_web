@@ -151,7 +151,7 @@ function makeGeoJSONFeature(geoJSON, blinds, gid, meta) {
         blob.push(JSON.parse(s));
      });
     } else {
-      blob=geoJSON;
+      blob= geoJSON;
   }
   
 
@@ -574,7 +574,6 @@ function find_trace_list(gid) {
 }
 
 function load_a_trace(gid,trace) {
-  window.console.log("calling load_a_trace, inside..",gid);
   var t=find_layer_list(gid);
   if(t) {
     window.console.log("already plotted this layer", gid);
@@ -587,7 +586,6 @@ function load_a_trace(gid,trace) {
      return;
   }
   cfm_layer_list.push({"gid":gid, "layer":layer}); 
-  window.console.log("  loaded a trace..",gid);
   s['visible']=1; // turn it on
 }
 
