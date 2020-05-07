@@ -28,28 +28,3 @@ psql postgresql://postgres:example@localhost/CFM52_db << AAA
   \q
 
 AAA
-
-dropdb --if-exists CRM_db
-createdb CRM_db
-mkdir -p /home/postgres/CRM
-cp -Rv /app/schema/schema_crm /home/postgres/CRM/
-psql postgresql://postgres:example@localhost/CRM_db << AAAA
-
-  CREATE EXTENSION postgis;
-  SELECT PostGIS_Version();
-
-  \i '/home/postgres/CRM/schema_crm/sql/CRM_polygon_traces.sql';
-  \i '/home/postgres/CRM/schema_crm/sql/setup_schema.sql';
-  \i '/home/postgres/CRM/schema_crm/sql/load_regions.sql';
-  \i '/home/postgres/CRM/schema_crm/sql/linkup_traces.sql';
-
-  GRANT SELECT ON ALL TABLES IN SCHEMA public TO webonly;
-  REVOKE CREATE ON SCHEMA public FROM PUBLIC;
-
-  SELECT UpdateGeometrySRID('trace_tb','geom',4326);
-
-  \dp
-  \q
-
-AAAA
-
