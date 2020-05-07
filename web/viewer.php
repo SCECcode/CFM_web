@@ -74,14 +74,6 @@ $header = getHeader("Viewer");
     <script type="text/javascript" src="js/cfm_query.js?v=1"></script>
     <script type="text/javascript" src="js/cfm_sidebar.js?v=1"></script>
    
-    <script type="text/javascript" src="js/gfm_region.js?v=1"></script>
-    <script type="text/javascript" src="js/cfm_misc_util.js?v=1"></script>
- 
-<!-- crm js --> 
-    <script type="text/javascript" src="js/crm_util.js?v=1"></script>
-    <script type="text/javascript" src="js/crm_query.js?v=1"></script>
-    <script type="text/javascript" src="js/crm_layer.js?v=1"></script>
-
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-495056-12"></script>
     <script type="text/javascript">
@@ -127,29 +119,6 @@ $header = getHeader("Viewer");
             <p>The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model (CFM)</a> are three-dimensional and non-planar; however, to simplify browsing the model, the viewer below provides a two-dimensional map-based view of the SCEC CFM version 5.2 preferred fault set. The alternative fault representations are only provided in the complete CFM archive. Here, the viewer allows users to view and download fault geometry data as well as metadata for selected faults rather than downloading the entire CFM model archive. This site is currently in beta testing. See the <a href="guide">user guide</a> for more details and site usage instructions.</p>
         </div>
     </div>
-
-<!-- MISC -->
-<!--
-<div id="misc_tools" style="display:none">
--->
-<div id="misc_tools">
-   <button id="dumpCFMGeoBtn" class="btn cfm-small-btn"  onClick="dumpActiveCFMGeo()">
-                <span class="glyphicon glyphicon-file"></span> Export CFM geoJson</button>
-   <button id="dumpCRMGeoBtn" class="btn cfm-small-btn"  onClick="dumpActiveCRMGeo()">
-                <span class="glyphicon glyphicon-file"></span> Export CRM geoJson</button>
-   <button id="loadCRMGeoBtn" class="btn cfm-small-btn"  onClick="loadCRMRegions()">
-                <span class="glyphicon glyphicon-star"></span> Load CRM geoJson</button>
-
-
-   <input class="form-control" id='fileGeoJsonBtn' type='file' onchange='readAndProcessActiveGeo(this.files)'  style='display:none;'>
-   <button class="btn cfm-small-btn" title="open a geoJson file to ingest" onclick='javascript:document.getElementById("fileGeoJsonBtn").click();'>
-            <span class="glyphicon glyphicon-file"></span> Select geoJson file to use</button>
-
-   <input class="form-control" id='fileLatlonBtn' type='file' onchange='readAndProcessActiveLatlon(this.files)'  style='display:none;'>
-   <button class="btn cfm-small-btn" title="open a Latlon file to ingest" onclick='javascript:document.getElementById("fileLatlonBtn").click();'>
-            <span class="glyphicon glyphicon-file"></span> Select Latlon csv file to use</button>
-</div>
-<!-- END of MISC -->
 
     <div class="row" style="display:none;">
         <div class="col justify-content-end custom-control-inline">
