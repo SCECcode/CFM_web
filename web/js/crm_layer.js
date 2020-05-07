@@ -10,6 +10,15 @@ var crm_region_meta_list=[];
 // [ {"gid": gid1, "trace": trace1 }, {"gid":gid2, "trace":trace2}... ], only with geo
 var crm_trace_list=[];
 
+function find_crm_name_by_gid(gid) {
+   var found=0;
+   crm_region_meta_list.forEach(function(meta) {
+     if ( meta['gid'] == gid )
+        found=meta['name'];
+        return found;
+   });
+   return found;
+}
 
 // create a feature with a geoJSON or a geoJSONList, 
 function makeCRMGeoJSONFeature(geoJSON, gid, meta) {

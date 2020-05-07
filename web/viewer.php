@@ -133,8 +133,10 @@ $header = getHeader("Viewer");
 <div id="misc_tools" style="display:none">
 -->
 <div id="misc_tools">
-   <button id="dumpGeoBtn" class="btn cfm-small-btn"  onClick="dumpActiveCFMGeo()">
-                <span class="glyphicon glyphicon-file"></span> Export active geoJson</button>
+   <button id="dumpCFMGeoBtn" class="btn cfm-small-btn"  onClick="dumpActiveCFMGeo()">
+                <span class="glyphicon glyphicon-file"></span> Export CFM geoJson</button>
+   <button id="dumpCRMGeoBtn" class="btn cfm-small-btn"  onClick="dumpActiveCRMGeo()">
+                <span class="glyphicon glyphicon-file"></span> Export CRM geoJson</button>
    <button id="loadCRMGeoBtn" class="btn cfm-small-btn"  onClick="loadCRMRegions()">
                 <span class="glyphicon glyphicon-star"></span> Load CRM geoJson</button>
 

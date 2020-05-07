@@ -6,17 +6,15 @@ b) import external geoJson.txt and create a groupLayer with optional name popup
 c) import external latlon.csv with 'name' and create a group Layerof mulitple groups of points with different color 
 **/
 
-// a list of traces
-// a list of labels
-function collectActiveCFMGeo() {
+// *** specifically for CFM_web ***
+// create CFM5.2_geoJson.txt json file from cfm_trace_list.json
+function dumpActiveCFMGeo() {
   var tracelist = [];
   var labellist = [];
 
   var csz=cfm_active_gid_list.length; // there is a search list result
-
   var tsz=cfm_trace_list.length;
-  var i;
-  for(i=0; i< tsz; i++) {
+  for(var i=0; i< tsz; i++) {
     var titem=cfm_trace_list[i];
     var gid=titem['gid'];
     var tracename=find_pretty_name_by_gid(gid);
@@ -27,22 +25,31 @@ function collectActiveCFMGeo() {
       tracelist.push(atrace);
     }
   }
-  return [tracelist.length, tracelist, labellist];
-}
-
-function dumpActiveCFMGeo() {
-  var cnt;
-  var tlist;
-  var llist;
-  [cnt, tlist, llist] = collectActiveCFMGeo();
-  if(cnt) {
-     dumpActiveGeo("CFM5.2_geoJson.txt", tlist, llist);
+  if(tracelist.length) {
+    dumpActiveGeo("CFM5.2_geoJson.txt", tracelist, labellist);
   }
 }
 
-// *** specifically for CFM_web ***
-// create CFM5.2_geoJson.txt json file from cfm_trace_list.json
-// and cfm_active_gid_list of current active faults on the leaflet map
+function dumpActiveCRMGeo() {
+  var tracelist = [];
+  var labellist = [];
+
+  var tsz=crm_trace_list.length;
+  for(var i=0; i< tsz; i++) {
+    var titem=crm_trace_list[i];
+    var gid=titem['gid'];
+    var tracename=find_crm_name_by_gid(gid);
+    var atrace=titem['trace'];
+    // either all, or has a active list
+    labellist.push(tracename);
+    tracelist.push(atrace);
+  }
+
+  if(tracelist.length) {
+     dumpActiveGeo("CRM_geoJson.txt", tracelist, labellist);
+  }
+}
+
 function dumpActiveGeo(dumpname, trace_list, label_list) {
 
   var tsz=trace_list.length;
