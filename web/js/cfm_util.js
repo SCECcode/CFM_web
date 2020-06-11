@@ -213,8 +213,7 @@ function downloadURLsAsZip(mlist) {
       }
       if( use_download_set != 'all')
         continue;
-    }
-    if (use_download_set == '500m' || use_download_set == 'all') {
+    } else if (use_download_set == '500m' || use_download_set == 'all') {
       if(in_500m_gid_list(gid)) {
         url=url_in_500m_list(gid);
         if(url) {
@@ -225,8 +224,7 @@ function downloadURLsAsZip(mlist) {
       }
       if( use_download_set != 'all')
         continue;
-    }
-    if (use_download_set == '1000m' || use_download_set == 'all') {
+    } else if (use_download_set == '1000m' || use_download_set == 'all') {
       if(in_1000m_gid_list(gid)) {
         url=url_in_1000m_list(gid);
         if(url) {
@@ -237,8 +235,7 @@ function downloadURLsAsZip(mlist) {
       }
       if( use_download_set != 'all')
         continue;
-    }
-    if (use_download_set == '2000m' || use_download_set == 'all') {
+    } else if (use_download_set == '2000m' || use_download_set == 'all') {
       if(in_2000m_gid_list(gid)) {
         url=url_in_2000m_list(gid);
         if(url) {
@@ -311,9 +308,7 @@ function startDownload()
   }
   if (use_download_set == 'meta' || use_download_set == 'all') {
     downloadCSVMeta(mlist);
-  }
-
-  if(use_download_set != 'meta') {
+  } else if(use_download_set != 'meta') {
     downloadURLsAsZip(mlist);
   }
 }
@@ -602,29 +597,21 @@ function processSearchResult(rlist) {
     var str="";
     if (rlist == 'searchByFaultObjectName') {
         str = $('[data-side="resultByFaultObjectName"]').data('params');
-    }
-    if (rlist == 'searchByLatLon') {
+    } else if (rlist == 'searchByLatLon') {
         str = $('[data-side="resultByLatLon"]').data('params');
-    }
-    if (rlist == 'searchByKeyword') {
+    } else if (rlist == 'searchByKeyword') {
         str = $('[data-side="resultByKeyword"]').data('params');
-    }
-    if (rlist == 'searchByArea') {
+    } else if (rlist == 'searchByArea') {
         str = $('[data-side="resultByArea"]').data('params');
-    }
-    if (rlist == 'searchByZone') {
+    } else if (rlist == 'searchByZone') {
         str = $('[data-side="resultByZone"]').data('params');
-    }
-    if (rlist == 'searchBySection') {
+    } else if (rlist == 'searchBySection') {
         str = $('[data-side="resultBySection"]').data('params');
-    }
-    if (rlist == 'searchByName') {
+    } else if (rlist == 'searchByName') {
         str = $('[data-side="resultByName"]').data('params');
-    }
-    if (rlist == 'searchByStrikeRange') {
+    } else if (rlist == 'searchByStrikeRange') {
         str = $('[data-side="resultByStrikeRange"]').data('params');
-    }
-    if (rlist == 'searchByDipRange') {
+    } else if (rlist == 'searchByDipRange') {
         str = $('[data-side="resultByDipRange"]').data('params');
     }
 
@@ -791,8 +778,7 @@ function collectURLsFor3d(mlist) {
       }
       if( use_download_set != 'all')
         continue;
-    }
-    if (use_download_set == '500m' || use_download_set == 'all') {
+    } else if (use_download_set == '500m' || use_download_set == 'all') {
       if(in_500m_gid_list(gid)) {
         url=url_in_500m_list(gid);
         if(url) {
@@ -801,8 +787,7 @@ function collectURLsFor3d(mlist) {
       }
       if( use_download_set != 'all')
         continue;
-    }
-    if (use_download_set == '1000m' || use_download_set == 'all') {
+    } else if (use_download_set == '1000m' || use_download_set == 'all') {
       if(in_1000m_gid_list(gid)) {
         url=url_in_1000m_list(gid);
         if(url) {
@@ -811,8 +796,7 @@ function collectURLsFor3d(mlist) {
       }
       if( use_download_set != 'all')
         continue;
-    }
-    if (use_download_set == '2000m' || use_download_set == 'all') {
+    } else if (use_download_set == '2000m' || use_download_set == 'all') {
       if(in_2000m_gid_list(gid)) {
         url=url_in_2000m_list(gid);
         if(url) {
