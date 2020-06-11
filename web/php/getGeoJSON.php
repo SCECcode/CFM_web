@@ -11,7 +11,7 @@ $dbconn = getConnection();
 
 $objgid = intVal($_GET['obj_gid']);
 
-$query = "select ST_AsGeoJSON(ST_TRANSFORM(TRACE_tb.geom,4326)),OBJECT_tb.name from OBJECT_tb,TRACE_tb where OBJECT_tb.gid=$1 and OBJECT_tb.trace_tb_gid=TRACE_tb.gid";
+$query = "select ST_AsGeoJSON(ST_TRANSFORM(TRACE_tb.geom,4326)),OBJECT_tb.name from OBJECT_tb,TRACE_tb where OBJECT_tb.gid=$1 and TRACE_tb.gid=ANY(OBJECT_tb.trace_tb_gid)";
 $result = pg_prepare($dbconn, "my_query", $query);
 
 $data = array($objgid);
