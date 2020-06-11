@@ -222,7 +222,6 @@ function makeGeoListFromBlob(blob, cnt) {
          return newblob;
      } 
      } else { // do nothing and return the blob
-window.console.log("in split coordinates..");
      return blob;
    }
 }

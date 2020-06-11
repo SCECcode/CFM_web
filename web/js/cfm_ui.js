@@ -453,6 +453,19 @@ function toggleUI3Dview(elt) {
   }
 }
 
+var track_representation=1; // 1 is wireframe 0 is surface
+//publicAPI.toggle
+function toggleRepr3Dview(elt) {
+  document.getElementById("view3DIfram").contentDocument.getElementById("Reprbtn").click();
+  
+  track_representation = !track_representation;
+  if(track_representation) {
+    elt.innerHTML="Wire Frame";
+    } else {
+      elt.innerHTML="Surface";
+  }
+}
+
 var track_full=1; // 1 is on 0 is off
 function toggleExpand3Dview(elt) {
   
