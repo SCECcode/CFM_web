@@ -460,7 +460,7 @@ function toggleRepr3Dview(elt) {
   
   track_representation = !track_representation;
   if(track_representation) {
-    elt.innerHTML="Wire Frame";
+    elt.innerHTML="Wireframe";
     } else {
       elt.innerHTML="Surface";
   }

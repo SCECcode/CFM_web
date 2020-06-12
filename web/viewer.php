@@ -443,7 +443,7 @@ $header = getHeader("Viewer");
 </div>
 
 <div class="row">&nbsp;</div>
-<div id='queryBlock' class="col-6" style="overflow:hidden;display:;border:1px solid green;"> </div> <!-- query block -->
+<div id='queryBlock' class="col-6" style="overflow:hidden;display:;"> </div> <!-- query block -->
 
 <div id="dip-strike-key-container" style="display:none;">
     <div id="dip-strike-key" class="row">
@@ -462,7 +462,7 @@ $header = getHeader("Viewer");
       <!--Header-->
       <div class="modal-header">
         <button id="view3DRefreshbtn" class="btn btn-outline-primary btn-md" type="button" onclick="refresh3Dview()">Reset View</button>
-        <button id="view3DToggleReprbtn" class="btn btn-outline-primary btn-md" type="button" onclick="toggleRepr3Dview(this)">Wire Frame</button>
+        <button id="view3DToggleReprbtn" class="btn btn-outline-primary btn-md" type="button" onclick="toggleRepr3Dview(this)">Wireframe</button>
         <button id="view3DToggleUIbtn" class="btn btn-outline-primary btn-md" type="button" onclick="toggleUI3Dview(this)">Hide Legend</button>
       </div>
 
