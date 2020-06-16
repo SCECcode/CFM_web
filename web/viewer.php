@@ -463,7 +463,8 @@ $header = getHeader("Viewer");
       <div class="modal-header">
         <button id="view3DRefreshbtn" class="btn btn-outline-primary btn-md" type="button" onclick="refresh3Dview()">Reset View</button>
         <button id="view3DToggleReprbtn" class="btn btn-outline-primary btn-md" type="button" onclick="toggleRepr3Dview(this)">Wireframe</button>
-        <button id="view3DToggleUIbtn" class="btn btn-outline-primary btn-md" type="button" onclick="toggleUI3Dview(this)">Hide Legend</button>
+        <button id="view3DToggleLegendbtn" class="btn btn-outline-primary btn-md" type="button" onclick="toggleLegend3Dview(this)">Hide Legend</button>
+        <button id="view3DToggleNorthbtn" class="btn btn-outline-primary btn-md" type="button" onclick="toggleNorth3Dview(this)">To North</button>
       </div>
 
       <!--Body-->

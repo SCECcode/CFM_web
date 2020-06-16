@@ -442,8 +442,8 @@ function refresh3Dview() {
 
 var track_legend=1; // 1 is on 0 is off
 //publicAPI.toggleControllerVisibility
-function toggleUI3Dview(elt) {
-  document.getElementById("view3DIfram").contentDocument.getElementById("UIbtn").click();
+function toggleLegend3Dview(elt) {
+  document.getElementById("view3DIfram").contentDocument.getElementById("Legendbtn").click();
   
   track_legend = !track_legend;
   if(track_legend) {
@@ -451,6 +451,10 @@ function toggleUI3Dview(elt) {
     } else {
       elt.innerHTML="Show Legend";
   }
+}
+
+function toggleNorth3Dview(elt) {
+  document.getElementById("view3DIfram").contentDocument.getElementById("Northbtn").click();
 }
 
 var track_representation=1; // 1 is wireframe 0 is surface
