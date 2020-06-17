@@ -213,7 +213,8 @@ function downloadURLsAsZip(mlist) {
       }
       if( use_download_set != 'all')
         continue;
-    } else if (use_download_set == '500m' || use_download_set == 'all') {
+    } 
+    if (use_download_set == '500m' || use_download_set == 'all') {
       if(in_500m_gid_list(gid)) {
         url=url_in_500m_list(gid);
         if(url) {
@@ -224,7 +225,8 @@ function downloadURLsAsZip(mlist) {
       }
       if( use_download_set != 'all')
         continue;
-    } else if (use_download_set == '1000m' || use_download_set == 'all') {
+    }
+    if (use_download_set == '1000m' || use_download_set == 'all') {
       if(in_1000m_gid_list(gid)) {
         url=url_in_1000m_list(gid);
         if(url) {
@@ -235,7 +237,8 @@ function downloadURLsAsZip(mlist) {
       }
       if( use_download_set != 'all')
         continue;
-    } else if (use_download_set == '2000m' || use_download_set == 'all') {
+    }
+    if (use_download_set == '2000m' || use_download_set == 'all') {
       if(in_2000m_gid_list(gid)) {
         url=url_in_2000m_list(gid);
         if(url) {
@@ -778,7 +781,8 @@ function collectURLsFor3d(mlist) {
       }
       if( use_download_set != 'all')
         continue;
-    } else if (use_download_set == '500m' || use_download_set == 'all') {
+    } 
+    if (use_download_set == '500m' || use_download_set == 'all') {
       if(in_500m_gid_list(gid)) {
         url=url_in_500m_list(gid);
         if(url) {
@@ -787,7 +791,8 @@ function collectURLsFor3d(mlist) {
       }
       if( use_download_set != 'all')
         continue;
-    } else if (use_download_set == '1000m' || use_download_set == 'all') {
+    } 
+    if (use_download_set == '1000m' || use_download_set == 'all') {
       if(in_1000m_gid_list(gid)) {
         url=url_in_1000m_list(gid);
         if(url) {
@@ -796,7 +801,8 @@ function collectURLsFor3d(mlist) {
       }
       if( use_download_set != 'all')
         continue;
-    } else if (use_download_set == '2000m' || use_download_set == 'all') {
+    } 
+    if (use_download_set == '2000m' || use_download_set == 'all') {
       if(in_2000m_gid_list(gid)) {
         url=url_in_2000m_list(gid);
         if(url) {
