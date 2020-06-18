@@ -457,16 +457,22 @@ function toggleNorth3Dview(elt) {
   document.getElementById("view3DIfram").contentDocument.getElementById("Northbtn").click();
 }
 
-var track_representation=1; // 1 is wireframe 0 is surface
+var track_representation=0; // 1 is wireframe 0 is surface 2 is surface + edge
 //publicAPI.toggle
 function toggleRepr3Dview(elt) {
   document.getElementById("view3DIfram").contentDocument.getElementById("Reprbtn").click();
   
-  track_representation = !track_representation;
-  if(track_representation) {
-    elt.innerHTML="Wireframe";
-    } else {
-      elt.innerHTML="Surface";
+  track_representation = ( track_representation + 1 ) % 3;
+  switch( track_representation ) {
+    case 0:
+      elt.innerHTML="Show Wireframe";
+      break;
+    case 1:
+      elt.innerHTML="Show Surface with Edge";
+      break;
+    case 2:
+      elt.innerHTML="Show Surface";
+      break;
   }
 }
 

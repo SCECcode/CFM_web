@@ -368,6 +368,7 @@ $header = getHeader("Viewer");
             <table id="metadata-viewer">
                 <thead>
                 <tr>
+                    <th>&nbsp;</th>
                     <th>Fault</th>
                     <th>Area</th>
                     <th>Zone</th>
@@ -434,7 +435,7 @@ $header = getHeader("Viewer");
                 </thead>
                 <tbody>
                 <tr id="placeholder-row">
-                    <td colspan="6">Metadata for selected faults will appear here. </td>
+                    <td colspan="7">Metadata for selected faults will appear here. </td>
                 </tr>
                 </tbody>
             </table>
@@ -462,9 +463,9 @@ $header = getHeader("Viewer");
       <!--Header-->
       <div class="modal-header">
         <button id="view3DRefreshbtn" class="btn btn-outline-primary btn-md" type="button" onclick="refresh3Dview()">Reset View</button>
-        <button id="view3DToggleReprbtn" class="btn btn-outline-primary btn-md" type="button" onclick="toggleRepr3Dview(this)">Wireframe</button>
+        <button id="view3DToggleReprbtn" class="btn btn-outline-primary btn-md" type="button" onclick="toggleRepr3Dview(this)">Show Wireframe</button>
         <button id="view3DToggleLegendbtn" class="btn btn-outline-primary btn-md" type="button" onclick="toggleLegend3Dview(this)">Hide Legend</button>
-        <button id="view3DToggleNorthbtn" class="btn btn-outline-primary btn-md" type="button" onclick="toggleNorth3Dview(this)">To North</button>
+        <button id="view3DToggleNorthbtn" class="btn btn-outline-primary btn-md" type="button" onclick="toggleNorth3Dview(this)">Show Mapview</button>
       </div>
 
       <!--Body-->
