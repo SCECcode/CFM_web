@@ -468,7 +468,7 @@ function toggleRepr3Dview(elt) {
       elt.innerHTML="Show Wireframe";
       break;
     case 1:
-      elt.innerHTML="Show Surface with Edge";
+      elt.innerHTML="Show Wireframe & Surface";
       break;
     case 2:
       elt.innerHTML="Show Surface";
