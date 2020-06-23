@@ -434,9 +434,14 @@ function show3dView(urls) {
 
 // should be able to track the initial state and then return to it
 function refresh3Dview() {
+
+  resetLegend3Dview();
+  resetRepr3Dview();
+  resetBounds3Dview();
+  resetExpand3Dview();
+
   var urls=get_MODAL_TS_LIST();
   $('#view3DIfram').attr('src',"");
-//  $('#view3DIfram').attr('src',"cfm_3d.html?background=1&fileURL="+urls);
   $('#view3DIfram').attr('src',"cfm_3d.html?fileURL="+urls);
 }
 
@@ -451,6 +456,12 @@ function toggleLegend3Dview(elt) {
     } else {
       elt.innerHTML="Show Legend";
   }
+}
+
+function resetLegend3Dview() {
+  let elt=document.getElementById("view3DToggleLegendbtn");
+  var track_legend=1; // 1 is on 0 is off
+  elt.innerHTML="Hide Legend";
 }
 
 function toggleNorth3Dview(elt) {
@@ -476,6 +487,37 @@ function toggleRepr3Dview(elt) {
   }
 }
 
+function resetRepr3Dview() {
+  track_representation=0;
+  let elt=document.getElementById("view3DToggleReprbtn")
+  elt.innerHTML="Show Wireframe";
+}
+
+var track_bounds=0; // 0 is final 1 is local 2 is none
+//publicAPI.toggle
+function toggleBounds3Dview(elt) {
+  document.getElementById("view3DIfram").contentDocument.getElementById("Boundsbtn").click();
+
+  track_bounds = ( track_bounds + 1 ) % 3;
+  switch( track_bounds ) {
+    case 0:
+      elt.innerHTML="Show All Bounds";
+      break;
+    case 1:
+      elt.innerHTML="Hide Bounds";
+      break;
+    case 2:
+      elt.innerHTML="Show Bounds";
+      break;
+  }
+}
+
+function resetBounds3Dview() {
+  track_bounds=0;
+  let elt=document.getElementById("view3DToggleBoundsbtn");
+  elt.innerHTML="Show All Bounds";
+}
+
 var track_full=1; // 1 is on 0 is off
 function toggleExpand3Dview(elt) {
   
@@ -494,5 +536,75 @@ function toggleExpand3Dview(elt) {
       document.getElementById("view3DIfram").height = body_height-5;
   }
 }
+function resetExpand3Dview() {
+  let elt=document.getElementById("view3DExpandbtn");
+  if(track_full == 0) {
+    track_full=1;
+    elt.innerHTML="Expand";
+    $('#modal3DDialog').removeClass('full_modal-dialog');
+    $('#modal3DContent').removeClass('full_modal-content');
+    document.getElementById("view3DIfram").height = "400";
+  }
+}
 
+var CFM_tb = {
+  "3dview": [
+       { 'id':1,
+         'name': 'Reset',
+         'description': 'Refresh the 3D view' },
+       { 'id':2,
+         'name': 'Surface',
+         'description': 'Selectable representation types: Smooth Surface, Wireframe and Surface with overlay Wireframe'},
+       { 'id':3,
+         'name': 'Bounds',
+         'description': 'Selectable Bounding Box types: Unified Bounding Box, Unified Bounding Box with local bounds, No Bounding Box'},
+       { 'id':4,
+         'name': 'Legend',
+         'description': 'Control Legend visibility'},
+       { 'id':5,
+         'name': 'Mapview',
+         'description': 'Orient the view in Mapview(North)'},
+       { 'id':6,
+         'name': 'Legend.Color',
+         'description': 'Click the color tag on Legend to change color of the corresponding fault'},
+       { 'id':7,
+         'name': 'Legend.Range',
+         'description': 'Slide the range tag on Legend to change opacity of the corresponding fault. Valid range from 0.1 to 1 with 0.1 increment'},
+       { 'id':8,
+         'name': 'Legend.Name',
+         'description': 'Click the name tag on Legend to control visibility of the corresponding fault'},
+       { 'id':9,
+         'name': 'Close',
+         'description': 'Close the 3D view'},
+       { 'id':10,
+         'name': 'Expand',
+         'description': 'Toggle to expand to full screen view'},
+       { 'id':11,
+         'name': 'Info',
+         'description': 'Display the info table'},
+       { 'id':12,
+         'name': 'Orientation Marker',
+         'description': 'Green arrow points toward the North'},
+        ]
+};
+
+function setup_info3dTable() {
+   var tb=CFM_tb['3dview'];
+   var cnt=tb.length;
+   var i;
+   var tbhtml="<div class=\"ucvm-table\"><table><tbody>";
+   tbhtml=tbhtml+"<tr><td style=\"width:8vw\"><b>Name</b></td><td style=\"width:40vw\"><b>Description</b></td></tr>";
+
+   for( i=0; i<cnt; i++) {
+     var item=tb[i];
+     var mname=item['name'];
+     var descript=item['description'];
+     var t="<tr><td style=\"width:6vw\">"+mname+"</td><td style=\"width:40vw\">"+descript+"</td></tr>";
+     tbhtml=tbhtml+t;
+   }
+   tbhtml=tbhtml+"</tbody></table></div>";
+
+   var html=document.getElementById('info3dTable-container');
+   html.innerHTML=tbhtml;
+}
 

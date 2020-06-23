@@ -13,6 +13,7 @@ $header = getHeader("Viewer");
     <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="css/vendor/bootstrap-grid.min.css">
     <link rel="stylesheet" href="css/vendor/jquery-ui.css">
+    <link rel="stylesheet" href="css/vendor/jquery.modally.css">
     <link rel="stylesheet" href="css/vendor/glyphicons.css">
     <link rel="stylesheet" href="css/cfm-ui.css?v=1">
     <link rel="stylesheet" href="css/sidebar.css?v=1">
@@ -22,6 +23,7 @@ $header = getHeader("Viewer");
     <script type="text/javascript" src="js/vendor/leaflet-src.js"></script>
     <script type='text/javascript' src='js/vendor/jquery.min.js'></script>
     <script type='text/javascript' src='js/vendor/jquery.csv.js'></script>
+    <script type='text/javascript' src='js/vendor/jquery.modally.js'></script>
     <script type='text/javascript' src='js/vendor/bootstrap.min.js'></script>
     <script type='text/javascript' src='js/vendor/jquery-ui.js'></script>
     <script type='text/javascript' src='js/vendor/ersi-leaflet.js'></script>
@@ -462,10 +464,11 @@ $header = getHeader("Viewer");
     <div class="modal-content" id="modal3DContent">
       <!--Header-->
       <div class="modal-header">
-        <button id="view3DRefreshbtn" class="btn btn-outline-primary btn-md" type="button" onclick="refresh3Dview()">Reset View</button>
-        <button id="view3DToggleReprbtn" class="btn btn-outline-primary btn-md" type="button" onclick="toggleRepr3Dview(this)">Show Wireframe</button>
-        <button id="view3DToggleLegendbtn" class="btn btn-outline-primary btn-md" type="button" onclick="toggleLegend3Dview(this)">Hide Legend</button>
-        <button id="view3DToggleNorthbtn" class="btn btn-outline-primary btn-md" type="button" onclick="toggleNorth3Dview(this)">Show Mapview</button>
+        <button id="view3DRefreshbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="refresh3Dview()">Reset View</button>
+        <button id="view3DToggleReprbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleRepr3Dview(this)">Show Wireframe</button>
+        <button id="view3DToggleBoundsbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleBounds3Dview(this)">Show Local Bounds</button>
+        <button id="view3DToggleLegendbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleLegend3Dview(this)">Hide Legend</button>
+        <button id="view3DToggleNorthbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleNorth3Dview(this)">Show Mapview</button>
       </div>
 
       <!--Body-->
@@ -476,9 +479,31 @@ $header = getHeader("Viewer");
       </div>
 
       <div class="modal-footer justify-content-center">
-        <button type="button" class="btn btn-outline-primary btn-md" data-dismiss="modal">Close</button>
-        <button id="view3DExpandbtn" class="btn btn-outline-primary btn-md" type="button" onclick="toggleExpand3Dview(this)">Expand</button>
+        <button type="button" class="btn btn-outline-primary btn-sm" data-dismiss="modal">Close</button>
+        <button id="view3DExpandbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleExpand3Dview(this)">Expand</button>
+        <button class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modalinfo3d" onclick="$('#modal3D').modal('hide');">Info</button>
       </div> <!-- footer -->
+
+    </div> <!--Content-->
+  </div>
+</div> <!--Modal: Name-->
+
+<!--Modal: ModelType -->
+<div class="modal" id="modalinfo3d" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" id="modalinfo3dDialog" role="document">
+
+    <!--Content-->
+    <div class="modal-content" id="modalinfo3dContent">
+      <!--Body-->
+      <div class="modal-body" id="modalinfo3dBody">
+        <div class="row col-md-12 ml-auto" style="overflow:hidden;">
+          <div class="col-12" id="info3dTable-container"></div>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-outline-primary btn-md" data-dismiss="modal" onclick="$('#modal3D').modal('show');"
+>Close</button>
+      </div>
 
     </div> <!--Content-->
   </div>
