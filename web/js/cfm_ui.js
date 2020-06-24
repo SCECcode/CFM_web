@@ -427,8 +427,13 @@ function saveAsURLFile(gid,url) {
 /*** iframe housekeeping ***/
 /* fileURL=[file1, file2]&filePATH=[path] */
 function show3dView(urls) {
+
+  resetLegend3Dview();
+  resetRepr3Dview();
+  resetBounds3Dview();
+  resetExpand3Dview();
+
   $('#modal3D').modal('show');
-//  $('#view3DIfram').attr('src',"cfm_3d.html?background=1&fileURL="+urls);
   $('#view3DIfram').attr('src',"cfm_3d.html?fileURL="+urls);
 }
 
