@@ -1,5 +1,11 @@
 
 /* required styles */
+@media (min-width: 1200px) {
+   .modal-xlg {
+      max-width: 992px; 
+   }
+}
+
 .view3DIfram {
   frameborder:2;
 }

@@ -13,7 +13,6 @@ $header = getHeader("Viewer");
     <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="css/vendor/bootstrap-grid.min.css">
     <link rel="stylesheet" href="css/vendor/jquery-ui.css">
-    <link rel="stylesheet" href="css/vendor/jquery.modally.css">
     <link rel="stylesheet" href="css/vendor/glyphicons.css">
     <link rel="stylesheet" href="css/cfm-ui.css?v=1">
     <link rel="stylesheet" href="css/sidebar.css?v=1">
@@ -23,7 +22,6 @@ $header = getHeader("Viewer");
     <script type="text/javascript" src="js/vendor/leaflet-src.js"></script>
     <script type='text/javascript' src='js/vendor/jquery.min.js'></script>
     <script type='text/javascript' src='js/vendor/jquery.csv.js'></script>
-    <script type='text/javascript' src='js/vendor/jquery.modally.js'></script>
     <script type='text/javascript' src='js/vendor/bootstrap.min.js'></script>
     <script type='text/javascript' src='js/vendor/jquery-ui.js'></script>
     <script type='text/javascript' src='js/vendor/ersi-leaflet.js'></script>
@@ -458,15 +456,16 @@ $header = getHeader("Viewer");
 
 <!--Modal: Name-->
 <div class="modal" id="modal3D" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="modal3D" aria-hidden="true">
-  <div class="modal-dialog modal-lg" id="modal3DDialog" role="document">
+  <div class="modal-dialog modal-xlg" id="modal3DDialog" role="document">
 
     <!--Content-->
     <div class="modal-content" id="modal3DContent">
       <!--Header-->
       <div class="modal-header">
-        <button id="view3DRefreshbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="refresh3Dview()">Reset View</button>
         <button id="view3DToggleReprbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleRepr3Dview(this)">Show Wireframe</button>
-        <button id="view3DToggleBoundsbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleBounds3Dview(this)">Show Local Bounds</button>
+        <button id="view3DToggleTracebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleTrace3Dview(this)">Hide Traces</button>
+        <button id="view3DToggleShorebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleShore3Dview(this)">Hide Coastline</button>
+        <button id="view3DToggleBoundsbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleBounds3Dview(this)">Show Bounds</button>
         <button id="view3DToggleLegendbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleLegend3Dview(this)">Hide Legend</button>
         <button id="view3DToggleNorthbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleNorth3Dview(this)">Show Mapview</button>
       </div>
@@ -474,13 +473,14 @@ $header = getHeader("Viewer");
       <!--Body-->
       <div class="modal-body" id="modal3DBody">
         <div id="iframe-container" class="row col-12" style="overflow:hidden">
-          <iframe id="view3DIfram" src="" height="400" width="100%" allowfullscreen></iframe>
+          <iframe id="view3DIfram" src="" height="500" width="100%" allowfullscreen></iframe>
         </div>
       </div>
 
       <div class="modal-footer justify-content-center">
         <button type="button" class="btn btn-outline-primary btn-sm" data-dismiss="modal">Close</button>
         <button id="view3DExpandbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleExpand3Dview(this)">Expand</button>
+        <button id="view3DRefreshbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="refresh3Dview()">Reset</button>
         <button class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modalinfo3d" onclick="$('#modal3D').modal('hide');">Info</button>
       </div> <!-- footer -->
 

@@ -432,6 +432,8 @@ function show3dView(urls) {
   resetRepr3Dview();
   resetBounds3Dview();
   resetExpand3Dview();
+  resetShore3Dview();
+  resetTrace3Dview();
 
   $('#modal3D').modal('show');
   $('#view3DIfram').attr('src',"cfm_3d.html?fileURL="+urls);
@@ -444,14 +446,52 @@ function refresh3Dview() {
   resetRepr3Dview();
   resetBounds3Dview();
   resetExpand3Dview();
+  resetShore3Dview();
+  resetTrace3Dview();
 
   var urls=get_MODAL_TS_LIST();
   $('#view3DIfram').attr('src',"");
   $('#view3DIfram').attr('src',"cfm_3d.html?fileURL="+urls);
 }
 
+var track_trace=1; // 1 is on 0 is off
+function toggleTrace3Dview(elt) {
+  document.getElementById("view3DIfram").contentDocument.getElementById("Tracebtn").click();
+  
+  track_trace = !track_trace;
+  if(track_trace) {
+    elt.innerHTML="Hide Traces";
+    } else {
+      elt.innerHTML="Show Traces";
+  }
+}
+
+function resetTrace3Dview() {
+  let elt=document.getElementById("view3DToggleTracebtn");
+  var track_trace=1; // 1 is on 0 is off
+  elt.innerHTML="Hide Traces";
+}
+
+
+var track_shore=1; // 1 is on 0 is off
+function toggleShore3Dview(elt) {
+  document.getElementById("view3DIfram").contentDocument.getElementById("Shorebtn").click();
+  
+  track_shore = !track_shore;
+  if(track_shore) {
+    elt.innerHTML="Hide Coastline";
+    } else {
+      elt.innerHTML="Show Coastline";
+  }
+}
+
+function resetShore3Dview() {
+  let elt=document.getElementById("view3DToggleShorebtn");
+  var track_shore=1; // 1 is on 0 is off
+  elt.innerHTML="Hide Coastline";
+}
+
 var track_legend=1; // 1 is on 0 is off
-//publicAPI.toggleControllerVisibility
 function toggleLegend3Dview(elt) {
   document.getElementById("view3DIfram").contentDocument.getElementById("Legendbtn").click();
   
@@ -555,41 +595,47 @@ function resetExpand3Dview() {
 var CFM_tb = {
   "3dview": [
        { 'id':1,
-         'name': 'Reset',
-         'description': 'Refresh the 3D view' },
-       { 'id':2,
          'name': 'Surface',
          'description': 'Selectable representation types: Smooth Surface, Wireframe and Surface with overlay Wireframe'},
+       { 'id':2,
+         'name': 'Traces',
+         'description': 'Control Fault and Blind surface traces'},
        { 'id':3,
+         'name': 'Coastline',
+         'description': 'Control California Coastline and boundary inclusion'},
+       { 'id':4,
          'name': 'Bounds',
          'description': 'Selectable Bounding Box types: Unified Bounding Box, Unified Bounding Box with local bounds, No Bounding Box'},
-       { 'id':4,
+       { 'id':5,
          'name': 'Legend',
          'description': 'Control Legend visibility'},
-       { 'id':5,
+       { 'id':6,
          'name': 'Mapview',
          'description': 'Orient the view in Mapview(North)'},
-       { 'id':6,
+       { 'id':7,
          'name': 'Legend.Color',
          'description': 'Click the color tag on Legend to change color of the corresponding fault'},
-       { 'id':7,
+       { 'id':8,
          'name': 'Legend.Range',
          'description': 'Slide the range tag on Legend to change opacity of the corresponding fault. Valid range from 0.1 to 1 with 0.1 increment'},
-       { 'id':8,
+       { 'id':9,
          'name': 'Legend.Name',
          'description': 'Click the name tag on Legend to control visibility of the corresponding fault'},
-       { 'id':9,
+       { 'id':10,
          'name': 'Close',
          'description': 'Close the 3D view'},
-       { 'id':10,
+       { 'id':11,
          'name': 'Expand',
          'description': 'Toggle to expand to full screen view'},
-       { 'id':11,
+       { 'id':12,
+         'name': 'Reset',
+         'description': 'Refresh the 3D view' },
+       { 'id':13,
          'name': 'Info',
          'description': 'Display the info table'},
-       { 'id':12,
+       { 'id':14,
          'name': 'Orientation Marker',
-         'description': 'Green arrow points toward the North'},
+         'description': 'Green arrow points toward the North(Mapview)'},
         ]
 };
 
