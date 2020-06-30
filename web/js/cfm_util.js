@@ -407,7 +407,7 @@ function getMetadataRowForDisplay(meta) {
 
    var content = `
    <tr id="metadata-${meta['gid']}">
-       <td><button class=\"btn btn-sm cfm-small-btn\" id=\"button_meta_${meta['gid']}\" title=\"highlight the fault\" onclick=toggle_highlight("${meta['gid']}");><span id=\"highlight_meta_${meta['gid']}\" class=\"glyphicon glyphicon-check\"></span></button></td>
+       <td><button class=\"btn btn-sm cfm-small-btn\" id=\"button_meta_${meta['gid']}\" title=\"remove the fault\" onclick=toggle_highlight("${meta['gid']}");><span id=\"highlight_meta_${meta['gid']}\" class=\"glyphicon glyphicon-trash\"></span></button></td>
        <td>${meta['fault']}</td>
        <td>${meta['area']}</td>
        <td>${meta['zone']}</td>

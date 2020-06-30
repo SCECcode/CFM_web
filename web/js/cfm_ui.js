@@ -611,7 +611,7 @@ var CFM_tb = {
          'description': 'Control Legend visibility'},
        { 'id':6,
          'name': 'Mapview',
-         'description': 'Orient the view in Mapview(North)'},
+         'description': 'Orient the view in Mapview'},
        { 'id':7,
          'name': 'Legend.Color',
          'description': 'Click the color tag on Legend to change color of the corresponding fault'},
@@ -635,7 +635,10 @@ var CFM_tb = {
          'description': 'Display the info table'},
        { 'id':14,
          'name': 'Orientation Marker',
-         'description': 'Green arrow points toward the North(Mapview)'},
+         'description': 'Green arrow points toward the North'},
+       { 'id':15,
+         'name': '3D Navigation',
+         'description': 'Rotate in 3D: left click; Translate: shift key+left click; Zoom in/out: mouse wheel'},
         ]
 };
 
