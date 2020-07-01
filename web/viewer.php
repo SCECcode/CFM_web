@@ -477,7 +477,7 @@ $header = getHeader("Viewer");
         </div>
       </div>
 
-      <div class="modal-footer justify-content-center">
+      <div class="modal-footer justify-content-center" id="modal3DFooter">
         <button type="button" class="btn btn-outline-primary btn-sm" data-dismiss="modal">Close</button>
         <button id="view3DExpandbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleExpand3Dview(this)">Expand</button>
         <button id="view3DRefreshbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="refresh3Dview()">Reset</button>

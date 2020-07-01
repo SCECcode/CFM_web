@@ -576,9 +576,12 @@ function toggleExpand3Dview(elt) {
       elt.innerHTML="Shrink";
       $('#modal3DDialog').addClass('full_modal-dialog');
       $('#modal3DContent').addClass('full_modal-content');
-      var body=document.getElementById("modal3DBody");
-      var body_height=body.scrollHeight;
-      document.getElementById("view3DIfram").height = body_height-5;
+      var c=document.getElementById("modal3DContent");
+      var f=document.getElementById("modal3DFooter");
+      var c_h=c.scrollHeight;
+      var f_h=f.scrollHeight;
+      var n_h=c_h -(f_h* 2.5);
+      document.getElementById("view3DIfram").height = n_h;
   }
 }
 function resetExpand3Dview() {
