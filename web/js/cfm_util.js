@@ -568,7 +568,6 @@ function processTraceMeta(metaList) {
     }
 
     var sz=(Object.keys(str).length);
-    window.console.log("Number of meta blobs received from backend ->",sz);
     // iterate through the list and grab the geo info and update leaflet feature
     // structure one by one
     for( var i=0; i< sz; i++) {
@@ -593,6 +592,7 @@ function processTraceMeta(metaList) {
             window.console.log("BAD ??");
        }
     }
+    window.console.log("Number of meta blobs received from backend ->",sz);
     return str;
 }
 
