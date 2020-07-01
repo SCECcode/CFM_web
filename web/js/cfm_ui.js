@@ -602,7 +602,7 @@ var CFM_tb = {
          'description': 'Rotate in 3D: left click; Translate: shift key+left click; Zoom in/out: mouse wheel'},
        { 'id':2,
          'name': 'Surface',
-         'description': 'Selectable representation types: Solid Surface, Wireframe and Surface with overlay Wireframe'},
+         'description': 'Selectable representation types: Solid Surface, Wireframe and Surface with Wireframe overlay'},
        { 'id':3,
          'name': 'Traces',
          'description': 'Control Fault and Blind surface traces'},
