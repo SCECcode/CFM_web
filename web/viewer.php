@@ -73,6 +73,8 @@ $header = getHeader("Viewer");
     <script type="text/javascript" src="js/cfm_main.js?v=1"></script>
     <script type="text/javascript" src="js/cfm_query.js?v=1"></script>
     <script type="text/javascript" src="js/cfm_sidebar.js?v=1"></script>
+    <script type="text/javascript" src="js/cxm_misc_util.js?v=1"></script>
+    <script type="text/javascript" src="js/gfm_region.js?v=1"></script>
    
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-495056-12"></script>
@@ -118,6 +120,11 @@ $header = getHeader("Viewer");
         <div class="col-12">
             <p>The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model (CFM)</a> are three-dimensional and non-planar; however, to simplify browsing the model, the viewer below provides a two-dimensional map-based view of the SCEC CFM version 5.2 preferred fault set. The alternative fault representations are only provided in the complete CFM archive. Here, the viewer allows users to view and download fault geometry data as well as metadata for selected faults rather than downloading the entire CFM model archive. This site is currently in beta testing. See the <a href="guide">user guide</a> for more details and site usage instructions.</p>
         </div>
+<!--- MISC --->
+    </div>
+    <div id="miscTools">
+        <button class="btn cfm-small-btn" title="display CRM regions" onclick='toggleShowCRM()'>
+           <span id="cfm_crm_btn" class="glyphicon glyphicon-ok-sign"></span>CRM</button>
     </div>
 
     <div class="row" style="display:none;">

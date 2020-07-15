@@ -4,6 +4,28 @@
 
 var cfm_select_count=0;
 var showing_key = false;
+// tracking the layer that contains CRM latlon points
+var cfm_crm_layer;
+var show_crm=false;
+
+
+function setup_CRM() {
+   cfm_crm_layer=readLocalAndProcessActiveCRMGeo();
+}
+
+function toggleShowCRM() {
+   show_crm=!show_crm;
+   if(show_crm) {
+     viewermap.addLayer(cfm_crm_layer);
+     $('#gfm_crm_btn').removeClass('glyphicon-ok-sign');
+     $('#gfm_crm_btn').addClass('glyphicon-remove-sign');
+     } else {
+       viewermap.removeLayer(cfm_crm_layer);
+       $('#gfm_crm_btn').addClass('glyphicon-ok-sign');
+       $('#gfm_crm_btn').removeClass('glyphicon-remove-sign');
+   }
+}
+
 
 // not using the realmin and realmax
 function setupStrikeRangeSlider(realmin,realmax) {
