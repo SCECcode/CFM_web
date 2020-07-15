@@ -123,8 +123,8 @@ $header = getHeader("Viewer");
 <!--- MISC --->
     </div>
     <div id="miscTools">
-        <button class="btn cfm-small-btn" title="display CRM regions" onclick='toggleShowCRM()'>
-           <span id="cfm_crm_btn" class="glyphicon glyphicon-ok-sign"></span>CRM</button>
+        <button class="btn cfm-small-btn" title="display GFM regions" onclick='toggleShowCRM()'>
+           <span id="cfm_crm_btn" class="glyphicon glyphicon-ok-sign"></span>GFM</button>
     </div>
 
     <div class="row" style="display:none;">
