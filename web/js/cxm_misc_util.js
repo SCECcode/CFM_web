@@ -193,6 +193,13 @@ function makeGeoGroup(traceList) {
      });
      group.addLayer(geoLayer);
    } 
+
+   group.eachLayer(function(layer) {
+     var popUp= layer._popup;
+     window.console.log("layergroup got a popup...", popUp);
+   });
+
+
    return group;
 }
 
@@ -203,6 +210,10 @@ function bindPopupEachFeatureName(feature, layer) {
     layer.on({
         mouseover: function(e) {
           layer.setStyle({weight: 5});
+          if (feature.properties != undefined) {
+            popupContent = feature.properties.name;
+          }
+          layer.bindPopup(popupContent);
         },
         mouseout: function(e) {
           layer.setStyle({weight: 1});
@@ -214,6 +225,7 @@ function bindPopupEachFeatureName(feature, layer) {
           layer.bindPopup(popupContent);
         },
     });
+   
 }
 
 // from a local file
