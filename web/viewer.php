@@ -73,6 +73,7 @@ $header = getHeader("Viewer");
     <script type="text/javascript" src="js/cfm_main.js?v=1"></script>
     <script type="text/javascript" src="js/cfm_query.js?v=1"></script>
     <script type="text/javascript" src="js/cfm_sidebar.js?v=1"></script>
+    <script type="text/javascript" src="js/cfm_view3d.js?v=1"></script>
     <script type="text/javascript" src="js/cxm_misc_util.js?v=1"></script>
     <script type="text/javascript" src="js/gfm_region.js?v=1"></script>
    
@@ -123,7 +124,7 @@ $header = getHeader("Viewer");
 <!--- MISC --->
     </div>
     <div id="miscTools">
-        <button class="btn cfm-small-btn" title="display GFM regions" onclick='toggleShowCRM()'>
+        <button class="btn cfm-small-btn" title="display GFM regions" style="margin-left:95%;padding:0px 0px" onclick='toggleShowCRM()'>
            <span id="cfm_crm_btn" class="glyphicon glyphicon-ok-sign"></span>GFM</button>
     </div>
 
