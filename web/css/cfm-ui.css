@@ -1,5 +1,9 @@
-
 /* required styles */
+.custom-select-sm {
+  padding: 0.2rem 0.375rem 0.2rem 0.75rem;    
+}
+
+
 @media (min-width: 1200px) {
    .modal-xlg {
       max-width: 992px; 
@@ -555,6 +559,11 @@ table tr td label {
 
 .input-group {
     max-width: 269px;
+}
+
+.cfm-input-group {
+    max-width: 400px;
+    padding: 0;
 }
 
 .info-page-container {

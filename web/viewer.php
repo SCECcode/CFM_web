@@ -144,7 +144,7 @@ $header = getHeader("Viewer");
         </div>
     </div>
 
-    <div id="controls-container" class="row mb-2">
+    <div id="controls-container" class="row d-flex mb-1">
         <div class="col-6 mb-2">
              <div class="input-group filters">
                 <select id="search-type" class="custom-select">
@@ -316,20 +316,19 @@ $header = getHeader("Viewer");
                 </div>
             </div>
         </div>
-        <div class="col-3 d-flex offset-3 align-items-end">
-            <div>&nbsp;</div>
-            <div class="input-group input-group-sm" id="map-controls">
+        <div class="col-6 d-flex justify-content-end">
+            <div class="input-group input-group-sm cfm-input-group mt-2" id="map-controls">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="mapLayer">Select Map Type</label>
                 </div>
-                <select id="mapLayer" class="custom-select custom-select-sm" onchange="switchLayer(this.value);">
+                <select id="mapLayer" class="custom-select custom-select-sm" style="width:auto;" onchange="switchLayer(this.value);">
                     <option selected value="esri topo">ESRI Topographic</option>
                     <option value="esri NG">ESRI National Geographic</option>
                     <option value="esri imagery">ESRI Imagery</option>
                     <option value="otm topo">OTM Topographic</option>
                     <option value="osm street">OSM Street</option>
                 </select>
-            </div>
+           </div>
 
 <!-- WAIT for better dip/strike data
             <div class="input-group input-group-sm ml-md-2 ml-sm-0">
@@ -344,8 +343,6 @@ $header = getHeader("Viewer");
                 </select>
             </div>
 -->
-            <!--            <a class="ui-button" onclick="toggleAll();">Show/Hide Faults</a>-->
-
         </div>
     </div>
 
