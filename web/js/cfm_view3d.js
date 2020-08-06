@@ -56,8 +56,8 @@ function setup_info3dTable() {
    var tb=VIEW3D_tb['3dview'];
    var cnt=tb.length;
    var i;
-   var tbhtml="<div class=\"ucvm-table\"><table><tbody>";
-   tbhtml=tbhtml+"<tr><td style=\"width:8vw\"><b>Name</b></td><td style=\"width:40vw\"><b>Description</b></td></tr>";
+   var tbhtml="<div class=\"ucvm-table\"><table>";
+   tbhtml=tbhtml+"<thead><tr><th style=\"width:8vw\">Name</th><th style=\"width:40vw\"><b>Description</b></th></tr></thead><tbody>";
 
    for( i=0; i<cnt; i++) {
      var item=tb[i];
