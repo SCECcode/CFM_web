@@ -35,12 +35,15 @@ var VIEW3D_tb = {
          'name': 'Reset',
          'description': 'Refresh the 3D view to the default mapview orientation' },
        { 'id':11,
+         'name': 'Save',
+         'description': 'Save a copy of 3D view (no legend)' },
+       { 'id':12,
          'name': '3D Navigation Info',
          'description': 'Display this information table'},
-       { 'id':12,
+       { 'id':13,
          'name': 'Orientation Marker',
          'description': 'Green arrow points toward the North<br>Pink points east'},
-       { 'id':13,
+       { 'id':14,
          'name': '3D Map Scale?',
          'description': 'This tool currently has no option for plotting 3D axes, and a map scale in 3D is not reliable because the map scale would only be valid at one given distance from the viewer. This viewer is not designed to replace fully functional CAD software'},
         ]
@@ -230,6 +233,7 @@ function toggleExpand3Dview(elt) {
       document.getElementById("view3DIfram").height = n_h;
   }
 }
+
 function resetExpand3Dview() {
   let elt=document.getElementById("view3DExpandbtn");
   if(track_full == 0) {
@@ -240,4 +244,9 @@ function resetExpand3Dview() {
     document.getElementById("view3DIfram").height = "400";
   }
 }
+
+function save3Dview() {
+  document.getElementById("view3DIfram").contentDocument.getElementById("Downloadbtn").click();
+}
+
 

@@ -454,6 +454,7 @@ $header = getHeader("Viewer");
 </div>
 
 <!--Modal: Name-->
+<a id="view3D_download" style="display:none;"></a>
 <div class="modal" id="modal3D" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="modal3D" aria-hidden="true">
   <div class="modal-dialog modal-xlg" id="modal3DDialog" role="document">
 
@@ -480,6 +481,7 @@ $header = getHeader("Viewer");
         <button type="button" class="btn btn-outline-primary btn-sm" data-dismiss="modal">Close</button>
         <button id="view3DExpandbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleExpand3Dview(this)">Expand</button>
         <button id="view3DRefreshbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="refresh3Dview()">Reset</button>
+        <button id="view3DSavebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="save3Dview()">Save</button>
         <button class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modalinfo3d" onclick="$('#modal3D').modal('hide');">3D Navigation Info</button>
       </div> <!-- footer -->
 
