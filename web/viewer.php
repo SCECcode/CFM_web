@@ -407,7 +407,7 @@ $header = getHeader("Viewer");
 <!-- MODAL popup button, reuse download-counter -->
                                 <button id="plot3d-all" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false" disabled>
-                                    Plot3d <span id="download-counter"></span>
+                                    Plot3d <span id="plot-counter"></span>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <button class="dropdown-item" type="button" value="native"
@@ -422,11 +422,12 @@ $header = getHeader("Viewer");
                                     <button class="dropdown-item" type="button" value="2000m"
                                             onclick="executePlot3d(this.value);">2000m
                                     </button>
+<!--
                                     <button class="dropdown-item" type="button" value="all"
                                           onclick="executePlot3d(this.value);">All of the Above
                                     </button>
+-->
                                 </div>
-
                             </div>
                         </div></th>
                 </tr>
@@ -479,7 +480,7 @@ $header = getHeader("Viewer");
         <button type="button" class="btn btn-outline-primary btn-sm" data-dismiss="modal">Close</button>
         <button id="view3DExpandbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleExpand3Dview(this)">Expand</button>
         <button id="view3DRefreshbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="refresh3Dview()">Reset</button>
-        <button class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modalinfo3d" onclick="$('#modal3D').modal('hide');">Info</button>
+        <button class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modalinfo3d" onclick="$('#modal3D').modal('hide');">3D Navigation Info</button>
       </div> <!-- footer -->
 
     </div> <!--Content-->
@@ -488,7 +489,7 @@ $header = getHeader("Viewer");
 
 <!--Modal: ModelType -->
 <div class="modal" id="modalinfo3d" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg" id="modalinfo3dDialog" role="document">
+  <div class="modal-dialog modal-dialog-centered modal-xlg" id="modalinfo3dDialog" role="document">
 
     <!--Content-->
     <div class="modal-content" id="modalinfo3dContent">
