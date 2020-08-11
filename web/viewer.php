@@ -377,33 +377,6 @@ $header = getHeader("Viewer");
 <!--                    <th>Area (m<sup>2</sup>) </th>-->
                     <th><div class="col text-center">
                             <div class="btn-group download-now">
-                                <button id="download-all" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false" disabled>
-                                    Download All <span id="download-counter"></span>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <button class="dropdown-item" type="button" value="meta"
-                                            onclick="executeDownload(this.value);">Metadata
-                                    </button>
-                                    <button class="dropdown-item" type="button" value="native"
-                                            onclick="executeDownload(this.value);">Native + Metadata
-                                    </button>
-                                    <button class="dropdown-item" type="button" value="500m"
-                                            onclick="executeDownload(this.value);">500m + Metadata
-                                    </button>
-                                    <button class="dropdown-item" type="button" value="1000m"
-                                            onclick="executeDownload(this.value);">1000m + Metadata
-                                    </button>
-                                    <button class="dropdown-item" type="button" value="2000m"
-                                            onclick="executeDownload(this.value);">2000m + Metadata
-                                    </button>
-                                    <button class="dropdown-item" type="button" value="all"
-                                          onclick="executeDownload(this.value);">All of the Above
-                                    </button>
-                                </div>
-                            </div>
-                            &nbsp; &nbsp;
-                            <div class="btn-group download-now">
 <!-- MODAL popup button, reuse download-counter -->
                                 <button id="plot3d-all" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false" disabled>
@@ -427,6 +400,33 @@ $header = getHeader("Viewer");
                                           onclick="executePlot3d(this.value);">All of the Above
                                     </button>
 -->
+                                </div>
+                            </div>
+                            &nbsp; &nbsp;
+                            <div class="btn-group download-now">
+                                <button id="download-all" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false" disabled>
+                                    Download All <span id="download-counter"></span>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <button class="dropdown-item" type="button" value="meta"
+                                            onclick="executeDownload(this.value);">Metadata
+                                    </button>
+                                    <button class="dropdown-item" type="button" value="native"
+                                            onclick="executeDownload(this.value);">Native + Metadata
+                                    </button>
+                                    <button class="dropdown-item" type="button" value="500m"
+                                            onclick="executeDownload(this.value);">500m + Metadata
+                                    </button>
+                                    <button class="dropdown-item" type="button" value="1000m"
+                                            onclick="executeDownload(this.value);">1000m + Metadata
+                                    </button>
+                                    <button class="dropdown-item" type="button" value="2000m"
+                                            onclick="executeDownload(this.value);">2000m + Metadata
+                                    </button>
+                                    <button class="dropdown-item" type="button" value="all"
+                                          onclick="executeDownload(this.value);">All of the Above
+                                    </button>
                                 </div>
                             </div>
                         </div></th>
@@ -481,8 +481,8 @@ $header = getHeader("Viewer");
         <button type="button" class="btn btn-outline-primary btn-sm" data-dismiss="modal">Close</button>
         <button id="view3DExpandbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleExpand3Dview(this)">Expand</button>
         <button id="view3DRefreshbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="refresh3Dview()">Reset</button>
-        <button id="view3DSavebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="save3Dview()">Save</button>
-        <button class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modalinfo3d" onclick="$('#modal3D').modal('hide');">3D Navigation Info</button>
+        <button id="view3DSavebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="save3Dview()">Save Image</button>
+        <button class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modalinfo3d" onclick="$('#modal3D').modal('hide');">Help</button>
       </div> <!-- footer -->
 
     </div> <!--Content-->

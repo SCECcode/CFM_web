@@ -471,21 +471,25 @@ function addRemoveFromDownloadQueue(gid) {
     // }
 
     let downloadCounterElem = $("#download-counter");
+    let plotCounterElem = $("#plot-counter");
     let buttonElem = $("#download-all");
     let button2Elem = $("#plot3d-all"); // linked with download-all
     let placeholderTextElem = $("#placeholder-row");
     if (cfm_select_count <= 0) {
         downloadCounterElem.hide();
+        plotCounterElem.hide();
         buttonElem.prop("disabled", true);
         button2Elem.prop("disabled", true);
         placeholderTextElem.show();
     } else {
        downloadCounterElem.show();
+       plotCounterElem.show();
        buttonElem.prop("disabled", false);
        button2Elem.prop("disabled", false);
        placeholderTextElem.hide();
     }
     downloadCounterElem.html("(" + cfm_select_count + ")");
+    plotCounterElem.html("(" + cfm_select_count + ")");
 }
 
 function addRemoveFromMetadataTable(gid) {

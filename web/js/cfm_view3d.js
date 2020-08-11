@@ -38,7 +38,7 @@ var VIEW3D_tb = {
          'name': 'Save',
          'description': 'Save a copy of 3D view (no legend)' },
        { 'id':12,
-         'name': '3D Navigation Info',
+         'name': 'Help',
          'description': 'Display this information table'},
        { 'id':13,
          'name': 'Orientation Marker',
