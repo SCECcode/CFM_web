@@ -45,13 +45,20 @@ function save_MODAL_TS_LIST(url)
 
 function get_MODAL_TS_LIST()
 {
-   var str=MODAL_TS_LIST.toString();
+   if(MODAL_TS_LIST.length > 0) {
+     var str=MODAL_TS_LIST.toString();
+     return "["+str+"]";
+   }
+   return undefined;
+}
+
+function get_MODAL_TS_PATH()
+{
    if(MODAL_TS_PATH != null) {
      var pstr=MODAL_TS_PATH.toString();
-     var ppstr="&filePATH=["+pstr+"]";
-     return "["+str+"]"+ppstr;
+     return "["+pstr+"]";
    }
-   return "["+str+"]";
+   return undefined;
 }
 
 /********************************************************/
@@ -334,7 +341,8 @@ function startPlot3d()
 
   collectURLsFor3d(mlist);
   var str=get_MODAL_TS_LIST();
-  show3dView(str);
+  var pstr=get_MODAL_TS_PATH();
+  show3dView(str,pstr);
 }
 
 function plotAll() {

@@ -71,7 +71,14 @@ function setup_info3dTable() {
 
 /*** iframe housekeeping ***/
 /* fileURL=[file1, file2]&filePATH=[path] */
-function show3dView(urls) {
+var PARAMS;
+function set_PARAMS(params) {
+  PARAMS=params;
+}
+function get_PARAMS() {
+  return PARAMS;
+}
+function show3dView(urls,path) {
 
   resetLegend3Dview();
   resetRepr3Dview();
@@ -80,12 +87,61 @@ function show3dView(urls) {
   resetShore3Dview();
   resetTrace3Dview();
 
-
-window.console.log(urls);
-
   $('#modal3D').modal('show');
-  $('#view3DIfram').attr('src',"cfm_3d.html?fileURL="+urls);
+
+// urls causing problem when it is too large
+  var params;
+  if(path == undefined) {
+     params= "fileURL="+urls;
+     } else {
+       params="fileURL="+urls+"&filePATH="+path;
+  }
+  set_PARAMS(params);
+
+  var fixparams="fileURL=[500m/WTRA-SSRZ-MULT-Simi_Santa_Rosa_fault_listric-CFM5_m500.ts]&filePATH=[https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM5/CFM52_preferred/]";
+
+  if(params.length > 2400) {
+//    $('#view3DIfram').attr('src',"cfm_3d.html?"+fixparams);
+    $('#view3DIfram').attr('src',"cfm_3d.html?2Long");
+    } else {
+      $('#view3DIfram').attr('src',"cfm_3d.html?"+params);
+  }
+
 }
+
+function iframeIsLoaded() {
+   window.console.log("Iframe is loaded...");
+}
+
+
+function sendParams3Dview() {
+    var params=get_PARAMS();
+    var iwindow=document.getElementById('view3DIfram').contentWindow;
+    var eparams=encodeURI(params);
+    iwindow.postMessage({call:'fromSCEC',value:eparams},"*");
+    window.console.log("parent,posting message over...",eparams.length);
+}
+
+window.addEventListener('message', function(event) {
+    var origin = event.origin;
+    if (origin != "http://localhost" && origin != "http://moho.scec.org") {
+        window.console.log("parent,bad message origin:", origin);
+        return;
+    }
+    window.console.log("parent,good message origin:", origin);
+
+    if (typeof event.data == 'object' && event.data.call=='from3DViewer') {
+        if(event.data.value == "send params") {
+          window.console.log("parent,sending out to ifram..");
+          sendParams3Dview();
+          } else {
+            window.console.log("parent,what the heck ..",event.data.value);
+        }
+      } else {
+        window.console.log("parent,what the heck 2 ..",event.data);
+    }
+});
+
 
 // should be able to track the initial state and then return to it
 function refresh3Dview() {
@@ -97,9 +153,14 @@ function refresh3Dview() {
   resetShore3Dview();
   resetTrace3Dview();
 
-  var urls=get_MODAL_TS_LIST();
-  $('#view3DIfram').attr('src',"");
-  $('#view3DIfram').attr('src',"cfm_3d.html?fileURL="+urls);
+  var params=get_PARAMS();
+
+  if(params.length > 1000) {
+//    $('#view3DIfram').attr('src',"cfm_3d.html?2Long");
+    $('#view3DIfram').attr('src',"cfm_3d.html?"+fixparam);
+    } else {
+      $('#view3DIfram').attr('src',"cfm_3d.html?"+params);
+  }
 }
 
 

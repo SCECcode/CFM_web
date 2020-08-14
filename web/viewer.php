@@ -473,7 +473,7 @@ $header = getHeader("Viewer");
       <!--Body-->
       <div class="modal-body" id="modal3DBody">
         <div id="iframe-container" class="row col-12" style="overflow:hidden">
-          <iframe id="view3DIfram" src="" height="500" width="100%" allowfullscreen></iframe>
+          <iframe id="view3DIfram" title="SCEC CFM 3D viewer" src="" onload="iframeIsLoaded()" height="500" width="100%" allowfullscreen></iframe>
         </div>
       </div>
 
