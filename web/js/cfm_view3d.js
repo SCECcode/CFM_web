@@ -100,7 +100,7 @@ function show3dView(urls,path) {
 
   var fixparams="fileURL=[500m/WTRA-SSRZ-MULT-Simi_Santa_Rosa_fault_listric-CFM5_m500.ts]&filePATH=[https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM5/CFM52_preferred/]";
 
-  if(params.length > 2400) {
+  if(params.length > 1000) {
 //    $('#view3DIfram').attr('src',"cfm_3d.html?"+fixparams);
     $('#view3DIfram').attr('src',"cfm_3d.html?2Long");
     } else {
@@ -119,26 +119,23 @@ function sendParams3Dview() {
     var iwindow=document.getElementById('view3DIfram').contentWindow;
     var eparams=encodeURI(params);
     iwindow.postMessage({call:'fromSCEC',value:eparams},"*");
-    window.console.log("parent,posting message over...",eparams.length);
 }
 
 window.addEventListener('message', function(event) {
     var origin = event.origin;
     if (origin != "http://localhost" && origin != "http://moho.scec.org") {
-        window.console.log("parent,bad message origin:", origin);
+        window.console.log("service, bad message origin:", origin);
         return;
     }
-    window.console.log("parent,good message origin:", origin);
 
     if (typeof event.data == 'object' && event.data.call=='from3DViewer') {
         if(event.data.value == "send params") {
-          window.console.log("parent,sending out to ifram..");
           sendParams3Dview();
           } else {
-            window.console.log("parent,what the heck ..",event.data.value);
+            window.console.log("service, what the heck ..",event.data.value);
         }
       } else {
-        window.console.log("parent,what the heck 2 ..",event.data);
+        window.console.log("service, what the heck 2 ..",event.data);
     }
 });
 
