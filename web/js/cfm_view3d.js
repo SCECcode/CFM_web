@@ -123,7 +123,7 @@ function sendParams3Dview() {
 
 window.addEventListener('message', function(event) {
     var origin = event.origin;
-    if (origin != "http://localhost" && origin != "http://moho.scec.org") {
+    if (origin != "http://localhost" && origin != "http://asperity.scec.org") {
         window.console.log("service, bad message origin:", origin);
         return;
     }
