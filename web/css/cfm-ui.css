@@ -1,4 +1,14 @@
 /* required styles */
+.btn-outline-primary {
+  color: black;
+  border-color: #990000;
+}
+
+.btn-outline-primary:hover {
+  border-color: #990000;
+  background-color: #990000;
+}
+
 .dropdown {
   position: relative;
   display: inline-block;

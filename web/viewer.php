@@ -120,6 +120,16 @@ $header = getHeader("Viewer");
             <p>The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model (CFM)</a> are three-dimensional and non-planar; however, to simplify browsing the model, the viewer below provides a two-dimensional map-based view of the SCEC CFM version 5.2 preferred fault set. The alternative fault representations are only provided in the complete CFM archive. Here, the viewer allows users to view and download fault geometry data as well as metadata for selected faults rather than downloading the entire CFM model archive. This site is currently in beta testing. See the <a href="guide">user guide</a> for more details and site usage instructions.</p>
         </div>
     </div>
+<!-- TEST -->
+    <div style="height:100%; width:100%; position: absolute; cursor: default;">
+        <canvas width="450" height="450" style="width:100%; display:block;">
+        <div style="positin:absolute; top:0;left:0;width:100%;height:100%;">
+          <svg style="width: 100%;height:100%;" version="1.1" baseProfile="full" width="450" height="450" viewBox="0 0 450 450">
+              <g>
+    <text x="10" y="10" dy="22" dx="12" id="11" fill="red" style="border:2px solid red">SCEC</text>
+              </g>
+        </div>
+    </div>
 
     <div class="row" style="display:none;">
         <div class="col justify-content-end custom-control-inline">
@@ -473,7 +483,7 @@ $header = getHeader("Viewer");
       <!--Body-->
       <div class="modal-body" id="modal3DBody">
         <div id="iframe-container" class="row col-12" style="overflow:hidden">
-          <iframe id="view3DIfram" title="SCEC CFM 3D viewer" src="" onload="iframeIsLoaded()" height="500" width="100%" allowfullscreen></iframe>
+          <iframe id="view3DIfram" title="SCEC CFM 3D viewer" src="" height="500" width="100%" allowfullscreen></iframe>
         </div>
       </div>
 
