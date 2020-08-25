@@ -110,8 +110,7 @@ function show3dView(urls,path) {
 }
 
 function sendParams3Dview() {
-    var pa
-ams=get_PARAMS();
+    var params=get_PARAMS();
     var iwindow=document.getElementById('view3DIfram').contentWindow;
     var eparams=encodeURI(params);
     window.console.log("service, sending a message to iframe.");
