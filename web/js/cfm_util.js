@@ -9,14 +9,16 @@ var select_all_flag=0;
 // in composing the selected faults
 // for modal popup
 var MODAL_TS_LIST=[];
+var MODAL_TS_NAME=[];
 var MODAL_TS_PATH=null;
 function clear_MODAL_TS_LIST()
 {
   MODAL_TS_LIST=[];
+  MODAL_TS_NAME=[];
   MODAL_TS_PATH=null;
 }
 
-function save_MODAL_TS_LIST(url)
+function save_MODAL_TS_LIST(name,url)
 {
 // https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM5/CFM52_preferred/500m/CRFA-BPPM-WEST-Big_Pine_fault-CFM2_m500.ts
   var n;
@@ -38,8 +40,10 @@ function save_MODAL_TS_LIST(url)
     file=url.substring(n+1);
     MODAL_TS_PATH=path;
     MODAL_TS_LIST.push(file);
+    MODAL_TS_NAME.push(name);
     } else {
       MODAL_TS_LIST.push(url);
+      MODAL_TS_NAME.push(name);
   }
 }
 
@@ -47,6 +51,15 @@ function get_MODAL_TS_LIST()
 {
    if(MODAL_TS_LIST.length > 0) {
      var str=MODAL_TS_LIST.toString();
+     return "["+str+"]";
+   }
+   return undefined;
+}
+
+function get_MODAL_TS_NAME()
+{
+   if(MODAL_TS_NAME.length > 0) {
+     var str=MODAL_TS_NAME.toString();
      return "["+str+"]";
    }
    return undefined;
@@ -340,9 +353,10 @@ function startPlot3d()
   }
 
   collectURLsFor3d(mlist);
+  var nstr=get_MODAL_TS_NAME();
   var str=get_MODAL_TS_LIST();
   var pstr=get_MODAL_TS_PATH();
-  show3dView(str,pstr);
+  show3dView(str,nstr,pstr);
 }
 
 function plotAll() {
@@ -785,7 +799,7 @@ function collectURLsFor3d(mlist) {
       if(in_native_gid_list(gid)) {
         url=url_in_native_list(gid);
         if(url) {
-          save_MODAL_TS_LIST(url);
+          save_MODAL_TS_LIST(meta['fault'],url);
         }
       }
       if( use_download_set != 'all')
@@ -795,7 +809,7 @@ function collectURLsFor3d(mlist) {
       if(in_500m_gid_list(gid)) {
         url=url_in_500m_list(gid);
         if(url) {
-          save_MODAL_TS_LIST(url);
+          save_MODAL_TS_LIST(meta['fault'],url);
         }
       }
       if( use_download_set != 'all')
@@ -805,7 +819,7 @@ function collectURLsFor3d(mlist) {
       if(in_1000m_gid_list(gid)) {
         url=url_in_1000m_list(gid);
         if(url) {
-          save_MODAL_TS_LIST(url);
+          save_MODAL_TS_LIST(meta['fault'],url);
         }
       }
       if( use_download_set != 'all')
@@ -815,7 +829,7 @@ function collectURLsFor3d(mlist) {
       if(in_2000m_gid_list(gid)) {
         url=url_in_2000m_list(gid);
         if(url) {
-          save_MODAL_TS_LIST(url);
+          save_MODAL_TS_LIST(meta['fault'],url);
         }
       }
       if( use_download_set != 'all')

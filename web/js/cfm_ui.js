@@ -196,6 +196,7 @@ function glistFromMeta(str) {
 // str=metadata
 function makeResultTable(str)
 {
+    window.console.log("calling makeResultTable..");
     clear_popup();
     // clear the highlight count..
 
@@ -235,6 +236,8 @@ function makeResultTable(str)
 // using internal information, existing style_list
 function _makeResultTableWithGList(glist)
 {
+    window.console.log("calling _makeResultTableWithGList..");
+
     clear_popup();
     // var html="<table><tr><th style=\"border:1px solid white\">CFM5.2 Fault Objects<button id=\"allBtn\" class=\"btn cfm-small-btn\" title=\"select all visible faults\" onclick=\"selectAll()\"><span class=\"glyphicon glyphicon-unchecked\"></span></button></th></tr></table>";
     var html = "";
@@ -281,6 +284,7 @@ function _makeResultTableWithGList(glist)
 // using existing gid_list,
 function makeResultTableWithList(glist)
 {
+    window.console.log("calling makeResultTableWithList..");
     // reset it first
     document.getElementById("searchResult").innerHTML ="";
 

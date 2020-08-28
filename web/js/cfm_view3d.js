@@ -70,7 +70,7 @@ function setup_info3dTable() {
 }
 
 /*** iframe housekeeping ***/
-/* fileURL=[file1, file2]&filePATH=[path] */
+/* fileURL=[file1, file2]&name=[name1, name2]&filePATH=[path] */
 var PARAMS;
 function set_PARAMS(params) {
   PARAMS=params;
@@ -78,8 +78,8 @@ function set_PARAMS(params) {
 function get_PARAMS() {
   return PARAMS;
 }
-function show3dView(urls,path) {
 
+function show3dView(urls,nstr,path) {
   resetLegend3Dview();
   resetRepr3Dview();
   resetBounds3Dview();
@@ -92,9 +92,9 @@ function show3dView(urls,path) {
 // urls causing problem when it is too large
   var params;
   if(path == undefined) {
-     params= "fileURL="+urls;
+     params= "fileURL="+urls+"&name="+nstr;
      } else {
-       params="fileURL="+urls+"&filePATH="+path;
+       params="fileURL="+urls+"&name="+nstr+"&filePATH="+path;
   }
   set_PARAMS(params);
 
