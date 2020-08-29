@@ -106,6 +106,10 @@ function get_PARAMS() {
 }
 
 function show3dView(urls,nstr,path) {
+  // dissmiss the search button
+  $("#search-type").val("dismissClick");
+  dismiss_sidebar();
+
   resetLegend3Dview();
   resetRepr3Dview();
   resetBounds3Dview();
@@ -168,7 +172,6 @@ window.addEventListener('message', function(event) {
 
 // should be able to track the initial state and then return to it
 function refresh3Dview() {
-
   resetLegend3Dview();
   resetRepr3Dview();
   resetBounds3Dview();

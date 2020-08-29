@@ -117,7 +117,7 @@ $header = getHeader("Viewer");
 <div class="container main">
 
     <div class="spinDialog" style="position:absolute;top:40%;left:50%; z-index:9999;">
-        <div id="spinIconFor3D" align="center" style="display:none;"><i class="glyphicon glyphicon-cog fa-spin" style="color:red"></i></div>
+        <div id="spinIconFor2D" align="center" style="display:none;"><i class="glyphicon glyphicon-cog fa-spin" style="color:red"></i></div>
     </div>
 
     <div class="row">
@@ -470,7 +470,7 @@ $header = getHeader("Viewer");
 
 <!--Modal: Name-->
 <a id="view3D_download" style="display:none;"></a>
-<div class="modal" id="modal3D" tabindex="-1" style="z-index:9990" role="dialog" aria-labelledby="modal3D" aria-hidden="true">
+<div class="modal" id="modal3D" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="modal3D" aria-hidden="true">
   <div class="modal-dialog modal-xlg" id="modal3DDialog" role="document">
 
     <!--Content-->
@@ -493,6 +493,11 @@ $header = getHeader("Viewer");
       </div>
 
       <div class="modal-footer justify-content-center" id="modal3DFooter">
+
+      <div class="spinDialog" style="position:absolute;top:40%;left:50%; z-index:9999;">
+        <div id="spinIconFor3D" align="center" style="display:none;"><i class="glyphicon glyphicon-cog fa-spin" style="color:red"></i></div>
+      </div>
+
         <button type="button" class="btn btn-outline-primary btn-sm" data-dismiss="modal">Close</button>
         <button id="view3DExpandbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleExpand3Dview(this)">Expand</button>
         <button id="view3DRefreshbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="refresh3Dview()">Reset</button>
@@ -506,7 +511,7 @@ $header = getHeader("Viewer");
 </div> <!--Modal: Name-->
 
 <!--Modal: ModelType -->
-<div class="modal" id="modalwarn3d" tabindex="-1" style="z-index:9990" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal" id="modalwarn3d" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg" id="modalwarn3dDialog" role="document">
 
     <!--Content-->
