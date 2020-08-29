@@ -157,7 +157,7 @@ window.addEventListener('message', function(event) {
           sendParams3Dview();
           return;
         }
-        if(event.data.value == "open help page") {
+        if(event.data.value == "open warn page") {
           document.getElementById('spinIconFor3D').style.display = "none";
           let elt=document.getElementById("view3DWarnbtn");
           elt.click();
