@@ -5,6 +5,12 @@
 
 var select_all_flag=0;
 
+var viewerType="CFM";
+function reset_search_selection() {
+   $("#search-type").val("dismissClick");
+   dismiss_sidebar();
+}
+
 // this is to collect up all the names used
 // in composing the selected faults
 // for modal popup

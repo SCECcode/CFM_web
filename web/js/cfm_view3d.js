@@ -96,7 +96,7 @@ function setup_warn3dTable() {
 
 
 /*** iframe housekeeping ***/
-/* viewerType="CFM"&fileURL=[file1, file2]&name=[name1, name2]&filePATH=[path] */
+/* viewerType=viewerType&fileURL=[file1, file2]&name=[name1, name2]&filePATH=[path] */
 var PARAMS;
 function set_PARAMS(params) {
   PARAMS=params;
@@ -106,9 +106,7 @@ function get_PARAMS() {
 }
 
 function show3dView(urls,nstr,path) {
-  // dissmiss the search button
-  $("#search-type").val("dismissClick");
-  dismiss_sidebar();
+  reset_search_selection();
 
   resetLegend3Dview();
   resetRepr3Dview();
@@ -122,9 +120,9 @@ function show3dView(urls,nstr,path) {
 // urls causing problem when it is too large
   var params;
   if(path == undefined) {
-     params= "viewerType=\"CFM\"&fileURL="+urls+"&name="+nstr;
+     params= "viewerType="+viewerType+"&fileURL="+urls+"&name="+nstr;
      } else {
-       params="viewerType=\"CFM\"&fileURL="+urls+"&name="+nstr+"&filePATH="+path;
+       params="viewerType="+viewerType+"&fileURL="+urls+"&name="+nstr+"&filePATH="+path;
   }
   set_PARAMS(params);
 
