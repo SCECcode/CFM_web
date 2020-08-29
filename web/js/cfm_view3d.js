@@ -134,6 +134,8 @@ function show3dView(urls,nstr,path) {
       $('#view3DIfram').attr('src',"cfm_3d.html?"+params);
   }
 
+  document.getElementById('spinIconFor3D').style.display = "block";
+
 }
 
 function sendParams3Dview() {
@@ -153,7 +155,6 @@ window.addEventListener('message', function(event) {
 
     if (typeof event.data == 'object' && event.data.call=='from3DViewer') {
         if(event.data.value == "send params") {
-          document.getElementById('spinIconFor3D').style.display = "block";
           sendParams3Dview();
           return;
         }
