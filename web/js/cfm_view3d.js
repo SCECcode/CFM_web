@@ -79,13 +79,13 @@ function setup_warn3dTable() {
    var item=tb[last];
    var mname=item['name'];
    var descript=item['description'];
-   var t="<tr><td style=\"width:30vw\">"+descript+"</td></tr>";
+   var t="<tr><td style=\"width:30vw\"><b>Disclaimer</b><br>"+descript+"</td></tr>";
    tbhtml=tbhtml+t;
 
    var item=tb[0];
    var mname=item['name'];
    var descript=item['description'];
-   var t="<tr><td style=\"width:60vw\">"+descript+"</td></tr>";
+   var t="<tr><td style=\"width:60vw; text-align:center\"><br>"+descript+"</td></tr>";
    tbhtml=tbhtml+t;
 
    tbhtml=tbhtml+"</tbody></table></div>";
@@ -133,7 +133,6 @@ function show3dView(urls,nstr,path) {
     } else {
       $('#view3DIfram').attr('src',"cfm_3d.html?"+params);
   }
-
   document.getElementById('spinIconFor3D').style.display = "block";
 
 }
@@ -158,10 +157,8 @@ window.addEventListener('message', function(event) {
           sendParams3Dview();
           return;
         }
-        if(event.data.value == "open warn page") {
+        if(event.data.value == "done with loading") {
           document.getElementById('spinIconFor3D').style.display = "none";
-          let elt=document.getElementById("view3DWarnbtn");
-          elt.click();
           return;
         }
         window.console.log("service, what the heck ..",event.data.value);
@@ -170,6 +167,10 @@ window.addEventListener('message', function(event) {
     }
 });
 
+function showPlot3dWarning() {
+    let elt=document.getElementById("view3DWarnbtn");
+    elt.click();
+}
 
 // should be able to track the initial state and then return to it
 function refresh3Dview() {

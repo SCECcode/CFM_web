@@ -494,16 +494,16 @@ $header = getHeader("Viewer");
 
       <div class="modal-footer justify-content-center" id="modal3DFooter">
 
-      <div class="spinDialog" style="position:absolute;top:40%;left:50%; z-index:9999;">
-        <div id="spinIconFor3D" align="center" style="display:none;"><i class="glyphicon glyphicon-cog fa-spin" style="color:red"></i></div>
-      </div>
+        <div class="spinDialog" style="position:absolute;top:40%;left:50%; z-index:9999;">
+          <div id="spinIconFor3D" align="center" style="display:none;"><i class="glyphicon glyphicon-cog fa-spin" style="color:red"></i></div>
+        </div>
 
         <button type="button" class="btn btn-outline-primary btn-sm" data-dismiss="modal">Close</button>
         <button id="view3DExpandbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleExpand3Dview(this)">Expand</button>
         <button id="view3DRefreshbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="refresh3Dview()">Reset</button>
         <button id="view3DSavebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="save3Dview()">Save Image</button>
         <button id="view3DHelpbtn" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modalinfo3d" onclick="$('#modal3D').modal('hide');">Help</button>
-        <button id="view3DWarnbtn" class="btn btn-outline-primary btn-sm" style="display:none" data-toggle="modal" data-target="#modalwarn3d" onclick="$('#modal3D').modal('hide');"></button>
+        <button id="view3DWarnbtn" class="btn btn-outline-primary btn-sm" style="display:none" data-toggle="modal" data-target="#modalwarn3d"></button>
       </div> <!-- footer -->
 
     </div> <!--Content-->
@@ -512,7 +512,7 @@ $header = getHeader("Viewer");
 
 <!--Modal: ModelType -->
 <div class="modal" id="modalwarn3d" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg" id="modalwarn3dDialog" role="document">
+  <div class="modal-dialog modal-lg" id="modalwarn3dDialog" role="document">
 
     <!--Content-->
     <div class="modal-content" id="modalwarn3dContent">
@@ -523,8 +523,7 @@ $header = getHeader("Viewer");
         </div>
       </div>
       <div class="modal-footer justify-content-center">
-        <button type="button" class="btn btn-outline-primary btn-md" data-dismiss="modal" onclick="$('#modal3D').modal('show');"
->Close</button>
+        <button type="button" class="btn btn-outline-primary btn-md" data-dismiss="modal">Close</button>
       </div>
 
     </div> <!--Content-->

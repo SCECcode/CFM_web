@@ -339,6 +339,7 @@ function startDownload()
 function executePlot3d(type) {
     use_download_set = type;
     startPlot3d();
+    showPlot3dWarning();
 }
 
 function startPlot3d()
