@@ -51,7 +51,7 @@ var VIEW3D_tb = {
 
 function setup_info3dTable() {
    var tb=VIEW3D_tb['3dview'];
-   var cnt=tb.length;
+   var cnt=tb.length-1;
    var i;
    var tbhtml="<div class=\"ucvm-table\"><table>";
    tbhtml=tbhtml+"<thead><tr><th style=\"width:8vw\">Name</th><th style=\"width:40vw\"><b>Description</b></th></tr></thead><tbody>";
@@ -68,6 +68,32 @@ function setup_info3dTable() {
    var html=document.getElementById('info3dTable-container');
    html.innerHTML=tbhtml;
 }
+
+function setup_warn3dTable() {
+   var tb=VIEW3D_tb['3dview'];
+   var last=tb.length-1;
+   var tbhtml="<div class=\"ucvm-table\"><table>";
+   tbhtml=tbhtml+"<thead></thead><tbody>";
+
+   // grab from first, and last
+   var item=tb[last];
+   var mname=item['name'];
+   var descript=item['description'];
+   var t="<tr><td style=\"width:30vw\">"+descript+"</td></tr>";
+   tbhtml=tbhtml+t;
+
+   var item=tb[0];
+   var mname=item['name'];
+   var descript=item['description'];
+   var t="<tr><td style=\"width:60vw\">"+descript+"</td></tr>";
+   tbhtml=tbhtml+t;
+
+   tbhtml=tbhtml+"</tbody></table></div>";
+
+   var html=document.getElementById('warn3dTable-container');
+   html.innerHTML=tbhtml;
+}
+
 
 /*** iframe housekeeping ***/
 /* fileURL=[file1, file2]&name=[name1, name2]&filePATH=[path] */
@@ -98,10 +124,7 @@ function show3dView(urls,nstr,path) {
   }
   set_PARAMS(params);
 
-  var fixparams="fileURL=[500m/WTRA-SSRZ-MULT-Simi_Santa_Rosa_fault_listric-CFM5_m500.ts]&filePATH=[https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM5/CFM52_preferred/]";
-
   if(params.length > 1000) {
-//    $('#view3DIfram').attr('src',"cfm_3d.html?"+fixparams);
     $('#view3DIfram').attr('src',"cfm_3d.html?2Long");
     } else {
       $('#view3DIfram').attr('src',"cfm_3d.html?"+params);
@@ -127,11 +150,17 @@ window.addEventListener('message', function(event) {
     if (typeof event.data == 'object' && event.data.call=='from3DViewer') {
         if(event.data.value == "send params") {
           sendParams3Dview();
-          } else {
-            window.console.log("service, what the heck ..",event.data.value);
+          return;
         }
+        if(event.data.value == "open help page") {
+          let elt=document.getElementById("view3DWarnbtn");
+          elt.click();
+          window.console.log("HERE");
+          return;
+        }
+        window.console.log("service, what the heck ..",event.data.value);
       } else {
-        window.console.log("service, what the heck 2 ..",event.data);
+      window.console.log("service, what the heck 2 ..",event.data);
     }
 });
 

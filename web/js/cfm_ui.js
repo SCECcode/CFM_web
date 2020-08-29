@@ -200,7 +200,6 @@ function makeResultTable(str)
     clear_popup();
     // clear the highlight count..
 
-    // var html="<table><tr><th style=\"border:1px solid white;\">CFM5.2 Fault Objects<button id=\"allBtn\" class=\"btn cfm-small-btn\" title=\"select all visible faults\" onclick=\"selectAll()\"><span class=\"glyphicon glyphicon-unchecked\"></span></button></th></tr></table>";
     var html = "";
     html=html+"<div class=\"cfm-table\" ><table>";
     html+="<thead><tr><th class='text-center'><button id=\"allBtn\" class=\"btn btn-sm cfm-small-btn\" title=\"select all visible faults\" onclick=\"selectAll();\"><span class=\"glyphicon glyphicon-unchecked\"></span></button></th><th class='text-center'></th><th class='myheader'>FM5.2 Fault Objects</th></tr></thead><tbody>";

@@ -63,6 +63,8 @@ jQuery(document).ready(function() {
   addFaultColorsSelect();
   addDownloadSelect();
   setup_info3dTable();
+  setup_warn3dTable();
+
   $("#search-type").change(function () {
       var funcToRun = $(this).val();
       if (funcToRun != "") {
