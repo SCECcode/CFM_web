@@ -96,7 +96,7 @@ function setup_warn3dTable() {
 
 
 /*** iframe housekeeping ***/
-/* fileURL=[file1, file2]&name=[name1, name2]&filePATH=[path] */
+/* viewerType="CFM"&fileURL=[file1, file2]&name=[name1, name2]&filePATH=[path] */
 var PARAMS;
 function set_PARAMS(params) {
   PARAMS=params;
@@ -122,9 +122,9 @@ function show3dView(urls,nstr,path) {
 // urls causing problem when it is too large
   var params;
   if(path == undefined) {
-     params= "fileURL="+urls+"&name="+nstr;
+     params= "viewerType=\"CFM\"&fileURL="+urls+"&name="+nstr;
      } else {
-       params="fileURL="+urls+"&name="+nstr+"&filePATH="+path;
+       params="viewerType=\"CFM\"&fileURL="+urls+"&name="+nstr+"&filePATH="+path;
   }
   set_PARAMS(params);
 
