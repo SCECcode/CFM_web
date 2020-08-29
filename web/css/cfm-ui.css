@@ -1,4 +1,8 @@
 /* required styles */
+.glyphicon.glyphicon-cog {
+    font-size: 30px;
+}
+
 #plot3d-all:not([disabled]):hover {
    background: #770000;
 }

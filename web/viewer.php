@@ -14,6 +14,7 @@ $header = getHeader("Viewer");
     <link rel="stylesheet" href="css/vendor/bootstrap-grid.min.css">
     <link rel="stylesheet" href="css/vendor/jquery-ui.css">
     <link rel="stylesheet" href="css/vendor/glyphicons.css">
+    <link rel="stylesheet" href="css/vendor/font-awesome.min.css">
     <link rel="stylesheet" href="css/cfm-ui.css?v=1">
     <link rel="stylesheet" href="css/sidebar.css?v=1">
 
@@ -113,8 +114,12 @@ $header = getHeader("Viewer");
 <body>
 <?php echo $header; ?>
 
-
 <div class="container main">
+
+    <div class="spinDialog" style="position:absolute;top:40%;left:50%; z-index:9999;">
+        <div id="spinIconFor3D" align="center" style="display:none;"><i class="glyphicon glyphicon-cog fa-spin" style="color:red"></i></div>
+    </div>
+
     <div class="row">
         <div class="col-12">
             <p>The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model (CFM)</a> are three-dimensional and non-planar; however, to simplify browsing the model, the viewer below provides a two-dimensional map-based view of the SCEC CFM version 5.2 preferred fault set. The alternative fault representations are only provided in the complete CFM archive. Here, the viewer allows users to view and download fault geometry data as well as metadata for selected faults rather than downloading the entire CFM model archive. This site is currently in beta testing. See the <a href="guide">user guide</a> for more details and site usage instructions.</p>
@@ -465,7 +470,7 @@ $header = getHeader("Viewer");
 
 <!--Modal: Name-->
 <a id="view3D_download" style="display:none;"></a>
-<div class="modal" id="modal3D" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="modal3D" aria-hidden="true">
+<div class="modal" id="modal3D" tabindex="-1" style="z-index:9990" role="dialog" aria-labelledby="modal3D" aria-hidden="true">
   <div class="modal-dialog modal-xlg" id="modal3DDialog" role="document">
 
     <!--Content-->
@@ -501,7 +506,7 @@ $header = getHeader("Viewer");
 </div> <!--Modal: Name-->
 
 <!--Modal: ModelType -->
-<div class="modal" id="modalwarn3d" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal" id="modalwarn3d" tabindex="-1" style="z-index:9990" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg" id="modalwarn3dDialog" role="document">
 
     <!--Content-->

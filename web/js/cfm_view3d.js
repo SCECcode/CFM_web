@@ -149,13 +149,14 @@ window.addEventListener('message', function(event) {
 
     if (typeof event.data == 'object' && event.data.call=='from3DViewer') {
         if(event.data.value == "send params") {
+          document.getElementById('spinIconFor3D').style.display = "block";
           sendParams3Dview();
           return;
         }
         if(event.data.value == "open help page") {
+          document.getElementById('spinIconFor3D').style.display = "none";
           let elt=document.getElementById("view3DWarnbtn");
           elt.click();
-          window.console.log("HERE");
           return;
         }
         window.console.log("service, what the heck ..",event.data.value);
