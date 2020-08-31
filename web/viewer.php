@@ -75,6 +75,7 @@ $header = getHeader("Viewer");
     <script type="text/javascript" src="js/cfm_query.js?v=1"></script>
     <script type="text/javascript" src="js/cfm_sidebar.js?v=1"></script>
     <script type="text/javascript" src="js/cfm_view3d.js?v=1"></script>
+    <script type="text/javascript" src="js/cfm_view3d_util.js?v=1"></script>
    
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-495056-12"></script>
