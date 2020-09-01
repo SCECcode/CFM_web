@@ -93,7 +93,7 @@ $header = getHeader("User Guide");
 <a href="https://www.scec.org/research/cfm">CFM homepage</a> for information about recommended software. This tool currently does not have the ability to plot 3D axes, and a map scale in 3D is not useful because any scale would only be valid at one given distance from the viewer. Faults in the CFM extend to the approximate base of the seismogenic zone (max depth of earthquakes), which is approximately 15 – 20 km depth in most southern California regions.
              </p>
              <p>
-                 For location purposes, the 3D viewer shows all CFM fault traces in pink, blind fault upper tip lines in orange, and the coastline and state boundaries in blue. In the bottom right corner, the green arrow points North, pink points East, and yellow points up vertically.
+                 For location purposes, the 3D viewer shows all CFM fault traces in pink, blind fault upper tip lines in orange, and the coastline and state boundaries in black. In the bottom right corner, the green arrow points North, pink points East, and yellow points up vertically.
              </p>
              <p> 
                  Learning to navigate in 3D takes some practice, so if you get lost or disoriented, try clicking on the “Show Mapview” button in the top right corner to reset to the original mapview.
