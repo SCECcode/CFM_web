@@ -74,8 +74,8 @@ $header = getHeader("Viewer");
     <script type="text/javascript" src="js/cfm_main.js?v=1"></script>
     <script type="text/javascript" src="js/cfm_query.js?v=1"></script>
     <script type="text/javascript" src="js/cfm_sidebar.js?v=1"></script>
-    <script type="text/javascript" src="js/cfm_view3d.js?v=1"></script>
     <script type="text/javascript" src="js/cfm_view3d_util.js?v=1"></script>
+    <script type="text/javascript" src="js/cfm_view3d.js?v=1"></script>
    
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-495056-12"></script>
@@ -123,7 +123,7 @@ $header = getHeader("Viewer");
 
     <div class="row">
         <div class="col-12">
-            <p>The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model (CFM)</a> are three-dimensional and non-planar; however, to simplify browsing the model, the viewer below provides a two-dimensional map-based view of the SCEC CFM version 5.2 preferred fault set. The alternative fault representations are only provided in the complete CFM archive. Here, the viewer allows users to view and download fault geometry data as well as metadata for selected faults rather than downloading the entire CFM model archive. This site is currently in beta testing. See the <a href="guide">user guide</a> for more details and site usage instructions.</p>
+<p>The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model (CFM)</a> are three-dimensional and non-planar; however, to simplify browsing the model, the viewer below provides a two-dimensional map-based view of the SCEC CFM version 5.2 preferred fault set. The alternative fault representations are only provided in the complete CFM archive available for download on the <a href="https://www.scec.org/research/cfm">CFM homepage</a>. Here, the viewer allows users to view and download fault geometry data as well as metadata for selected faults rather than downloading the entire CFM model archive. Once faults are selected, the “PLOT3D” button can be used to view the selected faults in a basic CAD-like environment. This site is currently in beta testing. See the user guide for more details and site usage instructions.</p>
         </div>
     </div>
 <!-- TEST -->
@@ -470,12 +470,11 @@ $header = getHeader("Viewer");
 </div>
 
 <!--Modal: Name-->
-<a id="view3D_download" style="display:none;"></a>
 <div class="modal" id="modal3D" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="modal3D" aria-hidden="true">
-  <div class="modal-dialog modal-xlg" id="modal3DDialog" role="document">
+  <div class="modal-dialog modal-xlg full_modal-dialog" id="modal3DDialog" role="document">
 
     <!--Content-->
-    <div class="modal-content" id="modal3DContent">
+    <div class="modal-content full_model_content" id="modal3DContent">
       <!--Header-->
       <div class="modal-header">
         <button id="view3DToggleReprbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleRepr3Dview(this)">Show Wireframe</button>
@@ -489,7 +488,7 @@ $header = getHeader("Viewer");
       <!--Body-->
       <div class="modal-body" id="modal3DBody">
         <div id="iframe-container" class="row col-12" style="overflow:hidden">
-          <iframe id="view3DIfram" title="SCEC CFM 3D viewer" src="" height="500" width="100%" allowfullscreen></iframe>
+          <iframe id="view3DIfram" title="SCEC CFM 3D viewer" src="" onload="setIframHeight(this.id)" height="10" width="100%" allowfullscreen></iframe>
         </div>
       </div>
 
@@ -500,7 +499,9 @@ $header = getHeader("Viewer");
         </div>
 
         <button type="button" class="btn btn-outline-primary btn-sm" data-dismiss="modal">Close</button>
-        <button id="view3DExpandbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleExpand3Dview(this)">Expand</button>
+<!--
+        <button id="view3DExpandbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleExpand3Dview(this)">Shrink</button>
+-->
         <button id="view3DRefreshbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="refresh3Dview()">Reset</button>
         <button id="view3DSavebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="save3Dview()">Save Image</button>
         <button id="view3DHelpbtn" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modalinfo3d" onclick="$('#modal3D').modal('hide');">Help</button>
@@ -513,7 +514,7 @@ $header = getHeader("Viewer");
 
 <!--Modal: ModelType -->
 <div class="modal" id="modalwarn3d" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" id="modalwarn3dDialog" role="document">
+  <div class="modal-dialog modal-dialog-centered modal-lg" id="modalwarn3dDialog" role="document">
 
     <!--Content-->
     <div class="modal-content" id="modalwarn3dContent">

@@ -6,7 +6,7 @@ var VIEW3D_tb = {
   "3dview": [
        { 'id':1,
          'name': '3D Navigation',
-         'description': 'Rotate in 3D: left click<br>Translate: shift key+left click<br> Zoom in/out: mouse scroll wheel'},
+         'description': '<b>Rotate in 3D:</b> left click<br><b>Translate:</b> shift key+left click<br> <b>Zoom in/out:</b> mouse scroll wheel'},
        { 'id':2,
          'name': 'Show Wireframe',
          'description': 'Selects the rendering mode for fault surfaces: Solid Surface, Wireframe or Surface with Wireframe overlay'},
@@ -28,24 +28,26 @@ var VIEW3D_tb = {
        { 'id':8,
          'name': 'Close',
          'description': 'Close the 3D view'},
+/***
        { 'id':9,
          'name': 'Expand',
          'description': 'Expand to nearly full screen view'},
-       { 'id':10,
+***/
+       { 'id':9,
          'name': 'Reset',
          'description': 'Refresh the 3D view to the default mapview orientation' },
-       { 'id':11,
+       { 'id':10,
          'name': 'Save',
          'description': 'Save a copy of 3D view (no legend)' },
-       { 'id':12,
+       { 'id':11,
          'name': 'Help',
          'description': 'Display this information table'},
-       { 'id':13,
+       { 'id':12,
          'name': 'Orientation Marker',
          'description': 'Green arrow points toward the North<br>Pink points east'},
-       { 'id':14,
-         'name': '3D Map Scale?',
-         'description': 'This tool currently has no option for plotting 3D axes, and a map scale in 3D is not reliable because the map scale would only be valid at one given distance from the viewer. This viewer is not designed to replace fully functional CAD software'},
+       { 'id':13,
+         'name': '3D Map Scale',
+         'description': '<p>This viewer is intended to provide potential CFM users with a quick and convenient way to view CFM fault surfaces in their native 3D environment (UTM zone 11s). This tool not designed to replace fully functional CAD software. Refer to the <a href="https://www.scec.org/research/cfm">CFM homepage</a> for information about recommended software.</p><p>This tool currently does not have the ability to plot 3D axes, and a map scale in 3D is not useful because any scale would only be valid at one given distance from the viewer. Faults in the CFM extend to the approximate base of the seismogenic zone (max depth of earthquakes), which is approximately 15 – 20 km depth in most southern California regions.</p><p>For location purposes, the 3D viewer shows all CFM fault traces in pink, blind fault upper tip lines in orange, and the coastline and state boundaries in blue. In the bottom right corner, the green arrow points North, pink points East, and yellow points up vertically.</p><p>Learning to navigate in 3D takes some practice, so if you get lost or disoriented, try clicking on the “Show Mapview” button in the top right corner to reset to the original mapview.</p>'},
         ]
 };
 
@@ -69,6 +71,7 @@ function setup_info3dTable() {
    html.innerHTML=tbhtml;
 }
 
+var skip_warning=false;
 function setup_warn3dTable() {
    var tb=VIEW3D_tb['3dview'];
    var last=tb.length-1;
@@ -76,16 +79,16 @@ function setup_warn3dTable() {
    tbhtml=tbhtml+"<thead></thead><tbody>";
 
    // grab from first, and last
-   var item=tb[last];
-   var mname=item['name'];
-   var descript=item['description'];
-   var t="<tr><td style=\"width:30vw\"><b>Disclaimer</b><br>"+descript+"</td></tr>";
-   tbhtml=tbhtml+t;
-
    var item=tb[0];
    var mname=item['name'];
    var descript=item['description'];
-   var t="<tr><td style=\"width:60vw; text-align:center\"><br>"+descript+"</td></tr>";
+   var t="<tr><td style=\"width:60vw;\"><b>3D Navigation Instruction</b><br>"+descript+"</td></tr>";
+   tbhtml=tbhtml+t;
+
+   var item=tb[last];
+   var mname=item['name'];
+   var descript=item['description'];
+   var t="<tr><td style=\"width:30vw\"><b>Intended Uses and Limitation</b><br>"+descript+"</td></tr>";
    tbhtml=tbhtml+t;
 
    tbhtml=tbhtml+"</tbody></table></div>";
@@ -131,8 +134,6 @@ function show3dView(urls,nstr,path) {
     } else {
       $('#view3DIfram').attr('src',"cfm_3d.html?"+params);
   }
-  document.getElementById('spinIconFor3D').style.display = "block";
-
 }
 
 function sendParams3Dview() {
@@ -143,7 +144,12 @@ function sendParams3Dview() {
     iwindow.postMessage({call:'fromSCEC',value:eparams},"*");
 }
 
-window.addEventListener('message', function(event) {
+
+window.addEventListener("DOMContentLoaded", function () {
+
+  window.addEventListener('message', function(event) {
+
+    window.console.log(" SERVER Side>>>> got a message..");
     var origin = event.origin;
     if (origin != "http://localhost" && origin != "http://asperity.scec.org") {
         window.console.log("service, bad message origin:", origin);
@@ -156,18 +162,32 @@ window.addEventListener('message', function(event) {
           return;
         }
         if(event.data.value == "done with loading") {
+          window.console.log(" SERVER, turn off load spinner");
           document.getElementById('spinIconFor3D').style.display = "none";
+          return;
+        }
+        if(event.data.value == "start loading") {
+          document.getElementById('spinIconFor3D').style.display = "block";
+          window.console.log(" SERVER, turn on loading spinner");
+          return;
+        }
+        if(event.data.value == "ready") {
+          window.console.log(" SERVER, 3d viewer is ready");
           return;
         }
         window.console.log("service, what the heck ..",event.data.value);
       } else {
       window.console.log("service, what the heck 2 ..",event.data);
     }
-});
+ })
+}, false);
 
 function showPlot3dWarning() {
+  if(!skip_warning) {
+    skip_warning=true;
     let elt=document.getElementById("view3DWarnbtn");
     elt.click();
+  }
 }
 
 // should be able to track the initial state and then return to it
@@ -190,22 +210,22 @@ function refresh3Dview() {
 }
 
 
-var track_trace=1; // 1 is on 0 is off
+var track_trace=initial_track_trace; // 1 is on 0 is off
 function toggleTrace3Dview(elt) {
   document.getElementById("view3DIfram").contentDocument.getElementById("Tracebtn").click();
   
   track_trace = !track_trace;
   if(track_trace) {
-    elt.innerHTML="Hide Traces";
+    elt.innerHTML=initial_trace_html;
     } else {
-      elt.innerHTML="Show Traces";
+      elt.innerHTML=initial_not_trace_html;
   }
 }
 
 function resetTrace3Dview() {
   let elt=document.getElementById("view3DToggleTracebtn");
-  var track_trace=1; // 1 is on 0 is off
-  elt.innerHTML="Hide Traces";
+  var track_trace=initial_track_trace;
+  elt.innerHTML=initial_trace_html;
 }
 
 
@@ -299,7 +319,15 @@ function resetBounds3Dview() {
   elt.innerHTML="Show All Bounds";
 }
 
-var track_full=1; // 1 is on 0 is off
+// footer is about 58px
+function setIframHeight(id) {
+  let top = document.documentElement.clientHeight;
+  var f_h=58;
+  var height=top -(f_h* 4);
+  document.getElementById(id).height = height;
+}
+
+var track_full=0; // 1 is on 0 is off
 function toggleExpand3Dview(elt) {
   
   track_full = !track_full;
@@ -323,12 +351,17 @@ function toggleExpand3Dview(elt) {
 
 function resetExpand3Dview() {
   let elt=document.getElementById("view3DExpandbtn");
-  if(track_full == 0) {
-    track_full=1;
-    elt.innerHTML="Expand";
-    $('#modal3DDialog').removeClass('full_modal-dialog');
-    $('#modal3DContent').removeClass('full_modal-content');
-    document.getElementById("view3DIfram").height = "400";
+  if(track_full == 1) {
+    track_full=0;
+    elt.innerHTML="Shrink";
+    $('#modal3DDialog').addClass('full_modal-dialog');
+    $('#modal3DContent').addClass('full_modal-content');
+    var c=document.getElementById("modal3DContent");
+    var f=document.getElementById("modal3DFooter");
+    var c_h=c.scrollHeight;
+    var f_h=f.scrollHeight;
+    var n_h=c_h -(f_h* 2.5);
+    document.getElementById("view3DIfram").height = n_h;
   }
 }
 
