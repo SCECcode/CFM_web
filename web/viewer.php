@@ -474,7 +474,7 @@ $header = getHeader("Viewer");
   <div class="modal-dialog modal-xlg full_modal-dialog" id="modal3DDialog" role="document">
 
     <!--Content-->
-    <div class="modal-content full_model_content" id="modal3DContent">
+    <div class="modal-content full_modal-content" id="modal3DContent">
       <!--Header-->
       <div class="modal-header">
         <button id="view3DToggleReprbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleRepr3Dview(this)">Show Wireframe</button>

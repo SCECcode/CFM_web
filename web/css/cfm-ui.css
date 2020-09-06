@@ -123,7 +123,7 @@ hr {
 }
 
 #dip-strike-key {
-    z-index: 9999;
+    z-index: 9000;
     position: absolute;
     right: 30px;
     top: 10px;
