@@ -1,4 +1,7 @@
+[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://github.com/SCECcode/CFM_web/blob/master/LICENSE.md)
+
 # Community Fault Model 
+
 
 ### https://www.scec.org/research/cfm
 
