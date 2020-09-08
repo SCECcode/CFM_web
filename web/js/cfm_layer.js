@@ -4,15 +4,22 @@
 // control whether the main mouseover popup should be active or not
 var skipPopup=false;
 
+var default_color = "black";
 var default_highlight_color = "red";
-var alternate_highlight_color = "#03F7EB";
+var blind_dash_value = 6;
+
+var original_style = {
+    'color': default_color,
+    'opacity':0.8,
+    'weight': 2,
+};
+
 var highlight_style = {
     'color': default_highlight_color,
     'opacity':1,
     'weight': 2,
 };
 
-var blind_dash_value = 6;
 var blind_highlight_style = {
     'color': default_highlight_color,
     'opacity':1,
@@ -78,7 +85,7 @@ var cfm_gid_list=[];
 // { gid1, gid2, ... }, only without geo
 var cfm_nogeo_gid_list=[];
 
-// all objgid ==> gid from object_tb, all objects (meta has 'blind')
+// all objgid ==> gid from object_tb, all objects
 //  [ { "gid": gid1,  "meta": mmm1 }, {  "gid": gid2, "meta": mmm2 }, ... } 
 var cfm_fault_meta_list=[];
 
@@ -91,9 +98,9 @@ var cfm_trace_list=[];
 // [ {"gid": gid1, "layer": layer1 }, {"gid":gid2, "layer":layer2}...], only with geo
 var cfm_layer_list=[];
 
-// tracking original style
+// tracking original style state
 // gid is objgid
-// [ {"gid": gid1, "style": style1, "visible": vis1, "highlight": hl1 },...], only with geo
+// [ {"gid": gid1, "color": c1, "visible": vis1, "highlight": hl1 },...], only with geo
 var cfm_style_list=[];
 
 // gid is objgid
@@ -105,7 +112,7 @@ var cfm_active_gid_list=[];
 // [ {"layer":layer1, "latlngs":[ {latA,lonA}, {latB,lonB}]},...];
 var cfm_latlon_area_list=[];
 
-// gid is obgid, 
+// gid is obgid,
 // { gid1, gid2, ... }, tracking which object is 'blind'
 var cfm_blind_gid_list=[];
 
@@ -124,47 +131,101 @@ function reset_geo_plot() {
   toggleAll();
 }
 
-// create a feature with just 1 geoJSON, per object_tb's gid
-function makeGeoJSONFeature(geoJSON, gid, meta) {
+// create a feature with a geoJSON or a geoJSONList, 
+// per object_tb's gid
+function makeGeoJSONFeature(geoJSON, blinds, gid, meta) {
+
+  var blob=[];
+
   if(in_trace_list(gid)) {
     return undefined;
   }
 
   if(geoJSON == undefined) {
-//    window.console.log("makeGeoJSONFeature, geoJSON is null for ", gid);
+    window.console.log("makeGeoJSONFeature, geoJSON is null for ", gid);
     return undefined;
   }
-  if( typeof geoJSON === 'object') {
-     blob= geoJSON;
-     } else {
-       blob=JSON.parse(geoJSON);
+
+  if(Array.isArray(geoJSON)) { // parse each term
+     geoJSON.forEach(function(s) {
+        blob.push(JSON.parse(s));
+     });
+    } else {
+      blob= geoJSON;
   }
+  
 
   var color=getColorFromMeta(meta);
-  var style= { "weight":2,
-               "opacity":0.8,
-               "color": color
-              };
+  if(color != "black") {
+    window.console.log("BAD color...",gid);
+  }
+  var a_trace={"type":"FeatureCollection", "features":[]};
+  var cnt=blinds.length;
 
-  if (is_fault_blind(gid)) {
+  var geolist= makeGeoListFromBlob(blob, cnt);
+
+  for(var i=0; i<cnt; i++) {
+    var b=blinds[i];
+    var style= { "weight":2,
+                 "opacity":0.8,
+                 "color": color
+                };
+    if(b != 0 ) { 
       style.dashArray = blind_dash_value;
+    }
+    var g=geolist[i];
+
+    var tmp= { "id":gid,
+               "type":"Feature", 
+               "properties": {
+                   "metadataRow": getMetadataRowForDisplay(meta),
+                   "style": style
+               },
+               "geometry": g 
+             };
+
+    a_trace.features.push(tmp);
   }
 
-  var tmp= { "id":gid,
-             "type":"Feature", 
-             "properties": {
-                            "metadataRow": getMetadataRowForDisplay(meta),
-                             "style": style
-                           },
-             "geometry": blob 
-          };
-
-  var a_trace={"type":"FeatureCollection", "features":[]};
-  a_trace.features.push(tmp);
   cfm_trace_list.push({"gid":gid, "trace":a_trace});
-  cfm_style_list.push({"gid":gid, "style":style, "visible": 0, "highlight":0});
+  cfm_style_list.push({"gid":gid, "color":color ,"visible": 0, "highlight":0});
+
   return a_trace;
 }
+
+/* 1 set
+[ {"type":"MultiLineString","coordinates":
+[
+[[-119.822286421156,34.5605513323743,548],[-119.829713797196,34.5616307222088,416],[-119.834759166436,34.5667231936276,548],[-119.837042048869,34.5681075432669,440
+]]
+]
+}]
+*/
+function makeGeoListFromBlob(blob, cnt) {
+   if(cnt == 1) {
+     if(Array.isArray(blob)) {
+       return blob;
+     }
+     return [ blob ];
+   }
+
+   if(!Array.isArray(blob)) { // it is merged coordinates
+     if('type' in blob) {
+         var newblob=[];
+         var type=blob["type"];
+         var coordinates=blob["coordinates"];
+         for(var i=0; i<cnt; i++) {
+            var citem=coordinates[i];
+          var nblob= { "type": type, "coordinates": [citem] };
+            newblob.push(nblob);
+         }
+         return newblob;
+     } 
+     } else { // do nothing and return the blob
+     return blob;
+   }
+}
+
 
 /* return true if target is in the trace list */
 function find_style_list(target) {
@@ -187,25 +248,22 @@ function reset_fault_color() {
     var newcolor=getColorFromMeta(gmeta['meta']);
     var vis=element['visible'];
     var hl=element['highlight'];
-    var newstyle= { "weight":2,
-                    "opacity":0.8,
-                    "color": newcolor
-                  };
-    new_cfm_style_list.push({"gid":gid, "style":newstyle, "visible": vis, "highlight":hl})
+    new_cfm_style_list.push({"gid":gid, "color":newcolor, "visible": vis, "highlight":hl})
   });
   cfm_style_list=new_cfm_style_list;
 
   cfm_layer_list.forEach(function(element) {
     var gid=element['gid'];
     var gstyle=find_style_list(gid);
-    var style=gstyle['style'];
+    var gcolor=gstyle['color'];
     var v=gstyle['visible'];
     var h=gstyle['highlight'];
     if(v) {
        if(!h) {
            var geolayer=element['layer'];
            geolayer.eachLayer(function(layer) {
-             layer.setStyle(style);
+             layer.setStyle({color:gcolor});
+
            }); 
        }
       } else {
@@ -242,7 +300,7 @@ function get_feature(gid) {
   return {};
 }
 
-//           layer.bindPopup(layer.feature.properties.name);
+//layer.bindPopup(layer.feature.properties.name);
 
 // unbind layer's popup on detail content
 function unbind_layer_popup() {
@@ -264,6 +322,27 @@ function rebind_layer_popup() {
      }); 
   });
 }
+
+function find_name_by_gid(target) {
+   var found="NA";
+   var item=find_meta_list(target);
+   if(item) {
+      var meta=item['meta'];
+      found=meta['name'];
+   } 
+   return found;
+}
+
+function find_pretty_name_by_gid(target) {
+   var found="NA";
+   var item=find_meta_list(target);
+   if(item) {
+      var meta=item['meta'];
+      found=meta['fault'];
+   } 
+   return found;
+}
+   
 
 /* return true if target is in the meta list */
 function find_meta_list(target) {
@@ -287,31 +366,6 @@ function get_meta_list(gidlist) {
      mlist.push(m['meta']);
    });
    return mlist;
-}
-
-function addto_blind_gid_list(gid) {
-   cfm_blind_gid_list.push(gid);
-}
-
-function in_blind_gid_list(target) {
-   var found=0;
-   cfm_blind_gid_list.forEach(function(element) {
-          if (element == target) {
-             found=1;
-          }
-   });
-   return found;
-}
-
-function is_fault_blind(gid) {
-   var m=find_meta_list(gid);
-   if(m) {
-      var blindstr=m.meta['blind'];
-      var b=parseInt(blindstr);
-      if (b==1)
-        return 1;
-   }
-   return 0;
 }
 
 /* return true if target is in the trace list */
@@ -417,18 +471,25 @@ function addRemoveFromDownloadQueue(gid) {
     // }
 
     let downloadCounterElem = $("#download-counter");
+    let plotCounterElem = $("#plot-counter");
     let buttonElem = $("#download-all");
+    let button2Elem = $("#plot3d-all"); // linked with download-all
     let placeholderTextElem = $("#placeholder-row");
     if (cfm_select_count <= 0) {
         downloadCounterElem.hide();
+        plotCounterElem.hide();
         buttonElem.prop("disabled", true);
+        button2Elem.prop("disabled", true);
         placeholderTextElem.show();
     } else {
        downloadCounterElem.show();
+       plotCounterElem.show();
        buttonElem.prop("disabled", false);
-        placeholderTextElem.hide();
+       button2Elem.prop("disabled", false);
+       placeholderTextElem.hide();
     }
     downloadCounterElem.html("(" + cfm_select_count + ")");
+    plotCounterElem.html("(" + cfm_select_count + ")");
 }
 
 function addRemoveFromMetadataTable(gid) {
@@ -451,16 +512,9 @@ function addRemoveFromMetadataTable(gid) {
 }
 
 function toggle_highlight(gid) {
-    var this_highlight_style;
-   var s=find_style_list(gid);
-   if (s == '') {
+    var s=find_style_list(gid);
+    if (s == '') {
        return;
-   }
-
-    if (is_fault_blind(gid)) {
-        this_highlight_style = blind_highlight_style;
-    } else {
-        this_highlight_style = highlight_style;
     }
 
    var h=s['highlight'];
@@ -478,13 +532,14 @@ function toggle_highlight(gid) {
      s['highlight']=1;
      var l=find_layer_list(gid);
      var geolayer=l['layer'];
+
      geolayer.eachLayer(function(layer) {
-       layer.setStyle(this_highlight_style);
+       layer.setStyle({color: default_highlight_color});
      });
      cfm_select_count++;
      // adjust width if needed
      $itemCount.html(cfm_select_count).show();
-/* get actual rendored font/width
+/* get actual rendered font/width
      var fs = $('#itemCount').html(cfm_select_count).css('font-size');
      var width = $('#itemCount').html(cfm_select_count).css('width');
 */
@@ -504,12 +559,11 @@ function toggle_highlight(gid) {
        s['highlight']=0;
        var l=find_layer_list(gid);
        var geolayer=l['layer'];
-       var s= find_style_list(gid);
-       var original=s['style'];
        var v=s['visible'];
-       if(v && original != undefined) {
+       var ocolor=s['color'];
+       if(v) {
           geolayer.eachLayer(function(layer) {
-            layer.setStyle(original);
+            layer.setStyle({color:ocolor});
           }); 
        }
    }
@@ -539,12 +593,12 @@ function load_a_trace(gid,trace) {
     return;
   }
   var layer=addGeoToMap(trace, viewermap);
-  cfm_layer_list.push({"gid":gid, "layer":layer}); 
   var s =find_style_list(gid);
   if( s == undefined ) {
      window.console.log("BAD!! load_a_trace..", gid);
      return;
   }
+  cfm_layer_list.push({"gid":gid, "layer":layer}); 
   s['visible']=1; // turn it on
 }
 

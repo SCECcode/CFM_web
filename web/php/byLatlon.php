@@ -6,12 +6,10 @@
 
 <?php
 
-$dbconn = pg_connect("host=db port=5432 dbname=CFM52_db user=webonly password=scec");
-if (!$dbconn) { die('Could not connect'); }
+include ("util.php");
+$dbconn = getConnection();
 
 // if there are only 1 set of lat lon, then expand into a range
-
-
 
 $firstlat = floatVal($_GET['firstlat']);
 $secondlat = floatVal($_GET['secondlat']);
@@ -19,12 +17,12 @@ $firstlon = floatVal($_GET['firstlon']);
 $secondlon = floatVal($_GET['secondlon']);
 
 if($secondlat == "0") { 
-  $secondlat = $firstlat+0.001;
-  $firstlat = $firstlat-0.001;
+  $secondlat = $firstlat+0.01;
+  $firstlat = $firstlat-0.01;
 }
 if($secondlon == "0") {
-  $secondlon = $firstlon+0.001;
-  $firstlon = $firstlon-0.001;
+  $secondlon = $firstlon+0.01;
+  $firstlon = $firstlon-0.01;
 }
 
 $minlon = $firstlon;
@@ -41,10 +39,11 @@ if($firstlat > $secondlat) {
   $maxlat = $firstlat;
 }
 
-//echo "lat range: ", $minlat,", ",$maxlat,"<br>";
-//echo "lon range: ", $minlon,", ",$maxlon,"<br>";
+#echo "lat range: ", $minlat,", ",$maxlat,"<br>";
+#echo "lon range: ", $minlon,", ",$maxlon,"<br>";
 
-$query = "SELECT OBJECT_tb.gid,OBJECT_tb.name FROM TRACE_tb INNER JOIN OBJECT_tb ON TRACE_tb.gid = OBJECT_tb.trace_tb_gid where ST_INTERSECTS(ST_MakeEnvelope( $1, $2, $3, $4, 4326), TRACE_tb.geom)";
+$query = "SELECT OBJECT_tb.gid,OBJECT_tb.name FROM TRACE_tb INNER JOIN OBJECT_tb ON TRACE_tb.gid = 
+ANY(OBJECT_tb.trace_tb_gid) where ST_INTERSECTS(ST_MakeEnvelope( $1, $2, $3, $4, 4326), TRACE_tb.geom) group by OBJECT_tb.gid";
 
 $result = pg_prepare($dbconn, "my_query", $query);
 

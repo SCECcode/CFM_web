@@ -31,7 +31,7 @@ $header = getHeader("User Guide");
     <div class="row">
         <div class="col-12">
             <figure class="cfm-interface figure float-lg-right">
-                <img src="img/cfm-viewer.jpg" class="figure-img img-fluid" alt="Screen capture of CFM Viewer interface">
+                <img src="img/cfm-viewer.png" class="figure-img img-fluid" alt="Screen capture of CFM Viewer interface">
                 <figcaption class="figure-caption">Screen capture of CFM Viewer interface</figcaption>
             </figure>
             <h4>Community Fault Model (CFM) Viewer Overview</h4>
@@ -69,14 +69,14 @@ $header = getHeader("User Guide");
                 When performing a latitude/longitude search, there are two search methods. The first method is to
                 enter the latitude/longitude values of the bottom left and top right corners of a bounding rectangle into the
                 text boxes, then clicking the search icon <span style="white-space: nowrap;">(<span
-                            style="color:#53A2BE;" class="glyphicon glyphicon-search"></span>).</span>
+                            style="color:#990000;font-size:20px" class="glyphicon glyphicon-search"></span>).</span>
                 The second method is to click and drag on the map to draw a bounding rectangle. In either case, any portion of a fault that lies within the bounding rectangle will appear in the search results. Once a search is submitted, the matching faults appear on the map and are listed in the box* to the left. </p>
             <p>To return to the initial view showing all the faults, click the "RESET" button.</p>
 
             <h4>Viewing and Downloading Data</h4>
 
             <p>
-                Metadata files in JSON format and tsurf files are available for download from this site. First, select the desired faults by clicking on the fault displayed on the map or clicking on fault listed in the box* to the left of the map. The selected faults are highlighted in red** on the map. The selected faults' metadata appear in the metadata table* at the bottom of the page. Click on the links on the rightmost column of the metadata table to download data for one fault. Click on the "DOWNLOAD ALL" button to download data for all selected faults. The download options are: metadata only, or metadata along with tsurf files in native, 500m, 1000m, 2000m, or "All of the Above", in a ZIP archive file. </p>
+                Metadata files in CSV format and tsurf files are available for download from this site. First, select the desired faults by clicking on the fault displayed on the map or clicking on fault listed in the box* to the left of the map. The selected faults are highlighted in red** on the map. The selected faults' metadata appear in the metadata table* at the bottom of the page. Click on the links on the rightmost column of the metadata table to download data for one fault. Click on the "DOWNLOAD ALL" button to download data for all selected faults. The download options are: metadata only, or metadata along with tsurf files in native, 500m, 1000m, 2000m, or "All of the Above", in a ZIP archive file. </p>
 
 
             <p>* The scrollable boxes on this site can contain more data than is visible at one time.
@@ -87,6 +87,17 @@ $header = getHeader("User Guide");
                -->
             </p>
 
+            <h4>Viewing in 3D and the Plot3D tool</h4>
+            <p>
+                This “Plot3D” option is intended to provide potential CFM users with a quick and convenient way to view CFM fault surfaces in their native 3D environment (UTM zone 11s). This tool not designed to replace fully functional CAD software. Refer to the 
+<a href="https://www.scec.org/research/cfm">CFM homepage</a> for information about recommended software. This tool currently does not have the ability to plot 3D axes, and a map scale in 3D is not useful because any scale would only be valid at one given distance from the viewer. Faults in the CFM extend to the approximate base of the seismogenic zone (max depth of earthquakes), which is approximately 15 – 20 km depth in most southern California regions.
+             </p>
+             <p>
+                 For location purposes, the 3D viewer shows all CFM fault traces in pink, blind fault upper tip lines in orange, and the coastline and state boundaries in black. In the bottom right corner, the green arrow points North, pink points East, and yellow points up vertically.
+             </p>
+             <p> 
+                 Learning to navigate in 3D takes some practice, so if you get lost or disoriented, try clicking on the “Show Mapview” button in the top right corner to reset to the original mapview.
+             </p>
 
             <h4>Notes</h4>
             <ul>

@@ -1,4 +1,15 @@
 <?php
+function getConnection() {
+  $dbconn = @pg_connect("host=db port=5432 dbname=CFM52_db user=webonly password=scec");
+
+  if (!$dbconn) { // try localhost
+    $dbconn = pg_connect("host=localhost port=5432 dbname=CFM52_db user=webonly password=scec");
+  }
+
+  if (!$dbconn) { die('Could not connect'); }
+  return $dbconn;
+}
+
 function makeObj($row) {
 
 include ("declare.php");
@@ -21,11 +32,11 @@ $myObj->reference=$row[$reference];
 $myObj->reference_check=$row[$reference_check];
 $myObj->ID_comments=$row[$ID_comments];
 $myObj->USGS_ID=$row[$USGS_ID];
-$myObj->blind=$row[$blind];
 $myObj->area=$row[$area];
 $myObj->zone=$row[$zone];
 $myObj->section=$row[$section];
 $myObj->fault=$row[$fault];
+$myObj->TRACE_tb_gid=$row[$TRACE_tb_gid];
 
 $myJSON = json_encode($myObj);
 

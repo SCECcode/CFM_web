@@ -5,24 +5,32 @@
 <body>
 
 <?php
-$dbconn = pg_connect("host=db port=5432 dbname=CFM52_db user=webonly password=scec");
-if (!$dbconn) { die('Could not connect'); }
+
+include ("util.php");
+$dbconn = getConnection();
 
 $objgid = intVal($_GET['obj_gid']);
 
-$query = "select ST_AsGeoJSON(ST_TRANSFORM(TRACE_tb.geom,4326)),OBJECT_tb.name from OBJECT_tb,TRACE_tb where OBJECT_tb.gid=$1 and OBJECT_tb.trace_tb_gid=TRACE_tb.gid";
+$query = "select ST_AsGeoJSON(ST_TRANSFORM(TRACE_tb.geom,4326)),OBJECT_tb.name from OBJECT_tb,TRACE_tb where OBJECT_tb.gid=$1 and TRACE_tb.gid=ANY(OBJECT_tb.trace_tb_gid)";
 $result = pg_prepare($dbconn, "my_query", $query);
 
 $data = array($objgid);
 $result = pg_execute($dbconn, "my_query", $data);
 
-// should only has 2 row
+// should only has 1 row and 2 data
 $row = pg_fetch_row($result);
-$arrstring = htmlspecialchars(json_encode($row[0]),ENT_QUOTES,'UTF-8');
 
-echo "<div data-side=\"geo-json\" data-params=\"[";
+$geomList=array();
+array_push($geomList, $row[0]);
+
+$resultarray = new \stdClass();
+$resultarray->geoms = $geomList;
+
+$arrstring = htmlspecialchars(json_encode($resultarray),ENT_QUOTES,'UTF-8');
+
+echo "<div data-side=\"geo-json\" data-params=\"";
 echo $arrstring;
-echo "]\" style=\"display:flex\">$arrstring</div>";
+echo "\" style=\"display:flex\"></div>";
 
 pg_close($dbconn);
 ?>

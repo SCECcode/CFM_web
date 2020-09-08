@@ -62,14 +62,18 @@ jQuery(document).ready(function() {
   setupSearch();
   addFaultColorsSelect();
   addDownloadSelect();
-    $("#search-type").change(function () {
-        var funcToRun = $(this).val();
-        if (funcToRun != "") {
-            window[funcToRun]();
-        }
-    });
+  setup_info3dTable();
+  setup_warn3dTable();
 
-    $("#search-type").trigger("change");
+  $("#search-type").change(function () {
+      var funcToRun = $(this).val();
+      if (funcToRun != "") {
+          window[funcToRun]();
+      }
+  });
+
+  $("#search-type").trigger("change");
+
 }); // end of MAIN
 
 

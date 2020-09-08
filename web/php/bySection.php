@@ -6,12 +6,13 @@
 
 <?php
 
-$dbconn = pg_connect("host=db port=5432 dbname=CFM52_db user=webonly password=scec");
-if (!$dbconn) { die('Could not connect'); }
+include ("util.php");
+$dbconn = getConnection();
 
 $q = ($_GET['q']);
 
 $query = "SELECT OBJECT_tb.gid,OBJECT_tb.name FROM OBJECT_tb,SECTION_tb where SECTION_tb.abb=$1 and SECTION_tb.gid=OBJECT_tb.SECTION_tb_gid";
+
 
 $result = pg_prepare($dbconn, "my_query", $query);
 

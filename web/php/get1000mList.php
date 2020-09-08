@@ -6,8 +6,8 @@
 
 <?php
 
-$dbconn = pg_connect("host=db port=5432 dbname=CFM52_db user=webonly password=scec");
-if (!$dbconn) { die('Could not connect'); }
+include ("util.php");
+$dbconn = getConnection();
 
 $query = "SELECT OBJECT_1000m_tb.gid, OBJECT_1000m_tb.name, OBJECT_1000m_tb.url, OBJECT_tb.gid FROM OBJECT_tb, OBJECT_1000m_tb where OBJECT_tb.object_1000m_tb_gid=OBJECT_1000m_tb.gid ";
 

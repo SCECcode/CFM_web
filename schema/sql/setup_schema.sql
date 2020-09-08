@@ -56,7 +56,7 @@ CREATE TABLE OBJECT_tb (
 
    FAULT_tb_gid integer DEFAULT NULL,
 
-   TRACE_tb_gid integer DEFAULT NULL,
+   TRACE_tb_gid integer ARRAY,
 
    OBJECT_2000m_tb_gid integer DEFAULT NULL,
 
@@ -82,7 +82,5 @@ CREATE TABLE OBJECT_tb (
    reference VARCHAR(100),
    reference_check VARCHAR(6),
    ID_comments VARCHAR(100),
-   USGS_ID VARCHAR(100),
-
-   blind integer DEFAULT 0
+   USGS_ID VARCHAR(100)
 );
