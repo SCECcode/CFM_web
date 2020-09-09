@@ -5,7 +5,7 @@ $header = getHeader("Viewer");
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Community Fault Model Viewer (Beta)</title>
+    <title>Community Fault Model Viewer (Provisional)</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
