@@ -449,7 +449,6 @@ $header = getHeader("Viewer");
         </div>
     </div>
 </div>
-</div>
 
 <div class="row">&nbsp;</div>
 <div id='queryBlock' class="col-6" style="overflow:hidden;display:;"> </div> <!-- query block -->
@@ -543,5 +542,6 @@ $header = getHeader("Viewer");
     </div> <!--Content-->
   </div>
 </div> <!--Modal: Name-->
+</div>
 </body>
 </html>
