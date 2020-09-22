@@ -115,6 +115,8 @@ $header = getHeader("Viewer");
 <body>
 <?php echo $header; ?>
 
+<div class="body-container">
+
 <div class="container main">
 
     <div class="spinDialog" style="position:absolute;top:40%;left:50%; z-index:9999;">
@@ -446,6 +448,7 @@ $header = getHeader("Viewer");
             </table>
         </div>
     </div>
+</div>
 </div>
 
 <div class="row">&nbsp;</div>
