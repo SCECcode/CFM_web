@@ -18,6 +18,7 @@ Coastal Faults,CSTF
 Compton-Lower Elysian Park fault system,CLEP
 Coronado Bank Detachment,CBKD
 Coronado Bank fault zone,CBFZ
+Coso Junction fault zone,CJFZ
 Cross Faults,CRSF
 Cross faults,CRSF
 Davies Valley fault zone,DVVZ
@@ -30,7 +31,7 @@ Garlock fault zone,GRFZ
 Goldstone Lake-Paradise fault system,GLPS
 Harper fault zone,HPFZ
 Helendale-South Lockhart fault zone,HSLZ
-Hosgri fault zone,HSFZ
+Hosgri-San Simeon fault zone,HSFZ
 Hot Springs-San Felipe fault zone,HSSF
 Hunter Mountain fault zone,HMFZ
 Imperial fault zone,IMFZ
@@ -58,6 +59,7 @@ Northern Death Valley fault zone,NDVZ
 Oak Ridge fault zone,ORFZ
 Oceanic fault zone,OCNZ
 Oceanside Detachment,OCSD
+Offshore Santa Maria Basin system,OSMB
 Owens Valley fault zone,OVFZ
 Palos Verdes fault zone,PVFZ
 Panamint Valley fault zone,PMVZ
@@ -81,9 +83,12 @@ San Juan-Morales fault zone,SJMZ
 San Luis Range fault system,SLRS
 San Mateo-San Onofre-Carlsbad fault system,SMCS
 San Pedro Basin fault zone,SPBZ
+San Pedro Escarpment fault system,SPES
 Santa Ana fault zone,SANA
 Santa Barbara Channel faults,SBCF
 Santa Cruz-Catalina Ridge fault system,SCCR
+Santa Lucia Bank fault system,SLBS
+Santa Monica Bay fault system,SMBS
 Santa Susana fault zone,SSFZ
 Santa Ynez River fault zone,SYRZ
 Santa Ynez fault zone,SYFZ
@@ -96,5 +101,7 @@ Southern Death Valley fault zone,SDVZ
 Southern Frontal fault system,SFFS
 Southern Sierra Nevada fault zone,SSNZ
 Temblor-Diablo Range thrust system,TDRS
+Thirtymile Bank fault system,TMBS
 Upper Santa Ana Valley fault system,USAV
 White Wolf fault zone,WWFZ
+Wilmington Blind Fault System,WBFS

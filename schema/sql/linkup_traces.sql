@@ -1,6 +1,12 @@
-UPDATE TRACE_tb
-     SET ___isblind = 0
-     WHERE ___isblind IS null;
+INSERT INTO TRACE_tb (layer, ___isblind, geom)
+   SELECT name, 1, geom 
+   FROM blind_trace_tb;
+
+INSERT INTO TRACE_tb (layer, ___isblind, geom)
+   SELECT name, 0, geom 
+   FROM nonblind_trace_tb;
+
+CREATE INDEX ON "trace_tb" USING GIST ("geom");
 
 CREATE TEMP TABLE tmp_x AS
      SELECT concat(name,'-trace'), gid from OBJECT_tb;

@@ -27,6 +27,7 @@ CREATE TABLE ZONE_tb (
    name VARCHAR(100) NOT NULL,
    abb VARCHAR(5) NOT NULL
 );
+
 CREATE TABLE AREA_tb (
    gid serial PRIMARY KEY,
    name VARCHAR(100) NOT NULL,
@@ -44,6 +45,13 @@ CREATE TABLE FAULT_tb (
    name VARCHAR(100) NOT NULL,
    abb VARCHAR(4) NOT NULL
 );
+
+CREATE TABLE TRACE_tb (
+   gid serial PRIMARY KEY,
+   layer VARCHAR(100) NOT NULL,
+   ___isblind int2 DEFAULT 0,
+);
+SELECT AddGeometryColumn('',TRACE_tb,'geom','0','MULTILINESTRING',4);
 
 CREATE TABLE OBJECT_tb (
    gid serial PRIMARY KEY,
@@ -71,16 +79,15 @@ CREATE TABLE OBJECT_tb (
 
    alternative VARCHAR(3),
    source_author VARCHAR(20),
-   CFM_version VARCHAR(6),
-   model_description VARCHAR(100),
+   last_update VARCHAR(6),
    descriptor VARCHAR(10),
-   strike real DEFAULT 0.0,
-   dip real DEFAULT 0.0,
+   avg_strike real DEFAULT 0.0,
+   avg_dip real DEFAULT 0.0,
    area numeric DEFAULT 0,
    exposure VARCHAR(10),
    slip_sense VARCHAR(6),
-   reference VARCHAR(100),
-   reference_check VARCHAR(6),
    ID_comments VARCHAR(100),
    USGS_ID VARCHAR(100)
+   fault_strand_model_description VARCHAR(100),
+   references VARCHAR(100),
 );

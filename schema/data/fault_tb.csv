@@ -1,4 +1,6 @@
 name,abb
+"Owens Valley fault, southern extension",OWFS
+"blind Owens Lake fault, Lone Pine 2020 M5.8",OWLD
 Agua Caliente fault zone,ACFZ
 Agua Tibia-Earthquake Valley fault,EQVF
 Agua Tibia-Earthquake Valley fault-east,EQVE
@@ -41,6 +43,7 @@ Cerro Prieto fault,CRPF
 Cerro-Centinela fault,CRCF
 Channel Islands thrust,CIT
 Chicken Hill fault,CCHF
+China Lake fault,CHLF
 Chino Fault,CHNF
 Clamshell-Sawpit Canyon fault,CSCF
 Claremont fault,CLMF
@@ -51,12 +54,16 @@ Clark fault-south-west,CFSW
 Cleghorn Lake fault,CLGF
 Cleghorn fault,CLGF
 Coalinga blind fault,COLF
+Compton-Los Alamitos fault,CLAF
 Compton-Los_Alamitos fault,CLAF
 Copper Mountain fault,CMTF
-Coronado Bank detachment,CRBD
+Coronado Bank detachment trim,OCBD
+Coronado Bank detachment upper,CRBD
 Coronado Bank east splay,CRBE
 Coronado Bank fault,CRBF
 Coronado Bank west splay,CRBW
+Coso Junction cross fault array,CJCF
+Coso Junction fault,CSJF
 Coyote Canyon fault,CYCF
 Coyote Creek fault,CCRF
 Coyote Creek fault-center,CCFC
@@ -76,7 +83,7 @@ Descanso fault-west splay,DSWS
 Descanso-RC transfer fault,DRCT
 Devil's Canyon fault,DVCF
 Dixieland_fault,DXLF
-Eage Rock fault,ERKF
+Eagle Rock fault,ERKF
 East Bullion-Valley Mountain fault,EBVM
 East Huasna fault,EHSF
 East Montebello fault,EMBF
@@ -85,7 +92,21 @@ East Santa Cruz Basin fault-B,ESCB
 East Santa Cruz Basin fault-D,ESCB
 East Santa Cruz Basin fault-E,ESCB
 East Santa Cruz Basin fault-main,ESCB
-Eastern Little Lake fault,LLKF
+East Shoreline Fault,ESHR
+Eastern Little Lake NC splay,ELNC
+Eastern Little Lake NE outer splay,ELNB
+Eastern Little Lake NE splay,ELNE
+Eastern Little Lake NW splay,ELNW
+Eastern Little Lake center cross fault,CTCF
+Eastern Little Lake center east branch,ELCE
+Eastern Little Lake main fault,ELMF
+Eastern Little Lake north north east cross fault,NNEC
+Eastern Little Lake north north west cross fault,NNWC
+Eastern Little Lake north south cross fault,NSCF
+Eastern Little Lake south cross fault,STCF
+Eastern Little Lake south dip cross fault,SDCF
+Eastern Little Lake south north cross fault,SNCF
+Eastern Little Lake south west branch,ELCE
 Eastern North Frontal fault,ENFT
 El Mayor-Cucapah normal fault,EMNF
 El Mayor-Cucapah west fault,EMWF
@@ -98,7 +119,6 @@ Emerson fault,EMSF
 Eureka Peak-West Deception Canyon,EPWD
 Extra fault,EXTF
 Ferrelo fault,FRLF
-Fish Creek Mountain fault,FCMF
 Fontana Seismicity lineament,FNTS
 Galway Lake fault,GLWF
 Garlic Springs fault,GRSF
@@ -112,8 +132,10 @@ Granite Mountains fault-west,GRMW
 Grass Valley fault,GSVF
 Gravel Hills fault-nw,GVHN
 Gravel Hills-Harper Lake fault,GHLF
+Haiwee fault connector,HWFC
+Haiwee fault,HAWF
+Harper Valley - Mt_General fault,HMGF
 Harper Valley fault,HPVF
-Harper Valley – Mt_General fault,HMGF
 Hector Mine rupture,HCMR
 Helendale-South Lockhart fault,HSLF
 Hidden Springs fault,HDSF
@@ -122,9 +144,11 @@ Holser fault,HLSF
 Homestead Valley fault,HSVF
 Hondo detachment-S-dip,HNDD
 Hosgri fault,HSGF
+Hot Springs Fault,HTSF
 Hot Springs fault,HSPF
 Hot Springs fault-west,HSFW
 Hunter Mountain fault,HTMF
+Huntington Beach fault,HTBF
 Icehouse Canyon fault-truncated,IHCF
 Imperial fault,IMPF
 Imperial fault-east branch,IMPE
@@ -146,9 +170,10 @@ Laguna Salada fault-west branch,LSFW
 Lake Isabella lineament,LIBF
 Landers cross fault-north-I,LCF1
 Landers cross fault-north-II,LCF2
-Landers rupture detailed ,LNCF
+Landers detailed splays,LNDS
 Landers-Barstow trend,LNBT
 Las Cienagas fault,LCGF
+Lavic Lake-North West Bullion fault splay,LLSP
 Lavic Lake-North West Bullion fault,LLWB
 Lenwood-Lockhart fault,LWLF
 Lion Canyon fault,LNCF
@@ -180,6 +205,7 @@ Mission Hills fault,MSHF
 Mission Ridge-Arroyo Parida fault,MRAF
 Morales fault,MRLF
 Morongo Valley fault,MRVF
+Murietta-Hot Springs fault,MRHS
 Nacimiento fault,NCMF
 Nelson Lake fault,NSLF
 Newport-Inglewood fault,NIWF
@@ -237,6 +263,11 @@ Pitas Point fault-west-S,PPWS
 Pitas Point-Ventura fault link,PPVL
 Pleito fault,PLTF
 Puente Hills thrust,PHTF
+Purisima fault-center,PRSC
+Purisima fault-east,PRSE
+Purisima fault-north,PRSN
+Purisima fault-south,PRSS
+Purisima fault-west,PRSW
 Raymond fault,RYMF
 Red Hill fault,RDHF
 Red Mountain fault-SW-strand,RMSW
@@ -249,6 +280,8 @@ Reservoir Canyon fault,RSCF
 Rialto-Colton fault,RCLF
 Rinconada fault,RNCF
 Rose Canyon fault,RSCF
+Rose Valley cross fault,RVCF
+Rose Valley fault,RSVF
 San Andreas fault,SAF
 San Antonio Canyon fault splay-truncated,SACF
 San Antonio Canyon fault-truncated,SACF
@@ -258,10 +291,9 @@ San Clemente fault nw-strand,SCNW
 San Clemente fault splay,SCLS
 San Clemente fault,SCLF
 San Diego Trough fault,SDTF
-San Felipe fault,SFLF
 San Fernando fault,SFNF
 San Gabriel fault splay,SGFS
-San Gorgonio Padd deep detachment,SGDD
+San Gorgonio Pass deep detachment,SGDD
 San Gorgonio Pass midcrust detachment,SGMD
 San Gorgonio Pass thrust,SGPT
 San Jacinto-Claremont fault,SJCF
@@ -275,15 +307,27 @@ San Mateo-Carlsbad fault,SMCF
 San Onofre fault,SONF
 San Pedro Basin fault-north,SPBN
 San Pedro Basin fault-south,SPBS
+San Pedro Escarpment fault-A,SPEA
+San Pedro Escarpment fault-B,SPEB
+San Pedro Escarpment fault-C,SPEC
+San Pedro Escarpment fault-D,SPED
+San Pedro Escarpment fault-E,SPEE
+San Pedro Escarpment fault-F,SPEF
+San Pedro Escarpment fault-YngB,SPEY
 San Vicente fault,SVCF
 Santa Ana fault,SANF
 Santa Cruz Island fault,SCIF
 Santa Cruz-Catalina Ridge fault,SCRF
+Santa Lucia Bank West fault,SLBW
+Santa Lucia Bank fault,SLBF
+Santa Maria Basin thrust-A,SMBA
+Santa Maria Basin thrust-B,SMBB
+Santa Maria Basin thrust-C,SMBC
 Santa Monica Bay detachment-east,SMDE
 Santa Monica Bay detachment-mid,SMDM
 Santa Monica Bay detachment-west,SMDW
+Santa Monica Bay fault,SMBF
 Santa Monica Bay fault-east,SMBE
-Santa Monica Bay fault-west,SMBW
 Santa Monica fault,SMCF
 Santa Monica thrust,SMNT
 Santa Rosa Island fault,SRIF
@@ -292,6 +336,7 @@ Santa Ynez River fault,SYRF
 Santa Ynez Valley blind fault,SYVF
 Santa Ynez fault,SYZF
 Sawtooth Range fault,SWRF
+Scodie Lineament,SCDL
 Shell Beds fault,SBDF
 Shoreline fault,SRLF
 Sierra Cucapah fault,SCPF
@@ -306,14 +351,21 @@ South Cuyuma fault,SCYF
 South Fork-Stoddard Canyon fault-truncated,SFSC
 Southern Death Valley fault,SDVF
 Southern Helendale fault,SHDF
-Southern Little Lake fault,LLKF
+Southern Hosgri fault,SHSF
+Southern Little Lake main fault,SLMF
+Southern Little Lake north fault,SLNF
 Southern San Andreas fault,SSAF
 Southern San Cayetano fault,SSCF
 Southern San Gabriel fault,SSGF
 Stoddard Canyon fault-truncated,SDCF
 Superstition Hills fault,SSHF
 Superstition Mountain fault,SSMF
+Sur fault-B,SURB
+Sur fault-C,SURC
+Sur fault-D,SURD
 Tank Canyon fault,TNKF
+Thirtymile Bank detachment,TMBD
+Torrance blind fault,TRNF
 Tunnel Ridge-Arrastre Canyon fault,TRAC
 Upland fault,UPLF
 Upper Elysian Park fault,UEPF
@@ -325,13 +377,16 @@ Weber fault,WBRF
 Weber fault-NE extension,WBRE
 Weinert-El Centro fault,WECF
 Weinert-Superstition Hills link,WSHL
-West Bullion fault,WBLF
+West Basin fault-A,WBNA
+West Basin fault-B,WBNB
+West Basin fault-C,WBNC
 West Calico fault,WCLF
 West Huasna fault,WHSF
 West Mesa fault,WMSF
 Western Deep fault,WSDF
 Western Heights fault,WSHF
 Western North Frontal thrust,WNFT
+Western Santa Cruz Island fault,WSCI
 Westmorland fault splay,WMLS
 Westmorland fault,WMLF
 White Wolf fault,WWFF
@@ -339,6 +394,7 @@ Whittier Heights fault,WHTF
 Whittier fault,WTRF
 Wildomar fault,WLDF
 Willard fault,WLRF
+Wilmington blind fault,WLMF
 Workman Hill fault,WMHF
 Yorba Linda Lineament,YRLL
 Yuha Wash fault,YWSF

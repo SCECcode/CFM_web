@@ -1,0 +1,11 @@
+/usr/local/lib/python2.7/site-packages/agate/utils.py:292: DuplicateColumnWarning: Column name "Num" already exists in Table. Column will be renamed to "Num_2".
+/usr/local/lib/python2.7/site-packages/agate/utils.py:292: DuplicateColumnWarning: Column name "Code" already exists in Table. Column will be renamed to "Code_2".
+/usr/local/lib/python2.7/site-packages/agate/utils.py:292: DuplicateColumnWarning: Column name "Num" already exists in Table. Column will be renamed to "Num_3".
+/usr/local/lib/python2.7/site-packages/agate/utils.py:292: DuplicateColumnWarning: Column name "Code" already exists in Table. Column will be renamed to "Code_3".
+/usr/local/lib/python2.7/site-packages/agate/utils.py:292: DuplicateColumnWarning: Column name "Num" already exists in Table. Column will be renamed to "Num_4".
+/usr/local/lib/python2.7/site-packages/agate/utils.py:292: DuplicateColumnWarning: Column name "Code" already exists in Table. Column will be renamed to "Code_4".
+/usr/local/lib/python2.7/site-packages/agate/utils.py:276: UnnamedColumnWarning: Column 26 has no name. Using "aa".
+/usr/local/lib/python2.7/site-packages/agate/utils.py:276: UnnamedColumnWarning: Column 27 has no name. Using "bb".
+/usr/local/lib/python2.7/site-packages/agate/utils.py:276: UnnamedColumnWarning: Column 28 has no name. Using "cc".
+/usr/local/lib/python2.7/site-packages/agate/utils.py:276: UnnamedColumnWarning: Column 29 has no name. Using "dd".
+/usr/local/lib/python2.7/site-packages/agate/utils.py:276: UnnamedColumnWarning: Column 30 has no name. Using "ee".
