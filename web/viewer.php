@@ -115,7 +115,9 @@ $header = getHeader("Viewer");
 <body>
 <?php echo $header; ?>
 
-<div class="container main">
+<div class="container">
+
+<div class="main">
 
     <div class="spinDialog" style="position:absolute;top:40%;left:50%; z-index:9999;">
         <div id="spinIconFor2D" align="center" style="display:none;"><i class="glyphicon glyphicon-cog fa-spin" style="color:red"></i></div>
@@ -540,5 +542,6 @@ $header = getHeader("Viewer");
     </div> <!--Content-->
   </div>
 </div> <!--Modal: Name-->
+</div>
 </body>
 </html>
