@@ -49,7 +49,7 @@ CREATE TABLE FAULT_tb (
 CREATE TABLE TRACE_tb (
    gid serial PRIMARY KEY,
    layer VARCHAR(100) NOT NULL,
-   ___isblind int2 DEFAULT 0,
+   ___isblind int2 DEFAULT 1,
 );
 SELECT AddGeometryColumn('',TRACE_tb,'geom','0','MULTILINESTRING',4);
 
