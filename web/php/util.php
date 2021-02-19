@@ -1,9 +1,9 @@
 <?php
 function getConnection() {
-  $dbconn = @pg_connect("host=db port=5432 dbname=CFM52_db user=webonly password=scec");
+  $dbconn = @pg_connect("host=db port=5432 dbname=CFM53_db user=webonly password=scec");
 
   if (!$dbconn) { // try localhost
-    $dbconn = pg_connect("host=localhost port=5432 dbname=CFM52_db user=webonly password=scec");
+    $dbconn = pg_connect("host=localhost port=5432 dbname=CFM53_db user=webonly password=scec");
   }
 
   if (!$dbconn) { die('Could not connect'); }
