@@ -379,10 +379,10 @@ $header = getHeader("Viewer");
                     <th>Area</th>
                     <th>Zone</th>
                     <th>Section</th>
-                    <th>CFM Version</th>
-<!--                    <th>Strike</th>-->
-<!--                    <th>Dip</th>-->
-<!--                    <th>Area (m<sup>2</sup>) </th>-->
+                    <th>Update</th>
+                    <th>Strike</th>
+                    <th>Dip</th>
+                    <th>Area(km<sup>2</sup>)</th>
                     <th><div class="col text-center">
                             <div class="btn-group download-now">
 <!-- MODAL popup button, reuse download-counter -->
@@ -442,7 +442,7 @@ $header = getHeader("Viewer");
                 </thead>
                 <tbody>
                 <tr id="placeholder-row">
-                    <td colspan="7">Metadata for selected faults will appear here. </td>
+                    <td colspan="11">Metadata for selected faults will appear here. </td>
                 </tr>
                 </tbody>
             </table>

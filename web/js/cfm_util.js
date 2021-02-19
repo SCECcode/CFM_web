@@ -352,12 +352,12 @@ function _item(meta,str,type,name) {
 
 function getMetadataRowForDisplay(meta) {
    let downloadButtons = get_downloads_btn(meta);
-   var area_m2 = "";
-   if (meta['area_m2'] > 0) {
-       area_m2 = parseInt(meta['area_m2']).toExponential();
+   var area_km2 = "";
+   if (meta['area_km2'] > 0) {
+       area_km2 = parseInt(meta['area_km2']).toExponential();
    }
 
-   var content = `
+   var content = '
    <tr id="metadata-${meta['gid']}">
        <td><button class=\"btn btn-sm cfm-small-btn\" id=\"button_meta_${meta['gid']}\" title=\"remove the fault\" onclick=toggle_highlight("${meta['gid']}");><span id=\"highlight_meta_${meta['gid']}\" class=\"glyphicon glyphicon-trash\"></span></button></td>
        <td>${meta['fault']}</td>
@@ -370,7 +370,8 @@ function getMetadataRowForDisplay(meta) {
        <td>${area_km2}</td>
        <td class="download-link">${downloadButtons}</td>
    </tr>
-   `;
+   ';
+window.console.log(content);
    return content;
 }
 
