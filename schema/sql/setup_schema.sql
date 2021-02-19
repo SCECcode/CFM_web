@@ -49,7 +49,7 @@ CREATE TABLE FAULT_tb (
 CREATE TABLE TRACE_tb (
    gid serial PRIMARY KEY,
    layer VARCHAR(100) NOT NULL,
-   ___isblind int2 DEFAULT 1,
+   ___isblind int2 DEFAULT 1
 );
 SELECT AddGeometryColumn('',TRACE_tb,'geom','0','MULTILINESTRING',4);
 
@@ -87,7 +87,7 @@ CREATE TABLE OBJECT_tb (
    exposure VARCHAR(10),
    slip_sense VARCHAR(6),
    ID_comments VARCHAR(100),
-   USGS_ID VARCHAR(100)
+   USGS_ID VARCHAR(100),
    fault_strand_model_description VARCHAR(100),
-   references VARCHAR(100),
+   references VARCHAR(100)
 );
