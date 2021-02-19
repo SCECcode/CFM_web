@@ -83,7 +83,7 @@ CREATE TABLE OBJECT_tb (
    descriptor VARCHAR(10),
    avg_strike real DEFAULT 0.0,
    avg_dip real DEFAULT 0.0,
-   area numeric DEFAULT 0,
+   area_km2 numeric DEFAULT 0,
    exposure VARCHAR(10),
    slip_sense VARCHAR(6),
    ID_comments VARCHAR(300),
