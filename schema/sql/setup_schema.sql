@@ -51,8 +51,7 @@ CREATE TABLE TRACE_tb (
    layer VARCHAR(100) NOT NULL,
    ___isblind int2 DEFAULT 1
 );
-#SELECT AddGeometryColumn('',TRACE_tb,'geom','0','MULTILINESTRING',4);
-ALTER TABLE TRACE_tb ADD COLUMN geom geometry('MULTILINESTRING',4);
+SELECT AddGeometryColumn('','trace_tb','geom','0','MULTILINESTRING',4);
 
 CREATE TABLE OBJECT_tb (
    gid serial PRIMARY KEY,
@@ -90,5 +89,5 @@ CREATE TABLE OBJECT_tb (
    ID_comments VARCHAR(300),
    USGS_ID VARCHAR(100),
    fault_strand_model_description VARCHAR(300),
-   references VARCHAR(300)
+   reference VARCHAR(300)
 );
