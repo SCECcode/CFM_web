@@ -202,7 +202,7 @@ function makeResultTable(str)
 
     var html = "";
     html=html+"<div class=\"cfm-table\" ><table>";
-    html+="<thead><tr><th class='text-center'><button id=\"allBtn\" class=\"btn btn-sm cfm-small-btn\" title=\"select all visible faults\" onclick=\"selectAll();\"><span class=\"glyphicon glyphicon-unchecked\"></span></button></th><th class='text-center'></th><th class='myheader'>FM5.2 Fault Objects</th></tr></thead><tbody>";
+    html+="<thead><tr><th class='text-center'><button id=\"allBtn\" class=\"btn btn-sm cfm-small-btn\" title=\"select all visible faults\" onclick=\"selectAll();\"><span class=\"glyphicon glyphicon-unchecked\"></span></button></th><th class='text-center'></th><th class='myheader'>FM5.3 Fault Objects</th></tr></thead><tbody>";
     var sz=(Object.keys(str).length);
     var tmp="";
     for( var i=0; i< sz; i++) {
@@ -238,10 +238,10 @@ function _makeResultTableWithGList(glist)
     window.console.log("calling _makeResultTableWithGList..");
 
     clear_popup();
-    // var html="<table><tr><th style=\"border:1px solid white\">CFM5.2 Fault Objects<button id=\"allBtn\" class=\"btn cfm-small-btn\" title=\"select all visible faults\" onclick=\"selectAll()\"><span class=\"glyphicon glyphicon-unchecked\"></span></button></th></tr></table>";
+    // var html="<table><tr><th style=\"border:1px solid white\">CFM5.3 Fault Objects<button id=\"allBtn\" class=\"btn cfm-small-btn\" title=\"select all visible faults\" onclick=\"selectAll()\"><span class=\"glyphicon glyphicon-unchecked\"></span></button></th></tr></table>";
     var html = "";
     html=html+"<div class=\"cfm-table\" ><table>";
-    html+="<thead><tr><th class='text-center'><button id=\"allBtn\" class=\"btn btn-sm cfm-small-btn\" title=\"select all visible faults\" onclick=\"selectAll();\"><span class=\"glyphicon glyphicon-unchecked\"></span></button></th><th class='text-center'></th><th>CFM5.2 Fault Objects</th></tr></thead><tbody>";
+    html+="<thead><tr><th class='text-center'><button id=\"allBtn\" class=\"btn btn-sm cfm-small-btn\" title=\"select all visible faults\" onclick=\"selectAll();\"><span class=\"glyphicon glyphicon-unchecked\"></span></button></th><th class='text-center'></th><th>CFM5.3 Fault Objects</th></tr></thead><tbody>";
 
     var sz=glist.length;
     var tmp="";

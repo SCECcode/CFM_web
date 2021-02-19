@@ -103,8 +103,8 @@ function removeColorsControl() {
 }
 
 // default -- all black
-// by strike
-// by dip
+// by avg_strike
+// by avg_dip
 function changeFaultColor(type) {
     // val=$('input[name=cfm-fault-colors]:checked').val()
     use_fault_color=type;
@@ -365,9 +365,9 @@ function getMetadataRowForDisplay(meta) {
        <td>${meta['zone']}</td>
        <td>${meta['section']}</td>
        <td>${meta['CFM_version']}</td>
-      <!-- <td>${meta['strike']}</td>
-       <td>${meta['dip']}</td>
-       <td>${area_m2}</td> -->
+       <td>${meta['avg_strike']}</td>
+       <td>${meta['avg_dip']}</td>
+       <td>${area_km2}</td>
        <td class="download-link">${downloadButtons}</td>
    </tr>
    `;
@@ -452,8 +452,8 @@ function getGidFromMeta(meta) {
 function getColorFromMeta(meta) {
 
     var color="black";
-    var strike=meta['strike'];
-    var dip=meta['dip'];
+    var strike=meta['avg_strike'];
+    var dip=meta['avg_dip'];
 
     if(use_fault_color=="strike" && strike != undefined && strike != "") {
         v=parseInt(strike);
