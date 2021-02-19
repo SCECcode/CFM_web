@@ -51,7 +51,7 @@ CREATE TABLE TRACE_tb (
    layer VARCHAR(100) NOT NULL,
    ___isblind int2 DEFAULT 1
 );
-SELECT AddGeometryColumn('',TRACE_tb,'geom','0','MULTILINESTRING',4);
+SELECT AddGeometryColumn(TRACE_tb,'geom','0','MULTILINESTRING',4);
 
 CREATE TABLE OBJECT_tb (
    gid serial PRIMARY KEY,
