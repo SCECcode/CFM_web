@@ -1,25 +1,25 @@
 CREATE TABLE OBJECT_2000m_tb (
    gid serial PRIMARY KEY,
    name VARCHAR(100) NOT NULL,
-   url VARCHAR(200) UNIQUE
+   url VARCHAR(300) UNIQUE
 );
 
 CREATE TABLE OBJECT_1000m_tb (
    gid serial PRIMARY KEY,
    name VARCHAR(100) NOT NULL,
-   url VARCHAR(200) UNIQUE
+   url VARCHAR(300) UNIQUE
 );
 
 CREATE TABLE OBJECT_500m_tb (
    gid serial PRIMARY KEY,
    name VARCHAR(100) NOT NULL,
-   url VARCHAR(200) UNIQUE
+   url VARCHAR(300) UNIQUE
 );
 
 CREATE TABLE OBJECT_native_tb (
    gid serial PRIMARY KEY,
    name VARCHAR(100) NOT NULL,
-   url VARCHAR(200) UNIQUE
+   url VARCHAR(300) UNIQUE
 );
 
 CREATE TABLE ZONE_tb (
@@ -37,13 +37,13 @@ CREATE TABLE AREA_tb (
 CREATE TABLE SECTION_tb (
    gid serial PRIMARY KEY,
    name VARCHAR(100) NOT NULL,
-   abb VARCHAR(4) NOT NULL
+   abb VARCHAR(5) NOT NULL
 );
 
 CREATE TABLE FAULT_tb (
    gid serial PRIMARY KEY,
    name VARCHAR(100) NOT NULL,
-   abb VARCHAR(4) NOT NULL
+   abb VARCHAR(5) NOT NULL
 );
 
 CREATE TABLE TRACE_tb (
@@ -51,7 +51,8 @@ CREATE TABLE TRACE_tb (
    layer VARCHAR(100) NOT NULL,
    ___isblind int2 DEFAULT 1
 );
-SELECT AddGeometryColumn(TRACE_tb,'geom','0','MULTILINESTRING',4);
+#SELECT AddGeometryColumn('',TRACE_tb,'geom','0','MULTILINESTRING',4);
+ALTER TABLE TRACE_tb ADD COLUMN geom geometry('MULTILINESTRING',4);
 
 CREATE TABLE OBJECT_tb (
    gid serial PRIMARY KEY,
@@ -75,7 +76,7 @@ CREATE TABLE OBJECT_tb (
    OBJECT_native_tb_gid integer DEFAULT NULL,
 
    name VARCHAR(100) UNIQUE NOT NULL,
-   url VARCHAR(200) UNIQUE,
+   url VARCHAR(300) UNIQUE,
 
    alternative VARCHAR(3),
    source_author VARCHAR(20),
@@ -86,8 +87,8 @@ CREATE TABLE OBJECT_tb (
    area numeric DEFAULT 0,
    exposure VARCHAR(10),
    slip_sense VARCHAR(6),
-   ID_comments VARCHAR(100),
+   ID_comments VARCHAR(300),
    USGS_ID VARCHAR(100),
-   fault_strand_model_description VARCHAR(100),
-   reference VARCHAR(100)
+   fault_strand_model_description VARCHAR(300),
+   references VARCHAR(300)
 );
