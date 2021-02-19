@@ -89,5 +89,5 @@ CREATE TABLE OBJECT_tb (
    ID_comments VARCHAR(100),
    USGS_ID VARCHAR(100),
    fault_strand_model_description VARCHAR(100),
-   references VARCHAR(100)
+   reference VARCHAR(100)
 );

@@ -1,5 +1,5 @@
 
-COPY OBJECT_tb(name,alternative,source_author,last_update,descriptor,avg_strike,avg_dip,area,exposure,slip_sense,ID_comments,USGS_ID,fault_strand_model_description,references) FROM '/home/postgres/CFM/schema/data/object_tb_base.csv' DELIMITER ',' CSV HEADER;
+COPY OBJECT_tb(name,alternative,source_author,last_update,descriptor,avg_strike,avg_dip,area,exposure,slip_sense,ID_comments,USGS_ID,fault_strand_model_description,reference) FROM '/home/postgres/CFM/schema/data/object_tb_base.csv' DELIMITER ',' CSV HEADER;
 
 
 CREATE TEMP TABLE tmp_x 
