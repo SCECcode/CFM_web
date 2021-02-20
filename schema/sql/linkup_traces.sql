@@ -9,7 +9,7 @@ INSERT INTO TRACE_tb (layer, ___isblind, geom)
 CREATE INDEX ON TRACE_tb USING GIST ("geom");
 
 CREATE TEMP TABLE tmp_x AS
-     SELECT concat(name,'-trace'), gid from OBJECT_tb;
+     SELECT name, gid from OBJECT_tb;
 
 CREATE TEMP TABLE tmp_y AS
      SELECT layer, gid from TRACE_tb;
@@ -19,7 +19,7 @@ UPDATE OBJECT_tb
       ( SELECT ARRAY(
         SELECT tmp_y.gid 
           FROM tmp_y, tmp_x
-          WHERE tmp_y.layer = tmp_x.concat 
+          WHERE tmp_y.layer = tmp_x.name 
           AND tmp_x.gid = OBJECT_tb.gid 
       ));
 

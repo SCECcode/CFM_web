@@ -371,7 +371,6 @@ function getMetadataRowForDisplay(meta) {
        <td class="download-link">${downloadButtons}</td>
    </tr>
    `;
-window.console.log(content);
    return content;
 }
 
