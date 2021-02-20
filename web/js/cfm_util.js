@@ -391,11 +391,10 @@ function getLevel3ContentFromMeta(meta) {
     var content=meta['fault'];
     content=content+"<hr>";
     content=_item(meta,content,'alternative','ALTERNATIVE');
-    content=_item(meta,content,'model_description','MODEL_DESCRIPTION');
+    content=_item(meta,content,'fault_strand_model_description','MODEL_DESCRIPTION');
     content=_item(meta,content,'descriptor','DESCRIPTOR');
-    content=_item(meta,content,'reference','REFERENCE');
-    content=_item(meta,content,'reference_check','REFERENCE_CHECK');
     content=_item(meta,content,'ID_comments','ID_COMMENTS');
+    content=_item(meta,content,'reference','REFERENCE');
     return content;
 }
 
@@ -427,13 +426,23 @@ function getCSVFromMeta(mlist) {
     var last=len-1;
     var meta=mlist[0];
     var keys=Object.keys(meta);
-    var kblob=keys.join(",");
+    var jlen=keys.length;
     var csvblob = keys.join(",");
     csvblob +='\n';
     for(i=0; i< len; i++) {
+       var j=0;
        meta=mlist[i];
        var values=Object.values(meta)
-       var vblob=values.join(",");
+       var vblob=JSON.stringify(values[0]);
+       for(j=1; j< jlen; j++) {
+          var vv=values[j];
+          if(vv != null) {
+            var vvs=JSON.stringify(vv);
+            vblob=vvblob+","+vvs;
+            } else {
+              vblob=vblob+",";
+          }
+       }
        csvblob += vblob;
        if(i != last) {
          csvblob +='\n';
