@@ -357,20 +357,20 @@ function getMetadataRowForDisplay(meta) {
        area_km2 = parseInt(meta['area_km2']).toExponential();
    }
 
-   var content = '
+   var content = ` 
    <tr id="metadata-${meta['gid']}">
        <td><button class=\"btn btn-sm cfm-small-btn\" id=\"button_meta_${meta['gid']}\" title=\"remove the fault\" onclick=toggle_highlight("${meta['gid']}");><span id=\"highlight_meta_${meta['gid']}\" class=\"glyphicon glyphicon-trash\"></span></button></td>
        <td>${meta['fault']}</td>
        <td>${meta['area']}</td>
        <td>${meta['zone']}</td>
        <td>${meta['section']}</td>
-       <td>${meta['CFM_version']}</td>
+       <td>${meta['last_update']}</td>
        <td>${meta['avg_strike']}</td>
        <td>${meta['avg_dip']}</td>
        <td>${area_km2}</td>
        <td class="download-link">${downloadButtons}</td>
    </tr>
-   ';
+   `;
 window.console.log(content);
    return content;
 }

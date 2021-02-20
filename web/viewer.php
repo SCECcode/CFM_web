@@ -379,7 +379,7 @@ $header = getHeader("Viewer");
                     <th>Area</th>
                     <th>Zone</th>
                     <th>Section</th>
-                    <th>Update</th>
+                    <th>Last Update</th>
                     <th>Strike</th>
                     <th>Dip</th>
                     <th>Area(km<sup>2</sup>)</th>

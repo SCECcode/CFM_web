@@ -27,7 +27,7 @@ DROP TABLE tmp_x;
 DROP TABLE tmp_y;
 
 CREATE TEMP TABLE tmp_x AS
-     SELECT name, concat(name,'_m2000'), gid from OBJECT_tb;
+     SELECT name, concat(name,'_2000m'), gid from OBJECT_tb;
 
 UPDATE OBJECT_tb 
     SET OBJECT_2000m_tb_gid = OBJECT_2000m_tb.gid
@@ -38,7 +38,7 @@ UPDATE OBJECT_tb
 DROP TABLE tmp_x;
 
 CREATE TEMP TABLE tmp_x AS
-     SELECT name, concat(name,'_m1000'), gid from OBJECT_tb;
+     SELECT name, concat(name,'_1000m'), gid from OBJECT_tb;
 
 UPDATE OBJECT_tb 
     SET OBJECT_1000m_tb_gid = OBJECT_1000m_tb.gid
@@ -49,7 +49,7 @@ UPDATE OBJECT_tb
 DROP TABLE tmp_x;
 
 CREATE TEMP TABLE tmp_x AS
-     SELECT name, concat(name,'_m500'), gid from OBJECT_tb;
+     SELECT name, concat(name,'_500m'), gid from OBJECT_tb;
 
 UPDATE OBJECT_tb 
     SET OBJECT_500m_tb_gid = OBJECT_500m_tb.gid
