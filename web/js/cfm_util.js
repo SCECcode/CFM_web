@@ -438,7 +438,7 @@ function getCSVFromMeta(mlist) {
           var vv=values[j];
           if(vv != null) {
             var vvs=JSON.stringify(vv);
-            vblob=vvblob+","+vvs;
+            vblob=vblob+","+vvs;
             } else {
               vblob=vblob+",";
           }
