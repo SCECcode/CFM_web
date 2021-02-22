@@ -524,8 +524,8 @@ function setupSearch()
    queryByType("zone");
    queryByType("section");
    queryByType("name");
-//   getStrikeRange();
-//   getDipRange();
+   getStrikeRange();
+   getDipRange();
    getNativeList();
    get1000mList();
    get2000mList();

@@ -6,6 +6,7 @@ var skipPopup=false;
 
 var default_color = "black";
 var default_highlight_color = "red";
+var alternate_highlight_color = "#15F4EE";
 var blind_dash_value = 6;
 
 var original_style = {
@@ -272,6 +273,18 @@ function reset_fault_color() {
   });
 }
 
+function set_fault_color_alternate() {
+  var tmp=highlight_style;
+  highlight_style.color = alternate_highlight_color;
+  blind_highlight_style.color = alternate_highlight_color;
+}
+
+function set_fault_color_default() {
+  var tmp=highlight_style;
+  highlight_style.color = default_highlight_color;
+  blind_highlight_style.color = default_highlight_color;
+}
+
 function reset_style_list() {
    cfm_style_list.forEach(function(element) {
      element['visible ']=1;
@@ -410,8 +423,8 @@ function reset_layer_list() {
      var s=find_style_list(gid);
      if( s['highlight']==1 && s['visible']==1 ) {
        toggle_highlight(gid);
-        addRemoveFromDownloadQueue(gid);
-        addRemoveFromMetadataTable(gid);
+       addRemoveFromDownloadQueue(gid);
+       addRemoveFromMetadataTable(gid);
      }
    });
 }
@@ -512,10 +525,10 @@ function addRemoveFromMetadataTable(gid) {
 }
 
 function toggle_highlight(gid) {
-    var s=find_style_list(gid);
-    if (s == '') {
-       return;
-    }
+   var s=find_style_list(gid);
+   if (s == '') {
+      return;
+   }
 
    var h=s['highlight'];
    let $star=$(`#highlight_${gid}`);
@@ -534,7 +547,7 @@ function toggle_highlight(gid) {
      var geolayer=l['layer'];
 
      geolayer.eachLayer(function(layer) {
-       layer.setStyle({color: default_highlight_color});
+       layer.setStyle({color: highlight_style.color});
      });
      cfm_select_count++;
      // adjust width if needed

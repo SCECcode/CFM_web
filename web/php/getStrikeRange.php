@@ -9,7 +9,7 @@
 include ("util.php");
 $dbconn = getConnection();
 
-$query = "SELECT strike FROM OBJECT_tb";
+$query = "SELECT avg_strike FROM OBJECT_tb";
 $result = pg_query($dbconn, $query);
 
 $max=0;

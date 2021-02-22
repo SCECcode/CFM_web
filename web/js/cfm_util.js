@@ -111,12 +111,10 @@ function changeFaultColor(type) {
     reset_fault_color();
     if (type == "") {
        removeKey();
-       highlight_style.color = default_highlight_color;
-       blind_highlight_style.color = default_highlight_color;
+       set_fault_color_default();
     } else {
         showKey(type);
-        highlight_style.color = alternate_highlight_color;
-        blind_highlight_style.color = alternate_highlight_color;
+        set_fault_color_alternate();
     }
 
     // switch
@@ -466,6 +464,7 @@ function getColorFromMeta(meta) {
 
     if(use_fault_color=="strike" && strike != undefined && strike != "") {
         v=parseInt(strike);
+window.console.log(strike_range_min, strike_range_max);
         v=(v-strike_range_min)/(strike_range_max-strike_range_min);
         blue = Math.round(255 * v);
         green = 0;
@@ -475,6 +474,7 @@ function getColorFromMeta(meta) {
 
     if(use_fault_color=="dip" && dip != undefined && dip != "") {
         v=parseInt(dip);
+window.console.log(dip_range_min, dip_range_max);
         v=(v-dip_range_min)/(dip_range_max-dip_range_min);
         blue = Math.round(255 * v);
         green = 0;

@@ -7,8 +7,10 @@ var showing_key = false;
 
 // not using the realmin and realmax
 function setupStrikeRangeSlider(realmin,realmax) {
-  var min=0;
-  var max=360;
+window.console.log("real Strike Range",realmin," and ",realmax);
+// around 0,360
+  var min=realmin;
+  var max=realmax;
   setup_strike_range(min,max);
   $( "#slider-strike-range" ).slider({
     range: true,
@@ -29,6 +31,8 @@ function setupStrikeRangeSlider(realmin,realmax) {
 
 // using the realmin and realmax
 function setupDipRangeSlider(min,max) {
+window.console.log("real Dip Range",min," and ",max);
+//???
   setup_dip_range(min,max);
   $( "#slider-dip-range" ).slider({
     range: true,

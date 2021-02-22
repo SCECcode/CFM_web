@@ -9,7 +9,7 @@
 include ("util.php");
 $dbconn = getConnection();
 
-$query = "SELECT dip FROM OBJECT_tb";
+$query = "SELECT avg_dip FROM OBJECT_tb";
 $result = pg_query($dbconn, $query);
 
 $max=0;
