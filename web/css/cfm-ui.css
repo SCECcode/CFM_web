@@ -179,6 +179,10 @@ table tr th {
     background-color: #F2F2F2;
 }
 
+.hoverColor:hover {
+    background-color: #b9bec4;
+}
+
 .container button.btn-dark {
     text-transform: uppercase;
     background-color: #333333;

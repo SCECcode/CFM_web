@@ -358,14 +358,14 @@ $header = getHeader("Viewer");
                 <thead>
                 <tr>
                     <th>&nbsp;</th>
-                    <th onClick="sortMetadataTableByRow(1,'a')">Fault</th>
-                    <th onClick="sortMetadataTableByRow(2,'a')">Area</th>
-                    <th onClick="sortMetadataTableByRow(3,'a')">Zone</th>
-                    <th onClick="sortMetadataTableByRow(4,'a')">Section</th>
-                    <th onClick="sortMetadataTableByRow(5,'a')">Last Update</th>
-                    <th onClick="sortMetadataTableByRow(6,'n')">Strike</th>
-                    <th onClick="sortMetadataTableByRow(7,'n')">Dip</th>
-                    <th onClick="sortMetadataTableByRow(8,'n')">Area(km<sup>2</sup>)</th>
+                    <th class="hoverColor" onClick="sortMetadataTableByRow(1,'a')">Fault</th>
+                    <th class="hoverColor" onClick="sortMetadataTableByRow(2,'a')">Area</th>
+                    <th class="hoverColor" onClick="sortMetadataTableByRow(3,'a')">Zone</th>
+                    <th class="hoverColor" onClick="sortMetadataTableByRow(4,'a')">Section</th>
+                    <th class="hoverColor" onClick="sortMetadataTableByRow(5,'a')">Last Update</th>
+                    <th class="hoverColor" onClick="sortMetadataTableByRow(6,'n')">Strike</th>
+                    <th class="hoverColor" onClick="sortMetadataTableByRow(7,'n')">Dip</th>
+                    <th class="hoverColor" onClick="sortMetadataTableByRow(8,'n')">Area(km<sup>2</sup>)</th>
                     <th><div class="col text-center">
                             <div class="btn-group download-now">
 <!-- MODAL popup button, reuse download-counter -->
@@ -438,8 +438,10 @@ $header = getHeader("Viewer");
 
 <div id="dip-strike-key-container" style="display:none;">
     <div id="dip-strike-key" class="row" style="opacity:0.8">
-        <div class="col text-right" style="width:110px;height:24px;">
-		<span class="min"></span><span class="ui-slider-range" style="border:1px solid grey; width:60px; height:20px;">&nbsp;</span><span class="max"></span>
+        <div class="col text-left" style="width:110px;height:24px;">
+           <span class="min"></span>
+           <span class="ui-slider-range" style="border:1px solid grey; width:60px;height:20px;"></span>
+           <span class="max"></span>
         </div>
     </div>
 </div>

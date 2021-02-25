@@ -142,7 +142,7 @@ function changeFaultColor(type) {
     }
 
     // switch
-    $("#searchResult /able tr.row-selected").each(function(){
+    $("#searchResult table tr.row-selected").each(function(){
         var gid = $(this).attr("id").split("_")[1];
         var l=find_layer_list(gid);
         var geolayer=l['layer'];

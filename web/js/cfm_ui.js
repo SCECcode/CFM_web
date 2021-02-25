@@ -314,6 +314,7 @@ function sortMetadataTableByRow(n,type) {
   switching = true;
   // Set the sorting direction to ascending:
   dir = "asc"; 
+
 window.console.log("Calling sortMetadataTableByRow..",n);
 
   while (switching) {
@@ -348,7 +349,7 @@ window.console.log("Calling sortMetadataTableByRow..",n);
             break;
           }
           } else {
-            if (Number(x.innerHTML) > Number(y.innerHTML)) {
+            if (Number(x.innerHTML) < Number(y.innerHTML)) {
               shouldSwitch = true;
               break;
             }
@@ -360,12 +361,8 @@ window.console.log("Calling sortMetadataTableByRow..",n);
       switching = true;
       switchcount ++; 
     } else {
-      if (switchcount == 0 ) {
-        if( dir == "asc") {
+      if (switchcount == 0 && dir == "asc") {
           dir = "desc";
-          } else {
-          dir == "asc"
-        }
         switching = true;
       }
     }
