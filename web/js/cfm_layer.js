@@ -155,11 +155,10 @@ function makeGeoJSONFeature(geoJSON, blinds, gid, meta) {
       blob= geoJSON;
   }
   
-
   var color=getColorFromMeta(meta);
-  if(color != "black") {
-    window.console.log("BAD color...",gid);
-  }
+
+//   if(color != "black") { window.console.log("special color...",gid,color); }
+
   var a_trace={"type":"FeatureCollection", "features":[]};
   var cnt=blinds.length;
 

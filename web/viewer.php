@@ -132,21 +132,9 @@ $header = getHeader("Viewer");
     <div class="row" style="display:none;">
         <div class="col justify-content-end custom-control-inline">
             <div style="display:none;" id="external_leaflet_control"></div>
+
             <button id="colorBtn" class="btn cfm-top-small-btn" onMouseEnter="expandColorsControl()">
                 <span class="glyphicon glyphicon-star"></span></button>
-            <div id="colorSelect" class="cfm-control-colors" onMouseLeave="removeColorsControl()"></div>
-
-            <button id="toggleBtn" class="btn cfm-top-small-btn" title="toggle to display all faults"
-                    onclick="toggleAll()">
-                <span class="glyphicon glyphicon-adjust"></span></button>
-
-            <button id="refreshBtn" class="btn cfm-top-small-btn" title="refresh to initial state"
-                    onclick="refreshAll();">
-                <span class="glyphicon glyphicon-refresh"></span></button>
-
-            <button id="basketBtn" class="btn cfm-top-small-btn" title="download selected faults metadata"
-                    onMouseEnter="expandDownloadControl()">
-                <span class="glyphicon glyphicon-download-alt"></span></button>
             <div id="itemCount"></div>
             <div id="downloadSelect" class="cfm-control-download" onMouseLeave="removeDownloadControl()"></div>
         </div>
@@ -164,10 +152,8 @@ $header = getHeader("Viewer");
                     <option value="zoneClick">Zone</option>
                     <option value="sectionClick">Section</option>
                     <option value="nameClick">Name</option>
-<!-- WAIT for better strike/dip 
                     <option value="strikeClick">Strike</option>
                     <option value="dipClick">Dip</option>
--->
                 </select>
                 <div class="input-group-append">
                     <button onclick="refreshAll();" class="btn btn-dark pl-4 pr-4" type="button">Reset</button>
@@ -207,7 +193,7 @@ $header = getHeader("Viewer");
                                 </div>
                             </div>
                         </li>
-                        <li id='name' class='navigationLi ' style="display:none">
+                        <li id='name' class='navigationLi' style="display:none">
                             <div id='nameMenu' class='menu'>
                                 <div class="">
                                     <div class="" style="">
@@ -219,24 +205,22 @@ $header = getHeader("Viewer");
                             </div>
                         </li>
 
-                        <li id='strike' class='navigationLi ' style="display:none">
+			<li id='strike' class='navigationLi' style="width:300px; display:none">
                             <div id='strikeMenu' class='menu'>
-                                <div class="">
-                                    <div class="" style="">
-                                        <div class="" id="strikeRange"
-                                             style="padding-left:10px; padding-right:10px; overflow:hidden;"></div>
-                                    </div>
+                                <div class="col-12 mt-2">
+                                    <div id="slider-strike-range" style="border:2px solid black">
+				    <div id="min-strike-handle" class="ui-slider-handle"></div>
+				    <div id="max-strike-handle" class="ui-slider-handle"></div>
                                 </div>
                             </div>
                         </li>
 
-                        <li id='dip' class='navigationLi ' style="display:none">
+                        <li id='dip' class='navigationLi ' style="width:300px; display:none">
                             <div id='dipMenu' class='menu'>
-                                <div class="">
-                                    <div class="" style="">
-                                        <div class="" id="dipRange"
-                                             style="padding-left:10px; padding-right:10px; overflow:hidden;"></div>
-                                    </div>
+                                <div class="col-12 mt-2">
+                                    <div id="slider-dip-range" style="border:2px solid black">
+				    <div id="min-dip-handle" class="ui-slider-handle"></div>
+				    <div id="max-dip-handle" class="ui-slider-handle"></div>
                                 </div>
                             </div>
                         </li>
@@ -338,7 +322,7 @@ $header = getHeader("Viewer");
                 </select>
            </div>
 
-<!-- WAIT for better dip/strike data
+<!--
             <div class="input-group input-group-sm ml-md-2 ml-sm-0">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="highlight-faults">Highlight Faults By</label>
@@ -357,8 +341,7 @@ $header = getHeader("Viewer");
 
     <div class="row mapData">
         <div class="col-5 button-container d-flex flex-column" style="overflow:hidden;">
-            <div id="searchResult" style="overflow:hidden;" class="mb-1">
-            </div>
+            <div id="searchResult" style="overflow:hidden;" class="mb-1"></div>
             <div id="geoSearchByObjGidResult" style="display:none"></div>
             <div id="phpResponseTxt"></div>
         </div>
@@ -375,14 +358,14 @@ $header = getHeader("Viewer");
                 <thead>
                 <tr>
                     <th>&nbsp;</th>
-                    <th>Fault</th>
-                    <th>Area</th>
-                    <th>Zone</th>
-                    <th>Section</th>
-                    <th>Last Update</th>
-                    <th>Strike</th>
-                    <th>Dip</th>
-                    <th>Area(km<sup>2</sup>)</th>
+                    <th onClick="sortMetadataTableByRow(1,'a')">Fault</th>
+                    <th onClick="sortMetadataTableByRow(2,'a')">Area</th>
+                    <th onClick="sortMetadataTableByRow(3,'a')">Zone</th>
+                    <th onClick="sortMetadataTableByRow(4,'a')">Section</th>
+                    <th onClick="sortMetadataTableByRow(5,'a')">Last Update</th>
+                    <th onClick="sortMetadataTableByRow(6,'n')">Strike</th>
+                    <th onClick="sortMetadataTableByRow(7,'n')">Dip</th>
+                    <th onClick="sortMetadataTableByRow(8,'n')">Area(km<sup>2</sup>)</th>
                     <th><div class="col text-center">
                             <div class="btn-group download-now">
 <!-- MODAL popup button, reuse download-counter -->
@@ -454,9 +437,9 @@ $header = getHeader("Viewer");
 <div id='queryBlock' class="col-6" style="overflow:hidden;display:;"> </div> <!-- query block -->
 
 <div id="dip-strike-key-container" style="display:none;">
-    <div id="dip-strike-key" class="row">
-        <div class="col text-right">
-		<span class="min"></span><span class="ui-slider-range" style="width: 200px;">&nbsp;</span><span class="max"></span>
+    <div id="dip-strike-key" class="row" style="opacity:0.8">
+        <div class="col text-right" style="width:110px;height:24px;">
+		<span class="min"></span><span class="ui-slider-range" style="border:1px solid grey; width:60px; height:20px;">&nbsp;</span><span class="max"></span>
         </div>
     </div>
 </div>
@@ -482,6 +465,7 @@ $header = getHeader("Viewer");
         <div id="iframe-container" class="row col-12" style="overflow:hidden">
           <iframe id="view3DIfram" title="SCEC CFM 3D viewer" src="" onload="setIframHeight(this.id)" height="10" width="100%" allowfullscreen></iframe>
         </div>
+        <div id="params3D" value="" style="display:none"></div>
       </div>
 
       <div class="modal-footer justify-content-center" id="modal3DFooter">
@@ -490,12 +474,13 @@ $header = getHeader("Viewer");
           <div id="spinIconFor3D" align="center" style="display:none;"><i class="glyphicon glyphicon-cog fa-spin" style="color:red"></i></div>
         </div>
 
-        <button type="button" class="btn btn-outline-primary btn-sm" data-dismiss="modal">Close</button>
+        <button id="view3DClosebtn" class="btn btn-outline-primary btn-sm" data-dismiss="modal">Close</button>
         <button id="view3DExpandbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleExpand3Dview(this)">Shrink</button>
         <button id="view3DRefreshbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="refresh3Dview()">Reset</button>
+        <button id="view3DMovebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="move3Dview()">New Tab</button>
+        <button id="view3DWarnbtn" class="btn btn-outline-primary btn-sm" style="display:none" data-toggle="modal" data-target="#modalwarn3d"></button>
         <button id="view3DSavebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="save3Dview()">Save Image</button>
         <button id="view3DHelpbtn" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modalinfo3d" onclick="$('#modal3D').modal('hide');">Help</button>
-        <button id="view3DWarnbtn" class="btn btn-outline-primary btn-sm" style="display:none" data-toggle="modal" data-target="#modalwarn3d"></button>
       </div> <!-- footer -->
 
     </div> <!--Content-->

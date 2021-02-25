@@ -7,7 +7,7 @@ var showing_key = false;
 
 // not using the realmin and realmax
 function setupStrikeRangeSlider(realmin,realmax) {
-window.console.log("real Strike Range",realmin," and ",realmax);
+//window.console.log("real Strike Range",realmin," and ",realmax);
 // around 0,360
   var min=realmin;
   var max=realmax;
@@ -16,39 +16,59 @@ window.console.log("real Strike Range",realmin," and ",realmax);
     range: true,
     min: 0,
     max: 500,
-    step: 0.001,
+    step: 1,
     values: [ min, max ],
     slide: function( event, ui ) {
-      $( "#strike-range" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+      $("#min-strike-handle").text(ui.values[0]);
+      $("#max-strike-handle").text(ui.values[1]);
+      let minRGB= makeStrikeRGB(ui.values[0]);
+      let maxRGB= makeStrikeRGB(ui.values[1]);
+      let myColor="linear-gradient(to right, "+minRGB+","+maxRGB+")";
+      $("#slider-strike-range .ui-slider-range" ).css( "background", myColor );
+    },
+    stop: function( event, ui ) {
+      searchWithStrikeRange();
+    },
+    create: function() {
+      $("#min-strike-handle").text(realmin);
+      $("#max-strike-handle").text(realmax);
     }
   });
-  $( "#strike-range" ).val( $( "#slider-strike-range" ).slider( "values", 0 ) + " - " + $( "#slider-strike-range" ).slider( "values", 1 ) );
 
   $('#slider-strike-range').slider("option", "min", min);
   $('#slider-strike-range').slider("option", "max", max);
-  $( "#strike-range" ).val( min + " - " + max );
 }
 
 // using the realmin and realmax
 function setupDipRangeSlider(min,max) {
-window.console.log("real Dip Range",min," and ",max);
+//window.console.log("real Dip Range",min," and ",max);
 //???
   setup_dip_range(min,max);
   $( "#slider-dip-range" ).slider({
     range: true,
     min: 0,
     max: 500,
-    step: 0.001,
+    step: 1,
     values: [ min, max ],
     slide: function( event, ui ) {
       $( "#dip-range" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+      $("#min-dip-handle").text(ui.values[0]);
+      $("#max-dip-handle").text(ui.values[1]);
+      let minRGB= makeDipRGB(ui.values[0]);
+      let maxRGB= makeDipRGB(ui.values[1]);
+      let myColor="linear-gradient(to right, "+minRGB+","+maxRGB+")";
+      $("#slider-dip-range .ui-slider-range" ).css( "background", myColor );
+    },
+    stop: function( event, ui ) {
+      searchWithDipRange();
+    },
+    create: function() {
+      $("#min-dip-handle").text(min);
+      $("#max-dip-handle").text(max);
     }
   });
-  $( "#dip-range" ).val( $( "#slider-dip-range" ).slider( "values", 0 ) + " - " + $( "#slider-dip-range" ).slider( "values", 1 ) );
-
   $('#slider-dip-range').slider("option", "min", min);
   $('#slider-dip-range').slider("option", "max", max);
-  $( "#dip-range" ).val( min + " - " + max );
 }
 
 function queryByType(type)
@@ -135,18 +155,6 @@ function makeNameList() {
     return html;
 }
 
-function makeStrikeSlider()
-{
-    var html="Strike range: <input type=\"text\" id=\"strike-range\" readonly style=\"border:0; color:orange; text-align:center;\"><button id=\"strikeBtn\" type=\"button\" title=\"search with strike range\" class=\"btn btn-default cfm-small-btn\" style=\"border:0; color:blue\" onclick=\"searchWithStrikeRange()\"><span class=\"glyphicon glyphicon-search\"></span></button></div><div id=\"slider-strike-range\"></div><br>";
-    return html;
-} 
-
-function makeDipSlider()
-{
-    var html="Dip range: <div><input type=\"text\" id=\"dip-range\" readonly style=\"border:0; color:orange; text-align:center;\"><button id=\"dipBtn\" type=\"button\" title=\"search with dip range\" class=\"btn btn-default cfm-small-btn\" style=\"border:0; color:blue\" onclick=\"searchWithDipRange()\"><span class=\"glyphicon glyphicon-search\"></span></button></div><div id=\"slider-dip-range\"></div></div><br>";
-    return html;
-}
-
 function showKey(type) {
     var min = 0;
     var max = 0;
@@ -173,7 +181,6 @@ function removeKey() {
     $("#CFM_plot #dip-strike-key").remove();
     showing_key = false;
 }
-
 
 function nullTableEntry(target) {
    // disable the toggle and highlight button
@@ -298,6 +305,74 @@ function makeResultTableWithList(glist)
     }
 }
 
+// https://www.w3schools.com/howto/howto_js_sort_table.asp
+// n is which column to sort-by
+// type is "a"=alpha "n"=numerical
+function sortMetadataTableByRow(n,type) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("metadata-viewer");
+  switching = true;
+  // Set the sorting direction to ascending:
+  dir = "asc"; 
+window.console.log("Calling sortMetadataTableByRow..",n);
+
+  while (switching) {
+    switching = false;
+    rows = table.rows;
+    if(rows.length < 3) // no switching
+      break;
+
+/* loop through except first and last */
+    for (i = 1; i < (rows.length - 2); i++) {
+      shouldSwitch = false;
+
+      x = rows[i].getElementsByTagName("td")[n];
+      y = rows[i + 1].getElementsByTagName("td")[n];
+
+      if (dir == "asc") {
+        if(type == "a") {
+          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            shouldSwitch = true;
+            break;
+          }
+          } else {
+            if (Number(x.innerHTML) > Number(y.innerHTML)) {
+              shouldSwitch = true;
+              break;
+            }
+         }
+      } else if (dir == "desc") {
+        if(type == "a") {
+          if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+            shouldSwitch = true;
+            break;
+          }
+          } else {
+            if (Number(x.innerHTML) > Number(y.innerHTML)) {
+              shouldSwitch = true;
+              break;
+            }
+        }
+      }
+    }
+    if (shouldSwitch) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      switchcount ++; 
+    } else {
+      if (switchcount == 0 ) {
+        if( dir == "asc") {
+          dir = "desc";
+          } else {
+          dir == "asc"
+        }
+        switching = true;
+      }
+    }
+  }
+}
+
+
 // add details button
 function add_details_btn(meta,str) {
   var gid=meta['gid'];
@@ -377,14 +452,6 @@ function get_downloads_btn(meta) {
     return str;
 }
 
-
-// very lazy way to inject this into html
-function addFaultColorsSelect() {
-  var htmlstr="<div class=\"cfm-control-colors-list\"><span style=\"font-size:14px;font-weight:bold;text-align:center;\">&nbsp;Select faults color </span><form onchange=\"changeFaultColor()\"><div class=\"cfm-control-colors-base\"><label><div><input type=\"radio\" class=\"cfm-control-colors-selector\" name=\"cfm-fault-colors\" value=\"default\" checked=\"checked\"><span> default</span></div></label><label><div><input type=\"radio\" class=\"cfm-control-colors-selector\" name=\"cfm-fault-colors\" value=\"strike\" ><span> by strike</span></div></label><label><div><input type=\"radio\" class=\"cfm-control-colors-selector\" name=\"cfm-fault-colors\" value=\"dip\" ><span> by dip</span></div></label></div></form></div>";
-
-   var html_div=document.getElementById('colorSelect');
-   html_div.innerHTML = htmlstr;
-}
 
 function addDownloadSelect() {
   var htmlstr="<div class=\"cfm-control-download-list\"><span style=\"font-size:14px;font-weight:bold; text-align:center;\">&nbsp;Select download </span><form onchange=\"changeDownloadSet()\"><div class=\"cfm-control-download-base\"><label> <div><input type=\"radio\" class=\"cfm-control-download-selector\" name=\"cfm-fault-download\" value=\"meta\"><span> metadata</span></div><div><input type=\"radio\" class=\"cfm-control-download-selector\" name=\"cfm-fault-download\" value=\"native\"><span> native + metadata</span></div></label><label><div><input type=\"radio\" class=\"cfm-control-download-selector\" name=\"cfm-fault-download\" value=\"500m\" ><span> 500m + metadata</span></div></label><label><div><input type=\"radio\" class=\"cfm-control-download-selector\" name=\"cfm-fault-download\" value=\"1000m\" ><span> 1000m + metadata</span></div></label></div></form></div>";

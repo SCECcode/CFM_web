@@ -459,7 +459,6 @@ function getStrikeRange() {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
-            document.getElementById("strikeRange").innerHTML = makeStrikeSlider();
             [rangeMin, rangeMax]=getStrikeRangeMinMax();
             setupStrikeRangeSlider(rangeMin, rangeMax);
         }
@@ -479,7 +478,6 @@ function getDipRange() {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
-            document.getElementById("dipRange").innerHTML = makeDipSlider();
             [rangeMin, rangeMax]=getDipRangeMinMax();
             setupDipRangeSlider(rangeMin, rangeMax);
         }

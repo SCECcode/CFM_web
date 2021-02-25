@@ -122,6 +122,18 @@ hr {
     background: linear-gradient(to right, rgb(255, 0, 0), rgb(0, 0, 255));
 }
 
+#min-strike-handle, #max-strike-handle, #min-dip-handle, #max-dip-handle {
+    border:2px solid black;
+    border-radius: 4px;
+    width: 2em;
+    height: 1.6em;
+    top: 50%;
+    margin-top: -0.8em; 
+    text-align: center;
+    line-height: 1em;
+}
+
+
 #dip-strike-key {
     z-index: 9000;
     position: absolute;
@@ -133,8 +145,8 @@ hr {
 }
 
 #dip-strike-key .ui-slider-range {
-    width: 200px;
-    display: inline-block;
+    display: inline-flex;
+    background: linear-gradient(to right, rgb(255, 0, 0), rgb(0, 0, 255));
 }
 
 #dip-strike-key div {
@@ -142,11 +154,15 @@ hr {
 }
 
 #dip-strike-key span.min {
-    margin-right: 5px;
+    display: inline-flex;
+    width: 1ch;
+    margin-right:3px;
 }
 
 #dip-strike-key span.max {
-    margin-left: 5px;
+    display: inline-flex;
+    width: 1ch;
+    margin-left:3px;
 }
 
 table {

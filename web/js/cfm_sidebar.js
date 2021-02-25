@@ -224,9 +224,11 @@ function strikeClick() {
 
   strike_sidebar = !strike_sidebar;
   if(strike_sidebar) {
+    changeFaultColor("strike");
     sidebar_strike_slideOut();
     $('#strikeBtn').addClass('pick');
     } else {
+      changeFaultColor("");
       sidebar_strike_slideIn();
       $('#strikeBtn').removeClass('pick');
   }
@@ -261,9 +263,11 @@ function dipClick() {
 
   dip_sidebar = !dip_sidebar;
   if(dip_sidebar) {
+    changeFaultColor("dip");
     sidebar_dip_slideOut();
     $('#dipBtn').addClass('pick');
     } else {
+      changeFaultColor("");
       sidebar_dip_slideIn();
       $('#dipBtn').removeClass('pick');
   }

@@ -60,7 +60,7 @@ jQuery(document).ready(function() {
   getGeoTraceList();
   getAllTraces();
   setupSearch();
-  addFaultColorsSelect();
+//XXX no need for this..  addFaultColorsSelect();
   addDownloadSelect();
   setup_info3dTable();
   setup_warn3dTable();

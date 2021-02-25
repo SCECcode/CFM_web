@@ -15,8 +15,9 @@ var dip_range_max = 0;
 
 function reset_strike_range()
 {
-  $( "#strike-range" ).val( strike_range_min + " - " + strike_range_max );
   $( "#slider-strike-range" ).slider("option", "values" ,[strike_range_min, strike_range_max]);
+  let myColor="linear-gradient(to right, rgb(255, 0, 0), rgb(0, 0, 255))";
+  $("#slider-strike-range .ui-slider-range" ).css( "background", myColor );
 }
 
 function setup_strike_range(min,max)
@@ -27,14 +28,36 @@ function setup_strike_range(min,max)
 
 function reset_dip_range()
 {
-  $( "#dip-range" ).val( dip_range_min + " - " + dip_range_max );
   $( "#slider-dip-range" ).slider("option", "values" ,[dip_range_min, dip_range_max]);
+  let myColor="linear-gradient(to right, rgb(255, 0, 0), rgb(0, 0, 255))";
+  $("#slider-dip-range .ui-slider-range" ).css( "background", myColor );
+ 
 }
 
 function setup_dip_range(min,max)
 {
    dip_range_min=min;
    dip_range_max=max;
+}
+
+function makeDipRGB(val) {
+    var v=val;
+    v=(v-dip_range_min)/(dip_range_max-dip_range_min);
+    let blue = Math.round(255 * v);
+    let green = 0;
+    let red = Math.round((1-v)*255);
+    let color="RGB(" + red + "," + green + "," + blue + ")";
+    return color;
+}
+
+function makeStrikeRGB(val) {
+    var v=val;
+    v=(v-strike_range_min)/(strike_range_max-strike_range_min);
+    let blue = Math.round(255 * v);
+    let green = 0;
+    let red = Math.round((1-v)*255);
+    let color="RGB(" + red + "," + green + "," + blue + ")";
+    return color;
 }
 
 function reset_select_zone() {
@@ -102,9 +125,10 @@ function removeColorsControl() {
    }
 }
 
-// default -- all black
-// by avg_strike
-// by avg_dip
+// default -- all black --> ""
+// by avg_strike --> "strike"
+// by avg_dip    --> "dip"
+
 function changeFaultColor(type) {
     // val=$('input[name=cfm-fault-colors]:checked').val()
     use_fault_color=type;
@@ -118,7 +142,7 @@ function changeFaultColor(type) {
     }
 
     // switch
-    $("#searchResult table tr.row-selected").each(function(){
+    $("#searchResult /able tr.row-selected").each(function(){
         var gid = $(this).attr("id").split("_")[1];
         var l=find_layer_list(gid);
         var geolayer=l['layer'];
@@ -464,7 +488,7 @@ function getColorFromMeta(meta) {
 
     if(use_fault_color=="strike" && strike != undefined && strike != "") {
         v=parseInt(strike);
-window.console.log(strike_range_min, strike_range_max);
+window.console.log("Strike Range", strike_range_min, strike_range_max);
         v=(v-strike_range_min)/(strike_range_max-strike_range_min);
         blue = Math.round(255 * v);
         green = 0;
@@ -474,7 +498,7 @@ window.console.log(strike_range_min, strike_range_max);
 
     if(use_fault_color=="dip" && dip != undefined && dip != "") {
         v=parseInt(dip);
-window.console.log(dip_range_min, dip_range_max);
+window.console.log("Dip Range", dip_range_min, dip_range_max);
         v=(v-dip_range_min)/(dip_range_max-dip_range_min);
         blue = Math.round(255 * v);
         green = 0;

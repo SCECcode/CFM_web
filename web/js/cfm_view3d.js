@@ -98,12 +98,12 @@ function setup_warn3dTable() {
 
 /*** iframe housekeeping ***/
 /* viewerType=viewerType&fileURL=[file1, file2]&name=[name1, name2]&filePATH=[path] */
-var PARAMS;
 function set_PARAMS(params) {
-  PARAMS=params;
+  $('#params3D').attr('src',params);
 }
 function get_PARAMS() {
-  return PARAMS;
+  var pparams=$('#params3D').attr('src');
+  return pparams;
 }
 
 function show3dView(urls,nstr,path) {
@@ -207,6 +207,22 @@ function refresh3Dview() {
   }
 }
 
+// move current popup modal to a new tab
+function move3Dview() {
+  var yourDOCTYPE = "<!DOCTYPE html>"; // your doctype declaration
+  var copyPreview = window.open('about:blank', 'new copy', "resizable=yes,scrollbars=yes,status=yes");
+  var newCopy = copyPreview.document;
+  newCopy.open();
+  // remove copy and new tab buttons
+  document.getElementById("view3DClosebtn").style.display="none";
+  document.getElementById("view3DMovebtn").style.display="none";
+  var newInner=document.documentElement.innerHTML;
+  newCopy.write(yourDOCTYPE+"<html>"+ newInner+ "</html>");
+  newCopy.close();
+  document.getElementById("view3DClosebtn").style.display="block";
+  document.getElementById("view3DMovebtn").style.display="block";
+  document.getElementById("view3DClosebtn").click();
+}
 
 var track_trace=initial_track_trace; // 1 is on 0 is off
 function toggleTrace3Dview(elt) {
