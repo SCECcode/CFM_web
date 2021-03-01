@@ -165,7 +165,6 @@ $header = getHeader("Viewer");
                           class="btn btn-default cfm-small-btn" onclick="swapSelectOption()" disabled>
 -->
                           class="btn btn-default cfm-small-btn" onclick="swapSelectOption()">
--->
                         <span class="glyphicon glyphicon-adjust"></span>
                   </button>
                 </div>
