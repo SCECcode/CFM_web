@@ -219,12 +219,15 @@ function sidebar_keyword_slideIn() {
 
 // strike sidebar js
 // slide out
+// if it is filtering from whole set or active list
 function strikeClick() {
   if(!strike_sidebar) { dismiss_sidebar(); }
 
   strike_sidebar = !strike_sidebar;
   if(strike_sidebar) {
     changeFaultColor("strike");
+    // determin the new set
+    set_current_strike_range_slider();
     sidebar_strike_slideOut();
     $('#strikeBtn').addClass('pick');
     } else {
@@ -265,6 +268,7 @@ function dipClick() {
   if(dip_sidebar) {
     changeFaultColor("dip");
     sidebar_dip_slideOut();
+    set_current_dip_range_slider();
     $('#dipBtn').addClass('pick');
     } else {
       changeFaultColor("");

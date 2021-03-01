@@ -7,6 +7,10 @@
     font-size: 30px;
 }
 
+.glyphicon.glyphicon-check {
+   color: #990000;
+}
+
 #plot3d-all:not([disabled]):hover {
    background: #770000;
 }

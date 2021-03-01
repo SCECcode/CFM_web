@@ -5,44 +5,58 @@
 
 var select_all_flag=0;
 
-// strike range is from 5 to 359
+// from the whole fault object set
+var strike_range_min_ref=0;
+var strike_range_max_ref=360;
 var strike_range_min = 0;
-var strike_range_max = 360;
-
-// dip range is from ? to ?? 
+var strike_range_max = 0;
+// from the whole set
+var dip_range_min_ref = 0;
+var dip_range_max_ref = 0;
 var dip_range_min = 0;
 var dip_range_max = 0;
 
-function reset_strike_range()
+function set_current_strike_range_slider()
 {
-  $( "#slider-strike-range" ).slider("option", "values" ,[strike_range_min, strike_range_max]);
-  let myColor="linear-gradient(to right, rgb(255, 0, 0), rgb(0, 0, 255))";
-  $("#slider-strike-range .ui-slider-range" ).css( "background", myColor );
+  [min, max]=get_current_strike_range();
+  strike_range_min=min;
+  strike_range_max=max;
+//  set_strike_range_color(min,max);
+  $( "#slider-strike-range" ).slider("option", "values" ,[min, max]);
+}
+function setup_strike_range_ref(min,max)
+{
+   strike_range_min_ref=strike_range_min=min;
+   strike_range_max_ref=strike_range_max=max;
+}
+function reset_select_strike()
+{
+  $( "#slider-strike-range" ).slider("option", "values" ,[strike_range_min_ref, strike_range_max_ref]);
+  set_strike_range_color(strike_range_min_ref,strike_range_max_ref)
 }
 
-function setup_strike_range(min,max)
+function set_current_dip_range_slider()
 {
-   strike_range_min=min;
-   strike_range_max=max;
+  [min, max]=get_current_dip_range(); 
+  dip_range_min=min;
+  dip_range_max=max;
+//  set_dip_range_color(min,max);
+  $( "#slider-dip-range" ).slider("option", "values" ,[min, max]);
 }
-
-function reset_dip_range()
+function setup_dip_range_ref(min,max)
 {
-  $( "#slider-dip-range" ).slider("option", "values" ,[dip_range_min, dip_range_max]);
-  let myColor="linear-gradient(to right, rgb(255, 0, 0), rgb(0, 0, 255))";
-  $("#slider-dip-range .ui-slider-range" ).css( "background", myColor );
- 
+   dip_range_min_ref=dip_range_min=min;
+   dip_range_max_ref=dip_range_max=max;
 }
-
-function setup_dip_range(min,max)
+function reset_select_dip()
 {
-   dip_range_min=min;
-   dip_range_max=max;
+  $( "#slider-dip-range" ).slider("option", "values" ,[dip_range_min_ref, dip_range_max_ref]);
+  set_dip_range_color(dip_range_min_ref,dip_range_max_ref);
 }
 
 function makeDipRGB(val) {
     var v=val;
-    v=(v-dip_range_min)/(dip_range_max-dip_range_min);
+    v=(v-dip_range_min_ref)/(dip_range_max_ref-dip_range_min_ref);
     let blue = Math.round(255 * v);
     let green = 0;
     let red = Math.round((1-v)*255);
@@ -52,7 +66,7 @@ function makeDipRGB(val) {
 
 function makeStrikeRGB(val) {
     var v=val;
-    v=(v-strike_range_min)/(strike_range_max-strike_range_min);
+    v=(v-strike_range_min_ref)/(strike_range_max_ref-strike_range_min_ref);
     let blue = Math.round(255 * v);
     let green = 0;
     let red = Math.round((1-v)*255);
@@ -86,6 +100,8 @@ function reset_select_latlon() {
   document.getElementById("secondLatTxt").value = 'optional';
   document.getElementById("secondLonTxt").value = 'optional';
 }
+
+
 
 // download meta data of selected highlighted faults 
 // mlist should not be null
@@ -128,7 +144,7 @@ function removeColorsControl() {
 // default -- all black --> ""
 // by avg_strike --> "strike"
 // by avg_dip    --> "dip"
-
+// change the fault color in the map view 
 function changeFaultColor(type) {
     // val=$('input[name=cfm-fault-colors]:checked').val()
     use_fault_color=type;
@@ -141,7 +157,9 @@ function changeFaultColor(type) {
         set_fault_color_alternate();
     }
 
-    // switch
+    // change color of all the highlighted layers..
+    // to the other default highlight color now that the fault
+    // color got changed
     $("#searchResult table tr.row-selected").each(function(){
         var gid = $(this).attr("id").split("_")[1];
         var l=find_layer_list(gid);
@@ -150,6 +168,7 @@ function changeFaultColor(type) {
             layer.setStyle(highlight_style);
         });
     });
+
 }
 
 
@@ -331,31 +350,43 @@ function toggleAll() {
   }
 }
 
+// function changeFaultColor(type) {
+
 function selectAll() {
   if(select_all_flag == 0) {
     select_all_flag=1;
     select_layer_list();
-      $('#allBtn span').removeClass("glyphicon-unchecked").addClass("glyphicon-check");
+    $('#allBtn span').removeClass("glyphicon-unchecked").addClass("glyphicon-check");
+    if(use_fault_color == "strike" || use_fault_color == "dip") { 
+       removeKey();
+    }
     } else {
-       reset_layer_list();
+       reset_layer_list(); // style is in original color
+       if(use_fault_color == "strike" || use_fault_color == "dip") {
+          showKey(use_fault_color);
+       } 
        select_all_flag=0;
-      $('#allBtn span').removeClass("glyphicon-check").addClass("glyphicon-unchecked");
+       $('#allBtn span').removeClass("glyphicon-check").addClass("glyphicon-unchecked");
   }
 } 
+
+/* reset all the layers and inner to be a fresh start */
 function refreshAll() {
   reset_select_zone();
   reset_select_section();
   reset_select_area();
   reset_select_name();
-  reset_strike_range();
-  reset_dip_range();
   reset_select_keyword();
   reset_select_latlon();
+  reset_select_strike();
+  reset_select_dip();
+
   document.getElementById("geoSearchByObjGidResult").innerHTML = "";
   document.getElementById("searchResult").innerHTML = "";
   document.getElementById("phpResponseTxt").innerHTML = "";
   $("#search-type").val("dismissClick");
 //  document.getElementById("objGidTxt").value = '';
+
   refresh_map();
   dismiss_sidebar();
   clear_popup();
@@ -374,10 +405,6 @@ function _item(meta,str,type,name) {
 
 function getMetadataRowForDisplay(meta) {
    let downloadButtons = get_downloads_btn(meta);
-   var area_km2 = "";
-   if (meta['area_km2'] > 0) {
-       area_km2 = parseInt(meta['area_km2']).toExponential();
-   }
 
    var content = ` 
    <tr id="metadata-${meta['gid']}">
@@ -389,7 +416,7 @@ function getMetadataRowForDisplay(meta) {
        <td>${meta['last_update']}</td>
        <td>${meta['avg_strike']}</td>
        <td>${meta['avg_dip']}</td>
-       <td>${area_km2}</td>
+       <td>${meta['area_km2']}</td>
        <td class="download-link">${downloadButtons}</td>
    </tr>
    `;
@@ -459,8 +486,11 @@ function getCSVFromMeta(mlist) {
        for(j=1; j< jlen; j++) {
           var vv=values[j];
           if(vv != null) {
-            var vvs=JSON.stringify(vv);
-            vblob=vblob+","+vvs;
+            if(isNaN(vv)) {
+              vblob=vblob+","+ JSON.stringify(vv);
+              } else {
+                vblob=vblob+","+vv;
+            }
             } else {
               vblob=vblob+",";
           }
@@ -488,7 +518,6 @@ function getColorFromMeta(meta) {
 
     if(use_fault_color=="strike" && strike != undefined && strike != "") {
         v=parseInt(strike);
-window.console.log("Strike Range", strike_range_min, strike_range_max);
         v=(v-strike_range_min)/(strike_range_max-strike_range_min);
         blue = Math.round(255 * v);
         green = 0;
@@ -498,7 +527,6 @@ window.console.log("Strike Range", strike_range_min, strike_range_max);
 
     if(use_fault_color=="dip" && dip != undefined && dip != "") {
         v=parseInt(dip);
-window.console.log("Dip Range", dip_range_min, dip_range_max);
         v=(v-dip_range_min)/(dip_range_max-dip_range_min);
         blue = Math.round(255 * v);
         green = 0;

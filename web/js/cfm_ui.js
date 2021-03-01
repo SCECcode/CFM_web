@@ -5,26 +5,32 @@
 var cfm_select_count=0;
 var showing_key = false;
 
+function set_strike_range_color(min,max) {
+  let minRGB= makeStrikeRGB(min);
+  let maxRGB= makeStrikeRGB(max);
+  let myColor="linear-gradient(to right, "+minRGB+","+maxRGB+")";
+  $("#slider-strike-range .ui-slider-range" ).css( "background", myColor );
+}
+
 // not using the realmin and realmax
 function setupStrikeRangeSlider(realmin,realmax) {
-//window.console.log("real Strike Range",realmin," and ",realmax);
+window.console.log("setup real Strike Range",realmin," and ",realmax);
 // around 0,360
-  var min=realmin;
-  var max=realmax;
-  setup_strike_range(min,max);
+  setup_strike_range_ref(realmin,realmax);
+
   $( "#slider-strike-range" ).slider({
     range: true,
-    min: 0,
-    max: 500,
     step: 1,
-    values: [ min, max ],
+    values: [ realmin, realmax ],
     slide: function( event, ui ) {
       $("#min-strike-handle").text(ui.values[0]);
       $("#max-strike-handle").text(ui.values[1]);
-      let minRGB= makeStrikeRGB(ui.values[0]);
-      let maxRGB= makeStrikeRGB(ui.values[1]);
-      let myColor="linear-gradient(to right, "+minRGB+","+maxRGB+")";
-      $("#slider-strike-range .ui-slider-range" ).css( "background", myColor );
+      set_strike_range_color(ui.values[0],ui.values[1]);
+    },
+    change: function( event, ui ) {
+      $("#min-strike-handle").text(ui.values[0]);
+      $("#max-strike-handle").text(ui.values[1]);
+      set_strike_range_color(ui.values[0],ui.values[1]);
     },
     stop: function( event, ui ) {
       searchWithStrikeRange();
@@ -35,40 +41,44 @@ function setupStrikeRangeSlider(realmin,realmax) {
     }
   });
 
-  $('#slider-strike-range').slider("option", "min", min);
-  $('#slider-strike-range').slider("option", "max", max);
+  $('#slider-strike-range').slider("option", "min", realmin);
+  $('#slider-strike-range').slider("option", "max", realmax);
+}
+
+function set_dip_range_color(min,max) {
+  let minRGB= makeDipRGB(min);
+  let maxRGB= makeDipRGB(max);
+  let myColor="linear-gradient(to right, "+minRGB+","+maxRGB+")";
+  $("#slider-dip-range .ui-slider-range" ).css( "background", myColor );
 }
 
 // using the realmin and realmax
-function setupDipRangeSlider(min,max) {
-//window.console.log("real Dip Range",min," and ",max);
-//???
-  setup_dip_range(min,max);
+function setupDipRangeSlider(realmin,realmax) {
+  setup_dip_range_ref(realmin,realmax);
   $( "#slider-dip-range" ).slider({
     range: true,
-    min: 0,
-    max: 500,
     step: 1,
-    values: [ min, max ],
-    slide: function( event, ui ) {
-      $( "#dip-range" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+    values: [ realmin, realmax ],
+    change: function( event, ui ) {
       $("#min-dip-handle").text(ui.values[0]);
       $("#max-dip-handle").text(ui.values[1]);
-      let minRGB= makeDipRGB(ui.values[0]);
-      let maxRGB= makeDipRGB(ui.values[1]);
-      let myColor="linear-gradient(to right, "+minRGB+","+maxRGB+")";
-      $("#slider-dip-range .ui-slider-range" ).css( "background", myColor );
+      set_dip_range_color(ui.values[0],ui.values[1]);
+    },
+    slide: function( event, ui ) {
+      $("#min-dip-handle").text(ui.values[0]);
+      $("#max-dip-handle").text(ui.values[1]);
+      set_dip_range_color(ui.values[0],ui.values[1]);
     },
     stop: function( event, ui ) {
       searchWithDipRange();
     },
     create: function() {
-      $("#min-dip-handle").text(min);
-      $("#max-dip-handle").text(max);
+      $("#min-dip-handle").text(realmin);
+      $("#max-dip-handle").text(realmax);
     }
   });
-  $('#slider-dip-range').slider("option", "min", min);
-  $('#slider-dip-range').slider("option", "max", max);
+  $('#slider-dip-range').slider("option", "min", realmin);
+  $('#slider-dip-range').slider("option", "max", realmax);
 }
 
 function queryByType(type)
@@ -225,13 +235,13 @@ function makeResultTable(str)
        if(!in_nogeo_gid_list(gid)) {
          var s= find_style_list(gid);
          if(s && s['highlight']==1) {
-           var t= "<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+");><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-check\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+");><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-open\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
+           var t= "<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+",0);><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-check\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+");><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-open\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
            } else {
-             var t= "<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+");><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-unchecked\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+");><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-open\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
+             var t= "<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+",0);><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-unchecked\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+");><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-open\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
          }
          tmp=t+tmp;
         } else {
-          var t="<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+") disabled><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-unchecked\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+") disabled><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-open\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
+          var t="<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+",0) disabled><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-unchecked\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+") disabled><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-open\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
           tmp=tmp+t;
       }
     }
@@ -268,21 +278,21 @@ function _makeResultTableWithGList(glist)
          var vis=s['visible'];
          if(h) {
            if(vis) {
-             tt="<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+");><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-check\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+");><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-open\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
+             tt="<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+",0);><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-check\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+");><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-open\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
               } else {
-             tt="<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+");><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-check\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+");><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-close\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
+             tt="<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+",0);><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-check\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+");><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-close\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
            }
            tmp=tt+tmp;
            } else {
              if(vis) {
-             tt="<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+");><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-unchecked\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+");><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-open\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
+             tt="<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+",0);><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-unchecked\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+");><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-open\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
              } else {
-             tt="<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+");><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-unchecked\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+");><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-close\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
+             tt="<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+",0);><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-unchecked\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+");><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-close\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
            }
            tmp=tt+tmp;
         }
         } else {
-         tt="<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+") disabled><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-unchecked\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+") disabled><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-open\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
+         tt="<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+",0) disabled><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-unchecked\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+") disabled><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-open\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
          tmp=tmp+tt;
        }
     }
@@ -380,7 +390,7 @@ function add_details_btn(meta,str) {
 // add details button
 function add_highlight_btn(meta,str) {
   var gid=meta['gid'];
-  str=str+'<button class=\"btn btn-xs cfm-small-btn\" title=\"highlight this fault\"><span id=\"detail_'+gid+'\" class=\"glyphicon glyphicon-ok\" onclick=\"toggle_highlight('+gid+')\"></span></button>';
+  str=str+'<button class=\"btn btn-xs cfm-small-btn\" title=\"highlight this fault\"><span id=\"detail_'+gid+'\" class=\"glyphicon glyphicon-ok\" onclick=\"toggle_highlight('+gid+',0)\"></span></button>';
   return str;
 }
 

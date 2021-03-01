@@ -147,13 +147,13 @@ $header = getHeader("Viewer");
                     <option value="dismissClick">Search by ...</option>
                     <option value="keywordClick">Keyword</option>
                     <option value="latlonClick">Latitude &amp; Longitude</option>
-                    <option disabled>-- Advanced --</option>
                     <option value="areaClick">Area</option>
                     <option value="zoneClick">Zone</option>
                     <option value="sectionClick">Section</option>
                     <option value="nameClick">Name</option>
-                    <option value="strikeClick">Strike</option>
-                    <option value="dipClick">Dip</option>
+                    <option disabled>-- Advanced --</option>
+                    <option value="strikeClick">Avg Strike</option>
+                    <option value="dipClick">Avg Dip</option>
                 </select>
                 <div class="input-group-append">
                     <button onclick="refreshAll();" class="btn btn-dark pl-4 pr-4" type="button">Reset</button>

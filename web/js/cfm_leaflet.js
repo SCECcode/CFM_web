@@ -264,7 +264,7 @@ function bindPopupEachFeature(feature, layer) {
     layer.on({
         click: function(e) {
             let clickedFaultID = feature.id;
-            toggle_highlight(clickedFaultID);
+            toggle_highlight(clickedFaultID,1);
         },
     })
 }

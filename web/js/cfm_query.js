@@ -28,6 +28,7 @@ function searchByStrikeRange(min,max) {
 function searchWithStrikeRange() {
   //grab the min and max from the slider..
   vals = $( "#slider-strike-range" ).slider("option", "values");
+window.console.log("search with strike range..  ",vals[0],vals[1]);
   searchByStrikeRange(vals[0],vals[1]);
 }
 

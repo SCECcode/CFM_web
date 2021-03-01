@@ -6,7 +6,7 @@ var skipPopup=false;
 
 var default_color = "black";
 var default_highlight_color = "red";
-var alternate_highlight_color = "#15F4EE";
+var alternate_highlight_color = "#39FF14";
 var blind_dash_value = 6;
 
 var original_style = {
@@ -123,7 +123,8 @@ var cfm_blind_gid_list=[];
 function reset_geo_plot() {
   // can not really 'destroy' layer and so need to reuse..
   cfm_active_gid_list=[];
-  reset_layer_list();  // unhighlight the layers first
+  reset_layer_list();  // unhighlight the layers and remove highlighted
+                       // off the download queue and allfirst
   // reset_style_list();
   // generate the result table according to the style_list..
   // remove all the layer
@@ -238,7 +239,8 @@ function find_style_list(target) {
 }
 
 // reset to style with new color
-// in both cfm_style_list and also in layer -- but only visible ones
+// in both cfm_style_list and also in all layer -- but not
+// the highlighted one
 function reset_fault_color() {
   // reset fault color in the style list
   var new_cfm_style_list=[];
@@ -258,16 +260,13 @@ function reset_fault_color() {
     var gcolor=gstyle['color'];
     var v=gstyle['visible'];
     var h=gstyle['highlight'];
-    if(v) {
-       if(!h) {
-           var geolayer=element['layer'];
-           geolayer.eachLayer(function(layer) {
-             layer.setStyle({color:gcolor});
-
-           }); 
-       }
+    if(!h) {
+      var geolayer=element['layer'];
+      geolayer.eachLayer(function(layer) {
+      layer.setStyle({color:gcolor});
+      }); 
       } else {
-      gstyle['dirty_style']=true;
+        gstyle['dirty_style']=true;
     }
   });
 }
@@ -335,6 +334,26 @@ function rebind_layer_popup() {
   });
 }
 
+function find_dip_by_gid(target) {
+   var found="NA";
+   var item=find_meta_list(target);
+   if(item) {
+      var meta=item['meta'];
+      found=parseFloat(meta['avg_dip']);
+   } 
+   return found;
+}
+
+function find_strike_by_gid(target) {
+   var found="NA";
+   var item=find_meta_list(target);
+   if(item) {
+      var meta=item['meta'];
+      found=parseFloat(meta['avg_strike']);
+   } 
+   return found;
+}
+
 function find_name_by_gid(target) {
    var found="NA";
    var item=find_meta_list(target);
@@ -365,6 +384,17 @@ function find_meta_list(target) {
    });
    return found;
 }
+
+/* return true if target is visible on map */
+function is_vis_by_gid(target) {
+   var found=0;
+   var s=find_style_list(target);
+   if( s['visible']==1 ) {
+     found=1;
+   }
+   return found;
+}
+
 
 function reset_download_set()
 {
@@ -404,6 +434,43 @@ function in_active_gid_list(target) {
    return found;
 }
 
+function get_current_strike_range() {
+   let len=cfm_gid_list.length;
+   let i;
+   // init to opposite
+   var active_max=strike_range_min_ref;
+   var active_min=strike_range_max_ref;
+   for( i=0; i<len; i++) {
+      var gid=cfm_gid_list[i];
+      // use if only if the gid is visible
+      if( is_vis_by_gid(gid) ) {
+        var strike=find_strike_by_gid(gid);
+        if(strike > active_max)
+           active_max=strike;
+        if(strike < active_min)
+           active_min=strike;
+      }
+   }
+   return [active_min, active_max];
+} 
+
+function get_current_dip_range() {
+   let len=cfm_gid_list.length;
+   let i;
+   var active_max=dip_range_max;
+   var active_min=dip_range_min;
+   for( i=0; i<len; i++) {
+      var gid=cfm_gid_list[i];
+      if( is_vis_by_gid(gid) ) {
+        var dip=find_dip_by_gid(gid);
+        if(dip > active_max)
+          active_max=dip;
+        if(dip < active_min)
+          active_min=dip;
+      }
+   }
+   return [active_min, active_max];
+} 
 
 // find a layer from the layer list
 function find_layer_list(target) { 
@@ -421,10 +488,17 @@ function reset_layer_list() {
      var gid=element['gid'];
      var s=find_style_list(gid);
      if( s['highlight']==1 && s['visible']==1 ) {
-       toggle_highlight(gid);
+       toggle_highlight(gid,0);
        addRemoveFromDownloadQueue(gid);
        addRemoveFromMetadataTable(gid);
      }
+     var l=find_layer_list(gid);
+     var geolayer=l['layer'];
+     var s=find_style_list(gid);
+     var style=s['style'];
+     geolayer.eachLayer(function(layer) {
+             layer.setStyle(style);
+     });
    });
 }
 
@@ -434,7 +508,7 @@ function select_layer_list() {
      var gid=element['gid'];
      var s=find_style_list(gid);
      if( s['highlight']==0 && s['visible']==1 ) {
-       toggle_highlight(gid);
+       toggle_highlight(gid,0);
      }
    });
 }
@@ -523,7 +597,7 @@ function addRemoveFromMetadataTable(gid) {
     }
 }
 
-function toggle_highlight(gid) {
+function toggle_highlight(gid,auto=0) {
    var s=find_style_list(gid);
    if (s == '') {
       return;
@@ -539,6 +613,16 @@ function toggle_highlight(gid) {
    }
 
    if(h==0) {
+
+     if(auto) { // autoscroll the table
+       var id = "row_"+gid;
+       var elm = document.getElementById(id);
+       var prev = elm.previousElementSibling;
+       if(prev) {
+         prev.scrollIntoView(true);
+       }
+     }
+
      $rowSelected.addClass("row-selected");
      $star.removeClass('glyphicon-unchecked').addClass('glyphicon-check');
      s['highlight']=1;
@@ -720,6 +804,11 @@ function in_nogeo_gid_list(target) {
              found=1;
    });
    return found;
+}
+
+// change style=highlight_style in all the 
+// layers
+function toggle_style_all_layer() {
 }
 
 // toggle off everything except if there
