@@ -160,8 +160,12 @@ $header = getHeader("Viewer");
                     <button onclick="refreshAll();" class="btn btn-dark pl-4 pr-4" type="button">Reset</button>
                 </div>
                 <div>
-                  <button id="swapSelectBtn" type="button" style="display:none"  title="Select to Search or Filter"
+<!--
+                  <button id="swapSelectBtn" title="Select to Search or Filter"
+                          class="btn btn-default cfm-small-btn" onclick="swapSelectOption()" disabled>
+-->
                           class="btn btn-default cfm-small-btn" onclick="swapSelectOption()">
+-->
                         <span class="glyphicon glyphicon-adjust"></span>
                   </button>
                 </div>
