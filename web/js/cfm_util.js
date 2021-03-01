@@ -384,7 +384,7 @@ function refreshAll() {
   document.getElementById("geoSearchByObjGidResult").innerHTML = "";
   document.getElementById("searchResult").innerHTML = "";
   document.getElementById("phpResponseTxt").innerHTML = "";
-  $("#search-type").val("dismissClick");
+  $("#search-filter-type").val("dismissClick");
 //  document.getElementById("objGidTxt").value = '';
 
   refresh_map();
@@ -649,6 +649,9 @@ function processSearchResult(rlist) {
        }
    
     }
+/** After some search result.. the next would be allow 'filtering' on existing set */
+    enable_select_btn();
+
     return (str);
 }
 

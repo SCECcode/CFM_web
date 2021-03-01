@@ -94,6 +94,7 @@ $header = getHeader("Viewer");
 
         $(document).on("tableLoadCompleted", function () {
             tableLoadCompleted = true;
+
             var $table = $('div.cfm-table table');
             $table.floatThead({
                 scrollContainer: function ($table) {
@@ -141,9 +142,9 @@ $header = getHeader("Viewer");
     </div>
 
     <div id="controls-container" class="row d-flex mb-1">
-        <div class="col-6 mb-2">
-             <div class="input-group filters">
-                <select id="search-type" class="custom-select">
+        <div class="col-6 mb-0">
+             <div class="input-group filters" style="min-width:70%">
+                <select id="search-filter-type" class="custom-select">
                     <option value="dismissClick">Search by ...</option>
                     <option value="keywordClick">Keyword</option>
                     <option value="latlonClick">Latitude &amp; Longitude</option>
@@ -152,72 +153,56 @@ $header = getHeader("Viewer");
                     <option value="sectionClick">Section</option>
                     <option value="nameClick">Name</option>
                     <option disabled>-- Advanced --</option>
-                    <option value="strikeClick">Avg Strike</option>
-                    <option value="dipClick">Avg Dip</option>
+                    <option value="strikeClick">Average Strike</option>
+                    <option value="dipClick">Average Dip</option>
                 </select>
                 <div class="input-group-append">
                     <button onclick="refreshAll();" class="btn btn-dark pl-4 pr-4" type="button">Reset</button>
+                </div>
+                <div>
+                  <button id="swapSelectBtn" type="button" style="display:none"  title="Select to Search or Filter"
+                          class="btn btn-default cfm-small-btn" onclick="swapSelectOption()">
+                        <span class="glyphicon glyphicon-adjust"></span>
+                  </button>
                 </div>
             </div>
             <div class="row" style="margin-bottom:-10px;">
                 <div class="col input-group">
                     <ul id="sidebar" class="navigation" style="display:none">
-                        <li id='area' class='navigationLi ' style="display:none;">
+                        <li id='area' class='navigationLi' style="display:none;">
                             <div id='areaMenu' class='menu'>
-                                <div class="">
-                                    <div class="" style="">
-
-                                        <div class="" id="areaList"></div>
-                                    </div>
-                                </div>
+                                <div class="" id="areaList"></div>
                             </div>
                         </li>
-                        <li id='zone' class='navigationLi ' style="display:none">
+                        <li id='zone' class='navigationLi' style="display:none">
                             <div id='zoneMenu' class='menu'>
-                                <div class="">
-                                    <div class="" style="">
-
-                                        <div class="" id="zoneList"></div>
-                                    </div>
-                                </div>
+                                <div class="" id="zoneList"></div>
                             </div>
                         </li>
-                        <li id='section' class='navigationLi ' style="display:none">
+                        <li id='section' class='navigationLi' style="display:none">
                             <div id='sectionMenu' class='menu'>
-                                <div class="">
-                                    <div class="" style="">
-
-                                        <div class="" id="sectionList"></div>
-
-                                    </div>
-                                </div>
+                                <div class="" id="sectionList"></div>
                             </div>
                         </li>
                         <li id='name' class='navigationLi' style="display:none">
                             <div id='nameMenu' class='menu'>
-                                <div class="">
-                                    <div class="" style="">
-
-                                        <div class="" id="nameList"></div>
-
-                                    </div>
-                                </div>
+                                <div class="" id="nameList"></div>
                             </div>
                         </li>
 
 			<li id='strike' class='navigationLi' style="width:300px; display:none">
                             <div id='strikeMenu' class='menu'>
-                                <div class="col-12 mt-2">
-                                    <div id="slider-strike-range" style="border:2px solid black">
-				    <div id="min-strike-handle" class="ui-slider-handle"></div>
-				    <div id="max-strike-handle" class="ui-slider-handle"></div>
+                                <div class="col-12 mt-3 mb-2">
+                                   <div id="slider-strike-range" style="border:2px solid black">
+				   <div id="min-strike-handle" class="ui-slider-handle"></div>
+				   <div id="max-strike-handle" class="ui-slider-handle"></div>
                                 </div>
                             </div>
                         </li>
 
                         <li id='dip' class='navigationLi ' style="width:300px; display:none">
                             <div id='dipMenu' class='menu'>
-                                <div class="col-12 mt-2">
+                                <div class="col-12 mt-3 mb-2">
                                     <div id="slider-dip-range" style="border:2px solid black">
 				    <div id="min-dip-handle" class="ui-slider-handle"></div>
 				    <div id="max-dip-handle" class="ui-slider-handle"></div>
@@ -363,8 +348,8 @@ $header = getHeader("Viewer");
                     <th class="hoverColor" onClick="sortMetadataTableByRow(3,'a')">Zone</th>
                     <th class="hoverColor" onClick="sortMetadataTableByRow(4,'a')">Section</th>
                     <th class="hoverColor" onClick="sortMetadataTableByRow(5,'a')">Last Update</th>
-                    <th class="hoverColor" onClick="sortMetadataTableByRow(6,'n')">Strike</th>
-                    <th class="hoverColor" onClick="sortMetadataTableByRow(7,'n')">Dip</th>
+                    <th class="hoverColor" onClick="sortMetadataTableByRow(6,'n')">Avg<br>Strike</th>
+                    <th class="hoverColor" onClick="sortMetadataTableByRow(7,'n')">Avg<br>Dip</th>
                     <th class="hoverColor" onClick="sortMetadataTableByRow(8,'n')">Area(km<sup>2</sup>)</th>
                     <th><div class="col text-center">
                             <div class="btn-group download-now">

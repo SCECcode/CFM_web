@@ -8,7 +8,7 @@ var initial_track_trace = 1;
 var initial_trace_html="Hide Trace";
 var initial_not_trace_html="Show Trace";
 function reset_search_selection() {
-   $("#search-type").val("dismissClick");
+   $("#search-filter-type").val("dismissClick");
    dismiss_sidebar();
 }
 

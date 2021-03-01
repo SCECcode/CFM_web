@@ -65,14 +65,14 @@ jQuery(document).ready(function() {
   setup_info3dTable();
   setup_warn3dTable();
 
-  $("#search-type").change(function () {
+  $("#search-filter-type").change(function () {
       var funcToRun = $(this).val();
       if (funcToRun != "") {
           window[funcToRun]();
       }
   });
 
-  $("#search-type").trigger("change");
+  $("#search-filter-type").trigger("change");
 
 }); // end of MAIN
 

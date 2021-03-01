@@ -4,6 +4,35 @@
 
 var cfm_select_count=0;
 var showing_key = false;
+var show_search_select = 1;
+
+function swapSelectOption() {
+   var elm=document.getElementById("search-filter-type");
+   var opt=elm.options[0];
+
+   // "<option value=\"dismissClick\">Search by ...</option>";
+   // "<option value=\"filterClick\">Filter by ...</option>";
+   var dopt = document.createElement("option");
+       dopt.text = "Search by ...";
+       dopt.value="dismissClick";
+   var fopt = document.createElement("option");
+       fopt.text = "Filter by ...";
+       fopt.value = "filterClick";
+
+   window.console.log("XXX..",opt);
+
+   if(show_search_select) {
+// remove search, add filter
+     elm.options[0]=fopt;
+     show_search_select = 0;
+     } else {
+// remove filter, add search
+       elm.options[0]=dopt;
+       show_search_select = 1;
+   }
+
+   window.console.log("XXX..",opt);
+}
 
 function set_strike_range_color(min,max) {
   let minRGB= makeStrikeRGB(min);

@@ -429,6 +429,7 @@ select {
 input[type=text] {
     /*width: 140px;*/
     /*padding: 0px 5px 0px 5px;*/
+  padding: 0.375rem 0.60rem
 }
 
 .body-container {
