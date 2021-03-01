@@ -164,6 +164,7 @@ $header = getHeader("Viewer");
                   <button id="swapSelectBtn" title="Select to Search or Filter"
                           class="btn btn-default cfm-small-btn" onclick="swapSelectOption()" disabled>
 -->
+                  <button id="swapSelectBtn" title="Select to Search or Filter"
                           class="btn btn-default cfm-small-btn" onclick="swapSelectOption()">
                         <span class="glyphicon glyphicon-adjust"></span>
                   </button>
