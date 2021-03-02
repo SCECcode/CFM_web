@@ -342,24 +342,26 @@ function setIframHeight(id) {
 }
 
 var track_full=0; // 1 is on 0 is off
+var save_height=0;
 function toggleExpand3Dview(elt) {
   
   track_full = !track_full;
   if(track_full) {
     elt.innerHTML="Expand";
-    $('#modal3DDialog').removeClass('full_modal-dialog');
-    $('#modal3DContent').removeClass('full_modal-content');
-    document.getElementById("view3DIfram").height = "400";
+    $('#modal3DDialog').removeClass('modal-full-dialog');
+    $('#modal3DContent').removeClass('modal-full-content');
+    save_height=document.getElementById("view3DIfram").height;
+    document.getElementById("view3DIfram").height=400;
     } else {
       elt.innerHTML="Shrink";
-      $('#modal3DDialog').addClass('full_modal-dialog');
-      $('#modal3DContent').addClass('full_modal-content');
+      $('#modal3DDialog').addClass('modal-full-dialog');
+      $('#modal3DContent').addClass('modal-full-content');
       var c=document.getElementById("modal3DContent");
       var f=document.getElementById("modal3DFooter");
-      var c_h=c.scrollHeight;
-      var f_h=f.scrollHeight;
-      var n_h=c_h -(f_h* 2.5);
-      document.getElementById("view3DIfram").height = n_h;
+//      var c_h=c.scrollHeight;
+//      var f_h=f.scrollHeight;
+//      var n_h=c_h -(f_h* 2.5);
+      document.getElementById("view3DIfram").height = save_height;
   }
 }
 
@@ -368,14 +370,14 @@ function resetExpand3Dview() {
   if(track_full == 1) {
     track_full=0;
     elt.innerHTML="Shrink";
-    $('#modal3DDialog').addClass('full_modal-dialog');
-    $('#modal3DContent').addClass('full_modal-content');
+    $('#modal3DDialog').addClass('modal-full-dialog');
+    $('#modal3DContent').addClass('modal-full-content');
     var c=document.getElementById("modal3DContent");
     var f=document.getElementById("modal3DFooter");
-    var c_h=c.scrollHeight;
-    var f_h=f.scrollHeight;
-    var n_h=c_h -(f_h* 2.5);
-    document.getElementById("view3DIfram").height = n_h;
+//    var c_h=c.scrollHeight;
+//    var f_h=f.scrollHeight;
+//    var n_h=c_h -(f_h* 2.5);
+//    document.getElementById("view3DIfram").height = n_h;
   }
 }
 
