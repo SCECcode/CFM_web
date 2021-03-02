@@ -51,6 +51,8 @@ function swapSelectOption() {
        elm.options[0]=dopt;
        select_search_mode = 1;
        disable_select_btn();
+// make refresh the page
+       refreshAll();
    }
    dismiss_sidebar();
    var elm=document.getElementById("search-filter-type");
@@ -270,8 +272,7 @@ function makeResultTableBody(str)
 {
     clear_popup();
 
-    var html = "";
-    html=html+"<tbody id=\"cfm-table-body\">";
+    var html="<tbody id=\"cfm-table-body\">";
     var sz=(Object.keys(str).length);
     var tmp="";
     for( var i=0; i< sz; i++) {
@@ -317,15 +318,13 @@ function makeResultTable(str)
 }
 
 // using internal information, existing style_list
-function _makeResultTableWithGList(glist)
+function _makeResultTableBodyWithGList(glist)
 {
-    window.console.log("calling _makeResultTableWithGList..");
+    window.console.log("calling _makeResultTableBodyWithGList..");
 
     clear_popup();
-    // var html="<table><tr><th style=\"border:1px solid white\">CFM5.3 Fault Objects<button id=\"allBtn\" class=\"btn cfm-small-btn\" title=\"select all visible faults\" onclick=\"selectAll()\"><span class=\"glyphicon glyphicon-unchecked\"></span></button></th></tr></table>";
-    var html = "";
-    html=html+"<div class=\"cfm-table\" ><table>";
-    html+="<thead><tr><th class='text-center'><button id=\"allBtn\" class=\"btn btn-sm cfm-small-btn\" title=\"select all visible faults\" onclick=\"selectAll();\"><span class=\"glyphicon glyphicon-unchecked\"></span></button></th><th class='text-center'></th><th>CFM5.3 Fault Objects</th></tr></thead><tbody>";
+
+    var html="<tbody id=\"cfm-table-body\">";
 
     var sz=glist.length;
     var tmp="";
@@ -359,7 +358,7 @@ function _makeResultTableWithGList(glist)
          tmp=tmp+tt;
        }
     }
-    html=html+tmp+ "</tbody></table></div>";
+    html=html+tmp+ "</tbody>";
     return html;
 }
 
@@ -368,13 +367,11 @@ function _makeResultTableWithGList(glist)
 function makeResultTableWithList(glist)
 {
     window.console.log("calling makeResultTableWithList..");
-    // reset it first
-    document.getElementById("searchResult").innerHTML ="";
 
     if(glist.length > 0) {
       toggle_layer_with_list(glist);
-      var newhtml = _makeResultTableWithGList(glist);
-      document.getElementById("searchResult").innerHTML = newhtml;
+      var newhtml = _makeResultTableBodyWithGList(glist);
+      document.getElementById("cfm-table-body").innerHTML = newhtml;
     }
 }
 

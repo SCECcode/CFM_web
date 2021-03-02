@@ -108,6 +108,10 @@ var cfm_style_list=[];
 // { gid1, gid2, ... }, tracking current active search result, from all objects
 var cfm_active_gid_list=[];
 
+// gid is objgid
+// { gid1, gid2, ... }, a copy of active_gid_list from the previous, for 'filter by'
+var cfm_reference_gid_list=[]; 
+
 // a set of bounding box composed of  2 lat lon locations
 // for now, expect there is just 1 area only
 // [ {"layer":layer1, "latlngs":[ {latA,lonA}, {latB,lonB}]},...];
@@ -123,6 +127,7 @@ var cfm_blind_gid_list=[];
 function reset_geo_plot() {
   // can not really 'destroy' layer and so need to reuse..
   cfm_active_gid_list=[];
+  cfm_reference_gid_list=[];
   reset_layer_list();  // unhighlight the layers and remove highlighted
                        // off the download queue and allfirst
   // reset_style_list();
@@ -433,6 +438,21 @@ function in_active_gid_list(target) {
    });
    return found;
 }
+
+/* return true if target is in the reference active list */
+function in_reference_gid_list(target) {
+   var found=0;
+
+   if(cfm_reference_gid_list.length == 0)
+     return found;
+
+   cfm_reference_gid_list.forEach(function(element) {
+     if ( element == target )
+        found=1;
+   });
+   return found;
+}
+
 
 function get_current_strike_range() {
    let len=cfm_gid_list.length;

@@ -384,7 +384,8 @@ function refreshAll() {
   resetSelectionOption();
 
   document.getElementById("geoSearchByObjGidResult").innerHTML = "";
-  document.getElementById("searchResult").innerHTML = "";
+// only cfm-table-body part needs to be refreshed
+  document.getElementById("cfm-table-body").innerHTML = "";
   document.getElementById("phpResponseTxt").innerHTML = "";
   $("#search-filter-type").val("dismissClick");
 //  document.getElementById("objGidTxt").value = '';
@@ -612,8 +613,8 @@ function processTraceMeta(metaList) {
 }
 
 function processSearchResult(rlist) {
-    cfm_search_gid_list=[];
-    var str="";
+    var str=[];
+    var strarray=[];  
     if (rlist == 'searchByFaultObjectName') {
         str = $('[data-side="resultByFaultObjectName"]').data('params');
     } else if (rlist == 'searchByLatLon') {
@@ -636,25 +637,38 @@ function processSearchResult(rlist) {
 
     if(str == undefined) {
        window.console.log("processSearchResult: BAD BAD BAD");
-       return;
+       return str;
     }
 
     // gid, name
+    cfm_active_gid_list=[];
+
+// 
     var sz=(Object.keys(str).length);
     window.console.log("Number of gid blobs received from backend ->",sz);
     for( var i=0; i< sz; i++) {
        var tmp= JSON.parse(str[i]);
        var gid=parseInt(tmp['gid']);
+        
+// if filterBy and not in reference list, skip
+       if( (select_search_mode==0) &&
+            ! in_reference_gid_list(gid)) {
+         continue;
+       }
+
        cfm_active_gid_list.push(gid);
        if( ! in_nogeo_gid_list(gid)) {
-          toggle_layer(gid);
+        toggle_layer(gid);
        }
-   
+       strarray.push(str[i]);
     }
-/** After some search result.. the next would be allow 'filtering' on existing set */
+    if(select_search_mode) { // if searchBy, save the active_gid_list
+       cfm_reference_gid_list = [].concat(cfm_active_gid_list)
+    }
+ 
     enable_select_btn();
 
-    return (str);
+    return (strarray);
 }
 
 function gotAllGeoJSON() {

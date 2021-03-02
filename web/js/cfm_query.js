@@ -1,6 +1,6 @@
 function searchByStrikeRange(min,max) {
     if (min == undefined || max == undefined) {
-        document.getElementById("searchResult").innerHTML = "";
+        document.getElementById("cfm-table-body").innerHTML = "";
         return;
     } else {
         if (window.XMLHttpRequest) {
@@ -13,7 +13,6 @@ function searchByStrikeRange(min,max) {
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 toggle_off_all_layer();
-                cfm_active_gid_list=[];
                 document.getElementById("phpResponseTxt").innerHTML = this.responseText;
                 var str = processSearchResult("searchByStrikeRange");
                 document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
@@ -35,7 +34,7 @@ window.console.log("search with strike range..  ",vals[0],vals[1]);
 
 function searchByDipRange(min,max) {
     if (min == undefined || max == undefined) {
-        document.getElementById("searchResult").innerHTML = "";
+        document.getElementById("cfm-table-body").innerHTML = "";
         return;
     } else {
         if (window.XMLHttpRequest) {
@@ -48,7 +47,6 @@ function searchByDipRange(min,max) {
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 toggle_off_all_layer();
-                cfm_active_gid_list=[];
                 document.getElementById("phpResponseTxt").innerHTML = this.responseText;
                 var str = processSearchResult("searchByDipRange");
                 document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
@@ -79,7 +77,6 @@ function searchByFaultObjectName() {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             toggle_off_all_layer();
-            cfm_active_gid_list=[];
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
             var str=processSearchResult("searchByFaultName");
             document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
@@ -100,7 +97,6 @@ function searchByKeyword() {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             toggle_off_all_layer();
-            cfm_active_gid_list=[];
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
             var str=processSearchResult("searchByKeyword");
             document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
@@ -127,7 +123,7 @@ function searchByLatlon(frommap) {
     }
     
     if (firstlatstr == "" || firstlonstr=="") {
-        document.getElementById("searchResult").innerHTML = "";
+        document.getElementById("cfm-table-body").innerHTML = "";
         return;
     } else {
 
@@ -141,7 +137,6 @@ function searchByLatlon(frommap) {
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 toggle_off_all_layer();
-                cfm_active_gid_list=[];
                 document.getElementById("phpResponseTxt").innerHTML = this.responseText;
                 var str=processSearchResult("searchByLatLon");
                 document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
@@ -154,7 +149,7 @@ function searchByLatlon(frommap) {
 
 function searchByZone(str) {
     if (str == "") {
-        document.getElementById("searchResult").innerHTML = "";
+        document.getElementById("cfm-table-body").innerHTML = "";
         return;
     } else {
         if (window.XMLHttpRequest) {
@@ -167,7 +162,6 @@ function searchByZone(str) {
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 toggle_off_all_layer();
-                cfm_active_gid_list=[];
                 document.getElementById("phpResponseTxt").innerHTML = this.responseText;
                 var str=processSearchResult("searchByZone");
                 document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
@@ -180,7 +174,7 @@ function searchByZone(str) {
 
 function searchBySection(str) {
     if (str == "") {
-        document.getElementById("searchResult").innerHTML = "";
+        document.getElementById("cfm-table-body").innerHTML = "";
         return;
     } else {
         if (window.XMLHttpRequest) {
@@ -193,7 +187,6 @@ function searchBySection(str) {
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 toggle_off_all_layer();
-                cfm_active_gid_list=[];
                 document.getElementById("phpResponseTxt").innerHTML = this.responseText;
                 var str=processSearchResult("searchBySection");
                 document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
@@ -206,7 +199,7 @@ function searchBySection(str) {
 
 function searchByArea(str) {
     if (str == "") {
-        document.getElementById("searchResult").innerHTML = "";
+        document.getElementById("cfm-table-body").innerHTML = "";
         return;
     } else {
         if (window.XMLHttpRequest) {
@@ -219,7 +212,6 @@ function searchByArea(str) {
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 toggle_off_all_layer();
-                cfm_active_gid_list=[];
                 document.getElementById("phpResponseTxt").innerHTML = this.responseText;
                 var str=processSearchResult("searchByArea");
                 document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
@@ -234,7 +226,7 @@ function searchByArea(str) {
 
 function searchByName(str) {
     if (str == "") {
-        document.getElementById("searchResult").innerHTML = "";
+        document.getElementById("cfm-table-body").innerHTML = "";
         return;
     } else {
         if (window.XMLHttpRequest) {
@@ -247,7 +239,6 @@ function searchByName(str) {
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 toggle_off_all_layer();
-                cfm_active_gid_list=[];
                 document.getElementById("phpResponseTxt").innerHTML = this.responseText;
                 var str=processSearchResult("searchByName");
                 document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
