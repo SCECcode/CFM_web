@@ -6,7 +6,8 @@ var skipPopup=false;
 
 var default_color = "black";
 var default_highlight_color = "red";
-var alternate_highlight_color = "#39FF14";
+//neon green var alternate_highlight_color = "#39FF14";
+var alternate_highlight_color = "#FF9636";
 var blind_dash_value = 6;
 
 var original_style = {
