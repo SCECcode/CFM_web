@@ -12,7 +12,7 @@ $dbconn = getConnection();
 $min = floatVal($_GET['min']);
 $max = floatVal($_GET['max']);
 
-$query = "SELECT gid,name FROM OBJECT_tb WHERE avg_dip IS NOT NULL AND avg_dip > $1 AND avg_dip < $2";
+$query = "SELECT gid,name FROM OBJECT_tb WHERE avg_dip IS NOT NULL AND avg_dip >= $1 AND avg_dip <= $2";
 
 $result = pg_prepare($dbconn, "my_query", $query);
 

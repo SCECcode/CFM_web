@@ -12,7 +12,7 @@ $dbconn = getConnection();
 $min = floatVal($_GET['min']);
 $max = floatVal($_GET['max']);
 
-$query = "SELECT gid,name FROM OBJECT_tb WHERE avg_strike IS NOT NULL AND avg_strike > $1 AND avg_strike < $2";
+$query = "SELECT gid,name FROM OBJECT_tb WHERE avg_strike IS NOT NULL AND avg_strike >= $1 AND avg_strike <= $2";
 
 $result = pg_prepare($dbconn, "my_query", $query);
 

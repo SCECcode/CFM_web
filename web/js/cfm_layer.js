@@ -846,6 +846,8 @@ function toggle_off_all_layer()
      }
   }
   cfm_toggle_plot=0;
+  // turn off the btn --
+  $('#allBtn span').removeClass("glyphicon-check").addClass("glyphicon-unchecked");
 }
 
 function toggle_layer_with_list(glist)

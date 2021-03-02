@@ -4,6 +4,10 @@
 }
 
 .glyphicon.glyphicon-cog {
+    font-size: 25px;
+}
+
+.glyphicon.glyphicon-cog {
     font-size: 30px;
 }
 
@@ -724,43 +728,21 @@ div.guide ul {
     padding: 0;
 }
 
-.modal-full .modal-content {
+.modal-full .modal-content, modal-full-content {
     height: auto;
     min-height: 100%;
     border-radius: 0;
 }
 
-.modal-full .modal-dialog {
+.modal-full .modal-dialog, modal-full-dialog {
     width: 100%;
     max-width: none;
     height: 100%;
     margin: 0;
 }
 
-.modal-full .modal-body {
+.modal-full .modal-body, modal-full-body {
     height: 100%;
     overflow-y: auto;
 }
 
-
-.full_modal-dialog {
-  width: 98%;
-  height: 92%;
-  min-width: 98%;
-  min-height: 92%;
-  max-width: 98%;
-  max-height: 92%;
-  padding: 0;
-}
-
-.full_modal-content {
-  height: 99%;
-  min-height: 99%;
-  max-height: 99%;
-}
-
-.full_modal-body {
-  height: 99%;
-  min-height: 99%;
-  max-height: 99%;
-}
