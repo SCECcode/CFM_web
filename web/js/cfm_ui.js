@@ -4,7 +4,30 @@
 
 var cfm_select_count=0;
 var showing_key = false;
-var show_search_select = 1;
+var select_search_mode = 1; // 1:searchBy, 0:filterBy
+
+
+function disable_select_btn() {
+  $('#swapSelectBtn').attr("disabled", true);
+}
+
+function enable_select_btn() {
+  $('#swapSelectBtn').attr("disabled", false);
+}
+
+function resetSelectionOption() {
+
+   if(!select_search_mode) {
+     var dopt = document.createElement("option");
+     dopt.text = "Search by ...";
+     dopt.value="dismissClick";
+     select_search_mode=1;
+     var elm=document.getElementById("search-filter-type");
+     elm.options[0]=dopt;
+   }
+  
+   disable_select_btn();
+}
 
 function swapSelectOption() {
    var elm=document.getElementById("search-filter-type");
@@ -19,19 +42,19 @@ function swapSelectOption() {
        fopt.text = "Filter by ...";
        fopt.value = "filterClick";
 
-   window.console.log("XXX..",opt);
-
-   if(show_search_select) {
+   if(select_search_mode) {
 // remove search, add filter
      elm.options[0]=fopt;
-     show_search_select = 0;
+     select_search_mode = 0;
      } else {
 // remove filter, add search
        elm.options[0]=dopt;
-       show_search_select = 1;
+       select_search_mode = 1;
+       disable_select_btn();
    }
-
-   window.console.log("XXX..",opt);
+   dismiss_sidebar();
+   var elm=document.getElementById("search-filter-type");
+   elm.selectedIndex=0;
 }
 
 function set_strike_range_color(min,max) {
@@ -242,17 +265,13 @@ function glistFromMeta(str) {
     return glist;
 }
 
-
 // str=metadata
-function makeResultTable(str)
+function makeResultTableBody(str)
 {
-    window.console.log("calling makeResultTable..");
     clear_popup();
-    // clear the highlight count..
 
     var html = "";
-    html=html+"<div class=\"cfm-table\" ><table>";
-    html+="<thead><tr><th class='text-center'><button id=\"allBtn\" class=\"btn btn-sm cfm-small-btn\" title=\"select all visible faults\" onclick=\"selectAll();\"><span class=\"glyphicon glyphicon-unchecked\"></span></button></th><th class='text-center'></th><th class='myheader'>FM5.3 Fault Objects</th></tr></thead><tbody>";
+    html=html+"<tbody id=\"cfm-table-body\">";
     var sz=(Object.keys(str).length);
     var tmp="";
     for( var i=0; i< sz; i++) {
@@ -274,11 +293,26 @@ function makeResultTable(str)
           tmp=tmp+t;
       }
     }
-    html=html+ tmp + "</tbody></table></div>";
+    html=html+ tmp + "</tbody>";
 
     if (visibleFaults.getBounds().isValid()) {
         viewermap.fitBounds(visibleFaults.getBounds());
     }
+
+    return html;
+}
+
+// str=metadata
+function makeResultTable(str)
+{
+    window.console.log("calling makeResultTable..");
+
+    var html="<div class=\"cfm-table\" ><table>";
+    html+="<thead><tr><th class='text-center'><button id=\"allBtn\" class=\"btn btn-sm cfm-small-btn\" title=\"select all visible faults\" onclick=\"selectAll();\"><span class=\"glyphicon glyphicon-unchecked\"></span></button></th><th class='text-center'></th><th class='myheader'>FM5.3 Fault Objects</th></tr></thead>";
+
+    var body=makeResultTableBody(str);
+    html=html+ body + "</tbody></table></div>";
+
     return html;
 }
 

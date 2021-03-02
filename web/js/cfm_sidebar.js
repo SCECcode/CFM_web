@@ -3,7 +3,6 @@
   cfm_sidebar.js
 
 **/
-var sidebar_mode = 1;  // 1: searchBy, 0: filterBy
 
 var area_sidebar=false;
 var zone_sidebar=false;
@@ -16,23 +15,6 @@ var dip_sidebar=false;
 var gid_sidebar=false;
 
 var drawing_rectangle=false;
-
-function disable_select_btn() {
-/*
-  var btnptr=$('#swapSelectBtn');
-  btnptr.css("display","");
-*/
-}
-
-function enable_select_btn() {
-/*
-  var btnptr=$('#swapSelectBtn');
-  btnptr.css("display","block");
-  // and return the select to top level
-  var elm = document.getElementById('search-filter-type');
-  elm.selectedIndex=0;
-*/
-}
 
 // initiate a click on the sidebar buttons
 // to dismiss the sidebar and reset the to the searchBy mode
@@ -53,7 +35,6 @@ function dismiss_sidebar() {
 
 function dismissClick() {
   dismiss_sidebar();
-  disable_select_btn();
 }
 
 // area sidebar js

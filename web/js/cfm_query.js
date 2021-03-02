@@ -16,7 +16,7 @@ function searchByStrikeRange(min,max) {
                 cfm_active_gid_list=[];
                 document.getElementById("phpResponseTxt").innerHTML = this.responseText;
                 var str = processSearchResult("searchByStrikeRange");
-                document.getElementById("searchResult").innerHTML = makeResultTable(str);
+                document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
             }
         };
         xmlhttp.open("GET","php/byStrikeRange.php?min="+min+"&max="+max,true);
@@ -51,7 +51,7 @@ function searchByDipRange(min,max) {
                 cfm_active_gid_list=[];
                 document.getElementById("phpResponseTxt").innerHTML = this.responseText;
                 var str = processSearchResult("searchByDipRange");
-                document.getElementById("searchResult").innerHTML = makeResultTable(str);
+                document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
             }
         };
         xmlhttp.open("GET","php/byDipRange.php?min="+min+"&max="+max,true);
@@ -82,7 +82,7 @@ function searchByFaultObjectName() {
             cfm_active_gid_list=[];
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
             var str=processSearchResult("searchByFaultName");
-            document.getElementById("searchResult").innerHTML = makeResultTable(str);
+            document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
         }
     };
     xmlhttp.open("GET","php/byFaultObjectName.php?q="+str,true);
@@ -103,7 +103,7 @@ function searchByKeyword() {
             cfm_active_gid_list=[];
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
             var str=processSearchResult("searchByKeyword");
-            document.getElementById("searchResult").innerHTML = makeResultTable(str);
+            document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
         }
     };
     xmlhttp.open("GET","php/byKeyword.php?q="+str,true);
@@ -144,7 +144,7 @@ function searchByLatlon(frommap) {
                 cfm_active_gid_list=[];
                 document.getElementById("phpResponseTxt").innerHTML = this.responseText;
                 var str=processSearchResult("searchByLatLon");
-                document.getElementById("searchResult").innerHTML = makeResultTable(str);
+                document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
             }
         }
         xmlhttp.open("GET","php/byLatlon.php?firstlat="+firstlatstr+"&secondlat="+secondlatstr+"&firstlon="+firstlonstr+"&secondlon="+secondlonstr,true);
@@ -170,7 +170,7 @@ function searchByZone(str) {
                 cfm_active_gid_list=[];
                 document.getElementById("phpResponseTxt").innerHTML = this.responseText;
                 var str=processSearchResult("searchByZone");
-                document.getElementById("searchResult").innerHTML = makeResultTable(str);
+                document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
             }
         };
         xmlhttp.open("GET","php/byZone.php?q="+str,true);
@@ -196,7 +196,7 @@ function searchBySection(str) {
                 cfm_active_gid_list=[];
                 document.getElementById("phpResponseTxt").innerHTML = this.responseText;
                 var str=processSearchResult("searchBySection");
-                document.getElementById("searchResult").innerHTML = makeResultTable(str);
+                document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
             }
         };
         xmlhttp.open("GET","php/bySection.php?q="+str,true);
@@ -222,8 +222,9 @@ function searchByArea(str) {
                 cfm_active_gid_list=[];
                 document.getElementById("phpResponseTxt").innerHTML = this.responseText;
                 var str=processSearchResult("searchByArea");
-                document.getElementById("searchResult").innerHTML = makeResultTable(str);
+                document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
             }
+
         };
         xmlhttp.open("GET","php/byArea.php?q="+str,true);
         xmlhttp.send();
@@ -249,7 +250,7 @@ function searchByName(str) {
                 cfm_active_gid_list=[];
                 document.getElementById("phpResponseTxt").innerHTML = this.responseText;
                 var str=processSearchResult("searchByName");
-                document.getElementById("searchResult").innerHTML = makeResultTable(str);
+                document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
             }
         };
         xmlhttp.open("GET","php/byName.php?q="+str,true);

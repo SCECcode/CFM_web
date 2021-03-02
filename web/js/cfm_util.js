@@ -380,6 +380,8 @@ function refreshAll() {
   reset_select_latlon();
   reset_select_strike();
   reset_select_dip();
+  // maybe reset search-filter-type
+  resetSelectionOption();
 
   document.getElementById("geoSearchByObjGidResult").innerHTML = "";
   document.getElementById("searchResult").innerHTML = "";
