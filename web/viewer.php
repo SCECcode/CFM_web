@@ -433,10 +433,10 @@ $header = getHeader("Viewer");
 
 <!--Modal: Name-->
 <div class="modal" id="modal3D" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="modal3D" aria-hidden="true">
-  <div class="modal-dialog modal-xlg full_modal-dialog" id="modal3DDialog" role="document">
+  <div class="modal-dialog modal-full" id="modal3DDialog" role="document">
 
     <!--Content-->
-    <div class="modal-content full_modal-content" id="modal3DContent">
+    <div class="modal-content" id="modal3DContent">
       <!--Header-->
       <div class="modal-header">
         <button id="view3DToggleReprbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleRepr3Dview(this)">Show Wireframe</button>
