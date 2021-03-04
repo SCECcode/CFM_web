@@ -157,11 +157,12 @@ $header = getHeader("Viewer");
                     <option value="dipClick">Average Dip</option>
                 </select>
                 <div class="input-group-append">
-                    <button onclick="refreshAll();" class="btn btn-dark pl-4 pr-4" type="button">Reset</button>
+                    <button onclick="refreshAll();" class="btn btn-dark pl-4 pr-4">Reset</button>
                 </div>
+
                 <div>
-                  <button id="swapSelectBtn" title="Change to either to Search or to Filter"
-                      class="btn btn-default cfm-small-btn" onclick="swapSelectOption()" disabled>
+                  <button id="recordReferenceBtn" title="Record a reference fault set"
+                      class="btn btn-default cfm-small-btn pl-4" onclick="recordActiveReference()" disabled>
                       <span class="glyphicon glyphicon-record"></span>
                   </button>
                 </div>
@@ -190,22 +191,76 @@ $header = getHeader("Viewer");
                             </div>
                         </li>
 
-			<li id='strike' class='navigationLi' style="width:300px; display:none">
+			<li id='strike' class='navigationLi' style="width:600px;display:none">
                             <div id='strikeMenu' class='menu'>
-                                <div class="col-12 mt-3 mb-2">
-                                   <div id="slider-strike-range" style="border:2px solid black">
-				   <div id="min-strike-handle" class="ui-slider-handle"></div>
-				   <div id="max-strike-handle" class="ui-slider-handle"></div>
+                                <div class="row">
+                                    <div class="col-5">
+                                        <p>Select an average strike range on the slider or enter the two boundaries</p>
+                                    </div>
+                                    <div class="row col-5">
+                                       <div class="col-5 pl-0 pr-0">
+                                           <input type="text"
+                                                  id="lowStrikeTxt"
+                                                  title="low strike"
+                                                  onfocus="this.value=''"
+                                                  class="form-control">
+                                       </div>
+                                       <div class="col-5 pl-1 pr-0">
+                                           <input type="text"
+                                                  id="highStrikeTxt"
+                                                  title="high strike"
+                                                  onfocus="this.value=''"
+                                                  class="form-control">
+                                       </div>
+                                       <div class="col-2 pr-0 align-items-center">
+                                           <button id="strikeBtn" type="button" title="search with strike range"
+                                                   class="btn btn-default cfm-small-btn " onclick="setupSearchByStrike()">
+                                               <span class="glyphicon glyphicon-search"></span>
+                                           </button>
+                                       </div>
+                                       <div class="col-10 mt-1 mb-0">
+                                          <div id="slider-strike-range" style="border:2px solid black">
+				          <div id="min-strike-handle" class="ui-slider-handle"></div>
+				          <div id="max-strike-handle" class="ui-slider-handle"></div>
+                                       </div>
+                                    </div>
                                 </div>
                             </div>
                         </li>
 
-                        <li id='dip' class='navigationLi ' style="width:300px; display:none">
+			<li id='dip' class='navigationLi' style="width:600px;display:none">
                             <div id='dipMenu' class='menu'>
-                                <div class="col-12 mt-3 mb-2">
-                                    <div id="slider-dip-range" style="border:2px solid black">
-				    <div id="min-dip-handle" class="ui-slider-handle"></div>
-				    <div id="max-dip-handle" class="ui-slider-handle"></div>
+                                <div class="row">
+                                    <div class="col-5">
+                                        <p>Select an average dip range on the slider or enter the two boundaries</p>
+                                    </div>
+                                    <div class="row col-5">
+                                       <div class="col-5 pl-0 pr-0">
+                                           <input type="text"
+                                                  id="lowDipTxt"
+                                                  title="low dip"
+                                                  onfocus="this.value=''"
+                                                  class="form-control">
+                                       </div>
+                                       <div class="col-5 pl-1 pr-0">
+                                           <input type="text"
+                                                  id="highDipTxt"
+                                                  title="high dip"
+                                                  onfocus="this.value=''"
+                                                  class="form-control">
+                                       </div>
+                                       <div class="col-2 pr-0 align-items-center">
+                                           <button id="dipBtn" type="button" title="search with an average dip range"
+                                                   class="btn btn-default cfm-small-btn " onclick="setupSearchByDip()">
+                                               <span class="glyphicon glyphicon-search"></span>
+                                           </button>
+                                       </div>
+                                       <div class="col-10 mt-1 mb-0">
+                                          <div id="slider-dip-range" style="border:2px solid black">
+				          <div id="min-dip-handle" class="ui-slider-handle"></div>
+				          <div id="max-dip-handle" class="ui-slider-handle"></div>
+                                       </div>
+                                    </div>
                                 </div>
                             </div>
                         </li>
@@ -218,7 +273,7 @@ $header = getHeader("Viewer");
                                                class="form-control"
                                                onfocus="this.value=''" style=""/>
                                         <button id="keywordBtn" type="button" title="search with keyword"
-                                                class="btn btn-default cfm-small-btn" onclick="searchByKeyword()">
+                                                class="btn btn-default cfm-small-btn pl-3" onclick="searchByKeyword()">
                                             <span class="glyphicon glyphicon-search"></span>
                                         </button>
                                     </div>
@@ -343,14 +398,14 @@ $header = getHeader("Viewer");
                 <thead>
                 <tr>
                     <th>&nbsp;</th>
-                    <th class="hoverColor" onClick="sortMetadataTableByRow(1,'a')">Fault</th>
-                    <th class="hoverColor" onClick="sortMetadataTableByRow(2,'a')">Area</th>
-                    <th class="hoverColor" onClick="sortMetadataTableByRow(3,'a')">Zone</th>
-                    <th class="hoverColor" onClick="sortMetadataTableByRow(4,'a')">Section</th>
-                    <th class="hoverColor" onClick="sortMetadataTableByRow(5,'a')">Last Update</th>
-                    <th class="hoverColor" onClick="sortMetadataTableByRow(6,'n')">Avg<br>Strike</th>
-                    <th class="hoverColor" onClick="sortMetadataTableByRow(7,'n')">Avg<br>Dip</th>
-                    <th class="hoverColor" onClick="sortMetadataTableByRow(8,'n')">Area(km<sup>2</sup>)</th>
+                    <th class="hoverColor" onClick="sortMetadataTableByRow(1,'a')">Fault<span id='sortCol_1' class="glyphicon glyphicon-menu-down"></span></th>
+                    <th class="hoverColor" onClick="sortMetadataTableByRow(2,'a')">Area<span id='sortCol_2' class="glyphicon glyphicon-menu-down"></span></th>
+                    <th class="hoverColor" onClick="sortMetadataTableByRow(3,'a')">Zone<span id='sortCol_3' class="glyphicon glyphicon-menu-down"></span></th>
+                    <th class="hoverColor" onClick="sortMetadataTableByRow(4,'a')">Section<span id='sortCol_4' class="glyphicon glyphicon-menu-down"></span></th>
+                    <th class="hoverColor" onClick="sortMetadataTableByRow(5,'a')">Last<br>Update<span id='sortCol_5' class="glyphicon glyphicon-menu-down"></span></th>
+                    <th class="hoverColor" onClick="sortMetadataTableByRow(6,'n')">Avg<br>Strike<span id='sortCol_6' class="glyphicon glyphicon-menu-down"></span></th>
+                    <th class="hoverColor" onClick="sortMetadataTableByRow(7,'n')">Avg<br>Dip<span id='sortCol_7' class="glyphicon glyphicon-menu-down"></span></th>
+                    <th class="hoverColor" onClick="sortMetadataTableByRow(8,'n')">Area<br>(km<sup>2</sup>)<span id='sortCol_8' class="glyphicon glyphicon-menu-down"></span></th>
                     <th><div class="col text-center">
                             <div class="btn-group download-now">
 <!-- MODAL popup button, reuse download-counter -->
@@ -464,7 +519,7 @@ $header = getHeader("Viewer");
         <button id="view3DClosebtn" class="btn btn-outline-primary btn-sm" data-dismiss="modal">Close</button>
         <button id="view3DExpandbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleExpand3Dview(this)">Shrink</button>
         <button id="view3DRefreshbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="refresh3Dview()">Reset</button>
-        <button id="view3DMovebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="move3Dview()">New Tab</button>
+        <button id="view3DMovebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="move3Dview()">New Window</button>
         <button id="view3DWarnbtn" class="btn btn-outline-primary btn-sm" style="display:none" data-toggle="modal" data-target="#modalwarn3d"></button>
         <button id="view3DSavebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="save3Dview()">Save Image</button>
         <button id="view3DHelpbtn" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modalinfo3d" onclick="$('#modal3D').modal('hide');">Help</button>

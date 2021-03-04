@@ -21,6 +21,7 @@ jQuery(document).ready(function() {
 // special handling latlon's input completion
   $("#firstLonTxt").keyup(function(event) {
         if (event.keyCode === 13) {
+window.console.log("in lon hand enter..");
            var firstlatstr=document.getElementById("firstLatTxt").value;
            var firstlonstr=document.getElementById("firstLonTxt").value;
            if(firstlatstr && firstlonstr) {
@@ -30,6 +31,7 @@ jQuery(document).ready(function() {
   });     
   $("#firstLatTxt").keyup(function(event) {
         if (event.keyCode === 13) {
+window.console.log("in lat hand enter..");
            var firstlatstr=document.getElementById("firstLatTxt").value;
            var firstlonstr=document.getElementById("firstLonTxt").value;
            if(firstlatstr && firstlonstr) {
@@ -56,6 +58,18 @@ jQuery(document).ready(function() {
            }
         }
   });     
+
+  $("#lowStrikeTxt").keyup(function(event) {
+        if (event.keyCode === 13) {
+           window.console.log("keyup is on lowSTrike");
+        }
+  });     
+  $("#highStrikeTxt").keyup(function(event) {
+        if (event.keyCode === 13) {
+           window.console.log("keyup is on highSTrike");
+        }
+  });     
+
 
   getGeoTraceList();
   getAllTraces();

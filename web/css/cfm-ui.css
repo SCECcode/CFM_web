@@ -3,12 +3,17 @@
   background-color: #F2F2F2;
 }
 
-.glyphicon.glyphicon-cog {
-    font-size: 25px;
+.glyphicon.glyphicon-menu-up,
+.glyphicon.glyphicon-menu-down {
+   color: #990000;
+}
+
+.glyphicon.glyphicon-record {
+   font-size: 25px;
 }
 
 .glyphicon.glyphicon-cog {
-    font-size: 30px;
+   font-size: 30px;
 }
 
 .glyphicon.glyphicon-check {
@@ -51,6 +56,7 @@
 #plot3d-all:not([disabled]) {
   background: #990000;
 }
+
 
 .custom-select-sm {
   padding: 0.2rem 0.375rem 0.2rem 0.75rem;    
@@ -106,10 +112,17 @@ div.container.main {
     min-width: 1140px;
 }
 
-input, select, .btn, .custom-select, .input-group-text {
+input, select, .custom-select, .input-group-text {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
+}
+
+.btn {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    padding: 0;
 }
 
 .container-fluid.top {
@@ -133,12 +146,12 @@ hr {
 #min-strike-handle, #max-strike-handle, #min-dip-handle, #max-dip-handle {
     border:2px solid black;
     border-radius: 4px;
-    width: 2em;
-    height: 1.6em;
+    width: 1em; 
+    height: 1.2em;
     top: 50%;
-    margin-top: -0.8em; 
+    margin-top: -0.6em; 
     text-align: center;
-    line-height: 1em;
+    line-height: 1.2em;
 }
 
 

@@ -210,7 +210,7 @@ function refresh3Dview() {
 // move current popup modal to a new tab
 function move3Dview() {
   var yourDOCTYPE = "<!DOCTYPE html>"; // your doctype declaration
-  var copyPreview = window.open('about:blank', 'new copy', "resizable=yes,scrollbars=yes,status=yes");
+  var copyPreview = window.open('about:blank', 'CFM Plot3D', "resizable=yes,scrollbars=yes,status=yes");
   var newCopy = copyPreview.document;
   newCopy.open();
   // remove copy and new tab buttons
@@ -343,6 +343,7 @@ function setIframHeight(id) {
 
 var track_full=0; // 1 is on 0 is off
 var save_height=0;
+var save_width=0;
 function toggleExpand3Dview(elt) {
   
   track_full = !track_full;
@@ -351,17 +352,17 @@ function toggleExpand3Dview(elt) {
     $('#modal3DDialog').removeClass('modal-full-dialog');
     $('#modal3DContent').removeClass('modal-full-content');
     save_height=document.getElementById("view3DIfram").height;
+    save_width=document.getElementById("view3DIfram").width;
     document.getElementById("view3DIfram").height=400;
+    document.getElementById("view3DIfram").height=500;
     } else {
       elt.innerHTML="Shrink";
       $('#modal3DDialog').addClass('modal-full-dialog');
       $('#modal3DContent').addClass('modal-full-content');
       var c=document.getElementById("modal3DContent");
       var f=document.getElementById("modal3DFooter");
-//      var c_h=c.scrollHeight;
-//      var f_h=f.scrollHeight;
-//      var n_h=c_h -(f_h* 2.5);
       document.getElementById("view3DIfram").height = save_height;
+      document.getElementById("view3DIfram").width = save_width;
   }
 }
 
@@ -374,10 +375,6 @@ function resetExpand3Dview() {
     $('#modal3DContent').addClass('modal-full-content');
     var c=document.getElementById("modal3DContent");
     var f=document.getElementById("modal3DFooter");
-//    var c_h=c.scrollHeight;
-//    var f_h=f.scrollHeight;
-//    var n_h=c_h -(f_h* 2.5);
-//    document.getElementById("view3DIfram").height = n_h;
   }
 }
 

@@ -24,10 +24,29 @@ function searchByStrikeRange(min,max) {
 }
 
 
+function setupSearchByStrike() {
+  var lowstrikestr=document.getElementById("lowStrikeTxt").value;
+  var highstrikestr=document.getElementById("highStrikeTxt").value;
+  var lowval=parseFloat(lowstrikestr);
+  var highval=parseFloat(highstrikestr);
+  var minval= $( "#slider-strike-range" ).slider("option", "min");
+  var maxval= $( "#slider-strike-range" ).slider("option", "max");
+  /* bad case.. reset to all */
+  if( lowval < minval || lowval > maxval || highval < minval || highval > maxval ||
+          highval < lowval ) {
+    window.console.log("BAD user input for strike range");
+    lowval=minval;
+    highval=maxval;
+  }
+
+  $("#slider-strike-range" ).slider( "option", "values", [lowval, highval]);
+  searchByStrikeRange(lowval,highval);
+}
+
 function searchWithStrikeRange() {
+
   //grab the min and max from the slider..
-  vals = $( "#slider-strike-range" ).slider("option", "values");
-window.console.log("search with strike range..  ",vals[0],vals[1]);
+  var vals = $( "#slider-strike-range" ).slider("option", "values");
   searchByStrikeRange(vals[0],vals[1]);
 }
 
@@ -57,6 +76,24 @@ function searchByDipRange(min,max) {
     }
 }
 
+function setupSearchByDip() {
+  var lowdipstr=document.getElementById("lowDipTxt").value;
+  var highdipstr=document.getElementById("highDipTxt").value;
+  var lowval=parseFloat(lowdipstr);
+  var highval=parseFloat(highdipstr);
+  var minval= $( "#slider-dip-range" ).slider("option", "min");
+  var maxval= $( "#slider-dip-range" ).slider("option", "max");
+  /* bad case.. reset to all */
+  if( lowval < minval || lowval > maxval || highval < minval || highval > maxval ||
+          highval < lowval ) {
+    window.console.log("BAD user input for dip range");
+    lowval=minval;
+    highval=maxval;
+  }
+
+  $("#slider-dip-range" ).slider( "option", "values", [lowval, highval]);
+  searchByDipRange(lowval,highval);
+}
 
 function searchWithDipRange() {
   //grab the min and max from the slider..

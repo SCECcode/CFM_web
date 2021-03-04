@@ -128,7 +128,6 @@ var cfm_blind_gid_list=[];
 function reset_geo_plot() {
   // can not really 'destroy' layer and so need to reuse..
   cfm_active_gid_list=[];
-  cfm_reference_gid_list=[];
   reset_layer_list();  // unhighlight the layers and remove highlighted
                        // off the download queue and allfirst
   // reset_style_list();

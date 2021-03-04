@@ -16,6 +16,26 @@ var dip_range_max_ref = 0;
 var dip_range_min = 0;
 var dip_range_max = 0;
 
+// clone the initial geo list or the active searched list
+// into a reference list
+function recordReferenceSet(glist) {
+   cfm_reference_gid_list = [].concat(glist);
+   window.console.log(">>>recording number of reference faults..",cfm_reference_gid_list.length);
+}
+
+// from landing page
+function recordActiveReference() {
+   recordReferenceSet(cfm_active_gid_list);
+   var elm=document.getElementById("search-filter-type");
+   elm.selectedIndex=0;
+   dismiss_sidebar();
+}
+
+function resetRecordReference() {
+  disable_record_btn();
+  recordReferenceSet(cfm_gid_list);
+}
+
 function set_current_strike_range_slider()
 {
   [min, max]=get_current_strike_range();
@@ -380,8 +400,8 @@ function refreshAll() {
   reset_select_latlon();
   reset_select_strike();
   reset_select_dip();
-  // maybe reset search-filter-type
-  resetSelectionOption();
+
+  resetRecordReference();
 
   document.getElementById("geoSearchByObjGidResult").innerHTML = "";
 // only cfm-table-body part needs to be refreshed
@@ -389,6 +409,7 @@ function refreshAll() {
   document.getElementById("phpResponseTxt").innerHTML = "";
   $("#search-filter-type").val("dismissClick");
 //  document.getElementById("objGidTxt").value = '';
+  $('#allBtn span').removeClass("glyphicon-check").addClass("glyphicon-unchecked");
 
   refresh_map();
   dismiss_sidebar();
@@ -541,6 +562,7 @@ function getColorFromMeta(meta) {
 }
 
 
+// initial set from the backend
 function processGeoList() {
     geostr = $('[data-side="allGeoList"]').data('params');
     nogeostr = $('[data-side="allNoGeoList"]').data('params');
@@ -566,8 +588,9 @@ function processGeoList() {
        cfm_nogeo_gid_list.push(gid);
     }
     window.console.log("total mixed geo..", cfm_gid_list.length);
-
+    recordReferenceSet(cfm_gid_list);
 }
+
 
 // extract meta data blob from php backend, extract object_tb's gid and 
 // use that to grab the matching geoJson
@@ -643,7 +666,6 @@ function processSearchResult(rlist) {
     // gid, name
     cfm_active_gid_list=[];
 
-// 
     var sz=(Object.keys(str).length);
     window.console.log("Number of gid blobs received from backend ->",sz);
     for( var i=0; i< sz; i++) {
@@ -651,8 +673,7 @@ function processSearchResult(rlist) {
        var gid=parseInt(tmp['gid']);
         
 // if filterBy and not in reference list, skip
-       if( (select_search_mode==0) &&
-            ! in_reference_gid_list(gid)) {
+       if(!in_reference_gid_list(gid)) {
          continue;
        }
 
@@ -662,12 +683,8 @@ function processSearchResult(rlist) {
        }
        strarray.push(str[i]);
     }
-    if(select_search_mode) { // if searchBy, save the active_gid_list
-       cfm_reference_gid_list = [].concat(cfm_active_gid_list)
-    }
  
-    enable_select_btn();
-
+    enable_record_btn();
     return (strarray);
 }
 

@@ -4,59 +4,14 @@
 
 var cfm_select_count=0;
 var showing_key = false;
-var select_search_mode = 1; // 1:searchBy, 0:filterBy
 
 
-function disable_select_btn() {
-  $('#swapSelectBtn').attr("disabled", true);
+function disable_record_btn() {
+  $('#recordReferenceBtn').attr("disabled", true);
 }
 
-function enable_select_btn() {
-  $('#swapSelectBtn').attr("disabled", false);
-}
-
-function resetSelectionOption() {
-
-   if(!select_search_mode) {
-     var dopt = document.createElement("option");
-     dopt.text = "Search by ...";
-     dopt.value="dismissClick";
-     select_search_mode=1;
-     var elm=document.getElementById("search-filter-type");
-     elm.options[0]=dopt;
-   }
-  
-   disable_select_btn();
-}
-
-function swapSelectOption() {
-   var elm=document.getElementById("search-filter-type");
-   var opt=elm.options[0];
-
-   // "<option value=\"dismissClick\">Search by ...</option>";
-   // "<option value=\"filterClick\">Filter by ...</option>";
-   var dopt = document.createElement("option");
-       dopt.text = "Search by ...";
-       dopt.value="dismissClick";
-   var fopt = document.createElement("option");
-       fopt.text = "Filter by ...";
-       fopt.value = "filterClick";
-
-   if(select_search_mode) {
-// remove search, add filter
-     elm.options[0]=fopt;
-     select_search_mode = 0;
-     } else {
-// remove filter, add search
-       elm.options[0]=dopt;
-       select_search_mode = 1;
-       disable_select_btn();
-// make refresh the page
-       refreshAll();
-   }
-   dismiss_sidebar();
-   var elm=document.getElementById("search-filter-type");
-   elm.selectedIndex=0;
+function enable_record_btn() {
+  $('#recordReferenceBtn').attr("disabled", false);
 }
 
 function set_strike_range_color(min,max) {
@@ -75,23 +30,25 @@ window.console.log("setup real Strike Range",realmin," and ",realmax);
   $( "#slider-strike-range" ).slider({
     range: true,
     step: 1,
+    min: 0,
+    max: 0,
     values: [ realmin, realmax ],
     slide: function( event, ui ) {
-      $("#min-strike-handle").text(ui.values[0]);
-      $("#max-strike-handle").text(ui.values[1]);
+      $("#lowStrikeTxt").val(ui.values[0]);
+      $("#highStrikeTxt").val(ui.values[1]);
       set_strike_range_color(ui.values[0],ui.values[1]);
     },
     change: function( event, ui ) {
-      $("#min-strike-handle").text(ui.values[0]);
-      $("#max-strike-handle").text(ui.values[1]);
+      $("#lowStrikeTxt").val(ui.values[0]);
+      $("#highStrikeTxt").val(ui.values[1]);
       set_strike_range_color(ui.values[0],ui.values[1]);
     },
     stop: function( event, ui ) {
       searchWithStrikeRange();
     },
     create: function() {
-      $("#min-strike-handle").text(realmin);
-      $("#max-strike-handle").text(realmax);
+      $("#lowStrikeTxt").val(realmin);
+      $("#highStrikeTxt").val(realmax);
     }
   });
 
@@ -112,23 +69,25 @@ function setupDipRangeSlider(realmin,realmax) {
   $( "#slider-dip-range" ).slider({
     range: true,
     step: 1,
+    min: 0,
+    max: 0,
     values: [ realmin, realmax ],
     change: function( event, ui ) {
-      $("#min-dip-handle").text(ui.values[0]);
-      $("#max-dip-handle").text(ui.values[1]);
+      $("#lowDipTxt").val(ui.values[0]);
+      $("#highDipTxt").val(ui.values[1]);
       set_dip_range_color(ui.values[0],ui.values[1]);
     },
     slide: function( event, ui ) {
-      $("#min-dip-handle").text(ui.values[0]);
-      $("#max-dip-handle").text(ui.values[1]);
+      $("#lowDipTxt").val(ui.values[0]);
+      $("#highDipTxt").val(ui.values[1]);
       set_dip_range_color(ui.values[0],ui.values[1]);
     },
     stop: function( event, ui ) {
       searchWithDipRange();
     },
     create: function() {
-      $("#min-dip-handle").text(realmin);
-      $("#max-dip-handle").text(realmax);
+      $("#lowDipTxt").val(realmin);
+      $("#highDipTxt").val(realmax);
     }
   });
   $('#slider-dip-range').slider("option", "min", realmin);
@@ -431,11 +390,25 @@ window.console.log("Calling sortMetadataTableByRow..",n);
       switching = true;
       switchcount ++; 
     } else {
+
+      window.console.log("done switching..");
+      if(switchcount != 0) {
+
+      }
+     
+
       if (switchcount == 0 && dir == "asc") {
-          dir = "desc";
+        dir = "desc";
         switching = true;
       }
     }
+  }
+  var id="#sortCol_"+n;
+  var t=$(id);
+  if(dir == 'asc') {
+    t.removeClass("glyphicon-menu-down").addClass("glyphicon-menu-up");
+    } else {
+      t.removeClass("glyphicon-menu-up").addClass("glyphicon-menu-down");
   }
 }
 
