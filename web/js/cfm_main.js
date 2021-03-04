@@ -12,63 +12,56 @@ jQuery(document).ready(function() {
   });
 
 // special handle keyword's input completion
-  $("#keywordTxt").keyup(function(event) {
-        if (event.keyCode === 13) {
-            searchByKeyword();
-        }
-  });     
+  $('#keywordTxt').on("focus", function() {
+     $('#keywordTxt').on("mouseout", function() {
+       window.console.log("XXX in keyword input after mouseout ->", $(this).val());
+       if( $(this).val() != '' ) {
+        searchByKeyword();
+       }
+       $('#keywordTxt').off("mouseout");
+       $('#keywordTxt').blur();
+     });
+  });
 
-// special handling latlon's input completion
-  $("#firstLonTxt").keyup(function(event) {
-        if (event.keyCode === 13) {
-window.console.log("in lon hand enter..");
-           var firstlatstr=document.getElementById("firstLatTxt").value;
-           var firstlonstr=document.getElementById("firstLonTxt").value;
-           if(firstlatstr && firstlonstr) {
-               entered_latlon_by_hand();
-           }
-        }
-  });     
-  $("#firstLatTxt").keyup(function(event) {
-        if (event.keyCode === 13) {
-window.console.log("in lat hand enter..");
-           var firstlatstr=document.getElementById("firstLatTxt").value;
-           var firstlonstr=document.getElementById("firstLonTxt").value;
-           if(firstlatstr && firstlonstr) {
-               entered_latlon_by_hand();
-           }
-        }
-  });     
+  $('#lowStrikeTxt').on("focus", function() {
+     $('#lowStrikeTxt').on("mouseout", function() {
+       if( $(this).val() != '' ) {
+         setupSearchByStrike();
+       }
+       $('#lowStrikeTxt').off("mouseout");
+       $('#lowStrikeTxt').blur();
+     });
+  });
 
-  $("#secondLonTxt").keyup(function(event) {
-        if (event.keyCode === 13) {
-           var secondlatstr=document.getElementById("secondLatTxt").value;
-           var secondlonstr=document.getElementById("secondLonTxt").value;
-           if(secondlatstr && secondlonstr) {
-               entered_latlon_by_hand();
-           }
-        }
-  });     
-  $("#secondLatTxt").keyup(function(event) {
-        if (event.keyCode === 13) {
-           var secondlatstr=document.getElementById("secondLatTxt").value;
-           var secondlonstr=document.getElementById("secondLonTxt").value;
-           if(secondlatstr && secondlonstr) {
-               entered_latlon_by_hand();
-           }
-        }
-  });     
+  $('#highStrikeTxt').on("focus", function() {
+     $('#highStrikeTxt').on("mouseout", function() {
+       if( $(this).val() != '' ) { 
+         setupSearchByStrike();
+       }
+       $('#highStrikeTxt').off("mouseout");
+       $('#highStrikeTxt').blur();
+     });
+  });
 
-  $("#lowStrikeTxt").keyup(function(event) {
-        if (event.keyCode === 13) {
-           window.console.log("keyup is on lowSTrike");
-        }
-  });     
-  $("#highStrikeTxt").keyup(function(event) {
-        if (event.keyCode === 13) {
-           window.console.log("keyup is on highSTrike");
-        }
-  });     
+  $('#lowDipTxt').on("focus", function() {
+     $('#lowDipTxt').on("mouseout", function() {
+       if( $(this).val() != '' ) {
+         setupSearchByDip();
+       }
+       $('#lowDipTxt').off("mouseout");
+       $('#lowDipTxt').blur();
+     });
+  });
+  
+  $('#highDipTxt').on("focus", function() {
+     $('#highDipTxt').on("mouseout", function() {
+       if( $(this).val() != '' ) {
+         setupSearchByDip();
+       }
+       $('#highDipTxt').off("mouseout");
+       $('#highDipTxt').blur();
+     });
+  });
 
 
   getGeoTraceList();

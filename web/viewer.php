@@ -212,12 +212,14 @@ $header = getHeader("Viewer");
                                                   onfocus="this.value=''"
                                                   class="form-control">
                                        </div>
+<!--
                                        <div class="col-2 pr-0 align-items-center">
                                            <button id="strikeBtn" type="button" title="search with strike range"
                                                    class="btn btn-default cfm-small-btn " onclick="setupSearchByStrike()">
                                                <span class="glyphicon glyphicon-search"></span>
                                            </button>
                                        </div>
+-->
                                        <div class="col-10 mt-1 mb-0">
                                           <div id="slider-strike-range" style="border:2px solid black">
 				          <div id="min-strike-handle" class="ui-slider-handle"></div>
@@ -249,12 +251,14 @@ $header = getHeader("Viewer");
                                                   onfocus="this.value=''"
                                                   class="form-control">
                                        </div>
+<!--
                                        <div class="col-2 pr-0 align-items-center">
                                            <button id="dipBtn" type="button" title="search with an average dip range"
                                                    class="btn btn-default cfm-small-btn " onclick="setupSearchByDip()">
                                                <span class="glyphicon glyphicon-search"></span>
                                            </button>
                                        </div>
+-->
                                        <div class="col-10 mt-1 mb-0">
                                           <div id="slider-dip-range" style="border:2px solid black">
 				          <div id="min-dip-handle" class="ui-slider-handle"></div>
@@ -272,10 +276,12 @@ $header = getHeader("Viewer");
                                         <input placeholder="Enter Keyword" type="text" id="keywordTxt"
                                                class="form-control"
                                                onfocus="this.value=''" style=""/>
+<!--
                                         <button id="keywordBtn" type="button" title="search with keyword"
                                                 class="btn btn-default cfm-small-btn pl-3" onclick="searchByKeyword()">
                                             <span class="glyphicon glyphicon-search"></span>
                                         </button>
+-->
                                     </div>
                                 </div>
 
