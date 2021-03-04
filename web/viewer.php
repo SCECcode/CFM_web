@@ -203,14 +203,14 @@ $header = getHeader("Viewer");
                                                   id="lowStrikeTxt"
                                                   title="low strike"
                                                   onfocus="this.value=''"
-                                                  class="form-control">
+                                                  class="strike-item form-control">
                                        </div>
                                        <div class="col-5 pl-1 pr-0">
                                            <input type="text"
                                                   id="highStrikeTxt"
                                                   title="high strike"
                                                   onfocus="this.value=''"
-                                                  class="form-control">
+                                                  class="strike-item form-control">
                                        </div>
 <!--
                                        <div class="col-2 pr-0 align-items-center">
@@ -242,14 +242,14 @@ $header = getHeader("Viewer");
                                                   id="lowDipTxt"
                                                   title="low dip"
                                                   onfocus="this.value=''"
-                                                  class="form-control">
+                                                  class="dip-item form-control">
                                        </div>
                                        <div class="col-5 pl-1 pr-0">
                                            <input type="text"
                                                   id="highDipTxt"
                                                   title="high dip"
                                                   onfocus="this.value=''"
-                                                  class="form-control">
+                                                  class="dip-item form-control">
                                        </div>
 <!--
                                        <div class="col-2 pr-0 align-items-center">
@@ -300,13 +300,13 @@ $header = getHeader("Viewer");
                                                id="firstLatTxt"
                                                title="first lat"
                                                onfocus="this.value=''"
-                                               class="form-control">
+                                               class="latlon-item form-control">
                                         <input type="text" 
                                                id="firstLonTxt" 
                                                placeholder='Longitude' 
                                                title="first lon"
                                                onfocus="this.value=''" 
-                                               class="form-control mt-1">
+                                               class="latlon-item form-control mt-1">
                                     </div>
                                     <div class="col-2 pl-1 pr-0">
                                         <input type="text"
@@ -314,20 +314,22 @@ $header = getHeader("Viewer");
                                                title="optional second lat"
                                                value='optional'
                                                onfocus="this.value=''"
-                                               class="form-control">
+                                               class="latlon-item form-control">
                                         <input type="text"
                                                id="secondLonTxt"
                                                title="optional second lon"
                                                value='optional'
                                                onfocus="this.value=''"
-                                               class="form-control mt-1">
+                                               class="latlon-item form-control mt-1">
                                     </div>
+<!--
                                     <div class="col-1 pr-0 align-items-center">
                                         <button id="latlonBtn" type="button" title="search with latlon"
                                                 class="btn btn-default cfm-small-btn " onclick="searchByLatlon(0)">
                                             <span class="glyphicon glyphicon-search"></span>
                                         </button>
                                     </div>
+-->
                                 </div>
                             </div>
                         </li>

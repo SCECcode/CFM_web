@@ -23,47 +23,37 @@ jQuery(document).ready(function() {
      });
   });
 
-  $('#lowStrikeTxt').on("focus", function() {
-     $('#lowStrikeTxt').on("mouseout", function() {
+  $('.strike-item').on("focus", function() {
+     $('.strike-item').on("mouseout", function() {
        if( $(this).val() != '' ) {
          setupSearchByStrike();
        }
-       $('#lowStrikeTxt').off("mouseout");
-       $('#lowStrikeTxt').blur();
+       $('.strike-item').off("mouseout");
+       $(this).blur();
      });
   });
 
-  $('#highStrikeTxt').on("focus", function() {
-     $('#highStrikeTxt').on("mouseout", function() {
-       if( $(this).val() != '' ) { 
-         setupSearchByStrike();
-       }
-       $('#highStrikeTxt').off("mouseout");
-       $('#highStrikeTxt').blur();
-     });
-  });
-
-  $('#lowDipTxt').on("focus", function() {
-     $('#lowDipTxt').on("mouseout", function() {
+  $('.dip-item').on("focus", function() {
+     $('.dip-item').on("mouseout", function() {
        if( $(this).val() != '' ) {
          setupSearchByDip();
        }
-       $('#lowDipTxt').off("mouseout");
-       $('#lowDipTxt').blur();
+       $('.dip-item').off("mouseout");
+       $(this).blur();
+     });
+  });
+
+  $('.latlon-item').on("focus", function() {
+     $('.latlon-item').on("mouseout", function() {
+       if( $(this).val() != '' ) {
+         searchByLatlon(0);
+       }
+       $('.latlon-item').off("mouseout");
+       $(this).blur();
      });
   });
   
-  $('#highDipTxt').on("focus", function() {
-     $('#highDipTxt').on("mouseout", function() {
-       if( $(this).val() != '' ) {
-         setupSearchByDip();
-       }
-       $('#highDipTxt').off("mouseout");
-       $('#highDipTxt').blur();
-     });
-  });
-
-
+  
   getGeoTraceList();
   getAllTraces();
   setupSearch();
