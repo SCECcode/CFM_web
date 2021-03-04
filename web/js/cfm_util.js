@@ -16,6 +16,30 @@ var dip_range_max_ref = 0;
 var dip_range_min = 0;
 var dip_range_max = 0;
 
+// track the geo-counter
+function setGeoTargetValue(v) {
+  document.getElementById('spinIconFor2D').style.display = "block";
+  let elm = $("#geo-total");
+  elm.val(v);
+// block the control panel
+//  let controlElm = $("#controls-container");
+//  controlElm.css({opacity:0.2});
+}
+
+function addOne2GeoCounter() { 
+  let elm = $("#geo-counter");
+  let v = parseInt(elm.val())+1;
+  let maxelm = $("#geo-total");
+  let max = parseInt(maxelm.val());
+  elm.val(v);
+  if (v == max) { // turn off spinner
+    document.getElementById('spinIconFor2D').style.display = "none";
+window.console.log("Finished loading..");
+//    let controlElm = $("#controls-container");
+//    controlElm.css({});
+  }
+}
+
 // clone the initial geo list or the active searched list
 // into a reference list
 function recordReferenceSet(glist) {
@@ -632,6 +656,9 @@ function processTraceMeta(metaList) {
        }
     }
     window.console.log("Number of meta blobs received from backend ->",sz);
+/* this is number of geoJson coming in from the back end.. */
+
+    setGeoTargetValue(sz);
     return str;
 }
 

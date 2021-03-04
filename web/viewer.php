@@ -120,8 +120,12 @@ $header = getHeader("Viewer");
 
 <div class="main">
 
-    <div class="spinDialog" style="position:absolute;top:40%;left:50%; z-index:9999;">
+    <div class="spinDialog" style="position:absolute;top:20%;left:50%; z-index:9999;">
         <div id="spinIconFor2D" align="center" style="display:none;"><i class="glyphicon glyphicon-cog fa-spin" style="color:red"></i></div>
+    </div>
+    <div style="display:none">
+      <input type="text" id="geo-total">
+      <input type="text" id="geo-counter" value="0">
     </div>
 
     <div class="row">

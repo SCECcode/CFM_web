@@ -249,6 +249,7 @@ function addGeoToMap(cfmTrace, mymap) {
        }
    });
 
+  addOne2GeoCounter();
   return geoLayer;
 }
 
