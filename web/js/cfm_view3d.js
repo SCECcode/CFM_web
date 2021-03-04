@@ -348,13 +348,14 @@ function toggleExpand3Dview(elt) {
   
   track_full = !track_full;
   if(track_full) {
+    let h = document.documentElement.clientHeight;
     elt.innerHTML="Expand";
     $('#modal3DDialog').removeClass('modal-full-dialog');
     $('#modal3DContent').removeClass('modal-full-content');
     save_height=document.getElementById("view3DIfram").height;
     save_width=document.getElementById("view3DIfram").width;
     document.getElementById("view3DIfram").height=400;
-    document.getElementById("view3DIfram").height=500;
+    document.getElementById("view3DIfram").width=600;
     } else {
       elt.innerHTML="Shrink";
       $('#modal3DDialog').addClass('modal-full-dialog');
@@ -375,6 +376,8 @@ function resetExpand3Dview() {
     $('#modal3DContent').addClass('modal-full-content');
     var c=document.getElementById("modal3DContent");
     var f=document.getElementById("modal3DFooter");
+    document.getElementById("view3DIfram").height = save_height;
+    document.getElementById("view3DIfram").width = save_width;
   }
 }
 
