@@ -122,7 +122,7 @@ input, select, .custom-select, .input-group-text {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
-    padding: 0;
+    padding: 0 0.75rem 0 0.75rem;
 }
 
 .container-fluid.top {
