@@ -337,7 +337,7 @@ function resetBounds3Dview() {
 function setIframHeight(id) {
   let top = document.documentElement.clientHeight;
   var f_h=58;
-  var height=top -(f_h* 4);
+  var height=top -(f_h*3);
   document.getElementById(id).height = height;
 }
 
