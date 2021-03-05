@@ -118,10 +118,6 @@ $header = getHeader("Viewer");
 
 <div class="container">
 
-<div class="spinDialog" id="gatekeeper" style="position:absolute;width:80%;height:90%; z-index:9999">
-    <div id="spinIconFor2D" align="center" style="margin-top:20%;display:none;"><i class="glyphicon glyphicon-cog fa-spin" style="color:red"></i></div>
-</div>
-
 <div class="main">
     <div style="display:none">
       <input type="text" id="geo-total">
@@ -205,14 +201,14 @@ $header = getHeader("Viewer");
                                        <div class="col-5 pl-0 pr-0">
                                            <input type="text"
                                                   id="lowStrikeTxt"
-                                                  title="low strike"
+                                                  title="min strike"
                                                   onfocus="this.value=''"
                                                   class="strike-item form-control">
                                        </div>
                                        <div class="col-5 pl-1 pr-0">
                                            <input type="text"
                                                   id="highStrikeTxt"
-                                                  title="high strike"
+                                                  title="max strike"
                                                   onfocus="this.value=''"
                                                   class="strike-item form-control">
                                        </div>
@@ -244,14 +240,14 @@ $header = getHeader("Viewer");
                                        <div class="col-5 pl-0 pr-0">
                                            <input type="text"
                                                   id="lowDipTxt"
-                                                  title="low dip"
+                                                  title="min dip"
                                                   onfocus="this.value=''"
                                                   class="dip-item form-control">
                                        </div>
                                        <div class="col-5 pl-1 pr-0">
                                            <input type="text"
                                                   id="highDipTxt"
-                                                  title="high dip"
+                                                  title="max dip"
                                                   onfocus="this.value=''"
                                                   class="dip-item form-control">
                                        </div>
@@ -291,7 +287,6 @@ $header = getHeader("Viewer");
 
                             </div>
                         </li>
-<!-- XXX -->
                         <li id='latlon' class='navigationLi' style="width:600px; display:none">
                             <div id='latlonMenu' class='menu'>
                                 <div class="row">
@@ -542,6 +537,24 @@ $header = getHeader("Viewer");
 </div> <!--Modal: Name-->
 
 <!--Modal: ModelType -->
+<div class="modal" id="modalwait" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" id="modalwaitDialog" role="document">
+
+    <!--Content-->
+    <div class="modal-content" id="modalwaitContent">
+      <!--Body-->
+      <div class="modal-body" id="modalwaitBody">
+        <div class="row col-md-12 ml-auto" style="overflow:hidden; font-size:10pt">
+           <p style="font-size:25px">Please wait for the model to load &nbsp;
+                <i class="glyphicon glyphicon-cog fa-spin" style='color:#990000'></i>
+           </p>
+        </div>
+      </div>
+
+    </div> <!--Content-->
+  </div>
+</div> <!--Modal: Name-->
+
 <div class="modal" id="modalwarn3d" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg" id="modalwarn3dDialog" role="document">
 
