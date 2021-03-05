@@ -18,6 +18,7 @@ var dip_range_max = 0;
 
 // track the geo-counter
 function setGeoTargetValue(v) {
+
   document.getElementById('spinIconFor2D').style.display = "block";
   let elm = $("#geo-total");
   elm.val(v);
@@ -38,6 +39,7 @@ function addOne2GeoCounter() {
   if (v == max) { // turn off spinner
 window.console.log("Finished loading..");
     document.getElementById('spinIconFor2D').style.display = "none";
+    $('#gatekeeper').remove();
 //    let searchElm = $("#search-filter-type");
 //    searchElm.prop('disabled',false);
 //    let tbElm = $("#metadata-viewer");

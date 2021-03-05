@@ -118,11 +118,11 @@ $header = getHeader("Viewer");
 
 <div class="container">
 
-<div class="main">
+<div class="spinDialog" id="gatekeeper" style="position:absolute;width:80%;height:90%; z-index:9999">
+    <div id="spinIconFor2D" align="center" style="margin-top:20%;display:none;"><i class="glyphicon glyphicon-cog fa-spin" style="color:red"></i></div>
+</div>
 
-    <div class="spinDialog" style="position:absolute;top:20%;left:50%; z-index:9999;">
-        <div id="spinIconFor2D" align="center" style="display:none;"><i class="glyphicon glyphicon-cog fa-spin" style="color:red"></i></div>
-    </div>
+<div class="main">
     <div style="display:none">
       <input type="text" id="geo-total">
       <input type="text" id="geo-counter" value="0">

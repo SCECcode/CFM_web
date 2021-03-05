@@ -52,6 +52,9 @@ jQuery(document).ready(function() {
        $(this).blur();
      });
   });
+
+  $('#gatekeeper').on("click", function() { })
+
   
   getGeoTraceList();
   getAllTraces();
