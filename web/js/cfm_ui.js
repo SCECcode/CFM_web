@@ -350,7 +350,7 @@ window.console.log("Calling sortMetadataTableByRow..",n);
     switching = false;
     rows = table.rows;
     if(rows.length < 3) // no switching
-      break;
+      return;
 
 /* loop through except first and last */
     for (i = 1; i < (rows.length - 2); i++) {

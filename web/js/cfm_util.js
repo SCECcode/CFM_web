@@ -22,8 +22,11 @@ function setGeoTargetValue(v) {
   let elm = $("#geo-total");
   elm.val(v);
 // block the control panel
-//  let controlElm = $("#controls-container");
-//  controlElm.css({opacity:0.2});
+//  let searchElm = $("#search-filter-type");
+//  searchElm.prop('disabled',true);
+//  let tbElm = $("#metadata-viewer");
+//  tbElm.prop('disabled',true);
+//  tbElm.css({"border":"1px solid red"});
 }
 
 function addOne2GeoCounter() { 
@@ -33,10 +36,12 @@ function addOne2GeoCounter() {
   let max = parseInt(maxelm.val());
   elm.val(v);
   if (v == max) { // turn off spinner
-    document.getElementById('spinIconFor2D').style.display = "none";
 window.console.log("Finished loading..");
-//    let controlElm = $("#controls-container");
-//    controlElm.css({});
+    document.getElementById('spinIconFor2D').style.display = "none";
+//    let searchElm = $("#search-filter-type");
+//    searchElm.prop('disabled',false);
+//    let tbElm = $("#metadata-viewer");
+//    tbElm.prop('disabled',false);
   }
 }
 
