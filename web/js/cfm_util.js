@@ -18,7 +18,7 @@ var dip_range_max = 0;
 
 // track the geo-counter
 function setGeoTargetValue(v) {
-  $("#modalwait").modal('show')
+  $("#modalwait").modal({ backdrop: 'static', keyboard: false });
   let elm = $("#geo-total");
   elm.val(v);
 }

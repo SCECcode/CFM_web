@@ -146,7 +146,7 @@ function setup_viewer()
   mymap.on(L.Draw.Event.CREATED, function (e) {
     var type = e.layerType,
         layer = e.layer;
-    if (type === 'rectangle') {  // only tracks retangles
+    if (type === 'rectangle') {  // only tracks rectangles
         // get the boundary of the rectangle
         var latlngs=layer.getLatLngs();
         // first one is always the south-west,

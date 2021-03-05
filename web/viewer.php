@@ -440,7 +440,7 @@ $header = getHeader("Viewer");
 -->
                                 </div>
                             </div>
-                            &nbsp; &nbsp;
+                            &nbsp;
                             <div class="btn-group download-now">
                                 <button id="download-all" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false" disabled>
