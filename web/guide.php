@@ -191,20 +191,6 @@ $header = getHeader("User Guide");
                                                                              Seismological Society of America 97:
                                                                              1793-1802. <a
                             href="https://www.scec.org/publication/1134">SCEC Contribution 1134</a></li>
-                <li><a href="https://www.scec.org/user/plesch">Plesch, A.</a>, <a
-                            href="https://www.scec.org/user/nicholson">Nicholson,
-                                                                       C.</a>. <a
-                            href="https://www.scec.org/user/sorlien">Sorlien, C.</a>, <a
-                            href="https://www.scec.org/user/jshaw">Shaw, J. H.</a> and <a
-                            href="https://www.scec.org/user/hauksson">Hauksson, E.</a>, CFM Version 5.1: New and revised
-                                                                             3D
-                                                                             fault representations and an improved
-                                                                             database, 2016 SCEC Annual Meeting
-                                                                             Proceedings &amp; Abstracts,
-                                                                             XXVI,
-                                                                             poster 003, p.222-223 (2016).&nbsp; <a
-                            href="https://www.scec.org/publication/6768">SCEC Contribution
-                                                                         6768</a></li>
                 <li><a href="https://www.scec.org/user/jshaw">Shaw, J. H.</a>, <a
                             href="https://www.scec.org/user/plesch">Plesch,
                                                                     A.</a>, <a
