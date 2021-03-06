@@ -196,6 +196,12 @@ table, td, th {
     padding: 2px 2px 2px 5px;
 }
 
+/* XXX */
+.meta_td {
+/*   border: 2px solid red; */
+    max-width:100px;
+}
+
 table tr th {
     background-color: #F2F2F2;
 }
@@ -382,6 +388,7 @@ div.mapData {
           color: #990000;
           border: none;
           display: inline-block;
+          padding: 0rem 0.2rem 0rem 0.2rem;
           }
 
 .cfm-small-btn:hover {
@@ -707,7 +714,8 @@ div.guide ul {
 }
 
 #metadata-viewer {
-    width: 100%;
+    width: 100%; 
+    max-width: 1100px;
 }
 
 #metadata-viewer .download-link a {

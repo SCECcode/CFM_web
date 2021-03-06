@@ -395,12 +395,11 @@ $header = getHeader("Viewer");
         <div class="col-7 pr-0 pl-2 ">
             <div class="row w-100 mb-1" id='CFM_plot'
                  style="position:relative;border:solid 1px #ced4da; height:576px;"></div>
-
-
         </div>
     </div>
     <div class="row">
-        <div class="col-12" id="metadata-viewer-container">
+      <div class="col-12">
+        <div id="metadata-viewer-container" style="border:solid 1px #ced4da; overflow-x:hidden">
             <table id="metadata-viewer">
                 <thead>
                 <tr>
@@ -444,7 +443,7 @@ $header = getHeader("Viewer");
                             <div class="btn-group download-now">
                                 <button id="download-all" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false" disabled>
-                                    Download All <span id="download-counter"></span>
+                                    Download<span id="download-counter"></span>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <button class="dropdown-item" type="button" value="meta"
@@ -472,11 +471,13 @@ $header = getHeader("Viewer");
                 </thead>
                 <tbody>
                 <tr id="placeholder-row">
+<!--- altered from 11 -->
                     <td colspan="11">Metadata for selected faults will appear here. </td>
                 </tr>
                 </tbody>
             </table>
         </div>
+      </div>
     </div>
 </div>
 

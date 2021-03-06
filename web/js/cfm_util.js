@@ -452,14 +452,14 @@ function getMetadataRowForDisplay(meta) {
    var content = ` 
    <tr id="metadata-${meta['gid']}">
        <td><button class=\"btn btn-sm cfm-small-btn\" id=\"button_meta_${meta['gid']}\" title=\"remove the fault\" onclick=toggle_highlight("${meta['gid']}");><span id=\"highlight_meta_${meta['gid']}\" class=\"glyphicon glyphicon-trash\"></span></button></td>
-       <td>${meta['fault']}</td>
-       <td>${meta['area']}</td>
-       <td>${meta['zone']}</td>
-       <td>${meta['section']}</td>
-       <td>${meta['last_update']}</td>
-       <td>${meta['avg_strike']}</td>
-       <td>${meta['avg_dip']}</td>
-       <td>${meta['area_km2']}</td>
+       <td class="meta_td" >${meta['fault']}</td>
+       <td class="meta_td" >${meta['area']}</td>
+       <td class="meta_td" >${meta['zone']}</td>
+       <td class="meta_td" >${meta['section']}</td>
+       <td class="meta_td" >${meta['last_update']}</td>
+       <td class="meta_td" >${meta['avg_strike']}</td>
+       <td class="meta_td" >${meta['avg_dip']}</td>
+       <td class="meta_td" >${meta['area_km2']}</td>
        <td class="download-link">${downloadButtons}</td>
    </tr>
    `;

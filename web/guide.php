@@ -60,11 +60,6 @@ $header = getHeader("User Guide");
             <p><i>This site is provisional and is undergoing active testing and review by the CFM community. To report any bugs or issues, please see the <a href="contact">contact page</a>.</i></p>
 
             <h4><strong>Search</strong></h4>
-            <p>
-                The site provides a number of search criteria, primarily keyword and latitude/longitude but also
-                the following advanced search criteria: fault area, fault zone, section, and name. Once a
-                search type is selected, controls will appear below in the form of another dropdown, text input
-                boxes, or sliders. </p>
 
             <p> The site provides a number of search criteria, including keyword, latitude/longitude, fault area,
                 fault zone, section, and name. Users can also filter results by the average strike and/or dip of
@@ -187,7 +182,7 @@ $header = getHeader("User Guide");
                             href="https://www.scec.org/user/nicholson">Nicholson, C.</a>, <a
                             href="https://www.scec.org/user/jshaw">Shaw, J. H.</a>, <a 
                             href="https://www.scec.org/user/maechlin">Maechling, P. J.</a>, <a
-                            href="https://www.scec.org/user/mei">Su, M-H.</a>. (2020). “The Community Fault Model version 5.3 and new web-based tools” Virtual Poster Presentation at the 2020 SCEC Annual Meeting. <a 
+                            href="https://www.scec.org/user/mei">Su, M-H.</a> (2020). “The Community Fault Model version 5.3 and new web-based tools” Virtual Poster Presentation at the 2020 SCEC Annual Meeting. <a 
                             href="https://www.scec.org/publication/10547">SCEC Contribution 10547</a></li>
                 <li><a href="https://www.scec.org/user/plesch">Plesch, A.</a>, et al. (2007). "Community Fault Model
                                                                              (CFM)
