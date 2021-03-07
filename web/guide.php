@@ -85,7 +85,7 @@ $header = getHeader("User Guide");
 
             <p> Metadata files in CSV format and tsurf files are available for download from this site. First,
                 select the desired faults by clicking on the fault displayed on the map or clicking on fault 
-                listed in the box* to the left of the map. The selected faults are highlighted in red** on the
+                listed in the box* to the left of the map. The selected faults are highlighted in <span style="color:#cc0000">red</span> on the
                 map. The selected faults' metadata appear in the metadata table* at the bottom of the page. 
                 Click on the links on the rightmost column of the metadata table to download data for one fault.
                 Click on the "DOWNLOAD ALL" button to download data for all selected faults. The download 
