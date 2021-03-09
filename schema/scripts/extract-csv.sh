@@ -10,6 +10,7 @@ EXCEL_NM="CFM5.3_Metadata"
 
 rm -f *.csv
 in2csv ${EXCEL_NM}.xlsx 2> ${EXCEL_NM}.err |csvcut -c 1-26 > ${EXCEL_NM}_raw.csv
+grep ",,,,,,,,$"  ${EXCEL_NM}_raw.csv > skip_subtitles
 grep -vf skip_subtitles ${EXCEL_NM}_raw.csv |sed "s/  / /g" | sed "s/, E/,E/"  > ${EXCEL_NM}.csv
 csvcut -n ${EXCEL_NM}.csv > ${EXCEL_NM}_column_labels
 
