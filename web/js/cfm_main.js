@@ -7,14 +7,6 @@ jQuery(document).ready(function() {
 
   viewermap=setup_viewer();
 
-/*
-  if("ontouchstart" in window) {
-     window.console.log("XXX has ontouchstart");
-     } else {
-        window.console.log("XXX No ontouchstart");
-  }
-*/
-
   $("#view3d-all").on('click',function() {
      $('#view3DIfram').attr('src',"http:localhost:9999/?name=[WTRA-USAV-INDH-Indian_Hill_fault-CFM5.stl,WTRA-USAV-SNJH-San_Jose_fault-CFM5.stl,WTRA-USAV-UPLD-Upland_fault_dipslip-CFM1.stl,WTRA-USAV-WLNC-Walnut_Creek_fault-CFM5.stl]&url=[http://localhost:9999/cfm_data/WTRA-USAV-INDH-Indian_Hill_fault-CFM5.stl,http://localhost:9999/cfm_data/WTRA-USAV-SNJH-San_Jose_fault-CFM5.stl,http://localhost:9999/cfm_data/WTRA-USAV-UPLD-Upland_fault_dipslip-CFM1.stl,http://localhost:9999/cfm_data/WTRA-USAV-WLNC-Walnut_Creek_fault-CFM5.stl]");
   });
@@ -35,36 +27,37 @@ jQuery(document).ready(function() {
   });
 
   $('.strike-item').on("focus", function() {
-     $('.strike-item').on("mouseout", function() {
+     $('.strike-item').on("blur mouseout", function() {
+       $('.strike-item').off("mouseout");
+       $('.strike-item').off("blur");
        if( $(this).val() != '' ) {
          setupSearchByStrike();
        }
-       $('.strike-item').off("mouseout");
        $(this).blur();
      });
   });
 
   $('.dip-item').on("focus", function() {
-     $('.dip-item').on("mouseout", function() {
+     $('.dip-item').on("blur mouseout", function() {
+       $('.dip-item').off("mouseout");
+       $('.dip-item').off("blur");
        if( $(this).val() != '' ) {
          setupSearchByDip();
        }
-       $('.dip-item').off("mouseout");
        $(this).blur();
      });
   });
 
   $('.latlon-item').on("focus", function() {
-     $('.latlon-item').on("mouseout", function() {
+     $('.latlon-item').on("blur mouseout", function() {
+       $('.latlon-item').off("mouseout");
+       $('.latlon-item').off("blur");
        if( $(this).val() != '' ) {
          searchByLatlon(0);
        }
-       $('.latlon-item').off("mouseout");
        $(this).blur();
      });
   });
-
-  $('#gatekeeper').on("click", function() { })
 
   
   getGeoTraceList();
