@@ -85,7 +85,7 @@ CREATE TABLE OBJECT_tb (
    avg_dip real DEFAULT 0.0,
    area_km2 numeric DEFAULT 0,
    exposure VARCHAR(10),
-   slip_sense VARCHAR(6),
+   slip_sense VARCHAR(10),
    ID_comments VARCHAR(300),
    USGS_ID VARCHAR(100),
    fault_strand_model_description VARCHAR(300),
