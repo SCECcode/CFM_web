@@ -244,6 +244,7 @@ PNRA-ELSZ-WHIT-Whittier_fault-CFM4_500m,https://s3-us-west-2.amazonaws.com/files
 PNRA-ELSZ-WHIT-Workman_Hill_fault-CFM1_500m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM5/CFM53_preferred/500m/PNRA-ELSZ-WHIT-Workman_Hill_fault-CFM1_500m.ts
 PNRA-ELSZ-YUHA-Sierra_Cucapah_fault_NW_splay-CFM5_500m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM5/CFM53_preferred/500m/PNRA-ELSZ-YUHA-Sierra_Cucapah_fault_NW_splay-CFM5_500m.ts
 PNRA-ELSZ-YUHA-Sierra_Cucapah_fault_blind_north-CFM5_500m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM5/CFM53_preferred/500m/PNRA-ELSZ-YUHA-Sierra_Cucapah_fault_blind_north-CFM5_500m.ts
+PNRA-EMCP-2010-El_Mayor_Cucapah_rupture-CFM5_500m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM5/CFM53_preferred/500m/PNRA-EMCP-2010-El_Mayor_Cucapah_rupture-CFM5_500m.ts
 PNRA-HSSF-AGCT-Agua_Caliente_fault_zone-CFM4_500m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM5/CFM53_preferred/500m/PNRA-HSSF-AGCT-Agua_Caliente_fault_zone-CFM4_500m.ts
 PNRA-HSSF-HOTS-Hot_Springs_fault-CFM4_500m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM5/CFM53_preferred/500m/PNRA-HSSF-HOTS-Hot_Springs_fault-CFM4_500m.ts
 PNRA-HSSF-MRHS-Murrieta_H,prings_fault-CFM4_500m.tshttps://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM5/CFM53_preferred/500m/PNRA-HSSF-MRHS-Murrieta_Hotsprings_fault-CFM4_500m.ts
@@ -337,6 +338,7 @@ SNFA-CJFZ-HWRS-Haiwee_fault-CFM5_500m,https://s3-us-west-2.amazonaws.com/files.s
 SNFA-CJFZ-HWRS-Haiwee_fault_connector-CFM5_500m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM5/CFM53_preferred/500m/SNFA-CJFZ-HWRS-Haiwee_fault_connector-CFM5_500m.ts
 SNFA-CJFZ-ROSE-Rose_Valley_fault-CFM5_500m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM5/CFM53_preferred/500m/SNFA-CJFZ-ROSE-Rose_Valley_fault-CFM5_500m.ts
 SNFA-HMFZ-MULT-Hunter_Mountain_fault-CFM1_500m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM5/CFM53_preferred/500m/SNFA-HMFZ-MULT-Hunter_Mountain_fault-CFM1_500m.ts
+SNFA-LLFZ-2019-Ridgecrest_ruptures-CFM5_500m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM5/CFM53_preferred/500m/SNFA-LLFZ-2019-Ridgecrest_ruptures-CFM5_500m.ts
 SNFA-LLFZ-CNTR-Little_Lake_fault-CFM5_500m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM5/CFM53_preferred/500m/SNFA-LLFZ-CNTR-Little_Lake_fault-CFM5_500m.ts
 SNFA-LLFZ-CRSS-Central_Little_Lake_south_cross_fault-CFM5_500m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM5/CFM53_preferred/500m/SNFA-LLFZ-CRSS-Central_Little_Lake_south_cross_fault-CFM5_500m.ts
 SNFA-LLFZ-CRSS-Eastern_Little_Lake_center_cross_fault-CFM5_500m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM5/CFM53_preferred/500m/SNFA-LLFZ-CRSS-Eastern_Little_Lake_center_cross_fault-CFM5_500m.ts
