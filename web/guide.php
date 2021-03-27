@@ -136,9 +136,9 @@ $header = getHeader("User Guide");
             <h4><strong>About the SCEC Community Fault Model (CFM)</strong></h4>
 
             <figure class="cfm-perspective-view figure float-lg-right">
-                <img src="img/cfm52_perspective.png" class="figure-img img-fluid"
-                        alt="Perspective view of CFM 5.2 showing strike-slip (green), thrust/reverse (red), and normal (blue) faults that comprise the preferred model.">
-                <figcaption class="figure-caption">Perspective view of CFM 5.2 showing strike-slip (green), thrust/reverse (red), and normal (blue) faults that comprise the preferred model.
+                <img src="img/CFM5.3_View.png" class="figure-img img-fluid"
+                        alt="Perspective view of the CFM5.3, with fault surfaces colored by strike. Relocated seismicity is colored by time (calendar year).">
+                <figcaption class="figure-caption">Perspective view of the CFM5.3, with fault surfaces colored by strike. Relocated seismicity is colored by time (calendar year).
                 </figcaption>
             </figure>
 
