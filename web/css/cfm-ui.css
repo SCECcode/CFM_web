@@ -3,6 +3,13 @@
   background-color: #F2F2F2;
 }
 
+.fas.fa-caret-up,
+.fas.fa-caret-down,
+.fas.fa-angle-up,
+.fas.fa-angle-down {
+   color: #990000;
+}
+
 .glyphicon.glyphicon-menu-up,
 .glyphicon.glyphicon-menu-down {
    color: #990000;

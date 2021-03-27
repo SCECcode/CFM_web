@@ -406,9 +406,9 @@ window.console.log("Calling sortMetadataTableByRow..",n);
   var id="#sortCol_"+n;
   var t=$(id);
   if(dir == 'asc') {
-    t.removeClass("glyphicon-menu-down").addClass("glyphicon-menu-up");
+    t.removeClass("fa-angle-down").addClass("fa-angle-up");
     } else {
-      t.removeClass("glyphicon-menu-up").addClass("glyphicon-menu-down");
+      t.removeClass("fa-angle-up").addClass("fa-angle-down");
   }
 }
 
