@@ -6,39 +6,41 @@
 ##
 ## sudo pip install csvkit
 
-EXCEL_NM="CFM5.2-Fault_ID_preferred_final"
+EXCEL_NM="CFM5.3_Metadata"
 
 rm -f *.csv
-in2csv ${EXCEL_NM}.xlsx 2> ${EXCEL_NM}.err |csvcut -c 1-27 > ${EXCEL_NM}_raw.csv
+in2csv ${EXCEL_NM}.xlsx 2> ${EXCEL_NM}.err |csvcut -c 1-26 > ${EXCEL_NM}_raw.csv
+grep ",,,,,,,,$"  ${EXCEL_NM}_raw.csv > skip_subtitles
 grep -vf skip_subtitles ${EXCEL_NM}_raw.csv |sed "s/  / /g" | sed "s/, E/,E/"  > ${EXCEL_NM}.csv
 csvcut -n ${EXCEL_NM}.csv > ${EXCEL_NM}_column_labels
 
-#name,abb
-csvcut -c 'Fault Name','Code_4' ${EXCEL_NM}.csv |csvcut -K 1 | sort |uniq | sed "1i\\
+#name,abb >> Fault Name
+csvcut -c "12,13" ${EXCEL_NM}.csv |csvcut -K 1 | sort |uniq | sed "1i\\
 name,abb
 "> fault_tb.csv 
 
-#name,abb
-csvcut -c 'Fault Zone/Region','Code_2' ${EXCEL_NM}.csv |csvcut -K 1 | sort |uniq | sed "1i\\
+#name,abb >> Fault Zone/Region
+csvcut -c "6,7" ${EXCEL_NM}.csv |csvcut -K 1 | sort |uniq | sed "1i\\
 name,abb
 "> zone_tb.csv
 
-#name,abb
-csvcut -c 'Fault Section','Code_3' ${EXCEL_NM}.csv |csvcut -K 1 | sort |uniq | sed "1i\\
+#name,abb >> Fault Section
+csvcut -c "9,10" ${EXCEL_NM}.csv |csvcut -K 1 | sort |uniq | sed "1i\\
 name,abb
 "> section_tb.csv
 
-#name,abb
-csvcut -c 'Fault Area/Major Fault System','Code' ${EXCEL_NM}.csv |csvcut -K 1|sort |uniq | sed "1i\\
+#name,abb >> Fault Area/Major Fault System
+csvcut -c "3,4" ${EXCEL_NM}.csv |csvcut -K 1|sort |uniq | sed "1i\\
 name,abb
 "> area_tb.csv
 
 #name,area,aabb,zone,zabb,section,sabb,fault,fabb
-csvcut -c 'CFM5.2 Fault Object Name','Fault Area/Major Fault System','Code','Fault Zone/Region','Code_2','Fault Section','Code_3','Fault Name','Code_4' ${EXCEL_NM}.csv |csvcut -K 1|sort |uniq | sed "1i\\
+# 'CFM5.2 Fault Object Name','Fault Area/Major Fault System','Code','Fault Zone/Region','Code_2','Fault Section','Code_3','Fault Name','Code_4'
+csvcut -c "1,3,4,6,7,9,10,12,13" ${EXCEL_NM}.csv |csvcut -K 1|sort |uniq | sed "1i\\
 name,area,aabb,zone,zabb,section,sabb,fault,fabb
 "> object_tb_head.csv
 
-#name,Alternative,source author,CFM Version,model description,Descriptor,strike,dip,Area,Exposure,final slip sense,reference,Reference check,ID comments,USGS ID
-csvcut -c 'CFM5.2 Fault Object Name','Alternative','Source/Author','CFM Version','Fault Strand/Model Description','Descriptor','Strike','Dip','Area[m^2]','Exposure','Slip Sense','References','Reference Check','ID comments','USGS ID' ${EXCEL_NM}.csv |csvcut -K 1|sort |uniq | sed "1i\\
-name,Alternative,source author,CFM Version,model description,Descriptor,Strike,Dip,Area,Exposure,Slip Sense,Reference,Reference Check,ID comments,USGS ID
+#name,
+csvcut -c "1,14,15,16,17,18,19,20,21,22,23,24,25,26" ${EXCEL_NM}.csv |csvcut -K 1|sort |uniq | sed "1i\\
+name,Alternative,Source/Author,Last Update,Descriptor,Avg Strike,Avg Dip,Area [km^2],Exposure,Slip Sense,ID Comments,USGS ID,Fault Strand/Model Description,References
 "> object_tb_base.csv 

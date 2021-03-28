@@ -1,0 +1,53 @@
+ERROR:root:code for hash md5 was not found.
+Traceback (most recent call last):
+  File "/usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hashlib.py", line 147, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hashlib.py", line 97, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type md5
+ERROR:root:code for hash sha1 was not found.
+Traceback (most recent call last):
+  File "/usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hashlib.py", line 147, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hashlib.py", line 97, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type sha1
+ERROR:root:code for hash sha224 was not found.
+Traceback (most recent call last):
+  File "/usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hashlib.py", line 147, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hashlib.py", line 97, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type sha224
+ERROR:root:code for hash sha256 was not found.
+Traceback (most recent call last):
+  File "/usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hashlib.py", line 147, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hashlib.py", line 97, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type sha256
+ERROR:root:code for hash sha384 was not found.
+Traceback (most recent call last):
+  File "/usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hashlib.py", line 147, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hashlib.py", line 97, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type sha384
+ERROR:root:code for hash sha512 was not found.
+Traceback (most recent call last):
+  File "/usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hashlib.py", line 147, in <module>
+    globals()[__func_name] = __get_hash(__func_name)
+  File "/usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hashlib.py", line 97, in __get_builtin_constructor
+    raise ValueError('unsupported hash type ' + name)
+ValueError: unsupported hash type sha512
+/usr/local/lib/python2.7/site-packages/agate/utils.py:292: DuplicateColumnWarning: Column name "Num" already exists in Table. Column will be renamed to "Num_2".
+/usr/local/lib/python2.7/site-packages/agate/utils.py:292: DuplicateColumnWarning: Column name "Code" already exists in Table. Column will be renamed to "Code_2".
+/usr/local/lib/python2.7/site-packages/agate/utils.py:292: DuplicateColumnWarning: Column name "Num" already exists in Table. Column will be renamed to "Num_3".
+/usr/local/lib/python2.7/site-packages/agate/utils.py:292: DuplicateColumnWarning: Column name "Code" already exists in Table. Column will be renamed to "Code_3".
+/usr/local/lib/python2.7/site-packages/agate/utils.py:292: DuplicateColumnWarning: Column name "Num" already exists in Table. Column will be renamed to "Num_4".
+/usr/local/lib/python2.7/site-packages/agate/utils.py:292: DuplicateColumnWarning: Column name "Code" already exists in Table. Column will be renamed to "Code_4".
+/usr/local/lib/python2.7/site-packages/agate/utils.py:276: UnnamedColumnWarning: Column 26 has no name. Using "aa".
+/usr/local/lib/python2.7/site-packages/agate/utils.py:276: UnnamedColumnWarning: Column 27 has no name. Using "bb".
+/usr/local/lib/python2.7/site-packages/agate/utils.py:276: UnnamedColumnWarning: Column 28 has no name. Using "cc".
+/usr/local/lib/python2.7/site-packages/agate/utils.py:276: UnnamedColumnWarning: Column 29 has no name. Using "dd".
+/usr/local/lib/python2.7/site-packages/agate/utils.py:276: UnnamedColumnWarning: Column 30 has no name. Using "ee".

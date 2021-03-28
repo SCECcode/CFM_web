@@ -5,46 +5,93 @@
 var cfm_select_count=0;
 var showing_key = false;
 
+
+function disable_record_btn() {
+  $('#recordReferenceBtn').attr("disabled", true);
+}
+
+function enable_record_btn() {
+  $('#recordReferenceBtn').attr("disabled", false);
+}
+
+function set_strike_range_color(min,max) {
+  let minRGB= makeStrikeRGB(min);
+  let maxRGB= makeStrikeRGB(max);
+  let myColor="linear-gradient(to right, "+minRGB+","+maxRGB+")";
+  $("#slider-strike-range .ui-slider-range" ).css( "background", myColor );
+}
+
 // not using the realmin and realmax
 function setupStrikeRangeSlider(realmin,realmax) {
-  var min=0;
-  var max=360;
-  setup_strike_range(min,max);
+window.console.log("setup real Strike Range",realmin," and ",realmax);
+// around 0,360
+  setup_strike_range_ref(realmin,realmax);
+
   $( "#slider-strike-range" ).slider({
     range: true,
+    step: 1,
     min: 0,
-    max: 500,
-    step: 0.001,
-    values: [ min, max ],
+    max: 0,
+    values: [ realmin, realmax ],
     slide: function( event, ui ) {
-      $( "#strike-range" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+      $("#lowStrikeTxt").val(ui.values[0]);
+      $("#highStrikeTxt").val(ui.values[1]);
+      set_strike_range_color(ui.values[0],ui.values[1]);
+    },
+    change: function( event, ui ) {
+      $("#lowStrikeTxt").val(ui.values[0]);
+      $("#highStrikeTxt").val(ui.values[1]);
+      set_strike_range_color(ui.values[0],ui.values[1]);
+    },
+    stop: function( event, ui ) {
+      searchWithStrikeRange();
+    },
+    create: function() {
+      $("#lowStrikeTxt").val(realmin);
+      $("#highStrikeTxt").val(realmax);
     }
   });
-  $( "#strike-range" ).val( $( "#slider-strike-range" ).slider( "values", 0 ) + " - " + $( "#slider-strike-range" ).slider( "values", 1 ) );
 
-  $('#slider-strike-range').slider("option", "min", min);
-  $('#slider-strike-range').slider("option", "max", max);
-  $( "#strike-range" ).val( min + " - " + max );
+  $('#slider-strike-range').slider("option", "min", realmin);
+  $('#slider-strike-range').slider("option", "max", realmax);
+}
+
+function set_dip_range_color(min,max) {
+  let minRGB= makeDipRGB(min);
+  let maxRGB= makeDipRGB(max);
+  let myColor="linear-gradient(to right, "+minRGB+","+maxRGB+")";
+  $("#slider-dip-range .ui-slider-range" ).css( "background", myColor );
 }
 
 // using the realmin and realmax
-function setupDipRangeSlider(min,max) {
-  setup_dip_range(min,max);
+function setupDipRangeSlider(realmin,realmax) {
+  setup_dip_range_ref(realmin,realmax);
   $( "#slider-dip-range" ).slider({
     range: true,
+    step: 1,
     min: 0,
-    max: 500,
-    step: 0.001,
-    values: [ min, max ],
+    max: 0,
+    values: [ realmin, realmax ],
+    change: function( event, ui ) {
+      $("#lowDipTxt").val(ui.values[0]);
+      $("#highDipTxt").val(ui.values[1]);
+      set_dip_range_color(ui.values[0],ui.values[1]);
+    },
     slide: function( event, ui ) {
-      $( "#dip-range" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+      $("#lowDipTxt").val(ui.values[0]);
+      $("#highDipTxt").val(ui.values[1]);
+      set_dip_range_color(ui.values[0],ui.values[1]);
+    },
+    stop: function( event, ui ) {
+      searchWithDipRange();
+    },
+    create: function() {
+      $("#lowDipTxt").val(realmin);
+      $("#highDipTxt").val(realmax);
     }
   });
-  $( "#dip-range" ).val( $( "#slider-dip-range" ).slider( "values", 0 ) + " - " + $( "#slider-dip-range" ).slider( "values", 1 ) );
-
-  $('#slider-dip-range').slider("option", "min", min);
-  $('#slider-dip-range').slider("option", "max", max);
-  $( "#dip-range" ).val( min + " - " + max );
+  $('#slider-dip-range').slider("option", "min", realmin);
+  $('#slider-dip-range').slider("option", "max", realmax);
 }
 
 function queryByType(type)
@@ -131,18 +178,6 @@ function makeNameList() {
     return html;
 }
 
-function makeStrikeSlider()
-{
-    var html="Strike range: <input type=\"text\" id=\"strike-range\" readonly style=\"border:0; color:orange; text-align:center;\"><button id=\"strikeBtn\" type=\"button\" title=\"search with strike range\" class=\"btn btn-default cfm-small-btn\" style=\"border:0; color:blue\" onclick=\"searchWithStrikeRange()\"><span class=\"glyphicon glyphicon-search\"></span></button></div><div id=\"slider-strike-range\"></div><br>";
-    return html;
-} 
-
-function makeDipSlider()
-{
-    var html="Dip range: <div><input type=\"text\" id=\"dip-range\" readonly style=\"border:0; color:orange; text-align:center;\"><button id=\"dipBtn\" type=\"button\" title=\"search with dip range\" class=\"btn btn-default cfm-small-btn\" style=\"border:0; color:blue\" onclick=\"searchWithDipRange()\"><span class=\"glyphicon glyphicon-search\"></span></button></div><div id=\"slider-dip-range\"></div></div><br>";
-    return html;
-}
-
 function showKey(type) {
     var min = 0;
     var max = 0;
@@ -170,7 +205,6 @@ function removeKey() {
     showing_key = false;
 }
 
-
 function nullTableEntry(target) {
    // disable the toggle and highlight button
    t_btn="#toggle_"+target;
@@ -192,17 +226,12 @@ function glistFromMeta(str) {
     return glist;
 }
 
-
 // str=metadata
-function makeResultTable(str)
+function makeResultTableBody(str)
 {
-    window.console.log("calling makeResultTable..");
     clear_popup();
-    // clear the highlight count..
 
-    var html = "";
-    html=html+"<div class=\"cfm-table\" ><table>";
-    html+="<thead><tr><th class='text-center'><button id=\"allBtn\" class=\"btn btn-sm cfm-small-btn\" title=\"select all visible faults\" onclick=\"selectAll();\"><span class=\"glyphicon glyphicon-unchecked\"></span></button></th><th class='text-center'></th><th class='myheader'>FM5.2 Fault Objects</th></tr></thead><tbody>";
+    var html="<tbody id=\"cfm-table-body\">";
     var sz=(Object.keys(str).length);
     var tmp="";
     for( var i=0; i< sz; i++) {
@@ -214,34 +243,47 @@ function makeResultTable(str)
        if(!in_nogeo_gid_list(gid)) {
          var s= find_style_list(gid);
          if(s && s['highlight']==1) {
-           var t= "<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+");><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-check\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+");><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-open\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
+           var t= "<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+",0);><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-check\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+");><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-open\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
            } else {
-             var t= "<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+");><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-unchecked\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+");><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-open\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
+             var t= "<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+",0);><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-unchecked\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+");><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-open\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
          }
          tmp=t+tmp;
         } else {
-          var t="<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+") disabled><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-unchecked\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+") disabled><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-open\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
+          var t="<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+",0) disabled><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-unchecked\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+") disabled><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-open\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
           tmp=tmp+t;
       }
     }
-    html=html+ tmp + "</tbody></table></div>";
+    html=html+ tmp + "</tbody>";
 
     if (visibleFaults.getBounds().isValid()) {
         viewermap.fitBounds(visibleFaults.getBounds());
     }
+
+    return html;
+}
+
+// str=metadata
+function makeResultTable(str)
+{
+    window.console.log("calling makeResultTable..");
+
+    var html="<div class=\"cfm-table\" ><table>";
+    html+="<thead><tr><th class='text-center'><button id=\"allBtn\" class=\"btn btn-sm cfm-small-btn\" title=\"select all visible faults\" onclick=\"selectAll();\"><span class=\"glyphicon glyphicon-unchecked\"></span></button></th><th class='text-center'></th><th class='myheader'>FM5.3 Fault Objects</th></tr></thead>";
+
+    var body=makeResultTableBody(str);
+    html=html+ body + "</tbody></table></div>";
+
     return html;
 }
 
 // using internal information, existing style_list
-function _makeResultTableWithGList(glist)
+function _makeResultTableBodyWithGList(glist)
 {
-    window.console.log("calling _makeResultTableWithGList..");
+    window.console.log("calling _makeResultTableBodyWithGList..");
 
     clear_popup();
-    // var html="<table><tr><th style=\"border:1px solid white\">CFM5.2 Fault Objects<button id=\"allBtn\" class=\"btn cfm-small-btn\" title=\"select all visible faults\" onclick=\"selectAll()\"><span class=\"glyphicon glyphicon-unchecked\"></span></button></th></tr></table>";
-    var html = "";
-    html=html+"<div class=\"cfm-table\" ><table>";
-    html+="<thead><tr><th class='text-center'><button id=\"allBtn\" class=\"btn btn-sm cfm-small-btn\" title=\"select all visible faults\" onclick=\"selectAll();\"><span class=\"glyphicon glyphicon-unchecked\"></span></button></th><th class='text-center'></th><th>CFM5.2 Fault Objects</th></tr></thead><tbody>";
+
+    var html="<tbody id=\"cfm-table-body\">";
 
     var sz=glist.length;
     var tmp="";
@@ -257,25 +299,25 @@ function _makeResultTableWithGList(glist)
          var vis=s['visible'];
          if(h) {
            if(vis) {
-             tt="<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+");><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-check\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+");><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-open\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
+             tt="<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+",0);><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-check\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+");><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-open\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
               } else {
-             tt="<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+");><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-check\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+");><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-close\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
+             tt="<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+",0);><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-check\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+");><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-close\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
            }
            tmp=tt+tmp;
            } else {
              if(vis) {
-             tt="<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+");><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-unchecked\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+");><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-open\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
+             tt="<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+",0);><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-unchecked\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+");><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-open\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
              } else {
-             tt="<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+");><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-unchecked\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+");><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-close\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
+             tt="<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+",0);><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-unchecked\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+");><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-close\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
            }
            tmp=tt+tmp;
         }
         } else {
-         tt="<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+") disabled><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-unchecked\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+") disabled><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-open\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
+         tt="<tr id=\"row_"+gid+"\"><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" id=\"button_"+gid+"\" title=\"highlight the fault\" onclick=toggle_highlight("+gid+",0) disabled><span id=\"highlight_"+gid+"\" class=\"glyphicon glyphicon-unchecked\"></span></button></td><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle on/off the fault\" onclick=toggle_layer("+gid+") disabled><span id=\"toggle_"+gid+"\" class=\"glyphicon glyphicon-eye-open\"></span></button></td><td><label for=\"button_"+gid+"\">" + name + "</label></td></tr>";
          tmp=tmp+tt;
        }
     }
-    html=html+tmp+ "</tbody></table></div>";
+    html=html+tmp+ "</tbody>";
     return html;
 }
 
@@ -284,15 +326,92 @@ function _makeResultTableWithGList(glist)
 function makeResultTableWithList(glist)
 {
     window.console.log("calling makeResultTableWithList..");
-    // reset it first
-    document.getElementById("searchResult").innerHTML ="";
 
     if(glist.length > 0) {
       toggle_layer_with_list(glist);
-      var newhtml = _makeResultTableWithGList(glist);
-      document.getElementById("searchResult").innerHTML = newhtml;
+      var newhtml = _makeResultTableBodyWithGList(glist);
+      document.getElementById("cfm-table-body").innerHTML = newhtml;
     }
 }
+
+// https://www.w3schools.com/howto/howto_js_sort_table.asp
+// n is which column to sort-by
+// type is "a"=alpha "n"=numerical
+function sortMetadataTableByRow(n,type) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("metadata-viewer");
+  switching = true;
+  // Set the sorting direction to ascending:
+  dir = "asc"; 
+
+window.console.log("Calling sortMetadataTableByRow..",n);
+
+  while (switching) {
+    switching = false;
+    rows = table.rows;
+    if(rows.length < 3) // no switching
+      return;
+
+/* loop through except first and last */
+    for (i = 1; i < (rows.length - 2); i++) {
+      shouldSwitch = false;
+
+      x = rows[i].getElementsByTagName("td")[n];
+      y = rows[i + 1].getElementsByTagName("td")[n];
+
+      if (dir == "asc") {
+        if(type == "a") {
+          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            shouldSwitch = true;
+            break;
+          }
+          } else {
+            if (Number(x.innerHTML) > Number(y.innerHTML)) {
+              shouldSwitch = true;
+              break;
+            }
+         }
+      } else if (dir == "desc") {
+        if(type == "a") {
+          if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+            shouldSwitch = true;
+            break;
+          }
+          } else {
+            if (Number(x.innerHTML) < Number(y.innerHTML)) {
+              shouldSwitch = true;
+              break;
+            }
+        }
+      }
+    }
+    if (shouldSwitch) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      switchcount ++; 
+    } else {
+
+      window.console.log("done switching..");
+      if(switchcount != 0) {
+
+      }
+     
+
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+  var id="#sortCol_"+n;
+  var t=$(id);
+  if(dir == 'asc') {
+    t.removeClass("fa-angle-down").addClass("fa-angle-up");
+    } else {
+      t.removeClass("fa-angle-up").addClass("fa-angle-down");
+  }
+}
+
 
 // add details button
 function add_details_btn(meta,str) {
@@ -304,7 +423,7 @@ function add_details_btn(meta,str) {
 // add details button
 function add_highlight_btn(meta,str) {
   var gid=meta['gid'];
-  str=str+'<button class=\"btn btn-xs cfm-small-btn\" title=\"highlight this fault\"><span id=\"detail_'+gid+'\" class=\"glyphicon glyphicon-ok\" onclick=\"toggle_highlight('+gid+')\"></span></button>';
+  str=str+'<button class=\"btn btn-xs cfm-small-btn\" title=\"highlight this fault\"><span id=\"detail_'+gid+'\" class=\"glyphicon glyphicon-ok\" onclick=\"toggle_highlight('+gid+',0)\"></span></button>';
   return str;
 }
 
@@ -373,14 +492,6 @@ function get_downloads_btn(meta) {
     return str;
 }
 
-
-// very lazy way to inject this into html
-function addFaultColorsSelect() {
-  var htmlstr="<div class=\"cfm-control-colors-list\"><span style=\"font-size:14px;font-weight:bold;text-align:center;\">&nbsp;Select faults color </span><form onchange=\"changeFaultColor()\"><div class=\"cfm-control-colors-base\"><label><div><input type=\"radio\" class=\"cfm-control-colors-selector\" name=\"cfm-fault-colors\" value=\"default\" checked=\"checked\"><span> default</span></div></label><label><div><input type=\"radio\" class=\"cfm-control-colors-selector\" name=\"cfm-fault-colors\" value=\"strike\" ><span> by strike</span></div></label><label><div><input type=\"radio\" class=\"cfm-control-colors-selector\" name=\"cfm-fault-colors\" value=\"dip\" ><span> by dip</span></div></label></div></form></div>";
-
-   var html_div=document.getElementById('colorSelect');
-   html_div.innerHTML = htmlstr;
-}
 
 function addDownloadSelect() {
   var htmlstr="<div class=\"cfm-control-download-list\"><span style=\"font-size:14px;font-weight:bold; text-align:center;\">&nbsp;Select download </span><form onchange=\"changeDownloadSet()\"><div class=\"cfm-control-download-base\"><label> <div><input type=\"radio\" class=\"cfm-control-download-selector\" name=\"cfm-fault-download\" value=\"meta\"><span> metadata</span></div><div><input type=\"radio\" class=\"cfm-control-download-selector\" name=\"cfm-fault-download\" value=\"native\"><span> native + metadata</span></div></label><label><div><input type=\"radio\" class=\"cfm-control-download-selector\" name=\"cfm-fault-download\" value=\"500m\" ><span> 500m + metadata</span></div></label><label><div><input type=\"radio\" class=\"cfm-control-download-selector\" name=\"cfm-fault-download\" value=\"1000m\" ><span> 1000m + metadata</span></div></label></div></form></div>";

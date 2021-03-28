@@ -1,25 +1,25 @@
 CREATE TABLE OBJECT_2000m_tb (
    gid serial PRIMARY KEY,
    name VARCHAR(100) NOT NULL,
-   url VARCHAR(200) UNIQUE
+   url VARCHAR(300) UNIQUE
 );
 
 CREATE TABLE OBJECT_1000m_tb (
    gid serial PRIMARY KEY,
    name VARCHAR(100) NOT NULL,
-   url VARCHAR(200) UNIQUE
+   url VARCHAR(300) UNIQUE
 );
 
 CREATE TABLE OBJECT_500m_tb (
    gid serial PRIMARY KEY,
    name VARCHAR(100) NOT NULL,
-   url VARCHAR(200) UNIQUE
+   url VARCHAR(300) UNIQUE
 );
 
 CREATE TABLE OBJECT_native_tb (
    gid serial PRIMARY KEY,
    name VARCHAR(100) NOT NULL,
-   url VARCHAR(200) UNIQUE
+   url VARCHAR(300) UNIQUE
 );
 
 CREATE TABLE ZONE_tb (
@@ -27,6 +27,7 @@ CREATE TABLE ZONE_tb (
    name VARCHAR(100) NOT NULL,
    abb VARCHAR(5) NOT NULL
 );
+
 CREATE TABLE AREA_tb (
    gid serial PRIMARY KEY,
    name VARCHAR(100) NOT NULL,
@@ -36,14 +37,21 @@ CREATE TABLE AREA_tb (
 CREATE TABLE SECTION_tb (
    gid serial PRIMARY KEY,
    name VARCHAR(100) NOT NULL,
-   abb VARCHAR(4) NOT NULL
+   abb VARCHAR(5) NOT NULL
 );
 
 CREATE TABLE FAULT_tb (
    gid serial PRIMARY KEY,
    name VARCHAR(100) NOT NULL,
-   abb VARCHAR(4) NOT NULL
+   abb VARCHAR(5) NOT NULL
 );
+
+CREATE TABLE TRACE_tb (
+   gid serial PRIMARY KEY,
+   layer VARCHAR(100) NOT NULL,
+   ___isblind int2 DEFAULT 1
+);
+SELECT AddGeometryColumn('','trace_tb','geom','0','MULTILINESTRING',4);
 
 CREATE TABLE OBJECT_tb (
    gid serial PRIMARY KEY,
@@ -67,20 +75,19 @@ CREATE TABLE OBJECT_tb (
    OBJECT_native_tb_gid integer DEFAULT NULL,
 
    name VARCHAR(100) UNIQUE NOT NULL,
-   url VARCHAR(200) UNIQUE,
+   url VARCHAR(300) UNIQUE,
 
    alternative VARCHAR(3),
    source_author VARCHAR(20),
-   CFM_version VARCHAR(6),
-   model_description VARCHAR(100),
+   last_update VARCHAR(6),
    descriptor VARCHAR(10),
-   strike real DEFAULT 0.0,
-   dip real DEFAULT 0.0,
-   area numeric DEFAULT 0,
+   avg_strike real DEFAULT 0.0,
+   avg_dip real DEFAULT 0.0,
+   area_km2 numeric DEFAULT 0,
    exposure VARCHAR(10),
-   slip_sense VARCHAR(6),
-   reference VARCHAR(100),
-   reference_check VARCHAR(6),
-   ID_comments VARCHAR(100),
-   USGS_ID VARCHAR(100)
+   slip_sense VARCHAR(10),
+   ID_comments VARCHAR(300),
+   USGS_ID VARCHAR(100),
+   fault_strand_model_description VARCHAR(300),
+   reference VARCHAR(300)
 );

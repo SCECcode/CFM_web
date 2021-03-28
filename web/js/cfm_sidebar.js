@@ -17,7 +17,7 @@ var gid_sidebar=false;
 var drawing_rectangle=false;
 
 // initiate a click on the sidebar buttons
-// to dismiss the sidebar
+// to dismiss the sidebar and reset the to the searchBy mode
 function dismiss_sidebar() {
   clear_popup(); 
   if(zone_sidebar) zoneClick();
@@ -219,14 +219,19 @@ function sidebar_keyword_slideIn() {
 
 // strike sidebar js
 // slide out
+// if it is filtering from whole set or active list
 function strikeClick() {
   if(!strike_sidebar) { dismiss_sidebar(); }
 
   strike_sidebar = !strike_sidebar;
   if(strike_sidebar) {
+    changeFaultColor("strike");
+    // determin the new set
+    set_current_strike_range_slider();
     sidebar_strike_slideOut();
     $('#strikeBtn').addClass('pick');
     } else {
+      changeFaultColor("");
       sidebar_strike_slideIn();
       $('#strikeBtn').removeClass('pick');
   }
@@ -261,9 +266,12 @@ function dipClick() {
 
   dip_sidebar = !dip_sidebar;
   if(dip_sidebar) {
+    changeFaultColor("dip");
     sidebar_dip_slideOut();
+    set_current_dip_range_slider();
     $('#dipBtn').addClass('pick');
     } else {
+      changeFaultColor("");
       sidebar_dip_slideIn();
       $('#dipBtn').removeClass('pick');
   }

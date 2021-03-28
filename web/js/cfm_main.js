@@ -12,67 +12,69 @@ jQuery(document).ready(function() {
   });
 
 // special handle keyword's input completion
-  $("#keywordTxt").keyup(function(event) {
-        if (event.keyCode === 13) {
-            searchByKeyword();
-        }
-  });     
+  $('#keywordTxt').on("focus", function() {
+     window.console.log("XXX in keyword input after focus->", event.type);
 
-// special handling latlon's input completion
-  $("#firstLonTxt").keyup(function(event) {
-        if (event.keyCode === 13) {
-           var firstlatstr=document.getElementById("firstLatTxt").value;
-           var firstlonstr=document.getElementById("firstLonTxt").value;
-           if(firstlatstr && firstlonstr) {
-               entered_latlon_by_hand();
-           }
-        }
-  });     
-  $("#firstLatTxt").keyup(function(event) {
-        if (event.keyCode === 13) {
-           var firstlatstr=document.getElementById("firstLatTxt").value;
-           var firstlonstr=document.getElementById("firstLonTxt").value;
-           if(firstlatstr && firstlonstr) {
-               entered_latlon_by_hand();
-           }
-        }
-  });     
+     $('#keywordTxt').on("blur mouseout", function(event) {
+       $('#keywordTxt').off("mouseout");
+       $('#keywordTxt').off("blur");
+       window.console.log("XXX in keyword input with ->", $(this).val());
+       if( $(this).val() != '' ) {
+        searchByKeyword();
+       }
+       $('#keywordTxt').blur();
+     });
+  });
 
-  $("#secondLonTxt").keyup(function(event) {
-        if (event.keyCode === 13) {
-           var secondlatstr=document.getElementById("secondLatTxt").value;
-           var secondlonstr=document.getElementById("secondLonTxt").value;
-           if(secondlatstr && secondlonstr) {
-               entered_latlon_by_hand();
-           }
-        }
-  });     
-  $("#secondLatTxt").keyup(function(event) {
-        if (event.keyCode === 13) {
-           var secondlatstr=document.getElementById("secondLatTxt").value;
-           var secondlonstr=document.getElementById("secondLonTxt").value;
-           if(secondlatstr && secondlonstr) {
-               entered_latlon_by_hand();
-           }
-        }
-  });     
+  $('.strike-item').on("focus", function() {
+     $('.strike-item').on("blur mouseout", function() {
+       $('.strike-item').off("mouseout");
+       $('.strike-item').off("blur");
+       if( $(this).val() != '' ) {
+         setupSearchByStrike();
+       }
+       $(this).blur();
+     });
+  });
 
+  $('.dip-item').on("focus", function() {
+     $('.dip-item').on("blur mouseout", function() {
+       $('.dip-item').off("mouseout");
+       $('.dip-item').off("blur");
+       if( $(this).val() != '' ) {
+         setupSearchByDip();
+       }
+       $(this).blur();
+     });
+  });
+
+  $('.latlon-item').on("focus", function() {
+     $('.latlon-item').on("blur mouseout", function() {
+       $('.latlon-item').off("mouseout");
+       $('.latlon-item').off("blur");
+       if( $(this).val() != '' ) {
+         searchByLatlon(0);
+       }
+       $(this).blur();
+     });
+  });
+
+  
   getGeoTraceList();
   getAllTraces();
   setupSearch();
-  addFaultColorsSelect();
   addDownloadSelect();
   setup_info3dTable();
   setup_warn3dTable();
 
-  $("#search-type").change(function () {
+  $("#search-filter-type").change(function () {
       var funcToRun = $(this).val();
       if (funcToRun != "") {
           window[funcToRun]();
       }
   });
 
-  $("#search-type").trigger("change");
+  $("#search-filter-type").trigger("change");
 
 }); // end of MAIN
 

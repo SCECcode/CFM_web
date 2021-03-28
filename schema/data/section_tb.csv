@@ -1,9 +1,14 @@
 name,abb
 1812 Rupture-Mojave SAF+nSJF,1812
 1857 Rupture-Parkfield-Mojave,1857
-1872 rupture,1872
+1872 Owens Valley rupture,1872
 1992 Big Bear rupture,1992
 1992 Joshua Tree rupture,1992
+1992 Landers rupture cross faults,1992
+1992 Landers rupture,1992
+1999 Hector Mine rupture,1999
+2010 El Mayor-Cucapah rupture,2010
+2019 Ridgecrest Ruptures,2019
 Agua Caliente,AGCT
 Allicito Mountains,ALCM
 Anacapa Passage,ANCP
@@ -14,25 +19,28 @@ Baldwin Hills,BLDH
 Bicycle Lake,BCYL
 Big Tujunga,BTJG
 Borrego Mountain,BRMT
-Brawley Seismic Zone,BSZ
+Brawley Seismic Zone,BRSZ
 Brawley Seismic Zone,BSZS
 Burnt Mountain,BRMT
 Cady,CADY
 Camp Rock,CMPR
 Canada David,CDVD
+Carrizo,CRRZ
 Casmalia,CSML
 Catalina Basin,CTLB
-Central,CNTL
+Central,CNTR
 Cerro Prieto basin,CRPB
 Chimineas,CHMN
 Chino Hills,CHNH
 Chino,CHNO
-Cholame-Carrizo,CLCZ
+Cholame,CHLM
 Clamshell-Sawpit,CSPC
 Cleghorn Lake,CLGL
 Coachella,COAV
 Coalinga,COAL
 Copper Mountain,CPMT
+Coronado Bank,CRBS
+Coso Junction,COSJ
 Coso,COSO
 Coyote Creek,CYTC
 Coyote Hills,COYT
@@ -40,6 +48,7 @@ Coyote Lake,CYTL
 Coyote Mountain,CYMT
 Coyote Mountains,CYMT
 Crafton Hills fault zone,CHFZ
+Cross,CRSS
 Cucamonga,CCMG
 Dana Point section,DANA
 Davies Valley,DVSV
@@ -47,7 +56,6 @@ Detachment,DTMT
 East Bullion,EBLS
 East Huasna,EHSN
 East Santa Cruz Basin,ESCB
-East,EAST
 Eastern Big Pine,EAST
 Eastern San Bernardino Mtns,SBMT
 Eastern splay - south,EAST
@@ -56,18 +64,19 @@ Eastern,EAST
 El Mayor-Cucapah,EMCP
 Emerson,EMRS
 Eureka Peak,ERPK
-Fish Creek Mountain,FCMS
 Garlic Springs,GRLS
 Glen Ivy,GLIV
 Goldstone Lake,GLDS
 Granite Mountains,GNTM
 Gravel Hills,GVHS
 Gravel Hills-Harper Lake,MULT
+Haiwee Reservoir,HWRS
 Harper Valley,HPVS
-Hector Mine rupture,1999
 Homestead Valley,HMSV
+Hot Springs,HOTS
 Huasna Valley,HSNV
 Hunter Mtn-Saline Valley,MULT
+Huntington Beach,HNTB
 Icehouse Canyon,ICHC
 Imperial Valley,IMPV
 Independence,INDP
@@ -78,8 +87,6 @@ Kern Canyon,KRCN
 Kettleman Hills,KTLM
 Laguna Salada,LGSD
 Lake Isabella,LISA
-Landers cross faults,1992
-Landers rupture,1992
 Little Pine,LPNS
 Little San Bernardino Mts,LSBM
 Lockwood Valley,LKWV
@@ -97,12 +104,14 @@ Mission Hills,MSNH
 Mojave,MJVS
 Morales,MRLS
 Morongo Valley,MORV
-Multiple Sections,MULT
 Multiple sections,MULT
 Multiple sections-offshore,RSCN
 Multiple-Los Angeles basin,LABS
+Murietta-Hot Springs,MRHS
 North Channel,NCHN
+North-Eastern,NEST
 North-South Johnson Valley,MULT
+North-Western,NWST
 Northern Cleghorn,NCHS
 Northern Coronado Bank,NCBF
 Northern Davies Valley,NDVS
@@ -117,6 +126,7 @@ Orcutt,ORCT
 Oxnard Plain,OXNP
 Painted Gorge Wash,PGWS
 Palomas,PLMS
+Palos Verdes,PVDS
 Paradise,PRDS
 Parkfield,PARK
 Peralta Hills,PRTH
@@ -130,6 +140,7 @@ Red Pass,RDPS
 Redondo Canyon,RDNC
 Richfield,RICH
 Rose Canyon transfer,RCNT
+Rose Valley,ROSE
 Salton Sea,SLTS
 San Antonio Canyon,SANC
 San Bernardino Mountains,SBMT
@@ -137,9 +148,7 @@ San Bernardino,SBRN
 San Bernardino-Coachella Valley,MULT
 San Clemente Basin region,SCBR
 San Clemente Island,SCLI
-San Felipe,SFLS
 San Fernando Valley,SFNV
-San Fernando Valley,SNFV
 San Gabriel Valley,SGVS
 San Gorgonio Pass,SGPS
 San Jacinto Mountains,SJMT
@@ -147,19 +156,21 @@ San Jacinto Valley,SJCV
 San Joaquin Hills,SJQH
 San Luis Bay,SLBS
 San Mateo,SMTO
+San Pedro Basin,SPBS
 San Pedro Basin-San Diego Trough,STHS
 Santa Barbara Island area,SBRI
 Santa Catalina Island,SCTI
 Santa Clarita Valley,SCLV
 Santa Cruz Is-Anacapa,MULT
 Santa Cruz Island,SNCZ
-Santa Lucia Range-north,SLRN
+Santa Lucia Range-North,SLRN
+Santa Monica Bay,SMBS
 Santa Monica Bay,SMBY
 Santa Monica Bay,SMNB
 Santa Monica Bay-San Pedro Basin,NTHS
 Santa Monica Mountains,SMMT
-Santa Rosa Ridge,SRSR
-Santa Rosa-San Miguel Islands,SNRS
+Santa Rosa Ridge,SRRS
+Santa Rosa-San Miguel Islands,SRSM
 Santa Ynez Valley,SYNV
 Sante Fe Springs,STFS
 Shoreline,SHRL
@@ -169,10 +180,11 @@ Sierra Madre E section,SMDE
 Sierra Madre-Clamshell Canyon,SMCC
 Smoketree Wash,STWS
 South Cuyama,SCYM
-South,SOUT
 Southern Cleghorn,SCHS
 Southern Coronado Bank,SCBF
 Southern Johnson Valley,SJVS
+Southern,SOUT
+Southern,STHN
 Stoddard Canyon,STDC
 Sulphur Mountain,SPMT
 Superstition Hills,SSHS
@@ -182,17 +194,17 @@ Temecula,TMCL
 Thirtymile Bank,30MB
 Tiefort Mountains,TFMT
 TopaTopa Mountains,TOPA
+Torrance,TRNC
 Upper San Gabriel River,USGR
 Upper Santa Ana Valley,USAV
 Ventura basin,VNTB
-Ventura basin,VNTR
 Verdugo Mountains,VRDM
-West Bullion,WBLS
 West Calico section,WCLS
 Western Big Pine,WEST
 Western splay - north,WEST
 Western splay,WEST
 Western,WEST
 Whittier,WHIT
+Wilmington,WLMT
 Yuha Desert,YUHA
 Zaca,ZACA

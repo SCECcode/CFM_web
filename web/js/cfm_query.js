@@ -1,6 +1,6 @@
 function searchByStrikeRange(min,max) {
     if (min == undefined || max == undefined) {
-        document.getElementById("searchResult").innerHTML = "";
+        document.getElementById("cfm-table-body").innerHTML = "";
         return;
     } else {
         if (window.XMLHttpRequest) {
@@ -13,10 +13,9 @@ function searchByStrikeRange(min,max) {
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 toggle_off_all_layer();
-                cfm_active_gid_list=[];
                 document.getElementById("phpResponseTxt").innerHTML = this.responseText;
                 var str = processSearchResult("searchByStrikeRange");
-                document.getElementById("searchResult").innerHTML = makeResultTable(str);
+                document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
             }
         };
         xmlhttp.open("GET","php/byStrikeRange.php?min="+min+"&max="+max,true);
@@ -25,16 +24,36 @@ function searchByStrikeRange(min,max) {
 }
 
 
+function setupSearchByStrike() {
+  var lowstrikestr=document.getElementById("lowStrikeTxt").value;
+  var highstrikestr=document.getElementById("highStrikeTxt").value;
+  var lowval=parseFloat(lowstrikestr);
+  var highval=parseFloat(highstrikestr);
+  var minval= $( "#slider-strike-range" ).slider("option", "min");
+  var maxval= $( "#slider-strike-range" ).slider("option", "max");
+  /* bad case.. reset to all */
+  if( lowval < minval || lowval > maxval || highval < minval || highval > maxval ||
+          highval < lowval ) {
+    window.console.log("BAD user input for strike range");
+    lowval=minval;
+    highval=maxval;
+  }
+
+  $("#slider-strike-range" ).slider( "option", "values", [lowval, highval]);
+  searchByStrikeRange(lowval,highval);
+}
+
 function searchWithStrikeRange() {
+
   //grab the min and max from the slider..
-  vals = $( "#slider-strike-range" ).slider("option", "values");
+  var vals = $( "#slider-strike-range" ).slider("option", "values");
   searchByStrikeRange(vals[0],vals[1]);
 }
 
 
 function searchByDipRange(min,max) {
     if (min == undefined || max == undefined) {
-        document.getElementById("searchResult").innerHTML = "";
+        document.getElementById("cfm-table-body").innerHTML = "";
         return;
     } else {
         if (window.XMLHttpRequest) {
@@ -47,10 +66,9 @@ function searchByDipRange(min,max) {
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 toggle_off_all_layer();
-                cfm_active_gid_list=[];
                 document.getElementById("phpResponseTxt").innerHTML = this.responseText;
                 var str = processSearchResult("searchByDipRange");
-                document.getElementById("searchResult").innerHTML = makeResultTable(str);
+                document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
             }
         };
         xmlhttp.open("GET","php/byDipRange.php?min="+min+"&max="+max,true);
@@ -58,6 +76,24 @@ function searchByDipRange(min,max) {
     }
 }
 
+function setupSearchByDip() {
+  var lowdipstr=document.getElementById("lowDipTxt").value;
+  var highdipstr=document.getElementById("highDipTxt").value;
+  var lowval=parseFloat(lowdipstr);
+  var highval=parseFloat(highdipstr);
+  var minval= $( "#slider-dip-range" ).slider("option", "min");
+  var maxval= $( "#slider-dip-range" ).slider("option", "max");
+  /* bad case.. reset to all */
+  if( lowval < minval || lowval > maxval || highval < minval || highval > maxval ||
+          highval < lowval ) {
+    window.console.log("BAD user input for dip range");
+    lowval=minval;
+    highval=maxval;
+  }
+
+  $("#slider-dip-range" ).slider( "option", "values", [lowval, highval]);
+  searchByDipRange(lowval,highval);
+}
 
 function searchWithDipRange() {
   //grab the min and max from the slider..
@@ -78,10 +114,9 @@ function searchByFaultObjectName() {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             toggle_off_all_layer();
-            cfm_active_gid_list=[];
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
             var str=processSearchResult("searchByFaultName");
-            document.getElementById("searchResult").innerHTML = makeResultTable(str);
+            document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
         }
     };
     xmlhttp.open("GET","php/byFaultObjectName.php?q="+str,true);
@@ -99,10 +134,9 @@ function searchByKeyword() {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             toggle_off_all_layer();
-            cfm_active_gid_list=[];
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
             var str=processSearchResult("searchByKeyword");
-            document.getElementById("searchResult").innerHTML = makeResultTable(str);
+            document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
         }
     };
     xmlhttp.open("GET","php/byKeyword.php?q="+str,true);
@@ -126,7 +160,7 @@ function searchByLatlon(frommap) {
     }
     
     if (firstlatstr == "" || firstlonstr=="") {
-        document.getElementById("searchResult").innerHTML = "";
+        document.getElementById("cfm-table-body").innerHTML = "";
         return;
     } else {
 
@@ -140,10 +174,9 @@ function searchByLatlon(frommap) {
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 toggle_off_all_layer();
-                cfm_active_gid_list=[];
                 document.getElementById("phpResponseTxt").innerHTML = this.responseText;
                 var str=processSearchResult("searchByLatLon");
-                document.getElementById("searchResult").innerHTML = makeResultTable(str);
+                document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
             }
         }
         xmlhttp.open("GET","php/byLatlon.php?firstlat="+firstlatstr+"&secondlat="+secondlatstr+"&firstlon="+firstlonstr+"&secondlon="+secondlonstr,true);
@@ -153,7 +186,7 @@ function searchByLatlon(frommap) {
 
 function searchByZone(str) {
     if (str == "") {
-        document.getElementById("searchResult").innerHTML = "";
+        document.getElementById("cfm-table-body").innerHTML = "";
         return;
     } else {
         if (window.XMLHttpRequest) {
@@ -166,10 +199,9 @@ function searchByZone(str) {
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 toggle_off_all_layer();
-                cfm_active_gid_list=[];
                 document.getElementById("phpResponseTxt").innerHTML = this.responseText;
                 var str=processSearchResult("searchByZone");
-                document.getElementById("searchResult").innerHTML = makeResultTable(str);
+                document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
             }
         };
         xmlhttp.open("GET","php/byZone.php?q="+str,true);
@@ -179,7 +211,7 @@ function searchByZone(str) {
 
 function searchBySection(str) {
     if (str == "") {
-        document.getElementById("searchResult").innerHTML = "";
+        document.getElementById("cfm-table-body").innerHTML = "";
         return;
     } else {
         if (window.XMLHttpRequest) {
@@ -192,10 +224,9 @@ function searchBySection(str) {
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 toggle_off_all_layer();
-                cfm_active_gid_list=[];
                 document.getElementById("phpResponseTxt").innerHTML = this.responseText;
                 var str=processSearchResult("searchBySection");
-                document.getElementById("searchResult").innerHTML = makeResultTable(str);
+                document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
             }
         };
         xmlhttp.open("GET","php/bySection.php?q="+str,true);
@@ -205,7 +236,7 @@ function searchBySection(str) {
 
 function searchByArea(str) {
     if (str == "") {
-        document.getElementById("searchResult").innerHTML = "";
+        document.getElementById("cfm-table-body").innerHTML = "";
         return;
     } else {
         if (window.XMLHttpRequest) {
@@ -218,11 +249,11 @@ function searchByArea(str) {
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 toggle_off_all_layer();
-                cfm_active_gid_list=[];
                 document.getElementById("phpResponseTxt").innerHTML = this.responseText;
                 var str=processSearchResult("searchByArea");
-                document.getElementById("searchResult").innerHTML = makeResultTable(str);
+                document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
             }
+
         };
         xmlhttp.open("GET","php/byArea.php?q="+str,true);
         xmlhttp.send();
@@ -232,7 +263,7 @@ function searchByArea(str) {
 
 function searchByName(str) {
     if (str == "") {
-        document.getElementById("searchResult").innerHTML = "";
+        document.getElementById("cfm-table-body").innerHTML = "";
         return;
     } else {
         if (window.XMLHttpRequest) {
@@ -245,10 +276,9 @@ function searchByName(str) {
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 toggle_off_all_layer();
-                cfm_active_gid_list=[];
                 document.getElementById("phpResponseTxt").innerHTML = this.responseText;
                 var str=processSearchResult("searchByName");
-                document.getElementById("searchResult").innerHTML = makeResultTable(str);
+                document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
             }
         };
         xmlhttp.open("GET","php/byName.php?q="+str,true);
@@ -459,7 +489,6 @@ function getStrikeRange() {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
-            document.getElementById("strikeRange").innerHTML = makeStrikeSlider();
             [rangeMin, rangeMax]=getStrikeRangeMinMax();
             setupStrikeRangeSlider(rangeMin, rangeMax);
         }
@@ -479,7 +508,6 @@ function getDipRange() {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
-            document.getElementById("dipRange").innerHTML = makeDipSlider();
             [rangeMin, rangeMax]=getDipRangeMinMax();
             setupDipRangeSlider(rangeMin, rangeMax);
         }
@@ -524,8 +552,8 @@ function setupSearch()
    queryByType("zone");
    queryByType("section");
    queryByType("name");
-//   getStrikeRange();
-//   getDipRange();
+   getStrikeRange();
+   getDipRange();
    getNativeList();
    get1000mList();
    get2000mList();

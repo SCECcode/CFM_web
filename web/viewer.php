@@ -14,7 +14,7 @@ $header = getHeader("Viewer");
     <link rel="stylesheet" href="css/vendor/bootstrap-grid.min.css">
     <link rel="stylesheet" href="css/vendor/jquery-ui.css">
     <link rel="stylesheet" href="css/vendor/glyphicons.css">
-    <link rel="stylesheet" href="css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" href="css/vendor/all.css">
     <link rel="stylesheet" href="css/cfm-ui.css?v=1">
     <link rel="stylesheet" href="css/sidebar.css?v=1">
 
@@ -94,6 +94,7 @@ $header = getHeader("Viewer");
 
         $(document).on("tableLoadCompleted", function () {
             tableLoadCompleted = true;
+
             var $table = $('div.cfm-table table');
             $table.floatThead({
                 scrollContainer: function ($table) {
@@ -118,124 +119,157 @@ $header = getHeader("Viewer");
 <div class="container">
 
 <div class="main">
+    <div style="display:none">
+    <script type="text/javascript" src="js/cfm_misc_util.js?v=1"></script>
+    <button id="dumpCFMGeoBtn" class="btn cfm-small-btn"  onClick="dumpActiveCFMGeo()">
+                <span class="glyphicon glyphicon-share-alt"></span> Export CFM geoJson</button>
+    </div>
 
-    <div class="spinDialog" style="position:absolute;top:40%;left:50%; z-index:9999;">
-        <div id="spinIconFor2D" align="center" style="display:none;"><i class="glyphicon glyphicon-cog fa-spin" style="color:red"></i></div>
+    <div style="display:none">
+      <input type="text" id="geo-total">
+      <input type="text" id="geo-counter" value="0">
     </div>
 
     <div class="row">
         <div class="col-12">
-<p>The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model (CFM)</a> are three-dimensional and non-planar; however, to simplify browsing the model, the viewer below provides a two-dimensional map-based view of the SCEC CFM version 5.2 preferred fault set. The alternative fault representations are only provided in the complete CFM archive available for download on the <a href="https://www.scec.org/research/cfm">CFM homepage</a>. Here, the viewer allows users to view and download fault geometry data as well as metadata for selected faults rather than downloading the entire CFM model archive. Once faults are selected, the “PLOT3D” button can be used to view the selected faults in a basic CAD-like environment. This site is currently in beta testing. See the user guide for more details and site usage instructions.</p>
+<p>The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model (CFM)</a> are three-dimensional and non-planar; however, to simplify browsing the model, the viewer below provides a two-dimensional map-based view of the SCEC CFM version 5.3 preferred fault set. The alternative fault representations are only provided in the complete CFM archive available for download on the <a href="https://www.scec.org/research/cfm">CFM homepage</a>. Here, the viewer allows users to view and download fault geometry data as well as metadata for selected faults rather than downloading the entire CFM model archive. Once faults are selected, the “PLOT3D” button can be used to view the selected faults in a basic CAD-like environment. This site is currently in beta testing. See the user guide for more details and site usage instructions.</p>
         </div>
     </div>
 
     <div class="row" style="display:none;">
         <div class="col justify-content-end custom-control-inline">
             <div style="display:none;" id="external_leaflet_control"></div>
+
             <button id="colorBtn" class="btn cfm-top-small-btn" onMouseEnter="expandColorsControl()">
                 <span class="glyphicon glyphicon-star"></span></button>
-            <div id="colorSelect" class="cfm-control-colors" onMouseLeave="removeColorsControl()"></div>
-
-            <button id="toggleBtn" class="btn cfm-top-small-btn" title="toggle to display all faults"
-                    onclick="toggleAll()">
-                <span class="glyphicon glyphicon-adjust"></span></button>
-
-            <button id="refreshBtn" class="btn cfm-top-small-btn" title="refresh to initial state"
-                    onclick="refreshAll();">
-                <span class="glyphicon glyphicon-refresh"></span></button>
-
-            <button id="basketBtn" class="btn cfm-top-small-btn" title="download selected faults metadata"
-                    onMouseEnter="expandDownloadControl()">
-                <span class="glyphicon glyphicon-download-alt"></span></button>
             <div id="itemCount"></div>
             <div id="downloadSelect" class="cfm-control-download" onMouseLeave="removeDownloadControl()"></div>
         </div>
     </div>
 
     <div id="controls-container" class="row d-flex mb-1">
-        <div class="col-6 mb-2">
-             <div class="input-group filters">
-                <select id="search-type" class="custom-select">
+        <div class="col-6 mb-0">
+             <div class="input-group filters" style="min-width:70%">
+                <select id="search-filter-type" class="custom-select">
                     <option value="dismissClick">Search by ...</option>
                     <option value="keywordClick">Keyword</option>
                     <option value="latlonClick">Latitude &amp; Longitude</option>
-                    <option disabled>-- Advanced --</option>
                     <option value="areaClick">Area</option>
                     <option value="zoneClick">Zone</option>
                     <option value="sectionClick">Section</option>
                     <option value="nameClick">Name</option>
-<!-- WAIT for better strike/dip 
-                    <option value="strikeClick">Strike</option>
-                    <option value="dipClick">Dip</option>
--->
+                    <option disabled>-- Advanced --</option>
+                    <option value="strikeClick">Average Strike</option>
+                    <option value="dipClick">Average Dip</option>
                 </select>
                 <div class="input-group-append">
-                    <button onclick="refreshAll();" class="btn btn-dark pl-4 pr-4" type="button">Reset</button>
+                    <button type="button" onclick="refreshAll()" class="btn btn-dark">Reset</button>
+                </div>
+
+                <div>
+                  <button id="recordReferenceBtn" title="Record a reference fault set"
+                      class="btn btn-default cfm-small-btn pl-4" onclick="recordActiveReference()" disabled>
+                      <span class="glyphicon glyphicon-record"></span>
+                  </button>
                 </div>
             </div>
             <div class="row" style="margin-bottom:-10px;">
                 <div class="col input-group">
                     <ul id="sidebar" class="navigation" style="display:none">
-                        <li id='area' class='navigationLi ' style="display:none;">
+                        <li id='area' class='navigationLi' style="display:none;">
                             <div id='areaMenu' class='menu'>
-                                <div class="">
-                                    <div class="" style="">
-
-                                        <div class="" id="areaList"></div>
-                                    </div>
-                                </div>
+                                <div class="" id="areaList"></div>
                             </div>
                         </li>
-                        <li id='zone' class='navigationLi ' style="display:none">
+                        <li id='zone' class='navigationLi' style="display:none">
                             <div id='zoneMenu' class='menu'>
-                                <div class="">
-                                    <div class="" style="">
-
-                                        <div class="" id="zoneList"></div>
-                                    </div>
-                                </div>
+                                <div class="" id="zoneList"></div>
                             </div>
                         </li>
-                        <li id='section' class='navigationLi ' style="display:none">
+                        <li id='section' class='navigationLi' style="display:none">
                             <div id='sectionMenu' class='menu'>
-                                <div class="">
-                                    <div class="" style="">
-
-                                        <div class="" id="sectionList"></div>
-
-                                    </div>
-                                </div>
+                                <div class="" id="sectionList"></div>
                             </div>
                         </li>
-                        <li id='name' class='navigationLi ' style="display:none">
+                        <li id='name' class='navigationLi' style="display:none">
                             <div id='nameMenu' class='menu'>
-                                <div class="">
-                                    <div class="" style="">
-
-                                        <div class="" id="nameList"></div>
-
-                                    </div>
-                                </div>
+                                <div class="" id="nameList"></div>
                             </div>
                         </li>
 
-                        <li id='strike' class='navigationLi ' style="display:none">
+			<li id='strike' class='navigationLi' style="width:600px;display:none">
                             <div id='strikeMenu' class='menu'>
-                                <div class="">
-                                    <div class="" style="">
-                                        <div class="" id="strikeRange"
-                                             style="padding-left:10px; padding-right:10px; overflow:hidden;"></div>
+                                <div class="row">
+                                    <div class="col-5">
+                                        <p>Select an average strike range on the slider or enter the two boundaries</p>
+                                    </div>
+                                    <div class="row col-5">
+                                       <div class="col-5 pl-0 pr-0">
+                                           <input type="text"
+                                                  id="lowStrikeTxt"
+                                                  title="min strike"
+                                                  onfocus="this.value=''"
+                                                  class="strike-item form-control">
+                                       </div>
+                                       <div class="col-5 pl-1 pr-0">
+                                           <input type="text"
+                                                  id="highStrikeTxt"
+                                                  title="max strike"
+                                                  onfocus="this.value=''"
+                                                  class="strike-item form-control">
+                                       </div>
+<!--
+                                       <div class="col-2 pr-0 align-items-center">
+                                           <button id="strikeBtn" type="button" title="search with strike range"
+                                                   class="btn btn-default cfm-small-btn " onclick="setupSearchByStrike()">
+                                               <span class="glyphicon glyphicon-search"></span>
+                                           </button>
+                                       </div>
+-->
+                                       <div class="col-10 mt-1 mb-0">
+                                          <div id="slider-strike-range" style="border:2px solid black">
+				          <div id="min-strike-handle" class="ui-slider-handle"></div>
+				          <div id="max-strike-handle" class="ui-slider-handle"></div>
+                                       </div>
                                     </div>
                                 </div>
                             </div>
                         </li>
 
-                        <li id='dip' class='navigationLi ' style="display:none">
+			<li id='dip' class='navigationLi' style="width:600px;display:none">
                             <div id='dipMenu' class='menu'>
-                                <div class="">
-                                    <div class="" style="">
-                                        <div class="" id="dipRange"
-                                             style="padding-left:10px; padding-right:10px; overflow:hidden;"></div>
+                                <div class="row">
+                                    <div class="col-5">
+                                        <p>Select an average dip range on the slider or enter the two boundaries</p>
+                                    </div>
+                                    <div class="row col-5">
+                                       <div class="col-5 pl-0 pr-0">
+                                           <input type="text"
+                                                  id="lowDipTxt"
+                                                  title="min dip"
+                                                  onfocus="this.value=''"
+                                                  class="dip-item form-control">
+                                       </div>
+                                       <div class="col-5 pl-1 pr-0">
+                                           <input type="text"
+                                                  id="highDipTxt"
+                                                  title="max dip"
+                                                  onfocus="this.value=''"
+                                                  class="dip-item form-control">
+                                       </div>
+<!--
+                                       <div class="col-2 pr-0 align-items-center">
+                                           <button id="dipBtn" type="button" title="search with an average dip range"
+                                                   class="btn btn-default cfm-small-btn " onclick="setupSearchByDip()">
+                                               <span class="glyphicon glyphicon-search"></span>
+                                           </button>
+                                       </div>
+-->
+                                       <div class="col-10 mt-1 mb-0">
+                                          <div id="slider-dip-range" style="border:2px solid black">
+				          <div id="min-dip-handle" class="ui-slider-handle"></div>
+				          <div id="max-dip-handle" class="ui-slider-handle"></div>
+                                       </div>
                                     </div>
                                 </div>
                             </div>
@@ -248,16 +282,17 @@ $header = getHeader("Viewer");
                                         <input placeholder="Enter Keyword" type="text" id="keywordTxt"
                                                class="form-control"
                                                onfocus="this.value=''" style=""/>
+<!--
                                         <button id="keywordBtn" type="button" title="search with keyword"
-                                                class="btn btn-default cfm-small-btn" onclick="searchByKeyword()">
+                                                class="btn btn-default cfm-small-btn pl-3" onclick="searchByKeyword()">
                                             <span class="glyphicon glyphicon-search"></span>
                                         </button>
+-->
                                     </div>
                                 </div>
 
                             </div>
                         </li>
-<!-- XXX -->
                         <li id='latlon' class='navigationLi' style="width:600px; display:none">
                             <div id='latlonMenu' class='menu'>
                                 <div class="row">
@@ -270,13 +305,13 @@ $header = getHeader("Viewer");
                                                id="firstLatTxt"
                                                title="first lat"
                                                onfocus="this.value=''"
-                                               class="form-control">
+                                               class="latlon-item form-control">
                                         <input type="text" 
                                                id="firstLonTxt" 
                                                placeholder='Longitude' 
                                                title="first lon"
                                                onfocus="this.value=''" 
-                                               class="form-control mt-1">
+                                               class="latlon-item form-control mt-1">
                                     </div>
                                     <div class="col-2 pl-1 pr-0">
                                         <input type="text"
@@ -284,20 +319,22 @@ $header = getHeader("Viewer");
                                                title="optional second lat"
                                                value='optional'
                                                onfocus="this.value=''"
-                                               class="form-control">
+                                               class="latlon-item form-control">
                                         <input type="text"
                                                id="secondLonTxt"
                                                title="optional second lon"
                                                value='optional'
                                                onfocus="this.value=''"
-                                               class="form-control mt-1">
+                                               class="latlon-item form-control mt-1">
                                     </div>
+<!--
                                     <div class="col-1 pr-0 align-items-center">
                                         <button id="latlonBtn" type="button" title="search with latlon"
                                                 class="btn btn-default cfm-small-btn " onclick="searchByLatlon(0)">
                                             <span class="glyphicon glyphicon-search"></span>
                                         </button>
                                     </div>
+-->
                                 </div>
                             </div>
                         </li>
@@ -338,7 +375,7 @@ $header = getHeader("Viewer");
                 </select>
            </div>
 
-<!-- WAIT for better dip/strike data
+<!--
             <div class="input-group input-group-sm ml-md-2 ml-sm-0">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="highlight-faults">Highlight Faults By</label>
@@ -357,32 +394,30 @@ $header = getHeader("Viewer");
 
     <div class="row mapData">
         <div class="col-5 button-container d-flex flex-column" style="overflow:hidden;">
-            <div id="searchResult" style="overflow:hidden;" class="mb-1">
-            </div>
+            <div id="searchResult" style="overflow:hidden;" class="mb-1"></div>
             <div id="geoSearchByObjGidResult" style="display:none"></div>
             <div id="phpResponseTxt"></div>
         </div>
         <div class="col-7 pr-0 pl-2 ">
             <div class="row w-100 mb-1" id='CFM_plot'
                  style="position:relative;border:solid 1px #ced4da; height:576px;"></div>
-
-
         </div>
     </div>
     <div class="row">
-        <div class="col-12" id="metadata-viewer-container">
+      <div class="col-12">
+        <div id="metadata-viewer-container" style="border:solid 1px #ced4da; overflow-x:hidden">
             <table id="metadata-viewer">
                 <thead>
                 <tr>
                     <th>&nbsp;</th>
-                    <th>Fault</th>
-                    <th>Area</th>
-                    <th>Zone</th>
-                    <th>Section</th>
-                    <th>CFM Version</th>
-<!--                    <th>Strike</th>-->
-<!--                    <th>Dip</th>-->
-<!--                    <th>Area (m<sup>2</sup>) </th>-->
+                    <th class="hoverColor" onClick="sortMetadataTableByRow(1,'a')">Fault<span id='sortCol_1' class="fas fa-angle-down"></span></th>
+                    <th class="hoverColor" onClick="sortMetadataTableByRow(2,'a')">Area<span id='sortCol_2' class="fas fa-angle-down"></span></th>
+                    <th class="hoverColor" onClick="sortMetadataTableByRow(3,'a')">Zone<span id='sortCol_3' class="fas fa-angle-down"></span></th>
+                    <th class="hoverColor" onClick="sortMetadataTableByRow(4,'a')">Section<span id='sortCol_4' class="fas fa-angle-down"></span></th>
+                    <th class="hoverColor" onClick="sortMetadataTableByRow(5,'a')">Last<br>Update<span id='sortCol_5' class="fas fa-angle-down"></span></th>
+                    <th class="hoverColor" onClick="sortMetadataTableByRow(6,'n')">Avg<br>Strike<span id='sortCol_6' class="fas fa-angle-down"></span></th>
+                    <th class="hoverColor" onClick="sortMetadataTableByRow(7,'n')">Avg<br>Dip<span id='sortCol_7' class="fas fa-angle-down"></span></th>
+                    <th class="hoverColor" onClick="sortMetadataTableByRow(8,'n')">Area<br>(km<sup>2</sup>)<span id='sortCol_8' class="fas fa-angle-down"></span></th>
                     <th><div class="col text-center">
                             <div class="btn-group download-now">
 <!-- MODAL popup button, reuse download-counter -->
@@ -410,11 +445,11 @@ $header = getHeader("Viewer");
 -->
                                 </div>
                             </div>
-                            &nbsp; &nbsp;
+                            &nbsp;
                             <div class="btn-group download-now">
                                 <button id="download-all" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false" disabled>
-                                    Download All <span id="download-counter"></span>
+                                    Download<span id="download-counter"></span>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <button class="dropdown-item" type="button" value="meta"
@@ -442,11 +477,13 @@ $header = getHeader("Viewer");
                 </thead>
                 <tbody>
                 <tr id="placeholder-row">
-                    <td colspan="7">Metadata for selected faults will appear here. </td>
+<!--- altered from 11 -->
+                    <td colspan="11">Metadata for selected faults will appear here. </td>
                 </tr>
                 </tbody>
             </table>
         </div>
+      </div>
     </div>
 </div>
 
@@ -454,19 +491,21 @@ $header = getHeader("Viewer");
 <div id='queryBlock' class="col-6" style="overflow:hidden;display:;"> </div> <!-- query block -->
 
 <div id="dip-strike-key-container" style="display:none;">
-    <div id="dip-strike-key" class="row">
-        <div class="col text-right">
-		<span class="min"></span><span class="ui-slider-range" style="width: 200px;">&nbsp;</span><span class="max"></span>
+    <div id="dip-strike-key" class="row" style="opacity:0.8">
+        <div class="col text-left" style="width:110px;height:24px;">
+           <span class="min"></span>
+           <span class="ui-slider-range" style="border:1px solid grey; width:60px;height:20px;"></span>
+           <span class="max"></span>
         </div>
     </div>
 </div>
 
 <!--Modal: Name-->
 <div class="modal" id="modal3D" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="modal3D" aria-hidden="true">
-  <div class="modal-dialog modal-xlg full_modal-dialog" id="modal3DDialog" role="document">
+  <div class="modal-dialog modal-full" id="modal3DDialog" role="document">
 
     <!--Content-->
-    <div class="modal-content full_modal-content" id="modal3DContent">
+    <div class="modal-content" id="modal3DContent">
       <!--Header-->
       <div class="modal-header">
         <button id="view3DToggleReprbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleRepr3Dview(this)">Show Wireframe</button>
@@ -482,6 +521,7 @@ $header = getHeader("Viewer");
         <div id="iframe-container" class="row col-12" style="overflow:hidden">
           <iframe id="view3DIfram" title="SCEC CFM 3D viewer" src="" onload="setIframHeight(this.id)" height="10" width="100%" allowfullscreen></iframe>
         </div>
+        <div id="params3D" value="" style="display:none"></div>
       </div>
 
       <div class="modal-footer justify-content-center" id="modal3DFooter">
@@ -490,12 +530,13 @@ $header = getHeader("Viewer");
           <div id="spinIconFor3D" align="center" style="display:none;"><i class="glyphicon glyphicon-cog fa-spin" style="color:red"></i></div>
         </div>
 
-        <button type="button" class="btn btn-outline-primary btn-sm" data-dismiss="modal">Close</button>
+        <button id="view3DClosebtn" class="btn btn-outline-primary btn-sm" data-dismiss="modal">Close</button>
         <button id="view3DExpandbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleExpand3Dview(this)">Shrink</button>
         <button id="view3DRefreshbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="refresh3Dview()">Reset</button>
+        <button id="view3DMovebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="move3Dview()">New Window</button>
+        <button id="view3DWarnbtn" class="btn btn-outline-primary btn-sm" style="display:none" data-toggle="modal" data-target="#modalwarn3d"></button>
         <button id="view3DSavebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="save3Dview()">Save Image</button>
         <button id="view3DHelpbtn" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modalinfo3d" onclick="$('#modal3D').modal('hide');">Help</button>
-        <button id="view3DWarnbtn" class="btn btn-outline-primary btn-sm" style="display:none" data-toggle="modal" data-target="#modalwarn3d"></button>
       </div> <!-- footer -->
 
     </div> <!--Content-->
@@ -503,6 +544,24 @@ $header = getHeader("Viewer");
 </div> <!--Modal: Name-->
 
 <!--Modal: ModelType -->
+<div class="modal" id="modalwait" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" id="modalwaitDialog" role="document">
+
+    <!--Content-->
+    <div class="modal-content" id="modalwaitContent">
+      <!--Body-->
+      <div class="modal-body" id="modalwaitBody">
+        <div class="row col-md-12 ml-auto" style="overflow:hidden; font-size:10pt">
+           <p style="font-size:25px">Please wait for the model to load &nbsp;
+                <i class="glyphicon glyphicon-cog fa-spin" style='color:#990000'></i>
+           </p>
+        </div>
+      </div>
+
+    </div> <!--Content-->
+  </div>
+</div> <!--Modal: Name-->
+
 <div class="modal" id="modalwarn3d" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg" id="modalwarn3dDialog" role="document">
 

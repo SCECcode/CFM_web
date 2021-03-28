@@ -5,36 +5,112 @@
 
 var select_all_flag=0;
 
-// strike range is from 5 to 359
+// from the whole fault object set
+var strike_range_min_ref=0;
+var strike_range_max_ref=360;
 var strike_range_min = 0;
-var strike_range_max = 360;
-
-// dip range is from ? to ?? 
+var strike_range_max = 0;
+// from the whole set
+var dip_range_min_ref = 0;
+var dip_range_max_ref = 0;
 var dip_range_min = 0;
 var dip_range_max = 0;
 
-function reset_strike_range()
-{
-  $( "#strike-range" ).val( strike_range_min + " - " + strike_range_max );
-  $( "#slider-strike-range" ).slider("option", "values" ,[strike_range_min, strike_range_max]);
+// track the geo-counter
+function setGeoTargetValue(v) {
+  $("#modalwait").modal({ backdrop: 'static', keyboard: false });
+  let elm = $("#geo-total");
+  elm.val(v);
 }
 
-function setup_strike_range(min,max)
-{
-   strike_range_min=min;
-   strike_range_max=max;
+function addOne2GeoCounter() { 
+  let elm = $("#geo-counter");
+  let v = parseInt(elm.val())+1;
+  let maxelm = $("#geo-total");
+  let max = parseInt(maxelm.val());
+  elm.val(v);
+  if (v == max) { // turn off spinner
+window.console.log("Finished loading..");
+    $("#modalwait").modal('hide')
+  }
 }
 
-function reset_dip_range()
-{
-  $( "#dip-range" ).val( dip_range_min + " - " + dip_range_max );
-  $( "#slider-dip-range" ).slider("option", "values" ,[dip_range_min, dip_range_max]);
+// clone the initial geo list or the active searched list
+// into a reference list
+function recordReferenceSet(glist) {
+   cfm_reference_gid_list = [].concat(glist);
+   window.console.log(">>>recording number of reference faults..",cfm_reference_gid_list.length);
 }
 
-function setup_dip_range(min,max)
+// from landing page
+function recordActiveReference() {
+   recordReferenceSet(cfm_active_gid_list);
+   var elm=document.getElementById("search-filter-type");
+   elm.selectedIndex=0;
+   dismiss_sidebar();
+}
+
+function resetRecordReference() {
+  disable_record_btn();
+  recordReferenceSet(cfm_gid_list);
+}
+
+function set_current_strike_range_slider()
 {
-   dip_range_min=min;
-   dip_range_max=max;
+  [min, max]=get_current_strike_range();
+  strike_range_min=min;
+  strike_range_max=max;
+//  set_strike_range_color(min,max);
+  $( "#slider-strike-range" ).slider("option", "values" ,[min, max]);
+}
+function setup_strike_range_ref(min,max)
+{
+   strike_range_min_ref=strike_range_min=min;
+   strike_range_max_ref=strike_range_max=max;
+}
+function reset_select_strike()
+{
+  $( "#slider-strike-range" ).slider("option", "values" ,[strike_range_min_ref, strike_range_max_ref]);
+  set_strike_range_color(strike_range_min_ref,strike_range_max_ref)
+}
+
+function set_current_dip_range_slider()
+{
+  [min, max]=get_current_dip_range(); 
+  dip_range_min=min;
+  dip_range_max=max;
+//  set_dip_range_color(min,max);
+  $( "#slider-dip-range" ).slider("option", "values" ,[min, max]);
+}
+function setup_dip_range_ref(min,max)
+{
+   dip_range_min_ref=dip_range_min=min;
+   dip_range_max_ref=dip_range_max=max;
+}
+function reset_select_dip()
+{
+  $( "#slider-dip-range" ).slider("option", "values" ,[dip_range_min_ref, dip_range_max_ref]);
+  set_dip_range_color(dip_range_min_ref,dip_range_max_ref);
+}
+
+function makeDipRGB(val) {
+    var v=val;
+    v=(v-dip_range_min_ref)/(dip_range_max_ref-dip_range_min_ref);
+    let blue = Math.round(255 * v);
+    let green = 0;
+    let red = Math.round((1-v)*255);
+    let color="RGB(" + red + "," + green + "," + blue + ")";
+    return color;
+}
+
+function makeStrikeRGB(val) {
+    var v=val;
+    v=(v-strike_range_min_ref)/(strike_range_max_ref-strike_range_min_ref);
+    let blue = Math.round(255 * v);
+    let green = 0;
+    let red = Math.round((1-v)*255);
+    let color="RGB(" + red + "," + green + "," + blue + ")";
+    return color;
 }
 
 function reset_select_zone() {
@@ -63,6 +139,8 @@ function reset_select_latlon() {
   document.getElementById("secondLatTxt").value = 'optional';
   document.getElementById("secondLonTxt").value = 'optional';
 }
+
+
 
 // download meta data of selected highlighted faults 
 // mlist should not be null
@@ -102,24 +180,25 @@ function removeColorsControl() {
    }
 }
 
-// default -- all black
-// by strike
-// by dip
+// default -- all black --> ""
+// by avg_strike --> "strike"
+// by avg_dip    --> "dip"
+// change the fault color in the map view 
 function changeFaultColor(type) {
     // val=$('input[name=cfm-fault-colors]:checked').val()
     use_fault_color=type;
     reset_fault_color();
     if (type == "") {
        removeKey();
-       highlight_style.color = default_highlight_color;
-       blind_highlight_style.color = default_highlight_color;
+       set_fault_color_default();
     } else {
         showKey(type);
-        highlight_style.color = alternate_highlight_color;
-        blind_highlight_style.color = alternate_highlight_color;
+        set_fault_color_alternate();
     }
 
-    // switch
+    // change color of all the highlighted layers..
+    // to the other default highlight color now that the fault
+    // color got changed
     $("#searchResult table tr.row-selected").each(function(){
         var gid = $(this).attr("id").split("_")[1];
         var l=find_layer_list(gid);
@@ -128,6 +207,7 @@ function changeFaultColor(type) {
             layer.setStyle(highlight_style);
         });
     });
+
 }
 
 
@@ -309,31 +389,47 @@ function toggleAll() {
   }
 }
 
+// function changeFaultColor(type) {
+
 function selectAll() {
   if(select_all_flag == 0) {
     select_all_flag=1;
     select_layer_list();
-      $('#allBtn span').removeClass("glyphicon-unchecked").addClass("glyphicon-check");
+    $('#allBtn span').removeClass("glyphicon-unchecked").addClass("glyphicon-check");
+    if(use_fault_color == "strike" || use_fault_color == "dip") { 
+       removeKey();
+    }
     } else {
-       reset_layer_list();
+       reset_layer_list(); // style is in original color
+       if(use_fault_color == "strike" || use_fault_color == "dip") {
+          showKey(use_fault_color);
+       } 
        select_all_flag=0;
-      $('#allBtn span').removeClass("glyphicon-check").addClass("glyphicon-unchecked");
+       $('#allBtn span').removeClass("glyphicon-check").addClass("glyphicon-unchecked");
   }
 } 
+
+/* reset all the layers and inner to be a fresh start */
 function refreshAll() {
   reset_select_zone();
   reset_select_section();
   reset_select_area();
   reset_select_name();
-  reset_strike_range();
-  reset_dip_range();
   reset_select_keyword();
   reset_select_latlon();
+  reset_select_strike();
+  reset_select_dip();
+
+  resetRecordReference();
+
   document.getElementById("geoSearchByObjGidResult").innerHTML = "";
-  document.getElementById("searchResult").innerHTML = "";
+// only cfm-table-body part needs to be refreshed
+  document.getElementById("cfm-table-body").innerHTML = "";
   document.getElementById("phpResponseTxt").innerHTML = "";
-  $("#search-type").val("dismissClick");
+  $("#search-filter-type").val("dismissClick");
 //  document.getElementById("objGidTxt").value = '';
+  $('#allBtn span').removeClass("glyphicon-check").addClass("glyphicon-unchecked");
+
   refresh_map();
   dismiss_sidebar();
   clear_popup();
@@ -352,22 +448,18 @@ function _item(meta,str,type,name) {
 
 function getMetadataRowForDisplay(meta) {
    let downloadButtons = get_downloads_btn(meta);
-   var area_m2 = "";
-   if (meta['area_m2'] > 0) {
-       area_m2 = parseInt(meta['area_m2']).toExponential();
-   }
 
-   var content = `
+   var content = ` 
    <tr id="metadata-${meta['gid']}">
        <td><button class=\"btn btn-sm cfm-small-btn\" id=\"button_meta_${meta['gid']}\" title=\"remove the fault\" onclick=toggle_highlight("${meta['gid']}");><span id=\"highlight_meta_${meta['gid']}\" class=\"glyphicon glyphicon-trash\"></span></button></td>
-       <td>${meta['fault']}</td>
-       <td>${meta['area']}</td>
-       <td>${meta['zone']}</td>
-       <td>${meta['section']}</td>
-       <td>${meta['CFM_version']}</td>
-      <!-- <td>${meta['strike']}</td>
-       <td>${meta['dip']}</td>
-       <td>${area_m2}</td> -->
+       <td class="meta_td" >${meta['fault']}</td>
+       <td class="meta_td" >${meta['area']}</td>
+       <td class="meta_td" >${meta['zone']}</td>
+       <td class="meta_td" >${meta['section']}</td>
+       <td class="meta_td" >${meta['last_update']}</td>
+       <td class="meta_td" >${meta['avg_strike']}</td>
+       <td class="meta_td" >${meta['avg_dip']}</td>
+       <td class="meta_td" >${meta['area_km2']}</td>
        <td class="download-link">${downloadButtons}</td>
    </tr>
    `;
@@ -391,11 +483,10 @@ function getLevel3ContentFromMeta(meta) {
     var content=meta['fault'];
     content=content+"<hr>";
     content=_item(meta,content,'alternative','ALTERNATIVE');
-    content=_item(meta,content,'model_description','MODEL_DESCRIPTION');
+    content=_item(meta,content,'fault_strand_model_description','MODEL_DESCRIPTION');
     content=_item(meta,content,'descriptor','DESCRIPTOR');
-    content=_item(meta,content,'reference','REFERENCE');
-    content=_item(meta,content,'reference_check','REFERENCE_CHECK');
     content=_item(meta,content,'ID_comments','ID_COMMENTS');
+    content=_item(meta,content,'reference','REFERENCE');
     return content;
 }
 
@@ -427,13 +518,26 @@ function getCSVFromMeta(mlist) {
     var last=len-1;
     var meta=mlist[0];
     var keys=Object.keys(meta);
-    var kblob=keys.join(",");
+    var jlen=keys.length;
     var csvblob = keys.join(",");
     csvblob +='\n';
     for(i=0; i< len; i++) {
+       var j=0;
        meta=mlist[i];
        var values=Object.values(meta)
-       var vblob=values.join(",");
+       var vblob=JSON.stringify(values[0]);
+       for(j=1; j< jlen; j++) {
+          var vv=values[j];
+          if(vv != null) {
+            if(isNaN(vv)) {
+              vblob=vblob+","+ JSON.stringify(vv);
+              } else {
+                vblob=vblob+","+vv;
+            }
+            } else {
+              vblob=vblob+",";
+          }
+       }
        csvblob += vblob;
        if(i != last) {
          csvblob +='\n';
@@ -452,8 +556,8 @@ function getGidFromMeta(meta) {
 function getColorFromMeta(meta) {
 
     var color="black";
-    var strike=meta['strike'];
-    var dip=meta['dip'];
+    var strike=meta['avg_strike'];
+    var dip=meta['avg_dip'];
 
     if(use_fault_color=="strike" && strike != undefined && strike != "") {
         v=parseInt(strike);
@@ -477,6 +581,7 @@ function getColorFromMeta(meta) {
 }
 
 
+// initial set from the backend
 function processGeoList() {
     geostr = $('[data-side="allGeoList"]').data('params');
     nogeostr = $('[data-side="allNoGeoList"]').data('params');
@@ -502,8 +607,9 @@ function processGeoList() {
        cfm_nogeo_gid_list.push(gid);
     }
     window.console.log("total mixed geo..", cfm_gid_list.length);
-
+    recordReferenceSet(cfm_gid_list);
 }
+
 
 // extract meta data blob from php backend, extract object_tb's gid and 
 // use that to grab the matching geoJson
@@ -545,12 +651,15 @@ function processTraceMeta(metaList) {
        }
     }
     window.console.log("Number of meta blobs received from backend ->",sz);
+/* this is number of geoJson coming in from the back end.. */
+
+    setGeoTargetValue(sz);
     return str;
 }
 
 function processSearchResult(rlist) {
-    cfm_search_gid_list=[];
-    var str="";
+    var str=[];
+    var strarray=[];  
     if (rlist == 'searchByFaultObjectName') {
         str = $('[data-side="resultByFaultObjectName"]').data('params');
     } else if (rlist == 'searchByLatLon') {
@@ -573,22 +682,32 @@ function processSearchResult(rlist) {
 
     if(str == undefined) {
        window.console.log("processSearchResult: BAD BAD BAD");
-       return;
+       return str;
     }
 
     // gid, name
+    cfm_active_gid_list=[];
+
     var sz=(Object.keys(str).length);
     window.console.log("Number of gid blobs received from backend ->",sz);
     for( var i=0; i< sz; i++) {
        var tmp= JSON.parse(str[i]);
        var gid=parseInt(tmp['gid']);
+        
+// if filterBy and not in reference list, skip
+       if(!in_reference_gid_list(gid)) {
+         continue;
+       }
+
        cfm_active_gid_list.push(gid);
        if( ! in_nogeo_gid_list(gid)) {
-          toggle_layer(gid);
+        toggle_layer(gid);
        }
-   
+       strarray.push(str[i]);
     }
-    return (str);
+ 
+    enable_record_btn();
+    return (strarray);
 }
 
 function gotAllGeoJSON() {

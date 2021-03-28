@@ -98,12 +98,12 @@ function setup_warn3dTable() {
 
 /*** iframe housekeeping ***/
 /* viewerType=viewerType&fileURL=[file1, file2]&name=[name1, name2]&filePATH=[path] */
-var PARAMS;
 function set_PARAMS(params) {
-  PARAMS=params;
+  $('#params3D').attr('src',params);
 }
 function get_PARAMS() {
-  return PARAMS;
+  var pparams=$('#params3D').attr('src');
+  return pparams;
 }
 
 function show3dView(urls,nstr,path) {
@@ -207,6 +207,22 @@ function refresh3Dview() {
   }
 }
 
+// move current popup modal to a new tab
+function move3Dview() {
+  var yourDOCTYPE = "<!DOCTYPE html>"; // your doctype declaration
+  var copyPreview = window.open('about:blank', 'CFM Plot3D', "resizable=yes,scrollbars=yes,status=yes");
+  var newCopy = copyPreview.document;
+  newCopy.open();
+  // remove copy and new tab buttons
+  document.getElementById("view3DClosebtn").style.display="none";
+  document.getElementById("view3DMovebtn").style.display="none";
+  var newInner=document.documentElement.innerHTML;
+  newCopy.write(yourDOCTYPE+"<html>"+ newInner+ "</html>");
+  newCopy.close();
+  document.getElementById("view3DClosebtn").style.display="block";
+  document.getElementById("view3DMovebtn").style.display="block";
+  document.getElementById("view3DClosebtn").click();
+}
 
 var track_trace=initial_track_trace; // 1 is on 0 is off
 function toggleTrace3Dview(elt) {
@@ -321,29 +337,35 @@ function resetBounds3Dview() {
 function setIframHeight(id) {
   let top = document.documentElement.clientHeight;
   var f_h=58;
-  var height=top -(f_h* 4);
+  var height=top -(f_h*3);
   document.getElementById(id).height = height;
 }
 
 var track_full=0; // 1 is on 0 is off
+var save_height=0;
+var save_width=0;
 function toggleExpand3Dview(elt) {
   
   track_full = !track_full;
   if(track_full) {
+    let h = document.documentElement.clientHeight;
     elt.innerHTML="Expand";
-    $('#modal3DDialog').removeClass('full_modal-dialog');
-    $('#modal3DContent').removeClass('full_modal-content');
-    document.getElementById("view3DIfram").height = "400";
+    $('#modal3DDialog').removeClass('modal-full-dialog');
+    $('#modal3DContent').removeClass('modal-full-content');
+    save_height=document.getElementById("view3DIfram").height;
+    save_width=document.getElementById("view3DIfram").width;
+    let nh= Math.floor(save_height/2);
+    let nw= Math.floor(nh * 3/2);
+    document.getElementById("view3DIfram").height=nh;
+    document.getElementById("view3DIfram").width=nw;
     } else {
       elt.innerHTML="Shrink";
-      $('#modal3DDialog').addClass('full_modal-dialog');
-      $('#modal3DContent').addClass('full_modal-content');
+      $('#modal3DDialog').addClass('modal-full-dialog');
+      $('#modal3DContent').addClass('modal-full-content');
       var c=document.getElementById("modal3DContent");
       var f=document.getElementById("modal3DFooter");
-      var c_h=c.scrollHeight;
-      var f_h=f.scrollHeight;
-      var n_h=c_h -(f_h* 2.5);
-      document.getElementById("view3DIfram").height = n_h;
+      document.getElementById("view3DIfram").height = save_height;
+      document.getElementById("view3DIfram").width = save_width;
   }
 }
 
@@ -352,14 +374,12 @@ function resetExpand3Dview() {
   if(track_full == 1) {
     track_full=0;
     elt.innerHTML="Shrink";
-    $('#modal3DDialog').addClass('full_modal-dialog');
-    $('#modal3DContent').addClass('full_modal-content');
+    $('#modal3DDialog').addClass('modal-full-dialog');
+    $('#modal3DContent').addClass('modal-full-content');
     var c=document.getElementById("modal3DContent");
     var f=document.getElementById("modal3DFooter");
-    var c_h=c.scrollHeight;
-    var f_h=f.scrollHeight;
-    var n_h=c_h -(f_h* 2.5);
-    document.getElementById("view3DIfram").height = n_h;
+    document.getElementById("view3DIfram").height = save_height;
+    document.getElementById("view3DIfram").width = save_width;
   }
 }
 
