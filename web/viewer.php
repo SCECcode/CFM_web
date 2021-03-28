@@ -394,7 +394,8 @@ $header = getHeader("Viewer");
 
     <div class="row mapData">
         <div class="col-5 button-container d-flex flex-column" style="overflow:hidden;">
-            <div id="searchResult" style="overflow:hidden;" class="mb-1"></div>
+<!-- XX -->
+            <div id="searchResult" style="overflow-y:hidden" class="mb-1"></div>
             <div id="geoSearchByObjGidResult" style="display:none"></div>
             <div id="phpResponseTxt"></div>
         </div>
