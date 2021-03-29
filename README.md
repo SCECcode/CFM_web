@@ -11,7 +11,7 @@ A 2D viewer based on Leaflet, an open-source JavaScript library for interactive 
 https://leafletjs.com, map data services from OpenStreetMap, https://www.openstreetmap.org,
 OpenTopoMap, https://www.opentopomap.org and leaflet esri plugin,
 https://esri.github.io/esri-leaflet, for Ersi basemap from ArcGIS and the CFM 
-CFM5_release_2017 release from https://www.scec.org/research/cfm.
+CFM5.3 release from https://www.scec.org/research/cfm.
 
 ### Screen Capture
 
@@ -40,8 +40,8 @@ being built from source:
 - apache web server
 
 
-Data preprocessing instructions are in doc/run-preprocess-data, xlsx file is in 
-schema/CFM5_release_2017 and the scripts are in schema/scripts 
+Data preprocessing instructions are in doc/how-to-preprocess-data, xlsx file is in 
+schema/CFM5_release_2021 and the scripts are in schema/scripts 
 
 
 ### Deployment
