@@ -5,11 +5,11 @@ Version 5.3 of the Southern California Earthquake Center (SCEC) Community Fault 
 DESCRIPTION OF METADATA COLUMNS
 -----------------------------------------------------------------------------------------------------------------------
 The CFM5.3_Metadata.xlxs file contains the CFM5.3 metadata. 
-Here, we provide some information about the columns in the spreadsheet.
+Here, we provide descriptions of the columns in the metadata spreadsheet.
 
 CFM5.3 Fault Object Name
-   This is the CFM object name. All object names use a heirarchical naming scheme and are consistently formatted to
-   facilitate users that plan to write scripts to automate CFM tasks. All object names have 5 parts separated by dashes.
+   This is the CFM object name. All object names use a hierarchical naming scheme and are consistently formatted to
+   facilitate users that write scripts to automate CFM tasks. All object names have 5 parts separated by dashes.
    For example:
 
      1    2    3         4           5
@@ -29,16 +29,17 @@ Last Update
    
 Avg Strike, Avg Dip
    The avg strike and dip is determined (in the native mesh) by calculating each triangle's unit normal vector, and 
-   then weighting by surface area. The total weighted normal vector is then used to calculate the strike and dip. 
-   Strike is generally reported using the right hand rule, but occasionally along nearly vertical faults, the strike
-   direction can flip by 180 degrees due to variations in dip. In these cases, we correct for these 180 degree 
-   changes in strike, so the strike direction is consistent.
+   then weighting by surface area of the triangle. The total weighted normal vector is then used to calculate the 
+   strike and dip. Strike is generally reported using the right hand rule, but occasionally along nearly vertical 
+   faults, the strike direction can flip by 180 degrees due to small variations in dip. In these cases, we correct
+   for these 180 degree changes in strike, so the strike direction is consistent along the fault.
    
 Area [km^2]
    The total surface area of the native mesh fault object in km^2.
    
 Exposure
-   This states whether a fault is "blind" or "surface" breaching. Only faults that are completely blind are reported as blind.
+   The column states whether a fault is "blind" or "surface" breaching. Only faults that are completely blind are 
+   reported as blind.
    
 Slip Sense
    The slip sense is based on published literature where possible, but when no clear data is available, we base the 
@@ -86,5 +87,6 @@ Num
    and are included only for historical purposes.
    
 Alternative
-   This indicates which version of a fault is in the preferred model. No longer updated.
+   This indicates which version of a fault is in the preferred model. No longer updated. Alternative representations
+   are provided now separately.
 
