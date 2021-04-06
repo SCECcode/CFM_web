@@ -15,7 +15,7 @@ CFM5.3 release from https://www.scec.org/research/cfm.
 
 ### Screen Capture
 
-Website URL: TBD
+Website URL: https://www.scec.org/research/cfm-viewer/
 
 ![](doc/cfm-viewer.png)
 
