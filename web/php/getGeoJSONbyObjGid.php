@@ -11,10 +11,10 @@ $dbconn = getConnection();
 
 $objgid = intVal($_GET['obj_gid']);
 
-$resultarray=array();
-$geom=getGeom($objgid);
-array_push($resultarray, $geom);
-#$resultarray=getGeom($objgid);
+#$resultarray=array();
+#$geom=getGeom($objgid);
+#array_push($resultarray, $geom);
+$resultarray=getGeom($objgid);
 
 $arrstring = htmlspecialchars(json_encode($resultarray),ENT_QUOTES,'UTF-8');
 
