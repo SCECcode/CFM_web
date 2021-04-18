@@ -533,8 +533,12 @@ function getGeoJSONbyObjGid(gidstr, meta) {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("geoSearchByObjGidResult").innerHTML = this.responseText;      
             // grab the geoJSON
-            var geoJSONList=grabGeoJSONList();
-            var geoBlindList=grabTraceBlindList();
+            var geoDataList=grabGeoJSONDataList();
+            var gcount=len(geoDataList);
+            window.console.log("XXX... number of geos %d\n", gcount);
+            var geom=geoDataList[0];
+            var geoJSONList=grabGeoJSONList(geom);
+            var geoBlindList=grabTraceBlindList(geom);
             var gid=parseInt(gidstr);
             var trace=makeGeoJSONFeature(geoJSONList, geoBlindList, gid, meta);
             if(trace != undefined)

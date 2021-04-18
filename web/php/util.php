@@ -77,13 +77,13 @@ foreach ($tgids as $tgid) {
    }
 }
 
-$resultarray = new \stdClass();
-$resultarray->geoms = $geomList;
-$resultarray->tgids = $tgidList;
-$resultarray->ogids = $ngidList;
-$resultarray->blinds = $blindList;
+$result = new \stdClass();
+$result->geoms = $geomList;
+$result->tgids = $tgidList;
+$result->ogids = $ngidList;
+$result->blinds = $blindList;
 
-return resultarray;
+return result;
 }
 
 ?>
