@@ -743,7 +743,7 @@ function grabGeoJSONList(gdata) {
 }
 
 // extract the blind list from the backend php
-function grabTraceBlindList(glist) {
+function grabTraceBlindList(gdata) {
 //    var tlist=gdata['tgids'];
 //    var olist=gdata['ogids'];
     var blist=gdata['blinds'];
