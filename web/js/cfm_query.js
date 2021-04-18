@@ -536,6 +536,7 @@ function getGeoJSONbyObjGid(gidstr, meta) {
             var geoDataList=grabGeoJSONDataList();
            // var gcount=geoDataList.length;
            // window.console.log("XXX... number of geos %d\n", gcount);
+window.console.log("HERE..");
             var geom=geoDataList;
             var geoJSONList=grabGeoJSONList(geom);
             var geoBlindList=grabTraceBlindList(geom);
