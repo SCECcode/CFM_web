@@ -727,24 +727,23 @@ function grabGeoJSON() {
     return str;
 }
 
-// extract the geo json blob from the backend php
-function grabGeoJSONList() {
-    var gdata = $('[data-side="geo-json"]').data('params');
-    if(gdata == undefined) {
-      window.console.log("EROR -- geometry is empty");
+function grabGeoJSONDataList() {
+    var datalist = $('[data-side="geo-json"]').data('params');
+    if(datalist == undefined) {
+      window.console.log("EROR -- geometry term is empty");
       return "";
     }
+   return datalist;
+}
+
+// extract the geo json blob from the backend php
+function grabGeoJSONList(gdata) {
     var glist=gdata['geoms'];
     return glist;
 }
 
 // extract the blind list from the backend php
-function grabTraceBlindList() {
-    var gdata = $('[data-side="geo-json"]').data('params');
-    if(gdata == undefined) {
-      window.console.log("EROR -- geo-json is empty");
-      return "";
-    }
+function grabTraceBlindList(glist) {
 //    var tlist=gdata['tgids'];
 //    var olist=gdata['ogids'];
     var blist=gdata['blinds'];
