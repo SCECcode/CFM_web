@@ -534,7 +534,7 @@ function getGeoJSONbyObjGid(gidstr, meta) {
             document.getElementById("geoSearchByObjGidResult").innerHTML = this.responseText;      
             // grab the geoJSON
             var geoDataList=grabGeoJSONDataList();
-            var gcount=len(geoDataList);
+            var gcount=geoDataList.length;
             window.console.log("XXX... number of geos %d\n", gcount);
             var geom=geoDataList[0];
             var geoJSONList=grabGeoJSONList(geom);
