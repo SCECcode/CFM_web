@@ -44,7 +44,7 @@ $myJSON = json_encode($myObj);
 return $myJSON;
 }
 
-function getGeom($objgid) {
+function getGeom($dbconn,$objgid) {
 
 $data = array($objgid);
 
