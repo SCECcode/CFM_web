@@ -12,12 +12,13 @@ $dbconn = getConnection();
 
 $objarray = array($_GET['obj_gid']);
 
-$objgid=$objarray[0];
-
 $resultarray=array();
-$geom=getGeom($dbconn,$objgid);
-$geom->objgid=$objgid;
-array_push($resultarray, $geom);
+foreach ($objarray as $objgid) {
+  $geom=getGeom($dbconn,$objgid);
+  $geom->objgid=$objgid;
+  array_push($resultarray, $geom);
+}
+
 
 $arrstring = htmlspecialchars(json_encode($resultarray),ENT_QUOTES,'UTF-8');
 
