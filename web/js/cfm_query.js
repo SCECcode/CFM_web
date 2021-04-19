@@ -518,7 +518,7 @@ function getDipRange() {
 
 
 // XX var tmp_gid_list=[];
-function getGeoJSONbyObjGid(gidarray, meta) {
+function getGeoJSONbyObjGid(gidarray, metaarray) {
     // if gidarray is not set look for it in the input field
     if(typeof gidarray == 'undefined') {    
         let tmp=document.getElementById("objGidTxt").value;
@@ -544,7 +544,7 @@ function getGeoJSONbyObjGid(gidarray, meta) {
               var geoBlindList=grabTraceBlindList(geom);
             
               var gid=parseInt(gidarray[i]);
-              var trace=makeGeoJSONFeature(geoJSONList, geoBlindList, gid, meta);
+              var trace=makeGeoJSONFeature(geoJSONList, geoBlindList, gid, meta[i]);
               if(trace != undefined)
                 load_a_trace(gid,trace);
             }

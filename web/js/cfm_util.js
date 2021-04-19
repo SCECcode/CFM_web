@@ -630,6 +630,7 @@ function processTraceMeta(metaList) {
     // structure one by one
     for( var i=0; i< sz; i++) {
        var tmp_gid_list=[];
+       var tmp_meta_list=[];
        var t=str[i];
        var meta = JSON.parse(str[i]);
        var gidstr=meta['gid'];
@@ -646,13 +647,14 @@ function processTraceMeta(metaList) {
          cfm_fault_meta_list.push({"gid":gid, "meta": meta });
          if( !in_nogeo_gid_list(gid)) {
            tmp_gid_list.push(gidstr);
-           getGeoJSONbyObjGid(tmp_gid_list,meta);
+           tmp_meta_list.push(meta);
+           getGeoJSONbyObjGid(tmp_gid_list,tmp_meta_list);
          }
          } else {
             window.console.log("BAD ??");
        }
     }
-//    getGeoJSONbyObjGid(tmp_gid_list,meta);
+//    getGeoJSONbyObjGid(tmp_gid_list,tmp_meta_list);
     window.console.log("Number of meta blobs received from backend ->",sz);
 /* this is number of geoJson coming in from the back end.. */
 
