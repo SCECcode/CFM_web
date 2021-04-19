@@ -544,7 +544,7 @@ function getGeoJSONbyObjGid(gidarray, metaarray) {
               var geoBlindList=grabTraceBlindList(geom);
             
               var gid=parseInt(gidarray[i]);
-              var trace=makeGeoJSONFeature(geoJSONList, geoBlindList, gid, meta[i]);
+              var trace=makeGeoJSONFeature(geoJSONList, geoBlindList, gid, metaarray[i]);
               if(trace != undefined)
                 load_a_trace(gid,trace);
             }
