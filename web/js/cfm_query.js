@@ -519,9 +519,11 @@ function getDipRange() {
 
 // XX var tmp_gid_list=[];
 function getGeoJSONbyObjGid(gidarray, meta) {
-    // if gidstr is not set look for it in the input field
-    if(typeof gidstr == 'undefined')    
-        gidstr=document.getElementById("objGidTxt").value;
+    // if gidarray is not set look for it in the input field
+    if(typeof gidarray == 'undefined') {    
+        let tmp=document.getElementById("objGidTxt").value;
+        gidarray= [ tmp ];
+    }
         
     if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
