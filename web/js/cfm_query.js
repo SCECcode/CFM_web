@@ -517,7 +517,9 @@ function getDipRange() {
 }
 
 
-function getGeoJSONbyObjGid(gidstr, meta) {
+// XX
+    var tmp_gid_list=[];
+function getGeoJSONbyObjGid(gidarray, meta) {
     // if gidstr is not set look for it in the input field
     if(typeof gidstr == 'undefined')    
         gidstr=document.getElementById("objGidTxt").value;
@@ -535,19 +537,19 @@ function getGeoJSONbyObjGid(gidstr, meta) {
             // grab the geoJSON
             var geoDataList=grabGeoJSONDataList();
             var gcount=geoDataList.length;
-            window.console.log("XXX... number of geos %d\n", gcount);
-window.console.log("HERE..");
-            var geom=geoDataList[0];
-
-            var geoJSONList=grabGeoJSONList(geom);
-            var geoBlindList=grabTraceBlindList(geom);
-            var gid=parseInt(gidstr);
-            var trace=makeGeoJSONFeature(geoJSONList, geoBlindList, gid, meta);
-            if(trace != undefined)
-              load_a_trace(gid,trace);
+            for(var i=0;i<gcount;i++) {
+              var geom=geoDataList[i];
+              var geoJSONList=grabGeoJSONList(geom);
+              var geoBlindList=grabTraceBlindList(geom);
+            
+              var gid=parseInt(gidarray[i]);
+              var trace=makeGeoJSONFeature(geoJSONList, geoBlindList, gid, meta);
+              if(trace != undefined)
+                load_a_trace(gid,trace);
+            }
         }     
     };  
-    xmlhttp.open("GET","php/getGeoJSONbyObjGid.php?obj_gid="+gidstr,true);
+    xmlhttp.open("GET","php/getGeoJSONbyObjGid.php?obj_gid="+gidarray.toString(),true);
     xmlhttp.send();
 }   
 

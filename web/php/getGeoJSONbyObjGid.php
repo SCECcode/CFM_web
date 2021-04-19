@@ -10,7 +10,9 @@ include ("util.php");
 
 $dbconn = getConnection();
 
-$objgid = intVal($_GET['obj_gid']);
+$objarray = array($_GET['obj_gid']);
+
+$objgid=$objarray[0];
 
 $resultarray=array();
 $geom=getGeom($dbconn,$objgid);
