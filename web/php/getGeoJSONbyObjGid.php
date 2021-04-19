@@ -15,6 +15,7 @@ $objgid = intVal($_GET['obj_gid']);
 #$geom=getGeom($objgid);
 #array_push($resultarray, $geom);
 $resultarray=getGeom($objgid);
+$resultarray->objgid=$objgid;
 
 $arrstring = htmlspecialchars(json_encode($resultarray),ENT_QUOTES,'UTF-8');
 
