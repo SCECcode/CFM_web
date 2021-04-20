@@ -15,11 +15,11 @@ function enable_record_btn() {
 }
 
 function disable_last_record_btn() {
-  $('#lastRecordReferenceBtn').attr("disabled", true);
+  $('#lastRecordedReferenceBtn').attr("disabled", true);
 }
 
 function enable_last_record_btn() {
-  $('#lastRrecordReferenceBtn').attr("disabled", false);
+  $('#lastRrecordedReferenceBtn').attr("disabled", false);
 }
 
 
