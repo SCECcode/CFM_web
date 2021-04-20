@@ -59,8 +59,6 @@ function get_map()
 }
 
 function setup_viewer()
-
-function setup_viewer()
 {
 // esri
   var esri_topographic = L.esri.basemapLayer("Topographic");

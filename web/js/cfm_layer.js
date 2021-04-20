@@ -114,7 +114,7 @@ var cfm_active_gid_list=[];
 var cfm_reference_gid_list=[]; 
 // tracking map's zoom/position when the reference set is stored
 var cfm_reference_map_center=[34.3,-118.4];
-var cfm_reference_map_zoom=7;'
+var cfm_reference_map_zoom=7;
 
 // a set of bounding box composed of  2 lat lon locations
 // for now, expect there is just 1 area only
