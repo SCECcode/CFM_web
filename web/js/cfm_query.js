@@ -517,13 +517,13 @@ function getDipRange() {
 }
 
 
-// XX var tmp_gid_list=[];
 function getGeoJSONbyObjGid(gidarray, metaarray) {
     // if gidarray is not set look for it in the input field
     if(typeof gidarray == 'undefined') {    
         let tmp=document.getElementById("objGidTxt").value;
         gidarray= [ tmp ];
     }
+    var gidarraystr=gidarray.toString();
         
     if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -550,7 +550,7 @@ function getGeoJSONbyObjGid(gidarray, metaarray) {
             }
         }     
     };  
-    xmlhttp.open("GET","php/getGeoJSONbyObjGid.php?obj_gid="+gidarray.toString(),true);
+    xmlhttp.open("GET","php/getGeoJSONbyObjGid.php?obj_gid="+gidarraystr,true);
     xmlhttp.send();
 }   
 
