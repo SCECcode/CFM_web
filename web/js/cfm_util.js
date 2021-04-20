@@ -648,8 +648,8 @@ function processTraceMeta(metaList) {
          if( !in_nogeo_gid_list(gid)) {
            tmp_gid_list.push(gidstr);
            tmp_meta_list.push(meta);
-//           getGeoJSONbyObjGid(tmp_gid_list,tmp_meta_list);
          
+         }
          } else {
             window.console.log("BAD ??");
        }
