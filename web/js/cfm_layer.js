@@ -112,6 +112,9 @@ var cfm_active_gid_list=[];
 // gid is objgid
 // { gid1, gid2, ... }, a copy of active_gid_list from the previous, for 'filter by'
 var cfm_reference_gid_list=[]; 
+// tracking map's zoom/position when the reference set is stored
+var cfm_reference_map_center=[34.3,-118.4];
+var cfm_reference_map_zoom=7;'
 
 // a set of bounding box composed of  2 lat lon locations
 // for now, expect there is just 1 area only

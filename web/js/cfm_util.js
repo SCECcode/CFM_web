@@ -49,9 +49,10 @@ function recordActiveReference() {
    var elm=document.getElementById("search-filter-type");
    elm.selectedIndex=0;
    dismiss_sidebar();
+   [cfm_reference_map_center, cfm_reference_map_zoom] = get_map();
 }
 
-//XXX  need to revert to the current search result
+//need to revert to the current search result
 function resetLastRecordReference() {
   cfm_active_gid_list=cfm_reference_gid_list;
 
@@ -63,7 +64,7 @@ function resetLastRecordReference() {
   var elm=document.getElementById("search-filter-type");
   elm.selectedIndex=0;
   dismiss_sidebar();
-
+  set_map(cfm_reference_map_center, cfm_reference_map_zoom);
 }
 
 function resetRecordReference() {

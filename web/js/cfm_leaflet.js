@@ -36,6 +36,30 @@ function refresh_map()
   }
 }
 
+function set_map(center,zoom)
+{
+  if (viewermap == undefined) {
+    window.console.log("set_map: BAD BAD BAD");
+    } else {
+      viewermap.setView(center, zoom);
+  }
+}
+
+function get_map()
+{
+  var center=[34.3,-118.4];
+  var zoom=7;
+  if (viewermap == undefined) {
+    window.console.log("get_map: BAD BAD BAD");
+    } else {
+      center=viewermap.getCenter();
+      zoom=viewermap.getZoom();
+  }
+  return [center, zoom];
+}
+
+function setup_viewer()
+
 function setup_viewer()
 {
 // esri

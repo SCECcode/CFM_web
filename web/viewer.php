@@ -168,12 +168,12 @@ $header = getHeader("Viewer");
 
                 <div>
                   <button id="recordReferenceBtn" title="Record a reference fault set"
-                      class="btn btn-default cfm-small-btn pl-4" onclick="recordActiveReference()" disabled>
+                      class="btn btn-default cfm-small-btn pl-4 mt-3" onclick="recordActiveReference()" disabled>
                       <span class="glyphicon glyphicon-record"></span>
                   </button>
                   <button id="lastRecordedReferenceBtn" title="refresh to last recorded reference fault set"
                       class="btn btn-default cfm-small-btn mt-3" onclick="resetLastRecordReference()" disabled>
-                      <span class="fas fa-step-back"></span>
+                      <span class="fas fa-step-backward"></span>
                   </button>
                 </div>
             </div>

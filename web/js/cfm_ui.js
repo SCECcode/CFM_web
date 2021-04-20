@@ -19,7 +19,7 @@ function disable_last_record_btn() {
 }
 
 function enable_last_record_btn() {
-  $('#lastRrecordedReferenceBtn').attr("disabled", false);
+  $('#lastRecordedReferenceBtn').attr("disabled", false);
 }
 
 
