@@ -6,10 +6,6 @@
 
 <?php
 
-include ("util.php");
-
-#####
-
 function getGeom($dbconn,$objgid) {
 
 $data = array($objgid);
@@ -43,7 +39,6 @@ foreach ($tgids as $tgid) {
      array_push($blindList, intVal($nrow[1]));
    }
 }
-
 $newresult = new \stdClass();
 $newresult->geoms = $geomList;
 $newresult->tgids = $tgidList;
@@ -53,10 +48,11 @@ $newresult->blinds = $blindList;
 return $newresult;
 }
 
-#####
+include ("util.php");
+$dbconn = getConnection();
 
-$liststr = $_GET['obj_gid'];
-$objarray=explode(",",$liststr);
+$objstr = $_GET['obj_gid'];
+$objarray=explode(",",$objstr);
 
 $resultarray=array();
 foreach ($objarray as $objgid) {
