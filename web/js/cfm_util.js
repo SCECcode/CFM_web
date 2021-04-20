@@ -45,13 +45,19 @@ function recordReferenceSet(glist) {
 // from landing page
 function recordActiveReference() {
    recordReferenceSet(cfm_active_gid_list);
+   enable_last_record_btn();
    var elm=document.getElementById("search-filter-type");
    elm.selectedIndex=0;
    dismiss_sidebar();
 }
 
+function resetLastRecordReference() {
+  recordReferenceSet(cfm_reference_gid_list);
+}
+
 function resetRecordReference() {
   disable_record_btn();
+  disable_last_record_btn();
   recordReferenceSet(cfm_gid_list);
 }
 

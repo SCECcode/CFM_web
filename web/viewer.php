@@ -171,6 +171,10 @@ $header = getHeader("Viewer");
                       class="btn btn-default cfm-small-btn pl-4" onclick="recordActiveReference()" disabled>
                       <span class="glyphicon glyphicon-record"></span>
                   </button>
+                  <button id="lastRecordedReferenceBtn" title="refresh to last recorded reference fault set"
+                      class="btn btn-default cfm-small-btn mt-3" onclick="resetLastRecordReference()" disabled>
+                      <span class="fas fa-step-back"></span>
+                  </button>
                 </div>
             </div>
             <div class="row" style="margin-bottom:-10px;">
