@@ -11,7 +11,6 @@ function getConnection() {
 }
 
 function makeObj($row) {
-
 include ("declare.php");
 
 $myObj = new \stdClass();
@@ -38,6 +37,23 @@ $myObj->zone=$row[$zone];
 $myObj->section=$row[$section];
 $myObj->fault=$row[$fault];
 $myObj->TRACE_tb_gid=$row[$TRACE_tb_gid];
+
+$myJSON = json_encode($myObj);
+
+return $myJSON;
+}
+
+function makeEQObj($row) {
+include ("declare.php");
+
+$myObj = new \stdClass();
+
+$myObj->gid=$row[$gid];
+$myObj->EventID=$row[$EventID];
+$myObj->Lon=$row[$Lon];
+$myObj->Lat=$row[$Lat];
+$myObj->Depth=$row[$Depth];
+$myObj->Mag=$row[$Mag];
 
 $myJSON = json_encode($myObj);
 
