@@ -18,7 +18,7 @@ function searchByStrikeRange(min,max) {
                 document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
             }
         };
-        xmlhttp.open("GET","php/byStrikeRange.php?min="+min+"&max="+max,true);
+        xmlhttp.open("GET","php/faultsByStrikeRange.php?min="+min+"&max="+max,true);
         xmlhttp.send();
     }
 }
@@ -71,7 +71,7 @@ function searchByDipRange(min,max) {
                 document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
             }
         };
-        xmlhttp.open("GET","php/byDipRange.php?min="+min+"&max="+max,true);
+        xmlhttp.open("GET","php/faultsByDipRange.php?min="+min+"&max="+max,true);
         xmlhttp.send();
     }
 }
@@ -119,7 +119,7 @@ function searchByFaultObjectName() {
             document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
         }
     };
-    xmlhttp.open("GET","php/byFaultObjectName.php?q="+str,true);
+    xmlhttp.open("GET","php/faultsByFaultObjectName.php?q="+str,true);
     xmlhttp.send();
 }
 function searchByKeyword() {
@@ -139,7 +139,7 @@ function searchByKeyword() {
             document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
         }
     };
-    xmlhttp.open("GET","php/byKeyword.php?q="+str,true);
+    xmlhttp.open("GET","php/faultsByKeyword.php?q="+str,true);
     xmlhttp.send();
 }
 
@@ -179,7 +179,7 @@ function searchByLatlon(frommap) {
                 document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
             }
         }
-        xmlhttp.open("GET","php/byLatlon.php?firstlat="+firstlatstr+"&secondlat="+secondlatstr+"&firstlon="+firstlonstr+"&secondlon="+secondlonstr,true);
+        xmlhttp.open("GET","php/faultsByLatlon.php?firstlat="+firstlatstr+"&secondlat="+secondlatstr+"&firstlon="+firstlonstr+"&secondlon="+secondlonstr,true);
         xmlhttp.send();
     }
 }
@@ -204,7 +204,7 @@ function searchByZone(str) {
                 document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
             }
         };
-        xmlhttp.open("GET","php/byZone.php?q="+str,true);
+        xmlhttp.open("GET","php/faultsByZone.php?q="+str,true);
         xmlhttp.send();
     }
 }
@@ -229,7 +229,7 @@ function searchBySection(str) {
                 document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
             }
         };
-        xmlhttp.open("GET","php/bySection.php?q="+str,true);
+        xmlhttp.open("GET","php/faultsBySection.php?q="+str,true);
         xmlhttp.send();
     }
 }
@@ -255,7 +255,7 @@ function searchByArea(str) {
             }
 
         };
-        xmlhttp.open("GET","php/byArea.php?q="+str,true);
+        xmlhttp.open("GET","php/faultsByArea.php?q="+str,true);
         xmlhttp.send();
     }
 }
@@ -281,7 +281,7 @@ function searchByName(str) {
                 document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
             }
         };
-        xmlhttp.open("GET","php/byName.php?q="+str,true);
+        xmlhttp.open("GET","php/faultsByName.php?q="+str,true);
         xmlhttp.send();
     }
 }
@@ -328,7 +328,7 @@ function getAllTraces() {
             })
         }
     };
-    xmlhttp.open("GET","php/getAllTraces.php",true);
+    xmlhttp.open("GET","php/getAllFaultTraces.php",true);
     xmlhttp.send();
 }
 

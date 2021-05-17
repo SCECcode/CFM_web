@@ -91,3 +91,22 @@ CREATE TABLE OBJECT_tb (
    fault_strand_model_description VARCHAR(300),
    reference VARCHAR(300)
 );
+
+CREATE TABLE EQ_tb (
+   gid serial PRIMARY KEY,
+
+   yr integer,
+   mo integer,
+   dy integer,
+   hr integer,
+   mn integer,
+   sec real,
+
+   EventID integer UNIQUE,
+   Lon real, 
+   Lat real,
+   Depth real,
+   Mag real,
+   Easting real,
+   Northing real
+);

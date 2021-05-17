@@ -14,3 +14,5 @@ COPY OBJECT_500m_tb(name, url)
 FROM '/home/postgres/CFM/schema/data/object_500m_tb.csv' DELIMITER ',' CSV HEADER;
 COPY OBJECT_native_tb(name, url)
 FROM '/home/postgres/CFM/schema/data/object_native_tb.csv' DELIMITER ',' CSV HEADER;
+COPY EQ_tb(yr,mo,dy,hr,mn,sec,EventID,Lon,Lat,Depth,Mag,Easting,Northing)
+FROM '/home/postgres/CFM/schema/data/eq_tb.csv' DELIMITER ',' CSV HEADER;

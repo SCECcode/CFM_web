@@ -13,12 +13,12 @@ jQuery(document).ready(function() {
 
 // special handle keyword's input completion
   $('#keywordTxt').on("focus", function() {
-     window.console.log("XXX in keyword input after focus->", event.type);
+//     window.console.log("XXX in keyword input after focus->", event.type);
 
      $('#keywordTxt').on("blur mouseout", function(event) {
        $('#keywordTxt').off("mouseout");
        $('#keywordTxt').off("blur");
-       window.console.log("XXX in keyword input with ->", $(this).val());
+ //      window.console.log("XXX in keyword input with ->", $(this).val());
        if( $(this).val() != '' ) {
         searchByKeyword();
        }
