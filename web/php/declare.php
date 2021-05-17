@@ -22,12 +22,12 @@ $fault=18;
 $TRACE_tb_gid=19;
 
 // for EQ_tb
-$gid=0;
-$EventTime=1;
-$EventID=2;
-$Lon=3;
-$Lat=4;
-$Depth=5;
-$Mag=6;
+$eq_gid=0;
+$eq_EventTime=1;
+$eq_EventID=2;
+$eq_Lon=3;
+$eq_Lat=4;
+$eq_Depth=5;
+$eq_Mag=6;
 
 ?>

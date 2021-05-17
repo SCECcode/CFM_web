@@ -48,12 +48,12 @@ include ("declare.php");
 
 $myObj = new \stdClass();
 
-$myObj->gid=$row[$gid];
-$myObj->EventID=$row[$EventID];
-$myObj->Lon=$row[$Lon];
-$myObj->Lat=$row[$Lat];
-$myObj->Depth=$row[$Depth];
-$myObj->Mag=$row[$Mag];
+$myObj->gid=$row[$eq_gid];
+$myObj->EventID=$row[$eq_EventID];
+$myObj->Lon=$row[$eq_Lon];
+$myObj->Lat=$row[$eq_Lat];
+$myObj->Depth=$row[$eq_Depth];
+$myObj->Mag=$row[$eq_Mag];
 
 $myJSON = json_encode($myObj);
 

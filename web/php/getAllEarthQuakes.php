@@ -11,7 +11,7 @@ include("util.php");
 
 $dbconn = getConnection();
 
-$query = "SELECT gid, EventID, Lon, Lat, Mag FROM EQ_tb";
+$query = "SELECT gid, EventID, Lon, Lat, Depth, Mag FROM EQ_tb";
 
 $result = pg_query($dbconn, $query);
 
