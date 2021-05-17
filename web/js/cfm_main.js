@@ -62,6 +62,7 @@ jQuery(document).ready(function() {
   
   getGeoTraceList();
   getAllTraces();
+  getAllEQs();
   setupSearch();
   addDownloadSelect();
   setup_info3dTable();

@@ -939,3 +939,13 @@ function processEQData(eqlist) {
 }
 
 
+function showEQPoints(eqarray) {
+   var sz=eqarray.length;
+   var item; // json blob
+   for( var i=0; i<10; i++) {
+      item=eqarray[i];
+      var lat=item['Lat'];
+      var lon=item['Lon'];
+      var layer=addMarkerLayer(lat,lon);
+   }
+}
