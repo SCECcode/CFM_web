@@ -95,14 +95,9 @@ CREATE TABLE OBJECT_tb (
 CREATE TABLE EQ_tb (
    gid serial PRIMARY KEY,
 
-   yr integer,
-   mo integer,
-   dy integer,
-   hr integer,
-   mn integer,
-   sec real,
+   EventTime timestamp,
 
-   EventID integer UNIQUE,
+   EventID integer,
    Lon real, 
    Lat real,
    Depth real,

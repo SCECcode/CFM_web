@@ -1,5 +1,5 @@
 <?php
-
+// for Fault Objects
 $gid=0;
 $name=1;
 $alternative=2;
@@ -20,4 +20,14 @@ $zone=16;
 $section=17;
 $fault=18;
 $TRACE_tb_gid=19;
+
+// for EQ_tb
+$gid=0;
+$EventTime=1;
+$EventID=2;
+$Lon=3;
+$Lat=4;
+$Depth=5;
+$Mag=6;
+
 ?>

@@ -1,4 +1,4 @@
-/**
+**
    cfm_util.js
 
 ***/
@@ -909,3 +909,33 @@ function collectURLsFor3d(mlist) {
   }
 
 }
+
+
+/****************** for handling earthquakes ********************/
+
+function processEQData(eqlist) {
+    var eqstr=[];
+    var eqarray=[]; // array of json items
+
+    if ( eqlist == 'allEQs') {
+       eqstr = $('[data-side="allEQs"]').data('params');
+    } else if (eqlist == 'someEQs' {
+       eqstr = $('[data-side="someEQs"]').data('params');
+    } 
+
+    if(eqstr == undefined) {
+        window.console.log("processEQData: BAD BAD BAD");
+        return;
+    }
+
+    var sz=(Object.keys(eqstr).length);
+    window.console.log("Number of eq blobs received from backend ->",sz);
+    for( var i=0; i< sz; i++) {
+       var tmp= JSON.parse(eqstr[i]);
+       var gid=parseInt(tmp['gid']);
+       eqarray.push(tmp);
+    }
+    return eqarray;
+}
+
+
