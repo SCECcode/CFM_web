@@ -1,0 +1,19 @@
+# yr mo dy hr mn sec EventID Lon Lat Depth Mag Easting(m) Northing(m)
+1981 01 01 01 49 29.504 3301561 33.73053 -118.81290 7.037 2.27 332126.64 3733557.36
+
+CREATE TABLE EQUAKE_tb (
+   gid serial PRIMARY KEY,
+   eventID integer UNIQUE,
+
+   yr integer,
+   mo integer,
+   dy integer,
+   hr integer,
+   mn integer,
+   sec real,
+   Lon real, 
+   Lat real,
+   Depth real,
+   Easting_m real,
+   Northing_m real
+);
