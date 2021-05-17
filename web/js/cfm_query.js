@@ -584,7 +584,6 @@ function getAllEQs() {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
             var eqarray=processEQData("allEQs");
             showEQPoints(eqarray);
-            })
         }
     };
     xmlhttp.open("GET","php/getAllEQs.php",true);
