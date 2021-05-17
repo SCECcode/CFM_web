@@ -1,4 +1,4 @@
-**
+/***
    cfm_util.js
 
 ***/
@@ -919,7 +919,7 @@ function processEQData(eqlist) {
 
     if ( eqlist == 'allEQs') {
        eqstr = $('[data-side="allEQs"]').data('params');
-    } else if (eqlist == 'someEQs' {
+    } else if (eqlist == 'someEQs') {
        eqstr = $('[data-side="someEQs"]').data('params');
     } 
 
