@@ -571,7 +571,7 @@ function setupSearch()
 
 /****************** for handling earthquakes ********************/
 
-function getAllEQs() {
+function getAllEarthQuakes() {
     if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
@@ -586,6 +586,6 @@ function getAllEQs() {
             showEQPoints(eqarray);
         }
     };
-    xmlhttp.open("GET","php/getAllEQs.php",true);
+    xmlhttp.open("GET","php/getAllEarthQuakes.php",true);
     xmlhttp.send();
 }
