@@ -103,4 +103,4 @@ CREATE TABLE EQ_tb (
    Easting float,
    Northing float
 );
-SELECT AddGeometryColumn('','eq_tb','geom','0','POINT',2);
+SELECT AddGeometryColumn('','EQ_tb','geom','0','POINT',2);
