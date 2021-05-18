@@ -49,6 +49,7 @@ include ("declare.php");
 $myObj = new \stdClass();
 
 $myObj->gid=$row[$eq_gid];
+$myObj->EventTime=$row[$eq_EventTime];
 $myObj->EventID=$row[$eq_EventID];
 $myObj->Lon=$row[$eq_Lon];
 $myObj->Lat=$row[$eq_Lat];

@@ -11,7 +11,7 @@ include("util.php");
 
 $dbconn = getConnection();
 
-$query = "SELECT gid, EventID, Lon, Lat, Depth, Mag FROM EQ_tb WHERE Mag > 5";
+$query = "SELECT gid, EventTime, EventID, Lon, Lat, Depth, Mag FROM EQ_tb WHERE Mag > 6";
 
 $result = pg_query($dbconn, $query);
 

@@ -94,14 +94,13 @@ CREATE TABLE OBJECT_tb (
 
 CREATE TABLE EQ_tb (
    gid serial PRIMARY KEY,
-
    EventTime timestamp,
-
    EventID integer,
-   Lon real, 
-   Lat real,
-   Depth real,
-   Mag real,
-   Easting real,
-   Northing real
+   Lon float, 
+   Lat float,
+   Depth float,
+   Mag float,
+   Easting float,
+   Northing float
 );
+SELECT AddGeometryColumn('','eq_tb','geom','0','POINT',2);
