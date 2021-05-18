@@ -4,6 +4,7 @@ dropdb --if-exists CFM53_db
 createdb CFM53_db
 mkdir -p /home/postgres/CFM
 cp -Rv /app/schema /home/postgres/CFM/
+(cd /home/postgres/CFM/schema/data; unzip eq_tb.csv.gz)
 psql postgresql://postgres:example@localhost/CFM53_db << AAA
 
   CREATE EXTENSION postgis;
