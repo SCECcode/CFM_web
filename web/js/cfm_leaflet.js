@@ -1,10 +1,17 @@
 /***
    cfm_leaflet.js
+
+This is leaflet specific utilities
+
 ***/
 
 var scecAttribution ='<a href="https://www.scec.org">SCEC</a>';
 
-// This is leaflet specific utilities
+var point_icon = L.AwesomeMarkers.icon({ icon: 'record', markerColor: 'blue'});
+var point_options = { icon : point_icon };
+var myIcon = L.divIcon({className: 'blue-div-icon'});
+var small_point_options = { icon : myIcon};
+
 var rectangle_options = {
        showArea: false,
          shapeOptions: {
@@ -312,7 +319,7 @@ function addRectangleLayer(latA,lonA,latB,lonB) {
 
 function addMarkerLayer(lat,lon) {
   var bounds = [lat, lon];
-  var layer = new L.marker(bounds).addTo(viewermap);
+  var layer = new L.marker(bounds,point_options).addTo(viewermap);
   return layer;
 }
 
