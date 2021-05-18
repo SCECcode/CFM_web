@@ -942,10 +942,12 @@ function processEQData(eqlist) {
 function showEQPoints(eqarray) {
    var sz=eqarray.length;
    var item; // json blob
-   for( var i=0; i<10; i++) {
+   if(sz > 20) sz=20; 
+   for( var i=0; i<sz; i++) {
       item=eqarray[i];
       var lat=item['Lat'];
       var lon=item['Lon'];
+      window.console.llg("EQ point %lf, %lf\n",lat,lon);
       var layer=addMarkerLayer(lat,lon);
    }
 }
