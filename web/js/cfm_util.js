@@ -948,6 +948,6 @@ function showEQPoints(eqarray) {
       var lat=parseFloat(item['Lat']);
       var lon=parseFloat(item['Lon']);
       window.console.log("EQ point >>",lat,lon);
-      var layer=addMarkerLayer(lat,lon);
+      var layer=addMarkerLayer(lon,lat);
    }
 }
