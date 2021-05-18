@@ -9,18 +9,22 @@ $header = getHeader("Viewer");
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="css/vendor/leaflet.css">
+    <link rel="stylesheet" href="css/vendor/font-awesome.min.css">
     <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="css/vendor/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/vendor/leaflet.awesome-markers.css">
+    <link rel="stylesheet" href="css/vendor/leaflet.css">
+
     <link rel="stylesheet" href="css/vendor/jquery-ui.css">
     <link rel="stylesheet" href="css/vendor/glyphicons.css">
     <link rel="stylesheet" href="css/vendor/all.css">
     <link rel="stylesheet" href="css/cfm-ui.css?v=1">
     <link rel="stylesheet" href="css/sidebar.css?v=1">
 
+    <script type="text/javascript" src="js/vendor/leaflet-src.js"></script>
+    <script type='text/javascript' src='js/vendor/leaflet.awesome-markers.min.js'></script>
     <script type='text/javascript' src='js/vendor/popper.min.js'></script>
 <script>L_PREFER_CANVAS = true;</script>
-    <script type="text/javascript" src="js/vendor/leaflet-src.js"></script>
     <script type='text/javascript' src='js/vendor/jquery.min.js'></script>
     <script type='text/javascript' src='js/vendor/jquery.csv.js'></script>
     <script type='text/javascript' src='js/vendor/bootstrap.min.js'></script>
