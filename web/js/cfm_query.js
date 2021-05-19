@@ -310,6 +310,7 @@ function getGeoTraceList() {
 
 
 function getAllTraces() {
+window.console.log("calling getAllTraces..");
     if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();

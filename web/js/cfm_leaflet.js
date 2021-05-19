@@ -7,9 +7,7 @@ This is leaflet specific utilities
 
 var scecAttribution ='<a href="https://www.scec.org">SCEC</a>';
 
-var point_icon = L.AwesomeMarkers.icon({ icon: 'record', markerColor: 'blue'});
-var point_options = { icon : point_icon };
-var myIcon = L.divIcon({className: 'blue-div-icon'});
+var myIcon = L.divIcon({className: 'red-div-icon'});
 var small_point_options = { icon : myIcon};
 
 var rectangle_options = {
@@ -321,6 +319,27 @@ function addMarkerLayer(lat,lon) {
   var bounds = [lat, lon];
   var layer = new L.marker(bounds,point_options).addTo(viewermap);
   return layer;
+}
+
+function addPointsLayerGroup(latlngs) {
+  var cnt=latlngs.length;
+  if(cnt < 1)
+    return null;
+  var layers=[];
+  for(var i=0;i<cnt;i++) {
+     var item=latlngs[i];
+     var lat=parseFloat(item['lat']);
+     var lon=parseFloat(item['lon']);
+     var bounds = [lat,lon ];
+     var layer = L.marker(bounds, small_point_options);
+     var icon = layer.options.icon;
+     icon.options.iconSize = [1, 1];
+     layer.setIcon(icon);
+     layers.push(layer);
+  }
+  var group = new L.FeatureGroup(layers);
+  mymap.addLayer(group);
+
 }
 
 function switchLayer(layerString) {

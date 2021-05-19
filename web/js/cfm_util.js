@@ -941,13 +941,24 @@ function processEQData(eqlist) {
 
 function showEQPoints(eqarray) {
    var sz=eqarray.length;
+   window.console.log("Number of EQ point >>",sz);
+   var latlngs=[];
    var item; // json blob
-   if(sz > 20) sz=20; 
    for( var i=0; i<sz; i++) {
       item=eqarray[i];
       var lat=parseFloat(item['Lat']);
       var lon=parseFloat(item['Lon']);
-      window.console.log("EQ point >>",lat,lon);
-      var layer=addMarkerLayer(lon,lat);
+      latlngs.push( { "lat":lat, "lon":lon } ) 
    }
+   addPointsLayerGroup(latlngs);
 }
+
+function showEQPoints1(eqarray) {
+  var layer=undefined;
+  var trace=makeQuakeGeoJSONFeature(1,eqarray,5,"red");
+  if( trace != undefined ) {
+    layer=addGeoToMap(trace, viewermap);
+  }
+  return layer;
+}
+

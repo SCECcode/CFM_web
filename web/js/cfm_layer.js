@@ -125,6 +125,11 @@ var cfm_latlon_area_list=[];
 // { gid1, gid2, ... }, tracking which object is 'blind'
 var cfm_blind_gid_list=[];
 
+// for tracking groups of earthquakes
+// [ {"gid":gid1, "trace":trace1} ]
+// gid1 is the grouping of a bunch of earthquakes, 
+// trace1 is the leaflet trace feature with MultiPoint geometry
+var cfm_quake_group_list=[];
 /*********************************************************
 *********************************************************/
 
@@ -953,4 +958,75 @@ function add_bounding_rectangle_layer(layer, a,b,c,d) {
   set_latlons(a,b,c,d);
   cfm_latlon_area_list.push(tmp);
 }
+
+
+/*********************************************************
+*********************************************************/
+// with array of quake info in JSONs
+// group can by by mag, by date, by depth
+function makeQuakeGeoJSONFeature(groupid,quakeJSONArray,pointSize,pointColor) {
+
+  if(quakeJSONArray == undefined) {
+    window.console.log("makeQuakeGeoJSONFeature, quakeJSONArray is null");
+    return undefined;
+  }
+
+  if(!Array.isArray(quakeJSONArray)) { // parse each term
+    window.console.log("makeQuakeGeoJSONFeature, quakeJSONArray should be an array");
+    return undefined;
+  }
+     
+  var a_trace={"type":"FeatureCollection", "features":[]};
+  var cnt=quakeJSONArray.length;
+
+  var qids=[];
+  var mags=[];
+  var events=[];
+  var eventtime=[];
+  var latlngs=[];
+
+  for(var i=0; i<cnt; i++) {
+    let json=quakeJSONArray[i];
+    mags.push(json['mag']);
+    qids.push(json['id']);
+    eventtime.push(json['eventTime']);
+    var lat=parseFloat(json['Lat']);
+    var lon=parseFloat(json['Lon']);
+    latlngs.push([lon,lat]);
+  }
+
+  var g=makeMultiPointGeo(latlngs);
+
+  var style= { "weight":pointSize,
+                 "opacity":0.8,
+                 "color":pointColor
+                };
+  var g=makeMultiPointGeo(latlngs);
+
+  var tmp= { "id":groupid,
+               "type":"Feature", 
+               "properties": {
+                   "style": style
+               },
+               "geometry": g 
+            };
+
+  a_trace.features.push(tmp);
+
+  cfm_quake_group_list.push({"group_id":groupid, "trace":a_trace});
+
+  return a_trace;
+}
+
+/* 1 set
+[ {"type":"MultiPoint","coordinates":
+[[-119.822286421156,34.5605513323743,548],[-119.829713797196,34.5616307222088,416],[-119.834759166436,34.5667231936276,548],[-119.837042048869,34.5681075432669,440
+]]
+}]
+*/
+function makeMultiPointGeo(latlngs) {
+  var geo= { "type":"MultiPoint", "coordinates": latlngs };
+  return geo;
+}
+
 
