@@ -5,10 +5,10 @@ This is leaflet specific utilities
 
 ***/
 
-var scecAttribution ='<a href="https://www.scec.org">SCEC</a>';
+var init_map_zoom_level = 7;
+var seisimicity_map_zoom_level = 11;
 
-var myIcon = L.divIcon({className: 'red-div-icon'});
-var small_point_options = { icon : myIcon};
+var scecAttribution ='<a href="https://www.scec.org">SCEC</a>';
 
 var rectangle_options = {
        showArea: false,
@@ -37,7 +37,7 @@ function refresh_map()
   if (viewermap == undefined) {
     window.console.log("refresh_map: BAD BAD BAD");
     } else {
-      viewermap.setView([34.3, -118.4], 7);
+      viewermap.setView([34.3, -118.4], init_map_zoom_level);
   }
 }
 
@@ -48,6 +48,12 @@ function set_map(center,zoom)
     } else {
       viewermap.setView(center, zoom);
   }
+}
+
+function get_bounds()
+{
+   var bounds=viewermap.getBounds();
+   return bounds;
 }
 
 function get_map()
@@ -95,7 +101,7 @@ function setup_viewer()
 
 // ==> mymap <==
   mymap = L.map('CFM_plot', { drawControl:false, layers: [esri_topographic, basemap], zoomControl:true} );
-  mymap.setView([34.3, -118.4], 7);
+  mymap.setView([34.3, -118.4], init_map_zoom_level);
   mymap.attributionControl.addAttribution(scecAttribution);
 
 // basemap selection
@@ -158,6 +164,16 @@ function setup_viewer()
     }
   }
   mymap.on('mouseover', onMapMouseOver);
+
+  function onMapZoom(e) {
+    var zoom=mymap.getZoom();
+    window.console.log("map got zoomed..>>",zoom);
+    var bounds=get_bounds();
+    var sw=bounds.getSouthWest();
+    var ne=bounds.getNorthEast();
+    window.console.log("map's bounds..>>", sw,ne);
+  }
+  mymap.on('zoomend', onMapZoom);
 
 // ==> rectangle drawing control <==
 /*
@@ -321,6 +337,42 @@ function addMarkerLayer(lat,lon) {
   return layer;
 }
 
+function makeMarker(bounds,cname,size,color) {
+
+var sz=size * 0.05;
+var hsz=-0.5*sz;
+
+const markerHtmlStyles = `
+  background-color: ${color};
+  width: ${sz}rem;
+  height: ${sz}rem;
+  display: block;
+  left: ${hsz}rem;
+  top: ${hsz}rem;
+  position: relative;
+  border-radius: ${sz}rem ${sz}rem 0;
+  transform: rotate(45deg);
+  border: 1px solid #FFFFFF`;
+
+const localIcon = L.divIcon({
+  className: '',
+  iconAnchor: [0, 0],
+  labelAnchor: [-6, 0],
+  popupAnchor: [0, -36],
+  html: `<span style="${markerHtmlStyles}" />`
+});
+
+  var myIcon = L.divIcon({className:cname});
+  var myOptions = { icon : myIcon};
+//  var myOptions = { icon : localIcon};
+
+  var layer = L.marker(bounds, myOptions);
+  var icon = layer.options.icon;
+  icon.options.iconSize = [size, size];
+  layer.setIcon(icon);
+  return layer;
+}
+
 function addPointsLayerGroup(latlngs) {
   var cnt=latlngs.length;
   if(cnt < 1)
@@ -331,15 +383,16 @@ function addPointsLayerGroup(latlngs) {
      var lat=parseFloat(item['lat']);
      var lon=parseFloat(item['lon']);
      var bounds = [lat,lon ];
-     var layer = L.marker(bounds, small_point_options);
-     var icon = layer.options.icon;
-     icon.options.iconSize = [1, 1];
-     layer.setIcon(icon);
+     var sz=1+(i*2);
+     if(i < cnt-2)  {
+         var layer=makeMarker(bounds,"default-point-color default-point-icon",sz,'#dc3545');
+     } else {
+         var layer=makeMarker(bounds,"purple-point-color default-point-icon",sz,'purple');
+     }
      layers.push(layer);
   }
   var group = new L.FeatureGroup(layers);
   mymap.addLayer(group);
-
 }
 
 function switchLayer(layerString) {

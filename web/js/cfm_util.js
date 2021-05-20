@@ -775,16 +775,16 @@ function grabTraceBlindList(gdata) {
 
 
 function getStrikeRangeMinMax() {
-    str= $('[data-side="strike-range"]').data('params');
-    rMin=parseInt(str.min);
-    rMax=parseInt(str.max);
+    let str= $('[data-side="strike-range"]').data('params');
+    let rMin=parseInt(str.min);
+    let rMax=parseInt(str.max);
     return [rMin, rMax];
 }
 
 function getDipRangeMinMax() {
-    str= $('[data-side="dip-range"]').data('params');
-    rMin=parseInt(str.min);
-    rMax=parseInt(str.max);
+    let str= $('[data-side="dip-range"]').data('params');
+    let rMin=parseInt(str.min);
+    let rMax=parseInt(str.max);
     return [rMin, rMax];
 }
 
@@ -961,4 +961,25 @@ function showEQPoints1(eqarray) {
   }
   return layer;
 }
+
+
+function getQuakeMeta() {
+    var str = $('[data-side="quake-meta"]').data('params');
+
+    let minTime = str.minTime; let maxTime = str.maxTime;
+    let minLon = str.minLon; let maxLon = str.maxLon;
+    let minLat = str.minLat; let maxLat = str.maxLat;
+    let minDepth = str.minDepth; let maxDepth = str.maxDepth;
+    let minMag = str.minMag; let maxMag = str.maxMag;
+    
+    window.console.log("time", minTime,maxTime);
+    window.console.log("lon", minLon,maxLon);
+    window.console.log("lat", minLat,maxLat);
+    window.console.log("depth", minDepth,maxDepth);
+    window.console.log("mag", minMag,maxMag);
+    var meta = { "minTime":minTime, "maxTime":maxTime, "minLon":minLon, "maxLon":maxLon, "minLat":minLat, "maxLat":maxLat, "minDepth":minDepth, "maxDepth":maxDepth, "minMag":minMag, "maxMag":maxMag };
+    return meta;
+}
+
+
 
