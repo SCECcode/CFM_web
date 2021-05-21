@@ -8,6 +8,8 @@ This is leaflet specific utilities
 var init_map_zoom_level = 7;
 var seisimicity_map_zoom_level = 11;
 
+var enable_seisimicity=1;
+
 var scecAttribution ='<a href="https://www.scec.org">SCEC</a>';
 
 var rectangle_options = {
@@ -167,13 +169,23 @@ function setup_viewer()
 
   function onMapZoom(e) {
     var zoom=mymap.getZoom();
-    window.console.log("map got zoomed..>>",zoom);
-    var bounds=get_bounds();
-    var sw=bounds.getSouthWest();
-    var ne=bounds.getNorthEast();
-    window.console.log("map's bounds..>>", sw,ne);
+    if(zoom >= seisimicity_map_zoom_level) {
+      window.console.log("map got zoomed..>>",zoom);
+      if(cfm_quake_group != null) {
+         // free it up
+         mymap.removeLayer(cfm_quake_group);
+         cfm_quake_group=null;
+      }
+      var bounds=get_bounds();
+      var sw=bounds.getSouthWest();
+      var ne=bounds.getNorthEast();
+      window.console.log("map's bounds..>>", sw,ne);
+      if(enable_seisimicity) {
+         get_seisimicity(sw,ne);
+      }
+    }
   }
-  mymap.on('zoomend', onMapZoom);
+  mymap.on('zoomend dragend', onMapZoom);
 
 // ==> rectangle drawing control <==
 /*
@@ -393,6 +405,7 @@ function addPointsLayerGroup(latlngs) {
   }
   var group = new L.FeatureGroup(layers);
   mymap.addLayer(group);
+  return group;
 }
 
 function switchLayer(layerString) {

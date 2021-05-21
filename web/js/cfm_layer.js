@@ -125,11 +125,16 @@ var cfm_latlon_area_list=[];
 // { gid1, gid2, ... }, tracking which object is 'blind'
 var cfm_blind_gid_list=[];
 
+/*********************************************************
+*********************************************************/
 // for tracking groups of earthquakes
-// [ {"gid":gid1, "trace":trace1} ]
-// gid1 is the grouping of a bunch of earthquakes, 
-// trace1 is the leaflet trace feature with MultiPoint geometry
-var cfm_quake_group_list=[];
+// the leaflet trace feature with MultiPoint geometry
+var cfm_quake_group=null;
+// 
+// { "minTime":minTime, "maxTime":maxTime, "minLon":minLon, "maxLon":maxLon, 
+//   "minLat":minLat, "maxLat":maxLat, "minDepth":minDepth, "maxDepth":maxDepth,
+//   "minMag":minMag, "maxMag":maxMag };
+var cfm_quake_meta=null;
 /*********************************************************
 *********************************************************/
 
@@ -959,7 +964,6 @@ function add_bounding_rectangle_layer(layer, a,b,c,d) {
   cfm_latlon_area_list.push(tmp);
 }
 
-
 /*********************************************************
 *********************************************************/
 // with array of quake info in JSONs
@@ -979,17 +983,19 @@ function makeQuakeGeoJSONFeature(groupid,quakeJSONArray,pointSize,pointColor) {
   var a_trace={"type":"FeatureCollection", "features":[]};
   var cnt=quakeJSONArray.length;
 
-  var qids=[];
-  var mags=[];
-  var events=[];
+  var eventid=[];
+  var mag=[];
+  var event=[];
+  var depth=[];
   var eventtime=[];
   var latlngs=[];
-
+  
   for(var i=0; i<cnt; i++) {
     let json=quakeJSONArray[i];
-    mags.push(json['mag']);
-    qids.push(json['id']);
-    eventtime.push(json['eventTime']);
+    mag.push(json['Mag']);
+    depth.push(json['Depth']);
+    eventtime.push(json['EventTime']);
+    eventid.push(json['EventID']);
     var lat=parseFloat(json['Lat']);
     var lon=parseFloat(json['Lon']);
     latlngs.push([lon,lat]);
@@ -1001,11 +1007,11 @@ function makeQuakeGeoJSONFeature(groupid,quakeJSONArray,pointSize,pointColor) {
                  "opacity":0.8,
                  "color":pointColor
                 };
-  var g=makeMultiPointGeo(latlngs);
 
   var tmp= { "id":groupid,
                "type":"Feature", 
                "properties": {
+                   "meta": { "eventid": eventid,"mag":mag, "eventtime":eventtime,"depth":depth,"latlng":latlngs },
                    "style": style
                },
                "geometry": g 

@@ -63,7 +63,7 @@ jQuery(document).ready(function() {
   getGeoTraceList();
   getAllTraces();
   getAllEarthQuakes();
-  getQuakeMeta();
+  getAllQuakeMeta();
   setupSearch();
   addDownloadSelect();
   setup_info3dTable();

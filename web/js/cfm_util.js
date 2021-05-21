@@ -913,18 +913,18 @@ function collectURLsFor3d(mlist) {
 
 /****************** for handling earthquakes ********************/
 
-function processEQData(eqlist) {
+function processEQResult(eqlist) {
     var eqstr=[];
     var eqarray=[]; // array of json items
 
     if ( eqlist == 'allEQs') {
        eqstr = $('[data-side="allEQs"]').data('params');
     } else if (eqlist == 'someEQs') {
-       eqstr = $('[data-side="someEQs"]').data('params');
+       eqstr = $('[data-side="quakesByLatLon"]').data('params');
     } 
 
     if(eqstr == undefined) {
-        window.console.log("processEQData: BAD BAD BAD");
+        window.console.log("processEQResult: BAD BAD BAD");
         return;
     }
 
@@ -950,7 +950,7 @@ function showEQPoints(eqarray) {
       var lon=parseFloat(item['Lon']);
       latlngs.push( { "lat":lat, "lon":lon } ) 
    }
-   addPointsLayerGroup(latlngs);
+   cfm_quake_group=addPointsLayerGroup(latlngs);
 }
 
 function showEQPoints1(eqarray) {
@@ -963,7 +963,7 @@ function showEQPoints1(eqarray) {
 }
 
 
-function getQuakeMeta() {
+function processQuakeMeta() {
     var str = $('[data-side="quake-meta"]').data('params');
 
     let minTime = str.minTime; let maxTime = str.maxTime;
@@ -982,4 +982,7 @@ function getQuakeMeta() {
 }
 
 
+function get_seisimicity(sw,ne) {
+    quakeByLatlon(sw['lat'],sw['lng'],ne['lat'],ne['lng']);
+}
 

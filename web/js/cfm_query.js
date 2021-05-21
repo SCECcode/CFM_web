@@ -583,7 +583,7 @@ function getAllEarthQuakes() {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
-            var eqarray=processEQData("allEQs");
+            var eqarray=processEQResult("allEQs");
             showEQPoints(eqarray);
         }
     };
@@ -591,7 +591,7 @@ function getAllEarthQuakes() {
     xmlhttp.send();
 }
 
-function getQuakeMeta() {
+function getAllQuakeMeta() {
     if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
@@ -602,7 +602,7 @@ function getQuakeMeta() {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
-            var meta=getQuakeMeta();
+            cfm_quake_meta=processQuakeMeta();
 //            setupStrikeRangeSlider(rangeMin, rangeMax);
         }
     };
@@ -610,4 +610,22 @@ function getQuakeMeta() {
     xmlhttp.send();
 }
 
-
+function quakesByLatlon(swLat,swLon,neLat,neLon) {
+    if (window.XMLHttpRequest) {
+      // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        // code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            toggle_off_all_layer();
+            document.getElementById("phpResponseTxt").innerHTML = this.responseText;
+            var eqarray=processEQResult("searchByLatLon");
+            showEQPoints(eqarray);
+        }
+    }
+    xmlhttp.open("GET","php/quakesByLatlon.php?swlat="+swlat+"&nelat="+nelat+"&swlon="+swlon+"&nelon="+nelon,true);
+    xmlhttp.send();
+}

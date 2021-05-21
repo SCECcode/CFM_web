@@ -18,14 +18,14 @@ $row = pg_fetch_row($result);
 
 $minTime = $row[0];
 $maxTime = $row[1];
-minLon = $row[2];
-maxLon = $row[3];
-minLat = $row[4];
-maxLat = $row[5];
-minDepth = $row[6];
-maxDepth = $row[7];
-minMag = $row[8];
-maxMag = $row[9];
+$minLon = $row[2];
+$maxLon = $row[3];
+$minLat = $row[4];
+$maxLat = $row[5];
+$minDepth = $row[6];
+$maxDepth = $row[7];
+$minMag = $row[8];
+$maxMag = $row[9];
 
 $arr = array( 'minTime' => $minTime, 'maxTime' => $maxTime, 'minLon' => $minLon, 'maxLon' => $maxLon, 'minLat' => $minLat, 'maxLat' => $maxLat, 'minDepth' => $minDepth, 'maxDepth' => $maxDepth, 'minMag' => $minMag, 'maxMag' => $maxMag);
 
