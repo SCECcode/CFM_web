@@ -127,14 +127,18 @@ var cfm_blind_gid_list=[];
 
 /*********************************************************
 *********************************************************/
-// for tracking groups of earthquakes
+// for tracking groups of earthquakes  -- EQ
 // the leaflet trace feature with MultiPoint geometry
 var cfm_quake_group=null;
-// 
+
+// {"group_id":groupid, "trace":a_trace}
+var cfm_quake_group_list=[];
+   
 // { "minTime":minTime, "maxTime":maxTime, "minLon":minLon, "maxLon":maxLon, 
 //   "minLat":minLat, "maxLat":maxLat, "minDepth":minDepth, "maxDepth":maxDepth,
 //   "minMag":minMag, "maxMag":maxMag };
 var cfm_quake_meta=null;
+
 /*********************************************************
 *********************************************************/
 
@@ -967,7 +971,7 @@ function add_bounding_rectangle_layer(layer, a,b,c,d) {
 /*********************************************************
 *********************************************************/
 // with array of quake info in JSONs
-// group can by by mag, by date, by depth
+// groupping can be by mag, by date, or by depth
 function makeQuakeGeoJSONFeature(groupid,quakeJSONArray,pointSize,pointColor) {
 
   if(quakeJSONArray == undefined) {
@@ -1004,7 +1008,7 @@ function makeQuakeGeoJSONFeature(groupid,quakeJSONArray,pointSize,pointColor) {
   var g=makeMultiPointGeo(latlngs);
 
   var style= { "weight":pointSize,
-                 "opacity":0.8,
+                 "opacity":0.6,
                  "color":pointColor
                 };
 

@@ -14,24 +14,32 @@ $swlon = floatVal($_GET['swlon']);
 $nelat = floatVal($_GET['nelat']);
 $nelon = floatVal($_GET['nelon']);
 
-#echo "lat range: ", $swlat,", ",$nelat,"<br>";
-#echo "lon range: ", $swlon,", ",$nelon,"<br>";
+//echo "lat range: ", $swlat,", ",$nelat,"<br>";
+//echo "lon range: ", $swlon,", ",$nelon,"<br>";
 
-$query = "SELECT gid, EventTime, EventID, Lon, Lat, Depth, Mag FROM EQ_tb WHERE ST_INTERSECTS(ST_MakeEnvelope( $1, $2, $3, $4, 4326), EQ_tb.geom);
+$query = "SELECT gid, EventTime, EventID, Lon, Lat, Depth, Mag FROM EQ_tb WHERE ST_INTERSECTS(ST_MakeEnvelope( $1, $2, $3, $4, 4326), EQ_tb.geom)";
 
 $result = pg_prepare($dbconn, "my_query", $query);
-
 $data = array($swlon, $swlat, $nelon, $nelat);
 $result = pg_execute($dbconn, "my_query", $data);
 
 //echo $query;
-//echo $swlon, $swlat, $nelon, $nelat;
+//echo "<br>";
+//echo $swlon,",",$swlat;
+//echo "<br>";
+//echo $nelon,",",$nelat,",","4326), EQ_tb.geom)<br>";
 //echo $result;
 
 $resultList=array();
+$num = pg_numrows($result);
+//echo "SIZE of result..",$num;
+
+if ( $num < 50000 ) {
 while($row = pg_fetch_row($result)) {
-    $item = new \stdClass();
-    array_push($eqList, makeEQObj($row));
+    array_push($resultList, makeEQObj($row));
+}
+} else {
+echo "SIZE of result..",$num;
 }
 
 $resultstring = htmlspecialchars(json_encode($resultList), ENT_QUOTES, 'UTF-8');

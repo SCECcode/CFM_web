@@ -6,7 +6,7 @@ This is leaflet specific utilities
 ***/
 
 var init_map_zoom_level = 7;
-var seisimicity_map_zoom_level = 11;
+var seisimicity_map_zoom_level = 9;
 
 var enable_seisimicity=1;
 
@@ -169,10 +169,12 @@ function setup_viewer()
 
   function onMapZoom(e) {
     var zoom=mymap.getZoom();
-    if(zoom >= seisimicity_map_zoom_level) {
+    if(zoom >= seisimicity_map_zoom_level && enable_seisimicity) {
       window.console.log("map got zoomed..>>",zoom);
       if(cfm_quake_group != null) {
          // free it up
+         // free the points first ??
+         cfm_quake_group.clearLayers();
          mymap.removeLayer(cfm_quake_group);
          cfm_quake_group=null;
       }
@@ -182,6 +184,7 @@ function setup_viewer()
       window.console.log("map's bounds..>>", sw,ne);
       if(enable_seisimicity) {
          get_seisimicity(sw,ne);
+//         enable_seisimicity=0;
       }
     }
   }
@@ -343,19 +346,45 @@ function addRectangleLayer(latA,lonA,latB,lonB) {
   return layer;
 }
 
+// make it without adding to map
+function makeRectangleLayer(latA,lonA,latB,lonB) {
+  var bounds = [[latA, lonA], [latB, lonB]];
+  var layer=L.rectangle(bounds);
+  return layer;
+}
+
 function addMarkerLayer(lat,lon) {
   var bounds = [lat, lon];
   var layer = new L.marker(bounds,point_options).addTo(viewermap);
   return layer;
 }
 
-function makeMarker(bounds,cname,size,color) {
+//https://github.com/manubb/Leaflet.PixiOverlay
+function addMarkerOverlayLayer(xx,) { 
+  var loader = new PIXI.loaders.Loafrt();
+XXX
 
-var sz=size * 0.05;
+  var pixiOverlay = L.pixiOverlay(function(utils) {
+     var zoom = utils.getMap().getZoom();
+     var container = utils.getContaiener();
+     var renderer = utils.getRenderer();
+     var project = utils.latLngToLayerPoint;
+     var scale = utils.getScale();
+
+
+  }, new PIXI.Container());
+  pixiOverlay.addTo(mymap);
+
+  return pixiOverlay;
+}
+
+
+function makeMarker(bounds,cname,size,color) {
+var sz=size;
 var hsz=-0.5*sz;
 
 const markerHtmlStyles = `
-  background-color: ${color};
+  background: ${color};
   width: ${sz}rem;
   height: ${sz}rem;
   display: block;
@@ -380,27 +409,27 @@ const localIcon = L.divIcon({
 
   var layer = L.marker(bounds, myOptions);
   var icon = layer.options.icon;
-  icon.options.iconSize = [size, size];
+  icon.options.iconSize = [size,size];
   layer.setIcon(icon);
   return layer;
 }
 
-function addPointsLayerGroup(latlngs) {
-  var cnt=latlngs.length;
+// color has 20 different colors
+function addPointsLayerGroup(lats,lngs,clist) {
+  var cnt=lats.length;
   if(cnt < 1)
     return null;
   var layers=[];
+  var zoom=mymap.getZoom();
+  var sz=getQuakeSize(zoom,cnt);
+window.console.log("using sz for points >>", sz);
   for(var i=0;i<cnt;i++) {
-     var item=latlngs[i];
-     var lat=parseFloat(item['lat']);
-     var lon=parseFloat(item['lon']);
-     var bounds = [lat,lon ];
-     var sz=1+(i*2);
-     if(i < cnt-2)  {
-         var layer=makeMarker(bounds,"default-point-color default-point-icon",sz,'#dc3545');
-     } else {
-         var layer=makeMarker(bounds,"purple-point-color default-point-icon",sz,'purple');
-     }
+     var lat=lats[i];
+     var lon=lngs[i];
+     var bounds = [lat,lon];
+     var cclass=clist[i];
+     var cstr=cclass+" default-point-icon";
+     var layer=makeMarker(bounds,cstr,sz,'black');
      layers.push(layer);
   }
   var group = new L.FeatureGroup(layers);

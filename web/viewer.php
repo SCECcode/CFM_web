@@ -42,6 +42,10 @@ $header = getHeader("Viewer");
     <script type="text/javascript" src="js/vendor/leaflet-src.js"></script>
     <script type='text/javascript' src='js/vendor/leaflet.awesome-markers.min.js'></script>
     <script type='text/javascript' src='js/vendor/popper.min.js'></script>
+ 
+    <script type='text/javascript' src='js/vendor/pixi.min.js'></script>
+    <script type='text/javascript' src='js/vendor/L.PixiOverlay.min.js'></script>
+     
 <script>L_PREFER_CANVAS = true;</script>
     <script type='text/javascript' src='js/vendor/jquery.min.js'></script>
     <script type='text/javascript' src='js/vendor/jquery.csv.js'></script>

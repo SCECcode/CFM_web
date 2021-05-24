@@ -62,7 +62,7 @@ jQuery(document).ready(function() {
   
   getGeoTraceList();
   getAllTraces();
-  getAllEarthQuakes();
+//  getAllEarthQuakes();
   getAllQuakeMeta();
   setupSearch();
   addDownloadSelect();

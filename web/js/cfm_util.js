@@ -939,18 +939,35 @@ function processEQResult(eqlist) {
 }
 
 
+// show depth
 function showEQPoints(eqarray) {
    var sz=eqarray.length;
+   if(sz == 0) return null;
    window.console.log("Number of EQ point >>",sz);
-   var latlngs=[];
-   var item; // json blob
-   for( var i=0; i<sz; i++) {
+   var lats=[];
+   var lons=[];
+   var clist=[];
+   for(var i=0; i<sz; i++) {
       item=eqarray[i];
       var lat=parseFloat(item['Lat']);
       var lon=parseFloat(item['Lon']);
-      latlngs.push( { "lat":lat, "lon":lon } ) 
+      var depth=parseFloat(item['Depth']);
+      var cval=getQuakeColor( "depth", depth );
+      lats.push(lat);
+      lons.push(lon);
+      clist.push(cval);
    }
-   cfm_quake_group=addPointsLayerGroup(latlngs);
+   // global one
+   cfm_quake_group=addPointsLayerGroup(lats,lons,clist);
+}
+
+function showEQPointsAndBound(eqarray,swlat,swlon,nelat,nelon) {
+   showEQPoints(eqarray);
+   // create a bounding area and add to the layergroup
+   var layer=makeRectangleLayer(swlat,swlon,nelat,nelon);
+   if(cfm_quake_group) {
+     cfm_quake_group.addLayer(layer);
+   }
 }
 
 function showEQPoints1(eqarray) {
@@ -962,6 +979,35 @@ function showEQPoints1(eqarray) {
   return layer;
 }
 
+
+// baseOn : time, depth, mag
+function getQuakeColor( group, val ) {
+   if(group == "time") {
+      var step=(cfm_quake_meta['maxTime'] - cfm_quake_meta['minTime'])/20;
+      var idx=Math.floor((val - cfm_quake_meta['minTime'])/step);
+      return "quake-color-"+idx;
+   } 
+   if(group == "depth") {
+      var step=(cfm_quake_meta['maxDepth'] - cfm_quake_meta['minDepth'])/20;
+      var idx=Math.floor((val - cfm_quake_meta['minDepth'])/step);
+      return "quake-color-"+idx;
+   }
+   if(group == "mag") {
+      var step=(cfm_quake_meta['maxMag'] - cfm_quake_meta['minMag'])/20;
+      var idx=Math.floor((val - cfm_quake_meta['minMag'])/step);
+      return "quake-color-"+idx;
+   }
+}
+
+// zoom value : 7 -> sz =1
+// zoom value : 11 return 3
+function getQuakeSize( level, count ) {
+   if(count > 1000) 
+      return 2;
+   if(count > 100)
+      return 3;
+   return 5;
+}
 
 function processQuakeMeta() {
     var str = $('[data-side="quake-meta"]').data('params');
@@ -983,6 +1029,6 @@ function processQuakeMeta() {
 
 
 function get_seisimicity(sw,ne) {
-    quakeByLatlon(sw['lat'],sw['lng'],ne['lat'],ne['lng']);
+    quakesByLatlon(sw['lat'],sw['lng'],ne['lat'],ne['lng']);
 }
 
