@@ -21,7 +21,6 @@ $header = getHeader("Viewer");
     <link rel="stylesheet" href="css/sidebar.css?v=1">
                       
     <script type='text/javascript' src='js/vendor/popper.min.js'></script>
-<script>L_PREFER_CANVAS = true;</script>
     <script type="text/javascript" src="js/vendor/leaflet-src.js"></script>
     <script type='text/javascript' src='js/vendor/jquery.min.js'></script>
     <script type='text/javascript' src='js/vendor/jquery.csv.js'></script>
@@ -46,7 +45,6 @@ $header = getHeader("Viewer");
     <script type='text/javascript' src='js/vendor/pixi.min.js'></script>
     <script type='text/javascript' src='js/vendor/L.PixiOverlay.min.js'></script>
      
-<script>L_PREFER_CANVAS = true;</script>
     <script type='text/javascript' src='js/vendor/jquery.min.js'></script>
     <script type='text/javascript' src='js/vendor/jquery.csv.js'></script>
     <script type='text/javascript' src='js/vendor/bootstrap.min.js'></script>
