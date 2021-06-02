@@ -164,11 +164,6 @@ function setup_pixi(forType) {
   // this is used to simulate leaflet zoom animation timing:
   var easing = BezierEasing(0, 0, 0.25, 1);
 
-// var forType=EQ_FOR_DEPTH;
-//  var forType=EQ_FOR_MAG;
-
-  initMarkerInfo();
-  getData(forType); // and update marker length and save latlngs
   var loader = new PIXI.loaders.Loader();
 
   loader
@@ -256,7 +251,7 @@ function getPixiByType(forType) {
    return null;
 }
 
-// toggle off all the conatiners
+// toggle off all child containers
 function togglePixiOverlay(pidx) {
   var pixi=pixiContainerList[pidx];
 
@@ -381,7 +376,7 @@ function makePixiOverlayLayer(forType) {
         }
 
         var origin = project([center['lat'], center['lng']]);
-        initialScale = invScale/2 ; // initial size of the marker
+        initialScale = invScale/4 ; // initial size of the marker
 
         // fill in the particles
         for(var i=0; i< data_segment_count; i++ ) {

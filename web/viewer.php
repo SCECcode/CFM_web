@@ -99,14 +99,14 @@ $header = getHeader("Viewer");
     <script type="text/javascript" src="js/cfm_view3d.js?v=1"></script>
    
     <!-- pixi pixiOverlay -->
-    <script src="js/vendor/pixi.mini.js"></script>
+    <script src="js/vendor/pixi.js"></script>
     <script src="js/vendor/pixiOverlay/L.PixiOverlay.js"></script>
 <!--
     <script src="js/vendor/pixiOverlay/example.min.js"></script>
+-->
     <script src="js/vendor/pixiOverlay/MarkerContainer.js"></script>
     <script src="js/vendor/pixiOverlay/bezier-easing.js"></script>
     <script src="js/cfm_pixi.js"></script>
--->
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-495056-12"></script>

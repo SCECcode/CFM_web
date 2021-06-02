@@ -940,7 +940,7 @@ function processEQResult(eqlist) {
 
 
 // show depth
-function showEQPoints(eqarray) {
+function showEQPoints2(eqarray) {
    var sz=eqarray.length;
    if(sz == 0) return null;
    window.console.log("Number of EQ point >>",sz);
@@ -961,8 +961,35 @@ function showEQPoints(eqarray) {
    cfm_quake_group=addPointsLayerGroup(lats,lons,clist);
 }
 
+function setupEQPoints(forType, eqarray) {
+    initMarkerInfo();
+    eqarray.forEach(function(marker) {
+        var id=marker['id'];
+        var lat=marker['latitude'];
+        var lng=marker['longitude'];
+        var depth=marker['depth'];
+        var mag=marker['mag'];
+//             window.console.log("depth"+depth+" mag"+mag);
+        var target;
+        if(forType == EQ_FOR_DEPTH)
+            target=depth
+        if(forType == EQ_FOR_MAG)
+            target=mag;
+        var idx= getRangeIdx(forType, target);
+        updateMarkerLengths(idx);
+        updateMarkerLatlng(idx,lat,lng);
+    });
+//        printMarkerLengths();
+}
+  
+function showEQPoints(forType,equarry) {
+   setupEQPoints(forType,eqarray);
+   setup_pixi(forType);
+}
+
 function showEQPointsAndBound(eqarray,swlat,swlon,nelat,nelon) {
-   showEQPoints(eqarray);
+   // XX should grab type from the UI
+   showEQPoints(EQ_FOR_DEPTH,eqarray);
    // create a bounding area and add to the layergroup
    var layer=makeRectangleLayer(swlat,swlon,nelat,nelon);
    if(cfm_quake_group) {
