@@ -111,7 +111,7 @@ function getRangeIdx(forType,target) {
   if(target < eq_min)
     return 0;  
   if(target > eq_max)
-    return data_segement_count-1;
+    return (data_segment_count-1);
   var step=(eq_max - eq_min)/data_segment_count;
   var idx= Math.floor((target-eq_min)/step);
 

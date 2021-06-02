@@ -568,7 +568,7 @@ $header = getHeader("Viewer");
       <!--Body-->
       <div class="modal-body" id="modalwaiteqBody">
         <div class="row col-md-12 ml-auto" style="overflow:hidden; font-size:10pt">
-           <p style="font-size:25px">Extracting seisimictiy... <input type="text" id="eq-total" value="***">
+           <p style="font-size:25px">Extracting seisimictiy, please wait ... <input type="text" id="eq-total" value="---">
                 <i class="glyphicon glyphicon-cog fa-spin" style='color:#990000'></i>
            </p>
         </div>
