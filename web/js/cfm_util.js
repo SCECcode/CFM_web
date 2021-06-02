@@ -686,7 +686,7 @@ function processTraceMeta(metaList) {
        }
     }
     getGeoJSONbyObjGid(tmp_gid_list,tmp_meta_list);
-    window.console.log("Number of meta blobs received from backend ->",sz);
+    window.console.log("Number of faults meta blobs received from backend ->",sz);
 /* this is number of geoJson coming in from the back end.. */
 
     setGeoTargetValue(sz);
@@ -999,8 +999,8 @@ function setupEQPoints(forType, eqarray) {
 //        printMarkerLengths();
 }
   
-function showEQPoints(forType,equarray) {
-   setupEQPoints(forType,equarray);
+function showEQPoints(forType,eqarray) {
+   setupEQPoints(forType,eqarray);
    setup_pixi(forType);
 }
 

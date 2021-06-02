@@ -584,7 +584,7 @@ function getAllEarthQuakes() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
             var eqarray=processEQResult("allEQs");
-            showEQPoints(eqarray);
+            showEQPoints(EQ_FOR_DEPTH,eqarray);
         }
     };
     xmlhttp.open("GET","php/getAllEarthQuakes.php",true);

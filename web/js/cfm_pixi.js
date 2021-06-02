@@ -46,6 +46,7 @@ var pixiLayer = null;
 var global_project=null;
 function initMarkerTextures(resources) {
 
+    window.console.log("calling initMarkerTextures.."+markerTextures.length);
     if(markerTextures.length == data_segment_count) // do only once
       return;
 
@@ -363,8 +364,7 @@ function makePixiOverlayLayer(forType) {
       global_project = project;
       var getScale = utils.getScale;
       var invScale = 1 / getScale();
-
-      window.console.log("in L.pixiOverlay zoom at "+zoom+" scale at>", getScale());
+//      window.console.log("in L.pixiOverlay layer with zoom "+zoom+" scale at>", getScale());
 
       var center=viewermap.getCenter();
 //      window.console.log(center['lat'], center['lng']);

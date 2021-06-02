@@ -71,8 +71,7 @@ jQuery(document).ready(function() {
 /** MAIN setup **/
   getGeoTraceList();
   getAllTraces();
-//  setupSeisimicity();
-//  getAllEarthQuakes();
+  getAllEarthQuakes();
   getAllQuakeMeta();
   setupSearch();
   addDownloadSelect();
