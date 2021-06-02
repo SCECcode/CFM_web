@@ -8,7 +8,7 @@ This is leaflet specific utilities
 var init_map_zoom_level = 7;
 var seisimicity_map_zoom_level = 9;
 
-var enable_seisimicity=1; // do not retrieve local seisimicity on demand
+var enable_seisimicity=0; // retrieve local seisimicity on zoom demand
 
 var scecAttribution ='<a href="https://www.scec.org">SCEC</a>';
 

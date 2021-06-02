@@ -580,11 +580,14 @@ function getAllEarthQuakes() {
         // code for IE6, IE5
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
+    startEQCounter();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
             var eqarray=processEQResult("allEQs");
+            setEQTargetValue(eqarray.length);
             showEQPoints(EQ_FOR_DEPTH,eqarray);
+            doneEQCounter();
         }
     };
     xmlhttp.open("GET","php/getAllEarthQuakes.php",true);
