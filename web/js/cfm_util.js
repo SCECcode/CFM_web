@@ -22,6 +22,7 @@ function startEQCounter() {
   $("#modalwaiteq").modal({ backdrop: 'static', keyboard: false });
 }
 function setEQTargetValue(v) {
+  window.console.log("Total EQs now: "+v);
   let elm = $("#eq-total");
   elm.val(v);
 }
@@ -31,7 +32,7 @@ function doneEQCounter() {
 
 // track the geo-counter
 function setGeoTargetValue(v) {
-  $("#modalwait").modal({ backdrop: 'static', keyboard: false });
+//  $("#modalwait").modal({ backdrop: 'static', keyboard: false });
   let elm = $("#geo-total");
   elm.val(v);
 }
@@ -42,8 +43,8 @@ function addOne2GeoCounter() {
   let max = parseInt(maxelm.val());
   elm.val(v);
   if (v == max) { // turn off spinner
-window.console.log("Finished loading..");
-    $("#modalwait").modal('hide')
+window.console.log("Finished loading faults..");
+//    $("#modalwait").modal('hide')
   }
 }
 

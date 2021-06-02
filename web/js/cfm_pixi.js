@@ -19,7 +19,7 @@ var eq_zoom_threshold=16;
 
 /* set are predefined by user, real is from the backend search */
 var eq_min_depth = 0.0;  // -2.37 to 55.77
-var eq_max_depth = 50.0;
+var eq_max_depth = 20.0;
 var eq_min_mag = 0;  // -1.02 to 7.3
 var eq_max_mag = 6.6;
 
@@ -384,7 +384,7 @@ function makePixiOverlayLayer(forType) {
         }
 
         var origin = project([center['lat'], center['lng']]);
-        initialScale = invScale/4 ; // initial size of the marker
+        initialScale = invScale/10 ; // initial size of the marker
 
         // fill in the particles
         for(var i=0; i< data_segment_count; i++ ) {
