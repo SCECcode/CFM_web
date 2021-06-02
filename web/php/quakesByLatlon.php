@@ -32,7 +32,7 @@ $result = pg_execute($dbconn, "my_query", $data);
 
 $resultList=array();
 $num = pg_numrows($result);
-//echo "SIZE of result..",$num;
+echo "SIZE of result..",$num;
 
 if ( $num < 50000 ) {
 while($row = pg_fetch_row($result)) {

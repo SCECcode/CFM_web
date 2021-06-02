@@ -348,6 +348,9 @@ function makeRectangleLayer(latA,lonA,latB,lonB) {
 }
 
 function setupSeisimicityLayer() {
+  if(cfm_quake_group != null) {
+    removeSeisimicityLayer();
+  }
   cfm_quake_group = new L.FeatureGroup();
   mymap.addLayer(cfm_quake_group);
 }
@@ -357,6 +360,7 @@ function removeSeisimicityLayer() {
       cfm_quake_group.clearLayers();
       mymap.removeLayer(cfm_quake_group);
       cfm_quake_group=null;
+  }
 }
 
 

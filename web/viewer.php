@@ -9,23 +9,6 @@ $header = getHeader("Viewer");
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!--
-    <link rel="stylesheet" href="css/vendor/leaflet.css">
-    <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
-    <link rel="stylesheet" href="css/vendor/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="css/vendor/jquery-ui.css">
-    <link rel="stylesheet" href="css/vendor/glyphicons.css">
-    <link rel="stylesheet" href="css/vendor/all.css">
-    <link rel="stylesheet" href="css/cfm-ui.css?v=1">
-    <link rel="stylesheet" href="css/sidebar.css?v=1">
-                      
-    <script type='text/javascript' src='js/vendor/popper.min.js'></script>
-    <script type="text/javascript" src="js/vendor/leaflet-src.js"></script>
-    <script type='text/javascript' src='js/vendor/jquery.min.js'></script>
-    <script type='text/javascript' src='js/vendor/jquery.csv.js'></script>
-    <script type='text/javascript' src='js/vendor/bootstrap.min.js'></script>
--->
-
     <link rel="stylesheet" href="css/vendor/font-awesome.min.css">
     <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="css/vendor/bootstrap-grid.min.css">
@@ -101,9 +84,6 @@ $header = getHeader("Viewer");
     <!-- pixi pixiOverlay -->
     <script src="js/vendor/pixi.js"></script>
     <script src="js/vendor/pixiOverlay/L.PixiOverlay.js"></script>
-<!--
-    <script src="js/vendor/pixiOverlay/example.min.js"></script>
--->
     <script src="js/vendor/pixiOverlay/MarkerContainer.js"></script>
     <script src="js/vendor/pixiOverlay/bezier-easing.js"></script>
     <script src="js/cfm_pixi.js"></script>
@@ -574,6 +554,25 @@ $header = getHeader("Viewer");
         <button id="view3DSavebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="save3Dview()">Save Image</button>
         <button id="view3DHelpbtn" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modalinfo3d" onclick="$('#modal3D').modal('hide');">Help</button>
       </div> <!-- footer -->
+
+    </div> <!--Content-->
+  </div>
+</div> <!--Modal: Name-->
+
+<!--Modal: ModelType -->
+<div class="modal" id="modalwaiteq" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" id="modalwaiteqDialog" role="document">
+
+    <!--Content-->
+    <div class="modal-content" id="modalwaiteqContent">
+      <!--Body-->
+      <div class="modal-body" id="modalwaiteqBody">
+        <div class="row col-md-12 ml-auto" style="overflow:hidden; font-size:10pt">
+           <p style="font-size:25px">Extracting seisimictiy... <input type="text" id="eq-total" value="0">
+                <i class="glyphicon glyphicon-cog fa-spin" style='color:#990000'></i>
+           </p>
+        </div>
+      </div>
 
     </div> <!--Content-->
   </div>

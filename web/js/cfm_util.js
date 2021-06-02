@@ -16,13 +16,25 @@ var dip_range_max_ref = 0;
 var dip_range_min = 0;
 var dip_range_max = 0;
 
+
+// track the eq-counter
+function startEQCounter() {
+  $("#modalwaiteq").modal({ backdrop: 'static', keyboard: false });
+}
+function setEQTargetValue(v) {
+  let elm = $("#eq-total");
+  elm.val(v);
+}
+function doneEQCounter() { 
+  $("#modalwaiteq").modal('hide')
+}
+
 // track the geo-counter
 function setGeoTargetValue(v) {
   $("#modalwait").modal({ backdrop: 'static', keyboard: false });
   let elm = $("#geo-total");
   elm.val(v);
 }
-
 function addOne2GeoCounter() { 
   let elm = $("#geo-counter");
   let v = parseInt(elm.val())+1;
@@ -968,11 +980,11 @@ function showEQPoints2(eqarray) {
 function setupEQPoints(forType, eqarray) {
     initMarkerInfo();
     eqarray.forEach(function(marker) {
-        var id=marker['id'];
-        var lat=marker['latitude'];
-        var lng=marker['longitude'];
-        var depth=marker['depth'];
-        var mag=marker['mag'];
+        var id=parseInt(marker['EventID']);
+        var lat=parseFloat(marker['Lat']);
+        var lng=parseFloat(marker['Lon']);
+        var depth=parseFloat(marker['Depth']);
+        var mag=parseFloat(marker['Mag']);
 //             window.console.log("depth"+depth+" mag"+mag);
         var target;
         if(forType == EQ_FOR_DEPTH)
@@ -986,8 +998,8 @@ function setupEQPoints(forType, eqarray) {
 //        printMarkerLengths();
 }
   
-function showEQPoints(forType,equarry) {
-   setupEQPoints(forType,eqarray);
+function showEQPoints(forType,equarray) {
+   setupEQPoints(forType,equarray);
    setup_pixi(forType);
 }
 

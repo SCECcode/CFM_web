@@ -618,11 +618,15 @@ function quakesByLatlon(swLat,swLon,neLat,neLon) {
         // code for IE6, IE5
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
+    // turn on data retrieval spiner..
+    startEQCounter();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
             var eqarray=processEQResult("someEQs");
+            setEQTargetValue(eqarray.length);
             showEQPointsAndBound(eqarray,swLat,swLon,neLat,neLon);
+            doneEQCounter();
         }
     }
     xmlhttp.open("GET","php/quakesByLatlon.php?swlat="+swLat+"&swlon="+swLon+"&nelat="+neLat+"&nelon="+neLon,true);
