@@ -18,10 +18,10 @@ var data_segment_count= 20; // 0 to 19 -- to matching marker names
 var eq_zoom_threshold=16;
 
 /* set are predefined by user, real is from the backend search */
-var eq_min_depth = 5.0;
-var eq_max_depth = 8.0;
-var eq_min_mag = 0.0;
-var eq_max_mag = 3.0;
+var eq_min_depth = 0.0;  // -2.37 to 55.77
+var eq_max_depth = 50.0;
+var eq_min_mag = 0;  // -1.02 to 7.3
+var eq_max_mag = 6.6;
 
 /* multiple set of pixi+marker containers                            */
 /* [{"type":EQ_FOR_DEPTH, "vis":true, "overlay": layer,              */
