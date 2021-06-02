@@ -449,6 +449,7 @@ function refreshAll() {
   $('#allBtn span').removeClass("glyphicon-check").addClass("glyphicon-unchecked");
 
   refresh_map();
+  refresh_seisimicity();
   dismiss_sidebar();
   clear_popup();
   reset_geo_plot();
@@ -912,6 +913,9 @@ function collectURLsFor3d(mlist) {
 
 
 /****************** for handling earthquakes ********************/
+function setupEQ() {
+  setupSeisimicityLayer();
+}
 
 function processEQResult(eqlist) {
     var eqstr=[];
@@ -988,13 +992,12 @@ function showEQPoints(forType,equarry) {
 }
 
 function showEQPointsAndBound(eqarray,swlat,swlon,nelat,nelon) {
+
    // XX should grab type from the UI
    showEQPoints(EQ_FOR_DEPTH,eqarray);
    // create a bounding area and add to the layergroup
    var layer=makeRectangleLayer(swlat,swlon,nelat,nelon);
-   if(cfm_quake_group) {
-     cfm_quake_group.addLayer(layer);
-   }
+   cfm_quake_group.addLayer(layer);
 }
 
 function showEQPoints1(eqarray) {

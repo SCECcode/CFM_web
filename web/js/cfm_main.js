@@ -59,16 +59,6 @@ jQuery(document).ready(function() {
      });
   });
 
-  
-  getGeoTraceList();
-  getAllTraces();
-//  getAllEarthQuakes();
-//  getAllQuakeMeta();
-  setupSearch();
-  addDownloadSelect();
-  setup_info3dTable();
-  setup_warn3dTable();
-
   $("#search-filter-type").change(function () {
       var funcToRun = $(this).val();
       if (funcToRun != "") {
@@ -77,6 +67,17 @@ jQuery(document).ready(function() {
   });
 
   $("#search-filter-type").trigger("change");
+
+/** MAIN setup **/
+  getGeoTraceList();
+  getAllTraces();
+  setupSeisimicity();
+//  getAllEarthQuakes();
+//  getAllQuakeMeta();
+  setupSearch();
+  addDownloadSelect();
+  setup_info3dTable();
+  setup_warn3dTable();
 
 }); // end of MAIN
 
