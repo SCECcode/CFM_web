@@ -139,7 +139,7 @@ function getData(forType) {
         };
         xhr.send();
     };
-    getJSON('data.json', function(markers) {
+    getJSON('data/pixidata.json', function(markers) {
         markers.forEach(function(marker) {
              var id=marker['id'];
              var lat=marker['latitude'];
@@ -202,8 +202,8 @@ function setup_pixi(forType) {
 
       viewermap.on('zoomstart', function() {
         ticker.start();
-        let idx=getPixiByType(forType);
-        if(idx != null) togglePixiOverlay(idx);
+//        let idx=getPixiByType(forType);
+//        if(idx != null) togglePixiOverlay(idx);
 //        let cidx=get1stNoneEmptyContainer(forType);
 //        window.console.log("first none empty container is.."+cidx);
 //      if(idx != null && cidx != null) toggleMarkerContainer(idx, cidx);
