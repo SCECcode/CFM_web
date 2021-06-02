@@ -9,7 +9,6 @@ $header = getHeader("Viewer");
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-                
 <!--
     <link rel="stylesheet" href="css/vendor/leaflet.css">
     <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
@@ -42,9 +41,6 @@ $header = getHeader("Viewer");
     <script type='text/javascript' src='js/vendor/leaflet.awesome-markers.min.js'></script>
     <script type='text/javascript' src='js/vendor/popper.min.js'></script>
  
-    <script type='text/javascript' src='js/vendor/pixi.min.js'></script>
-    <script type='text/javascript' src='js/vendor/L.PixiOverlay.min.js'></script>
-     
     <script type='text/javascript' src='js/vendor/jquery.min.js'></script>
     <script type='text/javascript' src='js/vendor/jquery.csv.js'></script>
     <script type='text/javascript' src='js/vendor/bootstrap.min.js'></script>
@@ -102,6 +98,16 @@ $header = getHeader("Viewer");
     <script type="text/javascript" src="js/cfm_view3d_util.js?v=1"></script>
     <script type="text/javascript" src="js/cfm_view3d.js?v=1"></script>
    
+    <!-- pixi pixiOverlay -->
+    <script src="js/vendor/pixi.mini.js"></script>
+    <script src="js/vendor/pixiOverlay/L.PixiOverlay.js"></script>
+<!--
+    <script src="js/vendor/pixiOverlay/example.min.js"></script>
+    <script src="js/vendor/pixiOverlay/MarkerContainer.js"></script>
+    <script src="js/vendor/pixiOverlay/bezier-easing.js"></script>
+    <script src="js/cfm_pixi.js"></script>
+-->
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-495056-12"></script>
     <script type="text/javascript">

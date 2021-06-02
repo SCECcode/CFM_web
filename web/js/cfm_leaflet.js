@@ -81,14 +81,14 @@ function setup_viewer()
 // otm topo
   var topoURL='https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png';
   var topoAttribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreeMap</a> contributors,<a href=http://viewfinderpanoramas.org"> SRTM</a> | &copy; <a href="https://www.opentopomap.org/copyright">OpenTopoMap</a>(CC-BY-SA)';
- L.tileLayer(topoURL, { detectRetina: true, attribution: topoAttribution})
+  L.tileLayer(topoURL, { detectRetina: true, attribution: topoAttribution, maxZoom:18 })
 
-  var otm_topographic = L.tileLayer(topoURL, { detectRetina: true, attribution: topoAttribution});
+  var otm_topographic = L.tileLayer(topoURL, { detectRetina: true, attribution: topoAttribution, maxZoom:18});
 
 // osm street
   var openURL='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
   var openAttribution ='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
-  var osm_street=L.tileLayer(openURL, {attribution: openAttribution});
+  var osm_street=L.tileLayer(openURL, {attribution: openAttribution, maxZoom:18});
 
   baseLayers = {
     "esri topo" : esri_topographic,
