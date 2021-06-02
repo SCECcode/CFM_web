@@ -45,6 +45,10 @@ var pixiLayer = null;
 /* save ptr to the project() */
 var global_project=null;
 function initMarkerTextures(resources) {
+
+    if(markerTextures.length == data_segment_count) // do only once
+      return;
+
     markerTextures.push(resources.marker0.texture);
     markerTextures.push(resources.marker1.texture);
     markerTextures.push(resources.marker2.texture);
@@ -108,12 +112,16 @@ function getRangeIdx(forType,target) {
        eq_min=eq_min_mag;
        eq_max=eq_max_mag;
   }
-  if(target < eq_min)
+  if(target <= eq_min)
     return 0;  
-  if(target > eq_max)
+  if(target >= eq_max)
     return (data_segment_count-1);
   var step=(eq_max - eq_min)/data_segment_count;
   var idx= Math.floor((target-eq_min)/step);
+
+  if(idx == data_segment_count) {
+    window.console.log("BADD");
+  }
 
   return idx;
 }
@@ -363,7 +371,7 @@ function makePixiOverlayLayer(forType) {
 
       if (event.type === 'add') {
 
-        window.console.log("  add HERE..");
+        window.console.log("  Pixi add HERE..");
         // check if this is the first time..
         if(pixiContainerList != null) {
              pixiContainerList.forEach(function(item) {

@@ -73,7 +73,7 @@ jQuery(document).ready(function() {
   getAllTraces();
 //  setupSeisimicity();
 //  getAllEarthQuakes();
-//  getAllQuakeMeta();
+  getAllQuakeMeta();
   setupSearch();
   addDownloadSelect();
   setup_info3dTable();

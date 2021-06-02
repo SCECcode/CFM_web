@@ -978,6 +978,7 @@ function showEQPoints2(eqarray) {
 }
 
 function setupEQPoints(forType, eqarray) {
+    setupEQ();
     initMarkerInfo();
     eqarray.forEach(function(marker) {
         var id=parseInt(marker['EventID']);
