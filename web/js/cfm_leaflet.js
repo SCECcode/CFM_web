@@ -177,8 +177,8 @@ function setup_viewer()
       var ne=bounds.getNorthEast();
       window.console.log("map's bounds..>>", sw,ne);
       if(enable_seisimicity) {
-         get_seisimicity(sw,ne);
-//         enable_seisimicity=0;
+         get_seisimicity(sw,ne);   
+         enable_seisimicity=0; // do it only once
       }
     }
   }
