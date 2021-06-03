@@ -88,7 +88,11 @@ function printMarkerLengths() {
 //    window.console.log("marker length :"+ i+ "="+ markerLengths[i]);
     total_length=total_length+markerLengths[i];
     total_latlngs=total_latlngs+markerLatlngs[i].length;
+    if(markerLengths[i] != markerLatlngs[i].length) {
+      window.console.log( "marker house keeping BAD at i "+i);
+    }
   }
+
   window.console.log(">>total markers "+total_length+" latlngs "+total_latlngs);
 }
 
@@ -375,7 +379,6 @@ function makePixiOverlayLayer(forType) {
 //      window.console.log(center['lat'], center['lng']);
 
       if (event.type === 'add') {
-
         window.console.log("  Pixi add HERE..");
         // check if this is the first time..
         if(pixiContainerList != null) {
@@ -401,24 +404,17 @@ function makePixiOverlayLayer(forType) {
            a.localScale = initialScale  ;
            var len=markerLengths[ii];
            var latlngs=markerLatlngs[ii];
-           window.console.log("    adding "+len+" childs..with "+latlngs.length);
+window.console.log("    adding "+len+" childs..with "+latlngs.length);
            for (var j = 0; j < len; j++) {
               var latlng=latlngs[j];
               var ll=latlng['lat'];
               var gg=latlng['lng'];
-//              window.console.log("start latlon>>"+ll+" "+gg);
+//window.console.log("start latlon>>"+ll+" "+gg);
               var coords = project([ll,gg]);
-              // our patched particleContainer accepts simple {x: ..., y: ...} objects as children:
-//              window.console.log("    and xy at "+coords.x+" "+coords.y);
+           // pixiOverlay's patched particleContainer accepts simple {x: ..., y: ...} objects as children:
               a.addChild({ x: coords.x - origin.x, y: coords.y - origin.y });
-//              window.console.log( "      adding  child at..("+(coords.x- origin.x)+')('+(coords.y - origin.y)+')');
            }
         }
-// test out how many child per container
-        for(var k=0; k< data_segment_count; k++ ) {
-           var aa=pContainers[k];
-        }
-
       }
 
       // change size of the marker after zoomin and zoomout

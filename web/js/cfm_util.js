@@ -38,7 +38,7 @@ function setEQExpectedValue(v) {
 
 // track the geo-counter
 function setGeoTargetValue(v) {
-//  $("#modalwait").modal({ backdrop: 'static', keyboard: false });
+  $("#modalwait").modal({ backdrop: 'static', keyboard: false });
   let elm = $("#geo-total");
   elm.val(v);
 }
@@ -50,7 +50,7 @@ function addOne2GeoCounter() {
   elm.val(v);
   if (v == max) { // turn off spinner
 window.console.log("Finished loading faults..");
-//    $("#modalwait").modal('hide')
+    $("#modalwait").modal('hide')
   }
 }
 

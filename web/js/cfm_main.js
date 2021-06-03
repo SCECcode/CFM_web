@@ -72,7 +72,7 @@ jQuery(document).ready(function() {
 
   getGeoTraceList();
   getAllTraces();
-  getAllQuakes();
+//  getAllQuakes();
   setupSearch();
   addDownloadSelect();
   setup_info3dTable();

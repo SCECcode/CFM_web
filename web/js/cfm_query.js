@@ -627,6 +627,7 @@ function getAllEarthQuakesByChunk() {
    var chunk_step = Math.ceil(total / data_segment_count);
    window.console.log(">> Chunk_step ="+chunk_step+ " total "+total+" > "+(chunk_step *data_segment_count));
    _getAllEarthQuakesByChunk(0, data_segment_count, chunk_step);
+//   _getAllEarthQuakesByChunk(0, 10, 30000);
 }
 
 function _getAllEarthQuakesByChunk(current_chunk, total_chunk, step) {
@@ -655,8 +656,8 @@ function _getAllEarthQuakesByChunk(current_chunk, total_chunk, step) {
             }
         }
     };
-    window.console.log("_getAllEarthQuakesByChunk >>"+current_chunk);
-    xmlhttp.open("GET","php/getAllEarthQuakesChunk.php?chunk="+current_chunk+"&step="+step,true);
+window.console.log("  calling php, current_chunk "+current_chunk);
+    xmlhttp.open("GET","php/getAllEarthQuakesChunk.php?current_chunk="+current_chunk+"&step="+step,true);
     xmlhttp.send();
 }
 

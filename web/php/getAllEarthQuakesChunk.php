@@ -11,16 +11,19 @@ include("util.php");
 
 $dbconn = getConnection();
 
+$current_chunk_orig = $_GET['current_chunk'];
 $current_chunk = intVal($_GET['current_chunk']);
 $step = intVal($_GET['step']);
 
 $start_gid= $step * $current_chunk; 
 $end_gid= $start_gid + $step; 
 
-echo "current_chunk";
-echo $current_chunk;
-echo "step";
-echo $step;
+//echo "<br>current_chunk";
+//echo $current_chunk;
+//echo "<br>start_gid";
+//echo $start_gid;
+//echo "<br>end_gid";
+//echo $end_gid;
 
 $query = "SELECT Lon, Lat, Depth, Mag FROM EQ_tb WHERE gid >= $1 AND gid < $2";
 
@@ -29,8 +32,6 @@ $data = array($start_gid, $end_gid);
 $result = pg_execute($dbconn, "my_query", $data);
 
 $eqList=array();
-
-echo "got result";
 
 while($row = pg_fetch_row($result)) {
     array_push($eqList, makeEQChunkObj($row));
