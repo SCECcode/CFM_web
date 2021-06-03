@@ -30,4 +30,9 @@ $eq_Lat=4;
 $eq_Depth=5;
 $eq_Mag=6;
 
+// for EQ_tb for depth
+$eq_Lon_depth=0;
+$eq_Lat_depth=1;
+$eq_Depth_depth=2;
+
 ?>

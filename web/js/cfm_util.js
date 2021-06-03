@@ -936,6 +936,8 @@ function processEQResult(eqlist) {
 
     if ( eqlist == 'allEQs') {
        eqstr = $('[data-side="allEQs"]').data('params');
+    } else if (eqlist == 'allEQsDepth') {
+       eqstr = $('[data-side="allEQsDepth"]').data('params');
     } else if (eqlist == 'someEQs') {
        eqstr = $('[data-side="quakesByLatLon"]').data('params');
     } 
@@ -949,7 +951,6 @@ function processEQResult(eqlist) {
     window.console.log("Number of eq blobs received from backend ->",sz);
     for( var i=0; i< sz; i++) {
        var tmp= JSON.parse(eqstr[i]);
-       var gid=parseInt(tmp['gid']);
        eqarray.push(tmp);
     }
     return eqarray;
@@ -982,17 +983,13 @@ function setupEQPoints(forType, eqarray) {
     setupEQ();
     initMarkerInfo();
     eqarray.forEach(function(marker) {
-        var id=parseInt(marker['EventID']);
         var lat=parseFloat(marker['Lat']);
         var lng=parseFloat(marker['Lon']);
-        var depth=parseFloat(marker['Depth']);
-        var mag=parseFloat(marker['Mag']);
-//             window.console.log("depth"+depth+" mag"+mag);
         var target;
         if(forType == EQ_FOR_DEPTH)
-            target=depth
+            target=parseFloat(marker['Depth']);
         if(forType == EQ_FOR_MAG)
-            target=mag;
+            target=parseFloat(marker['Mag']);
         var idx= getRangeIdx(forType, target);
         updateMarkerLengths(idx);
         updateMarkerLatlng(idx,lat,lng);
