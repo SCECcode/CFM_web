@@ -35,4 +35,10 @@ $eq_Lon_depth=0;
 $eq_Lat_depth=1;
 $eq_Depth_depth=2;
 
+// for EQ_tb for chunk
+$eq_Lon_chunk=0;
+$eq_Lat_chunk=1;
+$eq_Depth_chunk=2;
+$eq_Mag_chunk=3;
+
 ?>

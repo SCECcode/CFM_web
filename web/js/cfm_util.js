@@ -17,9 +17,6 @@ var dip_range_min = 0;
 var dip_range_max = 0;
 
 
-// track the eq segment that is coming in from the backend service
-var track_eq_segment=0;
-
 // track the eq-counter
 function startEQCounter() {
   $("#modalwaiteq").modal({ backdrop: 'static', keyboard: false });
@@ -33,6 +30,10 @@ function add2EQValue(v) {
   let o=parseInt(elm.val());
   let n=o+v; 
   elm.val(n);
+}
+function setEQExpectedValue(v) {
+  let elm = $("#eq-expected");
+  elm.val(v);
 }
 
 // track the geo-counter
@@ -1003,12 +1004,13 @@ function add2EQPoints(forType, eqarray) {
         updateMarkerLengths(idx);
         updateMarkerLatlng(idx,lat,lng);
     });
-//        printMarkerLengths();
+window.console.log("done with a set of add2EQPoints..");
+    printMarkerLengths();
 }
 function add2EQPointsChunk(forType, eqarray, next_chunk, total_chunk, step) {
     add2EQPoints(forType, eqarray);
     // get next chunk
-    _getAllEarthQuakeByChunk(next_chunk, total_chunk, step);
+    _getAllEarthQuakesByChunk(next_chunk, total_chunk, step);
 }
 function showEQPoints(forType, eqarray) {
    add2EQPoints(forType, eqarray);
@@ -1075,8 +1077,10 @@ function processQuakeMeta() {
     window.console.log("time", minTime,maxTime);
     window.console.log("lon", minLon,maxLon);
     window.console.log("lat", minLat,maxLat);
-    window.console.log("depth", minDepth,maxDepth);
-    window.console.log("mag", minMag,maxMag);
+    window.console.log("depth", minDepth);
+    window.console.log("mag", minMag);
+    window.console.log("total", total);
+    setEQExpectedValue(total);
     var meta = { "total": total, "minTime":minTime, "maxTime":maxTime, "minLon":minLon, "maxLon":maxLon, "minLat":minLat, "maxLat":maxLat, "minDepth":minDepth, "maxDepth":maxDepth, "minMag":minMag, "maxMag":maxMag };
     return meta;
 }

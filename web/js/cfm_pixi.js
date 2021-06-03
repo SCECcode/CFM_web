@@ -82,9 +82,14 @@ function initMarkerInfo() {
 }
 
 function printMarkerLengths() {
+  var total_length=0;
+  var total_latlngs=0;
   for(var i=0;i<data_segment_count;i++) {
-    window.console.log("marker length :"+ i+ "="+ markerLengths[i]);
+//    window.console.log("marker length :"+ i+ "="+ markerLengths[i]);
+    total_length=total_length+markerLengths[i];
+    total_latlngs=total_latlngs+markerLatlngs[i].length;
   }
+  window.console.log(">>total markers "+total_length+" latlngs "+total_latlngs);
 }
 
 function updateMarkerLengths(idx) {
@@ -344,13 +349,13 @@ function makePixiOverlayLayer(forType) {
 
     for(var i=0; i<data_segment_count; i++) {
       var length=markerLengths[i];
-      var a = new PIXI.particles.ParticleContainer(length, {vertices: true});
+      var aa = new PIXI.particles.ParticleContainer(length, {vertices: true});
       // add properties for our patched particleRenderer:
-      a.texture = markerTextures[i];
-      a.baseTexture = markerTextures[i].baseTexture;
-      a.anchor = {x: 0.5, y: 1};
-      pixiContainer.addChild(a);
-      pContainers.push(a);
+      aa.texture = markerTextures[i];
+      aa.baseTexture = markerTextures[i].baseTexture;
+      aa.anchor = {x: 0.5, y: 1};
+      pixiContainer.addChild(aa);
+      pContainers.push(aa);
     }
 
     var doubleBuffering = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
@@ -387,13 +392,16 @@ function makePixiOverlayLayer(forType) {
         initialScale = invScale/10 ; // initial size of the marker
 
         // fill in the particles
-        for(var i=0; i< data_segment_count; i++ ) {
-           var a=pContainers[i];
+        window.console.log("fill in the particles..");
+        printMarkerLengths();
+        for(var ii=0; ii< data_segment_count; ii++ ) {
+           var a=pContainers[ii];
            a.x = origin.x;
            a.y = origin.y;
            a.localScale = initialScale  ;
-           var len=markerLengths[i];
-           var latlngs=markerLatlngs[i];
+           var len=markerLengths[ii];
+           var latlngs=markerLatlngs[ii];
+           window.console.log("    adding "+len+" childs..with "+latlngs.length);
            for (var j = 0; j < len; j++) {
               var latlng=latlngs[j];
               var ll=latlng['lat'];
@@ -406,6 +414,11 @@ function makePixiOverlayLayer(forType) {
 //              window.console.log( "      adding  child at..("+(coords.x- origin.x)+')('+(coords.y - origin.y)+')');
            }
         }
+// test out how many child per container
+        for(var k=0; k< data_segment_count; k++ ) {
+           var aa=pContainers[k];
+        }
+
       }
 
       // change size of the marker after zoomin and zoomout

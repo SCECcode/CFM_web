@@ -17,6 +17,10 @@ $step = intVal($_GET['step']);
 $start_gid= $step * $current_chunk; 
 $end_gid= $start_gid + $step; 
 
+echo "current_chunk";
+echo $current_chunk;
+echo "step";
+echo $step;
 
 $query = "SELECT Lon, Lat, Depth, Mag FROM EQ_tb WHERE gid >= $1 AND gid < $2";
 
@@ -26,13 +30,15 @@ $result = pg_execute($dbconn, "my_query", $data);
 
 $eqList=array();
 
+echo "got result";
+
 while($row = pg_fetch_row($result)) {
-    array_push($eqList, makeEQObj($row));
+    array_push($eqList, makeEQChunkObj($row));
 }
 
 $eqstring = htmlspecialchars(json_encode($eqList), ENT_QUOTES, 'UTF-8');
 
-echo "<div data-side=\"allEQs\" data-params=\"";
+echo "<div data-side=\"allEQsChunk\" data-params=\"";
 echo $eqstring;
 echo "\" style=\"display:flex\"></div>";
 

@@ -624,9 +624,9 @@ function getAllEarthQuakesByChunk() {
    if(cfm_quake_meta == null) 
      return;
    var total = cfm_quake_meta['total'];
-   var chunk_step = Math.ceil(total / track_eq_segment)
-   window.console.log(">> Chunk_step ="+chunk_step+ " total "+total+" > "+(chunk_step *track_eq_segment));
-   _getAllEarthQuakesByChunk(0, track_eq_segment, chunk_step);
+   var chunk_step = Math.ceil(total / data_segment_count);
+   window.console.log(">> Chunk_step ="+chunk_step+ " total "+total+" > "+(chunk_step *data_segment_count));
+   _getAllEarthQuakesByChunk(0, data_segment_count, chunk_step);
 }
 
 function _getAllEarthQuakesByChunk(current_chunk, total_chunk, step) {
@@ -646,7 +646,7 @@ function _getAllEarthQuakesByChunk(current_chunk, total_chunk, step) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
             var eqarray=processEQResult("allEQsChunk");
             add2EQValue(eqarray.length);
-            let next_chunk=current_chunk+1;
+            var next_chunk=current_chunk+1;
             if(next_chunk == total_chunk) { // got last chunk 
               showEQPoints(EQ_FOR_DEPTH,eqarray); 
               doneEQCounter();
@@ -655,6 +655,7 @@ function _getAllEarthQuakesByChunk(current_chunk, total_chunk, step) {
             }
         }
     };
+    window.console.log("_getAllEarthQuakesByChunk >>"+current_chunk);
     xmlhttp.open("GET","php/getAllEarthQuakesChunk.php?chunk="+current_chunk+"&step="+step,true);
     xmlhttp.send();
 }
@@ -684,7 +685,8 @@ function getAllEarthQuakesDepth() {
     xmlhttp.send();
 }
 
-function getAllQuakeMeta() {
+// get meta first and then get all info in chunks
+function getAllQuakes() {
     if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
@@ -696,7 +698,7 @@ function getAllQuakeMeta() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
             cfm_quake_meta=processQuakeMeta();
-//            setupStrikeRangeSlider(rangeMin, rangeMax);
+            getAllEarthQuakesByChunk();
         }
     };
     xmlhttp.open("GET","php/getQuakeMeta.php",true);
