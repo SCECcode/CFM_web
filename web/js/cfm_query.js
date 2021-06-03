@@ -594,6 +594,27 @@ function getAllEarthQuakes() {
     xmlhttp.send();
 }
 
+function getAllEarthQuakesDepth() {
+    if (window.XMLHttpRequest) {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        // code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    startEQCounter();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("phpResponseTxt").innerHTML = this.responseText;
+            var eqarray=processEQResult("allEQsDepth");
+            setEQTargetValue(eqarray.length);
+            showEQPoints(EQ_FOR_DEPTH,eqarray);
+            doneEQCounter();
+        }
+    };
+    xmlhttp.open("GET","php/getAllEarthQuakesDepth.php",true);
+    xmlhttp.send();
+}
 function getAllQuakeMeta() {
     if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
