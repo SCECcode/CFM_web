@@ -621,10 +621,9 @@ function getAllEarthQuakesDepth(minDepth,maxDepth) {
 }
 
 function getAllEarthQuakesByChunk() {
-
-   if(track_eq_meta == null) 
+   if(cfm_quake_meta == null) 
      return;
-   var total = track_eq_meta['total'];
+   var total = cfm_quake_meta['total'];
    var chunk_step = Math.ceil(total / track_eq_segment)
    window.console.log(">> Chunk_step ="+chunk_step+ " total "+total+" > "+(chunk_step *track_eq_segment));
    _getAllEarthQuakesByChunk(0, track_eq_segment, chunk_step);

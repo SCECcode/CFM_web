@@ -69,12 +69,10 @@ jQuery(document).ready(function() {
   $("#search-filter-type").trigger("change");
 
 /** MAIN setup **/
+
   getGeoTraceList();
   getAllTraces();
-  getAllQuakeMeta();
-  getAllEarthQuakesByChunk();
-//  getAllEarthQuakesDepth();
-  getAllQuakeMeta();
+  getAllQuakes();
   setupSearch();
   addDownloadSelect();
   setup_info3dTable();

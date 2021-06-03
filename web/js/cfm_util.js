@@ -19,8 +19,6 @@ var dip_range_max = 0;
 
 // track the eq segment that is coming in from the backend service
 var track_eq_segment=0;
-// 
-var track_eq_meta=null;
 
 // track the eq-counter
 function startEQCounter() {
@@ -1079,8 +1077,8 @@ function processQuakeMeta() {
     window.console.log("lat", minLat,maxLat);
     window.console.log("depth", minDepth,maxDepth);
     window.console.log("mag", minMag,maxMag);
-    track_eq_meta = { "total": total, "minTime":minTime, "maxTime":maxTime, "minLon":minLon, "maxLon":maxLon, "minLat":minLat, "maxLat":maxLat, "minDepth":minDepth, "maxDepth":maxDepth, "minMag":minMag, "maxMag":maxMag };
-    return track_eq_meta;
+    var meta = { "total": total, "minTime":minTime, "maxTime":maxTime, "minLon":minLon, "maxLon":maxLon, "minLat":minLat, "maxLat":maxLat, "minDepth":minDepth, "maxDepth":maxDepth, "minMag":minMag, "maxMag":maxMag };
+    return meta;
 }
 
 
