@@ -581,11 +581,12 @@ function getAllEarthQuakes() {
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
     startEQCounter();
+    setupEQPoints();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
             var eqarray=processEQResult("allEQs");
-            setEQTargetValue(eqarray.length);
+            add2EQValue(eqarray.length);
             showEQPoints(EQ_FOR_DEPTH,eqarray);
             doneEQCounter();
         }
@@ -593,6 +594,73 @@ function getAllEarthQuakes() {
     xmlhttp.open("GET","php/getAllEarthQuakes.php",true);
     xmlhttp.send();
 }
+
+// to retrieve all is too big, and so going to make multiple calls with range
+// make it to match with data_segment_counts
+function getAllEarthQuakesDepth(minDepth,maxDepth) {
+    if (window.XMLHttpRequest) {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        // code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    startEQCounter();
+    setupEQPoints();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("phpResponseTxt").innerHTML = this.responseText;
+            var eqarray=processEQResult("allEQsDepth");
+            add2EQValue(eqarray.length);
+            showEQPoints(EQ_FOR_DEPTH,eqarray);
+            doneEQCounter();
+        }
+    };
+    xmlhttp.open("GET","php/getAllEarthQuakesDepth.php",true);
+    xmlhttp.send();
+}
+
+function getAllEarthQuakesByChunk() {
+
+   if(track_eq_meta == null) 
+     return;
+   var total = track_eq_meta['total'];
+   var chunk_step = Math.ceil(total / track_eq_segment)
+   window.console.log(">> Chunk_step ="+chunk_step+ " total "+total+" > "+(chunk_step *track_eq_segment));
+   _getAllEarthQuakesByChunk(0, track_eq_segment, chunk_step);
+}
+
+function _getAllEarthQuakesByChunk(current_chunk, total_chunk, step) {
+    if (window.XMLHttpRequest) {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        // code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    if(current_chunk == 0) {
+        startEQCounter();
+        setupEQPoints();
+    }
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("phpResponseTxt").innerHTML = this.responseText;
+            var eqarray=processEQResult("allEQsChunk");
+            add2EQValue(eqarray.length);
+            let next_chunk=current_chunk+1;
+            if(next_chunk == total_chunk) { // got last chunk 
+              showEQPoints(EQ_FOR_DEPTH,eqarray); 
+              doneEQCounter();
+              } else{
+                add2EQPointsChunk(EQ_FOR_DEPTH,eqarray,next_chunk, total_chunk, step);
+            }
+        }
+    };
+    xmlhttp.open("GET","php/getAllEarthQuakesChunk.php?chunk="+current_chunk+"&step="+step,true);
+    xmlhttp.send();
+}
+
+
 
 function getAllEarthQuakesDepth() {
     if (window.XMLHttpRequest) {
@@ -603,11 +671,12 @@ function getAllEarthQuakesDepth() {
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
     startEQCounter();
+    setupEQPoints();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
             var eqarray=processEQResult("allEQsDepth");
-            setEQTargetValue(eqarray.length);
+            add2EQValue(eqarray.length);
             showEQPoints(EQ_FOR_DEPTH,eqarray);
             doneEQCounter();
         }
@@ -615,6 +684,7 @@ function getAllEarthQuakesDepth() {
     xmlhttp.open("GET","php/getAllEarthQuakesDepth.php",true);
     xmlhttp.send();
 }
+
 function getAllQuakeMeta() {
     if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -644,11 +714,12 @@ function quakesByLatlon(swLat,swLon,neLat,neLon) {
     }
     // turn on data retrieval spiner..
     startEQCounter();
+    setupEQPoints();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
             var eqarray=processEQResult("someEQs");
-            setEQTargetValue(eqarray.length);
+            add2EQValue(eqarray.length);
             showEQPointsAndBound(eqarray,swLat,swLon,neLat,neLon);
             doneEQCounter();
         }

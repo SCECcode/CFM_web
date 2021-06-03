@@ -11,8 +11,7 @@ include("util.php");
 
 $dbconn = getConnection();
 
-$query = "SELECT MIN(EventTime) minTime, MAX(EventTime) maxTime, MIN(Lon) minLon, MAX(Lon) maxLon, MIN(Lat) minLat, MAX(Lat) maxLat, MIN(Depth) minDepth, MAX(Depth) maxDepth, MIN(Mag) minMag, MAX(Mag) maxMag FROM EQ_tb";
-
+$query = "SELECT MIN(EventTime) minTime, MAX(EventTime) maxTime, MIN(Lon) minLon, MAX(Lon) maxLon, MIN(Lat) minLat, MAX(Lat) maxLat, MIN(Depth) minDepth, MAX(Depth) maxDepth, MIN(Mag) minMag, MAX(Mag) maxMag, count(gid) total  FROM EQ_tb";
 $result = pg_query($dbconn, $query);
 $row = pg_fetch_row($result);
 
@@ -26,8 +25,9 @@ $minDepth = $row[6];
 $maxDepth = $row[7];
 $minMag = $row[8];
 $maxMag = $row[9];
+$total = $row[10];
 
-$arr = array( 'minTime' => $minTime, 'maxTime' => $maxTime, 'minLon' => $minLon, 'maxLon' => $maxLon, 'minLat' => $minLat, 'maxLat' => $maxLat, 'minDepth' => $minDepth, 'maxDepth' => $maxDepth, 'minMag' => $minMag, 'maxMag' => $maxMag);
+$arr = array( 'total' => $total, 'minTime' => $minTime, 'maxTime' => $maxTime, 'minLon' => $minLon, 'maxLon' => $maxLon, 'minLat' => $minLat, 'maxLat' => $maxLat, 'minDepth' => $minDepth, 'maxDepth' => $maxDepth, 'minMag' => $minMag, 'maxMag' => $maxMag);
 
 $arrstring = htmlspecialchars(json_encode($arr), ENT_QUOTES, 'UTF-8');
 
