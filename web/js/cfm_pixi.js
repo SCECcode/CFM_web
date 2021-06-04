@@ -15,7 +15,7 @@ var viewermap=null;
 var data_segment_count= 20; // 0 to 19 -- to matching marker names
 
 /* marker's size zoom limit*/
-var eq_zoom_threshold=16;
+var eq_zoom_threshold=10;
 
 /* set are predefined by user, real is from the backend search */
 var eq_min_depth = 0.0;  // -2.37 to 55.77
@@ -180,31 +180,29 @@ function getData(forType) {
  
 function setup_pixi(forType) {
   // this is used to simulate leaflet zoom animation timing:
-  var easing = BezierEasing(0, 0, 0.25, 1);
-
   var loader = new PIXI.loaders.Loader();
 
   loader
-    .add('marker0', 'img/marker0-icon.png')
-    .add('marker1', 'img/marker1-icon.png')
-    .add('marker2', 'img/marker2-icon.png')
-    .add('marker3', 'img/marker3-icon.png')
-    .add('marker4', 'img/marker4-icon.png')
-    .add('marker5', 'img/marker5-icon.png')
-    .add('marker6', 'img/marker6-icon.png')
-    .add('marker7', 'img/marker7-icon.png')
-    .add('marker8', 'img/marker8-icon.png')
-    .add('marker9', 'img/marker9-icon.png')
-    .add('marker10', 'img/marker10-icon.png')
-    .add('marker11', 'img/marker11-icon.png')
-    .add('marker12', 'img/marker12-icon.png')
-    .add('marker13', 'img/marker13-icon.png')
-    .add('marker14', 'img/marker14-icon.png')
-    .add('marker15', 'img/marker15-icon.png')
-    .add('marker16', 'img/marker16-icon.png')
-    .add('marker17', 'img/marker17-icon.png')
-    .add('marker18', 'img/marker18-icon.png')
-    .add('marker19', 'img/marker19-icon.png');
+    .add('marker0', 'img/marker0-icon.svg')
+    .add('marker1', 'img/marker1-icon.svg')
+    .add('marker2', 'img/marker2-icon.svg')
+    .add('marker3', 'img/marker3-icon.svg')
+    .add('marker4', 'img/marker4-icon.svg')
+    .add('marker5', 'img/marker5-icon.svg')
+    .add('marker6', 'img/marker6-icon.svg')
+    .add('marker7', 'img/marker7-icon.svg')
+    .add('marker8', 'img/marker8-icon.svg')
+    .add('marker9', 'img/marker9-icon.svg')
+    .add('marker10', 'img/marker10-icon.svg')
+    .add('marker11', 'img/marker11-icon.svg')
+    .add('marker12', 'img/marker12-icon.svg')
+    .add('marker13', 'img/marker13-icon.svg')
+    .add('marker14', 'img/marker14-icon.svg')
+    .add('marker15', 'img/marker15-icon.svg')
+    .add('marker16', 'img/marker16-icon.svg')
+    .add('marker17', 'img/marker17-icon.svg')
+    .add('marker18', 'img/marker18-icon.svg')
+    .add('marker19', 'img/marker19-icon.svg');
 
   loader.load(function(loader, resources) {
       initMarkerTextures(resources);
@@ -373,7 +371,7 @@ function makePixiOverlayLayer(forType) {
       global_project = project;
       var getScale = utils.getScale;
       var invScale = 1 / getScale();
-//      window.console.log("in L.pixiOverlay layer with zoom "+zoom+" scale at>", getScale());
+//window.console.log("in L.pixiOverlay layer with zoom "+zoom+" scale at>", getScale());
 
       var center=viewermap.getCenter();
 //      window.console.log(center['lat'], center['lng']);
@@ -392,11 +390,12 @@ function makePixiOverlayLayer(forType) {
         }
 
         var origin = project([center['lat'], center['lng']]);
-        initialScale = invScale/10 ; // initial size of the marker
+        initialScale = invScale/6 ; // initial size of the marker
+        window.console.log("initial scale is invScale>>"+invScale+" initialScale>>"+initialScale);
 
         // fill in the particles
         window.console.log("fill in the particles..");
-        printMarkerLengths();
+//        printMarkerLengths();
         for(var ii=0; ii< data_segment_count; ii++ ) {
            var a=pContainers[ii];
            a.x = origin.x;
@@ -404,12 +403,10 @@ function makePixiOverlayLayer(forType) {
            a.localScale = initialScale  ;
            var len=markerLengths[ii];
            var latlngs=markerLatlngs[ii];
-window.console.log("    adding "+len+" childs..with "+latlngs.length);
            for (var j = 0; j < len; j++) {
               var latlng=latlngs[j];
               var ll=latlng['lat'];
               var gg=latlng['lng'];
-//window.console.log("start latlon>>"+ll+" "+gg);
               var coords = project([ll,gg]);
            // pixiOverlay's patched particleContainer accepts simple {x: ..., y: ...} objects as children:
               a.addChild({ x: coords.x - origin.x, y: coords.y - origin.y });
@@ -423,13 +420,18 @@ window.console.log("    adding "+len+" childs..with "+latlngs.length);
         if (targetZoom >= eq_zoom_threshold || zoom >= eq_zoom_threshold) {
           zoomChangeTs = 0;
           var targetScale = targetZoom >= eq_zoom_threshold ? 1 / getScale(event.zoom) : initialScale;
-          innerContainer.currentScale = innerContainer.localScale;
-          innerContainer.targetScale = targetScale;
+          pContainers.forEach(function(innerContainer) {
+            innerContainer.currentScale = innerContainer.localScale;
+            innerContainer.targetScale = targetScale;
+//window.console.log("Zoomanim..currentScale "+ innerContainer.localScale +" targetScale>>"+targetScale);
+          });
         }
         return null;
       }
 
       if (event.type === 'redraw') {
+        // this is used to simulate leaflet zoom animation timing:
+        var easing = BezierEasing(0, 0, 0.25, 1);
         var delta = event.delta;
         if (zoomChangeTs !== null) {
           var duration = 17;
@@ -440,7 +442,10 @@ window.console.log("    adding "+len+" childs..with "+latlngs.length);
             zoomChangeTs = null;
           }
           lambda = easing(lambda);
-          innerContainer.localScale = innerContainer.currentScale + lambda * (innerContainer.targetScale - innerContainer.currentScale);
+          pContainers.forEach(function(innerContainer) {
+            innerContainer.localScale = innerContainer.currentScale + lambda * (innerContainer.targetScale - innerContainer.currentScale);
+//window.console.log("redraw..currentScale "+ innerContainer.localScale);
+          });
         } else { return null;}
       }
 
