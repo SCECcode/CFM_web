@@ -144,7 +144,7 @@ $header = getHeader("Viewer");
     <div class="row">
         <div class="col-12">
 <p>The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model (CFM)</a> are three-dimensional and non-planar; however, to simplify browsing the model, the viewer below provides a two-dimensional map-based view of the SCEC CFM version 5.3 preferred fault set. The alternative fault representations are only provided in the complete CFM archive available for download on the <a href="https://www.scec.org/research/cfm">CFM homepage</a>. Here, the viewer allows users to view and download fault geometry data as well as metadata for selected faults rather than downloading the entire CFM model archive. Once faults are selected, the “PLOT3D” button can be used to view the selected faults in a basic CAD-like environment. See the user guide for more details and site usage instructions.
-Press (<button id="quakesBtn" class="btn btn-black" onClick="getAllQuakes()" style="color:#990000;background:transparent"><span class="glyphicon glyphicon-star-empty"></span></button>) for Seisimicity (Warning, long processing time) </p>
+Toggle (<button id="quakesBtn" class="btn btn-black" onClick="toggleForQuakes()" style="color:#990000;background:transparent"><span class="glyphicon glyphicon-star-empty"></span></button>) for Seisimicity (Warning, long initial processing time) </p>
         </div>
     </div>
 

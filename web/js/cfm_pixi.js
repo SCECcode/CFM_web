@@ -8,8 +8,6 @@ const EQ_FOR_DEPTH=1;
 const EQ_FOR_MAG=2;
 const EQ_FOR_TIME=3;
 
-var redraw_count=0;
-
 var viewermap=null;
 /* data sections, to matching marker name marker_N.icon.png */
 var data_segment_count= 20; // 0 to 19 -- to matching marker names
@@ -219,7 +217,7 @@ function setup_pixi(forType) {
       viewermap.on('zoomstart', function() {
         ticker.start();
 //        let idx=getPixiByType(forType);
-//        if(idx != null) togglePixiOverlay(idx);
+//        if(idx != null) togglePixiOverlayByChild(idx);
 //        let cidx=get1stNoneEmptyContainer(forType);
 //        window.console.log("first none empty container is.."+cidx);
 //      if(idx != null && cidx != null) toggleMarkerContainer(idx, cidx);
@@ -268,7 +266,7 @@ function getPixiByType(forType) {
 }
 
 // toggle off all child containers
-function togglePixiOverlay(pidx) {
+function togglePixiOverlayByChild(pidx) {
   var pixi=pixiContainerList[pidx];
 
   var plist=pixi['inner'];

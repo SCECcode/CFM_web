@@ -626,8 +626,8 @@ function getAllEarthQuakesByChunk() {
    var total = cfm_quake_meta['total'];
    var chunk_step = Math.ceil(total / data_segment_count);
    window.console.log(">> Chunk_step ="+chunk_step+ " total "+total+" > "+(chunk_step *data_segment_count));
-   _getAllEarthQuakesByChunk(0, data_segment_count, chunk_step);
-//   _getAllEarthQuakesByChunk(0, 1, 1000);
+//   _getAllEarthQuakesByChunk(0, data_segment_count, chunk_step);
+ _getAllEarthQuakesByChunk(0, 1, 1000);
 }
 
 function _getAllEarthQuakesByChunk(current_chunk, total_chunk, step) {
