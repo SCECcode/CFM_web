@@ -223,6 +223,7 @@ function get1stNoneEmptyContainer(forType) {
 function changePixiOverlay(typestr) {
   clearAllPixiOverlay();
   switch (typestr) {
+    case "none": break;
     case "depth": togglePixiOverlay(EQ_FOR_DEPTH); break;
     case "mag": togglePixiOverlay(EQ_FOR_MAG); break;
     case "time": togglePixiOverlay(EQ_FOR_TIME); break;

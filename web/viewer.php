@@ -148,7 +148,8 @@ Press (
 <button id="quakesBtn" class="btn btn-black cfm-small-btn" onClick="loadSeisimicity()" style="color:#990000;background:transparent"><span class="glyphicon glyphicon-star-empty"></span></button>
 <select id="seisimicitySelect" onchange="changePixiOverlay(this.value)" 
 class="custom-select custom-select-sm" style="width:5rem;display:none">
-   <option selected value="depth">Depth</option>
+   <option value="none"> none</option>
+   <option selected value="depth">depth</option>
    <option value="mag">mag</option>
    <option value="time">time</option>
 </select>
