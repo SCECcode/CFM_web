@@ -70,6 +70,7 @@ function initMarkerTextures(resources) {
 }
 
 function initForPixiOverlay() {
+  window.console.log("callinging initForPixiOverlay..");
   pixiLatlngList.push({"type":EQ_FOR_DEPTH, "data":[]});
   pixiLatlngList.push({"type":EQ_FOR_MAG, "data":[]});
   pixiLatlngList.push({"type":EQ_FOR_TIME, "data":[]});
@@ -81,6 +82,11 @@ function initForPixiOverlay() {
 }
 
 function updateMarkerLatlng(type,idx,lat,lng) {
+  var alist=pixiLatlngList[type];
+  if(alist == null) {
+      alist[type]= {"type":type, "data":[]};
+      window.console.log("hum.. pixiLatlngList did not get initialized.."); 
+  }
   var item=pixiLatlngList[type].data;
   item[idx].push({'lat':lat,"lng":lng});
 }
