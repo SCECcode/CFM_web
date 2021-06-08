@@ -985,7 +985,7 @@ function add2QuakePoints(eqarray) {
 function add2QuakePointsChunk(eqarray, next_chunk, total_chunk, step) {
     add2QuakePoints(eqarray);
     // get next chunk
-    _getAllEarthQuakesByChunk(next_chunk, total_chunk, step);
+    _getAllQuakesByChunk(next_chunk, total_chunk, step);
 }
 // default showing depth
 function showQuakePoints(forType, eqarray) {
