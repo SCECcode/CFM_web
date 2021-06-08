@@ -971,8 +971,8 @@ function add2QuakePoints(eqarray) {
         var mag=parseFloat(marker['Mag']);
 // from backend always get: "1981-01-01 01:49:29.504"
 // but need it to be in :"1981-01-01T01:49:29.504"
-        var t=new Date(marker['Time']);
-        var otime=_processTimeString(t);
+        var t=_processTimeString(marker['Time']);
+        var otime=new Date(t);
         var didx=getRangeIdx(EQ_FOR_DEPTH, depth);
         updateMarkerLatlng(EQ_FOR_DEPTH,didx,lat,lng);
         var midx= getRangeIdx(EQ_FOR_MAG, mag);
