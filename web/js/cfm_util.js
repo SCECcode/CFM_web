@@ -958,6 +958,10 @@ function processQuakeResult(type) {
     return eqarray;
 }
 
+function _processTimeString(t) {
+    var str=t.replace(" ","T");
+    return str;
+}
 
 function add2QuakePoints(eqarray) {
     eqarray.forEach(function(marker) {
@@ -965,7 +969,10 @@ function add2QuakePoints(eqarray) {
         var lng=parseFloat(marker['Lon']);
         var depth=parseFloat(marker['Depth']);
         var mag=parseFloat(marker['Mag']);
-        var otime=new Date(marker['Time']);
+// from backend always get: "1981-01-01 01:49:29.504"
+// but need it to be in :"1981-01-01T01:49:29.504"
+        var t=new Date(marker['Time']);
+        var otime=_processTimeString(t);
         var didx=getRangeIdx(EQ_FOR_DEPTH, depth);
         updateMarkerLatlng(EQ_FOR_DEPTH,didx,lat,lng);
         var midx= getRangeIdx(EQ_FOR_MAG, mag);
