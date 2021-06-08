@@ -17,9 +17,9 @@ var eq_zoom_threshold=9;
 
 /* set are predefined by user, real is from the backend search */
 var eq_min_depth = 0.0;
-var eq_max_depth = 50.0;
+var eq_max_depth = 20.0;
 var eq_min_mag = 0.0;
-var eq_max_mag = 7.0;
+var eq_max_mag = 6.0;
 var eq_min_time = new Date("1981-01-01T01:49:29.504");
 var eq_max_time = new Date("2019-12-31T23:28:38.59");
 
