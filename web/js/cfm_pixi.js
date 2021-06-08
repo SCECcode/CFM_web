@@ -140,26 +140,26 @@ function getRangeIdx(forType,target) {
 function init_pixi(loader) {
   window.console.log(">>>> calling init_pixi");
   loader
-      .add('marker0', 'img/marker0-icon.png')
-      .add('marker1', 'img/marker1-icon.png')
-      .add('marker2', 'img/marker2-icon.png')
-      .add('marker3', 'img/marker3-icon.png')
-      .add('marker4', 'img/marker4-icon.png')
-      .add('marker5', 'img/marker5-icon.png')
-      .add('marker6', 'img/marker6-icon.png')
-      .add('marker7', 'img/marker7-icon.png')
-      .add('marker8', 'img/marker8-icon.png')
-      .add('marker9', 'img/marker9-icon.png')
-      .add('marker10', 'img/marker10-icon.png')
-      .add('marker11', 'img/marker11-icon.png')
-      .add('marker12', 'img/marker12-icon.png')
-      .add('marker13', 'img/marker13-icon.png')
-      .add('marker14', 'img/marker14-icon.png')
-      .add('marker15', 'img/marker15-icon.png')
-      .add('marker16', 'img/marker16-icon.png')
-      .add('marker17', 'img/marker17-icon.png')
-      .add('marker18', 'img/marker18-icon.png')
-      .add('marker19', 'img/marker19-icon.png');
+    .add('marker0', 'img/marker0-icon.svg')
+    .add('marker1', 'img/marker1-icon.svg')
+    .add('marker2', 'img/marker2-icon.svg')
+    .add('marker3', 'img/marker3-icon.svg')
+    .add('marker4', 'img/marker4-icon.svg')
+    .add('marker5', 'img/marker5-icon.svg')
+    .add('marker6', 'img/marker6-icon.svg')
+    .add('marker7', 'img/marker7-icon.svg')
+    .add('marker8', 'img/marker8-icon.svg')
+    .add('marker9', 'img/marker9-icon.svg')
+    .add('marker10', 'img/marker10-icon.svg')
+    .add('marker11', 'img/marker11-icon.svg')
+    .add('marker12', 'img/marker12-icon.svg')
+    .add('marker13', 'img/marker13-icon.svg')
+    .add('marker14', 'img/marker14-icon.svg')
+    .add('marker15', 'img/marker15-icon.svg')
+    .add('marker16', 'img/marker16-icon.svg')
+    .add('marker17', 'img/marker17-icon.svg')
+    .add('marker18', 'img/marker18-icon.svg')
+    .add('marker19', 'img/marker19-icon.svg');
 }
 
 function setup_pixi(forType) {
