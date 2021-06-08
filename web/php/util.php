@@ -74,10 +74,12 @@ return $myJSON;
 function makeEQChunkObj($row) {
 include ("declare.php");
 $myObj = new \stdClass();
+$myObj->Id=$row[$eq_Id_chunk];
 $myObj->Lon=$row[$eq_Lon_chunk];
 $myObj->Lat=$row[$eq_Lat_chunk];
 $myObj->Depth=$row[$eq_Depth_chunk];
 $myObj->Mag=$row[$eq_Mag_chunk];
+$myObj->Time=$row[$eq_Time_chunk];
 $myJSON = json_encode($myObj);
 return $myJSON;
 }

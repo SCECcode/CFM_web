@@ -6,24 +6,12 @@ var cfm_select_count=0;
 var showing_key = false;
 
 var seisimicity_loaded = false;
-var seisimicity_visible = true;
 
-function toggleForQuakes() {
+function loadSeisimicity() {
    if(seisimicity_loaded == false) {
+     initForPixiOverlay(); 
      getAllQuakes();
      seisimicity_loaded = true;
-     seisimicity_visible = true;
-   } else { // toggle it -- assume there is one need to expand in the future
-      var pixi=document.getElementsByClassName("leaflet-pixi-overlay");
-      window.console.log(">>> how many pixi"+pixi.length);
-      var firstP=pixi[0];
-      if(seisimicity_visible == true) {
-        firstP.style.visibility = "hidden";
-        seisimicity_visible = false;
-        } else {
-          firstP.style.visibility = "visible";
-          seisimicity_visible = true;
-      }
    }
 }
 

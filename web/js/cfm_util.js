@@ -18,20 +18,20 @@ var dip_range_max = 0;
 
 
 // track the eq-counter
-function startEQCounter() {
+function startQuakeCounter() {
   $("#modalwaiteq").modal({ backdrop: 'static', keyboard: false });
 }
-function doneEQCounter() { 
+function doneQuakeCounter() { 
   $("#modalwaiteq").modal('hide');
 }
-function add2EQValue(v) {
+function add2QuakeValue(v) {
   window.console.log("adding more EQs: "+v);
   let elm = $("#eq-total");
   let o=parseInt(elm.val());
   let n=o+v; 
   elm.val(n);
 }
-function setEQExpectedValue(v) {
+function setQuakeExpectedValue(v) {
   let elm = $("#eq-expected");
   elm.val(v);
 }
@@ -932,26 +932,20 @@ function collectURLsFor3d(mlist) {
 
 
 /****************** for handling earthquakes ********************/
-function setupEQ() {
-  setupSeisimicityLayer();
-}
-
-function processEQResult(eqlist) {
+function processQuakeResult(type) {
     var eqstr=[];
     var eqarray=[]; // array of json items
 
-    if ( eqlist == 'allEQs') {
-       eqstr = $('[data-side="allEQs"]').data('params');
-    } else if (eqlist == 'allEQsDepth') {
-       eqstr = $('[data-side="allEQsDepth"]').data('params');
-    } else if (eqlist == 'someEQs') {
+    if ( type == 'quakesByDepth') {
+       eqstr = $('[data-side="quakesByDepth"]').data('params');
+    } else if (type == 'quakesByLatLon') {
        eqstr = $('[data-side="quakesByLatLon"]').data('params');
-    } else if (eqlist == 'allEQsChunk') {
-       eqstr = $('[data-side="allEQsChunk"]').data('params');
+    } else if (type == 'allQuakesByChunk') {
+       eqstr = $('[data-side="allQuakesByChunk"]').data('params');
     } 
 
     if(eqstr == undefined) {
-        window.console.log("processEQResult: BAD BAD BAD");
+        window.console.log("processQuakeResult: BAD BAD BAD");
         return;
     }
 
@@ -965,67 +959,43 @@ function processEQResult(eqlist) {
 }
 
 
-// show depth
-function showEQPoints2(eqarray) {
-   var sz=eqarray.length;
-   if(sz == 0) return null;
-   window.console.log("Number of EQ point >>",sz);
-   var lats=[];
-   var lons=[];
-   var clist=[];
-   for(var i=0; i<sz; i++) {
-      item=eqarray[i];
-      var lat=parseFloat(item['Lat']);
-      var lon=parseFloat(item['Lon']);
-      var depth=parseFloat(item['Depth']);
-      var cval=getQuakeColor( "depth", depth );
-      lats.push(lat);
-      lons.push(lon);
-      clist.push(cval);
-   }
-   // global one
-   cfm_quake_group=addPointsLayerGroup(lats,lons,clist);
-}
-
-function setupEQPoints() {
-    setupEQ();
-    initMarkerInfo();
-}
-function add2EQPoints(forType, eqarray) {
+function add2QuakePoints(eqarray) {
     eqarray.forEach(function(marker) {
         var lat=parseFloat(marker['Lat']);
         var lng=parseFloat(marker['Lon']);
-        var target;
-        if(forType == EQ_FOR_DEPTH)
-            target=parseFloat(marker['Depth']);
-        if(forType == EQ_FOR_MAG)
-            target=parseFloat(marker['Mag']);
-        var idx= getRangeIdx(forType, target);
-        updateMarkerLengths(idx);
-        updateMarkerLatlng(idx,lat,lng);
+        var depth=parseFloat(marker['Depth']);
+        var mag=parseFloat(marker['Mag']);
+        var otime=new Date(marker['time']);
+        var didx=getRangeIdx(EQ_FOR_DEPTH, depth);
+        updateMarkerLatlng(EQ_FOR_DEPTH,didx,lat,lng);
+        var midx= getRangeIdx(EQ_FOR_MAG, mag);
+        updateMarkerLatlng(EQ_FOR_MAG,midx,lat,lng);
+        var tidx= getRangeIdx(EQ_FOR_TIME, otime);
+        updateMarkerLatlng(EQ_FOR_TIME,tidx,lat,lng);
     });
-window.console.log("done with a set of add2EQPoints..");
-    printMarkerLengths();
 }
-function add2EQPointsChunk(forType, eqarray, next_chunk, total_chunk, step) {
-    add2EQPoints(forType, eqarray);
+
+function add2QuakePointsChunk(eqarray, next_chunk, total_chunk, step) {
+    add2QuakePoints(eqarray);
     // get next chunk
     _getAllEarthQuakesByChunk(next_chunk, total_chunk, step);
 }
-function showEQPoints(forType, eqarray) {
-   add2EQPoints(forType, eqarray);
+// default showing depth
+function showQuakePoints(forType, eqarray) {
+   add2QuakePoints(eqarray);
    setup_pixi(forType);
 }
 
-function showEQPointsAndBound(eqarray,swlat,swlon,nelat,nelon) {
+// default to depth
+function showQuakePointsAndBound(eqarray,swlat,swlon,nelat,nelon) {
    // XX should grab type from the UI
-   showEQPoints(EQ_FOR_DEPTH,eqarray);
+   showQuakePoints(EQ_FOR_DEPTH,eqarray);
    // create a bounding area and add to the layergroup
    var layer=makeRectangleLayer(swlat,swlon,nelat,nelon);
    cfm_quake_group.addLayer(layer);
 }
 
-function showEQPoints1(eqarray) {
+function showQuakePoints1(eqarray) {
   var layer=undefined;
   var trace=makeQuakeGeoJSONFeature(1,eqarray,5,"red");
   if( trace != undefined ) {
@@ -1080,7 +1050,7 @@ function processQuakeMeta() {
     window.console.log("depth", minDepth);
     window.console.log("mag", minMag);
     window.console.log("total", total);
-    setEQExpectedValue(total);
+    setQuakeExpectedValue(total);
     var meta = { "total": total, "minTime":minTime, "maxTime":maxTime, "minLon":minLon, "maxLon":maxLon, "minLat":minLat, "maxLat":maxLat, "minDepth":minDepth, "maxDepth":maxDepth, "minMag":minMag, "maxMag":maxMag };
     return meta;
 }

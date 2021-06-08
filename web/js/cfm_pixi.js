@@ -4,9 +4,9 @@
 
 // pixi, Leafle.overlayLayer.js
 // handle the seismicity info
-const EQ_FOR_DEPTH=1;
-const EQ_FOR_MAG=2;
-const EQ_FOR_TIME=3;
+const EQ_FOR_DEPTH=0;
+const EQ_FOR_MAG=1;
+const EQ_FOR_TIME=2;
 
 var viewermap=null;
 /* data sections, to matching marker name marker_N.icon.png */
@@ -16,38 +16,37 @@ var data_segment_count= 20; // 0 to 19 -- to matching marker names
 var eq_zoom_threshold=10;
 
 /* set are predefined by user, real is from the backend search */
-var eq_min_depth = 0.0;  // -2.37 to 55.77
-var eq_max_depth = 20.0;
-var eq_min_mag = 0;  // -1.02 to 7.3
+var eq_min_marker = 0.0;
+var eq_max_marker = 20.0;
+var eq_min_mag = 0.0;
 var eq_max_mag = 6.6;
+var eq_min_time = new Date("1981-01-01T01:49:29.504");
+var eq_max_time = new Date("1981-01-10T03:24:06.650");
 
 /* multiple set of pixi+marker containers                            */
-/* [{"type":EQ_FOR_DEPTH, "vis":true, "overlay": layer,              */
-/*   "top":pixiContainer,"inner":[container0, container1, ...]},...] */
-var pixiContainerList=[];
+/* [{"type":EQ_FOR_DEPTH, "vis":true, "layer": overlay,              */
+/*   "top":pixiContainer,"inner":[ {"container":c0, "vis":1 }, ...] */
+var pixiOverlayList=[];
 
-/* number of marker in marker container */
-/* [ markerCnt0, markerCnt1,... markerCnt19 ] */
-var  markerLengths=[];
-
-/* textures in a marker container                         */
-/* [ markerTexture0, markerTexture1,... markerTexture19 ] */
-var  markerTextures=[];
-
-/* latlngs in a marker container*/
-var  markerLatlngs=[];
+// break up data into buckets (one per segment)
+// [ { marker-latlngs } {mag-latlngs} {time-latlngs} ]  
+/* [{"type":EQ_FOR_DEPTH, "data":[ [{"lat":lat,"lng":lng},...], ...] }] */
+var pixiLatlngList=[];
 
 /* PixiOverlayLayer */
 var pixiLayer = null;
 
-/* save ptr to the project() */
-var global_project=null;
+/* expose pixiOverlya's util to global scope */
+var pixi_project=null;
+
+/* textures in a marker container                         */
+/* [ markerTexture0, markerTexture1,... markerTexture19 ] */
+var markerTextures=[];
+
+var loadOnce=1;
+
 function initMarkerTextures(resources) {
-
-    window.console.log("calling initMarkerTextures.."+markerTextures.length);
-    if(markerTextures.length == data_segment_count) // do only once
-      return;
-
+  window.console.log(">>>> calling initMarkerTextures");
     markerTextures.push(resources.marker0.texture);
     markerTextures.push(resources.marker1.texture);
     markerTextures.push(resources.marker2.texture);
@@ -70,157 +69,129 @@ function initMarkerTextures(resources) {
     markerTextures.push(resources.marker19.texture);
 }
 
-function initMarkerInfo() {
-  markerLengths=[];
-  markerLatlngs=[];
+function initForPixiOverlay() {
+  pixiLatlngList.push({"type":EQ_FOR_DEPTH, "data":[]});
+  pixiLatlngList.push({"type":EQ_FOR_MAG, "data":[]});
+  pixiLatlngList.push({"type":EQ_FOR_TIME, "data":[]});
   for(var i=0; i<data_segment_count; i++) {
-    markerLengths.push(0);
-    markerLatlngs.push([]);
+    pixiLatlngList[EQ_FOR_DEPTH].data.push([]);
+    pixiLatlngList[EQ_FOR_MAG].data.push([]);
+    pixiLatlngList[EQ_FOR_TIME].data.push([]);
   }
 }
 
-function printMarkerLengths() {
-  var total_length=0;
-  var total_latlngs=0;
-  for(var i=0;i<data_segment_count;i++) {
-//    window.console.log("marker length :"+ i+ "="+ markerLengths[i]);
-    total_length=total_length+markerLengths[i];
-    total_latlngs=total_latlngs+markerLatlngs[i].length;
-    if(markerLengths[i] != markerLatlngs[i].length) {
-      window.console.log( "marker house keeping BAD at i "+i);
-    }
-  }
-
-  window.console.log(">>total markers "+total_length+" latlngs "+total_latlngs);
+function updateMarkerLatlng(type,idx,lat,lng) {
+  var item=pixiLatlngList[type].data;
+  item[idx].push({'lat':lat,"lng":lng});
 }
 
-function updateMarkerLengths(idx) {
-  var tmp=markerLengths[idx];
-  markerLengths[idx]=tmp+1;
+function getMarkerCount(forType,idx) {
+  var item=pixiLatlngList[forType].data;
+  var sz=item[idx].length;
+  return sz;
+}
+function getMarkerLatlngs(forType,idx) {
+  var item=pixiLatlngList[forType].data;
+  return item[idx];
 }
 
-function updateMarkerLatlng(idx,lat,lng) {
-  markerLatlngs[idx].push({'lat':lat,"lng":lng});
-}
-
-// set if eq_min_depth/eq_min_max hasn't been set already
+// set if eq_min_marker/eq_min_max hasn't been set already
 function setDepthRange(min,max) {
-  if(eq_min_depth == null &&
-          eq_max_depth == null) {
-    eq_min_depth=min;
-    eq_max_depth=max;
+  if(eq_min_marker == null &&
+          eq_max_marker == null) {
+    eq_min_marker=min;
+    eq_max_marker=max;
   }
 }
 
 function getRangeIdx(forType,target) {
   if(forType == EQ_FOR_DEPTH) {
-     eq_min=eq_min_depth;
-     eq_max=eq_max_depth;
-     } else {
-       eq_min=eq_min_mag;
-       eq_max=eq_max_mag;
+     eq_min=eq_min_marker;
+     eq_max=eq_max_marker;
   }
+  if(forType == EQ_FOR_MAG) {
+     eq_min=eq_min_mag;
+     eq_max=eq_max_mag;
+  }
+  if(forType == EQ_FOR_TIME) {
+     eq_min=eq_min_time.getTime();
+     eq_max=eq_max_time.getTime();
+     target=target.getTime();
+  }
+ 
   if(target <= eq_min)
     return 0;  
   if(target >= eq_max)
-    return (data_segment_count-1);
-  var step=(eq_max - eq_min)/data_segment_count;
+    return data_segment_count-1;
+  var step = (eq_max - eq_min)/data_segment_count;
   var idx= Math.floor((target-eq_min)/step);
-
-  if(idx == data_segment_count) {
-    window.console.log("BADD");
-  }
 
   return idx;
 }
 
-function getData(forType) {
-    var getJSON = function(url, successHandler, errorHandler) {
-        var xhr = typeof XMLHttpRequest != 'undefined'
-            ? new XMLHttpRequest()
-            : new ActiveXObject('Microsoft.XMLHTTP');
-        xhr.open('get', url, true);
-        xhr.onreadystatechange = function() {
-            var status;
-            var data;
-            if (xhr.readyState == 4) {
-                status = xhr.status;
-                if (status == 200) {
-                    data = JSON.parse(xhr.responseText);
-                    successHandler && successHandler(data);
-                } else {
-                    errorHandler && errorHandler(status);
-                }
-            }
-        };
-        xhr.send();
-    };
-    getJSON('data/pixidata.json', function(markers) {
-        markers.forEach(function(marker) {
-             var id=marker['id'];
-             var lat=marker['latitude'];
-             var lng=marker['longitude'];
-             var depth=marker['depth'];
-             var mag=marker['mag'];
-//             window.console.log("depth"+depth+" mag"+mag);
-             var target;
-             if(forType == EQ_FOR_DEPTH)
-               target=depth
-             if(forType == EQ_FOR_MAG)
-               target=mag;
-             var idx= getRangeIdx(forType, target);
-             updateMarkerLengths(idx);
-             updateMarkerLatlng(idx,lat,lng);
-        });
-//        printMarkerLengths();
-    });
+// from pixi,
+//  >> Adds a BaseTexture to the global BaseTextureCache. This cache is shared across the whole PIXI object.
+function init_pixi(loader) {
+  window.console.log(">>>> calling init_pixi");
+  loader
+      .add('marker0', 'img/marker0-icon.png')
+      .add('marker1', 'img/marker1-icon.png')
+      .add('marker2', 'img/marker2-icon.png')
+      .add('marker3', 'img/marker3-icon.png')
+      .add('marker4', 'img/marker4-icon.png')
+      .add('marker5', 'img/marker5-icon.png')
+      .add('marker6', 'img/marker6-icon.png')
+      .add('marker7', 'img/marker7-icon.png')
+      .add('marker8', 'img/marker8-icon.png')
+      .add('marker9', 'img/marker9-icon.png')
+      .add('marker10', 'img/marker10-icon.png')
+      .add('marker11', 'img/marker11-icon.png')
+      .add('marker12', 'img/marker12-icon.png')
+      .add('marker13', 'img/marker13-icon.png')
+      .add('marker14', 'img/marker14-icon.png')
+      .add('marker15', 'img/marker15-icon.png')
+      .add('marker16', 'img/marker16-icon.png')
+      .add('marker17', 'img/marker17-icon.png')
+      .add('marker18', 'img/marker18-icon.png')
+      .add('marker19', 'img/marker19-icon.png');
 }
- 
+
 function setup_pixi(forType) {
   // this is used to simulate leaflet zoom animation timing:
   var loader = new PIXI.loaders.Loader();
 
-  loader
-    .add('marker0', 'img/marker0-icon.svg')
-    .add('marker1', 'img/marker1-icon.svg')
-    .add('marker2', 'img/marker2-icon.svg')
-    .add('marker3', 'img/marker3-icon.svg')
-    .add('marker4', 'img/marker4-icon.svg')
-    .add('marker5', 'img/marker5-icon.svg')
-    .add('marker6', 'img/marker6-icon.svg')
-    .add('marker7', 'img/marker7-icon.svg')
-    .add('marker8', 'img/marker8-icon.svg')
-    .add('marker9', 'img/marker9-icon.svg')
-    .add('marker10', 'img/marker10-icon.svg')
-    .add('marker11', 'img/marker11-icon.svg')
-    .add('marker12', 'img/marker12-icon.svg')
-    .add('marker13', 'img/marker13-icon.svg')
-    .add('marker14', 'img/marker14-icon.svg')
-    .add('marker15', 'img/marker15-icon.svg')
-    .add('marker16', 'img/marker16-icon.svg')
-    .add('marker17', 'img/marker17-icon.svg')
-    .add('marker18', 'img/marker18-icon.svg')
-    .add('marker19', 'img/marker19-icon.svg');
+window.console.log("setup_pixi loading >>>"+ forType);
+ 
+  if(loadOnce) {
+    init_pixi(loader);
+  }
 
   loader.load(function(loader, resources) {
-      initMarkerTextures(resources);
+      if(loadOnce) {
+        initMarkerTextures(resources);
+        loadOnce=0;
+      }
 
       pixiLayer = makePixiOverlayLayer(forType);
-      pixiLayer.addTo(viewermap);
 
       var ticker = new PIXI.ticker.Ticker();
 
       ticker.add(function(delta) { 
         pixiLayer.redraw({type: 'redraw', delta: delta});
       });
+      viewermap.on('changetart', function() {
+        ticker.start();
+      });
+      viewermap.on('changeend', function() { 
+        ticker.stop();
+      });
 
       viewermap.on('zoomstart', function() {
         ticker.start();
-//        let idx=getPixiByType(forType);
-//        if(idx != null) togglePixiOverlayByChild(idx);
+//        togglePixiOverlay(forType);
 //        let cidx=get1stNoneEmptyContainer(forType);
 //        window.console.log("first none empty container is.."+cidx);
-//      if(idx != null && cidx != null) toggleMarkerContainer(idx, cidx);
+//        if(cidx != null) toggleMarkerContainer(forType, cidx);
       });
       viewermap.on('zoomend', function() { 
         ticker.stop();
@@ -230,25 +201,15 @@ function setup_pixi(forType) {
 }
 
 function get1stNoneEmptyContainer(forType) {
-   let sz=pixiContainerList.length;
-   if(sz == 0)
-      return null;
-   for(var i=0; i<sz; i++ ) {
-      var tmp=pixiContainerList[i];
-      if(tmp['type'] == forType) {
-         var ttmp=tmp['inner'];
-         let ssz=ttmp.length; // should be 20 of them
-         for(var j=0; j<ssz; j++) {
-            var tttmp=ttmp[j]; // container
-            var chd=tttmp.children;
-            if(chd.length > 0) {
-//              window.console.log("This set has none zero particles.."+j);
-              return j;
-              } else {
-//                window.console.log("this segment ",j," does not have anything..");
-            }
-         }
-      }
+   var pixi=pixiOverlayList[forType];
+   if(pixi['vis'] == 0) 
+     return;
+   var inner=tmp['inner'];
+   for(var i=0; i<data_segment_count; i++ ) {
+     var item=inner[i];
+     if(item['vis'] && getMarkerCount(forType,i)>0) { // found it and it got particles in there
+        return i;
+     }
    }
    return null;
 }
@@ -265,97 +226,72 @@ function getPixiByType(forType) {
    return null;
 }
 
-// toggle off all child containers
-function togglePixiOverlayByChild(pidx) {
-  var pixi=pixiContainerList[pidx];
+function clickPixiDepth() { togglePixiOverlay(EQ_FOR_DEPTH); }
+function clickPixiMag() { togglePixiOverlay(EQ_FOR_MAG); }
+function clickPixiTime() { togglePixiOverlay(EQ_FOR_TIME); }
 
-  var plist=pixi['inner'];
-  var top=pixi['top'];
-  var layer=pixi['overlay'];
-  var vis=pixi['vis'];
-  var sz=plist.length; 
-
-  if(sz==0) {
-    windown.console.log("NOTHING To TOGGLE!!\n");
+// show which pixiOverlay
+function togglePixiOverlay(target_type) {
+  var tmp=pixiOverlayList;
+  var pixi=pixiOverlayList[target_type];
+  if(pixi == null || pixi.length == 0) { 
+    setup_pixi(target_type);
     return;
   }
-
-  if(vis) { // remove starts from the back
-    for(var i=sz-1;i>0;i--) { 
-      var target=plist[i];
-      var tmp=top.getChildAt(i);
-      if(target == tmp) {
-        if(target.children.length > 0) { 
-          top.removeChild(tmp); // remove it
-          window.console.log("togglePixiOverlay:remove child at "+i);
-        }
-        } else {
-          window.console.log("BAD.. should be the same");
-      }
-    }
-    pixi['vis']=0;
+  var v=pixi["vis"];
+  var layer=pixi["overlay"];
+  if(v) {
+    viewermap.removeLayer(layer);
+    pixi["vis"]=0;
     } else {
-      for(var i=0;i<sz;i++) { 
-        var target=plist[i];
-        if(target.children.length > 0) { 
-          top.addChildAt(target,i); // add it back 
-          window.console.log("togglePixiOverlay:add back child at "+i);
-        }
-      }
-      pixi['vis']=1;
-    }
+      viewermap.addLayer(layer);
+      pixi["vis"]=1;
+  }
 }
 
 // toggle off a child container from an overlay layer
-function toggleMarkerContainer(pidx,iidx) {
-  window.console.log("toggleMarkerContainer: toggle off a layer "+iidx+" from "+pidx);
-  var tmp=pixiContainerList[pidx];
-  var plist=tmp['inner'];
-  var top=tmp['top'];
-  if(plist.length==0) {
-    windown.console.log("NOTHING To TOGGLE!!\n");
+function toggleMarkerContainer(target_type,target_segment) {
+  var pixi=pixiOverlayList[target_type];
+  if(pixi == []) { return; }
+  var plist=pixi['inner'];
+  var top=pixi['top'];
+  if(pixi["vis"]==false) {
+    windown.console.log("layer not visible To TOGGLE!!\n");
     return;
+  } 
+  var clist=pixi['inner'];
+  var top=pixi['top'];
+  for(var j=0; j<data_segment_count; j++) {
+    var citem=clist[j];
+    var cptr=citem["container"];
+    if(cptr == target_segment) {
+      if(citem["vis"]) { // toggle off
+        citem["vis"]=0;
+        top.removeChild(cptr);
+        } else {
+          citem["vis"]=1;
+          top.addChild(cptr);
+      }
+      return;
+    }
   }
-  var targetContainer=plist[iidx];
-
-  var tmp=top.getChildAt(iidx);
-  if(tmp == targetContainer) { // remove it
-    top.removeChild(targetContainer);
-    } else {
-      top.addChildAt(targetContainer,iidx);
-  }
-}
-
-function makeMap() {
-    window.console.log("makeMap..");
-    var mymap = L.map('map').setView([ 34.3,  -118.4], 10);
-    L.tileLayer('//stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png',
-      { subdomains: 'abcd',
-    attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
-    minZoom: 4,
-    maxZoom: 14
-      }).addTo(mymap);
-
-    mymap.attributionControl.setPosition('bottomleft');
-    mymap.zoomControl.setPosition('bottomright');
-
-    return mymap;
 }
 
 function makePixiOverlayLayer(forType) {
     var zoomChangeTs = null;
+
     var pixiContainer = new PIXI.Container();
-    var pContainers= []; //particle container
+    var pContainers=[]; //particle container
 
     for(var i=0; i<data_segment_count; i++) {
-      var length=markerLengths[i];
-      var aa = new PIXI.particles.ParticleContainer(length, {vertices: true});
+      var length=getMarkerCount(forType,i);
+      var a = new PIXI.particles.ParticleContainer(length, {vertices: true});
       // add properties for our patched particleRenderer:
-      aa.texture = markerTextures[i];
-      aa.baseTexture = markerTextures[i].baseTexture;
-      aa.anchor = {x: 0.5, y: 1};
-      pixiContainer.addChild(aa);
-      pContainers.push(aa);
+      a.texture = markerTextures[i];
+      a.baseTexture = markerTextures[i].baseTexture;
+      a.anchor = {x: 0.5, y: 1};
+      pixiContainer.addChild(a);
+      pContainers.push(a);
     }
 
     var doubleBuffering = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
@@ -365,55 +301,55 @@ function makePixiOverlayLayer(forType) {
       var zoom = utils.getMap().getZoom();
       var container = utils.getContainer();
       var renderer = utils.getRenderer();
-      var project = utils.latLngToLayerPoint;
-      global_project = project;
+      pixi_project = utils.latLngToLayerPoint;
       var getScale = utils.getScale;
       var invScale = 1 / getScale();
-//window.console.log("in L.pixiOverlay layer with zoom "+zoom+" scale at>", getScale());
+
+//      window.console.log("in L.pixiOverlay zoom at "+zoom+" scale at>", getScale());
 
       var center=viewermap.getCenter();
-//      window.console.log(center['lat'], center['lng']);
 
       if (event.type === 'add') {
-        window.console.log("  Pixi add HERE..");
         // check if this is the first time..
-        if(pixiContainerList != null) {
-             pixiContainerList.forEach(function(item) {
-               var t=item['type'];
-               if(forType === t) {  
-                  item['vis']=1;
-                  return item['overlay'];
-               }
-            });
+        if(pixiOverlayList.length != 0) {
+           var pixi=pixiOverlayList[forType];
+           if(pixi != null && pixi != []) {
+             pixi['vis']=1;
+window.console.log("adding back a preexisting pixiOverlay"+forType);
+             return pixi['overlay'];
+           }
         }
+window.console.log("First time making this pixiOverlay,"+forType);
 
-        var origin = project([center['lat'], center['lng']]);
-        initialScale = invScale/6 ; // initial size of the marker
-        window.console.log("initial scale is invScale>>"+invScale+" initialScale>>"+initialScale);
+        var origin = pixi_project([center['lat'], center['lng']]);
+        initialScale = invScale/4 ; // initial size of the marker
 
         // fill in the particles
-        window.console.log("fill in the particles..");
-//        printMarkerLengths();
-        for(var ii=0; ii< data_segment_count; ii++ ) {
-           var a=pContainers[ii];
+        for(var i=0; i< data_segment_count; i++ ) {
+           var a=pContainers[i];
            a.x = origin.x;
            a.y = origin.y;
-           a.localScale = initialScale  ;
-           var len=markerLengths[ii];
-           var latlngs=markerLatlngs[ii];
+           a.localScale = initialScale;
+
+           var latlngs=getMarkerLatlngs(forType,i);
+           var len=latlngs.length;
            for (var j = 0; j < len; j++) {
               var latlng=latlngs[j];
               var ll=latlng['lat'];
               var gg=latlng['lng'];
-              var coords = project([ll,gg]);
-           // pixiOverlay's patched particleContainer accepts simple {x: ..., y: ...} objects as children:
+//              window.console.log("start latlon>>"+ll+" "+gg);
+              var coords = pixi_project([ll,gg]);
+              // our patched particleContainer accepts simple {x: ..., y: ...} objects as children:
+//              window.console.log("    and xy at "+coords.x+" "+coords.y);
               a.addChild({ x: coords.x - origin.x, y: coords.y - origin.y });
+//              window.console.log( "      adding  child at..("+(coords.x- origin.x)+')('+(coords.y - origin.y)+')');
            }
         }
       }
 
       // change size of the marker after zoomin and zoomout
       if (event.type === 'zoomanim') {
+window.console.log("event: layer zoomanim.."+event.zoom);
         var targetZoom = event.zoom;
         if (targetZoom >= eq_zoom_threshold || zoom >= eq_zoom_threshold) {
           zoomChangeTs = 0;
@@ -421,14 +357,12 @@ function makePixiOverlayLayer(forType) {
           pContainers.forEach(function(innerContainer) {
             innerContainer.currentScale = innerContainer.localScale;
             innerContainer.targetScale = targetScale;
-//window.console.log("Zoomanim..currentScale "+ innerContainer.localScale +" targetScale>>"+targetScale);
           });
         }
         return null;
       }
 
       if (event.type === 'redraw') {
-        // this is used to simulate leaflet zoom animation timing:
         var easing = BezierEasing(0, 0, 0.25, 1);
         var delta = event.delta;
         if (zoomChangeTs !== null) {
@@ -442,7 +376,6 @@ function makePixiOverlayLayer(forType) {
           lambda = easing(lambda);
           pContainers.forEach(function(innerContainer) {
             innerContainer.localScale = innerContainer.currentScale + lambda * (innerContainer.targetScale - innerContainer.currentScale);
-//window.console.log("redraw..currentScale "+ innerContainer.localScale);
           });
         } else { return null;}
       }
@@ -451,9 +384,11 @@ function makePixiOverlayLayer(forType) {
     }, pixiContainer, {
       doubleBuffering: doubleBuffering,
       destroyInteractionManager: true
-    });
+    }).addTo(viewermap);
 
-    pixiContainerList.push({"type":forType,"vis":1,"overlay":overlay,"top":pixiContainer,"inner":pContainers});
+    var tmp=pixiOverlayList;
+    pixiOverlayList[forType]={"type":forType,"vis":1,"overlay":overlay,"top":pixiContainer,"inner":pContainers};
+ 
 
     return overlay;
 }

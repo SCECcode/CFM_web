@@ -571,33 +571,9 @@ function setupSearch()
 }
 
 /****************** for handling earthquakes ********************/
-
-function getAllEarthQuakes() {
-    if (window.XMLHttpRequest) {
-        // code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp = new XMLHttpRequest();
-    } else {
-        // code for IE6, IE5
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    startEQCounter();
-    setupEQPoints();
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("phpResponseTxt").innerHTML = this.responseText;
-            var eqarray=processEQResult("allEQs");
-            add2EQValue(eqarray.length);
-            showEQPoints(EQ_FOR_DEPTH,eqarray);
-            doneEQCounter();
-        }
-    };
-    xmlhttp.open("GET","php/getAllEarthQuakes.php",true);
-    xmlhttp.send();
-}
-
 // to retrieve all is too big, and so going to make multiple calls with range
 // make it to match with data_segment_counts
-function getAllEarthQuakesDepth(minDepth,maxDepth) {
+function quakesByDepth(minDepth,maxDepth) {
     if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
@@ -605,32 +581,34 @@ function getAllEarthQuakesDepth(minDepth,maxDepth) {
         // code for IE6, IE5
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
-    startEQCounter();
-    setupEQPoints();
+    startQuakeCounter();
+// TODO XX need to create a differnt overlay layer XXX 
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
-            var eqarray=processEQResult("allEQsDepth");
-            add2EQValue(eqarray.length);
-            showEQPoints(EQ_FOR_DEPTH,eqarray);
-            doneEQCounter();
+            var eqarray=processQuakeResult("quakesByDepth");
+            add2QuakeValue(eqarray.length);
+            showQuakePoints(EQ_FOR_DEPTH,eqarray);
+            doneQuakeCounter();
         }
     };
-    xmlhttp.open("GET","php/getAllEarthQuakesDepth.php",true);
+    xmlhttp.open("GET","php/quakesByDepth.php?min="+minDepth+"&max="+maxDepth,true);
     xmlhttp.send();
 }
 
 function getAllEarthQuakesByChunk() {
-   if(cfm_quake_meta == null) 
+   if(cfm_quake_meta == null) { 
+     window.console.log("BADD.. need to get metadata for seisimicity first..");
      return;
+   }
    var total = cfm_quake_meta['total'];
    var chunk_step = Math.ceil(total / data_segment_count);
    window.console.log(">> Chunk_step ="+chunk_step+ " total "+total+" > "+(chunk_step *data_segment_count));
-//   _getAllEarthQuakesByChunk(0, data_segment_count, chunk_step);
- _getAllEarthQuakesByChunk(0, 1, 1000);
+//   _getAllQuakesByChunk(0, data_segment_count, chunk_step);
+ _getAllQuakesByChunk(0, 2, 1000);
 }
 
-function _getAllEarthQuakesByChunk(current_chunk, total_chunk, step) {
+function _getAllQuakesByChunk(current_chunk, total_chunk, step) {
     if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
@@ -639,52 +617,27 @@ function _getAllEarthQuakesByChunk(current_chunk, total_chunk, step) {
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
     if(current_chunk == 0) {
-        startEQCounter();
-        setupEQPoints();
+        startQuakeCounter();
     }
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
-            var eqarray=processEQResult("allEQsChunk");
-            add2EQValue(eqarray.length);
+            var eqarray=processQuakeResult("allQuakesByChunk");
+            add2QuakeValue(eqarray.length);
             var next_chunk=current_chunk+1;
             if(next_chunk == total_chunk) { // got last chunk 
-              showEQPoints(EQ_FOR_DEPTH,eqarray); 
-              doneEQCounter();
+              showQuakePoints(EQ_FOR_DEPTH,eqarray); // show it after adding last chunk
+              doneQuakeCounter();
               } else{
-                add2EQPointsChunk(EQ_FOR_DEPTH,eqarray,next_chunk, total_chunk, step);
+                add2QuakePointsChunk(eqarray,next_chunk, total_chunk, step);
             }
         }
     };
 window.console.log("  calling php, current_chunk "+current_chunk);
-    xmlhttp.open("GET","php/getAllEarthQuakesChunk.php?current_chunk="+current_chunk+"&step="+step,true);
+    xmlhttp.open("GET","php/getAllQuakesByChunk.php?current_chunk="+current_chunk+"&step="+step,true);
     xmlhttp.send();
 }
 
-
-
-function getAllEarthQuakesDepth() {
-    if (window.XMLHttpRequest) {
-        // code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp = new XMLHttpRequest();
-    } else {
-        // code for IE6, IE5
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    startEQCounter();
-    setupEQPoints();
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("phpResponseTxt").innerHTML = this.responseText;
-            var eqarray=processEQResult("allEQsDepth");
-            add2EQValue(eqarray.length);
-            showEQPoints(EQ_FOR_DEPTH,eqarray);
-            doneEQCounter();
-        }
-    };
-    xmlhttp.open("GET","php/getAllEarthQuakesDepth.php",true);
-    xmlhttp.send();
-}
 
 // get meta first and then get all info in chunks
 function getAllQuakes() {
@@ -715,15 +668,14 @@ function quakesByLatlon(swLat,swLon,neLat,neLon) {
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
     // turn on data retrieval spiner..
-    startEQCounter();
-    setupEQPoints();
+    startQuakeCounter();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
-            var eqarray=processEQResult("someEQs");
-            add2EQValue(eqarray.length);
-            showEQPointsAndBound(eqarray,swLat,swLon,neLat,neLon);
-            doneEQCounter();
+            var eqarray=processQuakeResult("quakesByLatLon");
+            add2QuakeValue(eqarray.length);
+            showQuakePointsAndBound(eqarray,swLat,swLon,neLat,neLon);
+            doneQuakeCounter();
         }
     }
     xmlhttp.open("GET","php/quakesByLatlon.php?swlat="+swLat+"&swlon="+swLon+"&nelat="+neLat+"&nelon="+neLon,true);

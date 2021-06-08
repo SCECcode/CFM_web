@@ -1038,5 +1038,3 @@ function makeMultiPointGeo(latlngs) {
   var geo= { "type":"MultiPoint", "coordinates": latlngs };
   return geo;
 }
-
-

@@ -65,6 +65,9 @@
   background: #990000;
 }
 
+.small-custom-select-sm {
+  padding: 0rem 0em 0rem 0rem;    
+}
 
 .custom-select-sm {
   padding: 0.2rem 0.375rem 0.2rem 0.75rem;    

@@ -18,14 +18,7 @@ $step = intVal($_GET['step']);
 $start_gid= $step * $current_chunk; 
 $end_gid= $start_gid + $step; 
 
-//echo "<br>current_chunk";
-//echo $current_chunk;
-//echo "<br>start_gid";
-//echo $start_gid;
-//echo "<br>end_gid";
-//echo $end_gid;
-
-$query = "SELECT Lon, Lat, Depth, Mag FROM EQ_tb WHERE gid >= $1 AND gid < $2";
+$query = "SELECT EventId, Lon, Lat, Depth, Mag, EventTime FROM EQ_tb WHERE gid >= $1 AND gid < $2";
 
 $result = pg_prepare($dbconn, "my_query", $query);
 $data = array($start_gid, $end_gid);
@@ -39,7 +32,7 @@ while($row = pg_fetch_row($result)) {
 
 $eqstring = htmlspecialchars(json_encode($eqList), ENT_QUOTES, 'UTF-8');
 
-echo "<div data-side=\"allEQsChunk\" data-params=\"";
+echo "<div data-side=\"allQuakesByChunk\" data-params=\"";
 echo $eqstring;
 echo "\" style=\"display:flex\"></div>";
 
