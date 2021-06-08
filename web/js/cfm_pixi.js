@@ -391,6 +391,7 @@ window.console.log("    zoomanim:CHANGE");
       }
 
       if (event.type === 'redraw') {
+window.console.log("  REDRAW ??:");
         var easing = BezierEasing(0, 0, 0.25, 1);
         var delta = event.delta;
         if (zoomChangeTs !== null) {
@@ -404,6 +405,7 @@ window.console.log("    zoomanim:CHANGE");
           lambda = easing(lambda);
           pContainers.forEach(function(innerContainer) {
             innerContainer.localScale = innerContainer.currentScale + lambda * (innerContainer.targetScale - innerContainer.currentScale);
+window.console.log("  REDRAW : yes: to>>"+innerContainer.localScale);
           });
         } else { return null;}
       }
