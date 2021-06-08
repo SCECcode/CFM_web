@@ -13,15 +13,15 @@ var viewermap=null;
 var data_segment_count= 20; // 0 to 19 -- to matching marker names
 
 /* marker's size zoom limit*/
-var eq_zoom_threshold=10;
+var eq_zoom_threshold=7;
 
 /* set are predefined by user, real is from the backend search */
-var eq_min_marker = 0.0;
-var eq_max_marker = 20.0;
+var eq_min_depth = 0.0;
+var eq_max_depth = 50.0;
 var eq_min_mag = 0.0;
-var eq_max_mag = 6.6;
+var eq_max_mag = 7.0;
 var eq_min_time = new Date("1981-01-01T01:49:29.504");
-var eq_max_time = new Date("1981-01-10T03:24:06.650");
+var eq_max_time = new Date("2019-12-31T23:28:38.59");
 
 /* multiple set of pixi+marker containers                            */
 /* [{"type":EQ_FOR_DEPTH, "vis":true, "layer": overlay,              */
@@ -101,19 +101,19 @@ function getMarkerLatlngs(forType,idx) {
   return item[idx];
 }
 
-// set if eq_min_marker/eq_min_max hasn't been set already
+// set if eq_min_depth/eq_max_depth hasn't been set already
 function setDepthRange(min,max) {
-  if(eq_min_marker == null &&
-          eq_max_marker == null) {
-    eq_min_marker=min;
-    eq_max_marker=max;
+  if(eq_min_depth == null &&
+          eq_max_depth == null) {
+    eq_min_depth=min;
+    eq_max_depth=max;
   }
 }
 
 function getRangeIdx(forType,target) {
   if(forType == EQ_FOR_DEPTH) {
-     eq_min=eq_min_marker;
-     eq_max=eq_max_marker;
+     eq_min=eq_min_depth;
+     eq_max=eq_max_depth;
   }
   if(forType == EQ_FOR_MAG) {
      eq_min=eq_min_mag;
@@ -220,21 +220,38 @@ function get1stNoneEmptyContainer(forType) {
    return null;
 }
 
+function changePixiOverlay(typestr) {
+  clearAllPixiOverlay();
+  switch (typestr) {
+    case "depth": togglePixiOverlay(EQ_FOR_DEPTH); break;
+    case "mag": togglePixiOverlay(EQ_FOR_MAG); break;
+    case "time": togglePixiOverlay(EQ_FOR_TIME); break;
+  }
+}
+
 function getPixiByType(forType) {
-   var sz=pixiContainerList.length;
+   var sz=pixiOverlayList.length;
    if(sz == 0)
       return null;
    for(var i=0; i<sz; i++ ) {
-      var tmp=pixiContainerList[i];
+      var tmp=pixiOverlayList[i];
       if(tmp['type'] == forType)
         return i;
    }
    return null;
 }
 
-function clickPixiDepth() { togglePixiOverlay(EQ_FOR_DEPTH); }
-function clickPixiMag() { togglePixiOverlay(EQ_FOR_MAG); }
-function clickPixiTime() { togglePixiOverlay(EQ_FOR_TIME); }
+function clearAllPixiOverlay() {
+  pixiOverlayList.forEach(function(pixi) {
+    if(pixi !=null || pixi.length !=0) {
+      if(pixi["vis"]==1) {
+        var layer=pixi["overlay"];
+        viewermap.removeLayer(layer);
+        pixi["vis"]=0;
+      }
+    }
+  });
+}
 
 // show which pixiOverlay
 function togglePixiOverlay(target_type) {
@@ -311,9 +328,10 @@ function makePixiOverlayLayer(forType) {
       var getScale = utils.getScale;
       var invScale = 1 / getScale();
 
-//      window.console.log("in L.pixiOverlay zoom at "+zoom+" scale at>", getScale());
+window.console.log("in L.pixiOverlay zoom at "+zoom+" scale at>", getScale());
 
-      var center=viewermap.getCenter();
+      var mapcenter=viewermap.getCenter();
+      var mapzoom=viewermap.getZoom();
 
       if (event.type === 'add') {
         // check if this is the first time..
@@ -325,10 +343,12 @@ window.console.log("adding back a preexisting pixiOverlay"+forType);
              return pixi['overlay'];
            }
         }
-window.console.log("First time making this pixiOverlay,"+forType);
+window.console.log("First time making this pixiOverlay, >> "+forType);
 
-        var origin = pixi_project([center['lat'], center['lng']]);
+        var origin = pixi_project([mapcenter['lat'], mapcenter['lng']]);
         initialScale = invScale/4 ; // initial size of the marker
+
+window.console.log("First time making this pixiOverlay,"+forType+" initial scale "+initialScale +" mapzoom" + mapzoom);
 
         // fill in the particles
         for(var i=0; i< data_segment_count; i++ ) {

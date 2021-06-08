@@ -1051,12 +1051,12 @@ function processQuakeMeta() {
     let minMag = str.minMag; let maxMag = str.maxMag;
     let total = str.total;
     
-    window.console.log("time", minTime,maxTime);
-    window.console.log("lon", minLon,maxLon);
-    window.console.log("lat", minLat,maxLat);
-    window.console.log("depth", minDepth);
-    window.console.log("mag", minMag);
-    window.console.log("total", total);
+    window.console.log("seisimicity time >>"+ minTime+" to "+maxTime);
+    window.console.log("seisimicity lon >>"+ minLon+" to "+maxLon);
+    window.console.log("seisimicity lat >>"+ minLat+" to "+maxLat);
+    window.console.log("seisimicity depth >>"+ minDepth+" to "+maxDepth);
+    window.console.log("seisimicity mag >>"+minMag+" to "+maxMag);
+    window.console.log("seisimicity total >>"+total);
     setQuakeExpectedValue(total);
     var meta = { "total": total, "minTime":minTime, "maxTime":maxTime, "minLon":minLon, "maxLon":maxLon, "minLat":minLat, "maxLat":maxLat, "minDepth":minDepth, "maxDepth":maxDepth, "minMag":minMag, "maxMag":maxMag };
     return meta;

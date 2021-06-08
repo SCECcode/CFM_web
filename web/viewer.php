@@ -146,10 +146,11 @@ $header = getHeader("Viewer");
 <p>The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model (CFM)</a> are three-dimensional and non-planar; however, to simplify browsing the model, the viewer below provides a two-dimensional map-based view of the SCEC CFM version 5.3 preferred fault set. The alternative fault representations are only provided in the complete CFM archive available for download on the <a href="https://www.scec.org/research/cfm">CFM homepage</a>. Here, the viewer allows users to view and download fault geometry data as well as metadata for selected faults rather than downloading the entire CFM model archive. Once faults are selected, the “PLOT3D” button can be used to view the selected faults in a basic CAD-like environment. See the user guide for more details and site usage instructions.
 Press (
 <button id="quakesBtn" class="btn btn-black cfm-small-btn" onClick="loadSeisimicity()" style="color:#990000;background:transparent"><span class="glyphicon glyphicon-star-empty"></span></button>
-<select id="seisimicitySelect" class="custom-select custom-select-sm" style="width:5rem;display:none">
-   <option selected value="clickPixiDepth">Depth</option>
-   <option value="clickPixiMag">Magnitude</option>
-   <option value="clickPixiTime">Time</option>
+<select id="seisimicitySelect" onchange="changePixiOverlay(this.value)" 
+class="custom-select custom-select-sm" style="width:5rem;display:none">
+   <option selected value="depth">Depth</option>
+   <option value="mag">mag</option>
+   <option value="time">time</option>
 </select>
 ) for Seisimicity (Warning, long initial processing time) 
 </p>
