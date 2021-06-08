@@ -264,7 +264,7 @@ function togglePixiOverlay(target_type) {
   }
   var v=pixi["vis"];
   var layer=pixi["overlay"];
-  if(v) {
+  if(v==1) {
     viewermap.removeLayer(layer);
     pixi["vis"]=0;
     } else {
