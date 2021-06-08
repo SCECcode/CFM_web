@@ -965,7 +965,7 @@ function add2QuakePoints(eqarray) {
         var lng=parseFloat(marker['Lon']);
         var depth=parseFloat(marker['Depth']);
         var mag=parseFloat(marker['Mag']);
-        var otime=new Date(marker['time']);
+        var otime=new Date(marker['Time']);
         var didx=getRangeIdx(EQ_FOR_DEPTH, depth);
         updateMarkerLatlng(EQ_FOR_DEPTH,didx,lat,lng);
         var midx= getRangeIdx(EQ_FOR_MAG, mag);
