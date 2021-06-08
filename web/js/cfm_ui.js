@@ -12,6 +12,7 @@ function loadSeisimicity() {
      initForPixiOverlay(); 
      getAllQuakes();
      seisimicity_loaded = true;
+     $('#seisimicitySelect').attr("display", "");
    }
 }
 
