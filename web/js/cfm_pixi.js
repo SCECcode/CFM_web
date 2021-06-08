@@ -13,7 +13,7 @@ var viewermap=null;
 var data_segment_count= 20; // 0 to 19 -- to matching marker names
 
 /* marker's size zoom limit*/
-var eq_zoom_threshold=7;
+var eq_zoom_threshold=9;
 
 /* set are predefined by user, real is from the backend search */
 var eq_min_depth = 0.0;
@@ -329,7 +329,7 @@ function makePixiOverlayLayer(forType) {
       var getScale = utils.getScale;
       var invScale = 1 / getScale();
 
-window.console.log("in L.pixiOverlay zoom at "+zoom+" scale at>", getScale());
+window.console.log("in L.pixiOverlay layer, auto zoom at "+zoom+" scale at>", getScale());
 
       var mapcenter=viewermap.getCenter();
       var mapzoom=viewermap.getZoom();
@@ -376,9 +376,10 @@ window.console.log("First time making this pixiOverlay,"+forType+" initial scale
 
       // change size of the marker after zoomin and zoomout
       if (event.type === 'zoomanim') {
-window.console.log("event: layer zoomanim.."+event.zoom);
         var targetZoom = event.zoom;
+window.console.log("    zoomanim:.target"+targetZoom+" zoom"+zoom+ " threashold"+eq_zoom_threshold+"??");
         if (targetZoom >= eq_zoom_threshold || zoom >= eq_zoom_threshold) {
+window.console.log("    zoomanim:CHANGE");
           zoomChangeTs = 0;
           var targetScale = targetZoom >= eq_zoom_threshold ? 1 / getScale(event.zoom) : initialScale;
           pContainers.forEach(function(innerContainer) {
