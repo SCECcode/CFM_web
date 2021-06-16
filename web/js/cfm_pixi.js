@@ -9,7 +9,7 @@ const EQ_FOR_MAG=1;
 const EQ_FOR_TIME=2;
 
 var viewermap=null;
-/* data sections, to matching marker name marker_N.icon.png */
+/* data sections, to matching marker name markerN_icon.png */
 var data_segment_count= 20; // 0 to 19 -- to matching marker names
 
 /* marker's size zoom limit*/
@@ -47,7 +47,6 @@ var loadOnce=1;
 
 function initMarkerTextures(resources) {
   window.console.log(">>>> calling initMarkerTextures");
-    markerTextures.push(resources.marker0.texture);
     markerTextures.push(resources.marker1.texture);
     markerTextures.push(resources.marker2.texture);
     markerTextures.push(resources.marker3.texture);
@@ -67,6 +66,7 @@ function initMarkerTextures(resources) {
     markerTextures.push(resources.marker17.texture);
     markerTextures.push(resources.marker18.texture);
     markerTextures.push(resources.marker19.texture);
+    markerTextures.push(resources.marker20.texture);
 }
 
 function initForPixiOverlay() {
@@ -140,26 +140,26 @@ function getRangeIdx(forType,target) {
 function init_pixi(loader) {
   window.console.log(">>>> calling init_pixi");
   loader
-    .add('marker0', 'img/marker0-icon.svg')
-    .add('marker1', 'img/marker1-icon.svg')
-    .add('marker2', 'img/marker2-icon.svg')
-    .add('marker3', 'img/marker3-icon.svg')
-    .add('marker4', 'img/marker4-icon.svg')
-    .add('marker5', 'img/marker5-icon.svg')
-    .add('marker6', 'img/marker6-icon.svg')
-    .add('marker7', 'img/marker7-icon.svg')
-    .add('marker8', 'img/marker8-icon.svg')
-    .add('marker9', 'img/marker9-icon.svg')
-    .add('marker10', 'img/marker10-icon.svg')
-    .add('marker11', 'img/marker11-icon.svg')
-    .add('marker12', 'img/marker12-icon.svg')
-    .add('marker13', 'img/marker13-icon.svg')
-    .add('marker14', 'img/marker14-icon.svg')
-    .add('marker15', 'img/marker15-icon.svg')
-    .add('marker16', 'img/marker16-icon.svg')
-    .add('marker17', 'img/marker17-icon.svg')
-    .add('marker18', 'img/marker18-icon.svg')
-    .add('marker19', 'img/marker19-icon.svg');
+    .add('marker1', 'img/marker1_icon.png')
+    .add('marker2', 'img/marker2_icon.png')
+    .add('marker3', 'img/marker3_icon.png')
+    .add('marker4', 'img/marker4_icon.png')
+    .add('marker5', 'img/marker5_icon.png')
+    .add('marker6', 'img/marker6_icon.png')
+    .add('marker7', 'img/marker7_icon.png')
+    .add('marker8', 'img/marker8_icon.png')
+    .add('marker9', 'img/marker9_icon.png')
+    .add('marker10', 'img/marker10_icon.png')
+    .add('marker11', 'img/marker11_icon.png')
+    .add('marker12', 'img/marker12_icon.png')
+    .add('marker13', 'img/marker13_icon.png')
+    .add('marker14', 'img/marker14_icon.png')
+    .add('marker15', 'img/marker15_icon.png')
+    .add('marker16', 'img/marker16_icon.png')
+    .add('marker17', 'img/marker17_icon.png')
+    .add('marker18', 'img/marker18_icon.png')
+    .add('marker19', 'img/marker19_icon.png');
+    .add('marker20', 'img/marker20_icon.png');
 }
 
 function setup_pixi(forType) {
