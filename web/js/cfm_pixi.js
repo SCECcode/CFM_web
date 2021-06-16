@@ -12,6 +12,7 @@ var viewermap=null;
 /* data sections, to matching marker name markerN_icon.png */
 var data_segment_count= 20; // 0 to 19 -- to matching marker names
 
+//original, var init_map_zoom_level = 7;
 /* marker's size zoom limit*/
 var eq_zoom_threshold=9;
 
@@ -271,6 +272,9 @@ function togglePixiOverlay(target_type) {
       viewermap.addLayer(layer);
       pixi["vis"]=1;
   }
+  //XX, also need to trigger redraw to resize if zoom is different
+window.console.log("HERE.");
+  viewermap.fire('zoomanim');
 }
 
 // toggle off a child container from an overlay layer
@@ -347,8 +351,8 @@ window.console.log("adding back a preexisting pixiOverlay"+forType);
 window.console.log("First time making this pixiOverlay, >> "+forType);
 
         var origin = pixi_project([mapcenter['lat'], mapcenter['lng']]);
-        initialScale = invScale/4 ; // initial size of the marker
 
+        initialScale = invScale/4 ; // initial size of the marker
 window.console.log("First time making this pixiOverlay,"+forType+" initial scale "+initialScale +" mapzoom" + mapzoom);
 
         // fill in the particles

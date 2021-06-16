@@ -9,6 +9,7 @@ var init_map_zoom_level = 7;
 var seisimicity_map_zoom_level = 9;
 
 var enable_seisimicity=0; // retrieve local seisimicity on zoom demand
+var fault_width_change=0;
 
 var scecAttribution ='<a href="https://www.scec.org">SCEC</a>';
 
@@ -130,22 +131,25 @@ function setup_viewer()
 // ==> scalebar <==
   L.control.scale({metric: 'false', imperial:'false', position: 'bottomleft'}).addTo(mymap);
 
-/* TODO
- watermark XXX
-  L.Control.Watermark = L.control.extend({
+/* maybe, watermark 
+  L.Control.Watermark = L.Control.extend({
     onAdd: function (map) {
       var img=L.DomUtil.create('img');
-      img.src = './css/images/logo.png';
-      img.stuyle.width ='200px';
+      img.src = './img/sceclogo_transparent.png';
+      img.style.width ='200px';
       return img;
     },
     onRemove: function(map) {
        // no-op
     }
   });
-  L.control.watermark= function(opts) {
+  L.Control.watermark= function(opts) {
      return new L.Control.Watermark(opts);
   }
+  var myWatermark=L.Control.watermark({ position: 'topright' }).addTo(mymap);
+
+  to remove,
+  mymap.removeControl(myWatermark);
 */
 
 // ==> mouse location popup <==
@@ -181,6 +185,18 @@ function setup_viewer()
          enable_seisimicity=0; // do it only once
       }
     }
+//window.console.log("map got zoomed..>>",zoom);
+    if( fault_width_change && zoom > default_zoom_threshold) {
+       change_fault_weight(default_weight); // change width to 2px
+//window.console.log("change weight back to"+default_weight);
+       fault_width_change=0;
+    }
+    if(zoom <= default_zoom_threshold) {
+//window.console.log("changing weight size.."+(default_weight/2 ));
+       change_fault_weight(default_weight/2); // half the width
+       fault_width_change=1;
+    } 
+
   }
   mymap.on('zoomend dragend', onMapZoom);
 

@@ -6,6 +6,9 @@ var skipPopup=false;
 
 var default_color = "black";
 var default_highlight_color = "red";
+var default_weight = 2;
+var default_zoom_threshold=5; 
+
 //neon green var alternate_highlight_color = "#39FF14";
 var alternate_highlight_color = "#FF9636";
 var blind_dash_value = 6;
@@ -13,19 +16,19 @@ var blind_dash_value = 6;
 var original_style = {
     'color': default_color,
     'opacity':0.8,
-    'weight': 2,
+    'weight': default_weight,
 };
 
 var highlight_style = {
     'color': default_highlight_color,
     'opacity':1,
-    'weight': 2,
+    'weight': default_weight,
 };
 
 var blind_highlight_style = {
     'color': default_highlight_color,
     'opacity':1,
-    'weight': 2,
+    'weight': default_weight,
     'dashArray': blind_dash_value
 };
 
@@ -189,7 +192,7 @@ function makeGeoJSONFeature(geoJSON, blinds, gid, meta) {
 
   for(var i=0; i<cnt; i++) {
     var b=blinds[i];
-    var style= { "weight":2,
+    var style= { "weight": default_weight,
                  "opacity":0.8,
                  "color": color
                 };
@@ -258,6 +261,19 @@ function find_style_list(target) {
         found=element;
    });
    return found;
+}
+
+// reset to style with new weight in all layer   
+function change_fault_weight(nval) {
+  cfm_layer_list.forEach(function(element) {
+    var gid=element['gid'];
+    var gstyle=find_style_list(gid);
+    var gcolor=gstyle['color'];
+    var geolayer=element['layer'];
+    geolayer.eachLayer(function(layer) {
+      layer.setStyle({weight:nval});
+    });
+  });
 }
 
 // reset to style with new color
@@ -841,11 +857,6 @@ function in_nogeo_gid_list(target) {
              found=1;
    });
    return found;
-}
-
-// change style=highlight_style in all the 
-// layers
-function toggle_style_all_layer() {
 }
 
 // toggle off everything except if there
