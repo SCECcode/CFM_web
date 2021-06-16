@@ -14,7 +14,7 @@ var data_segment_count= 20; // 0 to 19 -- to matching marker names
 
 //original, var init_map_zoom_level = 7;
 /* marker's size zoom limit*/
-var eq_zoom_threshold=9;
+var eq_zoom_threshold=8;
 
 /* set are predefined by user, real is from the backend search */
 var eq_min_depth = 0.0;
@@ -139,7 +139,6 @@ function getRangeIdx(forType,target) {
 // from pixi,
 //  >> Adds a BaseTexture to the global BaseTextureCache. This cache is shared across the whole PIXI object.
 function init_pixi(loader) {
-  window.console.log(">>>> calling init_pixi");
   loader
     .add('marker1', 'img/marker1_icon.png')
     .add('marker2', 'img/marker2_icon.png')
@@ -223,6 +222,8 @@ function get1stNoneEmptyContainer(forType) {
 
 function changePixiOverlay(typestr) {
   clearAllPixiOverlay();
+// return to initial map
+  refresh_map();
   switch (typestr) {
     case "none": break;
     case "depth": togglePixiOverlay(EQ_FOR_DEPTH); break;
@@ -272,9 +273,6 @@ function togglePixiOverlay(target_type) {
       viewermap.addLayer(layer);
       pixi["vis"]=1;
   }
-  //XX, also need to trigger redraw to resize if zoom is different
-window.console.log("HERE.");
-  viewermap.fire('zoomanim');
 }
 
 // toggle off a child container from an overlay layer
@@ -333,7 +331,7 @@ function makePixiOverlayLayer(forType) {
       var getScale = utils.getScale;
       var invScale = 1 / getScale();
 
-window.console.log("in L.pixiOverlay layer, auto zoom at "+zoom+" scale at>", getScale());
+//window.console.log("in L.pixiOverlay layer, auto zoom at "+zoom+" scale at>"+getScale()+" invScale"+invScale);
 
       var mapcenter=viewermap.getCenter();
       var mapzoom=viewermap.getZoom();
@@ -344,16 +342,14 @@ window.console.log("in L.pixiOverlay layer, auto zoom at "+zoom+" scale at>", ge
            var pixi=pixiOverlayList[forType];
            if(pixi != null && pixi != []) {
              pixi['vis']=1;
-window.console.log("adding back a preexisting pixiOverlay"+forType);
              return pixi['overlay'];
            }
         }
-window.console.log("First time making this pixiOverlay, >> "+forType);
 
         var origin = pixi_project([mapcenter['lat'], mapcenter['lng']]);
+        initialScale = invScale / init_map_zoom_level; // initial size of the marker
 
-        initialScale = invScale/4 ; // initial size of the marker
-window.console.log("First time making this pixiOverlay,"+forType+" initial scale "+initialScale +" mapzoom" + mapzoom);
+window.console.log("FFFirst time making this pixiOverlay,"+forType+" initial scale "+initialScale +" mapzoom" + mapzoom);
 
         // fill in the particles
         for(var i=0; i< data_segment_count; i++ ) {
@@ -381,11 +377,12 @@ window.console.log("First time making this pixiOverlay,"+forType+" initial scale
       // change size of the marker after zoomin and zoomout
       if (event.type === 'zoomanim') {
         var targetZoom = event.zoom;
-window.console.log("    zoomanim:.target"+targetZoom+" zoom"+zoom+ " threashold"+eq_zoom_threshold+"??");
         if (targetZoom >= eq_zoom_threshold || zoom >= eq_zoom_threshold) {
-window.console.log("    zoomanim:CHANGE");
           zoomChangeTs = 0;
-          var targetScale = targetZoom >= eq_zoom_threshold ? 1 / getScale(event.zoom) : initialScale;
+          var targetScale = targetZoom >= eq_zoom_threshold ? (1 / getScale(event.zoom))/3  : initialScale;
+
+window.console.log(" ZOOManim.. new targetScale "+targetScale);
+
           pContainers.forEach(function(innerContainer) {
             innerContainer.currentScale = innerContainer.localScale;
             innerContainer.targetScale = targetScale;
@@ -395,11 +392,10 @@ window.console.log("    zoomanim:CHANGE");
       }
 
       if (event.type === 'redraw') {
-window.console.log("  REDRAW ??:");
         var easing = BezierEasing(0, 0, 0.25, 1);
         var delta = event.delta;
         if (zoomChangeTs !== null) {
-          var duration = 17;
+          var duration = 5; // 17
           zoomChangeTs += delta;
           var lambda = zoomChangeTs / duration;
           if (lambda > 1) {
@@ -409,7 +405,6 @@ window.console.log("  REDRAW ??:");
           lambda = easing(lambda);
           pContainers.forEach(function(innerContainer) {
             innerContainer.localScale = innerContainer.currentScale + lambda * (innerContainer.targetScale - innerContainer.currentScale);
-window.console.log("  REDRAW : yes: to>>"+innerContainer.localScale);
           });
         } else { return null;}
       }

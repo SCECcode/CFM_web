@@ -13,6 +13,7 @@ function loadSeisimicity() {
      getAllQuakes();
      seisimicity_loaded = true;
      $('#seisimicitySelect').css("display", "");
+     $('#quakeBtn').attr("disabled", true);
    }
 }
 
