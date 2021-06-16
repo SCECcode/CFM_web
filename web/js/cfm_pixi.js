@@ -158,7 +158,7 @@ function init_pixi(loader) {
     .add('marker16', 'img/marker16_icon.png')
     .add('marker17', 'img/marker17_icon.png')
     .add('marker18', 'img/marker18_icon.png')
-    .add('marker19', 'img/marker19_icon.png');
+    .add('marker19', 'img/marker19_icon.png')
     .add('marker20', 'img/marker20_icon.png');
 }
 
