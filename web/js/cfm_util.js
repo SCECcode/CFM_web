@@ -475,7 +475,6 @@ function refreshAll() {
   $('#allBtn span').removeClass("glyphicon-check").addClass("glyphicon-unchecked");
 
   refresh_map();
-  refresh_seisimicity();
   dismiss_sidebar();
   clear_popup();
   reset_geo_plot();
