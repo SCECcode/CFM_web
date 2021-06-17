@@ -25,12 +25,19 @@ function doneQuakeCounter() {
   $("#modalwaiteq").modal('hide');
 }
 function add2QuakeValue(v) {
-  window.console.log("adding more EQs: "+v);
+window.console.log("adding more EQs: "+v);
   let elm = $("#eq-total");
   let o=parseInt(elm.val());
   let n=o+v; 
   elm.val(n);
+  let maxelm  = $("#eq-expected");
+  let max = parseInt(maxelm.val());
+  var width = Math.floor((n/max) * 100);
+window.console.log("n"+n+" max"+max+" width"+width);
+window.console.log("width of progress bar.."+width);
+  updatePrograssBar(width);
 }
+
 function setQuakeExpectedValue(v) {
   let elm = $("#eq-expected");
   elm.val(v);

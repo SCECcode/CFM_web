@@ -580,10 +580,12 @@ class="custom-select custom-select-sm" style="width:5rem;display:none">
       <div class="modal-body" id="modalwaiteqBody">
         <div class="row col-md-12 ml-auto" style="overflow:hidden; font-size:10pt">
            <p style="font-size:25px">Extracting seisimicity, please wait ... 
-                <div class="row">
-                <input type="text" style="margin-left:50px;width:100px" id="eq-total" value="0">
-                <input type="text" style="width:100px;margin-right:50px" id="eq-expected" value="0">
-                <i class="glyphicon glyphicon-cog fa-spin" style='color:#990000'></i>
+                <div class="row" style="display:none" >
+                <input type="text" style="margin-left:50px;width:100px;" id="eq-total" value="0">
+                <input type="text" style="width:100px;margin-right:50px;" id="eq-expected" value="0">
+                </div>
+                <input type="text" style="text-align:center;width:50px;margin-right:50px;margin-left:10px" id="eq-progress" value="0%" disabled>
+                <div class="row" id="myProgress" style="border:2px solid grey"><div id="myProgressBar"></div>
                 </div>
            </p>
         </div>

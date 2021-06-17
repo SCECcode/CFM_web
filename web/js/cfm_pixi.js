@@ -347,7 +347,7 @@ function makePixiOverlayLayer(forType) {
         }
 
         var origin = pixi_project([mapcenter['lat'], mapcenter['lng']]);
-        initialScale = invScale / init_map_zoom_level; // initial size of the marker
+        initialScale = invScale / 14; // initial size of the marker
 
 window.console.log("FFFirst time making this pixiOverlay,"+forType+" initial scale "+initialScale +" mapzoom" + mapzoom);
 
@@ -379,7 +379,7 @@ window.console.log("FFFirst time making this pixiOverlay,"+forType+" initial sca
         var targetZoom = event.zoom;
         if (targetZoom >= eq_zoom_threshold || zoom >= eq_zoom_threshold) {
           zoomChangeTs = 0;
-          var targetScale = targetZoom >= eq_zoom_threshold ? (1 / getScale(event.zoom))/3  : initialScale;
+          var targetScale = targetZoom >= eq_zoom_threshold ? (1 / getScale(event.zoom))/10  : initialScale;
 
 window.console.log(" ZOOManim.. new targetScale "+targetScale);
 

@@ -1,4 +1,14 @@
 /* cfm viewer required styles */
+#myProgress {
+  width: 50%;
+  background-color: #ddd;
+}
+  
+#myProgressBar {
+  width: 2%;
+  background-color: #4CAF50;
+}
+
 #modalwarn3dContent  {
   background-color: #F2F2F2;
 }

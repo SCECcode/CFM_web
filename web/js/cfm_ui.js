@@ -7,13 +7,22 @@ var showing_key = false;
 
 var seisimicity_loaded = false;
 
+function updatePrograssBar(width) {
+  var element = document.getElementById("myProgressBar");   
+  element.style.width = width + '%'; 
+//  element.innerHTML = width * 1  + '%';
+  let elm = $("#eq-progress");
+  var n= width * 1  + '%';
+  elm.val(n);
+}
+
 function loadSeisimicity() {
    if(seisimicity_loaded == false) {
      initForPixiOverlay(); 
      getAllQuakes();
      seisimicity_loaded = true;
      $('#seisimicitySelect').css("display", "");
-     $('#quakeBtn').attr("disabled", true);
+     $('#quakesBtn').css("display", "none");
    }
 }
 
