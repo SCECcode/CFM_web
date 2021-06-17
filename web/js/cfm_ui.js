@@ -5,6 +5,7 @@
 var cfm_select_count=0;
 var showing_key = false;
 
+var showing_seisimicity_key = false;
 var seisimicity_loaded = false;
 
 function updatePrograssBar(width) {
@@ -17,13 +18,34 @@ function updatePrograssBar(width) {
 }
 
 function loadSeisimicity() {
+window.console.log("STEP..");
    if(seisimicity_loaded == false) {
+     set_seisimicity_range_color();
      initForPixiOverlay(); 
      getAllQuakes();
      seisimicity_loaded = true;
      $('#seisimicitySelect').css("display", "");
      $('#quakesBtn').css("display", "none");
+//XX show depth scale bar..
+     showSeisimicityKey("depth");
    }
+}
+
+function set_seisimicity_range_color() {
+
+  let parula0="RGB(53,42,135)";
+  let parula1="RGB(15,92,221)";
+  let parula2="RGB(18,125,216)";
+  let parula3="RGB(7,156,207)";
+  let parula4="RGB(21,177,180)";
+  let parula5="RGB(89,189,140)";
+  let parula6="RGB(165,190,107)";
+  let parula7="RGB(225,185,82)";
+  let parula8="RGB(252,206,46)";
+  let parula9="RGB(249,251,14)";
+
+  let myColor="linear-gradient(to right, " +parula0+ "," +parula1+ "," +parula2+ "," +parula3+ "," +parula4+ "," +parula5+ "," +parula6+ "," +parula7+ "," +parula8+ "," +parula9+ ")";
+  $(".ui-slider-range" ).css( "background", myColor );
 }
 
 function disable_record_btn() {
@@ -233,6 +255,43 @@ function removeKey() {
     $("#CFM_plot #dip-strike-key").remove();
     showing_key = false;
 }
+
+// depth, mag, time
+function showSeisimicityKey(type) {
+window.console.log("here..");
+    var min = 0;
+    var max = 0;
+    
+    if (showing_seisimicity_key) {
+        removeSeisimicityKey();
+    } else {
+        showing_seisimicity_key = true;
+    }
+    
+    if(type == "depth") {
+      min = eq_min_depth;
+      max = eq_max_depth;
+    } else if(type == "mag") {
+      min = eq_min_mag;
+      max = eq_min_mag;
+    } else if(type == "time") {
+      min = eq_min_time;
+      max = eq_max_time;
+    } else {
+       window.console.log("showSeisimicityKey: BAD BAD");
+       return;
+    }
+
+    $("#CFM_plot").prepend($("#seisimicity-key-container").html());
+    $("#seisimicity-key span.min").html(min);
+    $("#seisimicity-key span.max").html(max);
+}
+
+function removeSeisimicityKey() {
+    $("#CFM_plot #seisimicity-key").remove();
+    showing_seisimicity_key = false;
+}
+
 
 function nullTableEntry(target) {
    // disable the toggle and highlight button

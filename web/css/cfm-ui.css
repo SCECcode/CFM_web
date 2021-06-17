@@ -5,8 +5,39 @@
 }
   
 #myProgressBar {
-  width: 2%;
+  width: 0%;
   background-color: #4CAF50;
+}
+
+#seisimicity-key {
+    z-index: 9000;
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    background-color: #F2F2F2;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#seisimicity-key .ui-slider-range {
+    display: inline-flex;
+    background: linear-gradient(to right, rgb(255, 0, 0), rgb(0, 0, 255));
+}
+
+#seisimicity-key div {
+    padding:0;
+}
+
+#seisimicity-key span.min {
+    display: inline-flex;
+    width: 1ch;
+    margin-right:3px;
+}
+
+#seisimicity-key span.max {
+    display: inline-flex;
+    width: 1ch;
+    margin-left:3px;
 }
 
 #modalwarn3dContent  {
@@ -185,7 +216,6 @@ hr {
     text-align: center;
     line-height: 1.2em;
 }
-
 
 #dip-strike-key {
     z-index: 9000;

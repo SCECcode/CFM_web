@@ -527,6 +527,16 @@ class="custom-select custom-select-sm" style="width:5rem;display:none">
     </div>
 </div>
 
+<div id="seisimicity-key-container" style="display:none;">
+    <div id="seisimicity-key" class="row" style="opacity:0.8">
+        <div class="col text-left" style="width:110px;height:24px;">
+           <span class="min"></span>
+           <span class="ui-slider-range" style="border:1px solid grey; width:60px;height:20px;"></span>
+           <span class="max"></span>
+        </div>
+    </div>
+</div>
+
 <!--Modal: Name-->
 <div class="modal" id="modal3D" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="modal3D" aria-hidden="true">
   <div class="modal-dialog modal-full" id="modal3DDialog" role="document">

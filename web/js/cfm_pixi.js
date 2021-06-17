@@ -225,11 +225,12 @@ function changePixiOverlay(typestr) {
 // return to initial map
   refresh_map();
   switch (typestr) {
-    case "none": break;
-    case "depth": togglePixiOverlay(EQ_FOR_DEPTH); break;
-    case "mag": togglePixiOverlay(EQ_FOR_MAG); break;
-    case "time": togglePixiOverlay(EQ_FOR_TIME); break;
+    case "none": removeSeisimicityKey(); break;
+    case "depth": togglePixiOverlay(EQ_FOR_DEPTH); showSeisimicityKey("depth"); break;
+    case "mag": togglePixiOverlay(EQ_FOR_MAG); showSeisimicityKey("mag"); break;
+    case "time": togglePixiOverlay(EQ_FOR_TIME); showSeisimicityKey("time"); break;
   }
+  return;
 }
 
 function getPixiByType(forType) {
