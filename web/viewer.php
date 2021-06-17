@@ -584,7 +584,7 @@ class="custom-select custom-select-sm" style="width:5rem;display:none">
                 <input type="text" style="margin-left:50px;width:100px;" id="eq-total" value="0">
                 <input type="text" style="width:100px;margin-right:50px;" id="eq-expected" value="0">
                 </div>
-                <input type="text" style="text-align:center;width:50px;margin-right:50px;margin-left:10px" id="eq-progress" value="0%" disabled>
+                <input type="text" style="text-align:center;width:50vw;margin-right:50px;margin-left:10px" id="eq-progress" value="0%" disabled>
                 <div class="row" id="myProgress" style="border:2px solid grey"><div id="myProgressBar"></div>
                 </div>
            </p>
