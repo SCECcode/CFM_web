@@ -11,7 +11,8 @@ include("util.php");
 
 $dbconn = getConnection();
 
-$query = "SELECT MIN(EventTime) minTime, MAX(EventTime) maxTime, MIN(Lon) minLon, MAX(Lon) maxLon, MIN(Lat) minLat, MAX(Lat) maxLat, MIN(Depth) minDepth, MAX(Depth) maxDepth, MIN(Mag) minMag, MAX(Mag) maxMag, count(gid) total  FROM EQ_tb WHERE Dataset = 'Hauksson';
+$query = "SELECT MIN(EventTime) minTime, MAX(EventTime) maxTime, MIN(Lon) minLon, MAX(Lon) maxLon, MIN(Lat) minLat, MAX(Lat) maxLat, MIN(Depth) minDepth, MAX(Depth) maxDepth, MIN(Mag) minMag, MAX(Mag) maxMag, count(gid) total  FROM EQ_tb WHERE Dataset = 'Hauksson'";
+
 $result = pg_query($dbconn, $query);
 $row = pg_fetch_row($result);
 
