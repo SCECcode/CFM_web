@@ -23,6 +23,8 @@ var eq_min_mag = 0.0;
 var eq_max_mag = 6.0;
 var eq_min_time = new Date("1981-01-01T01:49:29.504");
 var eq_max_time = new Date("2019-12-31T23:28:38.59");
+var eq_min_time_v = "1/1981";
+var eq_max_time_v = "12/2019";
 
 /* multiple set of pixi+marker containers                            */
 /* [{"type":EQ_FOR_DEPTH, "vis":true, "layer": overlay,              */

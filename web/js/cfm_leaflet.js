@@ -28,6 +28,7 @@ var rectangle_options = {
 };
 var rectangleDrawer;
 var mymap, baseLayers, layerControl, currentLayer;
+var mylegend;
 var visibleFaults = new L.FeatureGroup();
 
 function clear_popup()
@@ -131,7 +132,7 @@ function setup_viewer()
 // ==> scalebar <==
   L.control.scale({metric: 'false', imperial:'false', position: 'bottomleft'}).addTo(mymap);
 
-/* maybe, watermark 
+/* ==> watermark <== 
   L.Control.Watermark = L.Control.extend({
     onAdd: function (map) {
       var img=L.DomUtil.create('img');
@@ -151,6 +152,30 @@ function setup_viewer()
   to remove,
   mymap.removeControl(myWatermark);
 */
+
+//==> seisimicity legend <==  
+  mylegend=L.control( {position:'bottomleft'});
+
+  mylegend.onAdd = function (map) {
+    this._div = L.DomUtil.create('div'); 
+    this.update();
+    return this._div;
+  };
+
+  mylegend.update = function (props, param=null) {
+     window.console.log("XXX calling mylegend "+param);
+     if(param == null) {
+       this._div.innerHTML="";
+       return;
+     }
+     this._div.innerHTML='<img src="./img/'+param+'" style="width:100px; margin-left:-5px; border:2px solid green" >';
+  }
+
+  mylegend.addTo(mymap);
+  //mylegend.update({}, "cfm-viewer.png");
+  //to remove,
+  //mymap.removeControl(mylegend);
+
 
 // ==> mouse location popup <==
 //   var popup = L.popup();
@@ -234,6 +259,13 @@ function setup_viewer()
 
 // finally,
   return mymap;
+}
+
+function removeColorLegend() {
+  mylegend.update();
+}
+function showColorLegend(param) {
+  mylegend.update({}, param);
 }
 
 function drawRectangle(){

@@ -5,7 +5,6 @@
 var cfm_select_count=0;
 var showing_key = false;
 
-var showing_seisimicity_key = false;
 var seisimicity_loaded = false;
 
 function updatePrograssBar(width) {
@@ -20,14 +19,12 @@ function updatePrograssBar(width) {
 function loadSeisimicity() {
 window.console.log("STEP..");
    if(seisimicity_loaded == false) {
-     set_seisimicity_range_color();
+     showSeisimicityKey("depth");
      initForPixiOverlay(); 
      getAllQuakes();
      seisimicity_loaded = true;
      $('#seisimicitySelect').css("display", "");
      $('#quakesBtn').css("display", "none");
-//XX show depth scale bar..
-     showSeisimicityKey("depth");
    }
 }
 
@@ -45,7 +42,7 @@ function set_seisimicity_range_color() {
   let parula9="RGB(249,251,14)";
 
   let myColor="linear-gradient(to right, " +parula0+ "," +parula1+ "," +parula2+ "," +parula3+ "," +parula4+ "," +parula5+ "," +parula6+ "," +parula7+ "," +parula8+ "," +parula9+ ")";
-  $(".ui-slider-range" ).css( "background", myColor );
+  $(".ui-seisimicity-range" ).css( "background", myColor );
 }
 
 function disable_record_btn() {
@@ -258,38 +255,22 @@ function removeKey() {
 
 // depth, mag, time
 function showSeisimicityKey(type) {
-window.console.log("here..");
-    var min = 0;
-    var max = 0;
-    
-    if (showing_seisimicity_key) {
-        removeSeisimicityKey();
-    } else {
-        showing_seisimicity_key = true;
-    }
-    
     if(type == "depth") {
-      min = eq_min_depth;
-      max = eq_max_depth;
-    } else if(type == "mag") {
-      min = eq_min_mag;
-      max = eq_min_mag;
-    } else if(type == "time") {
-      min = eq_min_time;
-      max = eq_max_time;
-    } else {
-       window.console.log("showSeisimicityKey: BAD BAD");
-       return;
+        showColorLegend("cfm-viewer.png");
+        return;
     }
-
-    $("#CFM_plot").prepend($("#seisimicity-key-container").html());
-    $("#seisimicity-key span.min").html(min);
-    $("#seisimicity-key span.max").html(max);
+    if(type == "mag") {
+        showColorLegend("sceclogo_transparent.png");
+        return;
+    }
+    if(type == "time") {
+        showColorLegend("marker-icon.png");
+        return;
+    }
 }
 
 function removeSeisimicityKey() {
-    $("#CFM_plot #seisimicity-key").remove();
-    showing_seisimicity_key = false;
+    removeColorLegend();    
 }
 
 
