@@ -94,6 +94,7 @@ CREATE TABLE OBJECT_tb (
 
 CREATE TABLE EQ_tb (
    gid serial PRIMARY KEY,
+   Dataset VARCHAR(100),
    EventTime timestamp,
    EventID integer,
    Lon float, 

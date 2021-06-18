@@ -43,6 +43,29 @@ $myJSON = json_encode($myObj);
 return $myJSON;
 }
 
+function makeEQMetaObj($row) {
+include ("declare.php");
+
+$myObj = new \stdClass();
+
+$myObj->minTime = $row[0];
+$myObj->maxTime = $row[1];
+$myObj->minLon = $row[2];
+$myObj->maxLon = $row[3];
+$myObj->minLat = $row[4];
+$myObj->maxLat = $row[5];
+$myObj->minDepth = $row[6];
+$myObj->maxDepth = $row[7];
+$myObj->minMag = $row[8];
+$myObj->maxMag = $row[9];
+$myObj->total = $row[10];
+
+$myJSON = json_encode($myObj);
+
+return $myJSON;
+}
+
+
 function makeEQObj($row) {
 include ("declare.php");
 

@@ -1047,15 +1047,23 @@ function getQuakeSize( level, count ) {
    return 5;
 }
 
+// Hauksson's
 function processQuakeMeta() {
     var str = $('[data-side="quake-meta"]').data('params');
+    var blob=str.Hauksson; // 
+    var meta=JSON.parse(blob);
 
-    let minTime = str.minTime; let maxTime = str.maxTime;
-    let minLon = str.minLon; let maxLon = str.maxLon;
-    let minLat = str.minLat; let maxLat = str.maxLat;
-    let minDepth = str.minDepth; let maxDepth = str.maxDepth;
-    let minMag = str.minMag; let maxMag = str.maxMag;
-    let total = str.total;
+    let minTime = meta['minTime'];
+    let maxTime = meta['maxTime'];
+    let minLon = meta['minLon'];
+    let maxLon = meta['maxLon'];
+    let minLat = meta['minLat'];
+    let maxLat = meta['maxLat'];
+    let minDepth = meta['minDepth'];
+    let maxDepth = meta['maxDepth'];
+    let minMag = meta['minMag'];
+    let maxMag = meta['maxMag'];
+    let total = meta['total'];
     
     window.console.log("seisimicity time >>"+ minTime+" to "+maxTime);
     window.console.log("seisimicity lon >>"+ minLon+" to "+maxLon);
@@ -1064,7 +1072,7 @@ function processQuakeMeta() {
     window.console.log("seisimicity mag >>"+minMag+" to "+maxMag);
     window.console.log("seisimicity total >>"+total);
     setQuakeExpectedValue(total);
-    var meta = { "total": total, "minTime":minTime, "maxTime":maxTime, "minLon":minLon, "maxLon":maxLon, "minLat":minLat, "maxLat":maxLat, "minDepth":minDepth, "maxDepth":maxDepth, "minMag":minMag, "maxMag":maxMag };
+//    var meta = { "total": total, "minTime":minTime, "maxTime":maxTime, "minLon":minLon, "maxLon":maxLon, "minLat":minLat, "maxLat":maxLat, "minDepth":minDepth, "maxDepth":maxDepth, "minMag":minMag, "maxMag":maxMag };
     return meta;
 }
 
