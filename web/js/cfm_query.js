@@ -604,8 +604,8 @@ function getAllEarthQuakesByChunk(quake_type,quake_meta) {
    var total = quake_meta['total'];
    var chunk_step = Math.ceil(total / data_segment_count);
    window.console.log(">> Chunk_step ="+chunk_step+ " total "+total+" > "+(chunk_step *data_segment_count));
-//   _getAllQuakesByChunk(quake_type, 0, data_segment_count, chunk_step);
- _getAllQuakesByChunk(quake_type, 0, 2, 10);
+   _getAllQuakesByChunk(quake_type, 0, data_segment_count, chunk_step);
+//_getAllQuakesByChunk(quake_type, 0, 2, 1000);
 }
 
 function _getAllQuakesByChunk(quake_type, current_chunk, total_chunk, step) {
@@ -629,7 +629,7 @@ function _getAllQuakesByChunk(quake_type, current_chunk, total_chunk, step) {
               showQuakePoints(EQ_FOR_DEPTH,eqarray); // show it after adding last chunk
               doneQuakeCounter();
               } else{
-                add2QuakePointsChunk(eqarray,next_chunk, total_chunk, step);
+                add2QuakePointsChunk(quake_type, eqarray,next_chunk, total_chunk, step);
             }
         }
     };

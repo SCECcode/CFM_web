@@ -21,7 +21,7 @@ window.console.log("STEP..");
    if(seisimicity_loaded == false) {
      showSeisimicityKey("depth");
      initForPixiOverlay(); 
-     getAllQuakes();
+     getAllQuakes(quake_type_Hauksson);
      seisimicity_loaded = true;
      $('#seisimicitySelect').css("display", "");
      $('#quakesBtn').css("display", "none");
@@ -256,7 +256,7 @@ function removeKey() {
 // depth, mag, time
 function showSeisimicityKey(type) {
     if(type == "depth") {
-        showColorLegend("depth-color.png");
+        showColorLegend("depth_color.png");
         return;
     }
     if(type == "mag") {

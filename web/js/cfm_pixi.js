@@ -348,7 +348,7 @@ function makePixiOverlayLayer(forType) {
 
         var origin = pixi_project([mapcenter['lat'], mapcenter['lng']]);
         initialScale = invScale / 16; // initial size of the marker
-//        initialScale = invScale / 2; // initial size of the marker
+//initialScale = invScale / 2; // initial size of the marker
 
 window.console.log("FFFirst time making this pixiOverlay,"+forType+" initial scale "+initialScale +" mapzoom" + mapzoom);
 
