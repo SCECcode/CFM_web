@@ -33,8 +33,7 @@ window.console.log("adding more EQs: "+v);
   let maxelm  = $("#eq-expected");
   let max = parseInt(maxelm.val());
   var width = Math.floor((n/max) * 100);
-window.console.log("n"+n+" max"+max+" width"+width);
-window.console.log("width of progress bar.."+width);
+//window.console.log("width of progress bar.."+width);
   updatePrograssBar(width);
 }
 

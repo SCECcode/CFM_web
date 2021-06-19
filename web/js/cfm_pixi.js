@@ -81,6 +81,24 @@ function initForPixiOverlay() {
   }
 }
 
+function printMarkerLatlngInfo(type) {
+  switch (type) {
+     case EQ_FOR_DEPTH:
+       window.console.log("  For DEPTH:");
+       break;
+     case EQ_FOR_MAG:
+       window.console.log("  For MAG:");
+       break;
+     case EQ_FOR_TIME:
+       window.console.log("  For TIME:");
+       break;
+  }
+  for(var i=0; i<data_segment_count; i++) {
+    var item=pixiLatlngList[forType].data;
+    window.console.log("    i: "+i+" count: "+ item.length);
+  }
+}
+
 function updateMarkerLatlng(type,idx,lat,lng) {
   var alist=pixiLatlngList[type];
   if(alist == null) {
@@ -351,6 +369,7 @@ function makePixiOverlayLayer(forType) {
 //initialScale = invScale / 2; // initial size of the marker
 
 window.console.log("FFFirst time making this pixiOverlay,"+forType+" initial scale "+initialScale +" mapzoom" + mapzoom);
+        printMarkerLatlngInfo(forType);
 
         // fill in the particles
         for(var i=0; i< data_segment_count; i++ ) {

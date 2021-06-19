@@ -163,7 +163,6 @@ function setup_viewer()
   };
 
   mylegend.update = function (props, param=null) {
-     window.console.log("XXX calling mylegend "+param);
      if(param == null) {
        this._div.innerHTML="";
        return;
