@@ -22,6 +22,10 @@ $fault=18;
 $TRACE_tb_gid=19;
 
 // for EQ_tb
+$quake_type_Hauksson=1;
+$quake_type_Ross=2;
+$quake_type_Historical=3;
+
 $eq_gid=0;
 $eq_EventTime=1;
 $eq_EventID=2;
