@@ -130,6 +130,10 @@ function setDepthRange(min,max) {
 }
 
 function getRangeIdx(forType,target) {
+  var eq_min;
+  var eq_max;
+  var eq_target=target;
+
   if(forType == EQ_FOR_DEPTH) {
      eq_min=eq_min_depth;
      eq_max=eq_max_depth;
@@ -141,15 +145,19 @@ function getRangeIdx(forType,target) {
   if(forType == EQ_FOR_TIME) {
      eq_min=eq_min_time.getTime();
      eq_max=eq_max_time.getTime();
-     target=target.getTime();
+     var tmp=new Date(target);
+     eq_target=tmp.getTime();
   }
  
-  if(target <= eq_min)
+  if(eq_target <= eq_min)
     return 0;  
-  if(target >= eq_max)
+  if(eq_target >= eq_max)
     return data_segment_count-1;
   var step = (eq_max - eq_min)/data_segment_count;
-  var idx= Math.floor((target-eq_min)/step);
+  var idx= Math.floor((eq_target-eq_min)/step);
+  if(forType == EQ_FOR_TIME) {
+window.console.log("getRangeIdx step="+step+" diff="+(eq_target - eq_min)+" idx="+idx);
+  }
 
   return idx;
 }
