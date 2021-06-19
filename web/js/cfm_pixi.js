@@ -21,8 +21,8 @@ var eq_min_depth = 0.0;
 var eq_max_depth = 20.0;
 var eq_min_mag = 0.0;
 var eq_max_mag = 6.0;
-var eq_min_time = new Date("1981-01-01T01:49:29.504");
-var eq_max_time = new Date("2019-12-31T23:28:38.59");
+var eq_min_time = new Date("1980-01-01T01:49:29.504");
+var eq_max_time = new Date("2020-12-31T23:28:38.59");
 
 /* multiple set of pixi+marker containers                            */
 /* [{"type":EQ_FOR_DEPTH, "vis":true, "layer": overlay,              */
