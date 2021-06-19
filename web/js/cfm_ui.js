@@ -264,7 +264,7 @@ function showSeisimicityKey(type) {
         return;
     }
     if(type == "time") {
-        showColorLegend("marker-icon.png");
+        showColorLegend("marker9_icon.png");
         return;
     }
 }
