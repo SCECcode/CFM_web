@@ -260,11 +260,11 @@ function showSeisimicityKey(type) {
         return;
     }
     if(type == "mag") {
-        showColorLegend("depth_color.png");
+        showColorLegend("mag_color.png");
         return;
     }
     if(type == "time") {
-        showColorLegend("depth_color.png");
+        showColorLegend("time_color.png");
         return;
     }
 }
