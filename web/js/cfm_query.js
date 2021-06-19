@@ -1,3 +1,8 @@
+/***
+   cfm_query.js
+***/
+
+
 function searchByStrikeRange(min,max) {
     if (min == undefined || max == undefined) {
         document.getElementById("cfm-table-body").innerHTML = "";
@@ -605,7 +610,7 @@ function getAllEarthQuakesByChunk(quake_type,quake_meta) {
    var chunk_step = Math.ceil(total / data_segment_count);
    window.console.log(">> Chunk_step ="+chunk_step+ " total "+total+" > "+(chunk_step *data_segment_count));
    _getAllQuakesByChunk(quake_type, 0, data_segment_count, chunk_step);
-//_getAllQuakesByChunk(quake_type, 0, 2, 1000);
+//_getAllQuakesByChunk(quake_type, 0, 2, 10);
 }
 
 function _getAllQuakesByChunk(quake_type, current_chunk, total_chunk, step) {

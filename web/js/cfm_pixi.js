@@ -130,6 +130,9 @@ function setDepthRange(min,max) {
 }
 
 function getRangeIdx(forType,target) {
+
+var ttarget = "2020-12-31T01:28:38.59";
+
   var eq_min;
   var eq_max;
   var eq_target=target;
@@ -143,21 +146,30 @@ function getRangeIdx(forType,target) {
      eq_max=eq_max_mag;
   }
   if(forType == EQ_FOR_TIME) {
+window.console.log("  ====== ");
      eq_min=eq_min_time.getTime();
      eq_max=eq_max_time.getTime();
-     var tmp=new Date(target);
+//     eq_target=ttarget;
+     var tmp=new Date(eq_target);
      eq_target=tmp.getTime();
+window.console.log("  XXX"+eq_min_time + " " + eq_min);
+window.console.log("  XXX"+eq_max_time + " " + eq_max);
+window.console.log("  XXX"+ target + " " +eq_target);
   }
  
-  if(eq_target <= eq_min)
+  if(eq_target <= eq_min) {
     return 0;  
-  if(eq_target >= eq_max)
-    return data_segment_count-1;
-  var step = (eq_max - eq_min)/data_segment_count;
-  var idx= Math.floor((eq_target-eq_min)/step);
-  if(forType == EQ_FOR_TIME) {
-window.console.log("getRangeIdx step="+step+" diff="+(eq_target - eq_min)+" idx="+idx);
   }
+  if(eq_target >= eq_max) {
+    return data_segment_count-1;
+  }
+  var step = (eq_max - eq_min)/data_segment_count;
+
+  if(forType == EQ_FOR_TIME) {
+window.console.log(" XXX idx is "+ ((eq_target-eq_min)/step));
+  }
+
+  var idx= Math.floor((eq_target-eq_min)/step);
 
   return idx;
 }
@@ -374,8 +386,8 @@ function makePixiOverlayLayer(forType) {
         }
 
         var origin = pixi_project([mapcenter['lat'], mapcenter['lng']]);
-        initialScale = invScale / 16; // initial size of the marker
-//initialScale = invScale / 2; // initial size of the marker
+//        initialScale = invScale / 16; // initial size of the marker
+initialScale = invScale / 2; // initial size of the marker
 
 window.console.log("FFFirst time making this pixiOverlay,"+forType+" initial scale "+initialScale +" mapzoom" + mapzoom);
         printMarkerLatlngInfo(forType);
