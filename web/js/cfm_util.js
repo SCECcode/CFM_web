@@ -1018,25 +1018,6 @@ function showQuakePoints1(eqarray) {
 }
 
 
-// baseOn : time, depth, mag
-function getQuakeColor( group, val ) {
-   if(group == "time") {
-      var step=(cfm_quake_meta['maxTime'] - cfm_quake_meta['minTime'])/20;
-      var idx=Math.floor((val - cfm_quake_meta['minTime'])/step);
-      return "quake-color-"+idx;
-   } 
-   if(group == "depth") {
-      var step=(cfm_quake_meta['maxDepth'] - cfm_quake_meta['minDepth'])/20;
-      var idx=Math.floor((val - cfm_quake_meta['minDepth'])/step);
-      return "quake-color-"+idx;
-   }
-   if(group == "mag") {
-      var step=(cfm_quake_meta['maxMag'] - cfm_quake_meta['minMag'])/20;
-      var idx=Math.floor((val - cfm_quake_meta['minMag'])/step);
-      return "quake-color-"+idx;
-   }
-}
-
 // zoom value : 7 -> sz =1
 // zoom value : 11 return 3
 function getQuakeSize( level, count ) {

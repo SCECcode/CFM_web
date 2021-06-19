@@ -256,7 +256,7 @@ function removeKey() {
 // depth, mag, time
 function showSeisimicityKey(type) {
     if(type == "depth") {
-        showColorLegend("cfm-viewer.png");
+        showColorLegend("depth-color.png");
         return;
     }
     if(type == "mag") {
