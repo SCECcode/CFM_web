@@ -577,7 +577,7 @@ function setupSearch()
 
 /****************** for handling earthquakes ********************/
 // to retrieve all is too big, and so going to make multiple calls with range
-// make it to match with data_segment_counts
+// make it to match with DATA_SEGMENT_COUNTs
 function quakesByDepth(minDepth,maxDepth) {
     if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -606,14 +606,22 @@ function getAllEarthQuakesByChunk(quake_type,quake_meta) {
      window.console.log("BADD.. need to get metadata for seisimicity first..");
      return;
    }
-   var total = quake_meta['total'];
-   var chunk_step = Math.ceil(total / data_segment_count);
-   window.console.log(">> Chunk_step ="+chunk_step+ " total "+total+" > "+(chunk_step *data_segment_count));
-   _getAllQuakesByChunk(quake_type, 0, data_segment_count, chunk_step);
-//_getAllQuakesByChunk(quake_type, 0, 2, 10);
+   var total = parseInt(quake_meta['total']);
+   var chunk_step = Math.floor(total / DATA_SEGMENT_COUNT);
+   window.console.log(">> Chunk_step ="+chunk_step+ " total "+total+" > "+(chunk_step *DATA_SEGMENT_COUNT));
+
+   var leftover=total - (chunk_step * DATA_SEGMENT_COUNT);
+
+   if(leftover > 0) {
+      var startpoint= chunk_step * DATA_SEGMENT_COUNT;
+      var endpoint= startpoint + leftover;
+      _getLastQuakesByChunk(quake_type, startpoint, endpoint, chunk_step);
+      } else {
+        _getAllQuakesByChunk(quake_type, 0, DATA_SEGMENT_COUNT, chunk_step);
+   } 
 }
 
-function _getAllQuakesByChunk(quake_type, current_chunk, total_chunk, step) {
+function _getAllQuakesByChunk(quake_type, current_chunk, total_chunk, chunk_step) {
     if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
@@ -624,22 +632,51 @@ function _getAllQuakesByChunk(quake_type, current_chunk, total_chunk, step) {
     if(current_chunk == 0) {
         startQuakeCounter();
     }
+
+    var startpoint= chunk_step * current_chunk;
+    var endpoint= startpoint + chunk_step;
+
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
             var eqarray=processQuakeResult("allQuakesByChunk");
             add2QuakeValue(eqarray.length);
             var next_chunk=current_chunk+1;
+
             if(next_chunk == total_chunk) { // got last chunk 
               showQuakePoints(EQ_FOR_DEPTH,eqarray); // show it after adding last chunk
               doneQuakeCounter();
               } else{
-                add2QuakePointsChunk(quake_type, eqarray,next_chunk, total_chunk, step);
+                add2QuakePointsChunk(quake_type, eqarray,next_chunk, total_chunk, chunk_step);
             }
         }
     };
-window.console.log("  calling php, current_chunk "+current_chunk);
-    xmlhttp.open("GET","php/getAllQuakesByChunk.php?quake_type="+quake_type+"current_chunk="+current_chunk+"&step="+step,true);
+window.console.log("  calling php, current_chunk "+current_chunk+" start"+startpoint+" end"+endpoint);
+    xmlhttp.open("GET","php/getAllQuakesByChunk.php?quake_type="+quake_type+"startpoint="+startpoint+"&endpoint="+endpoint,true);
+    xmlhttp.send();
+}
+
+
+function _getLastQuakesByChunk(quake_type, startpoint, endpoint, chunk_step) {
+    if (window.XMLHttpRequest) {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        // code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("phpResponseTxt").innerHTML = this.responseText;
+            var eqarray=processQuakeResult("allQuakesByChunk");
+            add2QuakeValue(eqarray.length);
+            // start earlier set
+            _getAllQuakesByChunk(quake_type, 0, DATA_SEGMENT_COUNT, chunk_step);
+        }
+    };
+window.console.log("XXX calling php on the leftover.."+(endpoint-startpoint));
+    xmlhttp.open("GET","php/getAllQuakesByChunk.php?quake_type="+quake_type+"startpoint="+startpoint+"endpoint="+endpoint,true);
     xmlhttp.send();
 }
 

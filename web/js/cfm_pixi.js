@@ -10,7 +10,7 @@ const EQ_FOR_TIME=2;
 
 var viewermap=null;
 /* data sections, to matching marker name markerN_icon.png */
-var data_segment_count= 20; // 0 to 19 -- to matching marker names
+const DATA_SEGMENT_COUNT= 20; // 0 to 19 -- to matching marker names
 
 //original, var init_map_zoom_level = 7;
 /* marker's resizing size's zoom threshold */
@@ -74,7 +74,7 @@ function initForPixiOverlay() {
   pixiLatlngList.push({"type":EQ_FOR_DEPTH, "data":[]});
   pixiLatlngList.push({"type":EQ_FOR_MAG, "data":[]});
   pixiLatlngList.push({"type":EQ_FOR_TIME, "data":[]});
-  for(var i=0; i<data_segment_count; i++) {
+  for(var i=0; i<DATA_SEGMENT_COUNT; i++) {
     pixiLatlngList[EQ_FOR_DEPTH].data.push([]);
     pixiLatlngList[EQ_FOR_MAG].data.push([]);
     pixiLatlngList[EQ_FOR_TIME].data.push([]);
@@ -94,7 +94,7 @@ function printMarkerLatlngInfo(type) {
        break;
   }
   var list=pixiLatlngList[type];
-  for(var i=0; i<data_segment_count; i++) {
+  for(var i=0; i<DATA_SEGMENT_COUNT; i++) {
     var data=list.data[i];
     window.console.log("    i: "+i+" count: "+ data.length);
   }
@@ -131,8 +131,6 @@ function setDepthRange(min,max) {
 
 function getRangeIdx(forType,target) {
 
-var ttarget = "2020-12-31T01:28:38.59";
-
   var eq_min;
   var eq_max;
   var eq_target=target;
@@ -146,27 +144,24 @@ var ttarget = "2020-12-31T01:28:38.59";
      eq_max=eq_max_mag;
   }
   if(forType == EQ_FOR_TIME) {
-window.console.log("  ====== ");
      eq_min=eq_min_time.getTime();
      eq_max=eq_max_time.getTime();
-//     eq_target=ttarget;
      var tmp=new Date(eq_target);
      eq_target=tmp.getTime();
-window.console.log("  XXX"+eq_min_time + " " + eq_min);
-window.console.log("  XXX"+eq_max_time + " " + eq_max);
-window.console.log("  XXX"+ target + " " +eq_target);
   }
  
   if(eq_target <= eq_min) {
     return 0;  
   }
   if(eq_target >= eq_max) {
-    return data_segment_count-1;
+    return DATA_SEGMENT_COUNT-1;
   }
-  var step = (eq_max - eq_min)/data_segment_count;
+  var step = (eq_max - eq_min)/DATA_SEGMENT_COUNT;
 
   if(forType == EQ_FOR_TIME) {
-window.console.log(" XXX idx is "+ ((eq_target-eq_min)/step));
+     if(step > 1.9) { 
+       window.console.log(" XXX idx is "+ ((eq_target-eq_min)/step) + " "+target);
+     }
   }
 
   var idx= Math.floor((eq_target-eq_min)/step);
@@ -249,7 +244,7 @@ function get1stNoneEmptyContainer(forType) {
    if(pixi['vis'] == 0) 
      return;
    var inner=tmp['inner'];
-   for(var i=0; i<data_segment_count; i++ ) {
+   for(var i=0; i<DATA_SEGMENT_COUNT; i++ ) {
      var item=inner[i];
      if(item['vis'] && getMarkerCount(forType,i)>0) { // found it and it got particles in there
         return i;
@@ -326,7 +321,7 @@ function toggleMarkerContainer(target_type,target_segment) {
   } 
   var clist=pixi['inner'];
   var top=pixi['top'];
-  for(var j=0; j<data_segment_count; j++) {
+  for(var j=0; j<DATA_SEGMENT_COUNT; j++) {
     var citem=clist[j];
     var cptr=citem["container"];
     if(cptr == target_segment) {
@@ -348,7 +343,7 @@ function makePixiOverlayLayer(forType) {
     var pixiContainer = new PIXI.Container();
     var pContainers=[]; //particle container
 
-    for(var i=0; i<data_segment_count; i++) {
+    for(var i=0; i<DATA_SEGMENT_COUNT; i++) {
       var length=getMarkerCount(forType,i);
       var a = new PIXI.particles.ParticleContainer(length, {vertices: true});
       // add properties for our patched particleRenderer:
@@ -393,7 +388,7 @@ window.console.log("FFFirst time making this pixiOverlay,"+forType+" initial sca
         printMarkerLatlngInfo(forType);
 
         // fill in the particles
-        for(var i=0; i< data_segment_count; i++ ) {
+        for(var i=0; i< DATA_SEGMENT_COUNT; i++ ) {
            var a=pContainers[i];
            a.x = origin.x;
            a.y = origin.y;

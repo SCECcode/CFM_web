@@ -12,12 +12,8 @@ include("util.php");
 $dbconn = getConnection();
 
 $quake_type = intVal($_GET['quake_type']);
-$current_chunk_orig = $_GET['current_chunk'];
-$current_chunk = intVal($_GET['current_chunk']);
-$step = intVal($_GET['step']);
-
-$start_gid= $step * $current_chunk; 
-$end_gid= $start_gid + $step; 
+$startpoint = intVal($_GET['startpoint']);
+$endpoint = intVal($_GET['endpoint']);
 
 if ($quake_type == $quake_type_Hauksson ) { 
   $query = "SELECT EventId, Lon, Lat, Depth, Mag, EventTime FROM EQ_tb WHERE gid >= $1 AND gid < $2 AND Dataset = 'Hauksson'";
@@ -27,7 +23,7 @@ if ($quake_type == $quake_type_Ross ) {
 }
 
 $result = pg_prepare($dbconn, "my_query", $query);
-$data = array($start_gid, $end_gid);
+$data = array($startpoint, $endpoint);
 $result = pg_execute($dbconn, "my_query", $data);
 
 $eqList=array();
