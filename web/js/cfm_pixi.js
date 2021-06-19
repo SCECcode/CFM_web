@@ -93,9 +93,10 @@ function printMarkerLatlngInfo(type) {
        window.console.log("  For TIME:");
        break;
   }
+  var list=pixiLatlngList[type];
   for(var i=0; i<data_segment_count; i++) {
-    var item=pixiLatlngList[forType].data;
-    window.console.log("    i: "+i+" count: "+ item.length);
+    var data=list.data[i];
+    window.console.log("    i: "+i+" count: "+ data.length);
   }
 }
 
