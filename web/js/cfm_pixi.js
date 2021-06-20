@@ -94,10 +94,13 @@ function printMarkerLatlngInfo(type) {
        break;
   }
   var list=pixiLatlngList[type];
+  var sum=0;
   for(var i=0; i<DATA_SEGMENT_COUNT; i++) {
     var data=list.data[i];
+    sum=sum+data.length;
     window.console.log("    i: "+i+" count: "+ data.length);
   }
+  window.console.log("  sum up :"+sum);
 }
 
 function updateMarkerLatlng(type,idx,lat,lng) {
@@ -373,8 +376,8 @@ function makePixiOverlayLayer(forType) {
         }
 
         var origin = pixi_project([mapcenter['lat'], mapcenter['lng']]);
-//        initialScale = invScale / 16; // initial size of the marker
-initialScale = invScale / 2; // initial size of the marker
+        initialScale = invScale / 16; // initial size of the marker
+//initialScale = invScale / 2; // initial size of the marker
 
 window.console.log("FFFirst time making this pixiOverlay,"+forType+" initial scale "+initialScale +" mapzoom" + mapzoom);
         printMarkerLatlngInfo(forType);
