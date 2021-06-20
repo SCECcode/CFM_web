@@ -675,7 +675,8 @@ function _getLastQuakesByChunk(quake_type, startpoint, endpoint, chunk_step) {
             _getAllQuakesByChunk(quake_type, 0, DATA_SEGMENT_COUNT, chunk_step);
         }
     };
-window.console.log(" calling php on the leftover.."+(endpoint-startpoint));
+window.console.log(" calling php on the leftover.."+"start"+startpoint+" end"+endpoint);
+    // need to include the last point..
     xmlhttp.open("GET","php/getAllQuakesByChunk.php?quake_type="+quake_type+"&startpoint="+startpoint+"&endpoint="+endpoint,true);
     xmlhttp.send();
 }
