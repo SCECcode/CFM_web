@@ -981,7 +981,7 @@ function add2QuakePoints(eqarray) {
         var didx=getRangeIdx(EQ_HAUKSSON_FOR_DEPTH, depth);
         updateMarkerLatlng(EQ_HAUKSSON_FOR_DEPTH,didx,lat,lng);
         var midx= getRangeIdx(EQ_HAUKSSON_FOR_MAG, mag);
-        updateMarkerLatlng(EQ_FOR_HAUKSSON_MAG,midx,lat,lng);
+        updateMarkerLatlng(EQ_HAUKSSON_FOR_MAG,midx,lat,lng);
         var tidx= getRangeIdx(EQ_HAUKSSON_FOR_TIME, otime);
         updateMarkerLatlng(EQ_HAUKSSON_FOR_TIME,tidx,lat,lng);
     });

@@ -2,6 +2,7 @@
    cfm_query.js
 ***/
 
+const DATA_CHUNK_COUNT=20;
 
 function searchByStrikeRange(min,max) {
     if (min == undefined || max == undefined) {
@@ -577,7 +578,7 @@ function setupSearch()
 
 /****************** for handling earthquakes ********************/
 // to retrieve all is too big, and so going to make multiple calls with range
-// make it to match with DATA_SEGMENT_COUNTs
+// make it to match with multiples of DATA_CHUNK_COUNT
 function quakesByDepth(minDepth,maxDepth) {
     if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -607,19 +608,20 @@ function getAllEarthQuakesByChunk(quake_type,quake_meta) {
      return;
    }
    var total = parseInt(quake_meta['total']);
-   var chunk_step = Math.floor(total / DATA_SEGMENT_COUNT);
-   window.console.log(">> Chunk_step ="+chunk_step+ " total "+total+" > "+(chunk_step *DATA_SEGMENT_COUNT));
+   var chunk_step;
+   var chunks = (quake_type == QUAKE_TYPE_ROSS) ? (DATA_CHUNK_COUNT *3) : DATA_CHUNK_COUNT;
 
-   var leftover=total - (chunk_step * DATA_SEGMENT_COUNT);
+   var chunk_step = Math.floor(total / chunks);
+   var leftover=total - (chunk_step * chunks);
 
    startQuakeCounter();
 
    if(leftover > 0) {
-      var startpoint= chunk_step * DATA_SEGMENT_COUNT;
+      var startpoint= chunk_step * chunks;
       var endpoint= startpoint + leftover;
       _getLastQuakesByChunk(quake_type, startpoint, endpoint, chunk_step);
       } else {
-        _getAllQuakesByChunk(quake_type, 0, DATA_SEGMENT_COUNT, chunk_step);
+        _getAllQuakesByChunk(quake_type, 0, chunks, chunk_step);
    } 
 }
 
@@ -645,6 +647,10 @@ function _getAllQuakesByChunk(quake_type, current_chunk, total_chunk, chunk_step
             if(next_chunk == total_chunk) { // got last chunk 
               showQuakePoints(EQ_HAUKSSON_FOR_DEPTH,eqarray); // show it after adding last chunk
               doneQuakeCounter();
+              // 
+              if(quake_type == QUAKE_TYPE_HAUKSSON) { // load ROSS 
+                 getAllQuakes(QUAKE_TYPE_ROSS);
+              }
               } else{
                 add2QuakePointsChunk(quake_type, eqarray,next_chunk, total_chunk, chunk_step);
             }
@@ -672,7 +678,8 @@ function _getLastQuakesByChunk(quake_type, startpoint, endpoint, chunk_step) {
             add2QuakeValue(eqarray.length);
             add2QuakePoints(eqarray);
             // start earlier set
-            _getAllQuakesByChunk(quake_type, 0, DATA_SEGMENT_COUNT, chunk_step);
+            var chunks = (quake_type == QUAKE_TYPE_ROSS) ? (DATA_CHUNK_COUNT *3) : DATA_CHUNK_COUNT;
+            _getAllQuakesByChunk(quake_type, 0, chunks, chunk_step);
         }
     };
 window.console.log(" calling php on the leftover.."+"start"+startpoint+" end"+endpoint);

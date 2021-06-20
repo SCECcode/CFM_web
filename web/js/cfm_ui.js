@@ -21,28 +21,12 @@ window.console.log("STEP..");
    if(seisimicity_loaded == false) {
      showSeisimicityKey("haukssondepth");
      initForPixiOverlay(); 
+// bring ROSS set in after Hauksson's got loaded
      getAllQuakes(QUAKE_TYPE_HAUKSSON);
      seisimicity_loaded = true;
      $('#seisimicitySelect').css("display", "");
      $('#quakesBtn').css("display", "none");
    }
-}
-
-function set_seisimicity_range_color() {
-
-  let parula0="RGB(53,42,135)";
-  let parula1="RGB(15,92,221)";
-  let parula2="RGB(18,125,216)";
-  let parula3="RGB(7,156,207)";
-  let parula4="RGB(21,177,180)";
-  let parula5="RGB(89,189,140)";
-  let parula6="RGB(165,190,107)";
-  let parula7="RGB(225,185,82)";
-  let parula8="RGB(252,206,46)";
-  let parula9="RGB(249,251,14)";
-
-  let myColor="linear-gradient(to right, " +parula0+ "," +parula1+ "," +parula2+ "," +parula3+ "," +parula4+ "," +parula5+ "," +parula6+ "," +parula7+ "," +parula8+ "," +parula9+ ")";
-  $(".ui-seisimicity-range" ).css( "background", myColor );
 }
 
 function disable_record_btn() {

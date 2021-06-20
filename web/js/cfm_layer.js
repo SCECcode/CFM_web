@@ -131,25 +131,20 @@ var cfm_blind_gid_list=[];
 /*********************************************************
 *********************************************************/
 // quake_type,  Hauksson=1, Ross=2, Historical=3
+
 const QUAKE_TYPE_HAUKSSON=1;
 const QUAKE_TYPE_ROSS=2;
 const QUAKE_TYPE_HISTORICAL=3;
 
-// for tracking groups of earthquakes  -- EQ
+// for tracking groups of earthquakes for HISTORICAL ones..
 // the leaflet trace feature with MultiPoint geometry
 var cfm_quake_group=null;
-var cfm_hauksson_quake_group=null;
-var cfm_ross_quake_group=null;
-
 // {"group_id":groupid, "trace":a_trace}
 var cfm_quake_group_list=[];
-var cfm_hauksson_quake_group_list=[];
-var cfm_ross_quake_group_list=[];
    
 // { "minTime":minTime, "maxTime":maxTime, "minLon":minLon, "maxLon":maxLon, 
 //   "minLat":minLat, "maxLat":maxLat, "minDepth":minDepth, "maxDepth":maxDepth,
 //   "minMag":minMag, "maxMag":maxMag };
-var cfm_quake_meta=null;
 var cfm_hauksson_quake_meta=null;
 var cfm_ross_quake_meta=null;
 
