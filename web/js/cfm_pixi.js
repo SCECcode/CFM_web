@@ -420,7 +420,7 @@ window.console.log("FFFirst time making this pixiOverlay,"+forType+" initial sca
           zoomChangeTs = 0;
           var targetScale = targetZoom >= eq_zoom_threshold ? (1 / getScale(event.zoom))/10  : initialScale;
 
-window.console.log(" ZOOManim.. new targetScale "+targetScale);
+//window.console.log(" ZOOManim.. new targetScale "+targetScale);
 
           pContainers.forEach(function(innerContainer) {
             innerContainer.currentScale = innerContainer.localScale;
