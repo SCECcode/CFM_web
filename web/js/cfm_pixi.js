@@ -146,8 +146,7 @@ function getRangeIdx(forType,target) {
   if(forType == EQ_FOR_TIME) {
      eq_min=eq_min_time.getTime();
      eq_max=eq_max_time.getTime();
-     var tmp=new Date(eq_target);
-     eq_target=tmp.getTime();
+     eq_target=target.getTime();
   }
  
   if(eq_target <= eq_min) {
@@ -157,13 +156,6 @@ function getRangeIdx(forType,target) {
     return DATA_SEGMENT_COUNT-1;
   }
   var step = (eq_max - eq_min)/DATA_SEGMENT_COUNT;
-
-  if(forType == EQ_FOR_TIME) {
-     if(step > 1.9) { 
-       window.console.log(" XXX idx is "+ ((eq_target-eq_min)/step) + " "+target);
-     }
-  }
-
   var idx= Math.floor((eq_target-eq_min)/step);
 
   return idx;

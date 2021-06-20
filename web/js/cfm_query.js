@@ -612,6 +612,8 @@ function getAllEarthQuakesByChunk(quake_type,quake_meta) {
 
    var leftover=total - (chunk_step * DATA_SEGMENT_COUNT);
 
+   startQuakeCounter();
+
    if(leftover > 0) {
       var startpoint= chunk_step * DATA_SEGMENT_COUNT;
       var endpoint= startpoint + leftover;
@@ -628,9 +630,6 @@ function _getAllQuakesByChunk(quake_type, current_chunk, total_chunk, chunk_step
     } else {
         // code for IE6, IE5
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    if(current_chunk == 0) {
-        startQuakeCounter();
     }
 
     var startpoint= chunk_step * current_chunk;
@@ -652,7 +651,7 @@ function _getAllQuakesByChunk(quake_type, current_chunk, total_chunk, chunk_step
         }
     };
 window.console.log("  calling php, current_chunk "+current_chunk+" start"+startpoint+" end"+endpoint);
-    xmlhttp.open("GET","php/getAllQuakesByChunk.php?quake_type="+quake_type+"startpoint="+startpoint+"&endpoint="+endpoint,true);
+    xmlhttp.open("GET","php/getAllQuakesByChunk.php?quake_type="+quake_type+"&startpoint="+startpoint+"&endpoint="+endpoint,true);
     xmlhttp.send();
 }
 
@@ -671,12 +670,13 @@ function _getLastQuakesByChunk(quake_type, startpoint, endpoint, chunk_step) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
             var eqarray=processQuakeResult("allQuakesByChunk");
             add2QuakeValue(eqarray.length);
+            add2QuakePoints(eqarray);
             // start earlier set
             _getAllQuakesByChunk(quake_type, 0, DATA_SEGMENT_COUNT, chunk_step);
         }
     };
-window.console.log("XXX calling php on the leftover.."+(endpoint-startpoint));
-    xmlhttp.open("GET","php/getAllQuakesByChunk.php?quake_type="+quake_type+"startpoint="+startpoint+"endpoint="+endpoint,true);
+window.console.log(" calling php on the leftover.."+(endpoint-startpoint));
+    xmlhttp.open("GET","php/getAllQuakesByChunk.php?quake_type="+quake_type+"&startpoint="+startpoint+"&endpoint="+endpoint,true);
     xmlhttp.send();
 }
 
