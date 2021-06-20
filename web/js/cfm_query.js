@@ -654,11 +654,8 @@ function _getAllQuakesByChunk(quake_type, current_chunk, total_chunk, chunk_step
                   break;
                 default:
                   window.console.log("BAD BAD");
-XX
               } 
-              if(quake_type == QUAKE_TYPE_HAUKSSON) {
               doneQuakeCounter();
-              // 
               if(quake_type == QUAKE_TYPE_HAUKSSON) { // load ROSS next 
                  getAllQuakes(QUAKE_TYPE_ROSS);
               }

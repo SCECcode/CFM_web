@@ -1034,7 +1034,7 @@ function processQuakeMeta(quake_type) {
     if(quake_type == QUAKE_TYPE_HAUKSSON) {
       blob=str.Hauksson; // 
       } else {
-        blob.str.Ross;
+        blob=str.Ross;
     }
     var meta=JSON.parse(blob);
 
