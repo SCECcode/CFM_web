@@ -16,10 +16,10 @@ $startpoint = intVal($_GET['startpoint']);
 $endpoint = intVal($_GET['endpoint']);
 
 if ($quake_type == $quake_type_Hauksson ) { 
-  $query = "SELECT EventId, Lon, Lat, Depth, Mag, EventTime FROM EQ_tb WHERE gid >= $1 AND gid < $2 AND Dataset = 'Hauksson'";
+  $query = "SELECT EventId, Lon, Lat, Depth, Mag, EventTime FROM EQ_tb WHERE gid > $1 AND gid <= $2 AND Dataset = 'Hauksson'";
 }
 if ($quake_type == $quake_type_Ross ) { 
-  $query = "SELECT EventId, Lon, Lat, Depth, Mag, EventTime FROM EQ_tb WHERE gid >= $1 AND gid < $2 AND Dataset = 'Ross'";
+  $query = "SELECT EventId, Lon, Lat, Depth, Mag, EventTime FROM EQ_tb WHERE gid > $1 AND gid <= $2 AND Dataset = 'Ross'";
 }
 
 $result = pg_prepare($dbconn, "my_query", $query);
