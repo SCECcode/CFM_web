@@ -18,3 +18,5 @@ COPY EQ_tb(Dataset,EventTime,EventID,Lat,Lon,Depth,Mag,Easting,Northing)
 FROM '/home/postgres/CFM/schema/data/eq_Hauksson_1_tb.csv' DELIMITER ',' CSV HEADER;
 COPY EQ_tb(Dataset,EventTime,EventID,Lat,Lon,Depth,Mag,Easting,Northing)
 FROM '/home/postgres/CFM/schema/data/eq_Hauksson_2_tb.csv' DELIMITER ',' CSV HEADER;
+COPY EQ_tb(Dataset,EventTime,EventID,Lat,Lon,Depth,Mag,Easting,Northing)
+FROM '/home/postgres/CFM/schema/data/eq_Ross_1_tb.csv' DELIMITER ',' CSV HEADER;

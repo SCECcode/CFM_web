@@ -149,9 +149,12 @@ Press
 <select id="seisimicitySelect" onchange="changePixiOverlay(this.value)" 
 class="custom-select custom-select-sm" style="width:5rem;display:none">
    <option value="none"> none</option>
-   <option selected value="depth">depth</option>
-   <option value="mag">mag</option>
-   <option value="time">time</option>
+   <option selected value="haukssondepth">H depth</option>
+   <option value="haukssonmag">H mag</option>
+   <option value="haukssontime">H time</option>
+   <option value="rossdepth">R depth</option>
+   <option value="rossmag">R mag</option>
+   <option value="rosstime">R time</option>
 </select>
  for Seisimicity (Warning, long initial processing time) 
 </p>

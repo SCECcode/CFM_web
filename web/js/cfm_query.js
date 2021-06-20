@@ -593,7 +593,7 @@ function quakesByDepth(minDepth,maxDepth) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
             var eqarray=processQuakeResult("quakesByDepth");
             add2QuakeValue(eqarray.length);
-            showQuakePoints(EQ_FOR_DEPTH,eqarray);
+            showQuakePoints(EQ_HAUKSSON_FOR_DEPTH,eqarray);
             doneQuakeCounter();
         }
     };
@@ -643,7 +643,7 @@ function _getAllQuakesByChunk(quake_type, current_chunk, total_chunk, chunk_step
             var next_chunk=current_chunk+1;
 
             if(next_chunk == total_chunk) { // got last chunk 
-              showQuakePoints(EQ_FOR_DEPTH,eqarray); // show it after adding last chunk
+              showQuakePoints(EQ_HAUKSSON_FOR_DEPTH,eqarray); // show it after adding last chunk
               doneQuakeCounter();
               } else{
                 add2QuakePointsChunk(quake_type, eqarray,next_chunk, total_chunk, chunk_step);
@@ -694,7 +694,7 @@ function getAllQuakes(quake_type) {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
-            cfm_quake_meta=processQuakeMeta();
+            cfm_quake_meta=processQuakeMeta(quake_type);
             getAllEarthQuakesByChunk(quake_type,cfm_quake_meta);
         }
     };

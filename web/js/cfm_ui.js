@@ -19,9 +19,9 @@ function updatePrograssBar(width) {
 function loadSeisimicity() {
 window.console.log("STEP..");
    if(seisimicity_loaded == false) {
-     showSeisimicityKey("depth");
+     showSeisimicityKey("haukssondepth");
      initForPixiOverlay(); 
-     getAllQuakes(quake_type_Hauksson);
+     getAllQuakes(QUAKE_TYPE_HAUKSSON);
      seisimicity_loaded = true;
      $('#seisimicitySelect').css("display", "");
      $('#quakesBtn').css("display", "none");
@@ -255,16 +255,28 @@ function removeKey() {
 
 // depth, mag, time
 function showSeisimicityKey(type) {
-    if(type == "depth") {
-        showColorLegend("depth_color.png");
+    if(type == "hauksson_depth") {
+        showColorLegend("hauksson_depth.png");
         return;
     }
-    if(type == "mag") {
-        showColorLegend("mag_color.png");
+    if(type == "hauksson_mag") {
+        showColorLegend("hauksson_mag.png");
         return;
     }
-    if(type == "time") {
-        showColorLegend("time_color.png");
+    if(type == "hauksson_time") {
+        showColorLegend("hauksson_time.png");
+        return;
+    }
+    if(type == "ross_depth") {
+        showColorLegend("ross_depth.png");
+        return;
+    }
+    if(type == "ross_mag") {
+        showColorLegend("ross_mag.png");
+        return;
+    }
+    if(type == "ross_time") {
+        showColorLegend("ross_time.png");
         return;
     }
 }

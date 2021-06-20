@@ -978,12 +978,12 @@ function add2QuakePoints(eqarray) {
 // but need it to be in :"1981-01-01T01:49:29.504"
         var t=_processTimeString(marker['Time']);
         var otime=new Date(t);
-        var didx=getRangeIdx(EQ_FOR_DEPTH, depth);
-        updateMarkerLatlng(EQ_FOR_DEPTH,didx,lat,lng);
-        var midx= getRangeIdx(EQ_FOR_MAG, mag);
-        updateMarkerLatlng(EQ_FOR_MAG,midx,lat,lng);
-        var tidx= getRangeIdx(EQ_FOR_TIME, otime);
-        updateMarkerLatlng(EQ_FOR_TIME,tidx,lat,lng);
+        var didx=getRangeIdx(EQ_HAUKSSON_FOR_DEPTH, depth);
+        updateMarkerLatlng(EQ_HAUKSSON_FOR_DEPTH,didx,lat,lng);
+        var midx= getRangeIdx(EQ_HAUKSSON_FOR_MAG, mag);
+        updateMarkerLatlng(EQ_FOR_HAUKSSON_MAG,midx,lat,lng);
+        var tidx= getRangeIdx(EQ_HAUKSSON_FOR_TIME, otime);
+        updateMarkerLatlng(EQ_HAUKSSON_FOR_TIME,tidx,lat,lng);
     });
 }
 
@@ -993,15 +993,15 @@ function add2QuakePointsChunk(quake_type, eqarray, next_chunk, total_chunk, step
     _getAllQuakesByChunk(quake_type, next_chunk, total_chunk, step);
 }
 // default showing depth
-function showQuakePoints(forType, eqarray) {
+function showQuakePoints(eqType, eqarray) {
    add2QuakePoints(eqarray);
-   setup_pixi(forType);
+   setup_pixi(eqType);
 }
 
 // default to depth
 function showQuakePointsAndBound(eqarray,swlat,swlon,nelat,nelon) {
    // XX should grab type from the UI
-   showQuakePoints(EQ_FOR_DEPTH,eqarray);
+   showQuakePoints(EQ_HAUKSSON_FOR_DEPTH,eqarray);
    // create a bounding area and add to the layergroup
    var layer=makeRectangleLayer(swlat,swlon,nelat,nelon);
    cfm_quake_group.addLayer(layer);
@@ -1028,9 +1028,14 @@ function getQuakeSize( level, count ) {
 }
 
 // Hauksson's
-function processQuakeMeta() {
+function processQuakeMeta(quake_type) {
     var str = $('[data-side="quake-meta"]').data('params');
-    var blob=str.Hauksson; // 
+    var blob;
+    if(quake_type == QUAKE_TYPE_HAUKSSON) {
+      blob=str.Hauksson; // 
+      } else {
+        blob.str.Ross;
+    }
     var meta=JSON.parse(blob);
 
     let minTime = meta['minTime'];

@@ -4,11 +4,14 @@
 
 // pixi, Leafle.overlayLayer.js
 // handle the seismicity info
-const EQ_FOR_DEPTH=0;
-const EQ_FOR_MAG=1;
-const EQ_FOR_TIME=2;
+// one set for Hauksson and one set for ROSS
+const EQ_HAUKSSON_FOR_DEPTH=0;
+const EQ_HAUKSSON_FOR_MAG=1;
+const EQ_HAUKSSON_FOR_TIME=2;
+const EQ_ROSS_FOR_DEPTH=3;
+const EQ_ROSS_FOR_MAG=4;
+const EQ_ROSS_FOR_TIME=5;
 
-var viewermap=null;
 /* data sections, to matching marker name markerN_icon.png */
 const DATA_SEGMENT_COUNT= 20; // 0 to 19 -- to matching marker names
 
@@ -17,21 +20,27 @@ const DATA_SEGMENT_COUNT= 20; // 0 to 19 -- to matching marker names
 var eq_zoom_threshold=8;
 
 /* set are predefined by user, real is from the backend search */
-var eq_min_depth = 0.0;
-var eq_max_depth = 20.0;
-var eq_min_mag = 0.0;
-var eq_max_mag = 6.0;
-var eq_min_time = new Date("1980-01-01T01:49:29.504");
-var eq_max_time = new Date("2020-12-31T23:28:38.59");
+var eq_hauksson_min_depth = 0.0;
+var eq_hauksson_max_depth = 20.0;
+var eq_hauksson_min_mag = 0.0;
+var eq_hauksson_max_mag = 6.0;
+var eq_hauksson_min_time = new Date("1980-01-01T01:49:29.504");
+var eq_hauksson_max_time = new Date("2020-12-31T23:28:38.59");
+var eq_ross_min_depth = 0.0;
+var eq_ross_max_depth = 20.0;
+var eq_ross_min_mag = 0.0;
+var eq_ross_max_mag = 6.0;
+var eq_ross_min_time = new Date("1980-01-01T01:49:29.504");
+var eq_ross_max_time = new Date("2020-12-31T23:28:38.59");
 
 /* multiple set of pixi+marker containers                            */
-/* [{"type":EQ_FOR_DEPTH, "vis":true, "layer": overlay,              */
+/* [{"type":EQ_HAUKSSON_FOR_DEPTH, "vis":true, "layer": overlay,              */
 /*   "top":pixiContainer,"inner":[ {"container":c0, "vis":1 }, ...] */
 var pixiOverlayList=[];
 
 // break up data into buckets (one per segment)
 // [ { marker-latlngs } {mag-latlngs} {time-latlngs} ]  
-/* [{"type":EQ_FOR_DEPTH, "data":[ [{"lat":lat,"lng":lng},...], ...] }] */
+/* [{"type":EQ_HAUKSSON_FOR_DEPTH, "data":[ [{"lat":lat,"lng":lng},...], ...] }] */
 var pixiLatlngList=[];
 
 /* PixiOverlayLayer */
@@ -71,26 +80,43 @@ function initMarkerTextures(resources) {
 
 function initForPixiOverlay() {
   window.console.log("callinging initForPixiOverlay..");
-  pixiLatlngList.push({"type":EQ_FOR_DEPTH, "data":[]});
-  pixiLatlngList.push({"type":EQ_FOR_MAG, "data":[]});
-  pixiLatlngList.push({"type":EQ_FOR_TIME, "data":[]});
+  pixiLatlngList.push({"type":EQ_HAUKSSON_FOR_DEPTH, "data":[]});
+  pixiLatlngList.push({"type":EQ_HAUKSSON_FOR_MAG, "data":[]});
+  pixiLatlngList.push({"type":EQ_HAUKSSON_FOR_TIME, "data":[]});
   for(var i=0; i<DATA_SEGMENT_COUNT; i++) {
-    pixiLatlngList[EQ_FOR_DEPTH].data.push([]);
-    pixiLatlngList[EQ_FOR_MAG].data.push([]);
-    pixiLatlngList[EQ_FOR_TIME].data.push([]);
+    pixiLatlngList[EQ_HAUKSSON_FOR_DEPTH].data.push([]);
+    pixiLatlngList[EQ_HAUKSSON_FOR_MAG].data.push([]);
+    pixiLatlngList[EQ_HAUKSSON_FOR_TIME].data.push([]);
+  }
+  pixiLatlngList.push({"type":EQ_ROSS_FOR_DEPTH, "data":[]});
+  pixiLatlngList.push({"type":EQ_ROSS_FOR_MAG, "data":[]});
+  pixiLatlngList.push({"type":EQ_ROSS_FOR_TIME, "data":[]});
+  for(var i=0; i<DATA_SEGMENT_COUNT; i++) {
+    pixiLatlngList[EQ_ROSS_FOR_DEPTH].data.push([]);
+    pixiLatlngList[EQ_ROSS_FOR_MAG].data.push([]);
+    pixiLatlngList[EQ_ROSS_FOR_TIME].data.push([]);
   }
 }
 
 function printMarkerLatlngInfo(type) {
   switch (type) {
-     case EQ_FOR_DEPTH:
-       window.console.log("  For DEPTH:");
+     case EQ_HAUKSSON_FOR_DEPTH:
+       window.console.log("  For HAUKSSON DEPTH:");
        break;
-     case EQ_FOR_MAG:
-       window.console.log("  For MAG:");
+     case EQ_HAUKSSON_FOR_MAG:
+       window.console.log("  For HAUKSSON MAG:");
        break;
-     case EQ_FOR_TIME:
-       window.console.log("  For TIME:");
+     case EQ_HAUKSSON_FOR_TIME:
+       window.console.log("  For HAUKSSON TIME:");
+       break;
+     case EQ_ROSS_FOR_DEPTH:
+       window.console.log("  For ROSS DEPTH:");
+       break;
+     case EQ_ROSS_FOR_MAG:
+       window.console.log("  For ROSS MAG:");
+       break;
+     case EQ_ROSS_FOR_TIME:
+       window.console.log("  For ROSS TIME:");
        break;
   }
   var list=pixiLatlngList[type];
@@ -113,44 +139,49 @@ function updateMarkerLatlng(type,idx,lat,lng) {
   item[idx].push({'lat':lat,"lng":lng});
 }
 
-function getMarkerCount(forType,idx) {
-  var item=pixiLatlngList[forType].data;
+function getMarkerCount(eqType,idx) {
+  var item=pixiLatlngList[eqType].data;
   var sz=item[idx].length;
   return sz;
 }
-function getMarkerLatlngs(forType,idx) {
-  var item=pixiLatlngList[forType].data;
+function getMarkerLatlngs(eqType,idx) {
+  var item=pixiLatlngList[eqType].data;
   return item[idx];
 }
 
-// set if eq_min_depth/eq_max_depth hasn't been set already
-function setDepthRange(min,max) {
-  if(eq_min_depth == null &&
-          eq_max_depth == null) {
-    eq_min_depth=min;
-    eq_max_depth=max;
-  }
-}
-
-function getRangeIdx(forType,target) {
+function getRangeIdx(eqType,target) {
 
   var eq_min;
   var eq_max;
   var eq_target=target;
 
-  if(forType == EQ_FOR_DEPTH) {
-     eq_min=eq_min_depth;
-     eq_max=eq_max_depth;
+  if(eqType == EQ_HAUKSSON_FOR_DEPTH) {
+     eq_min=eq_hauksson_min_depth;
+     eq_max=eq_hauksson_max_depth;
   }
-  if(forType == EQ_FOR_MAG) {
-     eq_min=eq_min_mag;
-     eq_max=eq_max_mag;
+  if(eqType == EQ_HAUKSSON_FOR_MAG) {
+     eq_min=eq_hauksson_min_mag;
+     eq_max=eq_hauksson_max_mag;
   }
-  if(forType == EQ_FOR_TIME) {
-     eq_min=eq_min_time.getTime();
-     eq_max=eq_max_time.getTime();
+  if(eqType == EQ_HAUKSSON_FOR_TIME) {
+     eq_min=eq_hauksson_min_time.getTime();
+     eq_max=eq_hauksson_max_time.getTime();
      eq_target=target.getTime();
   }
+  if(eqType == EQ_ROSS_FOR_DEPTH) {
+     eq_min=eq_ross_min_depth;
+     eq_max=eq_ross_max_depth;
+  }
+  if(eqType == EQ_ROSS_FOR_MAG) {
+     eq_min=eq_ross_min_mag;
+     eq_max=eq_ross_max_mag;
+  }
+  if(eqType == EQ_ROSS_FOR_TIME) {
+     eq_min=eq_ross_min_time.getTime();
+     eq_max=eq_ross_max_time.getTime();
+     eq_target=target.getTime();
+  }
+ 
  
   if(eq_target <= eq_min) {
     return 0;  
@@ -190,11 +221,11 @@ function init_pixi(loader) {
     .add('marker20', 'img/marker20_icon.png');
 }
 
-function setup_pixi(forType) {
+function setup_pixi(eqType) {
   // this is used to simulate leaflet zoom animation timing:
   var loader = new PIXI.loaders.Loader();
 
-window.console.log("setup_pixi loading >>>"+ forType);
+window.console.log("setup_pixi loading >>>"+ eqType);
  
   if(loadOnce) {
     init_pixi(loader);
@@ -206,7 +237,7 @@ window.console.log("setup_pixi loading >>>"+ forType);
         loadOnce=0;
       }
 
-      pixiLayer = makePixiOverlayLayer(forType);
+      pixiLayer = makePixiOverlayLayer(eqType);
 
       var ticker = new PIXI.ticker.Ticker();
 
@@ -222,10 +253,10 @@ window.console.log("setup_pixi loading >>>"+ forType);
 
       viewermap.on('zoomstart', function() {
         ticker.start();
-//        togglePixiOverlay(forType);
-//        let cidx=get1stNoneEmptyContainer(forType);
+//        togglePixiOverlay(eqType);
+//        let cidx=get1stNoneEmptyContainer(eqType);
 //        window.console.log("first none empty container is.."+cidx);
-//        if(cidx != null) toggleMarkerContainer(forType, cidx);
+//        if(cidx != null) toggleMarkerContainer(eqType, cidx);
       });
       viewermap.on('zoomend', function() { 
         ticker.stop();
@@ -234,14 +265,14 @@ window.console.log("setup_pixi loading >>>"+ forType);
   });
 }
 
-function get1stNoneEmptyContainer(forType) {
-   var pixi=pixiOverlayList[forType];
+function get1stNoneEmptyContainer(eqType) {
+   var pixi=pixiOverlayList[eqType];
    if(pixi['vis'] == 0) 
      return;
    var inner=tmp['inner'];
    for(var i=0; i<DATA_SEGMENT_COUNT; i++ ) {
      var item=inner[i];
-     if(item['vis'] && getMarkerCount(forType,i)>0) { // found it and it got particles in there
+     if(item['vis'] && getMarkerCount(eqType,i)>0) { // found it and it got particles in there
         return i;
      }
    }
@@ -254,20 +285,23 @@ function changePixiOverlay(typestr) {
   refresh_map();
   switch (typestr) {
     case "none": removeSeisimicityKey(); break;
-    case "depth": togglePixiOverlay(EQ_FOR_DEPTH); showSeisimicityKey("depth"); break;
-    case "mag": togglePixiOverlay(EQ_FOR_MAG); showSeisimicityKey("mag"); break;
-    case "time": togglePixiOverlay(EQ_FOR_TIME); showSeisimicityKey("time"); break;
+    case "haukssondepth": togglePixiOverlay(EQ_HAUKSSON_FOR_DEPTH); showSeisimicityKey("hauksson_depth"); break;
+    case "haukssonmag": togglePixiOverlay(EQ_HAUKSSON_FOR_MAG); showSeisimicityKey("hauksson_mag"); break;
+    case "haukssontime": togglePixiOverlay(EQ_HAUKSSON_FOR_TIME); showSeisimicityKey("hauksson_time"); break;
+    case "rossdepth": togglePixiOverlay(EQ_ROSS_FOR_DEPTH); showSeisimicityKey("ross_depth"); break;
+    case "rossmag": togglePixiOverlay(EQ_ROSS_FOR_MAG); showSeisimicityKey("ross_mag"); break;
+    case "rosstime": togglePixiOverlay(EQ_ROSS_FOR_TIME); showSeisimicityKey("ross_time"); break;
   }
   return;
 }
 
-function getPixiByType(forType) {
+function getPixiByType(eqType) {
    var sz=pixiOverlayList.length;
    if(sz == 0)
       return null;
    for(var i=0; i<sz; i++ ) {
       var tmp=pixiOverlayList[i];
-      if(tmp['type'] == forType)
+      if(tmp['type'] == eqType)
         return i;
    }
    return null;
@@ -332,14 +366,14 @@ function toggleMarkerContainer(target_type,target_segment) {
   }
 }
 
-function makePixiOverlayLayer(forType) {
+function makePixiOverlayLayer(eqType) {
     var zoomChangeTs = null;
 
     var pixiContainer = new PIXI.Container();
     var pContainers=[]; //particle container
 
     for(var i=0; i<DATA_SEGMENT_COUNT; i++) {
-      var length=getMarkerCount(forType,i);
+      var length=getMarkerCount(eqType,i);
       var a = new PIXI.particles.ParticleContainer(length, {vertices: true});
       // add properties for our patched particleRenderer:
       a.texture = markerTextures[i];
@@ -368,7 +402,7 @@ function makePixiOverlayLayer(forType) {
       if (event.type === 'add') {
         // check if this is the first time..
         if(pixiOverlayList.length != 0) {
-           var pixi=pixiOverlayList[forType];
+           var pixi=pixiOverlayList[eqType];
            if(pixi != null && pixi != []) {
              pixi['vis']=1;
              return pixi['overlay'];
@@ -379,8 +413,8 @@ function makePixiOverlayLayer(forType) {
         initialScale = invScale / 16; // initial size of the marker
 //initialScale = invScale / 2; // initial size of the marker
 
-window.console.log("FFFirst time making this pixiOverlay,"+forType+" initial scale "+initialScale +" mapzoom" + mapzoom);
-        printMarkerLatlngInfo(forType);
+window.console.log("FFFirst time making this pixiOverlay,"+eqType+" initial scale "+initialScale +" mapzoom" + mapzoom);
+        printMarkerLatlngInfo(eqType);
 
         // fill in the particles
         for(var i=0; i< DATA_SEGMENT_COUNT; i++ ) {
@@ -389,7 +423,7 @@ window.console.log("FFFirst time making this pixiOverlay,"+forType+" initial sca
            a.y = origin.y;
            a.localScale = initialScale;
 
-           var latlngs=getMarkerLatlngs(forType,i);
+           var latlngs=getMarkerLatlngs(eqType,i);
            var len=latlngs.length;
            for (var j = 0; j < len; j++) {
               var latlng=latlngs[j];
@@ -455,7 +489,7 @@ window.console.log("FFFirst time making this pixiOverlay,"+forType+" initial sca
     }).addTo(viewermap);
 
     var tmp=pixiOverlayList;
-    pixiOverlayList[forType]={"type":forType,"vis":1,"overlay":overlay,"top":pixiContainer,"inner":pContainers};
+    pixiOverlayList[eqType]={"type":eqType,"vis":1,"overlay":overlay,"top":pixiContainer,"inner":pContainers};
  
 
     return overlay;

@@ -131,9 +131,9 @@ var cfm_blind_gid_list=[];
 /*********************************************************
 *********************************************************/
 // quake_type,  Hauksson=1, Ross=2, Historical=3
-var quake_type_Hauksson=1;
-var quake_type_Ross=2;
-var quake_type_Historical=3;
+const QUAKE_TYPE_HAUKSSON=1;
+const QUAKE_TYPE_ROSS=2;
+const QUAKE_TYPE_HISTORICAL=3;
 
 // for tracking groups of earthquakes  -- EQ
 // the leaflet trace feature with MultiPoint geometry
