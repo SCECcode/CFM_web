@@ -645,10 +645,21 @@ function _getAllQuakesByChunk(quake_type, current_chunk, total_chunk, chunk_step
             var next_chunk=current_chunk+1;
 
             if(next_chunk == total_chunk) { // got last chunk 
-              showQuakePoints(EQ_HAUKSSON_FOR_DEPTH,eqarray); // show it after adding last chunk
+              switch(quake_type)  {
+                case QUAKE_TYPE_HAUKSSON:
+                  showQuakePoints(EQ_HAUKSSON_FOR_DEPTH,eqarray); // show it after adding last chunk
+                  break;
+                case QUAKE_TYPE_ROSS:
+                  showQuakePoints(EQ_ROSS_FOR_DEPTH,eqarray); // show it after adding last chunk
+                  break;
+                default:
+                  window.console.log("BAD BAD");
+XX
+              } 
+              if(quake_type == QUAKE_TYPE_HAUKSSON) {
               doneQuakeCounter();
               // 
-              if(quake_type == QUAKE_TYPE_HAUKSSON) { // load ROSS 
+              if(quake_type == QUAKE_TYPE_HAUKSSON) { // load ROSS next 
                  getAllQuakes(QUAKE_TYPE_ROSS);
               }
               } else{
