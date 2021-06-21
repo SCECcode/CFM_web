@@ -19,7 +19,7 @@ var dip_range_max = 0;
 // track the eq-counter
 function startQuakeCounter(quake_meta) {
   let elm = $("#eq-expected");
-  elm.val(intVal(parseInt['total']));
+  elm.val(parseInt(quake_meta['total']));
   elm = $("#eq-total");
   elm.val(0);
   $("#modalwaiteq").modal({ backdrop: 'static', keyboard: false });
