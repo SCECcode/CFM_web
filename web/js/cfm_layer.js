@@ -994,7 +994,7 @@ function makeHistoricalEQLayer() {
                            cfm_quake_historical_latlng,
                            cfm_quake_historical_description,
                            "red");
-   window.console.log("   made a historicalEQ layer..");
+   window.console.log("XXX   made a historicalEQ layer..");
 };
 
 function removeHistoricalEQLayer() {
