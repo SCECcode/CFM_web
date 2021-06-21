@@ -13,7 +13,7 @@ $maxdepth = floatVal($_GET['max']);
 
 $dbconn = getConnection();
 
-$query = "SELECT Lon, Lat, Depth FROM EQ_tb WHERE Depth > $1 AND Depth < $2";
+$query = "SELECT Lon, Lat, Depth FROM EQ_hauksson_tb WHERE Depth > $1 AND Depth < $2";
 
 $result = pg_prepare($dbconn, "my_query", $query);
 $data = array($mindepth, $macdepth);

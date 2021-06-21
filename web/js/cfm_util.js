@@ -16,9 +16,12 @@ var dip_range_max_ref = 0;
 var dip_range_min = 0;
 var dip_range_max = 0;
 
-
 // track the eq-counter
-function startQuakeCounter() {
+function startQuakeCounter(quake_meta) {
+  let elm = $("#eq-expected");
+  elm.val(intVal(parseInt['total']));
+  elm = $("#eq-total");
+  elm.val(0);
   $("#modalwaiteq").modal({ backdrop: 'static', keyboard: false });
 }
 function doneQuakeCounter() { 
@@ -35,11 +38,6 @@ window.console.log("adding more EQs: "+v);
   var width = Math.floor((n/max) * 100);
 //window.console.log("width of progress bar.."+width);
   updatePrograssBar(width);
-}
-
-function setQuakeExpectedValue(v) {
-  let elm = $("#eq-expected");
-  elm.val(v);
 }
 
 // track the geo-counter
@@ -1056,7 +1054,6 @@ function processQuakeMeta(quake_type) {
     window.console.log("seisimicity depth >>"+ minDepth+" to "+maxDepth);
     window.console.log("seisimicity mag >>"+minMag+" to "+maxMag);
     window.console.log("seisimicity total >>"+total);
-    setQuakeExpectedValue(total);
 //    var meta = { "total": total, "minTime":minTime, "maxTime":maxTime, "minLon":minLon, "maxLon":maxLon, "minLat":minLat, "maxLat":maxLat, "minDepth":minDepth, "maxDepth":maxDepth, "minMag":minMag, "maxMag":maxMag };
     return meta;
 }

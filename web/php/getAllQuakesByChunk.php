@@ -16,20 +16,10 @@ $startpoint = intVal($_GET['startpoint']);
 $endpoint = intVal($_GET['endpoint']);
 
 if ($quake_type == $quake_type_Hauksson ) { 
-  $query = "SELECT min(gid) FROM EQ_tb WHERE Dataset = 'Hauksson'";
-  $result = pg_query($dbconn, $query);
-  $offset=intVal($row[0]);
-  $start=$startpoint+$offset-1; 
-  $end=$endpoint+$offset-1;
-  $query = "SELECT EventId, Lon, Lat, Depth, Mag, EventTime FROM EQ_tb WHERE gid > $1 AND gid <= $2 AND Dataset = 'Hauksson'";
+  $query = "SELECT EventId, Lon, Lat, Depth, Mag, EventTime FROM EQ_hauksson_tb WHERE gid > $1 AND gid <= $2";
 }
 if ($quake_type == $quake_type_Ross ) { 
-  $query = "SELECT min(gid) FROM EQ_tb WHERE Dataset = 'Ross'";
-  $result = pg_query($dbconn, $query);
-  $offset=intVal($row[0]);
-  $start=$startpoint+$offset-1; 
-  $end=$endpoint+$offset-1;
-  $query = "SELECT EventId, Lon, Lat, Depth, Mag, EventTime FROM EQ_tb WHERE gid > $1 AND gid <= $2 AND Dataset = 'Ross'";
+  $query = "SELECT EventId, Lon, Lat, Depth, Mag, EventTime FROM EQ_ross_tb WHERE gid > $1 AND gid <= $2";
 }
 
 $result = pg_prepare($dbconn, "my_query", $query);

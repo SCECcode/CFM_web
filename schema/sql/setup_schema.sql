@@ -92,9 +92,8 @@ CREATE TABLE OBJECT_tb (
    reference VARCHAR(300)
 );
 
-CREATE TABLE EQ_tb (
+CREATE TABLE EQ_hauksson_tb (
    gid serial PRIMARY KEY,
-   Dataset VARCHAR(100),
    EventTime timestamp,
    EventID integer,
    Lon float, 
@@ -104,4 +103,18 @@ CREATE TABLE EQ_tb (
    Easting float,
    Northing float
 );
-SELECT AddGeometryColumn('','eq_tb','geom','0','POINT',2);
+SELECT AddGeometryColumn('','eq_hauksson_tb','geom','0','POINT',2);
+
+CREATE TABLE EQ_ross_tb (
+   gid serial PRIMARY KEY,
+   EventTime timestamp,
+   EventID integer,
+   Lon float, 
+   Lat float,
+   Depth float,
+   Mag float,
+   Easting float,
+   Northing float
+);
+SELECT AddGeometryColumn('','eq_ross_tb','geom','0','POINT',2);
+

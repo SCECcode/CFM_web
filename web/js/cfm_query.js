@@ -579,29 +579,6 @@ function setupSearch()
 /****************** for handling earthquakes ********************/
 // to retrieve all is too big, and so going to make multiple calls with range
 // make it to match with multiples of DATA_CHUNK_COUNT
-function quakesByDepth(minDepth,maxDepth) {
-    if (window.XMLHttpRequest) {
-        // code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp = new XMLHttpRequest();
-    } else {
-        // code for IE6, IE5
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    startQuakeCounter();
-// TODO XX need to create a differnt overlay layer XXX 
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("phpResponseTxt").innerHTML = this.responseText;
-            var eqarray=processQuakeResult("quakesByDepth");
-            add2QuakeValue(eqarray.length);
-            showQuakePoints(EQ_HAUKSSON_FOR_DEPTH,eqarray);
-            doneQuakeCounter();
-        }
-    };
-    xmlhttp.open("GET","php/quakesByDepth.php?min="+minDepth+"&max="+maxDepth,true);
-    xmlhttp.send();
-}
-
 function getAllEarthQuakesByChunk(quake_type,quake_meta) {
    if(quake_meta == null) { 
      window.console.log("BADD.. need to get metadata for seisimicity first..");
@@ -614,7 +591,7 @@ function getAllEarthQuakesByChunk(quake_type,quake_meta) {
    var chunk_step = Math.floor(total / chunks);
    var leftover=total - (chunk_step * chunks);
 
-   startQuakeCounter();
+   startQuakeCounter(quake_meta);
 
    if(leftover > 0) {
       var startpoint= chunk_step * chunks;
@@ -717,7 +694,7 @@ function getAllQuakes(quake_type) {
     xmlhttp.send();
 }
 
-function quakesByLatlon(swLat,swLon,neLat,neLon) {
+function quakesByLatlon(quake_meta,swLat,swLon,neLat,neLon) {
     if (window.XMLHttpRequest) {
       // code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
@@ -726,7 +703,7 @@ function quakesByLatlon(swLat,swLon,neLat,neLon) {
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
     // turn on data retrieval spiner..
-    startQuakeCounter();
+    startQuakeCounter(quake_meta);
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
