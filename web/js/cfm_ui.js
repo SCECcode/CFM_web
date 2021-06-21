@@ -19,11 +19,11 @@ function updatePrograssBar(width) {
 function loadSeisimicity() {
 window.console.log("STEP..");
    if(seisimicity_loaded == false) {
-     showSeisimicityKey("haukssondepth");
      initForPixiOverlay(); 
-// bring ROSS set in after Hauksson's got loaded
-     getAllQuakes(QUAKE_TYPE_HAUKSSON);
+// ROSS and HISTORICAL are loaded as side-effect
+     getAllQuakes(QUAKE_TYPE_HAUKSSON);  
      seisimicity_loaded = true;
+     showSeisimicityKey("haukssondepth");
      $('#seisimicitySelect').css("display", "");
      $('#quakesBtn').css("display", "none");
    }

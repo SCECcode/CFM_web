@@ -65,19 +65,37 @@ $myJSON = json_encode($myObj);
 return $myJSON;
 }
 
-
-function makeEQObj($row) {
+function makeEQLatlonObj($row) {
 include ("declare.php");
 
 $myObj = new \stdClass();
 
-$myObj->gid=$row[$eq_gid];
-$myObj->EventTime=$row[$eq_EventTime];
-$myObj->EventID=$row[$eq_EventID];
-$myObj->Lon=$row[$eq_Lon];
-$myObj->Lat=$row[$eq_Lat];
-$myObj->Depth=$row[$eq_Depth];
-$myObj->Mag=$row[$eq_Mag];
+$myObj->gid=$row[$eq_gid_latlon];
+$myObj->EventTime=$row[$eq_EventTime_latlon];
+$myObj->EventID=$row[$eq_EventID_latlon];
+$myObj->Lon=$row[$eq_Lon_latlon];
+$myObj->Lat=$row[$eq_Lat_latlon];
+$myObj->Depth=$row[$eq_Depth_latlon];
+$myObj->Mag=$row[$eq_Mag_latlon];
+
+$myJSON = json_encode($myObj);
+
+return $myJSON;
+}
+
+function makeEQLatlonWithDescriptionObj($row) {
+include ("declare.php");
+
+$myObj = new \stdClass();
+
+$myObj->gid=$row[$eq_gid_latlon];
+$myObj->EventTime=$row[$eq_EventTime_latlon];
+$myObj->EventID=$row[$eq_EventID_latlon];
+$myObj->Lon=$row[$eq_Lon_latlon];
+$myObj->Lat=$row[$eq_Lat_latlon];
+$myObj->Depth=$row[$eq_Depth_latlon];
+$myObj->Mag=$row[$eq_Mag_latlon];
+$myObj->Description=$row[$eq_Description_latlon];
 
 $myJSON = json_encode($myObj);
 
@@ -94,6 +112,17 @@ $myJSON = json_encode($myObj);
 return $myJSON;
 }
 
+function makeEQDepthWithDescriptionObj($row) {
+include ("declare.php");
+$myObj = new \stdClass();
+$myObj->Lon=$row[$eq_Lon_depth];
+$myObj->Lat=$row[$eq_Lat_depth];
+$myObj->Depth=$row[$eq_Depth_depth];
+$myObj->Description=$row[$eq_Description_depth];
+$myJSON = json_encode($myObj);
+return $myJSON;
+}
+
 function makeEQChunkObj($row) {
 include ("declare.php");
 $myObj = new \stdClass();
@@ -103,6 +132,20 @@ $myObj->Lat=$row[$eq_Lat_chunk];
 $myObj->Depth=$row[$eq_Depth_chunk];
 $myObj->Mag=$row[$eq_Mag_chunk];
 $myObj->Time=$row[$eq_Time_chunk];
+$myJSON = json_encode($myObj);
+return $myJSON;
+}
+
+function makeEQChunkWithDescriptionObj($row) {
+include ("declare.php");
+$myObj = new \stdClass();
+$myObj->Id=$row[$eq_Id_chunk];
+$myObj->Lon=$row[$eq_Lon_chunk];
+$myObj->Lat=$row[$eq_Lat_chunk];
+$myObj->Depth=$row[$eq_Depth_chunk];
+$myObj->Mag=$row[$eq_Mag_chunk];
+$myObj->Time=$row[$eq_Time_chunk];
+$myObj->Description=$row[$eq_Description_chunk];
 $myJSON = json_encode($myObj);
 return $myJSON;
 }

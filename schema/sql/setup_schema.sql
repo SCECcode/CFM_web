@@ -127,7 +127,8 @@ CREATE TABLE EQ_historical_tb (
    Depth float,
    Mag float,
    Easting float,
-   Northing float
+   Northing float,
+   Description VARCHAR(300)
 );
 SELECT AddGeometryColumn('','eq_historical_tb','geom','0','POINT',2);
 

@@ -22,7 +22,7 @@ if ($quake_type == $quake_type_Ross ) {
   $query = "SELECT EventId, Lon, Lat, Depth, Mag, EventTime FROM EQ_ross_tb WHERE gid > $1 AND gid <= $2";
 }
 if ($quake_type == $quake_type_Historical ) { 
-  $query = "SELECT EventId, Lon, Lat, Depth, Mag, EventTime FROM EQ_historical_tb WHERE gid > $1 AND gid <= $2";
+  $query = "SELECT EventId, Lon, Lat, Depth, Mag, EventTime, Description FROM EQ_historical_tb WHERE gid > $1 AND gid <= $2";
 }
 
 $result = pg_prepare($dbconn, "my_query", $query);
@@ -32,7 +32,11 @@ $result = pg_execute($dbconn, "my_query", $data);
 $eqList=array();
 
 while($row = pg_fetch_row($result)) {
-    array_push($eqList, makeEQChunkObj($row));
+  if($quake_type == $quake_type_Historical) {
+    array_push($eqList, makeEQChunkWithDescriptionObj($row));
+    } else {
+      array_push($eqList, makeEQChunkObj($row));
+  }
 }
 
 $eqstring = htmlspecialchars(json_encode($eqList), ENT_QUOTES, 'UTF-8');

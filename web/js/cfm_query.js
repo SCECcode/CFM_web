@@ -586,7 +586,13 @@ function getAllEarthQuakesByChunk(quake_type,quake_meta) {
    }
    var total = parseInt(quake_meta['total']);
    var chunk_step;
-   var chunks = (quake_type == QUAKE_TYPE_ROSS) ? (DATA_CHUNK_COUNT *3) : DATA_CHUNK_COUNT;
+   var chunks;
+= (quake_type == QUAKE_TYPE_ROSS) ? (DATA_CHUNK_COUNT *3) : DATA_CHUNK_COUNT;
+   switch (quake_type) {
+      case QUAKE_TYPE_HAUKSSON : chunks=DATA_CHUNK_COUNT; break;
+      case QUAKE_TYPE_ROSS : chunks=DATA_CHUNK_COUNT*3; break;
+      case QUAKE_TYPE_HISTORICAL : chunks=quake_meta['total'] break;
+   }
 
    var chunk_step = Math.floor(total / chunks);
    var leftover=total - (chunk_step * chunks);
@@ -622,20 +628,17 @@ function _getAllQuakesByChunk(quake_type, current_chunk, total_chunk, chunk_step
             var next_chunk=current_chunk+1;
 
             if(next_chunk == total_chunk) { // got last chunk 
-              switch(quake_type)  {
-                case QUAKE_TYPE_HAUKSSON:
-                  showQuakePoints(EQ_HAUKSSON_FOR_DEPTH,eqarray); // show it after adding last chunk
-                  break;
-                case QUAKE_TYPE_ROSS:
-                  showQuakePoints(EQ_ROSS_FOR_DEPTH,eqarray); // show it after adding last chunk
-                  break;
-                default:
-                  window.console.log("BAD BAD");
-              } 
               doneQuakeCounter();
               if(quake_type == QUAKE_TYPE_HAUKSSON) { // load ROSS next 
                  getAllQuakes(QUAKE_TYPE_ROSS);
               }
+              if(quake_type == QUAKE_TYPE_ROSS) {
+                 getAllQuakes(QUAKE_TYPE_HISTORICAL);
+              }
+              // display the hauksson depth for the initial setup after evertying comes in
+              if(quake_type == QUAKE_TYPE_HISTORICAL) {
+                  showQuakePoints(EQ_HAUKSSON_FOR_DEPTH,eqarray); // show it after adding last chunk
+              } 
               } else{
                 add2QuakePointsChunk(quake_type, eqarray,next_chunk, total_chunk, chunk_step);
             }

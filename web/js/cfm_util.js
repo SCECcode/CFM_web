@@ -1011,9 +1011,9 @@ function add2QuakePointsChunk(quake_type, eqarray, next_chunk, total_chunk, step
     _getAllQuakesByChunk(quake_type, next_chunk, total_chunk, step);
 }
 // default showing depth
-function showQuakePoints(eqType, eqarray) {
+function showQuakePoints(quake_type, eqarray) {
    add2QuakePoints(quake_type,eqarray);
-   setup_pixi(eqType);
+   setup_pixi(quake_type);
 }
 
 // default to depth
@@ -1062,25 +1062,12 @@ function processQuakeMeta(quake_type) {
     }
     var meta=JSON.parse(blob);
 
-    let minTime = meta['minTime'];
-    let maxTime = meta['maxTime'];
-    let minLon = meta['minLon'];
-    let maxLon = meta['maxLon'];
-    let minLat = meta['minLat'];
-    let maxLat = meta['maxLat'];
-    let minDepth = meta['minDepth'];
-    let maxDepth = meta['maxDepth'];
-    let minMag = meta['minMag'];
-    let maxMag = meta['maxMag'];
-    let total = meta['total'];
-    
-    window.console.log("seisimicity time >>"+ minTime+" to "+maxTime);
-    window.console.log("seisimicity lon >>"+ minLon+" to "+maxLon);
-    window.console.log("seisimicity lat >>"+ minLat+" to "+maxLat);
-    window.console.log("seisimicity depth >>"+ minDepth+" to "+maxDepth);
-    window.console.log("seisimicity mag >>"+minMag+" to "+maxMag);
-    window.console.log("seisimicity total >>"+total);
-//    var meta = { "total": total, "minTime":minTime, "maxTime":maxTime, "minLon":minLon, "maxLon":maxLon, "minLat":minLat, "maxLat":maxLat, "minDepth":minDepth, "maxDepth":maxDepth, "minMag":minMag, "maxMag":maxMag };
+    window.console.log("seisimicity time >>"+ meta['minTime']+" to "+meta['maxTime']);
+    window.console.log("seisimicity lon >>"+ meta['minLon']+" to "+meta['maxLon']);
+    window.console.log("seisimicity lat >>"+ meta['minLat']+" to "+meta['maxLat']);
+    window.console.log("seisimicity depth >>"+ meta['minDepth']+" to "+meta['maxDepth']);
+    window.console.log("seisimicity mag >>"+ meta['minMag']+" to "+meta['maxMag']);
+    window.console.log("seisimicity total >>"+meta['total']);
     return meta;
 }
 

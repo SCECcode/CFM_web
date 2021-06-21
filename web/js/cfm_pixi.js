@@ -165,57 +165,57 @@ function updateMarkerLatlng(type,idx,lat,lng) {
   item[idx].push({'lat':lat,"lng":lng});
 }
 
-function getMarkerCount(eqType,idx) {
-  var item=pixiLatlngList[eqType].data;
+function getMarkerCount(quake_type,idx) {
+  var item=pixiLatlngList[quake_type].data;
   var sz=item[idx].length;
   return sz;
 }
-function getMarkerLatlngs(eqType,idx) {
-  var item=pixiLatlngList[eqType].data;
+function getMarkerLatlngs(quake_type,idx) {
+  var item=pixiLatlngList[quake_type].data;
   return item[idx];
 }
 
-function getRangeIdx(eqType,target) {
+function getRangeIdx(quake_type,target) {
 
   var eq_min;
   var eq_max;
   var eq_target=target;
 
-  if(eqType == EQ_HAUKSSON_FOR_DEPTH) {
+  if(quake_type == EQ_HAUKSSON_FOR_DEPTH) {
      eq_min=eq_hauksson_min_depth;
      eq_max=eq_hauksson_max_depth;
   }
-  if(eqType == EQ_HAUKSSON_FOR_MAG) {
+  if(quake_type == EQ_HAUKSSON_FOR_MAG) {
      eq_min=eq_hauksson_min_mag;
      eq_max=eq_hauksson_max_mag;
   }
-  if(eqType == EQ_HAUKSSON_FOR_TIME) {
+  if(quake_type == EQ_HAUKSSON_FOR_TIME) {
      eq_min=eq_hauksson_min_time.getTime();
      eq_max=eq_hauksson_max_time.getTime();
      eq_target=target.getTime();
   }
-  if(eqType == EQ_ROSS_FOR_DEPTH) {
+  if(quake_type == EQ_ROSS_FOR_DEPTH) {
      eq_min=eq_ross_min_depth;
      eq_max=eq_ross_max_depth;
   }
-  if(eqType == EQ_ROSS_FOR_MAG) {
+  if(quake_type == EQ_ROSS_FOR_MAG) {
      eq_min=eq_ross_min_mag;
      eq_max=eq_ross_max_mag;
   }
-  if(eqType == EQ_ROSS_FOR_TIME) {
+  if(quake_type == EQ_ROSS_FOR_TIME) {
      eq_min=eq_ross_min_time.getTime();
      eq_max=eq_ross_max_time.getTime();
      eq_target=target.getTime();
   }
-  if(eqType == EQ_HISTORICAL_FOR_DEPTH) {
+  if(quake_type == EQ_HISTORICAL_FOR_DEPTH) {
      eq_min=eq_historical_min_depth;
      eq_max=eq_historical_max_depth;
   }
-  if(eqType == EQ_HISTORICAL_FOR_MAG) {
+  if(quake_type == EQ_HISTORICAL_FOR_MAG) {
      eq_min=eq_historical_min_mag;
      eq_max=eq_historical_max_mag;
   }
-  if(eqType == EQ_HISTORICAL_FOR_TIME) {
+  if(quake_type == EQ_HISTORICAL_FOR_TIME) {
      eq_min=eq_historical_min_time.getTime();
      eq_max=eq_historical_max_time.getTime();
      eq_target=target.getTime();
@@ -259,11 +259,11 @@ function init_pixi(loader) {
     .add('marker20', 'img/marker20_icon.png');
 }
 
-function setup_pixi(eqType) {
+function setup_pixi(quake_type) {
   // this is used to simulate leaflet zoom animation timing:
   var loader = new PIXI.loaders.Loader();
 
-window.console.log("setup_pixi loading >>>"+ eqType);
+window.console.log("setup_pixi loading >>>"+ quake_type);
  
   if(loadOnce) {
     init_pixi(loader);
@@ -275,7 +275,7 @@ window.console.log("setup_pixi loading >>>"+ eqType);
         loadOnce=0;
       }
 
-      pixiLayer = makePixiOverlayLayer(eqType);
+      pixiLayer = makePixiOverlayLayer(quake_type);
 
       var ticker = new PIXI.ticker.Ticker();
 
@@ -291,10 +291,10 @@ window.console.log("setup_pixi loading >>>"+ eqType);
 
       viewermap.on('zoomstart', function() {
         ticker.start();
-//        togglePixiOverlay(eqType);
-//        let cidx=get1stNoneEmptyContainer(eqType);
+//        togglePixiOverlay(quake_type);
+//        let cidx=get1stNoneEmptyContainer(quake_type);
 //        window.console.log("first none empty container is.."+cidx);
-//        if(cidx != null) toggleMarkerContainer(eqType, cidx);
+//        if(cidx != null) toggleMarkerContainer(quake_type, cidx);
       });
       viewermap.on('zoomend', function() { 
         ticker.stop();
@@ -303,14 +303,14 @@ window.console.log("setup_pixi loading >>>"+ eqType);
   });
 }
 
-function get1stNoneEmptyContainer(eqType) {
-   var pixi=pixiOverlayList[eqType];
+function get1stNoneEmptyContainer(quake_type) {
+   var pixi=pixiOverlayList[quake_type];
    if(pixi['vis'] == 0) 
      return;
    var inner=tmp['inner'];
    for(var i=0; i<DATA_SEGMENT_COUNT; i++ ) {
      var item=inner[i];
-     if(item['vis'] && getMarkerCount(eqType,i)>0) { // found it and it got particles in there
+     if(item['vis'] && getMarkerCount(quake_type,i)>0) { // found it and it got particles in there
         return i;
      }
    }
@@ -336,13 +336,13 @@ function changePixiOverlay(typestr) {
   return;
 }
 
-function getPixiByType(eqType) {
+function getPixiByType(quake_type) {
    var sz=pixiOverlayList.length;
    if(sz == 0)
       return null;
    for(var i=0; i<sz; i++ ) {
       var tmp=pixiOverlayList[i];
-      if(tmp['type'] == eqType)
+      if(tmp['type'] == quake_type)
         return i;
    }
    return null;
@@ -407,14 +407,14 @@ function toggleMarkerContainer(target_type,target_segment) {
   }
 }
 
-function makePixiOverlayLayer(eqType) {
+function makePixiOverlayLayer(quake_type) {
     var zoomChangeTs = null;
 
     var pixiContainer = new PIXI.Container();
     var pContainers=[]; //particle container
 
     for(var i=0; i<DATA_SEGMENT_COUNT; i++) {
-      var length=getMarkerCount(eqType,i);
+      var length=getMarkerCount(quake_type,i);
       var a = new PIXI.particles.ParticleContainer(length, {vertices: true});
       // add properties for our patched particleRenderer:
       a.texture = markerTextures[i];
@@ -443,7 +443,7 @@ function makePixiOverlayLayer(eqType) {
       if (event.type === 'add') {
         // check if this is the first time..
         if(pixiOverlayList.length != 0) {
-           var pixi=pixiOverlayList[eqType];
+           var pixi=pixiOverlayList[quake_type];
            if(pixi != null && pixi != []) {
              pixi['vis']=1;
              return pixi['overlay'];
@@ -454,8 +454,8 @@ function makePixiOverlayLayer(eqType) {
         initialScale = invScale / 16; // initial size of the marker
 //initialScale = invScale / 2; // initial size of the marker
 
-window.console.log("FFFirst time making this pixiOverlay,"+eqType+" initial scale "+initialScale +" mapzoom" + mapzoom);
-        printMarkerLatlngInfo(eqType);
+window.console.log("FFFirst time making this pixiOverlay,"+quake_type+" initial scale "+initialScale +" mapzoom" + mapzoom);
+        printMarkerLatlngInfo(quake_type);
 
         // fill in the particles
         for(var i=0; i< DATA_SEGMENT_COUNT; i++ ) {
@@ -464,7 +464,7 @@ window.console.log("FFFirst time making this pixiOverlay,"+eqType+" initial scal
            a.y = origin.y;
            a.localScale = initialScale;
 
-           var latlngs=getMarkerLatlngs(eqType,i);
+           var latlngs=getMarkerLatlngs(quake_type,i);
            var len=latlngs.length;
            for (var j = 0; j < len; j++) {
               var latlng=latlngs[j];
@@ -530,7 +530,7 @@ window.console.log("FFFirst time making this pixiOverlay,"+eqType+" initial scal
     }).addTo(viewermap);
 
     var tmp=pixiOverlayList;
-    pixiOverlayList[eqType]={"type":eqType,"vis":1,"overlay":overlay,"top":pixiContainer,"inner":pContainers};
+    pixiOverlayList[quake_type]={"type":quake_type,"vis":1,"overlay":overlay,"top":pixiContainer,"inner":pContainers};
  
 
     return overlay;

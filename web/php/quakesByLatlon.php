@@ -36,7 +36,7 @@ echo "SIZE of result..",$num;
 
 if ( $num < 50000 ) {
 while($row = pg_fetch_row($result)) {
-    array_push($resultList, makeEQObj($row));
+    array_push($resultList, makeEQLatlonObj($row));
 }
 } else {
 echo "SIZE of result..",$num;
