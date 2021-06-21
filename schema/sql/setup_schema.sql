@@ -118,3 +118,16 @@ CREATE TABLE EQ_ross_tb (
 );
 SELECT AddGeometryColumn('','eq_ross_tb','geom','0','POINT',2);
 
+CREATE TABLE EQ_historical_tb (
+   gid serial PRIMARY KEY,
+   EventTime timestamp,
+   EventID integer,
+   Lon float, 
+   Lat float,
+   Depth float,
+   Mag float,
+   Easting float,
+   Northing float
+);
+SELECT AddGeometryColumn('','eq_historical_tb','geom','0','POINT',2);
+
