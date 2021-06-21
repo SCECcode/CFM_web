@@ -11,6 +11,9 @@ const EQ_HAUKSSON_FOR_TIME=2;
 const EQ_ROSS_FOR_DEPTH=3;
 const EQ_ROSS_FOR_MAG=4;
 const EQ_ROSS_FOR_TIME=5;
+const EQ_HISTORICAL_FOR_DEPTH=3;
+const EQ_HISTORICAL_FOR_MAG=4;
+const EQ_HISTORICAL_FOR_TIME=5;
 
 /* data sections, to matching marker name markerN_icon.png */
 const DATA_SEGMENT_COUNT= 20; // 0 to 19 -- to matching marker names
@@ -32,6 +35,12 @@ var eq_ross_min_mag = 0.0;
 var eq_ross_max_mag = 6.0;
 var eq_ross_min_time = new Date("1980-01-01T01:49:29.504");
 var eq_ross_max_time = new Date("2020-12-31T23:28:38.59");
+var eq_historical_min_depth = 0.0;
+var eq_historical_max_depth = 20.0;
+var eq_historical_min_mag = 0.0;
+var eq_historical_max_mag = 6.0;
+var eq_historical_min_time = new Date("1980-01-01T01:49:29.504");
+var eq_historical_max_time = new Date("2020-12-31T23:28:38.59");
 
 /* multiple set of pixi+marker containers                            */
 /* [{"type":EQ_HAUKSSON_FOR_DEPTH, "vis":true, "layer": overlay,              */
@@ -96,6 +105,14 @@ function initForPixiOverlay() {
     pixiLatlngList[EQ_ROSS_FOR_MAG].data.push([]);
     pixiLatlngList[EQ_ROSS_FOR_TIME].data.push([]);
   }
+  pixiLatlngList.push({"type":EQ_HISTORICAL_FOR_DEPTH, "data":[]});
+  pixiLatlngList.push({"type":EQ_HISTORICAL_FOR_MAG, "data":[]});
+  pixiLatlngList.push({"type":EQ_HISTORICAL_FOR_TIME, "data":[]});
+  for(var i=0; i<DATA_SEGMENT_COUNT; i++) {
+    pixiLatlngList[EQ_HISTORICAL_FOR_DEPTH].data.push([]);
+    pixiLatlngList[EQ_HISTORICAL_FOR_MAG].data.push([]);
+    pixiLatlngList[EQ_HISTORICAL_FOR_TIME].data.push([]);
+  }
 }
 
 function printMarkerLatlngInfo(type) {
@@ -117,6 +134,15 @@ function printMarkerLatlngInfo(type) {
        break;
      case EQ_ROSS_FOR_TIME:
        window.console.log("  For ROSS TIME:");
+       break;
+     case EQ_HISTORICAL_FOR_DEPTH:
+       window.console.log("  For HISTORICAL DEPTH:");
+       break;
+     case EQ_HISTORICAL_FOR_MAG:
+       window.console.log("  For HISTORICAL MAG:");
+       break;
+     case EQ_HISTORICAL_FOR_TIME:
+       window.console.log("  For HISTORICAL TIME:");
        break;
   }
   var list=pixiLatlngList[type];
@@ -181,7 +207,19 @@ function getRangeIdx(eqType,target) {
      eq_max=eq_ross_max_time.getTime();
      eq_target=target.getTime();
   }
- 
+  if(eqType == EQ_HISTORICAL_FOR_DEPTH) {
+     eq_min=eq_historical_min_depth;
+     eq_max=eq_historical_max_depth;
+  }
+  if(eqType == EQ_HISTORICAL_FOR_MAG) {
+     eq_min=eq_historical_min_mag;
+     eq_max=eq_historical_max_mag;
+  }
+  if(eqType == EQ_HISTORICAL_FOR_TIME) {
+     eq_min=eq_historical_min_time.getTime();
+     eq_max=eq_historical_max_time.getTime();
+     eq_target=target.getTime();
+  }
  
   if(eq_target <= eq_min) {
     return 0;  
@@ -291,6 +329,9 @@ function changePixiOverlay(typestr) {
     case "rossdepth": togglePixiOverlay(EQ_ROSS_FOR_DEPTH); showSeisimicityKey("ross_depth"); break;
     case "rossmag": togglePixiOverlay(EQ_ROSS_FOR_MAG); showSeisimicityKey("ross_mag"); break;
     case "rosstime": togglePixiOverlay(EQ_ROSS_FOR_TIME); showSeisimicityKey("ross_time"); break;
+    case "historicaldepth": togglePixiOverlay(EQ_HISTORICAL_FOR_DEPTH); showSeisimicityKey("historical_depth"); break;
+    case "historicalmag": togglePixiOverlay(EQ_HISTORICAL_FOR_MAG); showSeisimicityKey("historical_mag"); break;
+    case "historicaltime": togglePixiOverlay(EQ_HISTORICAL_FOR_TIME); showSeisimicityKey("historical_time"); break;
   }
   return;
 }

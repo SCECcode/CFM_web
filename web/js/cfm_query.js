@@ -661,10 +661,11 @@ function _getLastQuakesByChunk(quake_type, startpoint, endpoint, chunk_step) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
             var eqarray=processQuakeResult("allQuakesByChunk");
             add2QuakeValue(eqarray.length);
-            add2QuakePoints(eqarray);
+            add2QuakePoints(quake_type,eqarray);
             // start earlier set
             var chunks = (quake_type == QUAKE_TYPE_ROSS) ? (DATA_CHUNK_COUNT *3) : DATA_CHUNK_COUNT;
-            _getAllQuakesByChunk(quake_type, 0, chunks, chunk_step);
+//            _getAllQuakesByChunk(quake_type, 0, chunks, chunk_step);
+            _getAllQuakesByChunk(quake_type, 0, 2, 1000);
         }
     };
 window.console.log(" calling php on the leftover.."+"start"+startpoint+" end"+endpoint);

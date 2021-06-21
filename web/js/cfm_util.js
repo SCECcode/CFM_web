@@ -966,7 +966,7 @@ function _processTimeString(t) {
     return str;
 }
 
-function add2QuakePoints(eqarray) {
+function add2QuakePoints(quake_type,eqarray) {
     eqarray.forEach(function(marker) {
         var lat=parseFloat(marker['Lat']);
         var lng=parseFloat(marker['Lon']);
@@ -976,23 +976,43 @@ function add2QuakePoints(eqarray) {
 // but need it to be in :"1981-01-01T01:49:29.504"
         var t=_processTimeString(marker['Time']);
         var otime=new Date(t);
-        var didx=getRangeIdx(EQ_HAUKSSON_FOR_DEPTH, depth);
-        updateMarkerLatlng(EQ_HAUKSSON_FOR_DEPTH,didx,lat,lng);
-        var midx= getRangeIdx(EQ_HAUKSSON_FOR_MAG, mag);
-        updateMarkerLatlng(EQ_HAUKSSON_FOR_MAG,midx,lat,lng);
-        var tidx= getRangeIdx(EQ_HAUKSSON_FOR_TIME, otime);
-        updateMarkerLatlng(EQ_HAUKSSON_FOR_TIME,tidx,lat,lng);
+        switch (quake_type) {
+          case QUAKE_TYPE_HAUKSSON:
+            var didx=getRangeIdx(EQ_HAUKSSON_FOR_DEPTH, depth);
+            updateMarkerLatlng(EQ_HAUKSSON_FOR_DEPTH,didx,lat,lng);
+            var midx= getRangeIdx(EQ_HAUKSSON_FOR_MAG, mag);
+            updateMarkerLatlng(EQ_HAUKSSON_FOR_MAG,midx,lat,lng);
+            var tidx= getRangeIdx(EQ_HAUKSSON_FOR_TIME, otime);
+            updateMarkerLatlng(EQ_HAUKSSON_FOR_TIME,tidx,lat,lng);
+            break;
+          case QUAKE_TYPE_ROSS:
+            var didx=getRangeIdx(EQ_ROSS_FOR_DEPTH, depth);
+            updateMarkerLatlng(EQ_ROSS_FOR_DEPTH,didx,lat,lng);
+            var midx= getRangeIdx(EQ_ROSS_FOR_MAG, mag);
+            updateMarkerLatlng(EQ_ROSS_FOR_MAG,midx,lat,lng);
+            var tidx= getRangeIdx(EQ_ROSS_FOR_TIME, otime);
+            updateMarkerLatlng(EQ_ROSS_FOR_TIME,tidx,lat,lng);
+            break;
+          case QUAKE_TYPE_HISTORICAL:
+            var didx=getRangeIdx(EQ_HISTORICAL_FOR_DEPTH, depth);
+            updateMarkerLatlng(EQ_HISTORICAL_FOR_DEPTH,didx,lat,lng);
+            var midx= getRangeIdx(EQ_HISTORICAL_FOR_MAG, mag);
+            updateMarkerLatlng(EQ_HISTORICAL_FOR_MAG,midx,lat,lng);
+            var tidx= getRangeIdx(EQ_HISTORICAL_FOR_TIME, otime);
+            updateMarkerLatlng(EQ_HISTORICAL_FOR_TIME,tidx,lat,lng);
+            break;
+        }
     });
 }
 
 function add2QuakePointsChunk(quake_type, eqarray, next_chunk, total_chunk, step) {
-    add2QuakePoints(eqarray);
+    add2QuakePoints(quake_type,eqarray);
     // get next chunk
     _getAllQuakesByChunk(quake_type, next_chunk, total_chunk, step);
 }
 // default showing depth
 function showQuakePoints(eqType, eqarray) {
-   add2QuakePoints(eqarray);
+   add2QuakePoints(quake_type,eqarray);
    setup_pixi(eqType);
 }
 
@@ -1029,10 +1049,16 @@ function getQuakeSize( level, count ) {
 function processQuakeMeta(quake_type) {
     var str = $('[data-side="quake-meta"]').data('params');
     var blob;
-    if(quake_type == QUAKE_TYPE_HAUKSSON) {
-      blob=str.Hauksson; // 
-      } else {
-        blob=str.Ross;
+    switch (quake_type) {
+      case QUAKE_TYPE_HAUKSSON:
+        blob=str.Hauksson; // 
+        break;
+      case QUAKE_TYPE_ROSS:
+        blob=str.Ross; // 
+        break;
+      case QUAKE_TYPE_HISTORICAL:
+        blob=str.Historical; // 
+        break;
     }
     var meta=JSON.parse(blob);
 

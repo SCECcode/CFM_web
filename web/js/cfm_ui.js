@@ -263,6 +263,18 @@ function showSeisimicityKey(type) {
         showColorLegend("ross_time.png");
         return;
     }
+    if(type == "historical_depth") {
+        showColorLegend("historical_depth.png");
+        return;
+    }
+    if(type == "historical_mag") {
+        showColorLegend("historical_mag.png");
+        return;
+    }
+    if(type == "historial_time") {
+        showColorLegend("historical_time.png");
+        return;
+    }
 }
 
 function removeSeisimicityKey() {
