@@ -16,6 +16,18 @@ var dip_range_max_ref = 0;
 var dip_range_min = 0;
 var dip_range_max = 0;
 
+function switchModalWaitEQLabel(quake_type) {
+  var p = document.getElementById("modalwaiteqLabel");
+  switch (quake_type) {
+     case QUAKE_TYPE_HAUKSSON: 
+       p.textContent="Please wait, retrieving Hauksson .."; break;
+     case QUAKE_TYPE_ROSS:
+       p.textContent="Please wait, retrieving Ross .."; break;
+     case QUAKE_TYPE_HISTORICAL:
+       p.textContent="Please wait, retrieving Historical .."; break;
+  }
+}
+
 // track the eq-counter
 function startQuakeCounter(quake_meta) {
   let elm = $("#eq-expected");
@@ -1000,6 +1012,9 @@ function add2QuakePoints(quake_type,eqarray) {
             updateMarkerLatlng(EQ_HISTORICAL_FOR_MAG,midx,lat,lng);
             var tidx= getRangeIdx(EQ_HISTORICAL_FOR_TIME, otime);
             updateMarkerLatlng(EQ_HISTORICAL_FOR_TIME,tidx,lat,lng);
+// XX
+            cfm_quake_historical_latlng.push([lat,lng]);
+            cfm_quake_historical_description.push( marker['Description']);
             break;
         }
     });
@@ -1010,7 +1025,8 @@ function add2QuakePointsChunk(quake_type, eqarray, next_chunk, total_chunk, step
     // get next chunk
     _getAllQuakesByChunk(quake_type, next_chunk, total_chunk, step);
 }
-// default showing depth
+
+// all data are brought in, default showing depth
 function showQuakePoints(quake_type, eqarray) {
    add2QuakePoints(quake_type,eqarray);
    setup_pixi(quake_type);
@@ -1025,16 +1041,7 @@ function showQuakePointsAndBound(eqarray,swlat,swlon,nelat,nelon) {
    cfm_quake_group.addLayer(layer);
 }
 
-function showQuakePoints1(eqarray) {
-  var layer=undefined;
-  var trace=makeQuakeGeoJSONFeature(1,eqarray,5,"red");
-  if( trace != undefined ) {
-    layer=addGeoToMap(trace, viewermap);
-  }
-  return layer;
-}
-
-
+// size to show with historical EQ marker
 // zoom value : 7 -> sz =1
 // zoom value : 11 return 3
 function getQuakeSize( level, count ) {

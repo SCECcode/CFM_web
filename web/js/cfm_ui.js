@@ -17,13 +17,13 @@ function updatePrograssBar(width) {
 }
 
 function loadSeisimicity() {
-window.console.log("STEP..");
+window.console.log("LOADING SEISI..");
    if(seisimicity_loaded == false) {
      initForPixiOverlay(); 
 // ROSS and HISTORICAL are loaded as side-effect
      getAllQuakes(QUAKE_TYPE_HAUKSSON);  
      seisimicity_loaded = true;
-     showSeisimicityKey("haukssondepth");
+     showSeisimicityKey("hauksson_depth");
      $('#seisimicitySelect').css("display", "");
      $('#quakesBtn').css("display", "none");
    }

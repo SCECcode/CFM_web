@@ -587,17 +587,17 @@ function getAllEarthQuakesByChunk(quake_type,quake_meta) {
    var total = parseInt(quake_meta['total']);
    var chunk_step;
    var chunks;
-= (quake_type == QUAKE_TYPE_ROSS) ? (DATA_CHUNK_COUNT *3) : DATA_CHUNK_COUNT;
    switch (quake_type) {
       case QUAKE_TYPE_HAUKSSON : chunks=DATA_CHUNK_COUNT; break;
       case QUAKE_TYPE_ROSS : chunks=DATA_CHUNK_COUNT*3; break;
-      case QUAKE_TYPE_HISTORICAL : chunks=quake_meta['total'] break;
+      case QUAKE_TYPE_HISTORICAL : chunks=quake_meta['total']; break;
    }
 
    var chunk_step = Math.floor(total / chunks);
    var leftover=total - (chunk_step * chunks);
 
    startQuakeCounter(quake_meta);
+   switchModalWaitEQLabel(quake_type);
 
    if(leftover > 0) {
       var startpoint= chunk_step * chunks;
@@ -708,6 +708,8 @@ function quakesByLatlon(quake_meta,swLat,swLon,neLat,neLon) {
     }
     // turn on data retrieval spiner..
     startQuakeCounter(quake_meta);
+    switchModalWaitEQLabel(QUAKE_TYPE_HAUKSSON);
+
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;

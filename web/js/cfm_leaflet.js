@@ -195,20 +195,8 @@ function setup_viewer()
   }
   mymap.on('mouseover', onMapMouseOver);
 
-  function onMapZoom(e) {
+  function onMapZoom(e) { // change fault weight
     var zoom=mymap.getZoom();
-    if(zoom >= seisimicity_map_zoom_level && enable_seisimicity) {
-      window.console.log("map got zoomed..>>",zoom);
-      removeSeisimicityLayer();
-      var bounds=get_bounds();
-      var sw=bounds.getSouthWest();
-      var ne=bounds.getNorthEast();
-      window.console.log("map's bounds..>>", sw,ne);
-      if(enable_seisimicity) {
-         get_seisimicity(sw,ne);   
-         enable_seisimicity=0; // do it only once
-      }
-    }
 //window.console.log("map got zoomed..>>",zoom);
     if( fault_width_change && zoom > default_zoom_threshold) {
        change_fault_weight(default_weight); // change width to 2px
@@ -394,29 +382,6 @@ function makeRectangleLayer(latA,lonA,latB,lonB) {
   return layer;
 }
 
-function setupSeisimicityLayer() {
-  if(cfm_quake_group != null) {
-    removeSeisimicityLayer();
-  }
-  cfm_quake_group = new L.FeatureGroup();
-  mymap.addLayer(cfm_quake_group);
-}
-
-function removeSeisimicityLayer() {
-  if(cfm_quake_group != null) {
-      cfm_quake_group.clearLayers();
-      mymap.removeLayer(cfm_quake_group);
-      cfm_quake_group=null;
-  }
-}
-
-
-function addLeafletMarkerLayer(lat,lon) {
-  var bounds = [lat, lon];
-  var layer = new L.marker(bounds,point_options).addTo(viewermap);
-  return layer;
-}
-
 function makeLeafletMarker(bounds,cname,size,color) {
 var sz=size;
 var hsz=-0.5*sz;
@@ -452,22 +417,18 @@ const localIcon = L.divIcon({
   return layer;
 }
 
-// color has 20 different colors
-function addPointsLayerGroup(lats,lngs,clist) {
-  var cnt=lats.length;
+function addMarkerLayerGroup(latlng,description,color) {
+  var cnt=latlng.length;
   if(cnt < 1)
     return null;
   var layers=[];
   var zoom=mymap.getZoom();
   var sz=getQuakeSize(zoom,cnt);
-  window.console.log("using sz for points >>", sz);
   for(var i=0;i<cnt;i++) {
-     var lat=lats[i];
-     var lon=lngs[i];
-     var bounds = [lat,lon];
-     var cclass=clist[i];
-     var cstr=cclass+" default-point-icon";
-     var layer=makeLeafletMarker(bounds,cstr,sz,'black');
+     var bounds = latlng[i];
+     var cstr="default-point-icon";
+     var layer=makeLeafletMarker(bounds,cstr,sz,color);
+//XX  tie a popup label with layer
      layers.push(layer);
   }
   var group = new L.FeatureGroup(layers);

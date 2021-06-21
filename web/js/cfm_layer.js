@@ -136,18 +136,18 @@ const QUAKE_TYPE_HAUKSSON=1;
 const QUAKE_TYPE_ROSS=2;
 const QUAKE_TYPE_HISTORICAL=3;
 
-// for tracking groups of earthquakes for HISTORICAL ones..
-// the leaflet trace feature with MultiPoint geometry
+var showing_historical=false;
+
+// for tracking groups of earthquakes for HISTORICAL dataset
+var cfm_quake_historical_layer=null;
+var cfm_quake_historical_latlng=[];
+var cfm_quake_historical_description=[];
+
+// Not USED
 var cfm_quake_group=null;
 // {"group_id":groupid, "trace":a_trace}
 var cfm_quake_group_list=[];
    
-// { "minTime":minTime, "maxTime":maxTime, "minLon":minLon, "maxLon":maxLon, 
-//   "minLat":minLat, "maxLat":maxLat, "minDepth":minDepth, "maxDepth":maxDepth,
-//   "minMag":minMag, "maxMag":maxMag };
-var cfm_hauksson_quake_meta=null;
-var cfm_ross_quake_meta=null;
-
 /*********************************************************
 *********************************************************/
 
@@ -987,6 +987,34 @@ function add_bounding_rectangle_layer(layer, a,b,c,d) {
 
 /*********************************************************
 *********************************************************/
+function makeHistoricalEQLayer() {
+   // create a group layer with many marker within..
+   //   collect up latlng, description list, "red"
+   cfm_quake_historical_layer=addMarkerLayerGroup(
+                           cfm_quake_historical_latlng,
+                           cfm_quake_historical_description,
+                           "red");
+   window.console.log("   made a historicalEQ layer..");
+};
+
+function removeHistoricalEQLayer() {
+    viewermap.removeLayer(cfm_historical_quake_layer);
+    showing_historical=false;
+}
+
+function addHistoricalEQLayer() {
+    if(showing_historical)
+      return;
+
+    if(cfm_quake_historical_layer==null) {
+      makeHistoricalEQLayer();
+      } else {
+        viewermap.addLayer(cfm_quake_historical_layer);
+    }
+    showing_historical=true;
+}
+
+// NOT USED:
 // with array of quake info in JSONs
 // groupping can be by mag, by date, or by depth
 function makeQuakeGeoJSONFeature(groupid,quakeJSONArray,pointSize,pointColor) {

@@ -11,9 +11,9 @@ const EQ_HAUKSSON_FOR_TIME=2;
 const EQ_ROSS_FOR_DEPTH=3;
 const EQ_ROSS_FOR_MAG=4;
 const EQ_ROSS_FOR_TIME=5;
-const EQ_HISTORICAL_FOR_DEPTH=3;
-const EQ_HISTORICAL_FOR_MAG=4;
-const EQ_HISTORICAL_FOR_TIME=5;
+const EQ_HISTORICAL_FOR_DEPTH=6;
+const EQ_HISTORICAL_FOR_MAG=7;
+const EQ_HISTORICAL_FOR_TIME=8;
 
 /* data sections, to matching marker name markerN_icon.png */
 const DATA_SEGMENT_COUNT= 20; // 0 to 19 -- to matching marker names
@@ -322,16 +322,45 @@ function changePixiOverlay(typestr) {
 // return to initial map
   refresh_map();
   switch (typestr) {
-    case "none": removeSeisimicityKey(); break;
-    case "haukssondepth": togglePixiOverlay(EQ_HAUKSSON_FOR_DEPTH); showSeisimicityKey("hauksson_depth"); break;
-    case "haukssonmag": togglePixiOverlay(EQ_HAUKSSON_FOR_MAG); showSeisimicityKey("hauksson_mag"); break;
-    case "haukssontime": togglePixiOverlay(EQ_HAUKSSON_FOR_TIME); showSeisimicityKey("hauksson_time"); break;
-    case "rossdepth": togglePixiOverlay(EQ_ROSS_FOR_DEPTH); showSeisimicityKey("ross_depth"); break;
-    case "rossmag": togglePixiOverlay(EQ_ROSS_FOR_MAG); showSeisimicityKey("ross_mag"); break;
-    case "rosstime": togglePixiOverlay(EQ_ROSS_FOR_TIME); showSeisimicityKey("ross_time"); break;
-    case "historicaldepth": togglePixiOverlay(EQ_HISTORICAL_FOR_DEPTH); showSeisimicityKey("historical_depth"); break;
-    case "historicalmag": togglePixiOverlay(EQ_HISTORICAL_FOR_MAG); showSeisimicityKey("historical_mag"); break;
-    case "historicaltime": togglePixiOverlay(EQ_HISTORICAL_FOR_TIME); showSeisimicityKey("historical_time"); break;
+    case "none": removeSeisimicityKey();
+                //XXX removeHistoricalEQLayer();
+                 break;
+    case "haukssondepth": togglePixiOverlay(EQ_HAUKSSON_FOR_DEPTH);
+                          showSeisimicityKey("hauksson_depth");
+                          addHistoricalEQLayer();
+                          break;
+    case "haukssonmag": togglePixiOverlay(EQ_HAUKSSON_FOR_MAG);
+                        showSeisimicityKey("hauksson_mag");
+                        addHistoricalEQLayer();
+                        break;
+    case "haukssontime": togglePixiOverlay(EQ_HAUKSSON_FOR_TIME);
+                         showSeisimicityKey("hauksson_time");
+                         addHistoricalEQLayer();
+                         break;
+    case "rossdepth": togglePixiOverlay(EQ_ROSS_FOR_DEPTH);
+                      showSeisimicityKey("ross_depth");
+                      addHistoricalEQLayer();
+                      break;
+    case "rossmag": togglePixiOverlay(EQ_ROSS_FOR_MAG);
+                    showSeisimicityKey("ross_mag");
+                    addHistoricalEQLayer();
+                    break;
+    case "rosstime": togglePixiOverlay(EQ_ROSS_FOR_TIME);
+                     showSeisimicityKey("ross_time");
+                     addHistoricalEQLayer();
+                     break;
+    case "historicaldepth": togglePixiOverlay(EQ_HISTORICAL_FOR_DEPTH);
+                            showSeisimicityKey("historical_depth");
+                            addHistoricalEQLayer();
+                            break;
+    case "historicalmag": togglePixiOverlay(EQ_HISTORICAL_FOR_MAG);
+                          showSeisimicityKey("historical_mag");
+                          addHistoricalEQLayer();
+                          break;
+    case "historicaltime": togglePixiOverlay(EQ_HISTORICAL_FOR_TIME);
+                           showSeisimicityKey("historical_time");
+                           addHistoricalEQLayer();
+                           break;
   }
   return;
 }

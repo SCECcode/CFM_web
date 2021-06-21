@@ -155,6 +155,9 @@ class="custom-select custom-select-sm" style="width:5rem;display:none">
    <option value="rossdepth">R depth</option>
    <option value="rossmag">R mag</option>
    <option value="rosstime">R time</option>
+   <option value="historicaldepth">O depth</option>
+   <option value="historicalmag">O mag</option>
+   <option value="historicaltime">O time</option>
 </select>
  for Seisimicity (Warning, long initial processing time) 
 </p>
@@ -582,7 +585,7 @@ class="custom-select custom-select-sm" style="width:5rem;display:none">
       <!--Body-->
       <div class="modal-body" id="modalwaiteqBody">
         <div class="row col-md-12 ml-auto" style="overflow:hidden; font-size:10pt">
-           <p style="font-size:25px">Extracting seisimicity, please wait ... 
+           <p id="modalwaiteqLabel" style="font-size:25px">Please wait, loading seisimicity
                 <div class="row" style="display:none" >
                 <input type="text" style="margin-left:50px;width:100px;" id="eq-total" value="0">
                 <input type="text" style="width:100px;margin-right:50px;" id="eq-expected" value="0">
