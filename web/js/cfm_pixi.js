@@ -323,7 +323,7 @@ function changePixiOverlay(typestr) {
   refresh_map();
   switch (typestr) {
     case "none": removeSeisimicityKey();
-                //XXX removeHistoricalEQLayer();
+                 removeHistoricalEQLayer();
                  break;
     case "haukssondepth": togglePixiOverlay(EQ_HAUKSSON_FOR_DEPTH);
                           showSeisimicityKey("hauksson_depth");
@@ -480,11 +480,11 @@ function makePixiOverlayLayer(quake_type) {
         }
 
         var origin = pixi_project([mapcenter['lat'], mapcenter['lng']]);
-//        initialScale = invScale / 16; // initial size of the marker
-initialScale = invScale / 2; // initial size of the marker
+        initialScale = invScale / 16; // initial size of the marker
+//initialScale = invScale / 2; // initial size of the marker
 
 window.console.log("FFFirst time making this pixiOverlay,"+quake_type+" initial scale "+initialScale +" mapzoom" + mapzoom);
-        printMarkerLatlngInfo(quake_type);
+        //printMarkerLatlngInfo(quake_type);
 
         // fill in the particles
         for(var i=0; i< DATA_SEGMENT_COUNT; i++ ) {

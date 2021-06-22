@@ -992,13 +992,11 @@ function makeHistoricalEQLayer() {
    //   collect up latlng, description list, "red"
    cfm_quake_historical_layer=addMarkerLayerGroup(
                            cfm_quake_historical_latlng,
-                           cfm_quake_historical_description,
-                           "red");
-   window.console.log("XXX   made a historicalEQ layer..");
+                           cfm_quake_historical_description);
 };
 
 function removeHistoricalEQLayer() {
-    viewermap.removeLayer(cfm_historical_quake_layer);
+    viewermap.removeLayer(cfm_quake_historical_layer);
     showing_historical=false;
 }
 

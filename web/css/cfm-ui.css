@@ -95,26 +95,7 @@
   frameborder:2;
 }
 
-.quake-color-0 { background:#060d62}
-.quake-color-1 { background:#0e189c}
-.quake-color-2 { background:#0a17c2}
-.quake-color-3 { background:#3341ec}
-.quake-color-4 { background:#338dec}
-.quake-color-5 { background:#33bdec}
-.quake-color-6 { background:#54d0ef}
-.quake-color-7 { background:#54efe2}
-.quake-color-8 { background:#54ef93}
-.quake-color-9 { background:#94f696}
-.quake-color-10 { background:#baf694}
-.quake-color-11 { background:#d6f694}
-.quake-color-12 { background:#f6fe4b}
-.quake-color-13 { background:#fed24b}
-.quake-color-14 { background:#fbaf40}
-.quake-color-15 { background:#fc7b1f}
-.quake-color-16 { background:#fc611f}
-.quake-color-17 { background:#fb2219}
-.quake-color-18 { background:#cd0e06}
-.quake-color-19 { background:#960505}
+.quake-color-historical { background:red}
 
 .default-point-icon {
   border:0px solid rgba(0,0,0,0.5);

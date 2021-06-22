@@ -1030,6 +1030,7 @@ function add2QuakePointsChunk(quake_type, eqarray, next_chunk, total_chunk, step
 function showQuakePoints(quake_type, eqarray) {
    add2QuakePoints(quake_type,eqarray);
    setup_pixi(quake_type);
+   addHistoricalEQLayer();
 }
 
 // default to depth
@@ -1039,17 +1040,6 @@ function showQuakePointsAndBound(eqarray,swlat,swlon,nelat,nelon) {
    // create a bounding area and add to the layergroup
    var layer=makeRectangleLayer(swlat,swlon,nelat,nelon);
    cfm_quake_group.addLayer(layer);
-}
-
-// size to show with historical EQ marker
-// zoom value : 7 -> sz =1
-// zoom value : 11 return 3
-function getQuakeSize( level, count ) {
-   if(count > 1000) 
-      return 2;
-   if(count > 100)
-      return 3;
-   return 5;
 }
 
 // Hauksson's
