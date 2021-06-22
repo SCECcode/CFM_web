@@ -590,7 +590,7 @@ function getAllEarthQuakesByChunk(quake_type,quake_meta) {
    switch (quake_type) {
       case QUAKE_TYPE_HAUKSSON : chunks=DATA_CHUNK_COUNT*2; break;
       case QUAKE_TYPE_ROSS : chunks=DATA_CHUNK_COUNT*2; break;
-      case QUAKE_TYPE_HISTORICAL : chunks=quake_meta['total']; break;
+      case QUAKE_TYPE_HISTORICAL : chunks=1; break;
    }
 
    var chunk_step = Math.floor(total / chunks);
@@ -666,7 +666,7 @@ function _getLastQuakesByChunk(quake_type, startpoint, endpoint, chunk_step) {
             add2QuakeValue(eqarray.length);
             add2QuakePoints(quake_type,eqarray);
             // start earlier set
-            var chunks = (quake_type == QUAKE_TYPE_ROSS) ? (DATA_CHUNK_COUNT *2) : DATA_CHUNK_COUNT;
+            var chunks = (quake_type == QUAKE_TYPE_HISTORICAL) ? 1 : (DATA_CHUNK_COUNT *2);
             _getAllQuakesByChunk(quake_type, 0, chunks, chunk_step);
 //            _getAllQuakesByChunk(quake_type, 0, 2, 1000);
         }
