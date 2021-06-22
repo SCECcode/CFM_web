@@ -666,7 +666,7 @@ function _getLastQuakesByChunk(quake_type, startpoint, endpoint, chunk_step) {
             add2QuakeValue(eqarray.length);
             add2QuakePoints(quake_type,eqarray);
             // start earlier set
-            var chunks = (quake_type == QUAKE_TYPE_ROSS) ? (DATA_CHUNK_COUNT *3) : DATA_CHUNK_COUNT;
+            var chunks = (quake_type == QUAKE_TYPE_ROSS) ? (DATA_CHUNK_COUNT *2) : DATA_CHUNK_COUNT;
             _getAllQuakesByChunk(quake_type, 0, chunks, chunk_step);
 //            _getAllQuakesByChunk(quake_type, 0, 2, 1000);
         }
