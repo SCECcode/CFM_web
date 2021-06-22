@@ -486,7 +486,7 @@ function makePixiOverlayLayer(quake_type) {
 //initialScale = invScale / 2; // initial size of the marker
 
 window.console.log("FFFirst time making this pixiOverlay,"+quake_type+" initial scale "+initialScale +" mapzoom" + mapzoom);
-        //printMarkerLatlngInfo(quake_type);
+        printMarkerLatlngInfo(quake_type);
 
         // fill in the particles
         for(var i=0; i< DATA_SEGMENT_COUNT; i++ ) {

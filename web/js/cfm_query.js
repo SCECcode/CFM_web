@@ -624,11 +624,11 @@ function _getAllQuakesByChunk(quake_type, current_chunk, total_chunk, chunk_step
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
             var eqarray=processQuakeResult("allQuakesByChunk");
+            add2QuakeValue(eqarray.length);
             var next_chunk=current_chunk+1;
 
             if(next_chunk == total_chunk) { // got last chunk 
               add2QuakePoints(quake_type,eqarray);
-              add2QuakeValue(eqarray.length);
               doneQuakeCounter();
               if(quake_type == QUAKE_TYPE_HAUKSSON) { // load ROSS next 
                  getAllQuakes(QUAKE_TYPE_ROSS);
