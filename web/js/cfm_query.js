@@ -588,8 +588,8 @@ function getAllEarthQuakesByChunk(quake_type,quake_meta) {
    var chunk_step;
    var chunks;
    switch (quake_type) {
-      case QUAKE_TYPE_HAUKSSON : chunks=DATA_CHUNK_COUNT; break;
-      case QUAKE_TYPE_ROSS : chunks=DATA_CHUNK_COUNT*3; break;
+      case QUAKE_TYPE_HAUKSSON : chunks=DATA_CHUNK_COUNT*2; break;
+      case QUAKE_TYPE_ROSS : chunks=DATA_CHUNK_COUNT*2; break;
       case QUAKE_TYPE_HISTORICAL : chunks=quake_meta['total']; break;
    }
 

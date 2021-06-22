@@ -144,22 +144,6 @@ $header = getHeader("Viewer");
     <div class="row">
         <div class="col-12">
 <p>The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model (CFM)</a> are three-dimensional and non-planar; however, to simplify browsing the model, the viewer below provides a two-dimensional map-based view of the SCEC CFM version 5.3 preferred fault set. The alternative fault representations are only provided in the complete CFM archive available for download on the <a href="https://www.scec.org/research/cfm">CFM homepage</a>. Here, the viewer allows users to view and download fault geometry data as well as metadata for selected faults rather than downloading the entire CFM model archive. Once faults are selected, the “PLOT3D” button can be used to view the selected faults in a basic CAD-like environment. See the user guide for more details and site usage instructions.
-Press 
-<button id="quakesBtn" class="btn btn-black cfm-small-btn" onClick="loadSeisimicity()" style="color:#990000;background:transparent"><span class="glyphicon glyphicon-star-empty"></span></button>
-<select id="seisimicitySelect" onchange="changePixiOverlay(this.value)" 
-class="custom-select custom-select-sm" style="width:5rem;display:none">
-   <option value="none"> none</option>
-   <option selected value="haukssondepth">H depth</option>
-   <option value="haukssonmag">H mag</option>
-   <option value="haukssontime">H time</option>
-   <option value="rossdepth">R depth</option>
-   <option value="rossmag">R mag</option>
-   <option value="rosstime">R time</option>
-   <option value="historicaldepth">O depth</option>
-   <option value="historicalmag">O mag</option>
-   <option value="historicaltime">O time</option>
-</select>
- for Seisimicity (Warning, long initial processing time) 
 </p>
         </div>
     </div>
@@ -176,10 +160,10 @@ class="custom-select custom-select-sm" style="width:5rem;display:none">
     </div>
 
     <div id="controls-container" class="row d-flex mb-1">
-        <div class="col-6 mb-0">
-             <div class="input-group filters" style="min-width:70%">
+        <div class="col-5 mb-0">
+             <div class="input-group filters" style="min-width:68%">
                 <select id="search-filter-type" class="custom-select">
-                    <option value="dismissClick">Search by ...</option>
+                    <option value="dismissClick">Search by </option>
                     <option value="keywordClick">Keyword</option>
                     <option value="latlonClick">Latitude &amp; Longitude</option>
                     <option value="areaClick">Area</option>
@@ -393,7 +377,26 @@ class="custom-select custom-select-sm" style="width:5rem;display:none">
                 </div>
             </div>
         </div>
-        <div class="col-6 d-flex justify-content-end">
+<!--XX Sesimicity -->
+        <div class="col-2 mt-2 pl-0">
+<button id="quakesBtn" class="btn" onClick="loadSeisimicity()" style="color:#495057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.2rem 0.5rem;">Seisimicity</button>
+<select id="seisimicitySelect" onchange="changePixiOverlay(this.value)"
+class="custom-select custom-select-sm" style="width:10rem;display:none">
+   <option value="none"> none</option>
+   <option selected value="haukssondepth">Hauksson depth</option>
+   <option value="haukssonmag">Hauksson mag</option>
+   <option value="haukssontime">Hauksson time</option>
+   <option value="rossdepth">Ross depth</option>
+   <option value="rossmag">Ross mag</option>
+   <option value="rosstime">Ross time</option>
+<!--
+   <option value="historicaldepth">O depth</option>
+   <option value="historicalmag">O mag</option>
+   <option value="historicaltime">O time</option>
+-->
+</select>
+        </div>
+        <div class="col-5 d-flex justify-content-end">
             <div class="input-group input-group-sm cfm-input-group mt-2" id="map-controls">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="mapLayer">Select Map Type</label>
