@@ -27,22 +27,22 @@ var eq_hauksson_min_depth = 0.0;
 var eq_hauksson_max_depth = 20.0;
 var eq_hauksson_min_mag = 0.0;
 var eq_hauksson_max_mag = 6.0;
-var eq_hauksson_min_time = new Date("1980-01-01T01:49:29.504");
-var eq_hauksson_max_time = new Date("2020-12-31T23:28:38.59");
+var eq_hauksson_min_time = new Date("1980-01-01T00:00:00");
+var eq_hauksson_max_time = new Date("2020-12-31T24:00:00");
 
 var eq_ross_min_depth = 0.0;
 var eq_ross_max_depth = 20.0;
 var eq_ross_min_mag = 0.0;
 var eq_ross_max_mag = 6.0;
 var eq_ross_min_time = new Date("2008-01-01T00:00:00");
-var eq_ross_max_time = new Date("2018-01-01T00:00:00");
+var eq_ross_max_time = new Date("2018-12-31T24:00:00");
 
 var eq_historical_min_depth = 0.0;
 var eq_historical_max_depth = 20.0;
 var eq_historical_min_mag = 0.0;
 var eq_historical_max_mag = 6.0;
-var eq_historical_min_time = new Date("1980-01-01T01:49:29.504");
-var eq_historical_max_time = new Date("2020-12-31T23:28:38.59");
+var eq_historical_min_time = new Date("1980-01-01T00:00:00");
+var eq_historical_max_time = new Date("2020-12-31T24:00:00");
 
 /* multiple set of pixi+marker containers                            */
 /* [{"type":EQ_HAUKSSON_FOR_DEPTH, "vis":true, "layer": overlay,              */
