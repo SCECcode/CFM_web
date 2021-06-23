@@ -1006,7 +1006,7 @@ function add2QuakePoints(quake_type,eqarray) {
             break;
           case QUAKE_TYPE_HISTORICAL:
             // it is possible to null for depth in this case
-            if(depth != null) {
+            if(!isNaN(depth)) {
               var didx=getRangeIdx(EQ_HISTORICAL_FOR_DEPTH, depth);
               updateMarkerLatlng(EQ_HISTORICAL_FOR_DEPTH,didx,lat,lng);
               } else {

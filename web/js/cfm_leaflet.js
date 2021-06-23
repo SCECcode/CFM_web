@@ -382,15 +382,37 @@ function makeRectangleLayer(latA,lonA,latB,lonB) {
   return layer;
 }
 
+
 function makeLeafletMarker(bounds,cname,size) {
   var myIcon = L.divIcon({className:cname});
   var myOptions = { icon : myIcon};
+
   var layer = L.marker(bounds, myOptions);
   var icon = layer.options.icon;
+  var opt=icon.options;
   icon.options.iconSize = [size,size];
   layer.setIcon(icon);
   return layer;
 }
+
+function makeLeafletMarker2(bounds,size) {
+  
+  var myAwesomeIcon = L.divIcon({
+    html: '<i class="fa fa-bullseye" aria-hidden="true"></i>',
+    iconSize: [size, size],
+    className: 'awesome-icon' 
+  }); 
+  var myOptions = { icon : myAwesomeIcon};
+  
+  var layer = L.marker(bounds, myOptions);
+  var icon = layer.options.icon;
+  var opt=icon.options; 
+  icon.options.iconSize = [size,size];
+  layer.setIcon(icon);
+  return layer;
+}
+
+
 
 function addMarkerLayerGroup(latlng,description) {
   var cnt=latlng.length;
@@ -398,13 +420,18 @@ function addMarkerLayerGroup(latlng,description) {
     return null;
   var markers=[];
   var zoom=mymap.getZoom();
-  var sz=5;
-  window.console.log("using sz for points >>", sz);
+  var sz=8;
   for(var i=0;i<cnt;i++) {
      var bounds = latlng[i];
      var desc = description[i];
-     var cstr="quake-color-historical default-point-icon";
-     var marker=makeLeafletMarker(bounds,cstr,sz);
+
+     if(i < cnt/2) {
+       var cstr="quake-color-historical default-point-icon";
+       var marker=makeLeafletMarker(bounds,cstr,sz);
+       } else {
+          var marker=makeLeafletMarker2(bounds);
+     }
+
      marker.bindTooltip(desc);
      markers.push(marker);
   }

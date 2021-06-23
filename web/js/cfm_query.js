@@ -605,6 +605,8 @@ function getAllEarthQuakesByChunk(quake_type,quake_meta) {
       _getLastQuakesByChunk(quake_type, startpoint, endpoint, chunk_step);
       } else {
         _getAllQuakesByChunk(quake_type, 0, chunks, chunk_step);
+//        _getAllQuakesByChunk(quake_type, 0, 1, chunk_step);
+
    } 
 }
 
@@ -669,7 +671,7 @@ function _getLastQuakesByChunk(quake_type, startpoint, endpoint, chunk_step) {
             // start earlier set
             var chunks = (quake_type == QUAKE_TYPE_HISTORICAL) ? 1 : (DATA_CHUNK_COUNT *2);
             _getAllQuakesByChunk(quake_type, 0, chunks, chunk_step);
-//            _getAllQuakesByChunk(quake_type, 0, 2, 1000);
+//XX            _getAllQuakesByChunk(quake_type, 0, 1, 1000);
         }
     };
 window.console.log(" calling php on the leftover.."+"start"+startpoint+" end"+endpoint);
