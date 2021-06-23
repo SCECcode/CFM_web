@@ -1005,8 +1005,13 @@ function add2QuakePoints(quake_type,eqarray) {
             updateMarkerLatlng(EQ_ROSS_FOR_TIME,tidx,lat,lng);
             break;
           case QUAKE_TYPE_HISTORICAL:
-            var didx=getRangeIdx(EQ_HISTORICAL_FOR_DEPTH, depth);
-            updateMarkerLatlng(EQ_HISTORICAL_FOR_DEPTH,didx,lat,lng);
+            // it is possible to null for depth in this case
+            if(depth != null) {
+              var didx=getRangeIdx(EQ_HISTORICAL_FOR_DEPTH, depth);
+              updateMarkerLatlng(EQ_HISTORICAL_FOR_DEPTH,didx,lat,lng);
+              } else {
+                     window.console.log("Historical EQ, got a null depth !!");
+            }
             var midx= getRangeIdx(EQ_HISTORICAL_FOR_MAG, mag);
             updateMarkerLatlng(EQ_HISTORICAL_FOR_MAG,midx,lat,lng);
             var tidx= getRangeIdx(EQ_HISTORICAL_FOR_TIME, otime);

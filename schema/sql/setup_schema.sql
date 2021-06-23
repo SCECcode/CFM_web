@@ -121,13 +121,11 @@ SELECT AddGeometryColumn('','eq_ross_tb','geom','0','POINT',2);
 CREATE TABLE EQ_historical_tb (
    gid serial PRIMARY KEY,
    EventTime timestamp,
-   EventID integer,
+   EventID VARCHAR(20),
    Lon float, 
    Lat float,
-   Depth float,
+   Depth float DEFAULT NULL,
    Mag float,
-   Easting float,
-   Northing float,
    Description VARCHAR(300)
 );
 SELECT AddGeometryColumn('','eq_historical_tb','geom','0','POINT',2);
