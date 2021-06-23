@@ -383,7 +383,7 @@ function makeRectangleLayer(latA,lonA,latB,lonB) {
 }
 
 
-function makeLeafletMarker(bounds,size) {
+function makeLeafletMarker2(bounds,size) {
   var leafIcon = L.icon({
     iconUrl: 'img/star_icon.png',
     iconSize:     [10, 10], 
@@ -400,7 +400,7 @@ function makeLeafletMarker(bounds,size) {
   return layer;
 }
 
-function makeLeafletMarker2(bounds,cname,size) {
+function makeLeafletMarker(bounds,cname,size) {
   var myIcon = L.divIcon({className:cname});
   var myOptions = { icon : myIcon};
 
@@ -430,7 +430,6 @@ function makeLeafletMarker2(bounds,size) {
 }
 
 
-
 function addMarkerLayerGroup(latlng,description) {
   var cnt=latlng.length;
   if(cnt < 1)
@@ -439,9 +438,8 @@ function addMarkerLayerGroup(latlng,description) {
   for(var i=0;i<cnt;i++) {
      var bounds = latlng[i];
      var desc = description[i];
-
-  //   var cstr="quake-color-historical default-point-icon";
-     var marker=makeLeafletMarker(bounds,10);
+     var cstr="quake-color-historical default-point-icon";
+     var marker=makeLeafletMarker(bounds,cname,8);
      marker.bindTooltip(desc);
      markers.push(marker);
   }
