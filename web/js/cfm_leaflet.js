@@ -384,6 +384,23 @@ function makeRectangleLayer(latA,lonA,latB,lonB) {
 
 
 function makeLeafletMarker(bounds,cname,size) {
+  var leafIcon = L.icon({
+    iconUrl: 'img/star_icon.png',
+    iconSize:     [10, 10], 
+    iconAnchor:   [0, 0], 
+    popupAnchor:  [-3, -5] // point from which the popup should open relative to the iconAnchor
+  });
+  var myOptions = { icon : leafIcon};
+
+  var layer = L.marker(bounds, myOptions);
+  var icon = layer.options.icon;
+  var opt=icon.options;
+  icon.options.iconSize = [size,size];
+  layer.setIcon(icon);
+  return layer;
+}
+
+function makeLeafletMarker2(bounds,cname,size) {
   var myIcon = L.divIcon({className:cname});
   var myOptions = { icon : myIcon};
 
@@ -420,12 +437,13 @@ function addMarkerLayerGroup(latlng,description) {
     return null;
   var markers=[];
   var zoom=mymap.getZoom();
-  var sz=8;
+  var sz=10;
   for(var i=0;i<cnt;i++) {
      var bounds = latlng[i];
      var desc = description[i];
 
-     if(i < cnt/2) {
+//     if(i< cnt/2) {
+     if(i) {
        var cstr="quake-color-historical default-point-icon";
        var marker=makeLeafletMarker(bounds,cstr,sz);
        } else {
