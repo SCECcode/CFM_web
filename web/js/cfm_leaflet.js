@@ -383,7 +383,7 @@ function makeRectangleLayer(latA,lonA,latB,lonB) {
 }
 
 
-function makeLeafletMarker(bounds,cname,size) {
+function makeLeafletMarker(bounds,size) {
   var leafIcon = L.icon({
     iconUrl: 'img/star_icon.png',
     iconSize:     [10, 10], 
@@ -436,20 +436,12 @@ function addMarkerLayerGroup(latlng,description) {
   if(cnt < 1)
     return null;
   var markers=[];
-  var zoom=mymap.getZoom();
-  var sz=10;
   for(var i=0;i<cnt;i++) {
      var bounds = latlng[i];
      var desc = description[i];
 
-//     if(i< cnt/2) {
-     if(i) {
-       var cstr="quake-color-historical default-point-icon";
-       var marker=makeLeafletMarker(bounds,cstr,sz);
-       } else {
-          var marker=makeLeafletMarker2(bounds);
-     }
-
+  //   var cstr="quake-color-historical default-point-icon";
+     var marker=makeLeafletMarker(bounds,10);
      marker.bindTooltip(desc);
      markers.push(marker);
   }
