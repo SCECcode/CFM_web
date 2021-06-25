@@ -210,20 +210,45 @@ function toFileMarkerLatlng() {
       var dlist=list.data[i]; //
       var v=list.data[i].length;
       sum=sum+v;
-      var lstr=""+i+":"+v+"\n";
+      var lstr="{id:"+i+",sz:"+v+"}";
+      if(i+1 != DATA_SEGMENT_COUNT)
+          lstr=lstr+",";
       logstr=logstr+lstr;
       _outputBlob(dlist,fname);
     }
-    logstr=logstr+"total:"+sum+"\n";
+    logstr="[{total:"+sum+" , list:["+logstr+"]}]";
     _outputBlob(logstr,logname);
   })
 }
 
+// had to do this manually.. since is is asynchronously
 function _outputBlob(obj,fname) {
-      var ostr=JSON.stringify(obj);
-      var blob = new Blob(["something different"],{ type: "text/plain;charset=utf-8" });
-      saveAs(blob,fname);
-      window.console.log(">>>saving a file.."+fname+" sz "+ostr.length);
+  var ostr=JSON.stringify(obj);
+  writeToServerFile(fname,ostr); 
+
+/*
+  var dload = document.createElement('a');
+  dload.href = URL.createObjectURL(new Blob([ostr], {type: 'text/plain'}));
+  dload.download = fname;
+  dload.style.display='none';
+  document.body.appendChild(dload);
+  dload.click();
+  document.body.removeChild(dload);
+  delete dload;
+*/
+
+/*
+  var link = document.createElement('a');
+  link.download = fname;
+  let blob = new Blob([ostr], {type: 'text/plain'});
+  var rc=link.click();
+  URL.revokeObjectURL(link.href);
+
+  var blob = new Blob([ostr],{ type: "text/plain;charset=utf-8" });
+  saveAs(blob,fname);
+*/
+
+window.console.log(">>>SSS saving a file.."+fname+" sz "+ostr.length);
 }
 
 function loadFromFileMarkerLatlng() {

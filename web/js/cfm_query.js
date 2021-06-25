@@ -4,9 +4,10 @@
 
 const DATA_CHUNK_COUNT=20;
 
-function writeToLocalFile(fname,data) {
+function writeToServerFile(fname,data) {
     var dstr=JSON.stringify(data);
-window.console.log("XXX");
+    params="fname="+fname+"&dstr="+dstr;
+
     if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
@@ -20,9 +21,8 @@ window.console.log("XXX");
             window.console.log("finish writing out ..."+fname);
         }
     };
-
-    xmlhttp.open("GET","php/writeToLocalFile.php?fname="+fname+"&dstr="+dstr,true);
-    xmlhttp.send();
+    xmlhttp.open("POST","php/writeToServerFile.php",true);
+    xmlhttp.send(params);
 }
 
 function searchByStrikeRange(min,max) {

@@ -9,8 +9,8 @@
 include ("util.php");
 $dbconn = getConnection();
 
-$fname = ($_GET['fname']);
-$dstr = ($_GET['dstr']);
+$fname = ($_POST['fname']);
+$dstr = ($_POST['dstr']);
 
 $fp= fopen($fname,"w") or die("Unable to open file!");
 fwrite($fp,$dstr); fwrite($fp,"\n");
