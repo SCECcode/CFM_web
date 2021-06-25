@@ -4,6 +4,25 @@
 
 const DATA_CHUNK_COUNT=20;
 
+function write2LocalFile(fname,data) {
+    var dstr=JSON.stringify(data);
+    if (window.XMLHttpRequest) {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        // code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("phpResponseTxt").innerHTML = this.responseText;
+            window.console.log("finish writing out ..."+fname);
+        }
+    };
+    xmlhttp.open("GET","php/writeToLocalFile.php?fname="+fname+"&dstr="+dstr,true);
+    xmlhttp.send();
+}
+
 function searchByStrikeRange(min,max) {
     if (min == undefined || max == undefined) {
         document.getElementById("cfm-table-body").innerHTML = "";
@@ -638,9 +657,9 @@ function _getAllQuakesByChunk(quake_type, current_chunk, total_chunk, chunk_step
               if(quake_type == QUAKE_TYPE_ROSS) {
                  getAllQuakes(QUAKE_TYPE_HISTORICAL);
               }
-              // display the hauksson depth for the initial setup after evertying comes in
+              // all data are in, 
               if(quake_type == QUAKE_TYPE_HISTORICAL) {
-                  showQuakePoints(EQ_HAUKSSON_FOR_DEPTH,eqarray); // show it after adding last chunk
+                  finishLoadSeismicity();
               } 
               } else{
                 add2QuakePointsChunk(quake_type, eqarray,next_chunk, total_chunk, chunk_step);

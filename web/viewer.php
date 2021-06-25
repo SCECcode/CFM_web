@@ -383,16 +383,16 @@ $header = getHeader("Viewer");
 <select id="seismicitySelect" onchange="changePixiOverlay(this.value)"
 class="custom-select custom-select-sm" style="width:13rem;display:none">
    <option value="none">Show relocated seismicity</option>
-   <option selected value="haukssondepth">H. colored by depth</option>
-   <option value="haukssonmag">H. colored by magnitude </option>
-   <option value="haukssontime">H. colored by time</option>
-   <option value="rossdepth">R. colored by depth</option>
-   <option value="rossmag">R. colored by magnitude</option>
-   <option value="rosstime">R. colored by time</option>
+   <option selected value="haukssondepth">Hauksson by depth</option>
+   <option value="haukssonmag">Hauksson by magnitude</option>
+   <option value="haukssontime">Hauksson by time</option>
+   <option value="rossdepth">Ross by depth</option>
+   <option value="rossmag">Ross by magnitude</option>
+   <option value="rosstime">Ross by time</option>
 <!--
-   <option value="historicaldepth">O depth</option>
-   <option value="historicalmag">O mag</option>
-   <option value="historicaltime">O time</option>
+   <option value="historicaldepth">Historical by depth</option>
+   <option value="historicalmag">Historical by magitude</option>
+   <option value="historicaltime">Historical by time</option>
 -->
 </select>
         </div>

@@ -165,47 +165,49 @@ function toFileMarkerLatlng() {
     var fname_stub;
     switch(type) {
        case EQ_HAUKSSON_FOR_DEPTH:
-         fname_stub="./data/hauksson_depth_";
+         fname_stub="../data/seismicity/hauksson_depth_";
          break;
        case EQ_HAUKSSON_FOR_MAG:
-         fname_stub="./data/hauksson_mag_";
+         fname_stub="../data/seismicity/hauksson_mag_";
          break;
        case EQ_HAUKSSON_FOR_TIME:
-         fname_stub="./data/hauksson_time_";
+         fname_stub="../data/seismicity/hauksson_time_";
          break;
        case EQ_ROSS_FOR_DEPTH:
-         fname_stub="./data/ross_depth_";
+         fname_stub="../data/seismicity/ross_depth_";
          break;
        case EQ_ROSS_FOR_MAG:
-         fname_stub="./data/ross_mag_";
+         fname_stub="../data/seismicity/ross_mag_";
          break;
        case EQ_ROSS_FOR_TIME:
-         fname_stub="./data/ross_time_";
+         fname_stub="../data/seismicity/ross_time_";
          break;
        case EQ_HISTORICAL_FOR_DEPTH:
-         fname_stub="./data/historical_time_";
+         fname_stub="../data/seismicity/historical_time_";
          break;
        case EQ_HISTORICAL_FOR_MAG:
-         fname_stub="./data/historical_mag_";
+         fname_stub="../data/seismicity/historical_mag_";
          break;
        case EQ_HISTORICAL_FOR_TIME:
-         fname_stub="./data/historical_time_";
+         fname_stub="../data/seismicity/historical_time_";
          break;
     }
   
     var list=pixiLatlngList[type];
+    var sum=0;
+    let logname=fname_stub+".log";
+    var logstr=""; 
     for(var i=0; i<DATA_SEGMENT_COUNT; i++) {
       let fname=fname_stub+toString(i)+".csv";
-      let dlist=list.data[i];
-      let sz=dlist.length;
-      let fp=fopen(fname,0);
-      for( var j=0; j< sz; j++) {
-         let data=dlist[j]; 
-         let str=parseString(data['lat'])+","+parseString(data['lng']);
-         fwrite(fp,str);
-      }
-      fclose(fp);
+      let dlist=list.data[i]; //
+      let v=list.data[i].length;
+      sum=sum+v;
+      let lstr=toString(i)+":"+toString(v)+"\n";
+      logstr=logstr+lstr;
+      writeToLocalFile(fname,data);
     }
+    logstr=logstr+"total:"+soString(sum)+"\n";
+    writeToLocalFile(logname,logstr);
   })
 }
 

@@ -22,11 +22,17 @@ window.console.log("LOADING SEISI..");
      initForPixiOverlay(); 
 // ROSS and HISTORICAL are loaded as side-effect
      getAllQuakes(QUAKE_TYPE_HAUKSSON);  
+   }
+}
+
+function finishLoadSeismicity() {
+     setup_pixi(EQ_HAUKSSON_FOR_DEPTH);
+     addHistoricalEQLayer();
+     toFileMarkerLatlng();
      seismicity_loaded = true;
      showSeismicityKey("hauksson_depth");
      $('#seismicitySelect').css("display", "");
      $('#quakesBtn').css("display", "none");
-   }
 }
 
 function disable_record_btn() {

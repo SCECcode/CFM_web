@@ -1034,14 +1034,13 @@ function add2QuakePointsChunk(quake_type, eqarray, next_chunk, total_chunk, step
     _getAllQuakesByChunk(quake_type, next_chunk, total_chunk, step);
 }
 
-// all data are brought in, default showing depth
+/*
 function showQuakePoints(quake_type, eqarray) {
-   add2QuakePoints(quake_type,eqarray);
+//XX   add2QuakePoints(quake_type,eqarray);
    setup_pixi(quake_type);
-   addHistoricalEQLayer();
-// XXX here is to dump it
-   toFileMarkerLatlng();
+   finishLoadSeismicity() 
 }
+*/
 
 // default to depth
 function showQuakePointsAndBound(eqarray,swlat,swlon,nelat,nelon) {
