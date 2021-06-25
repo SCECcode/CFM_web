@@ -17,7 +17,7 @@ function updatePrograssBar(width) {
 }
 
 function loadSeismicity() {
-window.console.log("LOADING SEISI..");
+window.console.log("LOADING SEISMICITY..");
    if(seismicity_loaded == false) {
      initForPixiOverlay(); 
 // ROSS and HISTORICAL are loaded as side-effect

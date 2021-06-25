@@ -2,6 +2,14 @@
    cfm_pixi.js
 ***/
 
+try {
+    var isFileSaverSupported = !!new Blob;
+} catch (e) {
+    window.console.log("FileSaver is not working!!!");
+    abort();
+}
+
+
 // pixi, Leafle.overlayLayer.js
 // handle the seismicity info
 // one set for Hauksson and one set for ROSS
@@ -165,50 +173,57 @@ function toFileMarkerLatlng() {
     var fname_stub;
     switch(type) {
        case EQ_HAUKSSON_FOR_DEPTH:
-         fname_stub="../data/seismicity/hauksson_depth_";
+         fname_stub="hauksson_depth_";
          break;
        case EQ_HAUKSSON_FOR_MAG:
-         fname_stub="../data/seismicity/hauksson_mag_";
+         fname_stub="hauksson_mag_";
          break;
        case EQ_HAUKSSON_FOR_TIME:
-         fname_stub="../data/seismicity/hauksson_time_";
+         fname_stub="hauksson_time_";
          break;
        case EQ_ROSS_FOR_DEPTH:
-         fname_stub="../data/seismicity/ross_depth_";
+         fname_stub="ross_depth_";
          break;
        case EQ_ROSS_FOR_MAG:
-         fname_stub="../data/seismicity/ross_mag_";
+         fname_stub="ross_mag_";
          break;
        case EQ_ROSS_FOR_TIME:
-         fname_stub="../data/seismicity/ross_time_";
+         fname_stub="ross_time_";
          break;
        case EQ_HISTORICAL_FOR_DEPTH:
-         fname_stub="../data/seismicity/historical_time_";
+         fname_stub="historical_time_";
          break;
        case EQ_HISTORICAL_FOR_MAG:
-         fname_stub="../data/seismicity/historical_mag_";
+         fname_stub="historical_mag_";
          break;
        case EQ_HISTORICAL_FOR_TIME:
-         fname_stub="../data/seismicity/historical_time_";
+         fname_stub="historical_time_";
          break;
     }
   
     var list=pixiLatlngList[type];
     var sum=0;
-    let logname=fname_stub+".log";
+    let logname=fname_stub+"log.txt";
     var logstr=""; 
     for(var i=0; i<DATA_SEGMENT_COUNT; i++) {
-      let fname=fname_stub+toString(i)+".csv";
-      let dlist=list.data[i]; //
-      let v=list.data[i].length;
+      var fname=fname_stub+i+".csv";
+      var dlist=list.data[i]; //
+      var v=list.data[i].length;
       sum=sum+v;
-      let lstr=toString(i)+":"+toString(v)+"\n";
+      var lstr=""+i+":"+v+"\n";
       logstr=logstr+lstr;
-      writeToLocalFile(fname,data);
+      _outputBlob(dlist,fname);
     }
-    logstr=logstr+"total:"+soString(sum)+"\n";
-    writeToLocalFile(logname,logstr);
+    logstr=logstr+"total:"+sum+"\n";
+    _outputBlob(logstr,logname);
   })
+}
+
+function _outputBlob(obj,fname) {
+      var ostr=JSON.stringify(obj);
+      var blob = new Blob(["something different"],{ type: "text/plain;charset=utf-8" });
+      saveAs(blob,fname);
+      window.console.log(">>>saving a file.."+fname+" sz "+ostr.length);
 }
 
 function loadFromFileMarkerLatlng() {

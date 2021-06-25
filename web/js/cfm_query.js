@@ -4,8 +4,9 @@
 
 const DATA_CHUNK_COUNT=20;
 
-function write2LocalFile(fname,data) {
+function writeToLocalFile(fname,data) {
     var dstr=JSON.stringify(data);
+window.console.log("XXX");
     if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
@@ -19,6 +20,7 @@ function write2LocalFile(fname,data) {
             window.console.log("finish writing out ..."+fname);
         }
     };
+
     xmlhttp.open("GET","php/writeToLocalFile.php?fname="+fname+"&dstr="+dstr,true);
     xmlhttp.send();
 }
@@ -690,7 +692,7 @@ function _getLastQuakesByChunk(quake_type, startpoint, endpoint, chunk_step) {
             // start earlier set
             var chunks = (quake_type == QUAKE_TYPE_HISTORICAL) ? 1 : (DATA_CHUNK_COUNT *2);
 //            _getAllQuakesByChunk(quake_type, 0, chunks, chunk_step);
-/* XX */            _getAllQuakesByChunk(quake_type, 0, 10, 2000);
+/* XX */            _getAllQuakesByChunk(quake_type, 0, 2, 2000);
         }
     };
 window.console.log(" calling php on the leftover.."+"start"+startpoint+" end"+endpoint);
