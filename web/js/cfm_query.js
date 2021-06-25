@@ -581,7 +581,7 @@ function setupSearch()
 // make it to match with multiples of DATA_CHUNK_COUNT
 function getAllEarthQuakesByChunk(quake_type,quake_meta) {
    if(quake_meta == null) { 
-     window.console.log("BADD.. need to get metadata for seisimicity first..");
+     window.console.log("BADD.. need to get metadata for seismicity first..");
      return;
    }
    var total = parseInt(quake_meta['total']);
@@ -670,8 +670,8 @@ function _getLastQuakesByChunk(quake_type, startpoint, endpoint, chunk_step) {
             add2QuakePoints(quake_type,eqarray);
             // start earlier set
             var chunks = (quake_type == QUAKE_TYPE_HISTORICAL) ? 1 : (DATA_CHUNK_COUNT *2);
-            _getAllQuakesByChunk(quake_type, 0, chunks, chunk_step);
-//            _getAllQuakesByChunk(quake_type, 0, 1, 1000);
+//            _getAllQuakesByChunk(quake_type, 0, chunks, chunk_step);
+/* XX */            _getAllQuakesByChunk(quake_type, 0, 10, 2000);
         }
     };
 window.console.log(" calling php on the leftover.."+"start"+startpoint+" end"+endpoint);

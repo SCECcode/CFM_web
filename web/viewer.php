@@ -379,16 +379,16 @@ $header = getHeader("Viewer");
         </div>
 <!--XX Sesimicity -->
         <div class="col-2 mt-2 pl-0">
-<button id="quakesBtn" class="btn" onClick="loadSeisimicity()" style="color:#495057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.2rem 0.5rem;">Seisimicity</button>
-<select id="seisimicitySelect" onchange="changePixiOverlay(this.value)"
-class="custom-select custom-select-sm" style="width:10rem;display:none">
-   <option value="none"> none</option>
-   <option selected value="haukssondepth">Hauksson depth</option>
-   <option value="haukssonmag">Hauksson mag</option>
-   <option value="haukssontime">Hauksson time</option>
-   <option value="rossdepth">Ross depth</option>
-   <option value="rossmag">Ross mag</option>
-   <option value="rosstime">Ross time</option>
+<button id="quakesBtn" class="btn" onClick="loadSeismicity()" style="color:#495057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.2rem 0.5rem;">Load relocated seismicity</button>
+<select id="seismicitySelect" onchange="changePixiOverlay(this.value)"
+class="custom-select custom-select-sm" style="width:13rem;display:none">
+   <option value="none">Show relocated seismicity</option>
+   <option selected value="haukssondepth">H. colored by depth</option>
+   <option value="haukssonmag">H. colored by magnitude </option>
+   <option value="haukssontime">H. colored by time</option>
+   <option value="rossdepth">R. colored by depth</option>
+   <option value="rossmag">R. colored by magnitude</option>
+   <option value="rosstime">R. colored by time</option>
 <!--
    <option value="historicaldepth">O depth</option>
    <option value="historicalmag">O mag</option>
@@ -581,14 +581,15 @@ class="custom-select custom-select-sm" style="width:10rem;display:none">
 
 <!--Modal: ModelType -->
 <div class="modal" id="modalwaiteq" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" id="modalwaiteqDialog" role="document">
+  <div class="modal-dialog modal-dialog-centered modal-lg" style="width:45%" id="modalwaiteqDialog" role="document">
 
     <!--Content-->
     <div class="modal-content" id="modalwaiteqContent">
       <!--Body-->
       <div class="modal-body" id="modalwaiteqBody">
         <div class="row col-md-12 ml-auto" style="overflow:hidden; font-size:10pt">
-           <p id="modalwaiteqLabel" style="font-size:25px">Please wait, loading seisimicity
+           <div class="row">
+           <p id="modalwaiteqLabel" style="font-size:25px">Please wait, loading seismicity
                 <div class="row" style="display:none" >
                 <input type="text" style="margin-left:50px;width:100px;" id="eq-total" value="0">
                 <input type="text" style="width:100px;margin-right:50px;" id="eq-expected" value="0">
@@ -597,6 +598,10 @@ class="custom-select custom-select-sm" style="width:10rem;display:none">
                 <div class="row" id="myProgress" style="border:2px solid grey"><div id="myProgressBar"></div>
                 </div>
            </p>
+           </div>
+           <div class="row ml-2 mt-2">
+             <p id="modalwaiteqLabel2" style="font-size:10px"> with ~700k events, this may take a few minutes...</p>
+           </div>
         </div>
       </div>
 

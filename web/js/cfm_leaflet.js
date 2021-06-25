@@ -6,9 +6,9 @@ This is leaflet specific utilities
 ***/
 
 var init_map_zoom_level = 7;
-var seisimicity_map_zoom_level = 9;
+var seismicity_map_zoom_level = 9;
 
-var enable_seisimicity=0; // retrieve local seisimicity on zoom demand
+var enable_seismicity=0; // retrieve local seismicity on zoom demand
 var fault_width_change=0;
 
 var scecAttribution ='<a href="https://www.scec.org">SCEC</a>';
@@ -153,7 +153,7 @@ function setup_viewer()
   mymap.removeControl(myWatermark);
 */
 
-//==> seisimicity legend <==  
+//==> seismicity legend <==  
   mylegend=L.control( {position:'bottomleft'});
 
   mylegend.onAdd = function (map) {

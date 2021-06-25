@@ -18,13 +18,17 @@ var dip_range_max = 0;
 
 function switchModalWaitEQLabel(quake_type) {
   var p = document.getElementById("modalwaiteqLabel");
+  var p2 = document.getElementById("modalwaiteqLabel2");
   switch (quake_type) {
      case QUAKE_TYPE_HAUKSSON: 
-       p.textContent="Please wait, retrieving Hauksson .."; break;
+       p.textContent="Retrieving Hauksson et al.(2012) relocated seismicity";
+       p2.textContent="Please wait: with ~700k events, this may take a few minutes..."; break;
      case QUAKE_TYPE_ROSS:
-       p.textContent="Please wait, retrieving Ross .."; break;
+       p.textContent="Retreiving Ross et al.(2019) relocated seismicity";
+       p2.textContent="Please wait: with ~980k events, this may take a few minutes..."; break;
      case QUAKE_TYPE_HISTORICAL:
-       p.textContent="Please wait, retrieving Historical .."; break;
+       p.textContent="Retreiving events 1900-2021 > M6.0";
+       p2.textContent="Should be very quick..."; break;
   }
 }
 
@@ -1063,17 +1067,17 @@ function processQuakeMeta(quake_type) {
     }
     var meta=JSON.parse(blob);
 
-    window.console.log("seisimicity time >>"+ meta['minTime']+" to "+meta['maxTime']);
-    window.console.log("seisimicity lon >>"+ meta['minLon']+" to "+meta['maxLon']);
-    window.console.log("seisimicity lat >>"+ meta['minLat']+" to "+meta['maxLat']);
-    window.console.log("seisimicity depth >>"+ meta['minDepth']+" to "+meta['maxDepth']);
-    window.console.log("seisimicity mag >>"+ meta['minMag']+" to "+meta['maxMag']);
-    window.console.log("seisimicity total >>"+meta['total']);
+    window.console.log("seismicity time >>"+ meta['minTime']+" to "+meta['maxTime']);
+    window.console.log("seismicity lon >>"+ meta['minLon']+" to "+meta['maxLon']);
+    window.console.log("seismicity lat >>"+ meta['minLat']+" to "+meta['maxLat']);
+    window.console.log("seismicity depth >>"+ meta['minDepth']+" to "+meta['maxDepth']);
+    window.console.log("seismicity mag >>"+ meta['minMag']+" to "+meta['maxMag']);
+    window.console.log("seismicity total >>"+meta['total']);
     return meta;
 }
 
 
-function get_seisimicity(sw,ne) {
+function get_seismicity(sw,ne) {
     quakesByLatlon(sw['lat'],sw['lng'],ne['lat'],ne['lng']);
 }
 

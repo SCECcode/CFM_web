@@ -5,7 +5,7 @@
 var cfm_select_count=0;
 var showing_key = false;
 
-var seisimicity_loaded = false;
+var seismicity_loaded = false;
 
 function updatePrograssBar(width) {
   var element = document.getElementById("myProgressBar");   
@@ -16,16 +16,17 @@ function updatePrograssBar(width) {
   elm.val(n);
 }
 
-function loadSeisimicity() {
+function loadSeismicity() {
 window.console.log("LOADING SEISI..");
-   if(seisimicity_loaded == false) {
+   if(seismicity_loaded == false) {
      initForPixiOverlay(); 
 // ROSS and HISTORICAL are loaded as side-effect
      getAllQuakes(QUAKE_TYPE_HAUKSSON);  
-     seisimicity_loaded = true;
-     showSeisimicityKey("hauksson_depth");
-     $('#seisimicitySelect').css("display", "");
+     seismicity_loaded = true;
+     showSeismicityKey("hauksson_depth");
+     $('#seismicitySelect').css("display", "");
      $('#quakesBtn').css("display", "none");
+     toFileMarkerLatlng();
    }
 }
 
@@ -238,7 +239,7 @@ function removeKey() {
 }
 
 // depth, mag, time
-function showSeisimicityKey(type) {
+function showSeismicityKey(type) {
     if(type == "hauksson_depth") {
         showColorLegend("hauksson_depth.png");
         return;
@@ -277,7 +278,7 @@ function showSeisimicityKey(type) {
     }
 }
 
-function removeSeisimicityKey() {
+function removeSeismicityKey() {
     removeColorLegend();    
 }
 

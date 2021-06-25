@@ -15,6 +15,8 @@ const EQ_HISTORICAL_FOR_DEPTH=6;
 const EQ_HISTORICAL_FOR_MAG=7;
 const EQ_HISTORICAL_FOR_TIME=8;
 
+const EQ_LIST = [ EQ_HAUKSSON_FOR_DEPTH, EQ_HAUKSSON_FOR_MAG, EQ_HAUKSSON_FOR_TIME, EQ_ROSS_FOR_DEPTH, EQ_ROSS_FOR_MAG, EQ_ROSS_FOR_TIME, EQ_HISTORICAL_FOR_DEPTH, EQ_HISTORICAL_FOR_MAG, EQ_HISTORICAL_FOR_TIME];
+
 /* data sections, to matching marker name markerN_icon.png */
 const DATA_SEGMENT_COUNT= 20; // 0 to 19 -- to matching marker names
 
@@ -156,6 +158,128 @@ function printMarkerLatlngInfo(type) {
   }
   window.console.log("  sum up :"+sum);
 }
+
+// store the content to an external file
+function toFileMarkerLatlng() {
+  EQ_LIST.forEach(function(type) {
+    var fname_stub;
+    switch(type) {
+       case EQ_HAUKSSON_FOR_DEPTH:
+         fname_stub="./data/hauksson_depth_";
+         break;
+       case EQ_HAUKSSON_FOR_MAG:
+         fname_stub="./data/hauksson_mag_";
+         break;
+       case EQ_HAUKSSON_FOR_TIME:
+         fname_stub="./data/hauksson_time_";
+         break;
+       case EQ_ROSS_FOR_DEPTH:
+         fname_stub="./data/ross_depth_";
+         break;
+       case EQ_ROSS_FOR_MAG:
+         fname_stub="./data/ross_mag_";
+         break;
+       case EQ_ROSS_FOR_TIME:
+         fname_stub="./data/ross_time_";
+         break;
+       case EQ_HISTORICAL_FOR_DEPTH:
+         fname_stub="./data/historical_time_";
+         break;
+       case EQ_HISTORICAL_FOR_MAG:
+         fname_stub="./data/historical_mag_";
+         break;
+       case EQ_HISTORICAL_FOR_TIME:
+         fname_stub="./data/historical_time_";
+         break;
+    }
+  
+    var list=pixiLatlngList[type];
+    for(var i=0; i<DATA_SEGMENT_COUNT; i++) {
+      let fname=f_stub+toString(i)+".csv";
+      let dlist=list.data[i];
+      let sz=dlist.length;
+      let fp=fopen(fname,0);
+      for( var j=0; j< sz; j++) {
+         let data=dlist[j]; 
+         let str=parseString(data['lat'])+","+parseString(data['lng']);
+         fwrite(fp,str);
+      }
+      fclose(fp);
+    }
+  }
+}
+
+function loadFromFileMarkerLatlng() {
+  EQ_LIST.forEach(function(type) {
+    var fname_stub;
+    switch(type) {
+       case EQ_HAUKSSON_FOR_DEPTH:
+         fname_stub="./data/hauksson_depth_";
+         break;
+       case EQ_HAUKSSON_FOR_MAG:
+         fname_stub="./data/hauksson_mag_";
+         break;
+       case EQ_HAUKSSON_FOR_TIME:
+         fname_stub="./data/hauksson_time_";
+         break;
+       case EQ_ROSS_FOR_DEPTH:
+         fname_stub="./data/ross_depth_";
+         break;
+       case EQ_ROSS_FOR_MAG:
+         fname_stub="./data/ross_mag_";
+         break;
+       case EQ_ROSS_FOR_TIME:
+         fname_stub="./data/ross_time_";
+         break;
+       case EQ_HISTORICAL_FOR_DEPTH:
+         fname_stub="./data/historical_time_";
+         break;
+       case EQ_HISTORICAL_FOR_MAG:
+         fname_stub="./data/historical_mag_";
+         break;
+       case EQ_HISTORICAL_FOR_TIME:
+         fname_stub="./data/historical_time_";
+         break;
+    }
+  
+    var list=pixiLatlngList[type];
+    for(var i=0; i<DATA_SEGMENT_COUNT; i++) {
+      let fname=f_stub+toString(i)+".csv";
+      var fdata=list[i].data; // arraylist
+
+      fetch(fname)
+        .then(
+          function(response) {
+            if (response.status !== 200) {
+               window.console.log('Fetching, Looks like there was a problem. Status Code: ' +
+                         response.status);
+               return;
+            }
+
+          // Examine the text in the response
+            response.csv().then(function(data) {
+window.console.log("HERE..");
+              _process_csv(data,type,i);
+              window.console.log(data);
+            });
+         }
+       )
+       .catch(function(err) { console.log('Fetch Error :-S', err); });
+    }
+  }
+}
+
+function _process_csv(response_data,type,idx) {
+  var list=pixiLatlngList[type];
+  var fdata=list[i].data; // arraylist
+
+  var cnt=response_data.length; 
+  for(var i=0;i<cnt;i++) {
+    data=response_data[i];
+    fdata.push({'lat':data[0],'lng':data[1]});
+  }
+}
+
 
 function updateMarkerLatlng(type,idx,lat,lng) {
   var alist=pixiLatlngList[type];
@@ -324,43 +448,43 @@ function changePixiOverlay(typestr) {
 // return to initial map
   refresh_map();
   switch (typestr) {
-    case "none": removeSeisimicityKey();
+    case "none": removeSeismicityKey();
                  removeHistoricalEQLayer();
                  break;
     case "haukssondepth": togglePixiOverlay(EQ_HAUKSSON_FOR_DEPTH);
-                          showSeisimicityKey("hauksson_depth");
+                          showSeismicityKey("hauksson_depth");
                           addHistoricalEQLayer();
                           break;
     case "haukssonmag": togglePixiOverlay(EQ_HAUKSSON_FOR_MAG);
-                        showSeisimicityKey("hauksson_mag");
+                        showSeismicityKey("hauksson_mag");
                         addHistoricalEQLayer();
                         break;
     case "haukssontime": togglePixiOverlay(EQ_HAUKSSON_FOR_TIME);
-                         showSeisimicityKey("hauksson_time");
+                         showSeismicityKey("hauksson_time");
                          addHistoricalEQLayer();
                          break;
     case "rossdepth": togglePixiOverlay(EQ_ROSS_FOR_DEPTH);
-                      showSeisimicityKey("ross_depth");
+                      showSeismicityKey("ross_depth");
                       addHistoricalEQLayer();
                       break;
     case "rossmag": togglePixiOverlay(EQ_ROSS_FOR_MAG);
-                    showSeisimicityKey("ross_mag");
+                    showSeismicityKey("ross_mag");
                     addHistoricalEQLayer();
                     break;
     case "rosstime": togglePixiOverlay(EQ_ROSS_FOR_TIME);
-                     showSeisimicityKey("ross_time");
+                     showSeismicityKey("ross_time");
                      addHistoricalEQLayer();
                      break;
     case "historicaldepth": togglePixiOverlay(EQ_HISTORICAL_FOR_DEPTH);
-                            showSeisimicityKey("historical_depth");
+                            showSeismicityKey("historical_depth");
                             addHistoricalEQLayer();
                             break;
     case "historicalmag": togglePixiOverlay(EQ_HISTORICAL_FOR_MAG);
-                          showSeisimicityKey("historical_mag");
+                          showSeismicityKey("historical_mag");
                           addHistoricalEQLayer();
                           break;
     case "historicaltime": togglePixiOverlay(EQ_HISTORICAL_FOR_TIME);
-                           showSeisimicityKey("historical_time");
+                           showSeismicityKey("historical_time");
                            addHistoricalEQLayer();
                            break;
   }
@@ -526,7 +650,7 @@ window.console.log("FFFirst time making this pixiOverlay,"+quake_type+" initial 
           zoomChangeTs = 0;
           var targetScale = targetZoom >= eq_zoom_threshold ? (1 / getScale(event.zoom))/10  : initialScale;
 
-//window.console.log(" ZOOManim.. new targetScale "+targetScale);
+window.console.log(" ZOOManim.. new targetScale "+targetScale);
 
           pContainers.forEach(function(innerContainer) {
             innerContainer.currentScale = innerContainer.localScale;

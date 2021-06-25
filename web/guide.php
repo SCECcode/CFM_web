@@ -217,6 +217,14 @@ $header = getHeader("User Guide");
                                                                                  10.1016/j.epsl.2015.01.016</a>. <a
                             href="https://www.scec.org/publication/2068">SCEC Contribution
                                                                          2068</a></li>
+                <li>Hauksson, E., W. Yang and P.M. Shearer, "Waveform Relocated Earthquake Catalog for 
+                                                               Southern California (1981 to 2011)";
+                                                               Bull. Seismol. Soc. Am., Vol. 102, No. 5, pp.2239-2244,
+                                                               October 2012, doi: 10.1785/0120120010</li>
+                <li>Ross, Z.E., Trugman, D.T., Hauksson, E. and Shearer P.M. "Searching for hidden earthquakes 
+                                                               in Southern California";
+                                                               Science Vol. 364, No. 6442, pp. 767-771, 
+                                                               2019, doi: 10.1126/science.aaw6888 </li>
             </ul>
 
 
