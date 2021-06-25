@@ -26,7 +26,6 @@ window.console.log("LOADING SEISI..");
      showSeismicityKey("hauksson_depth");
      $('#seismicitySelect').css("display", "");
      $('#quakesBtn').css("display", "none");
-     toFileMarkerLatlng();
    }
 }
 

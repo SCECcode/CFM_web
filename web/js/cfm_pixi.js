@@ -195,7 +195,7 @@ function toFileMarkerLatlng() {
   
     var list=pixiLatlngList[type];
     for(var i=0; i<DATA_SEGMENT_COUNT; i++) {
-      let fname=f_stub+toString(i)+".csv";
+      let fname=fname_stub+toString(i)+".csv";
       let dlist=list.data[i];
       let sz=dlist.length;
       let fp=fopen(fname,0);
@@ -206,7 +206,7 @@ function toFileMarkerLatlng() {
       }
       fclose(fp);
     }
-  }
+  })
 }
 
 function loadFromFileMarkerLatlng() {
@@ -266,7 +266,7 @@ window.console.log("HERE..");
        )
        .catch(function(err) { console.log('Fetch Error :-S', err); });
     }
-  }
+  })
 }
 
 function _process_csv(response_data,type,idx) {

@@ -1039,6 +1039,8 @@ function showQuakePoints(quake_type, eqarray) {
    add2QuakePoints(quake_type,eqarray);
    setup_pixi(quake_type);
    addHistoricalEQLayer();
+// XXX here is to dump it
+   toFileMarkerLatlng();
 }
 
 // default to depth
