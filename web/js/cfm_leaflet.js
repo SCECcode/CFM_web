@@ -383,7 +383,7 @@ function makeRectangleLayer(latA,lonA,latB,lonB) {
 }
 
 
-function makeLeafletMarker2(bounds,size) {
+function makeLeafletMarker3(bounds,size) {
   var leafIcon = L.icon({
     iconUrl: 'img/star_icon.png',
     iconSize:     [10, 10], 
@@ -415,7 +415,7 @@ function makeLeafletMarker(bounds,cname,size) {
 function makeLeafletMarker2(bounds,size) {
   
   var myAwesomeIcon = L.divIcon({
-    html: '<i class="fa fa-bullseye" aria-hidden="true"></i>',
+    html: '<i class="fas fa-sun fa-xs" aria-hidden="true"></i>',
     iconSize: [size, size],
     className: 'awesome-icon' 
   }); 

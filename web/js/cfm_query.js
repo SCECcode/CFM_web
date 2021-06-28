@@ -6,7 +6,7 @@ const DATA_CHUNK_COUNT=20;
 
 function writeToServerFile(fname,data) {
     var dstr=JSON.stringify(data);
-    params="fname="+fname+"&dstr="+dstr;
+    var params="fname="+fname+"&dstr="+dstr;
 
     if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -18,10 +18,11 @@ function writeToServerFile(fname,data) {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
-            window.console.log("finish writing out ..."+fname);
+window.console.log(this.responseText);
         }
     };
     xmlhttp.open("POST","php/writeToServerFile.php",true);
+    xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xmlhttp.send(params);
 }
 
@@ -626,7 +627,6 @@ function getAllEarthQuakesByChunk(quake_type,quake_meta) {
       _getLastQuakesByChunk(quake_type, startpoint, endpoint, chunk_step);
       } else {
         _getAllQuakesByChunk(quake_type, 0, chunks, chunk_step);
-//        _getAllQuakesByChunk(quake_type, 0, 1, chunk_step);
 
    } 
 }
@@ -691,8 +691,8 @@ function _getLastQuakesByChunk(quake_type, startpoint, endpoint, chunk_step) {
             add2QuakePoints(quake_type,eqarray);
             // start earlier set
             var chunks = (quake_type == QUAKE_TYPE_HISTORICAL) ? 1 : (DATA_CHUNK_COUNT *2);
-//            _getAllQuakesByChunk(quake_type, 0, chunks, chunk_step);
-/* XX */            _getAllQuakesByChunk(quake_type, 0, 2, 2000);
+//* XX  */            _getAllQuakesByChunk(quake_type, 0, chunks, chunk_step);
+/* XX */             _getAllQuakesByChunk(quake_type, 0, 2, 1000);
         }
     };
 window.console.log(" calling php on the leftover.."+"start"+startpoint+" end"+endpoint);

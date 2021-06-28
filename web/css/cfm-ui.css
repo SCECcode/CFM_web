@@ -439,13 +439,13 @@ div.mapData {
 
 .cfm-top-small-btn {
     background: white;
-    padding: 6px 6px;
+    padding: 1px 1px;
     /*font-size: 14px;*/
     color: #011638;
     /*
               color: #6c6cff;
     */
-    width: 3vw;
+    width: 2vw;
     height: 3vh;
     display: inline-block;
     border-radius: 2px;

@@ -23,6 +23,8 @@ const EQ_HISTORICAL_FOR_DEPTH=6;
 const EQ_HISTORICAL_FOR_MAG=7;
 const EQ_HISTORICAL_FOR_TIME=8;
 
+const SEISMICITY_DIR="./data/seismicity";
+
 const EQ_LIST = [ EQ_HAUKSSON_FOR_DEPTH, EQ_HAUKSSON_FOR_MAG, EQ_HAUKSSON_FOR_TIME, EQ_ROSS_FOR_DEPTH, EQ_ROSS_FOR_MAG, EQ_ROSS_FOR_TIME, EQ_HISTORICAL_FOR_DEPTH, EQ_HISTORICAL_FOR_MAG, EQ_HISTORICAL_FOR_TIME];
 
 /* data sections, to matching marker name markerN_icon.png */
@@ -167,64 +169,51 @@ function printMarkerLatlngInfo(type) {
   window.console.log("  sum up :"+sum);
 }
 
-// store the content to an external file
 function toFileMarkerLatlng() {
-  EQ_LIST.forEach(function(type) {
-    var fname_stub;
-    switch(type) {
-       case EQ_HAUKSSON_FOR_DEPTH:
-         fname_stub="hauksson_depth_";
-         break;
-       case EQ_HAUKSSON_FOR_MAG:
-         fname_stub="hauksson_mag_";
-         break;
-       case EQ_HAUKSSON_FOR_TIME:
-         fname_stub="hauksson_time_";
-         break;
-       case EQ_ROSS_FOR_DEPTH:
-         fname_stub="ross_depth_";
-         break;
-       case EQ_ROSS_FOR_MAG:
-         fname_stub="ross_mag_";
-         break;
-       case EQ_ROSS_FOR_TIME:
-         fname_stub="ross_time_";
-         break;
-       case EQ_HISTORICAL_FOR_DEPTH:
-         fname_stub="historical_time_";
-         break;
-       case EQ_HISTORICAL_FOR_MAG:
-         fname_stub="historical_mag_";
-         break;
-       case EQ_HISTORICAL_FOR_TIME:
-         fname_stub="historical_time_";
-         break;
+    var sz=EQ_LIST.length;
+    _toFileLatlngSet(0,sz,0,DATA_SEGMENT_COUNT);
+}
+
+function _toFileLatlngSet(tidx,tsz,sidx,ssz) {
+    var ttype=EQ_LIST[tidx];
+    var list=pixiLatlngList[ttype];
+    var fname_stub=_eq_fname_stub(ttype);
+    var fdata=list.data[sidx]; // arraylist
+
+    // output the log only when tidx is 0
+    if(sidx == 0) {
+      var sum=0;
+      var logname=fname_stub+"log.txt";
+      var loglist=[]; 
+      for(var i=0; i<DATA_SEGMENT_COUNT; i++) {
+        var dlist=list.data[i]; //
+        var v=dlist.length;
+        sum=sum+v;
+        loglist.push({id:i,sz:v});
+
+      }
+      log={total:sum , list:loglist};
+      _outputBlob(log,logname);
     }
-  
-    var list=pixiLatlngList[type];
-    var sum=0;
-    let logname=fname_stub+"log.txt";
-    var logstr=""; 
-    for(var i=0; i<DATA_SEGMENT_COUNT; i++) {
-      var fname=fname_stub+i+".csv";
-      var dlist=list.data[i]; //
-      var v=list.data[i].length;
-      sum=sum+v;
-      var lstr="{id:"+i+",sz:"+v+"}";
-      if(i+1 != DATA_SEGMENT_COUNT)
-          lstr=lstr+",";
-      logstr=logstr+lstr;
-      _outputBlob(dlist,fname);
+    var fname=_eq_fname(ttype,sidx);
+     _outputBlob(fdata,fname);
+
+    if(sidx+1 == ssz) {
+      if(tidx+1 == tsz) { // all done 
+        } else {
+          _toFileLatlngSet(tidx+1,tsz,0,ssz);
+      }
+      } else {
+        _toFileLatlngSet(tidx,tsz,sidx+1,ssz);
     }
-    logstr="[{total:"+sum+" , list:["+logstr+"]}]";
-    _outputBlob(logstr,logname);
-  })
 }
 
 // had to do this manually.. since is is asynchronously
 function _outputBlob(obj,fname) {
-  var ostr=JSON.stringify(obj);
-  writeToServerFile(fname,ostr); 
+//  var ostr=JSON.stringify(obj);
+
+  window.console.log("writing out ..."+fname);
+  writeToServerFile(fname,obj); 
 
 /*
   var dload = document.createElement('a');
@@ -246,50 +235,58 @@ function _outputBlob(obj,fname) {
 
   var blob = new Blob([ostr],{ type: "text/plain;charset=utf-8" });
   saveAs(blob,fname);
-*/
-
 window.console.log(">>>SSS saving a file.."+fname+" sz "+ostr.length);
+*/
 }
 
-function loadFromFileMarkerLatlng() {
-  EQ_LIST.forEach(function(type) {
-    var fname_stub;
-    switch(type) {
+function _eq_fname_stub(ttype) {
+
+    var fname="NA";
+    switch(ttype) {
        case EQ_HAUKSSON_FOR_DEPTH:
-         fname_stub="./data/hauksson_depth_";
+         fname=SEISMICITY_DIR+"/hauksson_depth_";
          break;
        case EQ_HAUKSSON_FOR_MAG:
-         fname_stub="./data/hauksson_mag_";
+         fname=SEISMICITY_DIR+"/hauksson_mag_";
          break;
        case EQ_HAUKSSON_FOR_TIME:
-         fname_stub="./data/hauksson_time_";
+         fname=SEISMICITY_DIR+"/hauksson_time_";
          break;
        case EQ_ROSS_FOR_DEPTH:
-         fname_stub="./data/ross_depth_";
+         fname=SEISMICITY_DIR+"/ross_depth_";
          break;
        case EQ_ROSS_FOR_MAG:
-         fname_stub="./data/ross_mag_";
+         fname=SEISMICITY_DIR+"/ross_mag_";
          break;
        case EQ_ROSS_FOR_TIME:
-         fname_stub="./data/ross_time_";
+         fname=SEISMICITY_DIR+"/ross_time_";
          break;
        case EQ_HISTORICAL_FOR_DEPTH:
-         fname_stub="./data/historical_time_";
+         fname=SEISMICITY_DIR+"/historical_depth_";
          break;
        case EQ_HISTORICAL_FOR_MAG:
-         fname_stub="./data/historical_mag_";
+         fname=SEISMICITY_DIR+"/historical_mag_";
          break;
        case EQ_HISTORICAL_FOR_TIME:
-         fname_stub="./data/historical_time_";
+         fname=SEISMICITY_DIR+"/historical_time_";
          break;
     }
-  
-    var list=pixiLatlngList[type];
-    for(var i=0; i<DATA_SEGMENT_COUNT; i++) {
-      let fname=f_stub+toString(i)+".csv";
-      var fdata=list[i].data; // arraylist
+    return fname;
+}
 
-      fetch(fname)
+function _eq_fname(ttype,sidx) {
+    var stub=_eq_fname_stub(ttype);
+    var fname=stub+sidx+".csv";
+    return fname;
+}
+
+function _loadFromFileLatlngSet(tidx,tsz,sidx,ssz) {
+    var ttype=EQ_LIST[tidx];
+    var list=pixiLatlngList[ttype];
+    var fname=_eq_fname(ttype,sidx);
+    var fdata=list.data[sidx]; // arraylist
+
+    fetch(fname)
         .then(
           function(response) {
             if (response.status !== 200) {
@@ -299,20 +296,32 @@ function loadFromFileMarkerLatlng() {
             }
 
           // Examine the text in the response
-            response.csv().then(function(data) {
-window.console.log("HERE..");
-              _process_csv(data,type,i);
-              window.console.log(data);
+            response.json().then(function(fdata) {
+window.console.log("XXX");
+window.console.log("processing -- "+fname);
+//              _process_csv(fdata,ttype,i);
+                if(sidx+1 == ssz) {
+                  if(tidx+1 == tsz) { // all done
+window.console.log("HERE.. all done");
+                    } else {
+                      _loadFromFileLatlngSet(tidx+1,tsz,0,ssz);
+                  }
+                  } else {
+                    _loadFromFileLatlngSet(tidx,tsz,sidx+1,ssz);
+                }
             });
          }
        )
-       .catch(function(err) { console.log('Fetch Error :-S', err); });
-    }
-  })
+       .catch(function(err) { window.console.log("Fetch Error :-S"+err); });
 }
 
-function _process_csv(response_data,type,idx) {
-  var list=pixiLatlngList[type];
+function loadFromFileMarkerLatlng() {
+    var sz=EQ_LIST.length;
+    _loadFromFileLatlngSet(0,sz,0,DATA_SEGMENT_COUNT);
+}
+
+function _process_csv(response_data,ttype,idx) {
+  var list=pixiLatlngList[ttype];
   var fdata=list[i].data; // arraylist
 
   var cnt=response_data.length; 
@@ -323,13 +332,13 @@ function _process_csv(response_data,type,idx) {
 }
 
 
-function updateMarkerLatlng(type,idx,lat,lng) {
-  var alist=pixiLatlngList[type];
+function updateMarkerLatlng(ttype,idx,lat,lng) {
+  var alist=pixiLatlngList[ttype];
   if(alist == null) {
-      alist[type]= {"type":type, "data":[]};
+      alist[ttype]= {"type":ttype, "data":[]};
       window.console.log("hum.. pixiLatlngList did not get initialized.."); 
   }
-  var item=pixiLatlngList[type].data;
+  var item=pixiLatlngList[ttype].data;
   item[idx].push({'lat':lat,"lng":lng});
 }
 
@@ -487,8 +496,13 @@ function get1stNoneEmptyContainer(quake_type) {
 
 function changePixiOverlay(typestr) {
   clearAllPixiOverlay();
+
+  var center, zoom;
+  [center, zoom] = get_map();
 // return to initial map
   refresh_map();
+  window.console.log("save map.."+center+" and "+zoom);
+
   switch (typestr) {
     case "none": removeSeismicityKey();
                  removeHistoricalEQLayer();
@@ -530,6 +544,8 @@ function changePixiOverlay(typestr) {
                            addHistoricalEQLayer();
                            break;
   }
+
+  set_map(center,zoom);
   return;
 }
 
@@ -729,6 +745,5 @@ window.console.log(" ZOOManim.. new targetScale "+targetScale);
     var tmp=pixiOverlayList;
     pixiOverlayList[quake_type]={"type":quake_type,"vis":1,"overlay":overlay,"top":pixiContainer,"inner":pContainers};
  
-
     return overlay;
 }

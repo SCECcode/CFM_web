@@ -134,6 +134,8 @@ $header = getHeader("Viewer");
     <script type="text/javascript" src="js/cfm_misc_util.js?v=1"></script>
     <button id="dumpCFMGeoBtn" class="btn cfm-small-btn"  onClick="dumpActiveCFMGeo()">
                 <span class="glyphicon glyphicon-share-alt"></span> Export CFM geoJson</button>
+    <button id="dumpMarkerLatlngBtn" class="btn cfm-small-btn"  onClick="toFileMarkerLatlng()">
+                <span class="glyphicon glyphicon-share"></span> Export Marker Latlng</button>
     </div>
 
     <div style="display:none">
@@ -379,10 +381,14 @@ $header = getHeader("Viewer");
         </div>
 <!--XX Sesimicity -->
         <div class="col-2 mt-2 pl-0">
-<button id="quakesBtn" class="btn" onClick="loadSeismicity()" style="color:#495057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.2rem 0.5rem;">Load relocated seismicity</button>
+<div id="loadSeismicity" class="row" style="width:16rem;display:">
+<button id="quakesBtn" class="btn" onClick="loadSeismicity()" style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.2rem 0.4rem;">Load relocated seismicity</button>
+<button id="quakeInfoBtn" class="btn" style="background:white;" data-toggle="modal" data-target="#modalinfoquake"><span class="glyphicon glyphicon-info-sign"></span></button>
+</div>
+<div id="showSeismicity" class="row" style="width:16rem; display:none">
 <select id="seismicitySelect" onchange="changePixiOverlay(this.value)"
-class="custom-select custom-select-sm" style="width:13rem;display:none">
-   <option value="none">Show relocated seismicity</option>
+class="custom-select custom-select-sm" style="width:13rem; padding:0.2rem 0.3rem">
+   <option value="none">no show</option>
    <option selected value="haukssondepth">Hauksson by depth</option>
    <option value="haukssonmag">Hauksson by magnitude</option>
    <option value="haukssontime">Hauksson by time</option>
@@ -395,6 +401,9 @@ class="custom-select custom-select-sm" style="width:13rem;display:none">
    <option value="historicaltime">Historical by time</option>
 -->
 </select>
+<button id="toggleHistoricalBtn" class="btn" title="highlight significant earthquakes" style="color:red;background:white" onclick="toggleHistorical()"><span class="fas fa-circle"></span></button>
+
+</div>
         </div>
         <div class="col-5 d-flex justify-content-end">
             <div class="input-group input-group-sm cfm-input-group mt-2" id="map-controls">
@@ -663,10 +672,35 @@ class="custom-select custom-select-sm" style="width:13rem;display:none">
         <button type="button" class="btn btn-outline-primary btn-md" data-dismiss="modal" onclick="$('#modal3D').modal('show');"
 >Close</button>
       </div>
+    </div> <!--Content-->
+  </div>
+</div> <!--Modal: Name-->
+
+<!--Modal: ModelType -->
+<div class="modal" id="modalinfoquake" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" id="modalinfoquakeDialog" role="document">
+
+    <!--Content-->
+    <div class="modal-content" id="modalinfoquakeContent">
+      <!--Body-->
+      <div class="modal-body" id="modalinfoquakeBody">
+        <div class="row col-md-12 ml-auto" style="overflow:hidden;">
+          <div class="col-12" id="file-container">
+<h5>Explain about how relocated seismicity is loaded and used..  </h5>
+          </div>
+          <div class="col-12" id="infoTable-container"></div>
+
+        </div>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="close" data-dismiss="modal" onclick="$('#sidebar').show();">&times;</button>
+      </div>
 
     </div> <!--Content-->
   </div>
 </div> <!--Modal: Name-->
+
+
 </div>
 </body>
 </html>

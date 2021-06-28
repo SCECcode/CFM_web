@@ -6,6 +6,11 @@ var cfm_select_count=0;
 var showing_key = false;
 
 var seismicity_loaded = false;
+var seismicity_from_cache = false;
+
+function toggleHistorial() {
+XX
+}
 
 function updatePrograssBar(width) {
   var element = document.getElementById("myProgressBar");   
@@ -20,19 +25,23 @@ function loadSeismicity() {
 window.console.log("LOADING SEISMICITY..");
    if(seismicity_loaded == false) {
      initForPixiOverlay(); 
+// XXX
+     if( seismicity_from_cache ) {
+        loadFromFileMarkerLatlng();
+        } else {
 // ROSS and HISTORICAL are loaded as side-effect
-     getAllQuakes(QUAKE_TYPE_HAUKSSON);  
+          getAllQuakes(QUAKE_TYPE_HAUKSSON);  
+     }
    }
 }
 
 function finishLoadSeismicity() {
      setup_pixi(EQ_HAUKSSON_FOR_DEPTH);
      addHistoricalEQLayer();
-     toFileMarkerLatlng();
      seismicity_loaded = true;
      showSeismicityKey("hauksson_depth");
-     $('#seismicitySelect').css("display", "");
-     $('#quakesBtn').css("display", "none");
+     $('#showSeismicity').css("display", "");
+     $('#loadSeismicity').css("display", "none");
 }
 
 function disable_record_btn() {

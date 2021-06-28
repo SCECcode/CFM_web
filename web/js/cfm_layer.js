@@ -995,6 +995,14 @@ function makeHistoricalEQLayer() {
                            cfm_quake_historical_description);
 };
 
+function toggleHistorical() {
+   if(showing_historical) {
+     removeHistoricalEQLayer();
+     } else {
+       addHistoricalEQLayer();
+   }
+}
+
 function removeHistoricalEQLayer() {
     viewermap.removeLayer(cfm_quake_historical_layer);
     showing_historical=false;
