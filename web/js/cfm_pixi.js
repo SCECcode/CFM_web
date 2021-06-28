@@ -499,9 +499,16 @@ function changePixiOverlay(typestr) {
 
   var center, zoom;
   [center, zoom] = get_map();
+  window.console.log("save map.."+center+" and "+zoom);
+  _changeOverlay(typestr);
+// XXX  this does not seem to work??
+//  set_map(center,zoom);
+}
+
+function _changeOverlay(typestr) {
+
 // return to initial map
   refresh_map();
-  window.console.log("save map.."+center+" and "+zoom);
 
   switch (typestr) {
     case "none": removeSeismicityKey();
@@ -544,8 +551,6 @@ function changePixiOverlay(typestr) {
                            addHistoricalEQLayer();
                            break;
   }
-
-  set_map(center,zoom);
   return;
 }
 

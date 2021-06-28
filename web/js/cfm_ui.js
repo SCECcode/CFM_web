@@ -8,10 +8,6 @@ var showing_key = false;
 var seismicity_loaded = false;
 var seismicity_from_cache = false;
 
-function toggleHistorial() {
-XX
-}
-
 function updatePrograssBar(width) {
   var element = document.getElementById("myProgressBar");   
   element.style.width = width + '%'; 

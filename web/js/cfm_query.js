@@ -691,8 +691,8 @@ function _getLastQuakesByChunk(quake_type, startpoint, endpoint, chunk_step) {
             add2QuakePoints(quake_type,eqarray);
             // start earlier set
             var chunks = (quake_type == QUAKE_TYPE_HISTORICAL) ? 1 : (DATA_CHUNK_COUNT *2);
-//* XX  */            _getAllQuakesByChunk(quake_type, 0, chunks, chunk_step);
-/* XX */             _getAllQuakesByChunk(quake_type, 0, 2, 1000);
+/* XX  */            _getAllQuakesByChunk(quake_type, 0, chunks, chunk_step);
+//* XX */             _getAllQuakesByChunk(quake_type, 0, 2, 1000);
         }
     };
 window.console.log(" calling php on the leftover.."+"start"+startpoint+" end"+endpoint);

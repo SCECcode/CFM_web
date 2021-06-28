@@ -41,7 +41,9 @@ function refresh_map()
   if (viewermap == undefined) {
     window.console.log("refresh_map: BAD BAD BAD");
     } else {
+      window.console.log("refresh_map: calling setView");
       viewermap.setView([34.3, -118.4], init_map_zoom_level);
+      
   }
 }
 
@@ -50,6 +52,7 @@ function set_map(center,zoom)
   if (viewermap == undefined) {
     window.console.log("set_map: BAD BAD BAD");
     } else {
+      window.console.log("set_map: calling setView");
       viewermap.setView(center, zoom);
   }
 }
