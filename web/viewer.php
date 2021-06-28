@@ -401,7 +401,7 @@ class="custom-select custom-select-sm" style="width:13rem; padding:0.2rem 0.3rem
    <option value="historicaltime">Historical by time</option>
 -->
 </select>
-<button id="toggleHistoricalBtn" class="btn" title="highlight significant earthquakes" style="color:red;background:white" onclick="toggleHistorical()"><span class="fas fa-circle"></span></button>
+<button id="toggleHistoricalBtn" class="btn" title="highlight significant earthquakes" style="color:red;background:white" onclick="toggleHistorical()"><span class="fas fa-circle fa-xs"></span></button>
 
 </div>
         </div>

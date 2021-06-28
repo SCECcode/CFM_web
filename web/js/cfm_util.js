@@ -1060,14 +1060,6 @@ function add2QuakePointsChunk(quake_type, eqarray, next_chunk, total_chunk, step
     _getAllQuakesByChunk(quake_type, next_chunk, total_chunk, step);
 }
 
-/*
-function showQuakePoints(quake_type, eqarray) {
-//XX   add2QuakePoints(quake_type,eqarray);
-   setup_pixi(quake_type);
-   finishLoadSeismicity() 
-}
-*/
-
 // default to depth
 function showQuakePointsAndBound(eqarray,swlat,swlon,nelat,nelon) {
    // XX should grab type from the UI

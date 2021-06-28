@@ -102,7 +102,7 @@ function initMarkerTextures(resources) {
 }
 
 function initForPixiOverlay() {
-  window.console.log("callinging initForPixiOverlay..");
+window.console.log("XXX callinging initForPixiOverlay..");
   pixiLatlngList.push({"type":EQ_HAUKSSON_FOR_DEPTH, "data":[]});
   pixiLatlngList.push({"type":EQ_HAUKSSON_FOR_MAG, "data":[]});
   pixiLatlngList.push({"type":EQ_HAUKSSON_FOR_TIME, "data":[]});
@@ -190,11 +190,19 @@ function _toFileLatlngSet(tidx,tsz,sidx,ssz) {
         var v=dlist.length;
         sum=sum+v;
         loglist.push({id:i,sz:v});
-
       }
       log={total:sum , list:loglist};
+
+      // if this is Historical, need to putput a list of descriptions..
+      // with matching latlngs
+      log={total:sum , list:loglist};
+      if(ttype == EQ_HISTORICAL_FOR_DEPTH) {
+          log['latlng']=cfm_quake_historical_latlng;
+          log['description']=cfm_quake_historical_description;
+      } 
       _outputBlob(log,logname);
     }
+
     var fname=_eq_fname(ttype,sidx);
      _outputBlob(fdata,fname);
 
@@ -210,12 +218,15 @@ function _toFileLatlngSet(tidx,tsz,sidx,ssz) {
 
 // had to do this manually.. since is is asynchronously
 function _outputBlob(obj,fname) {
-//  var ostr=JSON.stringify(obj);
 
+window.console.log("writing out blob file.."+fname);
+
+/*  to server solution
   window.console.log("writing out ..."+fname);
   writeToServerFile(fname,obj); 
+*/
 
-/*
+  var ostr=JSON.stringify(obj);
   var dload = document.createElement('a');
   dload.href = URL.createObjectURL(new Blob([ostr], {type: 'text/plain'}));
   dload.download = fname;
@@ -224,7 +235,6 @@ function _outputBlob(obj,fname) {
   dload.click();
   document.body.removeChild(dload);
   delete dload;
-*/
 
 /*
   var link = document.createElement('a');
@@ -280,11 +290,32 @@ function _eq_fname(ttype,sidx) {
     return fname;
 }
 
+function _loadFromFileLatlngLastSet() {
+    var fname=SEISMICITY_DIR+"/historical_depth_log.txt";
+    fetch(fname)
+        .then(
+          function(response) {
+            if (response.status !== 200) {
+               window.console.log('Fetching, Looks like there was a problem. Status Code: ' +
+                         response.status);
+               return;
+            }
+          // Examine the text in the response
+            response.json().then(function(fdata) {
+                var desc=fdata['description'];
+                var latlng=fdata['latlng'];
+                cfm_quake_historical_latlng=latlng;
+                cfm_quake_historical_description=desc;
+                doneQuakeCounterWithVal();
+                finishLoadSeismicity();
+            });
+         }
+       )
+       .catch(function(err) { window.console.log("Fetch Error :-S"+err); });
+}
 function _loadFromFileLatlngSet(tidx,tsz,sidx,ssz) {
     var ttype=EQ_LIST[tidx];
-    var list=pixiLatlngList[ttype];
     var fname=_eq_fname(ttype,sidx);
-    var fdata=list.data[sidx]; // arraylist
 
     fetch(fname)
         .then(
@@ -298,12 +329,28 @@ function _loadFromFileLatlngSet(tidx,tsz,sidx,ssz) {
           // Examine the text in the response
             response.json().then(function(fdata) {
                 add2QuakeCounterWithVal(1);
-window.console.log("XXX");
-window.console.log("processing -- "+fname);
-//              _process_csv(fdata,ttype,i);
+window.console.log("processing incoming file-- "+fname);
+                _process_csv(fdata,ttype,sidx);
+
+                // special case: collect a set of historical 
+                if(ttype==QUAKE_TYPE_HISTORICAL && sidx == 0) {
+                  var sz=fdata.length; 
+                  for(var i=0; i<sz; i++) {
+                    var item=fdata[i];
+                    var lat=item['lat'];
+                    var lng=item['lng'];
+ //                   var desc=item['Description'];
+                    var desc="blah description"+i;
+                    cfm_quake_historical_latlng.push([lat,lng]);
+                    cfm_quake_historical_description.push( desc );
+                  }
+                }
+
                 if(sidx+1 == ssz) {
                   if(tidx+1 == tsz) { // all done
-window.console.log("HERE.. all done");
+window.console.log("regular csv files : ALL DONE");
+                    // need to retrieve "historical_depth_log.txt"
+                    _loadFromFileLatlngLastSet();
                     } else {
                       _loadFromFileLatlngSet(tidx+1,tsz,0,ssz);
                   }
@@ -319,22 +366,20 @@ window.console.log("HERE.. all done");
 function loadFromFileMarkerLatlng() {
     var sz=EQ_LIST.length;
     var counterTotal= sz * DATA_SEGMENT_COUNT;
+    switchModalWaitEQLabel(QUAKE_TYPE_BUCKET);
     startQuakeCounterWithVal(counterTotal);
     _loadFromFileLatlngSet(0,sz,0,DATA_SEGMENT_COUNT);
-    doneQuakeCounterWithVal();
 }
 
-function _process_csv(response_data,ttype,idx) {
-  var list=pixiLatlngList[ttype];
-  var fdata=list[i].data; // arraylist
-
+function _process_csv(response_data,ttype,sidx) {
   var cnt=response_data.length; 
   for(var i=0;i<cnt;i++) {
     data=response_data[i];
-    fdata.push({'lat':data[0],'lng':data[1]});
+    var lat=data['lat'];
+    var lng=data['lng'];
+    updateMarkerLatlng(ttype,sidx,lat,lng)
   }
 }
-
 
 function updateMarkerLatlng(ttype,idx,lat,lng) {
   var alist=pixiLatlngList[ttype];
@@ -634,6 +679,8 @@ function makePixiOverlayLayer(quake_type) {
 
     var pixiContainer = new PIXI.Container();
     var pContainers=[]; //particle container
+
+    window.console.log("making pixi overlay layer..");
 
     for(var i=0; i<DATA_SEGMENT_COUNT; i++) {
       var length=getMarkerCount(quake_type,i);

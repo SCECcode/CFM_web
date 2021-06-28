@@ -618,8 +618,8 @@ function getAllEarthQuakesByChunk(quake_type,quake_meta) {
    var chunk_step = Math.floor(total / chunks);
    var leftover=total - (chunk_step * chunks);
 
-   startQuakeCounter(quake_meta);
    switchModalWaitEQLabel(quake_type);
+   startQuakeCounter(quake_meta);
 
    if(leftover > 0) {
       var startpoint= chunk_step * chunks;
@@ -692,7 +692,7 @@ function _getLastQuakesByChunk(quake_type, startpoint, endpoint, chunk_step) {
             // start earlier set
             var chunks = (quake_type == QUAKE_TYPE_HISTORICAL) ? 1 : (DATA_CHUNK_COUNT *2);
 /* XX  */            _getAllQuakesByChunk(quake_type, 0, chunks, chunk_step);
-//* XX */             _getAllQuakesByChunk(quake_type, 0, 2, 1000);
+//* XX */             _getAllQuakesByChunk(quake_type, 0, 6, 1000);
         }
     };
 window.console.log(" calling php on the leftover.."+"start"+startpoint+" end"+endpoint);
@@ -731,8 +731,8 @@ function quakesByLatlon(quake_meta,swLat,swLon,neLat,neLon) {
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
     // turn on data retrieval spiner..
-    startQuakeCounter(quake_meta);
     switchModalWaitEQLabel(QUAKE_TYPE_HAUKSSON);
+    startQuakeCounter(quake_meta);
 
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
