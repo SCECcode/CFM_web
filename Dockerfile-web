@@ -9,6 +9,7 @@ RUN yum install -y httpd && \
 	yum install -y php php-pgsql 
 
 COPY ./doc/cfm.conf /etc/httpd/conf.d/
+COPY ./custom-php.ini /etc/php.d/custom-php.ini
 
 CMD ["apachectl", "-D", "FOREGROUND"]
 

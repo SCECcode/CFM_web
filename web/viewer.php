@@ -598,7 +598,7 @@ class="custom-select custom-select-sm" style="width:13rem; padding:0.2rem 0.3rem
       <div class="modal-body" id="modalwaiteqBody">
         <div class="row col-md-12 ml-auto" style="overflow:hidden; font-size:10pt">
            <div class="row">
-           <p id="modalwaiteqLabel" style="font-size:25px">Please wait, loading seismicity
+           <p id="modalwaiteqLabel" style="text-align:center;font-size:25px">Please wait, loading seismicity
                 <div class="row" style="display:none" >
                 <input type="text" style="margin-left:50px;width:100px;" id="eq-total" value="0">
                 <input type="text" style="width:100px;margin-right:50px;" id="eq-expected" value="0">

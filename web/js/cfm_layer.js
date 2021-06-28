@@ -135,6 +135,7 @@ var cfm_blind_gid_list=[];
 const QUAKE_TYPE_HAUKSSON=1;
 const QUAKE_TYPE_ROSS=2;
 const QUAKE_TYPE_HISTORICAL=3;
+const QUAKE_TYPE_BUCKET=3;
 
 var showing_historical=false;
 

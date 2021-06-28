@@ -647,7 +647,7 @@ function _getAllQuakesByChunk(quake_type, current_chunk, total_chunk, chunk_step
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
             var eqarray=processQuakeResult("allQuakesByChunk");
-            add2QuakeValue(eqarray.length);
+            add2QuakeCounter(eqarray.length);
             var next_chunk=current_chunk+1;
 
             if(next_chunk == total_chunk) { // got last chunk 
@@ -687,7 +687,7 @@ function _getLastQuakesByChunk(quake_type, startpoint, endpoint, chunk_step) {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
             var eqarray=processQuakeResult("allQuakesByChunk");
-            add2QuakeValue(eqarray.length);
+            add2QuakeCounter(eqarray.length);
             add2QuakePoints(quake_type,eqarray);
             // start earlier set
             var chunks = (quake_type == QUAKE_TYPE_HISTORICAL) ? 1 : (DATA_CHUNK_COUNT *2);
@@ -738,7 +738,7 @@ function quakesByLatlon(quake_meta,swLat,swLon,neLat,neLon) {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
             var eqarray=processQuakeResult("quakesByLatLon");
-            add2QuakeValue(eqarray.length);
+            add2QuakeCounter(eqarray.length);
             showQuakePointsAndBound(eqarray,swLat,swLon,neLat,neLon);
             doneQuakeCounter();
         }

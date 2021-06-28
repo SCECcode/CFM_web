@@ -29,6 +29,9 @@ function switchModalWaitEQLabel(quake_type) {
      case QUAKE_TYPE_HISTORICAL:
        p.textContent="Retreiving events 1900-2021 > M6.0";
        p2.textContent="Should be very quick..."; break;
+     case QUAKE_TYPE_BUCKET:
+       p.textContent="Retreiving relocated seisimicty";
+       p2.textContent="Please wait: with ~1600K events, this may take a few minutes..."; break;
   }
 }
 
@@ -43,7 +46,7 @@ function startQuakeCounter(quake_meta) {
 function doneQuakeCounter() { 
   $("#modalwaiteq").modal('hide');
 }
-function add2QuakeValue(v) {
+function add2QuakeCounter(v) {
 window.console.log("adding more EQs: "+v);
   let elm = $("#eq-total");
   let o=parseInt(elm.val());
@@ -54,6 +57,29 @@ window.console.log("adding more EQs: "+v);
   var width = Math.floor((n/max) * 100);
   updatePrograssBar(width);
 }
+
+// track the eq-counter
+function startQuakeCounterWithVal(buckets) {
+  let elm = $("#eq-expected");
+  elm.val(buckets);
+  elm = $("#eq-total");
+  elm.val(0);
+  $("#modalwaiteq").modal({ backdrop: 'static', keyboard: false });
+}
+function doneQuakeCounterWithVal() {
+  $("#modalwaiteq").modal('hide');
+}
+function add2QuakeCounterWithVal(v) {
+  let elm = $("#eq-total");
+  let o=parseInt(elm.val());
+  let n=o+v;
+  elm.val(n);
+  let maxelm  = $("#eq-expected");
+  let max = parseInt(maxelm.val());
+  var width = Math.floor((n/max) * 100);
+  updatePrograssBar(width);
+}
+
 
 // track the geo-counter
 function setGeoTargetValue(v) {

@@ -297,6 +297,7 @@ function _loadFromFileLatlngSet(tidx,tsz,sidx,ssz) {
 
           // Examine the text in the response
             response.json().then(function(fdata) {
+                add2QuakeCounterWithVal(1);
 window.console.log("XXX");
 window.console.log("processing -- "+fname);
 //              _process_csv(fdata,ttype,i);
@@ -317,7 +318,10 @@ window.console.log("HERE.. all done");
 
 function loadFromFileMarkerLatlng() {
     var sz=EQ_LIST.length;
+    var counterTotal= sz * DATA_SEGMENT_COUNT;
+    startQuakeCounterWithVal(counterTotal);
     _loadFromFileLatlngSet(0,sz,0,DATA_SEGMENT_COUNT);
+    doneQuakeCounterWithVal();
 }
 
 function _process_csv(response_data,ttype,idx) {
