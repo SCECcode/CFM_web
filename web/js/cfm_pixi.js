@@ -219,7 +219,7 @@ function _toFileLatlngSet(tidx,tsz,sidx,ssz) {
 // had to do this manually.. since is is asynchronously
 function _outputBlob(obj,fname) {
 
-window.console.log("writing out blob file.."+fname);
+window.console.log("writing out blob file >>("+fname+")");
 
 /*  to server solution
   window.console.log("writing out ..."+fname);
