@@ -221,11 +221,11 @@ function _outputBlob(obj,fname) {
 
 window.console.log("writing out blob file >>("+fname+")");
 
-/*  to server solution
+/*  to server solution */
   window.console.log("writing out ..."+fname);
   writeToServerFile(fname,obj); 
-*/
 
+/*
   var ostr=JSON.stringify(obj);
   var dload = document.createElement('a');
   dload.href = URL.createObjectURL(new Blob([ostr], {type: 'text/plain'}));
@@ -235,6 +235,7 @@ window.console.log("writing out blob file >>("+fname+")");
   dload.click();
   document.body.removeChild(dload);
   delete dload;
+*/
 
 /*
   var link = document.createElement('a');
