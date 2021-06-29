@@ -6,7 +6,7 @@ var cfm_select_count=0;
 var showing_key = false;
 
 var seismicity_loaded = false;
-var seismicity_from_cache = false;
+var seismicity_from_cache = true;
 
 function updatePrograssBar(width) {
   var element = document.getElementById("myProgressBar");   
@@ -21,7 +21,6 @@ function loadSeismicity() {
 window.console.log("LOADING SEISMICITY..");
    if(seismicity_loaded == false) {
      initForPixiOverlay(); 
-// XXX
      if( seismicity_from_cache ) {
         loadFromFileMarkerLatlng();
         } else {

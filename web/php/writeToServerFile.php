@@ -16,7 +16,6 @@ $fp= fopen($fname,"w") or die("Unable to open file!"+$fname);
 fwrite($fp,$dstr); 
 fclose($fp);
 
-echo "<div data-side=\""+$fname+"\" data-params=\"ok\" style=\"display:flex\"></div>";
 pg_close($dbconn);
 ?>
 </body>

@@ -598,7 +598,7 @@ class="custom-select custom-select-sm" style="width:13rem; padding:0.2rem 0.3rem
       <div class="modal-body" id="modalwaiteqBody">
         <div class="row col-md-12 ml-auto" style="overflow:hidden; font-size:10pt">
            <div class="row">
-           <p id="modalwaiteqLabel" style="text-align:center;font-size:25px"> Retrieving relocated seisimicity datasets
+           <p id="modalwaiteqLabel" style="text-align:center;font-size:25px"> Retrieving relocated seismicity datasets
                 <div class="row" style="display:none" >
 
                 <input type="text" style="margin-left:50px;width:100px;" id="eq-total" value="0">
@@ -610,7 +610,7 @@ class="custom-select custom-select-sm" style="width:13rem; padding:0.2rem 0.3rem
            </p>
            </div>
            <div class="row ml-2 mt-2">
-             <p id="modalwaiteqLabel2" style="font-size:10px">Please wait:  with ~1600k events, this may take a few minutes</p>
+             <p id="modalwaiteqLabel2" style="text-align:center;font-size:10px">Please wait:  with ~1600k events, this may take a few minutes</p>
            </div>
         </div>
       </div>

@@ -17,8 +17,8 @@ function writeToServerFile(fname,data) {
     }
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("phpResponseTxt").innerHTML = this.responseText;
-window.console.log(this.responseText);
+            window.console.log("don't care what is being returned..");
+            //document.getElementById("phpResponseTxt").innerHTML = this.responseText;
         }
     };
     xmlhttp.open("POST","php/writeToServerFile.php",true);

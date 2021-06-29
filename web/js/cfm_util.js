@@ -22,13 +22,13 @@ function switchModalWaitEQLabel(quake_type) {
   switch (quake_type) {
      case QUAKE_TYPE_HAUKSSON: 
        p.textContent="Retrieving Hauksson et al.(2012) relocated seismicity";
-       p2.textContent="Please wait: with ~700k events, this may take a few minutes..."; break;
+       p2.textContent="Please wait: with ~700k events, this may take a few minutes"; break;
      case QUAKE_TYPE_ROSS:
        p.textContent="Retrieving Ross et al.(2019) relocated seismicity";
-       p2.textContent="Please wait: with ~980k events, this may take a few minutes..."; break;
+       p2.textContent="Please wait: with ~980k events, this may take a few minutes"; break;
      case QUAKE_TYPE_HISTORICAL:
        p.textContent="Retrieving events 1900-2021 > M6.0";
-       p2.textContent="Should be very quick..."; break;
+       p2.textContent="Should be very quick"; break;
   }
 }
 
