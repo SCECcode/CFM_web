@@ -380,21 +380,21 @@ $header = getHeader("Viewer");
             </div>
         </div>
 <!--XX Sesimicity -->
-        <div class="col-2 mt-2 pl-0">
-<div id="loadSeismicity" class="row" style="width:16rem;display:">
-<button id="quakesBtn" class="btn" onClick="loadSeismicity()" style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.2rem 0.4rem;">Load relocated seismicity</button>
+        <div class="col-3 mt-2 pl-0">
+<div id="loadSeismicity" class="row" style="width:20rem;display:">
+<button id="quakesBtn" class="btn" onClick="loadSeismicity()" style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.25rem 0.5rem;">Load relocated seismicity</button>
 <button id="quakeInfoBtn" class="btn" style="background:white;" data-toggle="modal" data-target="#modalinfoquake"><span class="glyphicon glyphicon-info-sign"></span></button>
 </div>
-<div id="showSeismicity" class="row" style="width:16rem; display:none">
+<div id="showSeismicity" class="row" style="width:20rem; display:none">
 <select id="seismicitySelect" onchange="changePixiOverlay(this.value)"
-class="custom-select custom-select-sm" style="width:13rem; padding:0.2rem 0.3rem">
-   <option value="none">no show</option>
-   <option selected value="haukssondepth">Hauksson by depth</option>
-   <option value="haukssonmag">Hauksson by magnitude</option>
-   <option value="haukssontime">Hauksson by time</option>
-   <option value="rossdepth">Ross by depth</option>
-   <option value="rossmag">Ross by magnitude</option>
-   <option value="rosstime">Ross by time</option>
+class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5rem">
+   <option value="none">No seismicity</option>
+   <option selected value="haukssondepth">Hauksson et al. by depth</option>
+   <option value="haukssonmag">Hauksson et al. by magnitude</option>
+   <option value="haukssontime">Hauksson et al. by time</option>
+   <option value="rossdepth">Ross et al. by depth</option>
+   <option value="rossmag">Ross et al. by magnitude</option>
+   <option value="rosstime">Ross et al. by time</option>
 <!--
    <option value="historicaldepth">Historical by depth</option>
    <option value="historicalmag">Historical by magitude</option>
@@ -404,8 +404,8 @@ class="custom-select custom-select-sm" style="width:13rem; padding:0.2rem 0.3rem
 <button id="toggleHistoricalBtn" class="btn" title="highlight significant earthquakes" style="color:red;background:white" onclick="toggleHistorical()"><span class="fas fa-circle fa-xs"></span></button>
 
 </div>
-        </div>
-        <div class="col-5 d-flex justify-content-end">
+</div>
+<div class="col-4 d-flex justify-content-end">
             <div class="input-group input-group-sm cfm-input-group mt-2" id="map-controls">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="mapLayer">Select Map Type</label>
