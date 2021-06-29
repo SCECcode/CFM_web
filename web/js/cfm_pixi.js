@@ -102,7 +102,9 @@ function initMarkerTextures(resources) {
 }
 
 function initForPixiOverlay() {
-window.console.log("XXX callinging initForPixiOverlay..");
+
+window.console.log("callinging initForPixiOverlay..");
+
   pixiLatlngList.push({"type":EQ_HAUKSSON_FOR_DEPTH, "data":[]});
   pixiLatlngList.push({"type":EQ_HAUKSSON_FOR_MAG, "data":[]});
   pixiLatlngList.push({"type":EQ_HAUKSSON_FOR_TIME, "data":[]});

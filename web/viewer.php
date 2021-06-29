@@ -402,10 +402,9 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
 -->
 </select>
 <button id="toggleHistoricalBtn" class="btn" title="highlight significant earthquakes" style="color:red;background:white" onclick="toggleHistorical()"><span class="fas fa-circle fa-xs"></span></button>
-
 </div>
-</div>
-<div class="col-4 d-flex justify-content-end">
+        </div>
+        <div class="col-4 d-flex justify-content-end">
             <div class="input-group input-group-sm cfm-input-group mt-2" id="map-controls">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="mapLayer">Select Map Type</label>
