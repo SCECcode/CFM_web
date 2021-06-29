@@ -685,11 +685,9 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
       <!--Body-->
       <div class="modal-body" id="modalinfoquakeBody">
         <div class="row col-md-12 ml-auto" style="overflow:hidden;">
-          <div class="col-12" id="file-container">
-<h5>Explain about how relocated seismicity is loaded and used..  </h5>
+          <div class="col-12" style="font-size:14pt">
+<p> This loads the updated Hauksson et al. (2012) and Ross et al. (2019) relocated earthquake catalogs and provides a pull-down menu with options to color by depth, magnitude, or time. Significant historical events (1900-2021 >M6.0) are shown with red dots. These can be turned on/off by clicking on the red dot which appears here once the catalogs have been loaded </p>
           </div>
-          <div class="col-12" id="infoTable-container"></div>
-
         </div>
       </div>
       <div class="modal-footer justify-content-center">
