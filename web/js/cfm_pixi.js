@@ -185,7 +185,7 @@ function _toFileLatlngSet(tidx,tsz,sidx,ssz) {
     // output the log only when tidx is 0
     if(sidx == 0) {
       var sum=0;
-      var logname=fname_stub+"log.txt";
+      var logname=fname_stub+"log.json";
       var loglist=[]; 
       for(var i=0; i<DATA_SEGMENT_COUNT; i++) {
         var dlist=list.data[i]; //
@@ -289,12 +289,19 @@ function _eq_fname_stub(ttype) {
 
 function _eq_fname(ttype,sidx) {
     var stub=_eq_fname_stub(ttype);
-    var fname=stub+sidx+".csv";
+    var fname=stub+sidx+".json";
     return fname;
 }
 
 function _loadFromFileLatlngLastSet() {
-    var fname=SEISMICITY_DIR+"/historical_depth_log.txt";
+    var fname=SEISMICITY_DIR+"/historical_depth_log.json";
+
+//    var headers = new Headers();
+//    headers.append("Content-Type","application/json");
+//    headers.append("Content-Encoding","zlib");
+//    var compressedBody = await compressedBody(jsonContent);
+
+//    fetch(fname, {method:'POST',headers:headers,body:compressedBody})
     fetch(fname)
         .then(
           function(response) {
@@ -333,7 +340,7 @@ function _loadFromFileLatlngSet(tidx,tsz,sidx,ssz) {
             response.json().then(function(fdata) {
                 add2QuakeCounterWithVal(1);
 window.console.log("processing incoming file-- "+fname);
-                _process_csv(fdata,ttype,sidx);
+                _process_json(fdata,ttype,sidx);
 
                 // special case: collect a set of historical 
                 if(ttype==QUAKE_TYPE_HISTORICAL && sidx == 0) {
@@ -351,8 +358,8 @@ window.console.log("processing incoming file-- "+fname);
 
                 if(sidx+1 == ssz) {
                   if(tidx+1 == tsz) { // all done
-window.console.log("regular csv files : ALL DONE");
-                    // need to retrieve "historical_depth_log.txt"
+window.console.log("regular json data files : ALL DONE");
+                    // need to retrieve "historical_depth_log.json"
                     _loadFromFileLatlngLastSet();
                     } else {
                       _loadFromFileLatlngSet(tidx+1,tsz,0,ssz);
@@ -374,7 +381,7 @@ function loadFromFileMarkerLatlng() {
     _loadFromFileLatlngSet(0,sz,0,DATA_SEGMENT_COUNT);
 }
 
-function _process_csv(response_data,ttype,sidx) {
+function _process_json(response_data,ttype,sidx) {
   var cnt=response_data.length; 
   for(var i=0;i<cnt;i++) {
     data=response_data[i];
