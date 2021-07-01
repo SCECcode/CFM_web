@@ -32,6 +32,11 @@ $header = getHeader("Viewer");
     <script type='text/javascript' src='js/vendor/ersi-leaflet.js'></script>
     <script type='text/javascript' src='js/vendor/FileSaver.js'></script>
     <script type='text/javascript' src='js/vendor/jszip.js'></script>
+    <script type='text/javascript' src='js/vendor/zlib.min.js'></script>
+    <script type='text/javascript' src='js/vendor/zlib-util.js'></script>
+    <script type='text/javascript' src='js/vendor/gunzip.min.js'></script>
+    <script type='text/javascript' src='js/vendor/unzip.min.js'></script>
+
     <script type='text/javascript' src='js/vendor/jquery.floatThead.min.js'></script>
 
     <!--

@@ -289,19 +289,31 @@ function _eq_fname_stub(ttype) {
 
 function _eq_fname(ttype,sidx) {
     var stub=_eq_fname_stub(ttype);
-    var fname=stub+sidx+".json";
+    var fname=stub+sidx+".json.gz";
     return fname;
 }
 
+function _binArrayToJson(barray)
+{
+    var str = "";
+    for (var i = 0; i < barray.length; i++) {
+        str += String.fromCharCode(parseInt(barray[i]));
+    }
+    return JSON.parse(str);
+}
+
+
+function _decompress2JSON(zdata) {
+    var zarray=new Uint8Array(zdata);
+    var gunzip = new Zlib.Gunzip(zarray);
+    var dzarray = gunzip.decompress();
+    var jzdata= _binArrayToJson(dzarray);
+    return jzdata;
+}
+
 function _loadFromFileLatlngLastSet() {
-    var fname=SEISMICITY_DIR+"/historical_depth_log.json";
+    var fname=SEISMICITY_DIR+"/historical_depth_log.json.gz";
 
-//    var headers = new Headers();
-//    headers.append("Content-Type","application/json");
-//    headers.append("Content-Encoding","zlib");
-//    var compressedBody = await compressedBody(jsonContent);
-
-//    fetch(fname, {method:'POST',headers:headers,body:compressedBody})
     fetch(fname)
         .then(
           function(response) {
@@ -310,19 +322,21 @@ function _loadFromFileLatlngLastSet() {
                          response.status);
                return;
             }
-          // Examine the text in the response
-            response.json().then(function(fdata) {
-                var desc=fdata['description'];
-                var latlng=fdata['latlng'];
-                cfm_quake_historical_latlng=latlng;
-                cfm_quake_historical_description=desc;
-                doneQuakeCounterWithVal();
-                finishLoadSeismicity();
+            response.arrayBuffer().then(function(zdata) {
+              var jzdata= _decompress2JSON(zdata);
+              var desc=jzdata['description'];
+              var latlng=jzdata['latlng'];
+              cfm_quake_historical_latlng=latlng;
+              cfm_quake_historical_description=desc;
+              doneQuakeCounterWithVal();
+              finishLoadSeismicity();
             });
          }
        )
        .catch(function(err) { window.console.log("Fetch Error :-S"+err); });
 }
+
+
 function _loadFromFileLatlngSet(tidx,tsz,sidx,ssz) {
     var ttype=EQ_LIST[tidx];
     var fname=_eq_fname(ttype,sidx);
@@ -337,24 +351,12 @@ function _loadFromFileLatlngSet(tidx,tsz,sidx,ssz) {
             }
 
           // Examine the text in the response
-            response.json().then(function(fdata) {
-                add2QuakeCounterWithVal(1);
+            response.arrayBuffer().then(function(zdata) {
 window.console.log("processing incoming file-- "+fname);
-                _process_json(fdata,ttype,sidx);
+                var fdata= _decompress2JSON(zdata);
 
-                // special case: collect a set of historical 
-                if(ttype==QUAKE_TYPE_HISTORICAL && sidx == 0) {
-                  var sz=fdata.length; 
-                  for(var i=0; i<sz; i++) {
-                    var item=fdata[i];
-                    var lat=item['lat'];
-                    var lng=item['lng'];
- //                   var desc=item['Description'];
-                    var desc="blah description"+i;
-                    cfm_quake_historical_latlng.push([lat,lng]);
-                    cfm_quake_historical_description.push( desc );
-                  }
-                }
+                add2QuakeCounterWithVal(1);
+                _process_json(fdata,ttype,sidx);
 
                 if(sidx+1 == ssz) {
                   if(tidx+1 == tsz) { // all done
