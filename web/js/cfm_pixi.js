@@ -289,6 +289,12 @@ function _eq_fname_stub(ttype) {
 
 function _eq_fname(ttype,sidx) {
     var stub=_eq_fname_stub(ttype);
+    var fname=stub+sidx+".json";
+    return fname;
+}
+
+function _eq_gzfname(ttype,sidx) {
+    var stub=_eq_fname_stub(ttype);
     var fname=stub+sidx+".json.gz";
     return fname;
 }
@@ -339,7 +345,7 @@ function _loadFromFileLatlngLastSet() {
 
 function _loadFromFileLatlngSet(tidx,tsz,sidx,ssz) {
     var ttype=EQ_LIST[tidx];
-    var fname=_eq_fname(ttype,sidx);
+    var fname=_eq_gzfname(ttype,sidx);
 
     fetch(fname)
         .then(
