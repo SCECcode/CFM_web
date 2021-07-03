@@ -16,6 +16,13 @@ var dip_range_max_ref = 0;
 var dip_range_min = 0;
 var dip_range_max = 0;
 
+function getRnd() {
+//https://stackoverflow.com/questions/221294/how-do-you-get-a-timestamp-in-javascript
+    var timestamp = $.now();
+    var rnd="CFM_"+timestamp;
+    return rnd;
+}
+
 function switchModalWaitEQLabel(quake_type) {
   var p = document.getElementById("modalwaiteqLabel");
   var p2 = document.getElementById("modalwaiteqLabel2");

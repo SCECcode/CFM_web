@@ -8,6 +8,13 @@ var showing_key = false;
 var seismicity_loaded = false;
 var seismicity_from_cache = true;
 
+
+// extract all EQ northing/easting infoto file 
+function toFileAllQuakes() {
+  quakesAllToFile(QUAKE_TYPE_HAUKSSON,"Whole set");
+  //quakesAllToFile(QUAKE_TYPE_ROSS,"Whole set");
+}
+
 function updatePrograssBar(width) {
   var element = document.getElementById("myProgressBar");   
   element.style.width = width + '%'; 

@@ -139,8 +139,10 @@ $header = getHeader("Viewer");
     <script type="text/javascript" src="js/cfm_misc_util.js?v=1"></script>
     <button id="dumpCFMGeoBtn" class="btn cfm-small-btn"  onClick="dumpActiveCFMGeo()">
                 <span class="glyphicon glyphicon-share-alt"></span> Export CFM geoJson</button>
-    <button id="dumpMarkerLatlngBtn" class="btn cfm-small-btn"  onClick="toFileMarkerLatlng()">
+    <button id="dumpMarkerLatlngBtn" class="btn cfm-small-btn" onClick="toFileMarkerLatlng()">
                 <span class="glyphicon glyphicon-share"></span> Export Marker Latlng</button>
+    <button id="filterSeismicityBtn" class="btn cfm-small-btn" onClick="toFileAllQuakes()">
+                <span class="glyphicon glyphicon-share"></span> Export Seismicity by Magnitude</button>
     </div>
 
     <div style="display:none">

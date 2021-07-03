@@ -4,6 +4,43 @@
 
 const DATA_CHUNK_COUNT=20;
 
+function quakesAllToFile(quake_type,msg) {
+    var uid=getRnd();
+    if (window.XMLHttpRequest) {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        // code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("phpResponseTxt").innerHTML = this.responseText;
+            window.console.log("file being created.."+this.responseText);
+        }
+    };
+    xmlhttp.open("GET","php/quakesAllToFile.php?quake_type+"+quake_type+"&uid="+uid+"&msg="+msg,true);
+    xmlhttp.send();
+}
+
+function quakeByMagnitudeToFile(quake_type,uid,msg,min,max) {
+    if (window.XMLHttpRequest) {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        // code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("phpResponseTxt").innerHTML = this.responseText;
+            window.console.log("file being created.."+this.responseText);
+        }
+    };
+    xmlhttp.open("GET","php/quakeByMagnitudeToFile.php?quake_type+"+quake_type+"&min="+min+"&max="+max+"&uid="+uid+"&msg="+msg,true);
+    xmlhttp.send();
+}
+
 function writeToServerFile(fname,data) {
     var dstr=JSON.stringify(data);
     var params="fname="+fname+"&dstr="+dstr;
