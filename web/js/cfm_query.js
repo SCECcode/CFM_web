@@ -16,10 +16,15 @@ function quakesAllToFile(quake_type,msg) {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
-            window.console.log("file being created.."+this.responseText);
+            if(quake_type == QUAKE_TYPE_HAUKSSON) {
+                window.console.log("done with quakesAllToFile..for Hauksson");
+                quakesAllToFile(QUAKE_TYPE_ROSS,msg);
+                } else {
+                  window.console.log("done with quakesAllToFile..for Ross");
+            }
         }
     };
-    xmlhttp.open("GET","php/quakesAllToFile.php?quake_type+"+quake_type+"&uid="+uid+"&msg="+msg,true);
+    xmlhttp.open("GET","php/quakesAllToFile.php?quake_type="+quake_type+"&uid="+uid+"&msg="+msg,true);
     xmlhttp.send();
 }
 

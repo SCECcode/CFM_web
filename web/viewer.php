@@ -142,7 +142,7 @@ $header = getHeader("Viewer");
     <button id="dumpMarkerLatlngBtn" class="btn cfm-small-btn" onClick="toFileMarkerLatlng()">
                 <span class="glyphicon glyphicon-share"></span> Export Marker Latlng</button>
     <button id="filterSeismicityBtn" class="btn cfm-small-btn" onClick="toFileAllQuakes()">
-                <span class="glyphicon glyphicon-share"></span> Export Seismicity by Magnitude</button>
+                <span class="glyphicon glyphicon-share"></span> Export Seismicity </button>
     </div>
 
     <div style="display:none">
