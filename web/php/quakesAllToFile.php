@@ -35,7 +35,7 @@ $dstr="## ".$fname."\n";
 fwrite($fp,$dstr); 
 $dstr="##\n";
 fwrite($fp,$dstr); 
-$dstr="> \"".$msg."\"\n";
+$dstr="> ".$msg."\n";
 fwrite($fp,$dstr); 
 
 while($row = pg_fetch_row($result)) {
