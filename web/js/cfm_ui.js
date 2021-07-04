@@ -11,7 +11,9 @@ var seismicity_from_cache = true;
 
 // extract all EQ northing/easting infoto file 
 function toFileAllQuakes() {
-  quakesAllToFile(QUAKE_TYPE_HAUKSSON,"Whole set");
+  let meta={"color":{"r":1,"g":0,"b":0}};
+  let msg=JSON.stringify(meta); 
+  quakesAllToFile(QUAKE_TYPE_HAUKSSON,msg);
 }
 
 function updatePrograssBar(width) {

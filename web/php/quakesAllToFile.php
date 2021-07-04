@@ -9,7 +9,7 @@
 include("declare.php");
 include("util.php");
 
-$quake_type = intVal($_GET['quake_type']);
+$quake_type = $_GET['quake_type'];
 $msg = $_GET['msg'];
 $uid = $_GET['uid'];
 
@@ -24,6 +24,8 @@ if ($quake_type == $quake_type_Hauksson) {
   $query = "SELECT Easting, Northing, Depth FROM EQ_ross_tb";
   $fname=$fname."ross_".$uid.".utm";
 }
+echo $fname;
+
 $fp= fopen($fname,"w") or die("Unable to open file!"+$fname);
 $result = pg_query($dbconn, $query);
 

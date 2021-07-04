@@ -135,7 +135,7 @@ $header = getHeader("Viewer");
 <div class="container">
 
 <div class="main">
-    <div style="display:none">
+    <div style="display:">
     <script type="text/javascript" src="js/cfm_misc_util.js?v=1"></script>
     <button id="dumpCFMGeoBtn" class="btn cfm-small-btn"  onClick="dumpActiveCFMGeo()">
                 <span class="glyphicon glyphicon-share-alt"></span> Export CFM geoJson</button>
