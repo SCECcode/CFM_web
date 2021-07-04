@@ -18,7 +18,7 @@ function quakesAllToFile(quake_type,msg) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
             if(quake_type == QUAKE_TYPE_HAUKSSON) {
                 window.console.log("done with quakesAllToFile..for Hauksson");
-                let t={"color":{"r":0,"g":0,"b":1}}
+                let t={"size":2,"color":{"r":0,"g":0,"b":1}}
                 let mmsg=JSON.stringify(t);
                 quakesAllToFile(QUAKE_TYPE_ROSS,mmsg);
                 } else {
