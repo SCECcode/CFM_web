@@ -149,7 +149,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
     window.console.log(" SERVER Side>>>> got a message..");
     var origin = event.origin;
-    if (origin != "http://localhost" && origin != "http://moho.scec.org" && origin != "https://www.scec.org") {
+    if (origin != "http://localhost" && origin != "http://asperity.scec.org" && origin != "http://moho.scec.org" && origin != "https://www.scec.org") {
         window.console.log("service, bad message origin:", origin);
         return;
     }

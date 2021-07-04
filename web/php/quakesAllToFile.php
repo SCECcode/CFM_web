@@ -41,7 +41,7 @@ fwrite($fp,$dstr);
 while($row = pg_fetch_row($result)) {
     $easting=floatVal($row[0]);
     $northing=floatVal($row[1]);
-    $depth=floatVal($row[2])*1000;
+    $depth=floatVal($row[2]) * -1000;
     $dstr="  ".$easting."   ".$northing."   ".$depth."\n";
     fwrite($fp,$dstr); 
 }
