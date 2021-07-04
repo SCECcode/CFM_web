@@ -135,7 +135,7 @@ $header = getHeader("Viewer");
 <div class="container">
 
 <div class="main">
-    <div style="display:">
+    <div style="display:none">
     <script type="text/javascript" src="js/cfm_misc_util.js?v=1"></script>
     <button id="dumpCFMGeoBtn" class="btn cfm-small-btn"  onClick="dumpActiveCFMGeo()">
                 <span class="glyphicon glyphicon-share-alt"></span> Export CFM geoJson</button>
@@ -560,6 +560,7 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
       <!--Header-->
       <div class="modal-header">
         <button id="view3DToggleReprbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleRepr3Dview(this)">Show Wireframe</button>
+        <button id="view3DToggleQuakebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleQuake3Dview(this)">No EQ</button>
         <button id="view3DToggleTracebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleTrace3Dview(this)">Hide Traces</button>
         <button id="view3DToggleShorebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleShore3Dview(this)">Hide Coastline</button>
         <button id="view3DToggleBoundsbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleBounds3Dview(this)">Show Bounds</button>

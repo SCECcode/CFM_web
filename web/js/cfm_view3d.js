@@ -14,36 +14,39 @@ var VIEW3D_tb = {
          'name': 'Hide Traces',
          'description': 'Show/Hide Fault traces and upper tiplines of Blind faults'},
        { 'id':4,
+         'name': 'Hauksson',
+         'description': 'Select the seismicity to show: Hauksson et al., Ross et al. or None'},
+       { 'id':5,
          'name': 'Hide Coastline',
          'description': 'Show/Hide California outline and coastline'},
-       { 'id':5,
+       { 'id':6,
          'name': 'Hide Bounding Box',
          'description': 'Show/Hide Bounding Box around the selected faults'},
-       { 'id':6,
+       { 'id':7,
          'name': 'Legend',
          'description': 'Show/Hide the Legend<br>Colored boxes in the legend can be clicked on to change surface color<br>Slider bar controls opacity from 0.1 to 1.0<br>Click on the fault name in the legend to toggle on/off surface visibility'},
-       { 'id':7,
+       { 'id':8,
          'name': 'Show Mapview',
          'description': 'Return to the original mapview orientation zoomed to selected faults'},
-       { 'id':8,
+       { 'id':9,
          'name': 'Close',
          'description': 'Close the 3D view'},
-       { 'id':9,
+       { 'id':10,
          'name': 'Shrink',
          'description': 'Shrink to a smaller screen view'},
-       { 'id':10,
+       { 'id':11,
          'name': 'Reset',
          'description': 'Refresh the 3D view to the default mapview orientation' },
-       { 'id':11,
+       { 'id':12,
          'name': 'Save',
          'description': 'Save a copy of 3D view (no legend)' },
-       { 'id':12,
+       { 'id':13,
          'name': 'Help',
          'description': 'Display this information table'},
-       { 'id':13,
+       { 'id':14,
          'name': 'Orientation Marker',
          'description': 'Green arrow points toward the North<br>Pink points east'},
-       { 'id':14,
+       { 'id':15,
          'name': 'Disclaimer',
          'description': '<p>This viewer is intended to provide potential CFM users with a quick and convenient way to view CFM fault surfaces in their native 3D environment (UTM zone 11s). This tool not designed to replace fully functional CAD software. Refer to the <a href="https://www.scec.org/research/cfm">CFM homepage</a> for information about recommended software.</p><p>This tool currently does not have the ability to plot 3D axes, and a map scale in 3D is not useful because any scale would only be valid at one given distance from the viewer. Faults in the CFM extend to the approximate base of the seismogenic zone (max depth of earthquakes), which is approximately 15 – 20 km depth in most southern California regions.</p><p>For location purposes, the 3D viewer shows all CFM fault traces in pink, blind fault upper tip lines in orange, and the coastline and state boundaries in black. In the bottom right corner, the green arrow points North, pink points East, and yellow points up vertically.</p><p>Learning to navigate in 3D takes some practice, so if you get lost or disoriented, try clicking on the “Show Mapview” button in the top right corner to reset to the original mapview.</p>'},
         ]
@@ -111,6 +114,7 @@ function show3dView(urls,nstr,path) {
 
   resetLegend3Dview();
   resetRepr3Dview();
+  resetQuake3Dview();
   resetBounds3Dview();
   resetExpand3Dview();
   resetShore3Dview();
@@ -149,7 +153,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
     window.console.log(" SERVER Side>>>> got a message..");
     var origin = event.origin;
-    if (origin != "http://localhost" && origin != "http://asperity.scec.org" && origin != "http://moho.scec.org" && origin != "https://www.scec.org") {
+    if (origin != "http://localhost:8081" && origin != "http://asperity.scec.org" && origin != "http://moho.scec.org" && origin != "https://www.scec.org") {
         window.console.log("service, bad message origin:", origin);
         return;
     }
@@ -192,6 +196,7 @@ function showPlot3dWarning() {
 function refresh3Dview() {
   resetLegend3Dview();
   resetRepr3Dview();
+  resetQuake3Dview();
   resetBounds3Dview();
   resetExpand3Dview();
   resetShore3Dview();
@@ -281,6 +286,29 @@ function resetLegend3Dview() {
 
 function toggleNorth3Dview(elt) {
   document.getElementById("view3DIfram").contentDocument.getElementById("Northbtn").click();
+}
+
+var track_seismicity=0; // 0 is none, 1 is hauksson, 3 is ross 
+//publicAPI.toggle
+function toggleQuake3Dview(elt) {
+  document.getElementById("view3DIfram").contentDocument.getElementById("Quakebtn").click();
+  track_seismicity = ( track_seismicity + 1 ) % 3;
+  switch( track_seismicity ) {
+    case 0:
+      elt.innerHTML="No EQs";
+      break;
+    case 1:
+      elt.innerHTML="Hauksson et al.";
+      break;
+    case 2:
+      elt.innerHTML="Ross et al.";
+      break;
+  }
+}
+function resetQuake3Dview() {
+  track_seismcity=0;
+  let elt=document.getElementById("view3DToggleQuakebtn")
+  elt.innerHTML="No EQs";
 }
 
 var track_representation=0; // 1 is wireframe 0 is surface 2 is surface + edge
