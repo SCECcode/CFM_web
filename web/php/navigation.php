@@ -4,7 +4,7 @@
 $host_site_actual_path = "/";
 if (isset($_SERVER['HTTP_X_FORWARDED_SERVER'])) {
 	// check that we're behind a proxy
-	$host_site_actual_path = "/research/cfm-viewer/";
+	$host_site_actual_path = "/cfm-viewer/";
 }
 
 

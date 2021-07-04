@@ -295,20 +295,20 @@ function toggleQuake3Dview(elt) {
   track_seismicity = ( track_seismicity + 1 ) % 3;
   switch( track_seismicity ) {
     case 0:
-      elt.innerHTML="No EQs";
+      elt.innerHTML="Relocated Seismicity Off";
       break;
     case 1:
-      elt.innerHTML="Hauksson et al.";
+      elt.innerHTML="Hauksson et al.(2012)";
       break;
     case 2:
-      elt.innerHTML="Ross et al.";
+      elt.innerHTML="Ross et al.(2019)";
       break;
   }
 }
 function resetQuake3Dview() {
   track_seismcity=0;
   let elt=document.getElementById("view3DToggleQuakebtn")
-  elt.innerHTML="No EQs";
+  elt.innerHTML="Relocated Seismicity Off";
 }
 
 var track_representation=0; // 1 is wireframe 0 is surface 2 is surface + edge
