@@ -105,7 +105,7 @@ function dumpActiveGeo(dumpname, trace_list, label_list) {
 
 // from a local file
 function readLocalAndProcessActiveCFMGeo() {
-  var url="data/CFM5.2_geoJson.txt";
+  var url="data/CFM5.3_geoJson.txt";
   var blob=ckExist(url);
   var jblob=JSON.parse(blob);
 

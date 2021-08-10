@@ -8,11 +8,18 @@ var showing_key = false;
 var seismicity_loaded = false;
 var seismicity_from_cache = true;
 
+// dump the quake layer into file
+function dumpAllQuakeLayer() {
+// TODO -- maybe some webgl page dump ??
+// start with hauksson and then ross within
+//  dumpQuakeCFMGeo(QUAKE_TYPE_HAUKSSON);
+}
 
-// extract all EQ northing/easting infoto file 
+// extract all EQ northing/easting info to file 
 function toFileAllQuakes() {
   let meta={"size":1,"color":{"r":0,"g":0.61,"b":0}};
   let msg=JSON.stringify(meta); 
+  // start with hauksson and then ross within
   quakesAllToFile(QUAKE_TYPE_HAUKSSON,msg);
 }
 
