@@ -115,7 +115,7 @@ function get_PARAMS() {
 function show3dView(urls,nstr,path) {
 
 // set it once
-  viewUID = $.now();
+  viewUID = Math.floor( $.now()/1000 ); // in seconds
 
   reset_search_selection();
 
