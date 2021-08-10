@@ -103,7 +103,7 @@ function initMarkerTextures(resources) {
 
 function initForPixiOverlay() {
 
-window.console.log("callinging initForPixiOverlay..");
+//window.console.log("callinging initForPixiOverlay..");
 
   pixiLatlngList.push({"type":EQ_HAUKSSON_FOR_DEPTH, "data":[]});
   pixiLatlngList.push({"type":EQ_HAUKSSON_FOR_MAG, "data":[]});
@@ -221,8 +221,7 @@ function _toFileLatlngSet(tidx,tsz,sidx,ssz) {
 // had to do this manually.. since is is asynchronously
 function _outputBlob(obj,fname) {
 
-window.console.log("writing out blob file >>("+fname+")");
-
+//window.console.log("writing out blob file >>("+fname+")");
 /*  to server solution */
   window.console.log("writing out ..."+fname);
   writeToServerFile(fname,obj); 
@@ -248,7 +247,7 @@ window.console.log("writing out blob file >>("+fname+")");
 
   var blob = new Blob([ostr],{ type: "text/plain;charset=utf-8" });
   saveAs(blob,fname);
-window.console.log(">>>SSS saving a file.."+fname+" sz "+ostr.length);
+//window.console.log(">>>SSS saving a file.."+fname+" sz "+ostr.length);
 */
 }
 
@@ -358,7 +357,7 @@ function _loadFromFileLatlngSet(tidx,tsz,sidx,ssz) {
 
           // Examine the text in the response
             response.arrayBuffer().then(function(zdata) {
-window.console.log("processing incoming file-- "+fname);
+//window.console.log("processing incoming file-- "+fname);
                 var fdata= _decompress2JSON(zdata);
 
                 add2QuakeCounterWithVal(1);
@@ -366,7 +365,7 @@ window.console.log("processing incoming file-- "+fname);
 
                 if(sidx+1 == ssz) {
                   if(tidx+1 == tsz) { // all done
-window.console.log("regular json data files : ALL DONE");
+//window.console.log("regular json data files : ALL DONE");
                     // need to retrieve "historical_depth_log.json"
                     _loadFromFileLatlngLastSet();
                     } else {
@@ -403,7 +402,7 @@ function updateMarkerLatlng(ttype,idx,lat,lng) {
   var alist=pixiLatlngList[ttype];
   if(alist == null) {
       alist[ttype]= {"type":ttype, "data":[]};
-      window.console.log("hum.. pixiLatlngList did not get initialized.."); 
+//window.console.log("hum.. pixiLatlngList did not get initialized.."); 
   }
   var item=pixiLatlngList[ttype].data;
   item[idx].push({'lat':lat,"lng":lng});
@@ -507,7 +506,7 @@ function setup_pixi(quake_type) {
   // this is used to simulate leaflet zoom animation timing:
   var loader = new PIXI.loaders.Loader();
 
-window.console.log("setup_pixi loading >>>"+ quake_type);
+//window.console.log("setup_pixi loading >>>"+ quake_type);
  
   if(loadOnce) {
     init_pixi(loader);
@@ -566,7 +565,7 @@ function changePixiOverlay(typestr) {
 
   var center, zoom;
   [center, zoom] = get_map();
-  window.console.log("save map.."+center+" and "+zoom);
+//window.console.log("save map.."+center+" and "+zoom);
   _changeOverlay(typestr);
 // XXX  this does not seem to work??
 //  set_map(center,zoom);
@@ -698,7 +697,7 @@ function makePixiOverlayLayer(quake_type) {
     var pixiContainer = new PIXI.Container();
     var pContainers=[]; //particle container
 
-    window.console.log("making pixi overlay layer..");
+//window.console.log("making pixi overlay layer..");
 
     for(var i=0; i<DATA_SEGMENT_COUNT; i++) {
       var length=getMarkerCount(quake_type,i);
@@ -741,8 +740,8 @@ function makePixiOverlayLayer(quake_type) {
         initialScale = invScale / 16; // initial size of the marker
 //initialScale = invScale / 2; // initial size of the marker
 
-window.console.log("FFFirst time making this pixiOverlay,"+quake_type+" initial scale "+initialScale +" mapzoom" + mapzoom);
-        printMarkerLatlngInfo(quake_type);
+//window.console.log("First time making this pixiOverlay,"+quake_type+" initial scale "+initialScale +" mapzoom" + mapzoom);
+        //printMarkerLatlngInfo(quake_type);
 
         // fill in the particles
         for(var i=0; i< DATA_SEGMENT_COUNT; i++ ) {
@@ -757,10 +756,10 @@ window.console.log("FFFirst time making this pixiOverlay,"+quake_type+" initial 
               var latlng=latlngs[j];
               var ll=latlng['lat'];
               var gg=latlng['lng'];
-//              window.console.log("start latlon>>"+ll+" "+gg);
+//window.console.log("start latlon>>"+ll+" "+gg);
               var coords = pixi_project([ll,gg]);
               // our patched particleContainer accepts simple {x: ..., y: ...} objects as children:
-//              window.console.log("    and xy at "+coords.x+" "+coords.y);
+//window.console.log("    and xy at "+coords.x+" "+coords.y);
               var aParticle=a.addChild({ x: coords.x - origin.x, y: coords.y - origin.y });
 
 /**** trying it out 
@@ -770,7 +769,7 @@ window.console.log("FFFirst time making this pixiOverlay,"+quake_type+" initial 
                                         .setContent('<b>Hello world!</b><br>I am a popup.'+ latlng['lat']+' '+latlng['lng']).openOn(viewermap);
               pixiContainer.addChild(marker);
 ***/
-//            window.console.log( "      adding  child at..("+latlng['lat']+')('+latlng['lng']+')');
+//window.console.log( "      adding  child at..("+latlng['lat']+')('+latlng['lng']+')');
            }
         }
       }
@@ -782,7 +781,7 @@ window.console.log("FFFirst time making this pixiOverlay,"+quake_type+" initial 
           zoomChangeTs = 0;
           var targetScale = targetZoom >= eq_zoom_threshold ? (1 / getScale(event.zoom))/10  : initialScale;
 
-window.console.log(" ZOOManim.. new targetScale "+targetScale);
+//window.console.log(" ZOOManim.. new targetScale "+targetScale);
 
           pContainers.forEach(function(innerContainer) {
             innerContainer.currentScale = innerContainer.localScale;

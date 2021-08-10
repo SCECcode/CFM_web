@@ -1,5 +1,10 @@
 /* cfm viewer required styles */
 
+#quakeInfoBtn {
+    border: none;
+    box-shadow: none;
+}
+
 #myProgress {
   width: 50%;
   background-color: transparent;
