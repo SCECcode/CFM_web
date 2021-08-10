@@ -413,9 +413,6 @@ function resetExpand3Dview() {
 
 function save3Dview() {
   document.getElementById("view3DIfram").contentDocument.getElementById("Downloadbtn").click();
-  let elt=document.getElementById("view3DIfram").contentDocument.getElementById("Downloadpngfile");
-  let fname=elt.value;
-  window.console.log("XXX: save3Dview >>"+fname);
 }
 
 
