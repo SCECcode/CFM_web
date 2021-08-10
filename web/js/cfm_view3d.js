@@ -100,7 +100,10 @@ function setup_warn3dTable() {
 
 
 /*** iframe housekeeping ***/
-/* viewerType=viewerType&fileURL=[file1, file2]&name=[name1, name2]&filePATH=[path] */
+
+/***
+  viewUID=uid&viewerType=viewerType&fileURL=[file1, file2]&name=[name1, name2]&filePATH=[path]
+***/
 function set_PARAMS(params) {
   $('#params3D').attr('src',params);
 }
@@ -110,6 +113,10 @@ function get_PARAMS() {
 }
 
 function show3dView(urls,nstr,path) {
+
+// set it once
+  viewUID = $.now();
+
   reset_search_selection();
 
   resetLegend3Dview();
@@ -123,11 +130,10 @@ function show3dView(urls,nstr,path) {
   $('#modal3D').modal('show');
 
 // urls causing problem when it is too large
-  var params;
   if(path == undefined) {
-     params= "viewerType="+viewerType+"&fileURL="+urls+"&name="+nstr;
+     params="viewUID="+viewUID+"&viewerType="+viewerType+"&fileURL="+urls+"&name="+nstr;
      } else {
-       params="viewerType="+viewerType+"&fileURL="+urls+"&name="+nstr+"&filePATH="+path;
+       params="viewUID="+viewUID+"&viewerType="+viewerType+"&fileURL="+urls+"&name="+nstr+"&filePATH="+path;
   }
   set_PARAMS(params);
 
@@ -142,7 +148,7 @@ function sendParams3Dview() {
     var params=get_PARAMS();
     var iwindow=document.getElementById('view3DIfram').contentWindow;
     var eparams=encodeURI(params);
-    window.console.log("service, sending a message to iframe.");
+    window.console.log("service, post a message to iframe.");
     iwindow.postMessage({call:'fromSCEC',value:eparams},"*");
 }
 
@@ -205,8 +211,7 @@ function refresh3Dview() {
   var params=get_PARAMS();
 
   if(params.length > 1000) {
-//    $('#view3DIfram').attr('src',"cfm_3d.html?2Long");
-    $('#view3DIfram').attr('src',"cfm_3d.html?"+fixparam);
+    $('#view3DIfram').attr('src',"cfm_3d.html?2Long");
     } else {
       $('#view3DIfram').attr('src',"cfm_3d.html?"+params);
   }
