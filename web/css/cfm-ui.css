@@ -1,6 +1,6 @@
 /* cfm viewer required styles */
 
-#quakeInfoBtn {
+#quakeInfoBtn, #seismicitySelect {
     border: none;
     box-shadow: none;
 }
