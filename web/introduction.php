@@ -24,7 +24,7 @@ $header = getHeader("Introduction");
 <body>
 <?php echo $header; ?>
 
-<div class="container info-page-container scec-main-container">
+<div class="container info-page-container scec-main-container introduction">
 
     <h1>Introduction</h1>
 
