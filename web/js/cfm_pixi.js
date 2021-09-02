@@ -525,7 +525,7 @@ function setup_pixi(quake_type) {
       ticker.add(function(delta) { 
         pixiLayer.redraw({type: 'redraw', delta: delta});
       });
-      viewermap.on('changetart', function() {
+      viewermap.on('changestart', function() {
         ticker.start();
       });
       viewermap.on('changeend', function() { 
