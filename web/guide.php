@@ -224,7 +224,7 @@ $header = getHeader("User Guide");
                     "Waveform Relocated Earthquake Catalog for Southern California (1981 to June 2011)."
                     Bulletin of the Seismological Society of America, 102, 5, 2239-2244,
                     doi: 10.1785/0120120010.
-                    <a href="https://www.scec.org/publication/1528">SCEC Contribution 1528</a></li>
+                    <a href="https://www.scec.org/publication/1528">SCEC Contribution 1528</a>.</li>
                 <li><a href="https://www.scec.org/user/plesch">Plesch, A.</a>,
                     <a href="https://www.scec.org/user/nicholson">Nicholson, C.</a>,
                     <a href="https://www.scec.org/user/jshaw">Shaw, J. H.</a>,
@@ -232,15 +232,15 @@ $header = getHeader("User Guide");
                     <a href="https://www.scec.org/user/mei">Su, M-H.</a> (2020).
                     "The Community Fault Model version 5.3 and new web-based tools."
                     Virtual Poster Presentation at the 2020 SCEC Annual Meeting. 
-                    <a href="https://www.scec.org/publication/10547">SCEC Contribution 10547</a></li>
+                    <a href="https://www.scec.org/publication/10547">SCEC Contribution 10547</a>.</li>
                 <li><a href="https://www.scec.org/user/plesch">Plesch, A.</a>, et al. (2007).
                     "Community Fault Model (CFM) for Southern California".
                     Bulletin of the Seismological Society of America 97:1793-1802. 
-                    <a href="https://www.scec.org/publication/1134">SCEC Contribution 1134</a></li>
+                    <a href="https://www.scec.org/publication/1134">SCEC Contribution 1134</a>.</li>
                 <li>Ross, Z.E., Trugman, D.T.,
                     <a href="https://www.scec.org/user/hauksson">Hauksson, E.,</a> Shearer P.M. (2019).
                     "Searching for hidden earthquakes in Southern California."
-                    Science, 364, 6442, 767-771, doi: 10.1126/science.aaw6888</li>
+                    Science, 364, 6442, 767-771, doi: 10.1126/science.aaw6888.</li>
                 <li><a href="https://www.scec.org/user/jshaw">Shaw, J.H.</a>, 
                     <a href="https://www.scec.org/user/plesch">Plesch, A.</a>, 
                     <a href="https://www.scec.org/user/carltape">Tape, C.</a>, Suess, M.,
@@ -259,7 +259,7 @@ $header = getHeader("User Guide");
                     "Unified Structural Representation of the southern California crust and upper mantle."
                     Earth and Planetary Science Letters, 415, 1-15.
                     <a href="https://dx.doi.org/10.1016/j.epsl.2015.01.016">doi: 10.1016/j.epsl.2015.01.016</a>.
-                    <a href="https://www.scec.org/publication/2068">SCEC Contribution 2068</a></li>
+                    <a href="https://www.scec.org/publication/2068">SCEC Contribution 2068</a>.</li>
             </ul>
 
 
