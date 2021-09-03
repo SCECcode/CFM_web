@@ -723,9 +723,6 @@ function makePixiOverlayLayer(quake_type) {
 
 //window.console.log("in L.pixiOverlay layer, auto zoom at "+zoom+" scale at>"+getScale()+" invScale"+invScale);
 
-      var mapcenter=viewermap.getCenter();
-      var mapzoom=viewermap.getZoom();
-
       if (event.type === 'add') {
         // check if this is the first time..
         if(pixiOverlayList.length != 0) {
@@ -735,6 +732,8 @@ function makePixiOverlayLayer(quake_type) {
              return pixi['overlay'];
            }
         }
+        var mapcenter=viewermap.getCenter();
+        var mapzoom=viewermap.getZoom();
 
         var origin = pixi_project([mapcenter['lat'], mapcenter['lng']]);
         initialScale = invScale / 16; // initial size of the marker
