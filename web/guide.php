@@ -137,7 +137,7 @@ $header = getHeader("User Guide");
                  catalog shown is the Hauksson et al. (2012) catalog, which is available for download 
                  <a href="https://scedc.caltech.edu/data/alt-2011-dd-hauksson-yang-shearer.html">here</a>.
                  The pull-down menu at the top left of the interface also allows for visualization
-                 of the Ross et al. (2019) catalog, which is available for downlod
+                 of the Ross et al. (2019) catalog, which is available for download
                  <a href="https://scedc.caltech.edu/eq-catalogs/qtm.html">here</a>. Epicenters are
                  colored by depth by default, but the pull-down menu at the top left of the interface 
                  provides options to color by depth, magnitude, or time, for either the Hauksson et al. (2012),
@@ -162,12 +162,13 @@ $header = getHeader("User Guide");
              
              <dl>
                  Object name: SAFS-SAFZ-MULT-Banning_fault_strand-CFM4
-                 <dt><li>Fault area: SAFS</li>
-                     <li>Fault zone: SAFZ</li>
-                     <li>Fault section: MULT</li>
-                     <li>Fault name: Banning fault strand</li>
-                     <li>CFM Version when added or last updated: CFM4</li>
-                  </dt>
+                 <ul>
+                 <li>Fault area: SAFS</li>
+                 <li>Fault zone: SAFZ</li>
+                 <li>Fault section: MULT</li>
+                 <li>Fault name: Banning fault strand</li>
+                 <li>CFM Version when added or last updated: CFM4</li>
+                 </ul>
              </dl>
 
 
@@ -218,53 +219,47 @@ $header = getHeader("User Guide");
 
             <h4><strong>References</strong></h4>
             <ul class="references">
-                <li>Hauksson, E., W. Yang and P.M. Shearer, "Waveform Relocated Earthquake Catalog for 
-                                                               Southern California (1981 to 2011)";
-                                                               Bull. Seismol. Soc. Am., Vol. 102, No. 5, pp.2239-2244,
-                                                               October 2012, doi: 10.1785/0120120010</li>
-                <li> <a href="https://www.scec.org/user/plesch">Plesch, A.</a>, <a
-                            href="https://www.scec.org/user/nicholson">Nicholson, C.</a>, <a
-                            href="https://www.scec.org/user/jshaw">Shaw, J. H.</a>, <a 
-                            href="https://www.scec.org/user/maechlin">Maechling, P. J.</a>, <a
-                            href="https://www.scec.org/user/mei">Su, M-H.</a> (2020). “The Community Fault Model version 5.3 and new web-based tools” Virtual Poster Presentation at the 2020 SCEC Annual Meeting. <a 
-                            href="https://www.scec.org/publication/10547">SCEC Contribution 10547</a></li>
-                <li><a href="https://www.scec.org/user/plesch">Plesch, A.</a>, et al. (2007). "Community Fault Model
-                                                                             (CFM)
-                                                                             for
-                                                                             Southern California." Bulletin of the
-                                                                             Seismological Society of America 97:
-                                                                             1793-1802. <a
-                            href="https://www.scec.org/publication/1134">SCEC Contribution 1134</a></li>
-                <li>Ross, Z.E., Trugman, D.T., Hauksson, E. and Shearer P.M. "Searching for hidden earthquakes 
-                                                               in Southern California";
-                                                               Science Vol. 364, No. 6442, pp. 767-771, 
-                                                               2019, doi: 10.1126/science.aaw6888 </li>
-                <li><a href="https://www.scec.org/user/jshaw">Shaw, J. H.</a>, <a
-                            href="https://www.scec.org/user/plesch">Plesch,
-                                                                    A.</a>, <a
-                            href="https://www.scec.org/user/carltape">Tape, C.</a>, Suess, M., <a
-                            href="https://www.scec.org/user/tjordan">Jordan, T. H.</a>, <a
-                            href="https://www.scec.org/user/gely">Ely, G.</a>, <a
-                            href="https://www.scec.org/user/hauksson">Hauksson,
-                                                                      E.</a>,&nbsp;<a
-                            href="https://www.scec.org/user/jtromp">Tromp, J.</a>, <a
-                            href="https://www.scec.org/user/toshiro">Tanimoto, T.</a>, <a
-                            href="https://www.scec.org/user/rgraves">Graves, R.</a>, <a
-                            href="https://www.scec.org/user/kbolsen">Olsen, K.</a>, <a
-                            href="https://www.scec.org/user/nicholson">Nicholson, C.</a>, <a
-                            href="https://www.scec.org/user/maechlin">Maechling, P. J.</a>, <a
-                            href="https://www.scec.org/user/rivero">Rivero, C.</a>, <a
-                            href="https://www.scec.org/user/plovely">Lovely,
-                                                                     P.</a>, <a
-                            href="https://www.scec.org/user/brankman">Brankman, C. M.</a>, &amp; Munster, J. (2015).
-                                                                             Unified Structural Representation of the
-                                                                             southern California crust and upper mantle.
-                                                                             Earth and Planetary
-                                                                             Science Letters, 415, 1-15. <a
-                            href="https://dx.doi.org/10.1016/j.epsl.2015.01.016">doi:
-                                                                                 10.1016/j.epsl.2015.01.016</a>. <a
-                            href="https://www.scec.org/publication/2068">SCEC Contribution
-                                                                         2068</a></li>
+                <li><a href="https://www.scec.org/user/hauksson">Hauksson, E.,</a>
+                    Yang, W., Shearer, P.M. (2012).
+                    "Waveform Relocated Earthquake Catalog for Southern California (1981 to June 2011)."
+                    Bulletin of the Seismological Society of America, 102, 5, 2239-2244,
+                    doi: 10.1785/0120120010.
+                    <a href="https://www.scec.org/publication/1528">SCEC Contribution 1528</a></li>
+                <li><a href="https://www.scec.org/user/plesch">Plesch, A.</a>,
+                    <a href="https://www.scec.org/user/nicholson">Nicholson, C.</a>,
+                    <a href="https://www.scec.org/user/jshaw">Shaw, J. H.</a>,
+                    <a href="https://www.scec.org/user/maechlin">Maechling, P.J.</a>,
+                    <a href="https://www.scec.org/user/mei">Su, M-H.</a> (2020).
+                    "The Community Fault Model version 5.3 and new web-based tools."
+                    Virtual Poster Presentation at the 2020 SCEC Annual Meeting. 
+                    <a href="https://www.scec.org/publication/10547">SCEC Contribution 10547</a></li>
+                <li><a href="https://www.scec.org/user/plesch">Plesch, A.</a>, et al. (2007).
+                    "Community Fault Model (CFM) for Southern California".
+                    Bulletin of the Seismological Society of America 97:1793-1802. 
+                    <a href="https://www.scec.org/publication/1134">SCEC Contribution 1134</a></li>
+                <li>Ross, Z.E., Trugman, D.T.,
+                    <a href="https://www.scec.org/user/hauksson">Hauksson, E.,</a> Shearer P.M. (2019).
+                    "Searching for hidden earthquakes in Southern California."
+                    Science, 364, 6442, 767-771, doi: 10.1126/science.aaw6888</li>
+                <li><a href="https://www.scec.org/user/jshaw">Shaw, J.H.</a>, 
+                    <a href="https://www.scec.org/user/plesch">Plesch, A.</a>, 
+                    <a href="https://www.scec.org/user/carltape">Tape, C.</a>, Suess, M.,
+                    <a href="https://www.scec.org/user/tjordan">Jordan, T.H.</a>,
+                    <a href="https://www.scec.org/user/gely">Ely, G.</a>,
+                    <a href="https://www.scec.org/user/hauksson">Hauksson, E.</a>,
+                    &nbsp;<a href="https://www.scec.org/user/jtromp">Tromp, J.</a>,
+                    <a href="https://www.scec.org/user/toshiro">Tanimoto, T.</a>,
+                    <a href="https://www.scec.org/user/rgraves">Graves, R.</a>,
+                    <a href="https://www.scec.org/user/kbolsen">Olsen, K.</a>,
+                    <a href="https://www.scec.org/user/nicholson">Nicholson, C.</a>,
+                    <a href="https://www.scec.org/user/maechlin">Maechling, P.J.</a>,
+                    <a href="https://www.scec.org/user/rivero">Rivero, C.</a>,
+                    <a href="https://www.scec.org/user/plovely">Lovely, P.</a>,
+                    <a href="https://www.scec.org/user/brankman">Brankman, C.M.</a>, Munster, J. (2015). 
+                    "Unified Structural Representation of the southern California crust and upper mantle."
+                    Earth and Planetary Science Letters, 415, 1-15.
+                    <a href="https://dx.doi.org/10.1016/j.epsl.2015.01.016">doi: 10.1016/j.epsl.2015.01.016</a>.
+                    <a href="https://www.scec.org/publication/2068">SCEC Contribution 2068</a></li>
             </ul>
 
 
