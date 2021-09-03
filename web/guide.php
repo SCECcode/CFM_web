@@ -122,7 +122,7 @@ $header = getHeader("User Guide");
                  clicking on the “Show Mapview” button in the top right corner to reset to the original 
                  mapview.</p>
 
-            <h4><strong>Model projectuion and Datum</strong></h4>
+            <h4><strong>Model Projection and Datum</strong></h4>
 
              <p> 3D fault representations in Gocad tsurf format are provided in Universal Transverse 
                 Mercator projection (UTM) zone 11S, North American datum 1927 (NAD27).</p>
