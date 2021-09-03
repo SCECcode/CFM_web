@@ -46,7 +46,8 @@ $header = getHeader("User Guide");
                <a href="contact">contact information</a> page.</p>
 
             <p>The main interface is on the <a href="<?php echo $host_site_actual_path; ?>">
-               Viewer Page</a>. When first loaded, all faults are listed on the left side of 
+               Viewer Page</a>. When first loaded, all CFM5.3 preferred faults are listed 
+               on the left side of 
                the screen. Users can click on the checkboxes in the fault table to select faults 
                or click on faults on the map. (See <strong>Viewing and Downloading Metadata</strong>
                below for more details.) Click on the eye icon 
@@ -103,7 +104,7 @@ $header = getHeader("User Guide");
 
             <h4><strong>Viewing in 3D and the Plot3D tool</strong></h4>
 
-            <p> This “Plot3D” option is intended to provide potential CFM users with a quick and convenient way
+            <p> This "Plot3D" option is intended to provide potential CFM users with a quick and convenient way
                 to view CFM fault surfaces in their native 3D environment (UTM zone 11s). This tool is not 
                 designed to replace fully-functional CAD software. Refer to the 
                 <a href="https://www.scec.org/research/cfm">CFM homepage</a> for information about recommended
@@ -134,8 +135,10 @@ $header = getHeader("User Guide");
                  the map interface. These are large datasets, so loading the relocated seismicity may
                  take a minute or more depending on your connection speed. The default relocated seismicity 
                  catalog shown is the Hauksson et al. (2012) catalog, which is available for download 
-                 here. The pull-down menu at the top left of the interface also allows for visualization
-                 of the Ross et al. (2019) catalog, which is available for download here. Epicenters are
+                 <a href="https://scedc.caltech.edu/data/alt-2011-dd-hauksson-yang-shearer.html">here</a>.
+                 The pull-down menu at the top left of the interface also allows for visualization
+                 of the Ross et al. (2019) catalog, which is available for downlod
+                 <a href="https://scedc.caltech.edu/eq-catalogs/qtm.html">here</a>. Epicenters are
                  colored by depth by default, but the pull-down menu at the top left of the interface 
                  provides options to color by depth, magnitude, or time, for either the Hauksson et al. (2012),
                  or Ross et al. (2019). The Hauksson et al. (2012) catalog contains ~700k events from 
@@ -156,15 +159,16 @@ $header = getHeader("User Guide");
                  that wish to automate identification of CFM fault objects, each portion of the hierarchical
                  naming structure is separated by a hyphen (-), and all names contain the five components 
                  listed below. For example,</p>
- 
-             <p> Object name: SAFS-SAFZ-MULT-Banning_fault_strand-CFM4
-                 <ul><li>Fault area: SAFS</li>
+             
+             <dl>
+                 Object name: SAFS-SAFZ-MULT-Banning_fault_strand-CFM4
+                 <dt><li>Fault area: SAFS</li>
                      <li>Fault zone: SAFZ</li>
                      <li>Fault section: MULT</li>
                      <li>Fault name: Banning fault strand</li>
                      <li>CFM Version when added or last updated: CFM4</li>
-                  </ul></p>
-
+                  </dt>
+             </dl>
 
 
             <h4><strong>Browser Requirements</strong></h4>
