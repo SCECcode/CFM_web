@@ -186,7 +186,7 @@ $header = getHeader("Viewer");
                     <option value="dipClick">Average Dip</option>
                 </select>
                 <div class="input-group-append">
-                    <button type="button" onclick="refreshAll()" class="btn btn-dark">Reset</button>
+                    <button id="refreshBtn" type="button" onclick="refreshAll()" class="btn btn-dark">Reset</button>
                 </div>
 
                 <div>
