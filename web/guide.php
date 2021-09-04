@@ -220,7 +220,8 @@ $header = getHeader("User Guide");
             <h4><strong>References</strong></h4>
             <ul class="references">
                 <li><a href="https://www.scec.org/user/hauksson">Hauksson, E.,</a>
-                    Yang, W., Shearer, P.M. (2012).
+                    <a href="https://www.scec.org/user/wenzheny">Yang, W.,</a> 
+                    <a href="https://www.scec.org/user/pshearer">Shearer, P.M.</a> (2012).
                     "Waveform Relocated Earthquake Catalog for Southern California (1981 to June 2011)."
                     Bulletin of the Seismological Society of America, 102, 5, 2239-2244,
                     doi: 10.1785/0120120010.
@@ -237,8 +238,12 @@ $header = getHeader("User Guide");
                     "Community Fault Model (CFM) for Southern California".
                     Bulletin of the Seismological Society of America 97:1793-1802. 
                     <a href="https://www.scec.org/publication/1134">SCEC Contribution 1134</a>.</li>
-                <li>Ross, Z.E., Trugman, D.T.,
-                    <a href="https://www.scec.org/user/hauksson">Hauksson, E.,</a> Shearer P.M. (2019).
+                <li>
+                    <a href="https://www.scec.org/user/zross">Ross, Z.E.,</a>
+                    <a href="https://www.scec.org/user/dtrugs">Trugman, D.T.,</a>
+                    <a href="https://www.scec.org/user/hauksson">Hauksson, E.,</a>
+                    <a href="https://www.scec.org/user/pshearer">Shearer, P.M.</a> (2012).
+                    (2019).
                     "Searching for hidden earthquakes in Southern California."
                     Science, 364, 6442, 767-771, doi: 10.1126/science.aaw6888.</li>
                 <li><a href="https://www.scec.org/user/jshaw">Shaw, J.H.</a>, 
