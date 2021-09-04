@@ -219,8 +219,8 @@ $header = getHeader("User Guide");
 
             <h4><strong>References</strong></h4>
             <ul class="references">
-                <li><a href="https://www.scec.org/user/hauksson">Hauksson, E.,</a>
-                    <a href="https://www.scec.org/user/wenzheny">Yang, W.,</a> 
+                <li><a href="https://www.scec.org/user/hauksson">Hauksson, E.</a>,
+                    <a href="https://www.scec.org/user/wenzheny">Yang, W.</a>,
                     <a href="https://www.scec.org/user/pshearer">Shearer, P.M.</a> (2012).
                     "Waveform Relocated Earthquake Catalog for Southern California (1981 to June 2011)."
                     Bulletin of the Seismological Society of America, 102, 5, 2239-2244,
@@ -239,11 +239,10 @@ $header = getHeader("User Guide");
                     Bulletin of the Seismological Society of America 97:1793-1802. 
                     <a href="https://www.scec.org/publication/1134">SCEC Contribution 1134</a>.</li>
                 <li>
-                    <a href="https://www.scec.org/user/zross">Ross, Z.E.,</a>
-                    <a href="https://www.scec.org/user/dtrugs">Trugman, D.T.,</a>
-                    <a href="https://www.scec.org/user/hauksson">Hauksson, E.,</a>
-                    <a href="https://www.scec.org/user/pshearer">Shearer, P.M.</a> (2012).
-                    (2019).
+                    <a href="https://www.scec.org/user/zross">Ross, Z.E.</a>,
+                    <a href="https://www.scec.org/user/dtrugs">Trugman, D.T.</a>,
+                    <a href="https://www.scec.org/user/hauksson">Hauksson, E.</a>,
+                    <a href="https://www.scec.org/user/pshearer">Shearer, P.M.</a> (2019).
                     "Searching for hidden earthquakes in Southern California."
                     Science, 364, 6442, 767-771, doi: 10.1126/science.aaw6888.</li>
                 <li><a href="https://www.scec.org/user/jshaw">Shaw, J.H.</a>, 
@@ -260,7 +259,8 @@ $header = getHeader("User Guide");
                     <a href="https://www.scec.org/user/maechlin">Maechling, P.J.</a>,
                     <a href="https://www.scec.org/user/rivero">Rivero, C.</a>,
                     <a href="https://www.scec.org/user/plovely">Lovely, P.</a>,
-                    <a href="https://www.scec.org/user/brankman">Brankman, C.M.</a>, Munster, J. (2015). 
+                    <a href="https://www.scec.org/user/brankman">Brankman, C.M.</a>,
+                    Munster, J. (2015). 
                     "Unified Structural Representation of the southern California crust and upper mantle."
                     Earth and Planetary Science Letters, 415, 1-15.
                     <a href="https://dx.doi.org/10.1016/j.epsl.2015.01.016">doi: 10.1016/j.epsl.2015.01.016</a>.
