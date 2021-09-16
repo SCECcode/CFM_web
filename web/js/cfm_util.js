@@ -100,6 +100,7 @@ function addOne2GeoCounter() {
   if (v == max) { // turn off spinner
 window.console.log("Finished loading faults..");
     $("#modalwait").modal('hide')
+    setupPresetMode();
   }
 }
 
@@ -1050,7 +1051,6 @@ function add2QuakePoints(quake_type,eqarray) {
             updateMarkerLatlng(EQ_HISTORICAL_FOR_MAG,midx,lat,lng);
             var tidx= getRangeIdx(EQ_HISTORICAL_FOR_TIME, otime);
             updateMarkerLatlng(EQ_HISTORICAL_FOR_TIME,tidx,lat,lng);
-// XX
             cfm_quake_historical_latlng.push([lat,lng]);
             cfm_quake_historical_description.push( marker['Description']);
             break;
@@ -1099,8 +1099,184 @@ function processQuakeMeta(quake_type) {
     return meta;
 }
 
-
 function get_seismicity(sw,ne) {
     quakesByLatlon(sw['lat'],sw['lng'],ne['lat'],ne['lng']);
 }
+
+/****************** for handling parameters ********************/
+// url : to start with limit of =1
+// action: 
+//    note - no setup, return a status something
+//    main - setup mapview only
+//    main+plot3d - setup mapview and also invoke plot3d
+// url: list of fault objects
+
+/*
+$('#view3DIfram').attr('src',"http:localhost:9999/?
+  "viewUID="+viewUID+
+  &viewerType="+viewerType+"
+  &fileURL="+urls+"
+  &name="+nstr;
+or
+  "viewUID="+viewUID+"
+  &viewerType="+viewerType+
+  "&fileURL="+urls+
+  "&name="+nstr+
+  "&filePATH="+path;
+
+--> CFM name :
+myCFMname=MJVA-CRSF-BCYL-Bicycle_Lake_fault-CFM5
+BCLF => "Bicycle Lake fault"
+
+myCFMabb="BCLF"
+myTSname="native/500m/1000m/2000m"
+myPtype="note/main/main3d/"
+
+
+calling plot3D >> myParams is 
+"?viewUID=1631744479&viewerType=CFM&
+fileURL=[500m/WTRA-USAV-USAV-Indian_Hill_fault-CFM5_500m.ts]
+&name=[Indian Hill fault]
+&filePATH=[https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM5/CFM53_preferred/]
+*/
+function inPresetMode() {
+  let param = window.location.search.substring(1);
+  if(param == "") {
+    return 0;
+  }
+  return 1;
+}
+    
+
+/**
+http://localhost:8081?abb=["BCLF","EQVE"]&ts="native"&ptype="main"
+http://localhost:8081?abb=["SSNF"]&ts="2000m"&ptype="main"
+http://localhost:8081?abb=["INHF"]&ts="native"&ptype="main"
+http://localhost:8081?name=["WTRA-SSFZ-MULT-Santa_Susana_fault-CFM5"]&ts="native"&ptype="main"
+**/
+function getPresetMode() {
+  skip_warning=true; // skip 3d warning
+  let param = window.location.search.substring(1);
+  let myAbb=0;
+  let myTS=0;
+  let myPtype=0;
+  let myName=0;
+
+  let qArray = param.split('&'); //get key-value pairs
+  for (var i = 0; i < qArray.length; i++)
+  {
+     let pArr = qArray[i].split('='); //split key and value
+
+//window.console.log(pArr[1]);
+     let dd=decodeURI(pArr[1]);
+     switch (pArr[0]) {
+        case "abb":
+             myAbb=JSON.parse(dd);
+             break;
+        case "name":
+             myName=JSON.parse(dd);
+             break;
+        case "ts":
+             myTS=JSON.parse(dd);
+             break;
+        case "ptype":
+             myPtype=JSON.parse(dd);
+             break;
+        default: // do nothing
+             break;
+     }
+  }
+  return [myPtype, myAbb, myName, myTS];
+}
+
+
+function setupPresetMode() {
+  if(inPresetMode()) {
+    let abb=0; 
+    let ptype=0;
+    let ts=0;
+    let name=0;
+
+    [ptype, abb, name, ts]=getPresetMode();
+
+    // preset_type: note, main, main+plot3d
+    window.console.log("PresetMode >>>>got "+abb+" "+name+" "+ts+" "+ptype);
+    if(ts==0 || ptype == 0)
+      return;
+    if(abb != 0) {
+      findByAbbInPreset(abb,ptype,ts);
+      return;
+    }
+    if(name != 0) {
+      findByNameInPreset(name,ptype,ts);
+      return;
+    }
+  }
+}
+
+// abb => array of abb
+// no need to go to server,
+function findByAbbInPreset(abb, ptype, ts) {
+    let sz=abb.length;
+    if(sz == 0) {
+      return; 
+      } else {
+        for(let i=0; i < sz; i++) {
+          let fault=find_name_by_abb(abb[i]); // may return more than 1 
+          let ssz=fault.length;
+          for(let j=0;j<ssz; j++) {
+             let gid=find_gid_by_fault(fault[j]);
+             toggle_highlight(gid,1);
+             window.console.log("fault >>"+fault[j]);
+          }
+        }
+        switch (ptype) {
+          case "main":
+            // do nothing
+            break;
+          case "main3d":
+            setTimeout(executePlot3d(ts), 3000);
+            break;
+          case "note":
+            window.console.log("NOTE type: not sure what to do..");
+            //  TODO
+            break;
+          default:
+            // do nothing
+            break;
+        };
+    }
+}
+
+// abb => array of abb
+// no need to go to server,
+function findByNameInPreset(name, ptype, ts) {
+    let sz=name.length;
+    if(sz == 0) {
+      return; 
+      } else {
+        for(let i=0; i < sz; i++) {
+          let gid=find_gid_by_name(name[i]);
+          toggle_highlight(gid,1);
+          window.console.log("name >>"+name[i]);
+        }
+        switch (ptype) {
+          case "main":
+            // do nothing
+            break;
+          case "main3d":
+            setTimeout(executePlot3d(ts), 3000);
+            break;
+          case "note":
+            window.console.log("NOTE type: not sure what to do..");
+            //  TODO
+            break;
+          default:
+            // do nothing
+            break;
+        };
+    }
+}
+
+
 

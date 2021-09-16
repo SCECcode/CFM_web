@@ -79,8 +79,6 @@ jQuery(document).ready(function() {
   setup_info3dTable();
   setup_warn3dTable();
 
-/** PRESET mode **/
-
 }); // end of MAIN
 
 

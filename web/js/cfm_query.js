@@ -332,7 +332,6 @@ function searchByArea(str) {
     }
 }
 
-
 function searchByName(str) {
     if (str == "") {
         document.getElementById("cfm-table-body").innerHTML = "";
@@ -357,7 +356,6 @@ function searchByName(str) {
         xmlhttp.send();
     }
 }
-
 
 // returning 2 lists, one is gid list where each gid has a geo/shapefile
 //                    one is nogid list where no gid has a geo/shapefile

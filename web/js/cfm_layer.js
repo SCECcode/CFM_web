@@ -379,6 +379,33 @@ function rebind_layer_popup() {
   });
 }
 
+// supply a name, find the abb from cfm_name_list
+function find_abb_by_name(target) {
+   var found=[];
+   let sz=cfm_name_list.length;
+   for(let i=0; i<sz; i++) { 
+     let item=cfm_name_list[i];
+     if(item['name'] == target) {
+       found.push(item['abb']);
+     }
+   }
+   return found; 
+}
+
+// could have more than 1
+function find_name_by_abb(target) {
+   var found=[];
+   let sz=cfm_name_list.length;
+   for(let i=0; i<sz; i++) { 
+     let item=cfm_name_list[i];
+     if(item['abb'] == target) {
+       found.push(item['name']);
+     }
+   }
+   return found;
+
+}
+
 function find_dip_by_gid(target) {
    var found="NA";
    var item=find_meta_list(target);
@@ -409,6 +436,31 @@ function find_name_by_gid(target) {
    return found;
 }
 
+function find_gid_by_fault(target) {
+   let sz= cfm_fault_meta_list.length;
+   for(let i=0; i<sz; i++) {
+     let element=cfm_fault_meta_list[i];
+     let meta=element['meta'];
+     if ( meta['fault'] == target ) {
+        return element['gid'];
+     }
+   }
+   return -1;
+}
+
+function find_gid_by_name(target) {
+   let sz= cfm_fault_meta_list.length;
+   for(let i=0; i<sz; i++) {
+     let element=cfm_fault_meta_list[i];
+     let meta=element['meta'];
+     if ( meta['name'] == target ) {
+        return element['gid'];
+     }
+   }
+   return -1;
+}
+
+
 function find_pretty_name_by_gid(target) {
    var found="NA";
    var item=find_meta_list(target);
@@ -422,12 +474,13 @@ function find_pretty_name_by_gid(target) {
 
 /* return true if target is in the meta list */
 function find_meta_list(target) {
-   var found=0;
-   cfm_fault_meta_list.forEach(function(element) {
+   let sz=cfm_fault_meta_list.length;
+   for(let i=0; i<sz; i++) {
+     let element=cfm_fault_meta_list[i];
      if ( element['gid'] == target )
-        found=element;
-   });
-   return found;
+        return element;
+   }
+   return 0;
 }
 
 /* return true if target is visible on map */
