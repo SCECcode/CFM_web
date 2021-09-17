@@ -453,7 +453,8 @@ function startPlot3d()
   var nstr=get_MODAL_TS_NAME();
   var str=get_MODAL_TS_LIST();
   var pstr=get_MODAL_TS_PATH();
-  show3dView(str,nstr,pstr);
+  var nlstr=get_MODAL_TS_NLIST();
+  show3dView(str,nstr,pstr,nlstr);
 }
 
 function plotAll() {
@@ -935,6 +936,7 @@ function collectURLsFor3d(mlist) {
   for(var i=0; i<cnt; i++) {
     var meta=mlist[i];
     var gid=meta['gid'];
+    save_MODAL_TS_NLIST(meta['name']);
     if (use_download_set == 'native' || use_download_set =='all') {
       if(in_native_gid_list(gid)) {
         url=url_in_native_list(gid);
@@ -1140,6 +1142,7 @@ fileURL=[500m/WTRA-USAV-USAV-Indian_Hill_fault-CFM5_500m.ts]
 &filePATH=[https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM5/CFM53_preferred/]
 */
 function inPresetMode() {
+  let location= window.location;
   let param = window.location.search.substring(1);
   if(param == "") {
     return 0;

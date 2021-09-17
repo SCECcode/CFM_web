@@ -41,12 +41,15 @@ var VIEW3D_tb = {
          'name': 'Save',
          'description': 'Save a copy of 3D view (no legend)' },
        { 'id':13,
+         'name': 'Share',
+         'description': 'Share a link to current 3D view' },
+       { 'id':14,
          'name': 'Help',
          'description': 'Display this information table'},
-       { 'id':14,
+       { 'id':15,
          'name': 'Orientation Marker',
          'description': 'Green arrow points toward the North<br>Pink points east'},
-       { 'id':15,
+       { 'id':16,
          'name': 'Disclaimer',
          'description': '<p>This viewer is intended to provide potential CFM users with a quick and convenient way to view CFM fault surfaces in their native 3D environment (UTM zone 11s). This tool not designed to replace fully functional CAD software. Refer to the <a href="https://www.scec.org/research/cfm">CFM homepage</a> for information about recommended software.</p><p>This tool currently does not have the ability to plot 3D axes, and a map scale in 3D is not useful because any scale would only be valid at one given distance from the viewer. Faults in the CFM extend to the approximate base of the seismogenic zone (max depth of earthquakes), which is approximately 15 – 20 km depth in most southern California regions.</p><p>For location purposes, the 3D viewer shows all CFM fault traces in pink, blind fault upper tip lines in orange, and the coastline and state boundaries in black. In the bottom right corner, the green arrow points North, pink points East, and yellow points up vertically.</p><p>Learning to navigate in 3D takes some practice, so if you get lost or disoriented, try clicking on the “Show Mapview” button in the top right corner to reset to the original mapview.</p>'},
         ]
@@ -112,7 +115,18 @@ function get_PARAMS() {
   return pparams;
 }
 
-function show3dView(urls,nstr,path) {
+/***
+  name=[name1,name2]&ts=ts&ptype="main3d"
+***/
+function set_SHARE_PARAMS(sparams) {
+  $('#params3Dshare').attr('src',sparams);
+}
+function get_SHARE_PARAMS() {
+  var sparams=$('#params3Dshare').attr('src');
+  return sparams;
+}
+
+function show3dView(urls,nstr,path,nlstr) {
 
 // set it once
   viewUID = Math.floor( $.now()/1000 ); // in seconds
@@ -130,12 +144,21 @@ function show3dView(urls,nstr,path) {
   $('#modal3D').modal('show');
 
 // urls causing problem when it is too large
+  let params=0;
   if(path == undefined) {
      params="viewUID="+viewUID+"&viewerType="+viewerType+"&fileURL="+urls+"&name="+nstr;
      } else {
        params="viewUID="+viewUID+"&viewerType="+viewerType+"&fileURL="+urls+"&name="+nstr+"&filePATH="+path;
   }
   set_PARAMS(params);
+
+  //name=[name1,name2]&ts=ts&ptype="main3d"
+  //let ABB='?abb=\["SSNF"\]';
+  let NAME='?name='+nlstr;
+  let TS='&ts="'+use_download_set+'"';
+  let PTYPE='&ptype="main3d"';
+  let share_params=NAME+TS+PTYPE;
+  set_SHARE_PARAMS(share_params);
 
   if(params.length > 1000) {
     $('#view3DIfram').attr('src',"cfm_3d.html?2Long");
@@ -420,6 +443,16 @@ function save3Dview() {
   document.getElementById("view3DIfram").contentDocument.getElementById("Downloadbtn").click();
   let cmd="cfm_3d.html?"+get_PARAMS();
   window.console.log(cmd);
+}
+
+function share3Dview() {
+  let loc = window.location;
+  let path=loc.origin + location.pathname;
+  let sparam=get_SHARE_PARAMS();
+  let cmd=path+sparam;
+  alert(cmd);
+// download it
+  saveAsBlobFile(cmd);
 }
 
 

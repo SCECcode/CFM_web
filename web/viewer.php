@@ -576,6 +576,7 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
           <iframe id="view3DIfram" title="SCEC CFM 3D viewer" src="" onload="setIframHeight(this.id)" height="10" width="100%" allowfullscreen></iframe>
         </div>
         <div id="params3D" value="" style="display:none"></div>
+        <div id="params3Dshare" value="" style="display:none"></div>
       </div>
 
       <div class="modal-footer justify-content-center" id="modal3DFooter">
@@ -590,6 +591,7 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
         <button id="view3DMovebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="move3Dview()">New Window</button>
         <button id="view3DWarnbtn" class="btn btn-outline-primary btn-sm" style="display:none" data-toggle="modal" data-target="#modalwarn3d"></button>
         <button id="view3DSavebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="save3Dview()">Save Image</button>
+        <button id="view3DSharebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="share3Dview()">Share Link</button>
         <button id="view3DHelpbtn" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modalinfo3d" onclick="$('#modal3D').modal('hide');">Help</button>
       </div> <!-- footer -->
 

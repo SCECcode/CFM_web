@@ -627,6 +627,17 @@ function saveAsCSVBlobFile(data, timestamp)
     saveAs(blob, fname);
 }
 
+function saveAsBlobFile(data)
+{
+    let timestamp = $.now();
+    let fname="CFM_link_"+timestamp+".txt";
+    let blob = new Blob([data], {
+        type: "text/plain;charset=utf-8"
+    });
+    //FileSaver.js
+    saveAs(blob, fname);
+}
+
 function saveAsURLFile(gid,url) {
   var dname=url.substring(url.lastIndexOf('/')+1);
   var dload = document.createElement('a');
