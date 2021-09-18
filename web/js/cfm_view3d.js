@@ -2,6 +2,9 @@
    cfm_view3d.js
 ***/
 
+// current camera info from the plot3d
+var PLOT3D_CAMERA=null;
+
 var VIEW3D_tb = {
   "3dview": [
        { 'id':1,
@@ -130,6 +133,7 @@ function show3dView(urls,nstr,path,nlstr) {
 
 // set it once
   viewUID = Math.floor( $.now()/1000 ); // in seconds
+  PLOT3D_CAMERA=null;
 
   reset_search_selection();
 
@@ -163,16 +167,24 @@ function show3dView(urls,nstr,path,nlstr) {
   if(params.length > 1000) {
     $('#view3DIfram').attr('src',"cfm_3d.html?2Long");
     } else {
+window.console.log(">>>"+params);
       $('#view3DIfram').attr('src',"cfm_3d.html?"+params);
   }
 }
 
 function sendParams3Dview() {
-    var params=get_PARAMS();
-    var iwindow=document.getElementById('view3DIfram').contentWindow;
-    var eparams=encodeURI(params);
-    window.console.log("service, post a message to iframe.");
-    iwindow.postMessage({call:'fromSCEC',value:eparams},"*");
+  let params=get_PARAMS();
+  let iwindow=document.getElementById('view3DIfram').contentWindow;
+  let  eparams=encodeURI(params);
+//window.console.log("SERVER, post a param message to iframe.");
+//window.console.log(">>>"+eparams);
+  iwindow.postMessage({call:'fromSCEC',value:eparams},"*");
+}
+
+function sendCamera3Dview(myCamera) {
+  let iwindow=document.getElementById('view3DIfram').contentWindow;
+  let ecamera=encodeURI(myCamera);
+  iwindow.postMessage({call:'fromSCEC camera',value:ecamera},"*");
 }
 
 
@@ -195,6 +207,10 @@ window.addEventListener("DOMContentLoaded", function () {
         if(event.data.value == "done with loading") {
           window.console.log(" SERVER, turn off load spinner");
           document.getElementById('spinIconFor3D').style.display = "none";
+          // plot3d in iframe is all up and ready
+
+          presetPlot3d();
+
           return;
         }
         if(event.data.value == "start loading") {
@@ -207,8 +223,11 @@ window.addEventListener("DOMContentLoaded", function () {
           return;
         }
         window.console.log("service, what the heck ..",event.data.value);
+      } else if (typeof event.data == 'object' && event.data.call=='from3DViewer camera') {
+          PLOT3D_CAMERA=event.data.value;
+          window.console.log("GOT camera_str >> "+ PLOT3D_CAMERA);
       } else {
-      window.console.log("service, what the heck 2 ..",event.data);
+          window.console.log("service, what the heck 2 ..",event.data);
     }
  })
 }, false);
@@ -450,9 +469,22 @@ function share3Dview() {
   let path=loc.origin + location.pathname;
   let sparam=get_SHARE_PARAMS();
   let cmd=path+sparam;
-  alert(cmd);
-// download it
-  saveAsBlobFile(cmd);
+
+  document.getElementById("view3DIfram").contentDocument.getElementById("Camerabtn").click();
+  var waitInterval = setInterval(function () {
+    if(PLOT3D_CAMERA != null ){
+      clearInterval(waitInterval);
+      let html=document.getElementById('shareLink-container');
+      cmd=cmd+"&camera="+PLOT3D_CAMERA;
+      let phtml="<p>"+cmd+"</p>";
+      html.innerHTML=phtml;
+      //alert(cmd);
+      waitInterval=0;
+      PLOT3D_CAMERA=null;
+      } else {
+         window.console.log("Looping in interval..",waitInterval);
+    }
+  }, 1000);
 }
 
 

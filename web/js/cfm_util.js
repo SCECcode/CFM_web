@@ -5,6 +5,12 @@
 
 var select_all_flag=0;
 
+// This is for plot3d PRESET MODE
+var PLOT3D_PRESET_NAMELIST_MAX=50;
+var PLOT3D_PRESET_MODE = 0;
+var PLOT3D_PRESET_CAMERA = 0;
+var PLOT3D_PRESET_NAMELIST=[];  // bare name list
+
 // from the whole fault object set
 var strike_range_min_ref=0;
 var strike_range_max_ref=360;
@@ -453,7 +459,7 @@ function startPlot3d()
   var nstr=get_MODAL_TS_NAME();
   var str=get_MODAL_TS_LIST();
   var pstr=get_MODAL_TS_PATH();
-  var nlstr=get_MODAL_TS_NLIST();
+  var nlstr=JSON.stringify(PLOT3D_PRESET_NAMELIST);
   show3dView(str,nstr,pstr,nlstr);
 }
 
@@ -936,7 +942,13 @@ function collectURLsFor3d(mlist) {
   for(var i=0; i<cnt; i++) {
     var meta=mlist[i];
     var gid=meta['gid'];
-    save_MODAL_TS_NLIST(meta['name']);
+    if(i < PLOT3D_PRESET_NAMELIST_MAX) {
+      PLOT3D_PRESET_NAMELIST.push(meta['name']);
+      } else {
+         if(i==PLOT3D_PRESET_NAMELIST_MAX) {
+            alert("PLOT3D_PRESET_NAMELIST got truncated");
+         }
+    }
     if (use_download_set == 'native' || use_download_set =='all') {
       if(in_native_gid_list(gid)) {
         url=url_in_native_list(gid);
@@ -1142,20 +1154,21 @@ fileURL=[500m/WTRA-USAV-USAV-Indian_Hill_fault-CFM5_500m.ts]
 &filePATH=[https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM5/CFM53_preferred/]
 */
 function inPresetMode() {
-  let location= window.location;
   let param = window.location.search.substring(1);
   if(param == "") {
     return 0;
   }
+  PLOT3D_PRESET_MODE = 1;
+  PLOT3D_PRESET_CAMERA = 0;
+  PLOT3D_PRESET_NAMELIST=[];  // bare name list
   return 1;
 }
     
-
 /**
 http://localhost:8081?abb=["BCLF","EQVE"]&ts="native"&ptype="main"
 http://localhost:8081?abb=["SSNF"]&ts="2000m"&ptype="main"
 http://localhost:8081?abb=["INHF"]&ts="native"&ptype="main"
-http://localhost:8081?name=["WTRA-SSFZ-MULT-Santa_Susana_fault-CFM5"]&ts="native"&ptype="main"
+http://localhost:8081?name=["WTRA-SSFZ-MULT-Santa_Susana_fault-CFM5"]&ts="native"&ptype="main"&camera='{"pos":[357202.84375,86049.79980490226,-3807081.5],"angle":30,"viewup":[0,0,-1],"focal":[357202.84375,-8227.8154296875,-3807081.5]}'
 **/
 function getPresetMode() {
   skip_warning=true; // skip 3d warning
@@ -1164,6 +1177,7 @@ function getPresetMode() {
   let myTS=0;
   let myPtype=0;
   let myName=0;
+  let myCamera=0;
 
   let qArray = param.split('&'); //get key-value pairs
   for (var i = 0; i < qArray.length; i++)
@@ -1185,11 +1199,14 @@ function getPresetMode() {
         case "ptype":
              myPtype=JSON.parse(dd);
              break;
+        case "camera":
+             myCamera=dd; // keep it as a string
+             break;
         default: // do nothing
              break;
      }
   }
-  return [myPtype, myAbb, myName, myTS];
+  return [myPtype, myAbb, myName, myTS, myCamera];
 }
 
 
@@ -1199,19 +1216,21 @@ function setupPresetMode() {
     let ptype=0;
     let ts=0;
     let name=0;
+    let camera=0;
 
-    [ptype, abb, name, ts]=getPresetMode();
+    [ptype, abb, name, ts, camera]=getPresetMode();
+    PLOT3D_PRESET_CAMERA=camera;
 
     // preset_type: note, main, main+plot3d
     window.console.log("PresetMode >>>>got "+abb+" "+name+" "+ts+" "+ptype);
     if(ts==0 || ptype == 0)
       return;
     if(abb != 0) {
-      findByAbbInPreset(abb,ptype,ts);
+      findByAbbInPreset(abb,ptype,ts,camera);
       return;
     }
     if(name != 0) {
-      findByNameInPreset(name,ptype,ts);
+      findByNameInPreset(name,ptype,ts,camera);
       return;
     }
   }
@@ -1219,7 +1238,7 @@ function setupPresetMode() {
 
 // abb => array of abb
 // no need to go to server,
-function findByAbbInPreset(abb, ptype, ts) {
+function findByAbbInPreset(abb, ptype, ts, camera) {
     let sz=abb.length;
     if(sz == 0) {
       return; 
@@ -1253,7 +1272,7 @@ function findByAbbInPreset(abb, ptype, ts) {
 
 // abb => array of abb
 // no need to go to server,
-function findByNameInPreset(name, ptype, ts) {
+function findByNameInPreset(name, ptype, ts, camera) {
     let sz=name.length;
     if(sz == 0) {
       return; 
@@ -1280,6 +1299,24 @@ function findByNameInPreset(name, ptype, ts) {
         };
     }
 }
+
+function presetPlot3d()
+{
+    if(PLOT3D_PRESET_MODE) {
+      let elt=document.getElementById("view3DToggleReprbtn");
+      elt.click();
+      setTimeout(elt.click(), 1000);
+      let elt2=document.getElementById("view3DToggleQuakebtn");
+      setTimeout(elt2.click(), 1000);
+      let elt3=document.getElementById("view3DToggleBoundsbtn");
+      setTimeout(elt3.click(), 1500);
+      setTimeout(elt3.click(), 2000);
+      if(PLOT3D_PRESET_CAMERA) {
+        sendCamera3Dview(PLOT3D_PRESET_CAMERA);
+      }
+    }
+}
+
 
 
 

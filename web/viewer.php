@@ -591,7 +591,7 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
         <button id="view3DMovebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="move3Dview()">New Window</button>
         <button id="view3DWarnbtn" class="btn btn-outline-primary btn-sm" style="display:none" data-toggle="modal" data-target="#modalwarn3d"></button>
         <button id="view3DSavebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="save3Dview()">Save Image</button>
-        <button id="view3DSharebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="share3Dview()">Share Link</button>
+        <button id="view3DSharebtn" class="btn btn-outline-primary btn-sm" onclick="share3Dview()">Share Link</button>
         <button id="view3DHelpbtn" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modalinfo3d" onclick="$('#modal3D').modal('hide');">Help</button>
       </div> <!-- footer -->
 
@@ -710,6 +710,27 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
   </div>
 </div> <!--Modal: Name-->
 
+<!--Modal: ModelType -->
+<div class="modal" id="modalshare" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" id="modalshareDialog" role="document">
+    <!--Content-->
+    <div class="modal-content" id="modalshareContent">
+      <!--Body-->
+      <div class="modal-body" id="modalshareBody">
+        <div class="row col-md-12 ml-auto" style="overflow:hidden;">
+          <div class="col-12" style="font-size:14pt">
+            <h4>Cut-and-Paste below command to share (maximum 50 fault objects):<br></h4>
+            <p id="shareLink-container">...A LINK...</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+    </div> <!--Content-->
+  </div>
+</div> <!--Modal: Name-->
 
 </div>
 </body>

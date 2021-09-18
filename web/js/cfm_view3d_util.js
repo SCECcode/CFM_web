@@ -22,23 +22,12 @@ function reset_search_selection() {
 var MODAL_TS_LIST=[];
 var MODAL_TS_NAME=[];
 var MODAL_TS_PATH=null;
-var MODAL_TS_NLIST=[];  // bare name list
+
 function clear_MODAL_TS_LIST()
 {
   MODAL_TS_LIST=[];
   MODAL_TS_NAME=[];
   MODAL_TS_PATH=null;
-}
-
-function save_MODAL_TS_NLIST(name) 
-{
-   MODAL_TS_NLIST.push(name);
-}
-
-function get_MODAL_TS_NLIST(name) 
-{
-   var str=JSON.stringify(MODAL_TS_NLIST);
-   return str;
 }
 
 function save_MODAL_TS_LIST(name,url)
