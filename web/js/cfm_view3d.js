@@ -208,9 +208,7 @@ window.addEventListener("DOMContentLoaded", function () {
           window.console.log(" SERVER, turn off load spinner");
           document.getElementById('spinIconFor3D').style.display = "none";
           // plot3d in iframe is all up and ready
-
-          presetPlot3d();
-
+          presetPlot3d_first();
           return;
         }
         if(event.data.value == "start loading") {
@@ -226,6 +224,9 @@ window.addEventListener("DOMContentLoaded", function () {
       } else if (typeof event.data == 'object' && event.data.call=='from3DViewer camera') {
           PLOT3D_CAMERA=event.data.value;
           window.console.log("GOT camera_str >> "+ PLOT3D_CAMERA);
+      } else if (typeof event.data == 'object' && event.data.call=='from3DViewer camera done') {
+          let tmp=event.data.value;
+          presetPlot3d_second();
       } else {
           window.console.log("service, what the heck 2 ..",event.data);
     }

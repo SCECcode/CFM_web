@@ -1300,22 +1300,41 @@ function findByNameInPreset(name, ptype, ts, camera) {
     }
 }
 
-function presetPlot3d()
+// have to separate to 2 parts because don't want the vtk renederer
+// to use quakes/shore/trace as 'focus' on bounds
+function presetPlot3d_first()
 {
     if(PLOT3D_PRESET_MODE) {
       let elt=document.getElementById("view3DToggleReprbtn");
       elt.click();
-      setTimeout(elt.click(), 1000);
-      let elt2=document.getElementById("view3DToggleQuakebtn");
-      setTimeout(elt2.click(), 1000);
+      elt.click();
       let elt3=document.getElementById("view3DToggleBoundsbtn");
-      setTimeout(elt3.click(), 1500);
-      setTimeout(elt3.click(), 2000);
+      elt3.click();
+      elt3.click();
+
       if(PLOT3D_PRESET_CAMERA) {
+        let elt4=document.getElementById("view3DToggleShorebtn");
+        elt4.click();
+        let elt5=document.getElementById("view3DToggleTracebtn");
+        elt5.click();
         sendCamera3Dview(PLOT3D_PRESET_CAMERA);
       }
+   
     }
 }
+
+function presetPlot3d_second()
+{
+    if(PLOT3D_PRESET_CAMERA) {
+      let elt4=document.getElementById("view3DToggleShorebtn");
+      elt4.click();
+      let elt5=document.getElementById("view3DToggleTracebtn");
+      elt5.click();
+      let elt2=document.getElementById("view3DToggleQuakebtn");
+      elt2.click();
+    }
+}
+
 
 
 
