@@ -1283,13 +1283,15 @@ function findByNameInPreset(name, ptype, ts) {
 // to use quakes/shore/trace as 'focus' on bounds
 function presetPlot3d_first()
 {
+window.console.log("HERE.");
 // get into right state..
     if(PLOT3D_PRESET_STATE) {  // toggle off trace and shore if on
        if(track_shore != false) { toggleShore3Dview(); }
        if(track_trace != false) { toggleTrace3Dview(); }
     }
     if(PLOT3D_PRESET_CAMERA) {
-       sendCamera3Dview(PLOT3D_PRESET_CAMERA);
+// delayed alittled
+       setTimeout(sendCamera3Dview(PLOT3D_PRESET_CAMERA), 3000);
     }
 }
 
