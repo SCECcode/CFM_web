@@ -280,6 +280,7 @@ window.console.log("HERE in move call");
   var newInner=document.documentElement.innerHTML;
   newCopy.write(yourDOCTYPE+"<html>"+ newInner+ "</html>");
   newCopy.close();
+  document.getElementById("view3DSharebtn").style.display="block";
   document.getElementById("view3DClosebtn").style.display="block";
   document.getElementById("view3DMovebtn").style.display="block";
   document.getElementById("view3DClosebtn").click();
