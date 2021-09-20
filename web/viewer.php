@@ -561,13 +561,13 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
     <div class="modal-content" id="modal3DContent">
       <!--Header-->
       <div class="modal-header">
-        <button id="view3DToggleReprbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleRepr3Dview(this)">Show Wireframe</button>
-        <button id="view3DToggleQuakebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleQuake3Dview(this)">No EQ</button>
-        <button id="view3DToggleTracebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleTrace3Dview(this)">Hide Traces</button>
-        <button id="view3DToggleShorebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleShore3Dview(this)">Hide Coastline</button>
-        <button id="view3DToggleBoundsbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleBounds3Dview(this)">Show Bounds</button>
-        <button id="view3DToggleLegendbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleLegend3Dview(this)">Hide Legend</button>
-        <button id="view3DToggleNorthbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleNorth3Dview(this)">Show Mapview</button>
+        <button id="view3DToggleReprbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleRepr3Dview()">Show Wireframe</button>
+        <button id="view3DToggleQuakebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleQuake3Dview()">No EQ</button>
+        <button id="view3DToggleTracebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleTrace3Dview()">Hide Traces</button>
+        <button id="view3DToggleShorebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleShore3Dview()">Hide Coastline</button>
+        <button id="view3DToggleBoundsbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleBounds3Dview()">Show Bounds</button>
+        <button id="view3DToggleLegendbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleLegend3Dview()">Hide Legend</button>
+        <button id="view3DToggleNorthbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleNorth3Dview()">Show Mapview</button>
       </div>
 
       <!--Body-->
@@ -586,7 +586,7 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
         </div>
 
         <button id="view3DClosebtn" class="btn btn-outline-primary btn-sm" data-dismiss="modal">Close</button>
-        <button id="view3DExpandbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleExpand3Dview(this)">Shrink</button>
+        <button id="view3DExpandbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleExpand3Dview()">Shrink</button>
         <button id="view3DRefreshbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="refresh3Dview()">Reset</button>
         <button id="view3DMovebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="move3Dview()">New Window</button>
         <button id="view3DWarnbtn" class="btn btn-outline-primary btn-sm" style="display:none" data-toggle="modal" data-target="#modalwarn3d"></button>
@@ -719,7 +719,7 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
       <div class="modal-body" id="modalshareBody">
         <div class="row col-md-12 ml-auto" style="overflow:hidden;">
           <div class="col-12" style="font-size:14pt">
-            <h4>Cut-and-Paste below command to share (maximum 50 fault objects):<br></h4>
+            <h4>Copy-and-Paste below command to share (maximum 50 fault objects):<br><br></h4>
             <p id="shareLink-container">...A LINK...</p>
           </div>
         </div>

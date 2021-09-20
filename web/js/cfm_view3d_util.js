@@ -6,10 +6,6 @@
 var viewerType="CFM";
 var viewUID=0;
 
-var initial_track_trace = 1;
-var initial_trace_html="Hide Trace";
-var initial_not_trace_html="Show Trace";
-
 function reset_search_selection() {
    $("#search-filter-type").val("dismissClick");
    dismiss_sidebar();

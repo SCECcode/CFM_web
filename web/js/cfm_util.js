@@ -9,6 +9,7 @@ var select_all_flag=0;
 var PLOT3D_PRESET_NAMELIST_MAX=50;
 var PLOT3D_PRESET_MODE = 0;
 var PLOT3D_PRESET_CAMERA = 0;
+var PLOT3D_PRESET_STATE = 0;
 var PLOT3D_PRESET_NAMELIST=[];  // bare name list
 
 // from the whole fault object set
@@ -937,6 +938,7 @@ function collectURLsFor3d(mlist) {
   var url;
   var dname;
   clear_MODAL_TS_LIST();
+  PLOT3D_PRESET_NAMELIST=[];
 
   var cnt=mlist.length;
   for(var i=0; i<cnt; i++) {
@@ -1160,6 +1162,7 @@ function inPresetMode() {
   }
   PLOT3D_PRESET_MODE = 1;
   PLOT3D_PRESET_CAMERA = 0;
+  PLOT3D_PRESET_STATE = 0;
   PLOT3D_PRESET_NAMELIST=[];  // bare name list
   return 1;
 }
@@ -1168,7 +1171,10 @@ function inPresetMode() {
 http://localhost:8081?abb=["BCLF","EQVE"]&ts="native"&ptype="main"
 http://localhost:8081?abb=["SSNF"]&ts="2000m"&ptype="main"
 http://localhost:8081?abb=["INHF"]&ts="native"&ptype="main"
-http://localhost:8081?name=["WTRA-SSFZ-MULT-Santa_Susana_fault-CFM5"]&ts="native"&ptype="main"&camera='{"pos":[357202.84375,86049.79980490226,-3807081.5],"angle":30,"viewup":[0,0,-1],"focal":[357202.84375,-8227.8154296875,-3807081.5]}'
+http://localhost:8081/?name=["WTRA-USAV-USAV-San_Jose_fault-CFM5"]&ts="1000m"&
+ptype="main3d"&camera={"pos":[486326.6875,69849.9453125,-3838326.5],"angle":30,
+"viewup":[-0.19568131864070892,-0.5419068336486816,-0.8173406720161438],
+"distance":116818.2594697855,"focal":[426630.109375,-6666.62158203125,-3773303.125]}
 **/
 function getPresetMode() {
   skip_warning=true; // skip 3d warning
@@ -1178,6 +1184,7 @@ function getPresetMode() {
   let myPtype=0;
   let myName=0;
   let myCamera=0;
+  let myState=0;
 
   let qArray = param.split('&'); //get key-value pairs
   for (var i = 0; i < qArray.length; i++)
@@ -1202,77 +1209,43 @@ function getPresetMode() {
         case "camera":
              myCamera=dd; // keep it as a string
              break;
+        case "state":
+             myState=dd; // keep it as a string
+             break;
         default: // do nothing
              break;
      }
   }
-  return [myPtype, myAbb, myName, myTS, myCamera];
+  return [myPtype, myAbb, myName, myTS, myCamera, myState];
 }
 
 
 function setupPresetMode() {
   if(inPresetMode()) {
-    let abb=0; 
     let ptype=0;
     let ts=0;
     let name=0;
     let camera=0;
+    let state=0;
 
-    [ptype, abb, name, ts, camera]=getPresetMode();
+    [ptype, abb, name, ts, camera, state]=getPresetMode();
     PLOT3D_PRESET_CAMERA=camera;
+    PLOT3D_PRESET_STATE=state;
 
     // preset_type: note, main, main+plot3d
     window.console.log("PresetMode >>>>got "+abb+" "+name+" "+ts+" "+ptype);
     if(ts==0 || ptype == 0)
       return;
-    if(abb != 0) {
-      findByAbbInPreset(abb,ptype,ts,camera);
-      return;
-    }
     if(name != 0) {
-      findByNameInPreset(name,ptype,ts,camera);
+      findByNameInPreset(name,ptype,ts);
       return;
     }
   }
 }
 
-// abb => array of abb
+// name => array of fault name
 // no need to go to server,
-function findByAbbInPreset(abb, ptype, ts, camera) {
-    let sz=abb.length;
-    if(sz == 0) {
-      return; 
-      } else {
-        for(let i=0; i < sz; i++) {
-          let fault=find_name_by_abb(abb[i]); // may return more than 1 
-          let ssz=fault.length;
-          for(let j=0;j<ssz; j++) {
-             let gid=find_gid_by_fault(fault[j]);
-             toggle_highlight(gid,1);
-             window.console.log("fault >>"+fault[j]);
-          }
-        }
-        switch (ptype) {
-          case "main":
-            // do nothing
-            break;
-          case "main3d":
-            setTimeout(executePlot3d(ts), 3000);
-            break;
-          case "note":
-            window.console.log("NOTE type: not sure what to do..");
-            //  TODO
-            break;
-          default:
-            // do nothing
-            break;
-        };
-    }
-}
-
-// abb => array of abb
-// no need to go to server,
-function findByNameInPreset(name, ptype, ts, camera) {
+function findByNameInPreset(name, ptype, ts) {
     let sz=name.length;
     if(sz == 0) {
       return; 
@@ -1300,38 +1273,46 @@ function findByNameInPreset(name, ptype, ts, camera) {
     }
 }
 
+/*
+      elt=document.getElementById("view3DToggleReprbtn");
+      elt=document.getElementById("view3DToggleBoundsbtn");
+      elt=document.getElementById("view3DToggleShorebtn");
+      elt=document.getElementById("view3DToggleTracebtn");
+*/
 // have to separate to 2 parts because don't want the vtk renederer
 // to use quakes/shore/trace as 'focus' on bounds
 function presetPlot3d_first()
 {
-    if(PLOT3D_PRESET_MODE) {
-      let elt=document.getElementById("view3DToggleReprbtn");
-      elt.click();
-      elt.click();
-      let elt3=document.getElementById("view3DToggleBoundsbtn");
-      elt3.click();
-      elt3.click();
-
-      if(PLOT3D_PRESET_CAMERA) {
-        let elt4=document.getElementById("view3DToggleShorebtn");
-        elt4.click();
-        let elt5=document.getElementById("view3DToggleTracebtn");
-        elt5.click();
-        sendCamera3Dview(PLOT3D_PRESET_CAMERA);
-      }
-   
+// get into right state..
+    if(PLOT3D_PRESET_STATE) {  // toggle off trace and shore if on
+       if(track_shore != false) { toggleShore3Dview(); }
+       if(track_trace != false) { toggleTrace3Dview(); }
+    }
+    if(PLOT3D_PRESET_CAMERA) {
+       sendCamera3Dview(PLOT3D_PRESET_CAMERA);
     }
 }
 
+// set the state to what was requested
+//{"trace":1,"shore":1,"legend":1,"seismicity":0,"repr":0,"bounds":0,"full":0}
 function presetPlot3d_second()
 {
-    if(PLOT3D_PRESET_CAMERA) {
-      let elt4=document.getElementById("view3DToggleShorebtn");
-      elt4.click();
-      let elt5=document.getElementById("view3DToggleTracebtn");
-      elt5.click();
-      let elt2=document.getElementById("view3DToggleQuakebtn");
-      elt2.click();
+    if(PLOT3D_PRESET_STATE) {
+      let state=JSON.parse(PLOT3D_PRESET_STATE);
+      let trace=state['trace'];
+      if(trace != track_trace) { toggleTrace3Dview(); }
+      let shore=state['shore'];
+      if(shore != track_shore) { toggleShore3Dview(); }
+      let legend=state['legend'];
+      if(legend != track_legend) { toggleLegend3Dview(); }
+      let seismicity=state['seismicity'];
+      while(seismicity != track_seismicity) { toggleQuake3Dview(); }
+      let repr=state['repr'];
+      while(repr != track_representation) { toggleRepr3Dview(); }
+      let bounds=state['bounds'];
+      while(bounds != track_bounds) { toggleBounds3Dview(); }
+      let full=state['full'];
+      if(full != track_full) { toggleExpand3Dview(); }
     }
 }
 

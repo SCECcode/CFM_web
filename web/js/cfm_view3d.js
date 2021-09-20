@@ -58,6 +58,11 @@ var VIEW3D_tb = {
         ]
 };
 
+function getCurrent3dState() {
+  let state={ "trace":track_trace, "shore":track_shore, "legend":track_legend, "seismicity":track_seismicity, "repr":track_representation, "bounds":track_bounds, "full":track_full};
+   return JSON.stringify(state);
+}
+
 function setup_info3dTable() {
    var tb=VIEW3D_tb['3dview'];
    var cnt=tb.length-1;
@@ -111,6 +116,7 @@ function setup_warn3dTable() {
   viewUID=uid&viewerType=viewerType&fileURL=[file1, file2]&name=[name1, name2]&filePATH=[path]
 ***/
 function set_PARAMS(params) {
+window.console.log("set regular params "+params);
   $('#params3D').attr('src',params);
 }
 function get_PARAMS() {
@@ -122,6 +128,7 @@ function get_PARAMS() {
   name=[name1,name2]&ts=ts&ptype="main3d"
 ***/
 function set_SHARE_PARAMS(sparams) {
+window.console.log("new share param.."+sparams);
   $('#params3Dshare').attr('src',sparams);
 }
 function get_SHARE_PARAMS() {
@@ -262,6 +269,7 @@ function refresh3Dview() {
 
 // move current popup modal to a new tab
 function move3Dview() {
+window.console.log("HERE in move call");
   var yourDOCTYPE = "<!DOCTYPE html>"; // your doctype declaration
   var copyPreview = window.open('about:blank', 'CFM Plot3D', "resizable=yes,scrollbars=yes,status=yes");
   var newCopy = copyPreview.document;
@@ -277,28 +285,30 @@ function move3Dview() {
   document.getElementById("view3DClosebtn").click();
 }
 
-var track_trace=initial_track_trace; // 1 is on 0 is off
-function toggleTrace3Dview(elt) {
+var track_trace=true; // 1 is on 0 is off
+function toggleTrace3Dview() {
   document.getElementById("view3DIfram").contentDocument.getElementById("Tracebtn").click();
+  let elt=document.getElementById("view3DToggleTracebtn");
   
   track_trace = !track_trace;
   if(track_trace) {
-    elt.innerHTML=initial_trace_html;
+    elt.innerHTML="Hide Trace";
     } else {
-      elt.innerHTML=initial_not_trace_html;
+      elt.innerHTML="Show Trace";
   }
 }
 
 function resetTrace3Dview() {
   let elt=document.getElementById("view3DToggleTracebtn");
-  var track_trace=initial_track_trace;
-  elt.innerHTML=initial_trace_html;
+  var track_trace=true;
+  elt.innerHTML="Hide Trace";
 }
 
 
-var track_shore=1; // 1 is on 0 is off
-function toggleShore3Dview(elt) {
+var track_shore=true; // 1 is on 0 is off
+function toggleShore3Dview() {
   document.getElementById("view3DIfram").contentDocument.getElementById("Shorebtn").click();
+  let elt=document.getElementById("view3DToggleShorebtn");
   
   track_shore = !track_shore;
   if(track_shore) {
@@ -310,13 +320,14 @@ function toggleShore3Dview(elt) {
 
 function resetShore3Dview() {
   let elt=document.getElementById("view3DToggleShorebtn");
-  var track_shore=1; // 1 is on 0 is off
+  var track_shore=true; // 1 is on 0 is off
   elt.innerHTML="Hide Coastline";
 }
 
-var track_legend=1; // 1 is on 0 is off
-function toggleLegend3Dview(elt) {
+var track_legend=true; // 1 is on 0 is off
+function toggleLegend3Dview() {
   document.getElementById("view3DIfram").contentDocument.getElementById("Legendbtn").click();
+  let elt=document.getElementById("view3DToggleLegendbtn");
   
   track_legend = !track_legend;
   if(track_legend) {
@@ -328,18 +339,20 @@ function toggleLegend3Dview(elt) {
 
 function resetLegend3Dview() {
   let elt=document.getElementById("view3DToggleLegendbtn");
-  var track_legend=1; // 1 is on 0 is off
+  var track_legend=true; // 1 is on 0 is off
   elt.innerHTML="Hide Legend";
 }
 
-function toggleNorth3Dview(elt) {
+function toggleNorth3Dview() {
   document.getElementById("view3DIfram").contentDocument.getElementById("Northbtn").click();
 }
 
 var track_seismicity=0; // 0 is none, 1 is hauksson, 3 is ross 
 //publicAPI.toggle
-function toggleQuake3Dview(elt) {
+function toggleQuake3Dview() {
   document.getElementById("view3DIfram").contentDocument.getElementById("Quakebtn").click();
+  let elt=document.getElementById("view3DToggleQuakebtn");
+
   track_seismicity = ( track_seismicity + 1 ) % 3;
   switch( track_seismicity ) {
     case 0:
@@ -355,14 +368,15 @@ function toggleQuake3Dview(elt) {
 }
 function resetQuake3Dview() {
   track_seismcity=0;
-  let elt=document.getElementById("view3DToggleQuakebtn")
+  let elt=document.getElementById("view3DToggleQuakebtn");
   elt.innerHTML="Relocated Seismicity Off";
 }
 
 var track_representation=0; // 1 is wireframe 0 is surface 2 is surface + edge
 //publicAPI.toggle
-function toggleRepr3Dview(elt) {
+function toggleRepr3Dview() {
   document.getElementById("view3DIfram").contentDocument.getElementById("Reprbtn").click();
+  let elt=document.getElementById("view3DToggleReprbtn");
   
   track_representation = ( track_representation + 1 ) % 3;
   switch( track_representation ) {
@@ -380,14 +394,15 @@ function toggleRepr3Dview(elt) {
 
 function resetRepr3Dview() {
   track_representation=0;
-  let elt=document.getElementById("view3DToggleReprbtn")
+  let elt=document.getElementById("view3DToggleReprbtn");
   elt.innerHTML="Show Wireframe";
 }
 
 var track_bounds=0; // 0 is final 1 is local 2 is none
 //publicAPI.toggle
-function toggleBounds3Dview(elt) {
+function toggleBounds3Dview() {
   document.getElementById("view3DIfram").contentDocument.getElementById("Boundsbtn").click();
+  let elt=document.getElementById("view3DToggleBoundsbtn");
 
   track_bounds = ( track_bounds + 1 ) % 3;
   switch( track_bounds ) {
@@ -417,10 +432,11 @@ function setIframHeight(id) {
   document.getElementById(id).height = height;
 }
 
-var track_full=0; // 1 is on 0 is off
+var track_full=false; // 1 is on 0 is off
 var save_height=0;
 var save_width=0;
-function toggleExpand3Dview(elt) {
+function toggleExpand3Dview() {
+  let elt=document.getElementById("view3DExpandbtn");
   
   track_full = !track_full;
   if(track_full) {
@@ -442,13 +458,13 @@ function toggleExpand3Dview(elt) {
       var f=document.getElementById("modal3DFooter");
       document.getElementById("view3DIfram").height = save_height;
       document.getElementById("view3DIfram").width = save_width;
-  }
+  } 
 }
 
 function resetExpand3Dview() {
   let elt=document.getElementById("view3DExpandbtn");
-  if(track_full == 1) {
-    track_full=0;
+  if(track_full == true) {
+    track_full=false;
     elt.innerHTML="Shrink";
     $('#modal3DDialog').addClass('modal-full-dialog');
     $('#modal3DContent').addClass('modal-full-content');
@@ -476,7 +492,8 @@ function share3Dview() {
     if(PLOT3D_CAMERA != null ){
       clearInterval(waitInterval);
       let html=document.getElementById('shareLink-container');
-      cmd=cmd+"&camera="+PLOT3D_CAMERA;
+      let state=getCurrent3dState();
+      cmd=cmd+"&state="+state+"&camera="+PLOT3D_CAMERA;
       let phtml="<p>"+cmd+"</p>";
       html.innerHTML=phtml;
       //alert(cmd);
