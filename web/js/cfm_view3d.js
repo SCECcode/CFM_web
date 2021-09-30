@@ -183,8 +183,8 @@ function sendParams3Dview() {
   let params=get_PARAMS();
   let iwindow=document.getElementById('view3DIfram').contentWindow;
   let  eparams=encodeURI(params);
-//window.console.log("SERVER, post a param message to iframe.");
-//window.console.log(">>>"+eparams);
+window.console.log("SERVER, post a param message to iframe.");
+window.console.log(">>>"+eparams);
   iwindow.postMessage({call:'fromSCEC',value:eparams},"*");
 }
 
@@ -194,6 +194,10 @@ function sendCamera3Dview(myCamera) {
   iwindow.postMessage({call:'fromSCEC camera',value:ecamera},"*");
 }
 
+function sendDone3Dview(note) {
+  let iwindow=document.getElementById('view3DIfram').contentWindow;
+  iwindow.postMessage({call:'fromSCEC done',value:note},"*");
+}
 
 window.addEventListener("DOMContentLoaded", function () {
 

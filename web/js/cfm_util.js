@@ -1145,7 +1145,7 @@ myCFMname=MJVA-CRSF-BCYL-Bicycle_Lake_fault-CFM5
 BCLF => "Bicycle Lake fault"
 
 myCFMabb="BCLF"
-myTSname="native/500m/1000m/2000m"
+myTSname="native/500m/1000m/2000m/none"
 myPtype="note/main/main3d/"
 
 
@@ -1273,22 +1273,8 @@ function findByNameInPreset(name, ptype, ts) {
     }
 }
 
-/*
-      elt=document.getElementById("view3DToggleReprbtn");
-      elt=document.getElementById("view3DToggleBoundsbtn");
-      elt=document.getElementById("view3DToggleShorebtn");
-      elt=document.getElementById("view3DToggleTracebtn");
-*/
-// have to separate to 2 parts because don't want the vtk renederer
-// to use quakes/shore/trace as 'focus' on bounds
 function presetPlot3d_first()
 {
-window.console.log("HERE.");
-// get into right state..
-    if(PLOT3D_PRESET_STATE) {  // toggle off trace and shore if on
-       if(track_shore != false) { toggleShore3Dview(); }
-       if(track_trace != false) { toggleTrace3Dview(); }
-    }
     if(PLOT3D_PRESET_CAMERA) {
 // delayed alittled
        setTimeout(sendCamera3Dview(PLOT3D_PRESET_CAMERA), 3000);
@@ -1315,6 +1301,7 @@ function presetPlot3d_second()
       while(bounds != track_bounds) { toggleBounds3Dview(); }
       let full=state['full'];
       if(full != track_full) { toggleExpand3Dview(); }
+      sendDone3Dview("done for presetPlot3d");
     }
 }
 

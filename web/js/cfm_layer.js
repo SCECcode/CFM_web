@@ -587,12 +587,13 @@ function get_current_dip_range() {
 
 // find a layer from the layer list
 function find_layer_list(target) { 
-   var found="";
-   cfm_layer_list.forEach(function(element) {
+   let sz=cfm_layer_list.length;
+   for(let i=0; i<sz; i++) {
+     let element=cfm_layer_list[i];
      if ( element['gid'] == target )
-        found=element;
-   });
-   return found;
+        return element;
+   }
+   return null;
 }
 
 // just in case the layer's color got set to highlight
@@ -787,15 +788,21 @@ function get_leaflet_id(layer) {
 }
 
 function find_trace_list(gid) { 
-   var found=undefined;
-   cfm_trace_list.forEach(function(element) {
+   let sz=cfm_trace_list.length; 
+   for(let i=0; i<sz; i++) {
+     let element=cfm_trace_list[i];
      if ( element['gid'] == gid )
-        found=element;
-   });
-   return found;
+        return element;
+   }
+   return undefined;
 }
 
 function load_a_trace(gid,trace) {
+
+if(gid == 440) {
+  window.console.log("Here...load_a_trace"+gid);
+}
+
   var t=find_layer_list(gid);
   if(t) {
     window.console.log("already plotted this layer", gid);
@@ -832,82 +839,87 @@ function load_trace_list()
 }
 
 function in_500m_gid_list(target) {
-   var found=0;
-   cfm_500m_gid_list.forEach(function(element) {
-          if (element == target) {
-             found=1;
-          }
-   });
-   return found;
+   let sz=cfm_500m_gid_list.length;
+   for(let i=0; i<sz; i++) {
+     if (cfm_500m_gid_list[i]==target) {
+       return 1;
+     }
+   }
+   return 0;
 }
 
 function url_in_500m_list(target) {
-   var url=null;
-   cfm_500m_list.forEach(function(element) {
-         if(element['objgid']==target) {
-            url=element['url'];
-         }
-   });
-   return url;
+   let sz=cfm_500m_list.length; 
+   for(let i=0; i<sz; i++) {
+      let element=cfm_500m_list[i];
+      if(element['objgid']==target) {
+        return element['url'];
+      }
+   }
+   return null;
 }
 
 function in_1000m_gid_list(target) {
-   var found=0;
-   cfm_1000m_gid_list.forEach(function(element) {
-          if (element == target) {
-             found=1;
-          }
-   });
-   return found;
+   let sz=cfm_1000m_gid_list.length;
+   for(let i=0; i<sz; i++) {
+     if( cfm_1000m_gid_list[i] == target) {
+        return 1;
+     }
+   }
+   return 0;
 }
 
 function in_2000m_gid_list(target) {
-   var found=0;
-   cfm_2000m_gid_list.forEach(function(element) {
-          if (element == target) {
-             found=1;
-          }
-   });
-   return found;
+   let sz=cfm_2000m_gid_list.length;
+   for(let i=0; i<sz; i++) {
+     if( cfm_2000m_gid_list[i] == target) {
+        return 1;
+     }
+   }
+   return 0;
 }
 
 function url_in_1000m_list(target) {
-   var url=null;
-   cfm_1000m_list.forEach(function(element) {
-         if(element['objgid']==target) {
-            url=element['url'];
-         }
-   });
-   return url;
+   let sz=cfm_1000m_list.length;
+   for(let i=0; i<sz; i++) {
+     let element=cfm_1000m_list[i];
+     if(element['objgid']==target) {
+       return element['url'];
+     }
+   }
+   return null;
 }
 
 function url_in_2000m_list(target) {
-   var url=null;
-   cfm_2000m_list.forEach(function(element) {
-         if(element['objgid']==target) {
-            url=element['url'];
-         }
-   });
-   return url;
+   let sz=cfm_2000m_list.length;
+   for(let i=0; i<sz; i++) {
+     let element=cfm_2000m_list[i];
+     if(element['objgid']==target) {
+       return element['url'];
+     }
+   }
+   return null;
 }
 
 function in_native_gid_list(target) {
-   var found=0;
-   cfm_native_gid_list.forEach(function(element) {
-          if (element == target)
-             found=1;
-   });
-   return found;
+   let sz=cfm_native_gid_list.length;
+   for(let i=0; i<sz; i++) {
+     if(cfm_native_gid_list[i]== target) {
+       return 1;
+     }
+   }
+   return 0;
 }
 
 function url_in_native_list(target) {
-   var url=null;
-   cfm_native_list.forEach(function(element) {
-         if(element['objgid']==target) {
-            url=element['url'];
-         }
-   });
-   return url;
+   let sz=cfm_native_list.length;
+   for(let i=0; i<sz; i++) {
+     let element=cfm_native_list[i];
+     if(element['objgid']==target) {
+       return element['url'];
+     }
+   }
+   return null;
 }
 
 function in_nogeo_gid_list(target) {
