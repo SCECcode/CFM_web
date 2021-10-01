@@ -19,17 +19,56 @@ var EXTERNAL_TS_NAME=[];
 
 
 // from external file
-function setExternalTSFile(fname) {
+function setExternalTSFile(_urls) {
 
-  EXTERNAL_TS_LIST.push("./data/external/SAFS-SAFZ-MULT-Banning_fault-YULE.ts");
-  EXTERNAL_TS_LIST.push("./data/external/SAFS-SAFZ-MULT-San_Andreas_fault-FUIS-CFM3.ts");
-  EXTERNAL_TS_LIST.push("./data/external/SAFS-SAFZ-SBMT-Garnet_Hill_fault-YULE.ts");
-  EXTERNAL_TS_LIST.push("./data/external/SAFS-SGRP-SGPS-San_Gorgonio_Pass_fault-YULE.ts");
+  // only use the first one 
+  if( _urls == undefined ) {
+    throw new Error("local file must be a File object type!");
+  }
+  let _url=_urls[0];
+  if(!( _url instanceof File)) {
+    throw new Error("local file must be a File object type!");
+  } 
+
+  var reader = new FileReader();
+
+  reader.onload=function(event) {
+    var lines = reader.result.split('\n');
+    var sz=lines.length;
+    if(sz== 0) { return; }
+
+    for(let i=0;i<sz;i++) {
+      if(lines[i].length > 0) {
+        let data=lines[i].split(',');
+        EXTERNAL_TS_NAME.push(data[0]);
+        EXTERNAL_TS_LIST.push(data[1]);
+      }
+    }
+  };
+  reader.readAsText(_url);
+
+/*
+  EXTERNAL_TS_LIST.push("data/external/SAFS-SAFZ-MULT-Banning_fault-YULE.ts");
+  EXTERNAL_TS_LIST.push("data/external/SAFS-SAFZ-MULT-San_Andreas_fault-FUIS-CFM3.ts");
+  EXTERNAL_TS_LIST.push("data/external/SAFS-SAFZ-SBMT-Garnet_Hill_fault-YULE.ts");
+  EXTERNAL_TS_LIST.push("data/external/SAFS-SGRP-SGPS-San_Gorgonio_Pass_fault-YULE.ts");
   
   EXTERNAL_TS_NAME.push('Banning fault YULE');
   EXTERNAL_TS_NAME.push('San Andreas fault FUIS');
   EXTERNAL_TS_NAME.push('Garnet Hill fault YULE');
   EXTERNAL_TS_NAME.push('San Gorgonio Pass fault YULE');
+*/
+}
+
+// from commandline via PresetMode commandline..
+//  "[..,..]"
+function setExternalTS(fullname, fullfileurl) {
+
+   let nn=fullname.substring(1,fullname.length-1);
+   let ff=fullfileurl.substring(1,fullfileurl.length-1);
+
+   EXTERNAL_TS_LIST=ff.split(',');
+   EXTERNAL_TS_NAME=nn.split(',');
 }
 
 function get_external_TS() { 

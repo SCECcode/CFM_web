@@ -1206,12 +1206,13 @@ function getPresetMode() {
 
 //window.console.log(pArr[1]);
      let dd=decodeURI(pArr[1]);
+     let ddd;
      switch (pArr[0]) {
-        case "fullfileurl":
-             myFullFileURL=JSON.parse(dd);
+        case "fullFileURL":
+             myFullFileURL=dd;
              break;
-        case "fullname":
-             myFullName=JSON.parse(dd);
+        case "fullName":
+             myFullName=dd;
              break;
         case "abb":
              myAbb=JSON.parse(dd);

@@ -163,7 +163,7 @@ function show3dView(urls,nstr,path,nlstr) {
   }
 
   let externalTS=get_external_TS();
-  if(externalTS != null) {
+  if(externalTS &&  externalTS != null) {
      params=params+externalTS;
   }
 
@@ -497,8 +497,8 @@ function share3Dview() {
   let path=loc.origin + location.pathname;
   let sparam=get_SHARE_PARAMS();
   let externalTS=get_external_TS();
-  if(externalTS != null) {
-     sparams=sparams+externalTS;
+  if(externalTS && externalTS != null) {
+     sparam=sparam+externalTS;
   }
   let cmd=path+sparam;
 
