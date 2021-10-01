@@ -1155,7 +1155,14 @@ calling plot3D >> myParams is
 fileURL=[500m/WTRA-USAV-USAV-Indian_Hill_fault-CFM5_500m.ts]
 &name=[Indian Hill fault]
 &filePATH=[https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM5/CFM53_preferred/]
+
+http://localhost:8081/?name=["ETRA-NFTS-DTMT-Deep_detachment-CFM5"]&ts="500m"&ptype="main3d"&
+state={"trace":true,"shore":true,"legend":true,"seismicity":0,"repr":0,"bounds":0,"full":false}
+&camera={"pos":[619060.371522678,430381.3872969348,-3282431.9564900324],"angle":30,
+"viewup":[0.04456568509340286,0.7218788266181946,-0.6905829310417175],"distance":685550.3640744094,
+"focal":[466533.134765625,-26700,-3770070.5]}
 */
+
 function inPresetMode() {
   let param = window.location.search.substring(1);
   if(param == "") {
@@ -1176,6 +1183,8 @@ http://localhost:8081/?name=["WTRA-USAV-USAV-San_Jose_fault-CFM5"]&ts="1000m"&
 ptype="main3d"&camera={"pos":[486326.6875,69849.9453125,-3838326.5],"angle":30,
 "viewup":[-0.19568131864070892,-0.5419068336486816,-0.8173406720161438],
 "distance":116818.2594697855,"focal":[426630.109375,-6666.62158203125,-3773303.125]}
+fullname=[...]
+fullfileurl=[...]
 **/
 function getPresetMode() {
   skip_warning=true; // skip 3d warning
@@ -1187,6 +1196,9 @@ function getPresetMode() {
   let myCamera=0;
   let myState=0;
 
+  let myFullName=0;
+  let myFullFileURL=0;
+
   let qArray = param.split('&'); //get key-value pairs
   for (var i = 0; i < qArray.length; i++)
   {
@@ -1195,6 +1207,12 @@ function getPresetMode() {
 //window.console.log(pArr[1]);
      let dd=decodeURI(pArr[1]);
      switch (pArr[0]) {
+        case "fullfileurl":
+             myFullFileURL=JSON.parse(dd);
+             break;
+        case "fullname":
+             myFullName=JSON.parse(dd);
+             break;
         case "abb":
              myAbb=JSON.parse(dd);
              break;
@@ -1217,6 +1235,7 @@ function getPresetMode() {
              break;
      }
   }
+  setExternalTS(myFullName, myFullFileURL);
   return [myPtype, myAbb, myName, myTS, myCamera, myState];
 }
 

@@ -17,12 +17,14 @@ function reset_search_selection() {
 var EXTERNAL_TS_LIST=[];
 var EXTERNAL_TS_NAME=[];
 
-function selectExternalTSFile(fname) {
+
+// from external file
+function setExternalTSFile(fname) {
 
   EXTERNAL_TS_LIST.push("./data/external/SAFS-SAFZ-MULT-Banning_fault-YULE.ts");
   EXTERNAL_TS_LIST.push("./data/external/SAFS-SAFZ-MULT-San_Andreas_fault-FUIS-CFM3.ts");
   EXTERNAL_TS_LIST.push("./data/external/SAFS-SAFZ-SBMT-Garnet_Hill_fault-YULE.ts");
-  EXTERNAL_TS_LIST.push("./data/external/SAFS-SGRP-SGPS-San_Gorgonio_Pass_fault-YULE.ts]");
+  EXTERNAL_TS_LIST.push("./data/external/SAFS-SGRP-SGPS-San_Gorgonio_Pass_fault-YULE.ts");
   
   EXTERNAL_TS_NAME.push('Banning fault YULE');
   EXTERNAL_TS_NAME.push('San Andreas fault FUIS');
@@ -30,7 +32,7 @@ function selectExternalTSFile(fname) {
   EXTERNAL_TS_NAME.push('San Gorgonio Pass fault YULE');
 }
 
-function get_external_TS() 
+function get_external_TS() { 
   let tsstr;
   let nmstr; 
   if(EXTERNAL_TS_LIST.length == 0 || EXTERNAL_TS_NAME.length == 0) {

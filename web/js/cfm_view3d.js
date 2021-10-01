@@ -496,6 +496,10 @@ function share3Dview() {
   let loc = window.location;
   let path=loc.origin + location.pathname;
   let sparam=get_SHARE_PARAMS();
+  let externalTS=get_external_TS();
+  if(externalTS != null) {
+     sparams=sparams+externalTS;
+  }
   let cmd=path+sparam;
 
   document.getElementById("view3DIfram").contentDocument.getElementById("Camerabtn").click();
