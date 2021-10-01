@@ -799,16 +799,14 @@ function find_trace_list(gid) {
 
 function load_a_trace(gid,trace) {
 
-if(gid == 440) {
-  window.console.log("Here...load_a_trace"+gid);
-}
+  let layer, done=0;
 
   var t=find_layer_list(gid);
   if(t) {
     window.console.log("already plotted this layer", gid);
     return;
   }
-  var layer=addGeoToMap(trace, viewermap);
+  [layer, done]=addGeoToMap(trace, viewermap);
   var s =find_style_list(gid);
   if( s == undefined ) {
      window.console.log("BAD!! load_a_trace..", gid);
@@ -816,10 +814,12 @@ if(gid == 440) {
   }
   cfm_layer_list.push({"gid":gid, "layer":layer}); 
   s['visible']=1; // turn it on
+  if(done) { setupPresetMode(); }
 }
 
 function load_trace_list()
 {
+  let layer, done=0;
   var sz=cfm_trace_list.length;
   for (var i=0; i<sz; i++) {
      var c=cfm_trace_list[i];
@@ -831,10 +831,11 @@ function load_trace_list()
         window.console.log("already plotted this layer", gid);
         continue;
      }
-     var layer=addGeoToMap(trace, viewermap);
+     [layer, done]=addGeoToMap(trace, viewermap);
      cfm_layer_list.push({"gid":gid, "layer":layer}); 
      var s =find_style_list(gid);
      s['visible']=1; // turn it on
+     if(done) { setupPresetMode(); }
   }
 }
 

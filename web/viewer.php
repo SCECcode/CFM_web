@@ -498,7 +498,7 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
 -->
                                 </div>
                             </div>
-                            &nbsp;
+                            &nbsp
                             <div class="btn-group download-now">
                                 <button id="download-all" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false" disabled>
@@ -525,7 +525,11 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
                                     </button>
                                 </div>
                             </div>
-                        </div></th>
+                            &nbsp
+                            &nbsp
+<input class="form-control" id='fileBtn' type='file' onchange='selectExternalTSFiles(this.files)' style='display:none;'></input> 
+<button class="btn cfm-small-btn" onClick='javascript:document.getElementById("fileBtn").click();'><span class="fas fa-caret-up"></span></button>
+                        </div> </th>
                 </tr>
                 </thead>
                 <tbody>
@@ -582,6 +586,7 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
       <div class="modal-footer justify-content-center" id="modal3DFooter">
 
         <div class="spinDialog" style="position:absolute;top:40%;left:50%; z-index:9999;">
+<!-- XX -->
           <div id="spinIconFor3D" align="center" style="display:none;"><i class="glyphicon glyphicon-cog fa-spin" style="color:red"></i></div>
         </div>
 

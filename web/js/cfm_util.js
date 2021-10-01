@@ -107,8 +107,9 @@ function addOne2GeoCounter() {
   if (v == max) { // turn off spinner
 window.console.log("Finished loading faults..");
     $("#modalwait").modal('hide')
-    setupPresetMode();
+    return 1;
   }
+  return 0;
 }
 
 // clone the initial geo list or the active searched list

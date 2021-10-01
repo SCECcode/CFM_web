@@ -161,6 +161,12 @@ function show3dView(urls,nstr,path,nlstr) {
      } else {
        params="viewUID="+viewUID+"&viewerType="+viewerType+"&fileURL="+urls+"&name="+nstr+"&filePATH="+path;
   }
+
+  let externalTS=get_external_TS();
+  if(externalTS != null) {
+     params=params+externalTS;
+  }
+
   set_PARAMS(params);
 
   //name=[name1,name2]&ts=ts&ptype="main3d"

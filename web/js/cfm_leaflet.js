@@ -339,8 +339,9 @@ function addGeoToMap(cfmTrace, mymap) {
        }
    });
 
-  addOne2GeoCounter();
-  return geoLayer;
+// if doen=1, all traces are done, else 0
+  let done=addOne2GeoCounter();
+  return [geoLayer, done];
 }
 
 
