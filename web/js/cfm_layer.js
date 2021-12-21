@@ -86,10 +86,6 @@ var cfm_2000m_gid_list=[];
 // { gid1, gid2, ... }, all objects 
 var cfm_gid_list=[];
 
-// gid is objgid
-// { gid1, gid2, ... }, only without geo
-var cfm_nogeo_gid_list=[];
-
 // all objgid ==> gid from object_tb, all objects
 //  [ { "gid": gid1,  "meta": mmm1 }, {  "gid": gid2, "meta": mmm2 }, ... } 
 var cfm_fault_meta_list=[];
@@ -921,15 +917,6 @@ function url_in_native_list(target) {
      }
    }
    return null;
-}
-
-function in_nogeo_gid_list(target) {
-   var found=0;
-   cfm_nogeo_gid_list.forEach(function(element) {
-          if (element == target)
-             found=1;
-   });
-   return found;
 }
 
 // toggle off everything except if there

@@ -679,9 +679,8 @@ function getColorFromMeta(meta) {
 
 // initial set from the backend
 function processGeoList() {
-    geostr = $('[data-side="allGeoList"]').data('params');
-    nogeostr = $('[data-side="allNoGeoList"]').data('params');
-    if(geostr == undefined || nogeostr == undefined) {
+    var geostr = $('[data-side="allGeoList"]').data('params');
+    if(geostr == undefined) {
         window.console.log("processGeoList: BAD BAD BAD");
         return;
     }
@@ -694,14 +693,6 @@ function processGeoList() {
        cfm_gid_list.push(gid);
     }
 
-    sz=nogeostr.length;
-    window.console.log("Number of no geo gid from backend ->",sz);
-    for( var i=0; i< sz; i++) {
-       var gidstr=nogeostr[i];
-       var gid=parseInt(gidstr);
-       cfm_gid_list.push(gid);
-       cfm_nogeo_gid_list.push(gid);
-    }
     window.console.log("total mixed geo..", cfm_gid_list.length);
     recordReferenceSet(cfm_gid_list);
 }
@@ -741,11 +732,8 @@ function processTraceMeta(metaList) {
 
        if(metaList == 'metaByAllTraces') {
          cfm_fault_meta_list.push({"gid":gid, "meta": meta });
-         if( !in_nogeo_gid_list(gid)) {
-           tmp_gid_list.push(gidstr);
-           tmp_meta_list.push(meta);
-         
-         }
+         tmp_gid_list.push(gidstr);
+         tmp_meta_list.push(meta);
          } else {
             window.console.log("BAD ??");
        }
@@ -801,9 +789,7 @@ function processSearchResult(rlist) {
        }
 
        cfm_active_gid_list.push(gid);
-       if( ! in_nogeo_gid_list(gid)) {
-        toggle_layer(gid);
-       }
+       toggle_layer(gid);
        strarray.push(str[i]);
     }
  
