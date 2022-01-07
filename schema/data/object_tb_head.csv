@@ -203,13 +203,13 @@ PNRA-CRSF-PGWS-Painted_Gorge_Wash_fault-CFM4,Peninsular Ranges Area,PNRA,Cross f
 PNRA-CRSF-USAV-Fontana_Seismicity_lineament-CFM1,Peninsular Ranges Area,PNRA,Cross faults,CRSF,Upper Santa Ana Valley,USAV,Fontana Seismicity lineament,FNTS
 PNRA-CRSF-USAV-Red_Hill_fault-CFM5,Peninsular Ranges Area,PNRA,Cross faults,CRSF,Upper Santa Ana Valley,USAV,Red Hill fault,RDHF
 PNRA-CRSF-YUHA-Shell_Beds_fault-CFM5,Peninsular Ranges Area,PNRA,Cross faults,CRSF,Yuha Desert,YUHA,Shell Beds fault,SBDF
+PNRA-CRSF-YUHA-Yuha_fault-CFM5,Peninsular Ranges Area,PNRA,Cross faults,CRSF,Yuha Desert,YUHA,Yuha fault,YUHA
 PNRA-CRSF-YUHA-Yuha_Wash_fault-CFM5,Peninsular Ranges Area,PNRA,Cross faults,CRSF,Yuha Desert,YUHA,Yuha Wash fault,YWSF
-PNRA-CRSF-YUHA-Yuha_Well_Vista_del_Anza_fault_truncated-CFM5,Peninsular Ranges Area,PNRA,Cross faults,CRSF,Yuha Desert,YUHA,Yuha Well-Vista del Anza_fault,YWVA
 PNRA-CRSF-YUHA-Yuha_Well_fault-CFM5,Peninsular Ranges Area,PNRA,Cross faults,CRSF,Yuha Desert,YUHA,Yuha Well fault zone,YWLF
 PNRA-CRSF-YUHA-Yuha_Well_fault_north_set1-CFM5,Peninsular Ranges Area,PNRA,Cross faults,CRSF,Yuha Desert,YUHA,Yuha Well fault-north set1,YWLN
 PNRA-CRSF-YUHA-Yuha_Well_fault_northwest_steep-CFM5,Peninsular Ranges Area,PNRA,Cross faults,CRSF,Yuha Desert,YUHA,Yuha Well fault-northwest,YWNW
 PNRA-CRSF-YUHA-Yuha_Well_fault_west_steep-CFM5,Peninsular Ranges Area,PNRA,Cross faults,CRSF,Yuha Desert,YUHA,Yuha Well fault-west,YWLW
-PNRA-CRSF-YUHA-Yuha_fault-CFM5,Peninsular Ranges Area,PNRA,Cross faults,CRSF,Yuha Desert,YUHA,Yuha fault,YUHA
+PNRA-CRSF-YUHA-Yuha_Well_Vista_del_Anza_fault_truncated-CFM5,Peninsular Ranges Area,PNRA,Cross faults,CRSF,Yuha Desert,YUHA,Yuha Well-Vista del Anza_fault,YWVA
 PNRA-CSTF-SJQH-San_Joaquin_Hills_fault_truncated-CFM3,Peninsular Ranges Area,PNRA,Coastal Faults,CSTF,San Joaquin Hills,SJQH,San Joaquin Hills fault,SJHF
 PNRA-DVVZ-DVSV-Davies_Valley_fault-CFM5,Peninsular Ranges Area,PNRA,Davies Valley fault zone,DVVZ,Davies Valley,DVSV,Davies Valley fault,DVVF
 PNRA-DVVZ-NDVS-Northern_Davies_Valley_set1-CFM4,Peninsular Ranges Area,PNRA,Davies Valley fault zone,DVVZ,Northern Davies Valley,NDVS,Northern Davies Valley fault,NDVV
@@ -220,9 +220,9 @@ PNRA-ELSZ-GLIV-Glen_Ivy_North_fault-CFM4,Peninsular Ranges Area,PNRA,Elsinore-La
 PNRA-ELSZ-GLIV-Glen_Ivy_South_fault-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Glen Ivy,GLIV,Glen Ivy South fault,GISF
 PNRA-ELSZ-INDV-Indiviso_fault-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Indiviso,INDV,Indiviso fault,INDF
 PNRA-ELSZ-INDV-Indiviso_fault_splay-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Indiviso,INDV,Indiviso fault,INDF
-PNRA-ELSZ-JULN-Elsinore_fault_Wildomar_link-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Julian,JULN,Elsinore-Wildomar link,ELWL
 PNRA-ELSZ-JULN-Elsinore_fault_north-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Julian,JULN,Elsinore fault-north,ELNF
 PNRA-ELSZ-JULN-Elsinore_fault_south-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Julian,JULN,Elsinore fault-south,ELSF
+PNRA-ELSZ-JULN-Elsinore_fault_Wildomar_link-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Julian,JULN,Elsinore-Wildomar link,ELWL
 PNRA-ELSZ-LGSD-Laguna_Salada_fault_east_branch_dipping-CFM5,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Laguna Salada,LGSD,Laguna Salada fault-east branch,LSFE
 PNRA-ELSZ-LGSD-Laguna_Salada_fault_east_branch_dipping_splay-CFM5,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Laguna Salada,LGSD,Laguna Salada fault-east branch,LSFE
 PNRA-ELSZ-LGSD-Laguna_Salada_fault_north-CFM5,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Laguna Salada,LGSD,Laguna Salada fault-north,LSFN
@@ -239,11 +239,11 @@ PNRA-ELSZ-SRCP-Sierra_Cucapah_fault-CFM4,Peninsular Ranges Area,PNRA,Elsinore-La
 PNRA-ELSZ-TMCL-Wildomar_fault-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Temecula,TMCL,Wildomar fault,WLDF
 PNRA-ELSZ-TMCL-Willard_fault-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Temecula,TMCL,Willard fault,WLRF
 PNRA-ELSZ-WHIT-East_Montebello_fault-CFM3,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Whittier,WHIT,East Montebello fault,EMBF
-PNRA-ELSZ-WHIT-Whittier_Heights_fault-CFM1,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Whittier,WHIT,Whittier Heights fault,WHTF
 PNRA-ELSZ-WHIT-Whittier_fault-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Whittier,WHIT,Whittier fault,WTRF
+PNRA-ELSZ-WHIT-Whittier_Heights_fault-CFM1,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Whittier,WHIT,Whittier Heights fault,WHTF
 PNRA-ELSZ-WHIT-Workman_Hill_fault-CFM1,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Whittier,WHIT,Workman Hill fault,WMHF
-PNRA-ELSZ-YUHA-Sierra_Cucapah_fault_NW_splay-CFM5,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Yuha Desert,YUHA,Sierra Cucapah fault-NW_splay,SCPF
 PNRA-ELSZ-YUHA-Sierra_Cucapah_fault_blind_north-CFM5,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Yuha Desert,YUHA,Sierra Cucapah fault-blind,SCPB
+PNRA-ELSZ-YUHA-Sierra_Cucapah_fault_NW_splay-CFM5,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Yuha Desert,YUHA,Sierra Cucapah fault-NW_splay,SCPF
 PNRA-EMCP-2010-El_Mayor_Cucapah_rupture-CFM5,Peninsular Ranges Area,PNRA,2010 El Mayor rupture,EMCP,2010 El Mayor-Cucapah rupture,2010,2010 El Mayor-Cucapah rupture,EMCP
 PNRA-HSSF-AGCT-Agua_Caliente_fault_zone-CFM4,Peninsular Ranges Area,PNRA,Hot Springs-San Felipe fault zone,HSSF,Agua Caliente,AGCT,Agua Caliente fault zone,ACFZ
 PNRA-HSSF-HOTS-Hot_Springs_fault-CFM4,Peninsular Ranges Area,PNRA,Hot Springs-San Felipe fault zone,HSSF,Hot Springs,HOTS,Hot Springs fault,HSPF
@@ -260,8 +260,8 @@ PNRA-SJFZ-ANZA-Clark_fault_south_west_link-CFM4,Peninsular Ranges Area,PNRA,San 
 PNRA-SJFZ-ANZA-Hot_Springs_Buck_Ridge_link-CFM4,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,Anza,ANZA,Buck Ridge-Hot Springs fault link,BRHS
 PNRA-SJFZ-BRMT-Coyote_Creek_blind_fault_north_east-CFM4,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,Borrego Mountain,BRMT,Coyote Creek fault-northeast,CCRF
 PNRA-SJFZ-BRMT-Coyote_Creek_fault-CFM4,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,Borrego Mountain,BRMT,Coyote Creek fault,CCRF
-PNRA-SJFZ-CYTC-Coyote_Creek_fault-CFM4,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,Coyote Creek,CYTC,Coyote Creek fault,CCRF
 PNRA-SJFZ-CYTC-Coyote_Creek_fault_center_east_splay-CFM4,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,Coyote Creek,CYTC,Coyote Creek fault-center,CCFC
+PNRA-SJFZ-CYTC-Coyote_Creek_fault-CFM4,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,Coyote Creek,CYTC,Coyote Creek fault,CCRF
 PNRA-SJFZ-IMPV-Dixieland_fault-CFM5,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,Imperial Valley,IMPV,Dixieland_fault,DXLF
 PNRA-SJFZ-IMPV-Weinert_El_Centro_fault-CFM5,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,Imperial Valley,IMPV,Weinert-El Centro fault,WECF
 PNRA-SJFZ-IMPV-Weinert_Superstition_Hills_link-CFM5,Peninsular Ranges Area,PNRA,San Jacinto fault zone,SJFZ,Imperial Valley,IMPV,Weinert-Superstition Hills link,WSHL
@@ -317,16 +317,16 @@ SAFS-SGPR-SJMT-Beaumont_D_blind_fault-CFM5,San Andreas Fault System,SAFS,San Gor
 SAFS-SGPR-SJMT-Palm_Springs_blind_fault-CFM4,San Andreas Fault System,SAFS,San Gorgonio Pass fault region,SGPR,San Jacinto Mountains,SJMT,Palm Springs fault,PSPF
 SAFS-SGPR-SJMT-San_Gorgonio_Pass_deep_detachment-CFM5,San Andreas Fault System,SAFS,San Gorgonio Pass fault region,SGPR,San Jacinto Mountains,SJMT,San Gorgonio Pass deep detachment,SGDD
 SAFS-SGPR-SJMT-San_Gorgonio_Pass_midcrust_detachment-CFM5,San Andreas Fault System,SAFS,San Gorgonio Pass fault region,SGPR,San Jacinto Mountains,SJMT,San Gorgonio Pass midcrust detachment,SGMD
-SALT-BRSZ-BRSZ-Brawley_Seismic_Zone_boundary-CFM1,Salton Trough Fault Area,SALT,Brawley Seismic Zone,BRSZ,Brawley Seismic Zone,BRSZ,Brawley Seismic zone,BSZ
 SALT-BRSZ-BRSZ-Brawley_fault-CFM5,Salton Trough Fault Area,SALT,Brawley Seismic Zone,BRSZ,Brawley Seismic Zone,BRSZ,Brawley fault,BRWF
+SALT-BRSZ-BRSZ-Brawley_Seismic_Zone_boundary-CFM1,Salton Trough Fault Area,SALT,Brawley Seismic Zone,BRSZ,Brawley Seismic Zone,BRSZ,Brawley Seismic zone,BSZ
 SALT-CPFZ-CRPB-Cerro_Prieto_fault-CFM1,Salton Trough Fault Area,SALT,Cerro Prieto fault zone,CPFZ,Cerro Prieto basin,CRPB,Cerro Prieto fault,CRPF
 SALT-CRSF-IMPV-Elmore_Ranch_fault-CFM1,Salton Trough Fault Area,SALT,Cross faults,CRSF,Imperial Valley,IMPV,Elmore Ranch fault,ELRF
 SALT-CRSF-IMPV-Westmorland_fault_main-CFM4,Salton Trough Fault Area,SALT,Cross faults,CRSF,Imperial Valley,IMPV,Westmorland fault,WMLF
 SALT-CRSF-IMPV-Westmorland_fault_splay-CFM4,Salton Trough Fault Area,SALT,Cross faults,CRSF,Imperial Valley,IMPV,Westmorland fault splay,WMLS
 SALT-CRSF-SLTS-Extra_fault-CFM3,Salton Trough Fault Area,SALT,Cross faults,CRSF,Salton Sea,SLTS,Extra fault,EXTF
-SALT-IMFZ-IMPV-Imperial_fault_Edip_Nend-CFM5,Salton Trough Fault Area,SALT,Imperial fault zone,IMFZ,Imperial Valley,IMPV,Imperial fault,IMPF
 SALT-IMFZ-IMPV-Imperial_fault_east_strand_north-CFM5,Salton Trough Fault Area,SALT,Imperial fault zone,IMFZ,Imperial Valley,IMPV,Imperial fault-east branch,IMPE
 SALT-IMFZ-IMPV-Imperial_fault_east_strand_south-CFM5,Salton Trough Fault Area,SALT,Imperial fault zone,IMFZ,Imperial Valley,IMPV,Imperial fault-east branch,IMPE
+SALT-IMFZ-IMPV-Imperial_fault_Edip_Nend-CFM5,Salton Trough Fault Area,SALT,Imperial fault zone,IMFZ,Imperial Valley,IMPV,Imperial fault,IMPF
 SALT-IMFZ-IMPV-Imperial_fault_north_end-CFM5,Salton Trough Fault Area,SALT,Imperial fault zone,IMFZ,Imperial Valley,IMPV,Imperial fault,IMPF
 SNFA-AHTC-ASHH-Ash_Hill_fault-CFM2,Sierra Nevada Fault Area,SNFA,Ash Hill-Tank Canyon fault system,AHTC,Ash Hill,ASHH,Ash Hill fault,ASHF
 SNFA-AHTC-TANK-Tank_Canyon_fault-CFM2,Sierra Nevada Fault Area,SNFA,Ash Hill-Tank Canyon fault system,AHTC,Tank Canyon,TANK,Tank Canyon fault,TNKF
@@ -348,12 +348,12 @@ SNFA-LLFZ-CRSS-Eastern_Little_Lake_north_south_cross_fault-CFM5,Sierra Nevada Fa
 SNFA-LLFZ-CRSS-Eastern_Little_Lake_south_dip_cross_fault-CFM5,Sierra Nevada Fault Area,SNFA,Little Lake fault zone,LLFZ,Cross,CRSS,Eastern Little Lake south dip cross fault,SDCF
 SNFA-LLFZ-CRSS-Eastern_Little_Lake_south_north_cross_fault-CFM5,Sierra Nevada Fault Area,SNFA,Little Lake fault zone,LLFZ,Cross,CRSS,Eastern Little Lake south north cross fault,SNCF
 SNFA-LLFZ-EAST-China_Lake_fault-CFM5,Sierra Nevada Fault Area,SNFA,Little Lake fault zone,LLFZ,Eastern,EAST,China Lake fault,CHLF
+SNFA-LLFZ-EAST-Eastern_Little_Lake_center_east_branch-CFM5,Sierra Nevada Fault Area,SNFA,Little Lake fault zone,LLFZ,Eastern,EAST,Eastern Little Lake center east branch,ELCE
+SNFA-LLFZ-EAST-Eastern_Little_Lake_main_fault-CFM5,Sierra Nevada Fault Area,SNFA,Little Lake fault zone,LLFZ,Eastern,EAST,Eastern Little Lake main fault,ELMF
 SNFA-LLFZ-EAST-Eastern_Little_Lake_NC_splay-CFM5,Sierra Nevada Fault Area,SNFA,Little Lake fault zone,LLFZ,Eastern,EAST,Eastern Little Lake NC splay,ELNC
 SNFA-LLFZ-EAST-Eastern_Little_Lake_NE_outer_splay-CFM5,Sierra Nevada Fault Area,SNFA,Little Lake fault zone,LLFZ,Eastern,EAST,Eastern Little Lake NE outer splay,ELNB
 SNFA-LLFZ-EAST-Eastern_Little_Lake_NE_splay-CFM5,Sierra Nevada Fault Area,SNFA,Little Lake fault zone,LLFZ,Eastern,EAST,Eastern Little Lake NE splay,ELNE
 SNFA-LLFZ-EAST-Eastern_Little_Lake_NW_splay-CFM5,Sierra Nevada Fault Area,SNFA,Little Lake fault zone,LLFZ,Eastern,EAST,Eastern Little Lake NW splay,ELNW
-SNFA-LLFZ-EAST-Eastern_Little_Lake_center_east_branch-CFM5,Sierra Nevada Fault Area,SNFA,Little Lake fault zone,LLFZ,Eastern,EAST,Eastern Little Lake center east branch,ELCE
-SNFA-LLFZ-EAST-Eastern_Little_Lake_main_fault-CFM5,Sierra Nevada Fault Area,SNFA,Little Lake fault zone,LLFZ,Eastern,EAST,Eastern Little Lake main fault,ELMF
 SNFA-LLFZ-EAST-Eastern_Little_Lake_south_west_branch-CFM5,Sierra Nevada Fault Area,SNFA,Little Lake fault zone,LLFZ,Eastern,EAST,Eastern Little Lake south west branch,ELCE
 SNFA-LLFZ-SOUT-Southern_Little_Lake_main_fault-CFM5,Sierra Nevada Fault Area,SNFA,Little Lake fault zone,LLFZ,Southern,SOUT,Southern Little Lake main fault,SLMF
 SNFA-LLFZ-SOUT-Southern_Little_Lake_north_fault-CFM5,Sierra Nevada Fault Area,SNFA,Little Lake fault zone,LLFZ,Southern,SOUT,Southern Little Lake north fault,SLNF
@@ -367,13 +367,13 @@ WTRA-MRFS-MULT-Mission_Ridge_Arroyo_Parida_fault_dip-CFM5,Western Transverse Ran
 WTRA-NCVS-NCHN-North_Channel_fault_east-CFM5,Western Transverse Ranges Area,WTRA,North Channel-Ventura fault system,NCVS,North Channel,NCHN,North Channel fault-east,NCHE
 WTRA-NCVS-NCHN-North_Channel_fault_west-CFM5,Western Transverse Ranges Area,WTRA,North Channel-Ventura fault system,NCVS,North Channel,NCHN,North Channel fault-west,NCHW
 WTRA-NCVS-NCHN-North_Channel_fault_west_end-CFM5,Western Transverse Ranges Area,WTRA,North Channel-Ventura fault system,NCVS,North Channel,NCHN,North Channel fault-west-end-top,NCWT
-WTRA-NCVS-PPTV-Pitas_Point_Ventura_fault_link-CFM5,Western Transverse Ranges Area,WTRA,North Channel-Ventura fault system,NCVS,Pitas Point-Ventura,PPTV,Pitas Point-Ventura fault link,PPVL
 WTRA-NCVS-PPTV-Pitas_Point_fault_east-CFM5,Western Transverse Ranges Area,WTRA,North Channel-Ventura fault system,NCVS,Pitas Point-Ventura,PPTV,Pitas Point fault-east,PPTE
 WTRA-NCVS-PPTV-Pitas_Point_fault_west-CFM5,Western Transverse Ranges Area,WTRA,North Channel-Ventura fault system,NCVS,Pitas Point-Ventura,PPTV,Pitas Point fault-west,PPTW
 WTRA-NCVS-PPTV-Pitas_Point_fault_west_S-CFM5,Western Transverse Ranges Area,WTRA,North Channel-Ventura fault system,NCVS,Pitas Point-Ventura,PPTV,Pitas Point fault-west-S,PPWS
+WTRA-NCVS-PPTV-Pitas_Point_Ventura_fault_link-CFM5,Western Transverse Ranges Area,WTRA,North Channel-Ventura fault system,NCVS,Pitas Point-Ventura,PPTV,Pitas Point-Ventura fault link,PPVL
 WTRA-NCVS-RDMT-Red_Mountain_fault_N_strand-CFM5,Western Transverse Ranges Area,WTRA,North Channel-Ventura fault system,NCVS,Red Mountain,RDMT,Red Mountain fault-north strand,RMTN
-WTRA-NCVS-RDMT-Red_Mountain_fault_SW_strand-CFM5,Western Transverse Ranges Area,WTRA,North Channel-Ventura fault system,NCVS,Red Mountain,RDMT,Red Mountain fault-SW-strand,RMSW
 WTRA-NCVS-RDMT-Red_Mountain_fault_S_strand-CFM5,Western Transverse Ranges Area,WTRA,North Channel-Ventura fault system,NCVS,Red Mountain,RDMT,Red Mountain fault-south strand,RMTS
+WTRA-NCVS-RDMT-Red_Mountain_fault_SW_strand-CFM5,Western Transverse Ranges Area,WTRA,North Channel-Ventura fault system,NCVS,Red Mountain,RDMT,Red Mountain fault-SW-strand,RMSW
 WTRA-NCVS-VNTB-Southern_San_Cayetano_fault_lowdip-CFM5,Western Transverse Ranges Area,WTRA,North Channel-Ventura fault system,NCVS,Ventura basin,VNTB,Southern San Cayetano fault,SSCF
 WTRA-NCVS-VNTB-Southern_San_Cayetano_fault_steep-CFM5,Western Transverse Ranges Area,WTRA,North Channel-Ventura fault system,NCVS,Ventura basin,VNTB,Southern San Cayetano fault,SSCF
 WTRA-NCVS-VNTB-Ventura_fault_steep-CFM5,Western Transverse Ranges Area,WTRA,North Channel-Ventura fault system,NCVS,Ventura basin,VNTB,Ventura fault,VNTF
