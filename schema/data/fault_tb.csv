@@ -1,14 +1,5 @@
 name,abb
-1812 San Andreas fault rupture,SAF
-1857 San Andreas fault rupture,SAF
-1872 Owens Valley fault rupture,OWVF
-1992 Big Bear rupture,BGBR
-1992 Joshua Tree rupture sequence,JSTS
-1992 Landers-Barstow rupture trend,LNBT
-1992 Landers rupture cross fault-north-II,LCF2
-1992 Landers rupture cross fault-north-I,LCF1
-1992 Landers rupture detailed splays,LNDS
-1999 Hector Mine rupture,HCMR
+,
 2010 El Mayor-Cucapah rupture,EMCP
 2019 Ridgecrest ruptures,RIDG
 Agua Caliente fault zone,ACFZ
@@ -28,17 +19,20 @@ Beaumont C fault,BMTC
 Beaumont D fault,BMTD
 Berdoo Canyon fault,BDCF
 Bicycle Lake fault,BCLF
+Big Bear rupture,BGBR
 Big Pine fault,BPNF
 Big Spring fault,BSPF
 Bitter Springs fault,BSPF
 Black Mountain fault,BMTF
 Blackwater fault,BWTF
+"blind Owens Lake fault, Lone Pine 2020 M5.8",
 Blue Cut fault,BCTF
 Borrego fault,BRGF
 Brawley fault,BRWF
 Brawley Seismic zone,BSZ
 Buck Ridge fault,BKRF
-Buck Ridge-Hot Springs fault link,BRHS
+Buck Ridge-Hot Springs link,BRHS
+Bullion Mountains fault,BMTF
 Burnt Mountain-East Wide Canyon,BMEW
 Cady fault,CDYF
 Calico-Hildalgo fault,CLHF
@@ -64,6 +58,7 @@ Cleghorn fault,CLGF
 Cleghorn Lake fault,CLGF
 Coalinga blind fault,COLF
 Compton-Los Alamitos fault,CLAF
+Compton-Los_Alamitos fault,CLAF
 Copper Mountain fault,CMTF
 Coronado Bank detachment trim,OCBD
 Coronado Bank detachment upper,CRBD
@@ -144,6 +139,7 @@ Haiwee fault connector,HWFC
 Haiwee fault,HAWF
 Harper Valley fault,HPVF
 Harper Valley - Mt_General fault,HMGF
+Hector Mine rupture,HCMR
 Helendale-South Lockhart fault,HSLF
 Hidden Springs fault,HDSF
 Hollywood fault,HLWD
@@ -152,6 +148,7 @@ Homestead Valley fault,HSVF
 Hondo detachment-S-dip,HNDD
 Hosgri fault,HSGF
 Hot Springs fault,HSPF
+Hot Springs Fault,HTSF
 Hot Springs fault-west,HSFW
 Hunter Mountain fault,HTMF
 Huntington Beach fault,HTBF
@@ -163,7 +160,9 @@ Independence-Sierra Nevada fault,ISNF
 Indian Hill fault,INHF
 Indio Hills fault,INHF
 Indiviso fault,INDF
+Javon Canyon fault,JVCF
 Johnson Valley fault,JSVF
+Joshua Tree sequence,JSTS
 Kern Canyon fault,KRCF
 Kettleman Hills blind fault,KTHF
 Kickapoo fault,KCPF
@@ -172,6 +171,9 @@ Laguna Salada fault-north,LSFN
 Laguna Salada fault-south,LSFS
 Laguna Salada fault-west branch,LSFW
 Lake Isabella lineament,LIBF
+Landers-Barstow trend,LNBT
+Landers cross fault-north-II,LCF2
+Landers cross fault-north-I,LCF1
 La Panza fault,LPZF
 Las Cienagas fault,LCGF
 Lavic Lake-North West Bullion fault,LLWB
@@ -185,6 +187,7 @@ Live Oak Canyon fault,LOCF
 Lockwood Valley fault,LWVF
 Loma Linda fault,LLNF
 Lompoc blind ramp,LMPR
+Lompoc fault,LMPF
 Long Canyon fault,LNCF
 Los Alamos fault,LAMF
 Los Osos fault,LOSF
@@ -238,11 +241,10 @@ Ocotillo set3,OCS3
 Ocotillo set4,OCS4
 Ocotillo set5,OCS5
 Orcutt blind fault,ORCF
-Owens Lake blind fault,OWLD
-"Owens Valley fault, southern extension",OWFS
+Owens Valley fault,OWVF
+"Owens Valley fault, southern extension",
 Owl Lake fault,OWLF
-Padre Juan fault-lower,PJFL
-Padre Juan fault-upper,PJFU
+Padre Juan fault,PDJF
 Painted Canyon fault,PTCF
 Painted Gorge Wash fault,PGWF
 Palm Springs fault,PSPF

@@ -1,12 +1,9 @@
 name,abb
 1812 Rupture-Mojave SAF+nSJF,1812
 1857 Rupture-Parkfield-Mojave,1857
-1872 Owens Valley rupture,1872
+1872 rupture,1872
 1992 Big Bear rupture,1992
 1992 Joshua Tree rupture,1992
-1992 Landers rupture,1992
-1992 Landers rupture cross faults,1992
-1999 Hector Mine rupture,1999
 2010 El Mayor-Cucapah rupture,2010
 2019 Ridgecrest Ruptures,2019
 Agua Caliente,AGCT
@@ -72,6 +69,7 @@ Gravel Hills,GVHS
 Gravel Hills-Harper Lake,MULT
 Haiwee Reservoir,HWRS
 Harper Valley,HPVS
+Hector Mine rupture,1999
 Homestead Valley,HMSV
 Hot Springs,HOTS
 Huasna Valley,HSNV
@@ -87,6 +85,8 @@ Kern Canyon,KRCN
 Kettleman Hills,KTLM
 Laguna Salada,LGSD
 Lake Isabella,LISA
+Landers cross faults,1992
+Landers rupture,1992
 Little Pine,LPNS
 Little San Bernardino Mts,LSBM
 Lockwood Valley,LKWV
@@ -106,10 +106,12 @@ Morales,MRLS
 Morongo Valley,MORV
 Multiple-Los Angeles basin,LABS
 Multiple sections,MULT
+Multiple Sections,MULT
 Multiple sections-offshore,RSCN
 Murietta-Hot Springs,MRHS
 North Channel,NCHN
 North-Eastern,NEST
+Northern Bullion Mountains,NBMS
 Northern Cleghorn,NCHS
 Northern Coronado Bank,NCBF
 Northern Davies Valley,NDVS
@@ -121,7 +123,6 @@ Oceanside,OCNS
 Oceanside section,OCNS
 Ocotillo,OCOT
 Offshore-Mid-Channel trend,OFFS
-Offshore,OFFS
 Orcutt,ORCT
 Oxnard Plain,OXNP
 Painted Gorge Wash,PGWS
@@ -156,6 +157,7 @@ San Jacinto Valley,SJCV
 San Joaquin Hills,SJQH
 San Luis Bay,SLBS
 San Mateo,SMTO
+San Miguelito anticline,SMGA
 San Pedro Basin-San Diego Trough,STHS
 San Pedro Basin,SPBS
 Santa Barbara Island area,SBRI
