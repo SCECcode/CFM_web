@@ -79,7 +79,7 @@ MJVA-CRSF-TFMT-Coyote_Canyon_fault-CFM5,Mojave Fault Area,MJVA,Cross Faults,CRSF
 MJVA-ECSZ-1992-Barstow_Trend-CFM5,Mojave Fault Area,MJVA,Eastern California shear zone,ECSZ,Landers rupture,1992,Landers-Barstow trend,LNBT
 MJVA-ECSZ-1992-Landers_cross_fault_North_I-CFM5,Mojave Fault Area,MJVA,Eastern California shear zone,ECSZ,Landers cross faults,1992,Landers cross fault-north-I,LCF1
 MJVA-ECSZ-1992-Landers_cross_fault_North_II-CFM5,Mojave Fault Area,MJVA,Eastern California shear zone,ECSZ,Landers cross faults,1992,Landers cross fault-north-II,LCF2
-MJVA-ECSZ-1992-Landers_rupture_detailed_splays-CFM3,Mojave Fault Area,MJVA,Eastern California shear zone,ECSZ,Landers rupture,1992,,
+MJVA-ECSZ-1992-Landers_rupture_detailed_splays-CFM3,Mojave Fault Area,MJVA,Eastern California shear zone,ECSZ,Landers rupture,1992,Landers rupture,MJVA
 MJVA-ECSZ-1999-Hector_Mine_rupture_dipping-CFM2,Mojave Fault Area,MJVA,Eastern California shear zone,ECSZ,Hector Mine rupture,1999,Hector Mine rupture,HCMR
 MJVA-GLPS-GLDS-Goldstone_Lake_fault-CFM5,Mojave Fault Area,MJVA,Goldstone Lake-Paradise fault system,GLPS,Goldstone Lake,GLDS,Goldstone Lake fault,GLSF
 MJVA-GLPS-PRDS-Paradise_fault-CFM5,Mojave Fault Area,MJVA,Goldstone Lake-Paradise fault system,GLPS,Paradise,PRDS,Paradise fault,PRDF
