@@ -7,10 +7,10 @@ CREATE TEMP TABLE tmp_x
          area VARCHAR(100) , aabb VARCHAR(5),
          zone VARCHAR(100), zabb VARCHAR(5),
          section VARCHAR(100), sabb VARCHAR(5),
-         fault VARCHAR(100), fabb VARCHAR(5));
+         fault VARCHAR(100));
 
 
-COPY tmp_x(name,area,aabb,zone,zabb,section,sabb,fault,fabb)
+COPY tmp_x(name,area,aabb,zone,zabb,section,sabb,fault)
 FROM '/home/postgres/CFM/schema/data/object_tb_head.csv' DELIMITER ',' CSV HEADER;
 
 UPDATE OBJECT_tb o SET 
@@ -19,7 +19,7 @@ UPDATE OBJECT_tb o SET
 (SELECT gid FROM AREA_tb s WHERE s.name=tmp_x.area and s.abb = tmp_x.aabb),
 (SELECT gid FROM ZONE_tb r WHERE r.name=tmp_x.zone and r.abb = tmp_x.zabb),
 (SELECT gid FROM SECTION_tb ss WHERE ss.name=tmp_x.section and ss.abb = tmp_x.sabb),
-(SELECT gid FROM FAULT_tb f WHERE f.name=tmp_x.fault and f.abb = tmp_x.fabb)
+(SELECT gid FROM FAULT_tb f WHERE f.name=tmp_x.fault)
      )
     FROM tmp_x
     WHERE o.name=tmp_x.name;

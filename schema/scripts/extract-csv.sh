@@ -15,8 +15,8 @@ grep -vf skip_subtitles ${EXCEL_NM}_raw.csv |sed "s/  / /g" | sed "s/, E/,E/"  >
 csvcut -n ${EXCEL_NM}.csv > ${EXCEL_NM}_column_labels
 
 #name,abb >> Fault Name
-csvcut -c "12,13" ${EXCEL_NM}.csv |csvcut -K 1 | sort |uniq | sed "1i\\
-name,abb
+csvcut -c "12" ${EXCEL_NM}.csv |csvcut -K 1 | sort |uniq | sed "1i\\
+name
 "> fault_tb.csv 
 
 #name,abb >> Fault Zone/Region
@@ -34,10 +34,10 @@ csvcut -c "3,4" ${EXCEL_NM}.csv |csvcut -K 1|sort |uniq | sed "1i\\
 name,abb
 "> area_tb.csv
 
-#name,area,aabb,zone,zabb,section,sabb,fault,fabb
+#name,area,aabb,zone,zabb,section,sabb,fault
 # 'CFM5.2 Fault Object Name','Fault Area/Major Fault System','Code','Fault Zone/Region','Code_2','Fault Section','Code_3','Fault Name','Code_4'
-csvcut -c "1,3,4,6,7,9,10,12,13" ${EXCEL_NM}.csv |csvcut -K 1|sort |uniq | sed "1i\\
-name,area,aabb,zone,zabb,section,sabb,fault,fabb
+csvcut -c "1,3,4,6,7,9,10,12" ${EXCEL_NM}.csv |csvcut -K 1|sort |uniq | sed "1i\\
+name,area,aabb,zone,zabb,section,sabb,fault
 "> object_tb_head.csv
 
 #name,
