@@ -707,7 +707,7 @@ function processTraceMeta(metaList) {
         str = $('[data-side="allTraces"]').data('params');
     }
 
-    if(str == undefined) {
+    if(str == undefined || str.length == 0) {
        window.console.log("processTraceMeta: BAD BAD BAD");
        return;
     }
