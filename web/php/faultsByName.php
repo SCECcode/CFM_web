@@ -11,7 +11,7 @@ $dbconn = getConnection();
 
 $q = ($_GET['q']);
 
-$query = "SELECT OBJECT_tb.gid,OBJECT_tb.name FROM OBJECT_tb,FAULT_tb where FAULT_tb.abb=$1 and FAULT_tb.gid=OBJECT_tb.FAULT_tb_gid";
+$query = "SELECT OBJECT_tb.gid,OBJECT_tb.name FROM OBJECT_tb,FAULT_tb where FAULT_tb.gid=$1 and FAULT_tb.gid=OBJECT_tb.FAULT_tb_gid";
 
 $result = pg_prepare($dbconn, "my_query", $query);
 

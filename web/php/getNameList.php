@@ -9,7 +9,7 @@
 include ("util.php");
 $dbconn = getConnection();
 
-$query = "SELECT name,abb FROM FAULT_tb";
+$query = "SELECT name,gid FROM FAULT_tb";
 $result = pg_query($dbconn, $query);
 
 $nameList=array();
@@ -17,7 +17,7 @@ $nameList=array();
 while($row = pg_fetch_row($result)) {
     $item = new \stdClass();
     $item->name=$row[0];
-    $item->abb=$row[1];
+    $item->uid=$row[1];
     array_push($nameList, json_encode($item));
 }
 

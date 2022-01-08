@@ -227,10 +227,10 @@ function makeNameList() {
     var sz=(Object.keys(str).length);
     for( var i=0; i< sz; i++) {
        var s = JSON.parse(str[i]);
-       var abb=s['abb'];
        var name=s['name'];
-       cfm_name_list.push( {"abb":abb, "name":name } );
-       html=html+"<option value=\"" + abb + "\">"+ name +"</option>";
+       var name=s['uid'];
+       cfm_name_list.push( {"uid":uid, "name":name } );
+       html=html+"<option value=\"" + uid + "\">"+ name +"</option>";
     }
     return html;
 }

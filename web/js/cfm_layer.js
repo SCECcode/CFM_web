@@ -51,7 +51,8 @@ var cfm_area_list=[];
 // [ { "abb": abb1, "name" : name1 }, {"abb": abb2, "name": name2 }, ... ]
 var cfm_section_list=[];
 
-// [ { "abb": abb1, "name" : name1 }, {"abb": abb2, "name": name2 }, ... ]
+// abb for fault_tb is not reliable, use gid as unique id
+// [ { "uid": gid1, "name" : name1 }, { "uid":gid2, "name": name2 }, ... ]
 var cfm_name_list=[];
 
 // [{ gid, name, url, objgid}, {gid, name, url, objgid}, ... ] gid that is from native list
@@ -375,26 +376,25 @@ function rebind_layer_popup() {
   });
 }
 
-// supply a name, find the abb from cfm_name_list
-function find_abb_by_name(target) {
+// supply a name, find the uid from cfm_name_list
+function find_uid_by_name(target) {
    var found=[];
    let sz=cfm_name_list.length;
    for(let i=0; i<sz; i++) { 
      let item=cfm_name_list[i];
      if(item['name'] == target) {
-       found.push(item['abb']);
+       found.push(item['uid']);
      }
    }
    return found; 
 }
 
-// could have more than 1
-function find_name_by_abb(target) {
+function find_name_by_uid(target) {
    var found=[];
    let sz=cfm_name_list.length;
    for(let i=0; i<sz; i++) { 
      let item=cfm_name_list[i];
-     if(item['abb'] == target) {
+     if(item['uid'] == target) {
        found.push(item['name']);
      }
    }
