@@ -507,6 +507,7 @@ function selectAll() {
 
 /* reset all the layers and inner to be a fresh start */
 function refreshAll() {
+  reset_select_external();
   reset_select_zone();
   reset_select_section();
   reset_select_area();

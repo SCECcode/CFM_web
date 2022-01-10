@@ -526,10 +526,15 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
                                 </div>
                             </div>
                             &nbsp
-                            &nbsp
+<!--
 <input class="form-control" id='fileBtn' type='file' onchange='setExternalTSFile(this.files)' style='display:none;'></input> 
 <button class="btn cfm-small-btn" onClick='javascript:document.getElementById("fileBtn").click();'><span class="fas fa-caret-up"></span></button>
-                        </div> </th>
+-->
+                            <button id="externalBtn" class="btn btn-sm" style="background:white;" data-toggle="modal" data-target="#modalexternal">
+                                    <span class="fas fa-caret-up"></span>
+                            </button>
+                        </div> 
+</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -555,9 +560,10 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
            <span class="max"></span>
         </div>
     </div>
-</div>
+</div> 
 
-<!--Modal: Name-->
+
+<!--Modal: Model (modal3D)-->
 <div class="modal" id="modal3D" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="modal3D" aria-hidden="true">
   <div class="modal-dialog modal-full" id="modal3DDialog" role="document">
 
@@ -602,9 +608,9 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
 
     </div> <!--Content-->
   </div>
-</div> <!--Modal: Name-->
+</div> <!--Modal: modal3D-->
 
-<!--Modal: ModelType -->
+<!--Modal: Model (modalwaiteq)-->
 <div class="modal" id="modalwaiteq" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" style="width:45%" id="modalwaiteqDialog" role="document">
 
@@ -633,9 +639,9 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
 
     </div> <!--Content-->
   </div>
-</div> <!--Modal: Name-->
+</div> <!--Modal: modalwaiteq-->
 
-<!--Modal: ModelType -->
+<!--Modal: Model (modalwait) -->
 <div class="modal" id="modalwait" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" id="modalwaitDialog" role="document">
 
@@ -652,8 +658,9 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
 
     </div> <!--Content-->
   </div>
-</div> <!--Modal: Name-->
+</div> <!--Modal: modalwait-->
 
+<!--Modal: Model (modalwarn3d) -->
 <div class="modal" id="modalwarn3d" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg" id="modalwarn3dDialog" role="document">
 
@@ -671,9 +678,9 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
 
     </div> <!--Content-->
   </div>
-</div> <!--Modal: Name-->
+</div> <!--Modal: modalwarn3d-->
 
-<!--Modal: ModelType -->
+<!--Modal: Model (modalinfo3d) -->
 <div class="modal" id="modalinfo3d" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-xlg" id="modalinfo3dDialog" role="document">
 
@@ -691,9 +698,9 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
       </div>
     </div> <!--Content-->
   </div>
-</div> <!--Modal: Name-->
+</div> <!--Modal: modalinfo3d-->
 
-<!--Modal: ModelType -->
+<!--Modal: Model (modalinfoquake) -->
 <div class="modal" id="modalinfoquake" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg" id="modalinfoquakeDialog" role="document">
 
@@ -713,9 +720,9 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
 
     </div> <!--Content-->
   </div>
-</div> <!--Modal: Name-->
+</div> <!--Modal: modalinfoquake-->
 
-<!--Modal: ModelType -->
+<!--Modal: Model(modalshare) -->
 <div class="modal" id="modalshare" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg" id="modalshareDialog" role="document">
     <!--Content-->
@@ -735,7 +742,28 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
 
     </div> <!--Content-->
   </div>
-</div> <!--Modal: Name-->
+</div> <!--Modal: modalshare-->
+
+
+<!--Modal: Model (modalexternal) -->
+<div class="modal" id="modalexternal" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-small" id="modalexternalDialog" role="document">
+    <!--Content-->
+    <div class="modal-content" id="modalexternalContent">
+      <!--Body-->
+      <div class="modal-body" id="modalexternalBody">
+        <div class="row col-md-12 ml-auto" style="overflow:hidden;">
+          <div id='externalTSList'></div>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+    </div> <!--Content-->
+  </div>
+</div> <!--Modal: modalexternal-->
+
 
 </div>
 </body>

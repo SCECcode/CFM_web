@@ -228,7 +228,7 @@ function makeNameList() {
     for( var i=0; i< sz; i++) {
        var s = JSON.parse(str[i]);
        var name=s['name'];
-       var name=s['uid'];
+       var uid=s['uid'];
        cfm_name_list.push( {"uid":uid, "name":name } );
        html=html+"<option value=\"" + uid + "\">"+ name +"</option>";
     }

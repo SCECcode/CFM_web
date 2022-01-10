@@ -17,23 +17,73 @@ function reset_search_selection() {
 var EXTERNAL_TS_LIST=[];
 var EXTERNAL_TS_NAME=[];
 
+var STOCK_EXTERNAL_TS_LIST = [
+{'url':'data/external/SAFS-SAFZ-MULT-Banning_fault-YULE.ts',
+      'name':'Banning fault YULE', 'selected':0 },
+{'url':'data/external/SAFS-SAFZ-MULT-San_Andreas_fault-FUIS-CFM3.ts',
+      'name':'San Andreas fault FUIS', 'selected':0},
+{'url':'data/external/SAFS-SAFZ-SBMT-Garnet_Hill_fault-YULE.ts',
+      'name':'Garnet Hill fault YULE', 'selected':0},
+{'url':'data/external/SAFS-SGRP-SGPS-San_Gorgonio_Pass_fault-YULE.ts',
+      'name':'San Gorgonio Pass fault YULE', 'selected':0}];
 
-// from external file
-function setExternalTSFile(_urls) {
+function toggleTSList() {
+    let elt=document.getElementById("externalTSList");
+    if(elt.style.display == 'none') {
+       elt.style.display='block';
+       } else {
+          elt.style.display='none';
+    }
+}
+
+// use the fault list from php backend, generate the form html
+function setup_externalTSList() {
+    var html= "<form autocomplete=\"off\">";
+    let sz=STOCK_EXTERNAL_TS_LIST.length;
+    for( let i=0; i< sz; i++) {
+       let s=STOCK_EXTERNAL_TS_LIST[i];
+       let name=s['name'];
+       let label="TS_id_"+i;
+       html=html+
+"<input type=\"checkbox\" id=\""+label+"\" onclick=\"selectExternalTS("+i+")\" value=\"" + i + "\">"+ name +"<br>";
+    }
+    var html= html +"</form>";
+    document.getElementById("externalTSList").innerHTML =html;
+}
+
+
+function reset_select_external() {
+    let sz=STOCK_EXTERNAL_TS_LIST.length;
+    for( let i=0; i< sz; i++) {
+       let s=STOCK_EXTERNAL_TS_LIST[i];
+       let name=s['name'];
+       if(s['selected'] == 1) {
+         selectExternalTS(i);
+         // uncheck
+         let label="TS_id_"+i;
+         document.getElementById(label).checked=false;
+       }
+    }
+}
+
+// from external json file
+// format, 'fault name','fault url'
+function setExternalTSFile(_files) {
 
   // only use the first one 
-  if( _urls == undefined ) {
+  if( _files == undefined ) {
     throw new Error("local file must be a File object type!");
   }
-  let _url=_urls[0];
-  if(!( _url instanceof File)) {
+  let _file=_files[0];
+  if(!( _file instanceof File)) {
     throw new Error("local file must be a File object type!");
   } 
 
   var reader = new FileReader();
 
   reader.onload=function(event) {
-    var lines = reader.result.split('\n');
+    var result= reader.result;
+    var lines = result.split('\n');
     var sz=lines.length;
     if(sz== 0) { return; }
 
@@ -45,7 +95,7 @@ function setExternalTSFile(_urls) {
       }
     }
   };
-  reader.readAsText(_url);
+  reader.readAsText(_file);
 
 /*
   EXTERNAL_TS_LIST.push("data/external/SAFS-SAFZ-MULT-Banning_fault-YULE.ts");
@@ -58,6 +108,29 @@ function setExternalTSFile(_urls) {
   EXTERNAL_TS_NAME.push('Garnet Hill fault YULE');
   EXTERNAL_TS_NAME.push('San Gorgonio Pass fault YULE');
 */
+}
+
+function collectExternalTS() {
+  EXTERNAL_TS_LIST=[];
+  EXTERNAL_TS_NAME=[];
+  let sz= STOCK_EXTERNAL_TS_LIST.length;
+  for(let i=0; i<sz; i++) {
+    let s= STOCK_EXTERNAL_TS_LIST[i];
+    if(s['selected'] == 1) {
+      EXTERNAL_TS_LIST.push(s['url']);
+      EXTERNAL_TS_NAME.push(s['name']);
+    }
+  }
+}
+
+function selectExternalTS(idx) {
+  let s=STOCK_EXTERNAL_TS_LIST[idx];
+  let elt=document.getElementById("TS_id_"+idx);
+  if(s['selected']== 0) {
+     s['selected']=1;
+     } else { 
+        s['selected']=0;
+  }
 }
 
 // from commandline via PresetMode commandline..
@@ -74,6 +147,9 @@ function setExternalTS(fullname, fullfileurl) {
 function get_external_TS() { 
   let tsstr;
   let nmstr; 
+
+  collectExternalTS();
+
   if(EXTERNAL_TS_LIST.length == 0 || EXTERNAL_TS_NAME.length == 0) {
     return 0;
   }

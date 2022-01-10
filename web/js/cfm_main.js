@@ -86,6 +86,7 @@ jQuery(document).ready(function() {
   addDownloadSelect();
   setup_info3dTable();
   setup_warn3dTable();
+  setup_externalTSList(); 
 
 }); // end of MAIN
 
