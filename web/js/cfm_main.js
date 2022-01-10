@@ -11,6 +11,11 @@ jQuery(document).ready(function() {
   $("#view3d-all").on('click',function() {
      $('#view3DIfram').attr('src',"http:localhost:9999/?name=[WTRA-USAV-INDH-Indian_Hill_fault-CFM5.stl,WTRA-USAV-SNJH-San_Jose_fault-CFM5.stl,WTRA-USAV-UPLD-Upland_fault_dipslip-CFM1.stl,WTRA-USAV-WLNC-Walnut_Creek_fault-CFM5.stl]&url=[http://localhost:9999/cfm_data/WTRA-USAV-INDH-Indian_Hill_fault-CFM5.stl,http://localhost:9999/cfm_data/WTRA-USAV-SNJH-San_Jose_fault-CFM5.stl,http://localhost:9999/cfm_data/WTRA-USAV-UPLD-Upland_fault_dipslip-CFM1.stl,http://localhost:9999/cfm_data/WTRA-USAV-WLNC-Walnut_Creek_fault-CFM5.stl]");
   });
+
+needs to be able to handle this,
+http://localhost:8082/?name=["SAFS-SAFZ-MULT-Garnet_Hill_fault_strand-CFM4"]&ts="500m"&ptype="main3d"
+&fullFileURL=[data/external/SAFS-SAFZ-SBMT-Garnet_Hill_fault-YULE.ts]&fullName=[Garnet Hill fault YULE]
+&state={"trace":true,"shore":true,"legend":true,"seismicity":0,"repr":0,"bounds":0,"full":false}&camera={"pos":[532716.5625,115697.8359375,-3757056.75],"angle":30,"viewup":[0,0,-1],"distance":124405.08505249023,"focal":[532716.5625,-8707.249114990234,-3757056.75]}
 ****/
 
 // special handle keyword's input completion

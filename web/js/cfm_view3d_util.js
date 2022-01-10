@@ -135,6 +135,16 @@ function selectExternalTS(idx) {
   }
 }
 
+function selectExternalTSByName(name) {
+  let sz= STOCK_EXTERNAL_TS_LIST.length;
+  for(let i=0; i<sz; i++) {
+    let s= STOCK_EXTERNAL_TS_LIST[i];
+    if(s['name'] == name) {
+      s['selected']=1;
+    }
+  }
+}
+
 // from commandline via PresetMode commandline..
 //  "[..,..]"
 function setExternalTS(fullname, fullfileurl) {
@@ -142,8 +152,13 @@ function setExternalTS(fullname, fullfileurl) {
    let nn=fullname.substring(1,fullname.length-1);
    let ff=fullfileurl.substring(1,fullfileurl.length-1);
 
-   EXTERNAL_TS_LIST=ff.split(',');
-   EXTERNAL_TS_NAME=nn.split(',');
+   let local_ts_list=ff.split(',');
+   let local_name_list=nn.split(',');
+   let sz= local_name_list.length;
+   for(let i=0; i<sz; i++) {
+     let name=local_name_list[i];
+     selectExternalTSByName(name);
+   }
 }
 
 function get_external_TS() { 
