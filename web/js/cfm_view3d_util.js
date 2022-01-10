@@ -70,6 +70,8 @@ function reset_select_external() {
 // format, 'fault name','fault url'
 function setExternalTSFile(_files) {
 
+  window.console.log("HERE..");
+
   // only use the first one 
   if( _files == undefined ) {
     throw new Error("local file must be a File object type!");
@@ -83,6 +85,8 @@ function setExternalTSFile(_files) {
 
   reader.onload=function(event) {
     var result= reader.result;
+    EXTERNAL_TS_NAME.push(_file.name);
+
     var lines = result.split('\n');
     var sz=lines.length;
     if(sz== 0) { return; }
@@ -90,8 +94,6 @@ function setExternalTSFile(_files) {
     for(let i=0;i<sz;i++) {
       if(lines[i].length > 0) {
         let data=lines[i].split(',');
-        EXTERNAL_TS_NAME.push(data[0]);
-        EXTERNAL_TS_LIST.push(data[1]);
       }
     }
   };
