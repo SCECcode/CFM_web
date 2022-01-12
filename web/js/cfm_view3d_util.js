@@ -19,13 +19,13 @@ var EXTERNAL_TS_NAME=[];
 
 var STOCK_EXTERNAL_TS_LIST = [
 {'url':'data/external/SAFS-SAFZ-MULT-Banning_fault-YULE.ts',
-      'name':'Banning fault YULE', 'selected':0 },
+      'name':'ALT: Banning fault', 'selected':0 },
 {'url':'data/external/SAFS-SAFZ-MULT-San_Andreas_fault-FUIS-CFM3.ts',
-      'name':'San Andreas fault FUIS', 'selected':0},
+      'name':'ALT: San Andreas fault', 'selected':0},
 {'url':'data/external/SAFS-SAFZ-SBMT-Garnet_Hill_fault-YULE.ts',
-      'name':'Garnet Hill fault YULE', 'selected':0},
+      'name':'ALT: Garnet Hill fault', 'selected':0},
 {'url':'data/external/SAFS-SGRP-SGPS-San_Gorgonio_Pass_fault-YULE.ts',
-      'name':'San Gorgonio Pass fault YULE', 'selected':0}];
+      'name':'ALT: San Gorgonio Pass fault', 'selected':0}];
 
 function toggleTSList() {
     let elt=document.getElementById("externalTSList");
