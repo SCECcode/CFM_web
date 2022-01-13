@@ -24,10 +24,8 @@ if ($quake_type == $quake_type_Ross ) {
 if ($quake_type == $quake_type_Historical ) { 
   $query = "SELECT EventId, Lon, Lat, Depth, Mag, EventTime, Description FROM EQ_historical_tb WHERE gid > $1 AND gid <= $2";
 }
-
-$result = pg_prepare($dbconn, "my_query", $query);
 $data = array($startpoint, $endpoint);
-$result = pg_execute($dbconn, "my_query", $data);
+$result = pg_query_params($dbconn, $query, $data);
 
 $eqList=array();
 

@@ -12,10 +12,9 @@ $dbconn = getConnection();
 $objgid = intVal($_GET['obj_gid']);
 
 $query = "select ST_AsGeoJSON(ST_TRANSFORM(TRACE_tb.geom,4326)),OBJECT_tb.name from OBJECT_tb,TRACE_tb where OBJECT_tb.gid=$1 and TRACE_tb.gid=ANY(OBJECT_tb.trace_tb_gid)";
-$result = pg_prepare($dbconn, "my_query", $query);
-
 $data = array($objgid);
-$result = pg_execute($dbconn, "my_query", $data);
+
+$result = pg_query_params($dbconn, $query, $data);
 
 // should only has 1 row and 2 data
 $row = pg_fetch_row($result);

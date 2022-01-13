@@ -11,8 +11,7 @@ function getGeom($dbconn,$objgid) {
 $data = array($objgid);
 
 $query = "select TRACE_tb_gid from OBJECT_tb where gid=$1;";
-$result = pg_prepare($dbconn, "my_query", $query);
-$result = pg_execute($dbconn, "my_query", $data);
+$result = pg_query_params($dbconn, $query, $data);
 
 $geomList=array();
 $tgidList=array();

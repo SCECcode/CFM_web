@@ -13,11 +13,9 @@ $min = floatVal($_GET['min']);
 $max = floatVal($_GET['max']);
 
 $query = "SELECT gid,name FROM OBJECT_tb WHERE avg_strike IS NOT NULL AND avg_strike >= $1 AND avg_strike <= $2";
-
-$result = pg_prepare($dbconn, "my_query", $query);
-
 $data = array($min,$max);
-$result = pg_execute($dbconn, "my_query", $data);
+
+$result = pg_query_params($dbconn, $query, $data);
 
 $resultList=array();
 while($row = pg_fetch_row($result)) {

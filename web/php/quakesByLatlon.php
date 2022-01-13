@@ -18,10 +18,9 @@ $nelon = floatVal($_GET['nelon']);
 //echo "lon range: ", $swlon,", ",$nelon,"<br>";
 
 $query = "SELECT gid, EventTime, EventID, Lon, Lat, Depth, Mag FROM EQ_hauksson_tb WHERE ST_INTERSECTS(ST_MakeEnvelope( $1, $2, $3, $4, 4326), EQ_tb.geom)";
-
-$result = pg_prepare($dbconn, "my_query", $query);
 $data = array($swlon, $swlat, $nelon, $nelat);
-$result = pg_execute($dbconn, "my_query", $data);
+
+$result = pg_query_params($dbconn, $query, $data);
 
 //echo $query;
 //echo "<br>";

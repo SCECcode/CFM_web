@@ -27,10 +27,9 @@ if ($quake_type == $quake_type_Hauksson) {
   $fname=$fname+"ross_mag_"+$uid+".utm";
 }
 $fp= fopen($fname,"w") or die("Unable to open file!"+$fname);
-
-$result = pg_prepare($dbconn, "my_query", $query);
 $data = array($minmag, $maxmag);
-$result = pg_execute($dbconn, "my_query", $data);
+
+$result = pg_query_params($dbconn, $query, $data);
 
 $dstr="##\n";
 fwrite($fp,$dstr); 

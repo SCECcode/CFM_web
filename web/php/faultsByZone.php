@@ -12,12 +12,9 @@ $dbconn = getConnection();
 $q = ($_GET['q']);
 
 $query = "SELECT OBJECT_tb.gid,OBJECT_tb.name FROM OBJECT_tb,ZONE_tb where ZONE_tb.abb=$1 and ZONE_tb.gid=OBJECT_tb.ZONE_tb_gid";
-
-$result = pg_prepare($dbconn, "my_query", $query);
-
 $data = array($q);
 
-$result = pg_execute($dbconn, "my_query", $data);
+$result = pg_query_params($dbconn, $query, $data);
 
 $resultList=array();
 while($row = pg_fetch_row($result)) {
