@@ -178,7 +178,7 @@ function get_external_TS() {
      var str=EXTERNAL_TS_NAME.toString();
      nmstr="["+str+"]";
   }
-  let estr="&fullFileURL="+tsstr+"&fullName="+nmstr;
+  let estr="&fullFileURL="+tsstr+"&fullName="+nmstr+"&eval=1";
   return estr;
 }
 
