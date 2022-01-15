@@ -45,7 +45,7 @@ function setup_externalTSList() {
        let s=STOCK_EXTERNAL_TS_LIST[i];
        let name=s['name'];
        let label="TS_id_"+i;
-       html=html+ "<button class=\"btn btn-small cfm-small-btn\" title=\"select this fault\" onclick=\"selectExternalTS("+i+")\"> " +"<span id=\""+label+"\" class=\"glyphicon glyphicon-unchecked\"></span></button>"+name+"<br>";
+       html=html+ "<button class=\"btn btn-small cfm-small-btn\" title=\"select this fault\" onclick=\"selectExternalTS("+i+")\"> " +"<span id=\""+label+"\" class=\"glyphicon glyphicon-unchecked\"></span></button>&nbsp"+name+"<br>";
     }
     document.getElementById("externalTSList").innerHTML =html;
 }
