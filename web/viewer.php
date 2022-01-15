@@ -756,7 +756,7 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
           <div class="row col-md-12 ml-0" style="font-size:14pt;">
             <div id='externalTSList'></div>
             <div class="col">
-              <button id="evalBtn" class="btn cfm-small-btn pull-right" title="disable Evaluation Mode color schema" style="color:#990000" onClick="disableEvalColorMode()"><span class="fas fa-caret-up"></span>
+              <button class="btn cfm-small-btn pull-right" title="disable Evaluation Mode color schema" onclick="disableEvalColorMode()"><span class="fas fa-caret-up" id="evalBtn"></span>
               </button>
             </div>
           </div>

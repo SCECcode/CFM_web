@@ -64,6 +64,8 @@ function disableEvalColorMode() {
 
 function reset_select_external() {
     EXTERNAL_COLOR_MODE=1;
+    let $btn=$(`#evalBtn`);
+    $btn.css( "color", "#990000" );
     let sz=STOCK_EXTERNAL_TS_LIST.length;
     for( let i=0; i< sz; i++) {
        let s=STOCK_EXTERNAL_TS_LIST[i];
