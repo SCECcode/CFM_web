@@ -530,7 +530,7 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
 <input class="form-control" id='fileBtn' type='file' onchange='setExternalTSFile(this.files)' style='display:none;'></input> 
 <button class="btn cfm-small-btn" onClick='javascript:document.getElementById("fileBtn").click();'><span class="fas fa-caret-up"></span></button>
 -->
-                            <button id="externalBtn" class="btn btn-sm" style="background:white;" data-toggle="modal" data-target="#modalexternal">
+                            <button id="externalBtn" class="btn btn-sm" style="background:transparent;" data-toggle="modal" data-target="#modalexternal">
                                     <span class="fas fa-caret-up"></span>
                             </button>
                         </div> 
@@ -752,8 +752,14 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
     <div class="modal-content" id="modalexternalContent">
       <!--Body-->
       <div class="modal-body" id="modalexternalBody">
-        <div class="row col-md-12 ml-auto" style="overflow:hidden;">
-          <div id='externalTSList'></div>
+        <div class="row col-md-12 ml-auto" style="overflow:hidden">
+          <div class="row col-md-12 ml-0" style="font-size:14pt;">
+            <div id='externalTSList'></div>
+            <div class="col">
+              <button id="evalBtn" class="btn cfm-small-btn pull-right" title="disable Evaluation Mode color schema" style="color:#990000" onClick="disableEvalColorMode()"><span class="fas fa-caret-up"></span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
       <div class="modal-footer justify-content-center">

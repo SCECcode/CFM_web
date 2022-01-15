@@ -16,6 +16,7 @@ function reset_search_selection() {
 
 var EXTERNAL_TS_LIST=[];
 var EXTERNAL_TS_NAME=[];
+var EXTERNAL_COLOR_MODE=1; // default true
 
 var STOCK_EXTERNAL_TS_LIST = [
 {'url':'data/external/SAFS-SAFZ-MULT-Banning_fault-YULE.ts',
@@ -38,30 +39,43 @@ function toggleTSList() {
 
 // use the fault list from php backend, generate the form html
 function setup_externalTSList() {
-    var html= "<form autocomplete=\"off\">";
+    var html= "";
     let sz=STOCK_EXTERNAL_TS_LIST.length;
     for( let i=0; i< sz; i++) {
        let s=STOCK_EXTERNAL_TS_LIST[i];
        let name=s['name'];
        let label="TS_id_"+i;
-       html=html+
-"<input type=\"checkbox\" id=\""+label+"\" onclick=\"selectExternalTS("+i+")\" value=\"" + i + "\">"+ name +"<br>";
+       html=html+ "<button class=\"btn btn-small cfm-small-btn\" title=\"select this fault\" onclick=\"selectExternalTS("+i+")\"> " +"<span id=\""+label+"\" class=\"glyphicon glyphicon-unchecked\"></span></button>"+name+"<br>";
     }
-    var html= html +"</form>";
     document.getElementById("externalTSList").innerHTML =html;
 }
 
 
+// force not to use evaluation color schema (gold/blue)
+function disableEvalColorMode() {
+    let $btn=$(`#evalBtn`);
+    EXTERNAL_COLOR_MODE = !EXTERNAL_COLOR_MODE;
+    if(EXTERNAL_COLOR_MODE) {
+      $btn.css( "color", "#990000" );
+      } else {
+        $btn.css( "color", "black" );
+    }
+}
+
 function reset_select_external() {
+    EXTERNAL_COLOR_MODE=1;
     let sz=STOCK_EXTERNAL_TS_LIST.length;
     for( let i=0; i< sz; i++) {
        let s=STOCK_EXTERNAL_TS_LIST[i];
        let name=s['name'];
        if(s['selected'] == 1) {
          selectExternalTS(i);
-         // uncheck
+         // uncheck all
          let label="TS_id_"+i;
-         document.getElementById(label).checked=false;
+         let $chk=$(`#${label}`);
+         if($chk.hasClass('glyphicon-check')) {
+           $chk.removeClass('glyphicon-check').addClass('glyphicon-unchecked');
+         }
        }
     }
 }
@@ -127,12 +141,21 @@ function collectExternalTS() {
 
 function selectExternalTS(idx) {
   let s=STOCK_EXTERNAL_TS_LIST[idx];
-  let elt=document.getElementById("TS_id_"+idx);
+  let label="TS_id_"+idx;
+
+  let $chk=$(`#${label}`);
+  if($chk.hasClass('glyphicon-check')) {
+    $chk.removeClass('glyphicon-check').addClass('glyphicon-unchecked');
+    } else if($chk.hasClass('glyphicon-unchecked')) {
+      $chk.removeClass('glyphicon-unchecked').addClass('glyphicon-check');
+  }
+
   if(s['selected']== 0) {
      s['selected']=1;
      } else { 
         s['selected']=0;
   }
+
 }
 
 function selectExternalTSByName(name) {
@@ -140,7 +163,7 @@ function selectExternalTSByName(name) {
   for(let i=0; i<sz; i++) {
     let s= STOCK_EXTERNAL_TS_LIST[i];
     if(s['name'] == name) {
-      s['selected']=1;
+      selectExternalTS(i);
     }
   }
 }
@@ -178,7 +201,11 @@ function get_external_TS() {
      var str=EXTERNAL_TS_NAME.toString();
      nmstr="["+str+"]";
   }
-  let estr="&fullFileURL="+tsstr+"&fullName="+nmstr+"&eval=1";
+
+  let estr="&fullFileURL="+tsstr+"&fullName="+nmstr;
+  if(EXTERNAL_COLOR_MODE) {
+    estr=estr+"&eval=1";
+  }
   return estr;
 }
 
