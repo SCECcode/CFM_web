@@ -171,11 +171,18 @@ function show3dView(urls,nstr,path,nlstr) {
 
   //name=[name1,name2]&ts=ts&ptype="main3d"
   //let ABB='?abb=\["SSNF"\]';
-  let NAME='?name='+nlstr;
-  let TS='&ts="'+use_download_set+'"';
-  let PTYPE='&ptype="main3d"';
-  let share_params=NAME+TS+PTYPE;
-  set_SHARE_PARAMS(share_params);
+
+  // If there is nlstr == "", too many faults selected,
+  // should not show shareLink
+  if(nlstr != "[]") {
+    let NAME='?name='+nlstr;
+    let TS='&ts="'+use_download_set+'"';
+    let PTYPE='&ptype="main3d"';
+    let share_params=NAME+TS+PTYPE;
+    set_SHARE_PARAMS(share_params);
+    } else {
+      set_SHARE_PARAMS("");
+  }
 
   if(params.length > 1000) {
     $('#view3DIfram').attr('src',"cfm_3d.html?2Long");
@@ -496,6 +503,15 @@ function share3Dview() {
   let loc = window.location;
   let path=loc.origin + location.pathname;
   let sparam=get_SHARE_PARAMS();
+  if(sparam == "") {
+      let html=document.getElementById('shareLink-container');
+      let msg = "Exceeded the maximum of 50 faults objects for sharing<br>Please reduce the selection and try again";
+      let phtml="<p><b>"+msg+"</b></p>";
+      html.innerHTML=phtml;
+      //alert(cmd);
+      return;
+  }
+
   let externalTS=get_external_TS();
   if(externalTS && externalTS != null) {
      sparam=sparam+externalTS;
@@ -511,7 +527,6 @@ function share3Dview() {
       cmd=cmd+"&state="+state+"&camera="+PLOT3D_CAMERA;
       let phtml="<p>"+cmd+"</p>";
       html.innerHTML=phtml;
-      //alert(cmd);
       waitInterval=0;
       PLOT3D_CAMERA=null;
       } else {

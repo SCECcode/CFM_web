@@ -731,7 +731,7 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
       <div class="modal-body" id="modalshareBody">
         <div class="row col-md-12 ml-auto" style="overflow:hidden;">
           <div class="col-12" style="font-size:14pt">
-            <h4>Copy-and-Paste below command to share (maximum 50 fault objects):<br><br></h4>
+            <h4>Copy-and-Paste below command to share :<br><br></h4>
             <p id="shareLink-container">...A LINK...</p>
           </div>
         </div>

@@ -6,6 +6,8 @@
 var select_all_flag=0;
 
 // This is for plot3d PRESET MODE
+// if there are too many faults, don't show the share link
+// cut-and-paste size limit might exceed.
 var PLOT3D_PRESET_NAMELIST_MAX=50;
 var PLOT3D_PRESET_MODE = 0;
 var PLOT3D_PRESET_CAMERA = 0;
@@ -1221,7 +1223,10 @@ function getPresetMode() {
              break;
      }
   }
-  setExternalTS(myFullName, myFullFileURL);
+
+  if(myFullName !=0 && myFullFileURL !=0) {
+    setExternalTS(myFullName, myFullFileURL);
+  }
   return [myPtype, myAbb, myName, myTS, myCamera, myState];
 }
 
