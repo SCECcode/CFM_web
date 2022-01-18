@@ -116,7 +116,7 @@ function setup_warn3dTable() {
   viewUID=uid&viewerType=viewerType&fileURL=[file1, file2]&name=[name1, name2]&filePATH=[path]
 ***/
 function set_PARAMS(params) {
-window.console.log("set regular params "+params);
+//window.console.log("set regular params "+params);
   $('#params3D').attr('src',params);
 }
 function get_PARAMS() {
