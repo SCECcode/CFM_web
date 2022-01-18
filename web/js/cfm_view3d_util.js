@@ -20,13 +20,13 @@ var EXTERNAL_COLOR_MODE=1; // default true
 
 var STOCK_EXTERNAL_TS_LIST = [
 {'url':'data/external/SAFS-SAFZ-MULT-Banning_fault-YULE.ts',
-      'name':'ALT: Banning fault', 'selected':0 },
+      'name':'2: Banning fault', 'selected':0 },
 {'url':'data/external/SAFS-SAFZ-MULT-San_Andreas_fault-FUIS-CFM3.ts',
-      'name':'ALT: San Andreas fault', 'selected':0},
+      'name':'2: San Andreas fault', 'selected':0},
 {'url':'data/external/SAFS-SAFZ-SBMT-Garnet_Hill_fault-YULE.ts',
-      'name':'ALT: Garnet Hill fault', 'selected':0},
+      'name':'2: Garnet Hill fault', 'selected':0},
 {'url':'data/external/SAFS-SGRP-SGPS-San_Gorgonio_Pass_fault-YULE.ts',
-      'name':'ALT: San Gorgonio Pass fault', 'selected':0}];
+      'name':'2: San Gorgonio Pass fault', 'selected':0}];
 
 function toggleTSList() {
     let elt=document.getElementById("externalTSList");
@@ -86,8 +86,6 @@ function reset_select_external() {
 // format, 'fault name','fault url'
 function setExternalTSFile(_files) {
 
-  window.console.log("HERE..");
-
   // only use the first one 
   if( _files == undefined ) {
     throw new Error("local file must be a File object type!");
@@ -103,29 +101,14 @@ function setExternalTSFile(_files) {
     var result= reader.result;
     EXTERNAL_TS_NAME.push(_file.name);
 
-    var lines = result.split('\n');
-    var sz=lines.length;
-    if(sz== 0) { return; }
+    window.console.log("HERE uploaded filename is ",_file.name);
 
-    for(let i=0;i<sz;i++) {
-      if(lines[i].length > 0) {
-        let data=lines[i].split(',');
-      }
-    }
+// 
+
+
+
   };
   reader.readAsText(_file);
-
-/*
-  EXTERNAL_TS_LIST.push("data/external/SAFS-SAFZ-MULT-Banning_fault-YULE.ts");
-  EXTERNAL_TS_LIST.push("data/external/SAFS-SAFZ-MULT-San_Andreas_fault-FUIS-CFM3.ts");
-  EXTERNAL_TS_LIST.push("data/external/SAFS-SAFZ-SBMT-Garnet_Hill_fault-YULE.ts");
-  EXTERNAL_TS_LIST.push("data/external/SAFS-SGRP-SGPS-San_Gorgonio_Pass_fault-YULE.ts");
-  
-  EXTERNAL_TS_NAME.push('Banning fault YULE');
-  EXTERNAL_TS_NAME.push('San Andreas fault FUIS');
-  EXTERNAL_TS_NAME.push('Garnet Hill fault YULE');
-  EXTERNAL_TS_NAME.push('San Gorgonio Pass fault YULE');
-*/
 }
 
 function collectExternalTS() {

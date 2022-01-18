@@ -932,13 +932,11 @@ function collectURLsFor3d(mlist) {
   for(var i=0; i<cnt; i++) {
     var meta=mlist[i];
     var gid=meta['gid'];
-    if(i < PLOT3D_PRESET_NAMELIST_MAX) {
+
+    if(cnt < PLOT3D_PRESET_NAMELIST_MAX) { /* do not even try to store it */
       PLOT3D_PRESET_NAMELIST.push(meta['name']);
-      } else {
-         if(i==PLOT3D_PRESET_NAMELIST_MAX) {
-            alert("PLOT3D_PRESET_NAMELIST got truncated");
-         }
     }
+
     if (use_download_set == 'native' || use_download_set =='all') {
       if(in_native_gid_list(gid)) {
         url=url_in_native_list(gid);
