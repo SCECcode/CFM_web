@@ -390,6 +390,23 @@ function resetQuake3Dview() {
   elt.innerHTML="Relocated Seismicity Off";
 }
 
+function setQuake3Dview(val) {
+  document.getElementById("view3DIfram").contentDocument.getElementById("SetQuakebtn").value=val;
+  document.getElementById("view3DIfram").contentDocument.getElementById("SetQuakebtn").click();
+  track_seisimcity=val;
+  switch( track_seismicity ) {
+    case 0:
+      elt.innerHTML="Relocated Seismicity Off";
+      break;
+    case 1:
+      elt.innerHTML="Hauksson et al.(2012)";
+      break;
+    case 2:
+      elt.innerHTML="Ross et al.(2019)";
+      break;
+  }
+}
+
 var track_representation=0; // 1 is wireframe 0 is surface 2 is surface + edge
 //publicAPI.toggle
 function toggleRepr3Dview() {
