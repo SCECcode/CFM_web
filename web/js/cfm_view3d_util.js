@@ -41,7 +41,7 @@ var STOCK_EXTERNAL_TS_LIST = [
 {'url':'data/external/WTRA-NCVS-PPTV-Pitas_Point_Ventura_fault_link-DON-CFM5.ts',	'name':'2: Pitas Point Ventura fault link', 'selected':0},
 {'url':'data/external/WTRA-NCVS-PPTV-Pitas_Point_fault-east-DON-CFM5.ts',	'name':'2: Pitas Point fault east', 'selected':0},
 {'url':'data/external/WTRA-NCVS-PPTV-Pitas_Point_fault-east-HBRD-CFM5.ts',	'name':'2: Pitas Point fault east', 'selected':0},
-{'url':'data/external/WTRA-NCVS-PPTV-Pitas_Point_fault-east-splay-DON-CFM5.ts',	'name':'2: Pitas Point fault east-splay', 'selected':0},
+{'url':'data/external/WTRA-NCVS-PPTV-Pitas_Point_fault-east-splay-DON-CFM5.ts',	'name':'2: Pitas Point fault east splay', 'selected':0},
 {'url':'data/external/WTRA-NCVS-RDMT-Red_Mountain-Rincon_fault-HBRD-CFM5.ts',	'name':'2: Red Mountain Rincon fault', 'selected':0},
 {'url':'data/external/WTRA-NCVS-VNTB-Southern_San_Cayetano_fault-HBRD-CFM5.ts',	'name':'2: Southern San Cayetano fault', 'selected':0},
 {'url':'data/external/WTRA-NCVS-VNTB-Ventura_fault-DON-CFM5.ts',	'name':'2: Ventura fault', 'selected':0},
