@@ -18,7 +18,7 @@ var EXTERNAL_TS_LIST=[];
 var EXTERNAL_TS_NAME=[];
 var EXTERNAL_COLOR_MODE=1; // default true
 
-var STOCK_EXTRNAL_TS_LIST = [
+var STOCK_EXTERNAL_TS_LIST = [
 {'url':'data/external/BNRA-BMFZ-MULT-Black_Mountain_fault.ts',	'name':'2: Black Mountain fault', 'selected':0},
 {'url':'data/external/BNRA-SDVZ-MULT-Southern_Death_Valley_fault-low_dip-CFM2.ts',	'name':'2: Southern Death Valley fault low dip', 'selected':0},
 {'url':'data/external/ETRA-NFTS-EAST-Eastern_North_Frontal_fault-vertical-CFM5.ts',	'name':'2: Eastern North Frontal fault vertical', 'selected':0},
