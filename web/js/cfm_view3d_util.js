@@ -22,7 +22,7 @@ var STOCK_EXTERNAL_TS_LIST = [
 {'url':'data/external/BNRA-BMFZ-MULT-Black_Mountain_fault.ts',	'name':'2: Black Mountain fault', 'selected':0},
 {'url':'data/external/BNRA-SDVZ-MULT-Southern_Death_Valley_fault-low_dip-CFM2.ts',	'name':'2: Southern Death Valley fault low dip', 'selected':0},
 {'url':'data/external/ETRA-NFTS-EAST-Eastern_North_Frontal_fault-vertical-CFM5.ts',	'name':'2: Eastern North Frontal fault vertical', 'selected':0},
-{'url':'data/external/ETRA-NFTS-EAST-North_Frontal_fault-west-steep-CFM5.ts',	'name':'2: North Frontal fault west-steep', 'selected':0},
+{'url':'data/external/ETRA-NFTS-EAST-North_Frontal_fault-west-steep-CFM5.ts',	'name':'2: North Frontal fault west steep', 'selected':0},
 {'url':'data/external/ETRA-NFTS-WEST-North_Frontal_Thrust_fault-steep-CFM5.ts',	'name':'2: North Frontal Thrust fault steep', 'selected':0},
 {'url':'data/external/OCBA-IBFS-SMBY-Santa_Monica_Bay_fault_west-CFM5.ts',	'name':'2: Santa Monica Bay fault west', 'selected':0},
 {'url':'data/external/OCBA-OCSD-OCNS-Oceanside_detachment-RVRO-CFM1.ts',	'name':'2: Oceanside detachment', 'selected':0},
@@ -49,12 +49,12 @@ var STOCK_EXTERNAL_TS_LIST = [
 {'url':'data/external/WTRA-SBTS-SMMT-Santa_Monica_thrust_fault-CFM1.ts',	'name':'2: Santa Monica thrust fault', 'selected':0},
 {'url':'data/external/WTRA-SCFZ-MULT-San_Cayetano_fault-60dip-CFM5.ts',	'name':'2: San Cayetano fault 60dip', 'selected':0},
 {'url':'data/external/WTRA-SFFS-SMMT-Malibu_Coast_fault-CFM4.ts',	'name':'2: Malibu Coast fault', 'selected':0},
-{'url':'data/external/WTRA-SFNS-VRDM-Eagle_Rock_fault-south-dip-CFM2.ts',	'name':'2: Eagle Rock fault south-dip', 'selected':0},
+{'url':'data/external/WTRA-SFNS-VRDM-Eagle_Rock_fault-south-dip-CFM2.ts',	'name':'2: Eagle Rock fault south dip', 'selected':0},
 {'url':'data/external/WTRA-SFNS-VRDM-Verdugo_fault-lowdip-CFM4.ts',	'name':'2: Verdugo fault lowdip', 'selected':0},
 {'url':'data/external/WTRA-SMFZ-CCMG-Cucamonga_fault-alt1-CFM4.ts',	'name':'2: Cucamonga fault alt1', 'selected':0},
-{'url':'data/external/WTRA-SMFZ-SMDS-Sierra-Madre_fault-steep-CFM4.ts',	'name':'2: Sierra Madre fault-steep', 'selected':0},
+{'url':'data/external/WTRA-SMFZ-SMDS-Sierra-Madre_fault-steep-CFM4.ts',	'name':'2: Sierra Madre fault steep', 'selected':0},
 {'url':'data/external/WTRA-SPJD-SPMT-Sisar_detachment-CFM5.ts',	'name':'2: Sisar detachment', 'selected':0},
-{'url':'data/external/WTRA-SSRZ-MULT-Simi-Santa_Rosa_fault-steep-CFM5.ts',	'name':'2: Simi Santa Rosa fault-steep', 'selected':0},
+{'url':'data/external/WTRA-SSRZ-MULT-Simi-Santa_Rosa_fault-steep-CFM5.ts',	'name':'2: Simi Santa Rosa fault steep', 'selected':0},
 {'url':'data/external/WTRA-SYFZ-MULT-Santa_Ynez_fault-60dip-CFM5.ts',	'name':'2: Santa Ynez fault 60dip', 'selected':0}];
 
 
