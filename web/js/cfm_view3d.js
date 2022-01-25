@@ -228,7 +228,7 @@ window.console.log(" SERVER <<<  send params");
           sendParams3Dview();
           return;
         }
-        if(event.data.value == "done with loading") {
+        if(event.data.value == "done with loading traces") {
 window.console.log(" SERVER <<<  turn off load spinner");
           document.getElementById('spinIconFor3D').style.display = "none";
           // plot3d in iframe is all up and ready
@@ -244,8 +244,8 @@ window.console.log(" SERVER <<< turn on loading spinner");
 window.console.log(" SERVER <<< 3d viewer is ready");
           return;
         }
-        if(event.data.value == "done with EQ") {
-window.console.log(" SERVER <<< done with EQ");
+        if(event.data.value == "done with base trace loading") {
+window.console.log(" SERVER <<< done with base trace loading");
           presetPlot3d_second();
           return;
         }
@@ -257,6 +257,7 @@ window.console.log(" SERVER <<< camera start");
       } else if (typeof event.data == 'object' && event.data.call=='from3DViewer camera done') {
 window.console.log(" SERVER <<< camera done");
           let tmp=event.data.value;
+//        presetPlot3d_second();
       } else {
           window.console.log(" SERVER <<< what the heck 2 ..",event.data);
     }
