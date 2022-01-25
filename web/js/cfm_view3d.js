@@ -393,9 +393,9 @@ function resetQuake3Dview() {
 function setQuake3Dview(val) {
   document.getElementById("view3DIfram").contentDocument.getElementById("SetQuakebtn").value=val;
   document.getElementById("view3DIfram").contentDocument.getElementById("SetQuakebtn").click();
-  track_seisimcity=val;
+  track_seismicity=val;
   let elt=document.getElementById("view3DToggleQuakebtn");
-  window.console.log("setQuake3Dview");
+  window.console.log("setQuake3Dview to ",val);
   switch( track_seismicity ) {
     case 0:
       elt.innerHTML="Relocated Seismicity Off";
