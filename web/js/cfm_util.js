@@ -1305,7 +1305,7 @@ function presetPlot3d_second()
       let legend=state['legend'];
       if(legend != track_legend) { toggleLegend3Dview(); }
       let seismicity=state['seismicity'];
-      (seismicity != track_seismicity) { setQuake3Dview(seismicity); }
+      if(seismicity != track_seismicity) { setQuake3Dview(seismicity); }
       let repr=state['repr'];
       while(repr != track_representation) { toggleRepr3Dview(); }
       let bounds=state['bounds'];
