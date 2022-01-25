@@ -196,7 +196,7 @@ function sendParams3Dview() {
   let params=get_PARAMS();
   let iwindow=document.getElementById('view3DIfram').contentWindow;
   let  eparams=encodeURI(params);
-window.console.log("SERVER, post a param message to iframe.");
+window.console.log("SERVER SEND, post a param message to iframe.");
 window.console.log(">>>"+eparams);
   iwindow.postMessage({call:'fromSCEC',value:eparams},"*");
 }
@@ -216,43 +216,49 @@ window.addEventListener("DOMContentLoaded", function () {
 
   window.addEventListener('message', function(event) {
 
-    window.console.log(" SERVER Side>>>> got a message..");
     var origin = event.origin;
     if (origin != "http://localhost:8082" && origin != "http://moho.scec.org" && origin != "https://www.scec.org") {
-        window.console.log("service, bad message origin:", origin);
+        window.console.log("SERVER <<< service, bad message origin:", origin);
         return;
     }
 
     if (typeof event.data == 'object' && event.data.call=='from3DViewer') {
         if(event.data.value == "send params") {
+window.console.log(" SERVER <<<  send params");
           sendParams3Dview();
           return;
         }
         if(event.data.value == "done with loading") {
-          window.console.log(" SERVER, turn off load spinner");
+window.console.log(" SERVER <<<  turn off load spinner");
           document.getElementById('spinIconFor3D').style.display = "none";
           // plot3d in iframe is all up and ready
           presetPlot3d_first();
           return;
         }
         if(event.data.value == "start loading") {
+window.console.log(" SERVER <<< turn on loading spinner");
           document.getElementById('spinIconFor3D').style.display = "block";
-          window.console.log(" SERVER, turn on loading spinner");
           return;
         }
         if(event.data.value == "ready") {
-          window.console.log(" SERVER, 3d viewer is ready");
+window.console.log(" SERVER <<< 3d viewer is ready");
           return;
         }
-        window.console.log("service, what the heck ..",event.data.value);
+        if(event.data.value == "done with EQ") {
+window.console.log(" SERVER <<< done with EQ");
+          presetPlot3d_second();
+          return;
+        }
+        window.console.log(" SERVER <<< what the heck ..",event.data.value);
       } else if (typeof event.data == 'object' && event.data.call=='from3DViewer camera') {
+window.console.log(" SERVER <<< camera start");
           PLOT3D_CAMERA=event.data.value;
           window.console.log("GOT camera_str >> "+ PLOT3D_CAMERA);
       } else if (typeof event.data == 'object' && event.data.call=='from3DViewer camera done') {
+window.console.log(" SERVER <<< camera done");
           let tmp=event.data.value;
-          presetPlot3d_second();
       } else {
-          window.console.log("service, what the heck 2 ..",event.data);
+          window.console.log(" SERVER <<< what the heck 2 ..",event.data);
     }
  })
 }, false);
