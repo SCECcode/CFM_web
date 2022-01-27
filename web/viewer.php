@@ -526,10 +526,12 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
                                 </div>
                             </div>
                             &nbsp
+<!-- For IMPORT server ts files
                             <button id="externalBtn" class="btn btn-sm" style="background:transparent;" data-toggle="modal" data-target="#modalexternal">
                                     <span class="fas fa-caret-up"></span>
                             </button>
-<!--
+-->
+<!-- For IMPORT local ts files
 <input class="form-control" id='fileBtn' type='file' onchange='setExternalTSFile(this.files)' style='display:none;'></input> 
 <button class="btn cfm-small-btn" onClick='javascript:document.getElementById("fileBtn").click();'><span class="fas fa-caret-up"></span></button>
 -->
