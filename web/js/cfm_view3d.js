@@ -220,7 +220,8 @@ window.addEventListener("DOMContentLoaded", function () {
   window.addEventListener('message', function(event) {
 
     var origin = event.origin;
-    if (origin != "http://localhost:8082" && origin != "http://moho.scec.org" && origin != "https://www.scec.org") {
+    if (origin != "http://localhost:8082" && origin != "http://moho.scec.org" 
+               && origin != "https://temp.scec.org" && origin != "https://www.scec.org") {
         window.console.log("SERVER <<< bad message origin:", origin);
         return;
     }
