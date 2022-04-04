@@ -526,7 +526,7 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
                                 </div>
                             </div>
                             &nbsp
-<!-- For IMPORT server ts files
+<!-- For IMPORT server ts files 
                             <button id="externalBtn" class="btn btn-sm" style="background:transparent;" data-toggle="modal" data-target="#modalexternal">
                                     <span class="fas fa-caret-up"></span>
                             </button>
