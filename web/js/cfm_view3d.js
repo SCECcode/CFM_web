@@ -276,6 +276,12 @@ function showPlot3dWarning() {
   }
 }
 
+// just need to reset the quake view
+function close3Dview() {
+window.console.log("close3Dview is called..");
+  resetQuake3Dview();
+}
+
 // should be able to track the initial state and then return to it
 function refresh3Dview() {
   resetLegend3Dview();
@@ -396,7 +402,7 @@ function toggleQuake3Dview() {
   }
 }
 function resetQuake3Dview() {
-  track_seismcity=0;
+  track_seismicity=0;
   let elt=document.getElementById("view3DToggleQuakebtn");
   elt.innerHTML="Relocated Seismicity Off";
 }
