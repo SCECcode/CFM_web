@@ -526,7 +526,7 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
                                 </div>
                             </div>
                             &nbsp
-<!-- For IMPORT server ts files
+<!-- For IMPORT server ts files 
                             <button id="externalBtn" class="btn btn-sm" style="background:transparent;" data-toggle="modal" data-target="#modalexternal">
                                     <span class="fas fa-caret-up"></span>
                             </button>
@@ -598,7 +598,7 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
           <div id="spinIconFor3D" align="center" style="display:none;"><i class="glyphicon glyphicon-cog fa-spin" style="color:red"></i></div>
         </div>
 
-        <button id="view3DClosebtn" class="btn btn-outline-primary btn-sm" data-dismiss="modal">Close</button>
+        <button id="view3DClosebtn" class="btn btn-outline-primary btn-sm" data-dismiss="modal" onclick="close3Dview()">Close</button>
         <button id="view3DExpandbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleExpand3Dview()">Shrink</button>
         <button id="view3DRefreshbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="refresh3Dview()">Reset</button>
         <button id="view3DMovebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="move3Dview()">New Window</button>

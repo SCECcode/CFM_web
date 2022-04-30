@@ -1193,7 +1193,6 @@ function getPresetMode() {
 
 //window.console.log(pArr[1]);
      let dd=decodeURI(pArr[1]);
-     let ddd;
      switch (pArr[0]) {
         case "fullFileURL":
              myFullFileURL=dd;
