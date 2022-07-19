@@ -6,12 +6,11 @@
 
 // tracking table for a list of kmls
 
-// [ { "layer": layer1, "name" : name1, "visible":1 }, {"layer": layer2, "name": name2, "visible":0 }, ... ]
+// [ { "idx": idx1, "layer": layer1, "name" : name1, "visible":1 }, ...]
 var kml_layer_list=[];
 
 var visibleKML=null;
 
-//
 function find_kml_layer(target) {
   let sz=kml_layer_list.length;
   for(let i=0; i<sz; i++) {
@@ -26,23 +25,26 @@ function print_kml_layer() {
   let sz=kml_layer_list.length;
   for(let i=0; i<sz; i++) {
     let element=kml_layer_list[i];
-    window.console.log("kml(%d) %s (%d)\n",i, element['name'], element['visible']);	   
+    window.console.log("kml(%d) %s (%d)\n",element['idx'], element['name'], element['visible']);	   
   }
 }
 
 function addKMLGroup()
 {
   let sz=kml_layer_list.length;
+  var alist=[];
   for(let i=0; i<sz; i++) {
     let element=kml_layer_list[i];
-    if(element['visibile']==1)	    
-      if(visibleKML == null) {
-        visibleKML = new L.FeatureGroup(element['layer']);
-        } else {
-        visibleKML.addLayer(element['layer']);
-      }
+    let t=element['visible'];
+    let tt= (element['visible'] == 1);
+    if(tt) {	    
+      alist.push(element['layer']);
+    }
   }	    
-  mymap.addLayer(visibleKML);
+  if(alist.length != 0) {
+    visibleKML = new L.FeatureGroup(alist);
+    mymap.addLayer(visibleKML);
+  }
 }
 
 function removeKMLGroup() {
@@ -52,33 +54,85 @@ function removeKMLGroup() {
   }
 }
 
+function updateKMLSelect() {
+  removeKMLGroup();
+  addKMLGroup();
+}
+
+function toggle_kml(label, idx) {
+  let element = kml_layer_list[idx];
+  let vis = element['visible'];
+  let $elt = $(`#${label}`);
+  if(vis == 1) {
+    element['visible']= 0;
+    $elt.removeClass('glyphicon-check').addClass('glyphicon-unchecked');
+    } else {
+      element['visible']= 1;
+      $elt.removeClass('glyphicon-unchecked').addClass('glyphicon-check');
+  }
+  updateKMLSelect();
+}
+
+function addToKMLSelectTable(fname) {
+// first entry ?
+  let idx=kml_layer_list.length;
+  let t_label="kml_"+idx;
+  var html;
+
+  var html_r ="<tr><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle the kml\" onclick=toggle_kml(\""+t_label+"\","+idx+");> <span id=\""+t_label+"\" class=\"glyphicon glyphicon-check\"></span></button> </td> <td><label for=\""+t_label+"\">" + fname + "</label></td></tr>";
+
+  if(idx == 0) {
+    html="<div class=\"kml-table\" ><table>";
+    html+="<tbody id=\"kml-table-body\">"+html_r+"</tbody></table></div>";
+    document.getElementById("kmlselectTable-container").innerHTML = html;
+    } else {
+     let tmp= $("#kml-table-body");
+     tmp.prepend(html_r);
+  }
+
+  return idx;
+}
 
 // from an user selected client side file
 function uploadKMLFile(urls) {
 
-window.console.log("start HERE...%s",urls[0].name );
+  let fname= urls[0].name;
 
-  let elm=find_kml_layer(urls[0].name);
+// fname ends in .kml, or .kmz
+  let stub = fname.substring(fname.length - 4, fname.length);
+  let p=stub.toUpperCase();
+  if( (stub.toUpperCase() === ".KML") || (stub.toUpperCase() === ".KMZ") ) {
+  // right type of files
+    } else {
+      window.console.log("uploadKMLFile: incorrect file type\n");
+      return;
+  }
+
+  let elm=find_kml_layer(fname);
   if(elm != null) return;
 
   var reader = new FileReader();
 
   reader.onload=function(event) {
     var result =reader.result;
-    var kmlLayer = omnivore.kml.parse(result);
 
-/*
-    .on('ready', function() {
-        map.fitBounds(runLayer.getBounds());
-    })
-    .addTo(map);
-*/
-    kml_layer_list.push({"layer":kmlLayer,"name":urls[0].name,"visible":1 });
-    mymap.addLayer(kmlLayer);
+    const parser = new DOMParser();
+    const kml = parser.parseFromString(result, 'text/xml');
+    const kmlLayer =new L.KML(kml);
 
-//    var layer=_kml2leaflet(reader.result);
-    // store layer in overlay data base
-//    return _layerToMap(trace_list,viewermap);
+//  add to kml table
+    let tidx=addToKMLSelectTable(fname);
+
+    kml_layer_list.push({"layer":kmlLayer,"name":fname,"visible":1,"idx":tidx });
+    //mymap.addLayer(kmlLayer);
+    $('#kmlSelectBtn').css("display", "");
+
+    removeKMLGroup();
+    addKMLGroup();
+
+    const bounds = kmlLayer.getBounds();
+    mymap.fitBounds(bounds);
+
   };
   reader.readAsText(urls[0]);
 }

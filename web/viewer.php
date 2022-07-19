@@ -38,7 +38,7 @@ $header = getHeader("Viewer");
     <script type='text/javascript' src='js/vendor/unzip.min.js'></script>
 
     <script type='text/javascript' src='js/vendor/jquery.floatThead.min.js'></script>
-    <script type='text/javascript' src='js/vendor/leaflet-omnivore.js'></script>
+    <script type='text/javascript' src='js/vendor/L.KML.js'></script>
 
     <!--
     https://leaflet.github.io/Leaflet.draw/docs/Leaflet.draw-latest.html#l-draw
@@ -394,8 +394,8 @@ $header = getHeader("Viewer");
 <!--XX upload KML overlay -->
 	<div class="col-2 mt-2">
 <input id="fileKML" type='file' onchange='uploadKMLFile(this.files)' style='display:none;'></input>
-<button id="kmlBtn" class="btn" onclick='javascript:document.getElementById("fileKML").click();' style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.25rem 0.5rem;"><span>Upload KML</span></button>
-<button id="kmlSelectBtn" class="btn" style="color:#990000;background:white;padding:0.25rem 0.5rem;display:" data-toggle="modal" data-target="#modalkmlselect"><span class="fas fa-circle"></span></button>
+<button id="kmlBtn" class="btn" onclick='javascript:document.getElementById("fileKML").click();' style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.25rem 0.5rem;"><span>Load KML</span></button>
+<button id="kmlSelectBtn" class="btn" style="display:none;color:#990000;background:white;padding:0.25rem 0.5rem;display:" onclick='updateKMLSelect()'  data-toggle="modal" data-target="#modalkmlselect"><span class="fas fa-circle"></span></button>
         </div>
 <!--XX Sesimicity -->
         <div class="col-3 mt-2 pl-2">
@@ -780,6 +780,31 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
     </div> <!--Content-->
   </div>
 </div> <!--Modal: modalexternal-->
+
+
+
+
+<!--Modal: Model (modalkmlselect) -->
+<div class="modal" id="modalkmlselect" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-small" id="modalkmlselectDialog" role="document">
+
+    <!--Content-->
+    <div class="modal-content" id="modalkmlselectContent">
+      <!--Body-->
+      <div class="modal-body" id="modalkmlselectBody">
+        <div class="row col-md-12 ml-auto" style="overflow:hidden;">
+          <div class="col-12" id="kmlselectTable-container" style="font-size:14pt"></div>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="close" data-dismiss="modal" onclick="$('#sidebar').show();">&times;</button>
+      </div>
+
+    </div> <!--Content-->
+  </div>
+</div> <!--Modal: modalkmlselect-->
+
+
 
 
 </div>
