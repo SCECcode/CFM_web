@@ -36,9 +36,10 @@ $header = getHeader("Viewer");
     <script type='text/javascript' src='js/vendor/zlib-util.js'></script>
     <script type='text/javascript' src='js/vendor/gunzip.min.js'></script>
     <script type='text/javascript' src='js/vendor/unzip.min.js'></script>
-
     <script type='text/javascript' src='js/vendor/jquery.floatThead.min.js'></script>
-    <script type='text/javascript' src='js/vendor/L.KML.js'></script>
+
+    <script type='text/javascript' src='js/vendor/togeojson.js'></script>
+    <script type='text/javascript' src='js/vendor/leaflet-kmz-src.js'></script>
 
     <!--
     https://leaflet.github.io/Leaflet.draw/docs/Leaflet.draw-latest.html#l-draw

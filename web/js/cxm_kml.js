@@ -116,9 +116,8 @@ function uploadKMLFile(urls) {
   reader.onload=function(event) {
     var result =reader.result;
 
-    const parser = new DOMParser();
-    const kml = parser.parseFromString(result, 'text/xml');
-    const kmlLayer =new L.KML(kml);
+    var kmzlayer = L.kmzLayer();
+    kmzlayer.parse(result, { name: fname, icons: {} });
 
 //  add to kml table
     let tidx=addToKMLSelectTable(fname);
@@ -130,11 +129,13 @@ function uploadKMLFile(urls) {
     removeKMLGroup();
     addKMLGroup();
 
-    const bounds = kmlLayer.getBounds();
-    mymap.fitBounds(bounds);
-
+    // only if kml file type
+    if( stub.toUpperCase() === ".KML" ) {
+      const bounds = kmlLayer.getBounds();
+      mymap.fitBounds(bounds);
+    }
   };
-  reader.readAsText(urls[0]);
+  reader.readAsArrayBuffer(urls[0]);
 }
 
 
