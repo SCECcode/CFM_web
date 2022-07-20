@@ -394,6 +394,7 @@ $header = getHeader("Viewer");
 <button id="quakesBtn" class="btn" onClick="loadSeismicity()" style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.25rem 0.5rem;">Load relocated seismicity</button>
 <button id="quakeInfoBtn" class="btn" style="background:white;" data-toggle="modal" data-target="#modalinfoquake"><span class="glyphicon glyphicon-info-sign"></span></button>
 </div>
+
 <div id="showSeismicity" class="row" style="width:20rem; display:none">
 <select id="seismicitySelect" onchange="changePixiOverlay(this.value)"
 class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5rem">
