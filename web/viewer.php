@@ -395,7 +395,7 @@ $header = getHeader("Viewer");
 <!--XX upload KML overlay -->
 	<div class="col-2 mt-2">
 <input id="fileKML" type='file' onchange='uploadKMLFile(this.files)' style='display:none;'></input>
-<button id="kmlBtn" class="btn" onclick='javascript:document.getElementById("fileKML").click();' style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.25rem 0.5rem;"><span>Load KML</span></button>
+<button id="kmlBtn" class="btn" onclick='javascript:document.getElementById("fileKML").click();' style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.25rem 0.5rem;"><span>Load KML/KMZ</span></button>
 <button id="kmlSelectBtn" class="btn" style="display:none;color:#990000;background:white;padding:0.25rem 0.5rem;display:" onclick='updateKMLSelect()'  data-toggle="modal" data-target="#modalkmlselect"><span class="fas fa-circle"></span></button>
         </div>
 <!--XX Sesimicity -->

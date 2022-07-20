@@ -116,14 +116,13 @@ function uploadKMLFile(urls) {
   reader.onload=function(event) {
     var result =reader.result;
 
-    var kmzlayer = L.kmzLayer();
-    kmzlayer.parse(result, { name: fname, icons: {} });
+    var kmlLayer = L.kmzLayer();
+    kmlLayer.parse(result, { name: fname, icons: {} });
 
 //  add to kml table
     let tidx=addToKMLSelectTable(fname);
 
     kml_layer_list.push({"layer":kmlLayer,"name":fname,"visible":1,"idx":tidx });
-    //mymap.addLayer(kmlLayer);
     $('#kmlSelectBtn').css("display", "");
 
     removeKMLGroup();
