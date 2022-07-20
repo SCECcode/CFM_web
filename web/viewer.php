@@ -38,6 +38,7 @@ $header = getHeader("Viewer");
     <script type='text/javascript' src='js/vendor/unzip.min.js'></script>
 
     <script type='text/javascript' src='js/vendor/jquery.floatThead.min.js'></script>
+    <script type='text/javascript' src='js/vendor/L.KML.js'></script>
 
     <!--
     https://leaflet.github.io/Leaflet.draw/docs/Leaflet.draw-latest.html#l-draw
@@ -85,6 +86,8 @@ $header = getHeader("Viewer");
     <script type="text/javascript" src="js/cfm_sidebar.js?v=1"></script>
     <script type="text/javascript" src="js/cfm_view3d_util.js?v=1"></script>
     <script type="text/javascript" src="js/cfm_view3d.js?v=1"></script>
+
+    <script type="text/javascript" src="js/cxm_kml.js?v=1"></script>
    
     <!-- pixi pixiOverlay -->
     <script src="js/vendor/pixi.js"></script>
@@ -171,7 +174,7 @@ $header = getHeader("Viewer");
     </div>
 
     <div id="controls-container" class="row d-flex mb-1">
-        <div class="col-5 mb-0">
+        <div class="col-3 mb-0">
              <div class="input-group filters" style="min-width:68%">
                 <select id="search-filter-type" class="custom-select">
                     <option value="dismissClick">Search by </option>
@@ -388,8 +391,14 @@ $header = getHeader("Viewer");
                 </div>
             </div>
         </div>
+<!--XX upload KML overlay -->
+	<div class="col-2 mt-2">
+<input id="fileKML" type='file' onchange='uploadKMLFile(this.files)' style='display:none;'></input>
+<button id="kmlBtn" class="btn" onclick='javascript:document.getElementById("fileKML").click();' style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.25rem 0.5rem;"><span>Load KML</span></button>
+<button id="kmlSelectBtn" class="btn" style="display:none;color:#990000;background:white;padding:0.25rem 0.5rem;display:" onclick='updateKMLSelect()'  data-toggle="modal" data-target="#modalkmlselect"><span class="fas fa-circle"></span></button>
+        </div>
 <!--XX Sesimicity -->
-        <div class="col-3 mt-2 pl-0">
+        <div class="col-3 mt-2 pl-2">
 <div id="loadSeismicity" class="row" style="width:20rem;display:">
 <button id="quakesBtn" class="btn" onClick="loadSeismicity()" style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.25rem 0.5rem;">Load relocated seismicity</button>
 <button id="quakeInfoBtn" class="btn" style="background:white;" data-toggle="modal" data-target="#modalinfoquake"><span class="glyphicon glyphicon-info-sign"></span></button>
@@ -772,6 +781,31 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
     </div> <!--Content-->
   </div>
 </div> <!--Modal: modalexternal-->
+
+
+
+
+<!--Modal: Model (modalkmlselect) -->
+<div class="modal" id="modalkmlselect" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-small" id="modalkmlselectDialog" role="document">
+
+    <!--Content-->
+    <div class="modal-content" id="modalkmlselectContent">
+      <!--Body-->
+      <div class="modal-body" id="modalkmlselectBody">
+        <div class="row col-md-12 ml-auto" style="overflow:hidden;">
+          <div class="col-12" id="kmlselectTable-container" style="font-size:14pt"></div>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="close" data-dismiss="modal" onclick="$('#sidebar').show();">&times;</button>
+      </div>
+
+    </div> <!--Content-->
+  </div>
+</div> <!--Modal: modalkmlselect-->
+
+
 
 
 </div>
