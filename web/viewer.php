@@ -137,10 +137,10 @@ $header = getHeader("Viewer");
 <?php echo $header; ?>
 <div class="container">
 
-<button id="bigMapOneBtn" class="btn unicode-earth-button" style="float:right;background-color:white;display:none" onclick="toggleBigMap()"></button>
-
 <div class="main">
-
+    <div class="row" style="float:right" >
+      <button id="bigMapBtn" class="btn unicode-earth-button" style="background-color:white;display:" onclick="toggleBigMap()"></button>
+    </div>
 <!-- trace dumping buttons -->
     <div style="display:none">
       <script type="text/javascript" src="js/cfm_misc_util.js?v=1"></script>
@@ -162,12 +162,9 @@ $header = getHeader("Viewer");
 
 <!-- top-intro -->
     <div id="top-intro" class="row" style="display:">
-      <div class="col-12">
 <p>
 The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model (CFM)</a> are three-dimensional and non-planar; however, to simplify browsing the model, the viewer below provides a two-dimensional map-based view of the SCEC CFM version 5.3 preferred fault set. The alternative fault representations are only provided in the complete CFM archive available for download on the <a href="https://www.scec.org/research/cfm">CFM homepage</a>. Here, the viewer allows users to view and download fault geometry data as well as metadata for selected faults rather than downloading the entire CFM model archive. Once faults are selected, the “PLOT3D” button can be used to view the selected faults in a basic CAD-like environment. See the user guide for more details and site usage instructions.
-<button id="bigMapTwoBtn" class="btn unicode-earth-button" style="float:right;background-color:white;display:" onclick="toggleBigMap()"></button>
 </p>
-      </div>
     </div> <!-- top-intro -->
 
 <!-- leaflet control -->
@@ -183,6 +180,7 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
     </div>
 
 <!-- top-control -->
+    <div id="dummy-row" class="row" style="display:none"><br></div>
     <div id="top-control">
       <div id="controls-container" class="row d-flex mb-1" style="display:none" >
         <div class="col-3 mb-0">
@@ -411,8 +409,11 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
 <!-- Sesimicity -->
         <div class="col-3 mt-1 pl-0"> 
 <div id="loadSeismicity" class="row" style="width:20rem;display:">
+<!--
   <button id="quakeInfoBtn" class="btn" data-toggle="modal" data-target="#modalinfoquake" style='display:none'></button>
   <button id="quakesBtn" class="btn" onClick="loadSeismicity()" onmouseover='showSeismicityInfo()' style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.25rem 0.5rem;display:">Load relocated seismicity</button>
+-->
+  <button id="quakesBtn" class="btn" onClick="loadSeismicity()" title="tooltip_text" style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.25rem 0.5rem;display:">Load relocated seismicity</button>
 </div>
 <div id="showSeismicity" class="row" style="width:20rem; display:none">
 <select id="seismicitySelect" onchange="changePixiOverlay(this.value)"
@@ -465,7 +466,7 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
     </div> <!-- top-control -->
 
 
-    <div class="row mapData">
+    <div id="mapDataBig" class="row mapData">
 	<div id="infoData" class="col-5 button-container d-flex flex-column pr-0" style="overflow:hidden">
             <div id="searchResult" style="overflow:hidden; display:" class="mb-1"></div>
             <div id="geoSearchByObjGidResult" style="display:none"></div>
@@ -737,9 +738,6 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
 <p> This loads the updated Hauksson et al. (2012) and Ross et al. (2019) relocated earthquake catalogs and provides a pull-down menu with options to color by depth, magnitude, or time. Significant historical events (1900-2021 >M6.0) are shown with red dots. These can be turned on/off by clicking on the red dot which appears here once the catalogs have been loaded </p>
           </div>
         </div>
-      </div>
-      <div class="modal-footer justify-content-center">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
     </div> <!--Content-->

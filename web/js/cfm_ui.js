@@ -7,7 +7,7 @@ var showing_key = false;
 
 var big_map=0; // 0,1(some control),2(none)
 
-var seismicity_info = false;
+var seismicity_info = 0;
 
 var seismicity_loaded = false;
 var seismicity_from_cache = true;
@@ -17,8 +17,9 @@ function _toMedView()
 $('#top-intro').css("display", "none");
 $('#searchResult').css("display", "none");
 $('#infoData').removeClass('col-5').addClass('col-0');
-$('#top-map').removeClass('col-7').addClass('col-12');
+$('#top-map').removeClass('col-7').addClass('row');
 $('#actualData').removeClass('pl-2').addClass('pl-4');
+$('#mapDataBig').addClass('col-12').removeClass('row');
 // tell leaflet to reset the size
 resize_map();
 }
@@ -26,6 +27,7 @@ resize_map();
 function _toMinView()
 {
 let height=window.innerHeight;
+$('#dummy-row').css("display", "");
 $('#top-control').css("display", "none");
 $('#top-select').css("display", "none");
 $('#CFM_plot').css("height", height* 0.80);
@@ -34,14 +36,17 @@ resize_map();
 
 function _toNormalView()
 {
-$('#top-intro').css("display", "");
+$('#dummy-row').css("display", "none");
 $('#top-control').css("display", "");
-$('#searchResult').css("display", "");
 $('#top-select').css("display", "");
-$('#infoData').addClass('col-5').removeClass('col-0');
-$('#top-map').removeClass('col-12').addClass('col-7');
-$('#actualData').removeClass('pl-4').addClass('pl-2');
 $('#CFM_plot').css("height", "576px");
+
+$('#top-intro').css("display", "");
+$('#searchResult').css("display", "");
+$('#infoData').addClass('col-5').removeClass('col-0');
+$('#top-map').removeClass('row').addClass('col-7');
+$('#actualData').removeClass('pl-4').addClass('pl-2');
+$('#mapDataBig').removeClass('col-12').addClass('row');
 }
 
 function toggleBigMap()
@@ -49,7 +54,6 @@ function toggleBigMap()
   switch (big_map)  {
     case 0:
       big_map=1;
-      $('#bigMapOneBtn').css("display", "");
       _toMedView();		   
       break;
     case 1:
@@ -58,7 +62,6 @@ function toggleBigMap()
       break;
     case 2:
       big_map=0;
-      $('#bigMapOneBtn').css("display", "none");
       _toNormalView();		   
       break;
   }
@@ -89,12 +92,26 @@ function updatePrograssBar(width) {
   elm.val(n);
 }
 
+function hideSeismicityInfo() {
+  seismicity_info += 1;
+window.console.log("HUMHUM..%d",seismicity_info);
+  if(seismicity_info > 5) {
+window.console.log("calling hideSeismicityInfo..");
+    $('#modalinfoquake').unbind('mouseover');
+    $('#modalinfoquake').modal('hide');
+    } else {
+window.console.log("calling hideSeismicityInfo.. NOT YET");
+  }
+}
+
 function showSeismicityInfo() {
-  if(seismicity_info == false) {
-    seismicity_info = true;
+window.console.log("calling showSeismicityInfo.. LOOKING");
+  if(seismicity_info == 0) {
+window.console.log("calling showSeismicityInfo.. SET it");
     $("#quakeInfoBtn").click();
-    // disable the onmouseover event on quakeBtn
-    $("#quakesBtn").unbind('mouseover');
+//XX setup to capture any mouse key movement ?
+    $('#modalinfoquake').on('mouseover','', hideSeismicityInfo());
+    seismicity_info = 1;
   }
 }
 
