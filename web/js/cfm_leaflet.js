@@ -36,6 +36,11 @@ function clear_popup()
   viewermap.closePopup();
 }
 
+function resize_map()
+{
+  viewermap.invalidateSize();
+}
+
 function refresh_map()
 {
   if (viewermap == undefined) {

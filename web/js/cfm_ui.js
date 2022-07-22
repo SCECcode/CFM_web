@@ -5,8 +5,65 @@
 var cfm_select_count=0;
 var showing_key = false;
 
+var big_map=0; // 0,1(some control),2(none)
+
+var seismicity_info = false;
+
 var seismicity_loaded = false;
 var seismicity_from_cache = true;
+
+function _toMedView()
+{
+$('#top-intro').css("display", "none");
+$('#searchResult').css("display", "none");
+$('#infoData').removeClass('col-5').addClass('col-0');
+$('#top-map').removeClass('col-7').addClass('col-12');
+$('#actualData').removeClass('pl-2').addClass('pl-4');
+// tell leaflet to reset the size
+resize_map();
+}
+
+function _toMinView()
+{
+let height=window.innerHeight;
+$('#top-control').css("display", "none");
+$('#top-select').css("display", "none");
+$('#CFM_plot').css("height", height* 0.80);
+resize_map();
+}
+
+function _toNormalView()
+{
+$('#top-intro').css("display", "");
+$('#top-control').css("display", "");
+$('#searchResult').css("display", "");
+$('#top-select').css("display", "");
+$('#infoData').addClass('col-5').removeClass('col-0');
+$('#top-map').removeClass('col-12').addClass('col-7');
+$('#actualData').removeClass('pl-4').addClass('pl-2');
+$('#CFM_plot').css("height", "576px");
+}
+
+function toggleBigMap()
+{
+  switch (big_map)  {
+    case 0:
+      big_map=1;
+      $('#bigMapOneBtn').css("display", "");
+      _toMedView();		   
+      break;
+    case 1:
+      big_map=2;
+      _toMinView();		   
+      break;
+    case 2:
+      big_map=0;
+      $('#bigMapOneBtn').css("display", "none");
+      _toNormalView();		   
+      break;
+  }
+}
+
 
 // dump the quake layer into file
 function dumpAllQuakeLayer() {
@@ -32,6 +89,15 @@ function updatePrograssBar(width) {
   elm.val(n);
 }
 
+function showSeismicityInfo() {
+  if(seismicity_info == false) {
+    seismicity_info = true;
+    $("#quakeInfoBtn").click();
+    // disable the onmouseover event on quakeBtn
+    $("#quakesBtn").unbind('mouseover');
+  }
+}
+
 function loadSeismicity() {
 window.console.log("LOADING SEISMICITY..");
    if(seismicity_loaded == false) {
@@ -46,12 +112,12 @@ window.console.log("LOADING SEISMICITY..");
 }
 
 function finishLoadSeismicity() {
-     setup_pixi(EQ_HAUKSSON_FOR_DEPTH);
-     addHistoricalEQLayer();
-     seismicity_loaded = true;
-     showSeismicityKey("hauksson_depth");
-     $('#showSeismicity').css("display", "");
-     $('#loadSeismicity').css("display", "none");
+    setup_pixi(EQ_HAUKSSON_FOR_DEPTH);
+    addHistoricalEQLayer();
+    seismicity_loaded = true;
+    showSeismicityKey("hauksson_depth");
+    $('#showSeismicity').css("display", "");
+    $('#loadSeismicity').css("display", "none");
 }
 
 function disable_record_btn() {

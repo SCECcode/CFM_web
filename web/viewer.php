@@ -135,34 +135,42 @@ $header = getHeader("Viewer");
 </head>
 <body>
 <?php echo $header; ?>
-
 <div class="container">
 
+<button id="bigMapOneBtn" class="btn unicode-earth-button" style="float:right;background-color:white;display:none" onclick="toggleBigMap()"></button>
+
 <div class="main">
+
+<!-- trace dumping buttons -->
     <div style="display:none">
-    <script type="text/javascript" src="js/cfm_misc_util.js?v=1"></script>
-    <button id="dumpCFMGeoBtn" class="btn cfm-small-btn"  onClick="dumpActiveCFMGeo()">
+      <script type="text/javascript" src="js/cfm_misc_util.js?v=1"></script>
+      <button id="dumpCFMGeoBtn" class="btn cfm-small-btn"  onClick="dumpActiveCFMGeo()">
                 <span class="glyphicon glyphicon-share-alt"></span> Export CFM geoJson</button>
-    <button id="dumpMarkerLatlngBtn" class="btn cfm-small-btn" onClick="toFileMarkerLatlng()">
+      <button id="dumpMarkerLatlngBtn" class="btn cfm-small-btn" onClick="toFileMarkerLatlng()">
                 <span class="glyphicon glyphicon-share"></span> Export Marker Latlng</button>
-    <button id="filterSeismicityBtn" class="btn cfm-small-btn" onClick="toFileAllQuakes()">
+      <button id="filterSeismicityBtn" class="btn cfm-small-btn" onClick="toFileAllQuakes()">
                 <span class="glyphicon glyphicon-share"></span> Export Seismicity </button>
-    <button id="dumpSeismicityLayerBtn" class="btn cfm-small-btn" onClick="dumpAllQuakeLayer()">
+      <button id="dumpSeismicityLayerBtn" class="btn cfm-small-btn" onClick="dumpAllQuakeLayer()">
                 <span class="glyphicon glyphicon-share"></span> Export Seismicity Geo layer</button>
     </div>
 
+<!-- housekeeping buttons -->
     <div style="display:none">
       <input type="text" id="geo-total" value="0">
       <input type="text" id="geo-counter" value="0">
     </div>
 
-    <div class="row">
-        <div class="col-12">
-<p>The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model (CFM)</a> are three-dimensional and non-planar; however, to simplify browsing the model, the viewer below provides a two-dimensional map-based view of the SCEC CFM version 5.3 preferred fault set. The alternative fault representations are only provided in the complete CFM archive available for download on the <a href="https://www.scec.org/research/cfm">CFM homepage</a>. Here, the viewer allows users to view and download fault geometry data as well as metadata for selected faults rather than downloading the entire CFM model archive. Once faults are selected, the “PLOT3D” button can be used to view the selected faults in a basic CAD-like environment. See the user guide for more details and site usage instructions.
+<!-- top-intro -->
+    <div id="top-intro" class="row" style="display:">
+      <div class="col-12">
+<p>
+The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model (CFM)</a> are three-dimensional and non-planar; however, to simplify browsing the model, the viewer below provides a two-dimensional map-based view of the SCEC CFM version 5.3 preferred fault set. The alternative fault representations are only provided in the complete CFM archive available for download on the <a href="https://www.scec.org/research/cfm">CFM homepage</a>. Here, the viewer allows users to view and download fault geometry data as well as metadata for selected faults rather than downloading the entire CFM model archive. Once faults are selected, the “PLOT3D” button can be used to view the selected faults in a basic CAD-like environment. See the user guide for more details and site usage instructions.
+<button id="bigMapTwoBtn" class="btn unicode-earth-button" style="float:right;background-color:white;display:" onclick="toggleBigMap()"></button>
 </p>
-        </div>
-    </div>
+      </div>
+    </div> <!-- top-intro -->
 
+<!-- leaflet control -->
     <div class="row" style="display:none;">
         <div class="col justify-content-end custom-control-inline">
             <div style="display:none;" id="external_leaflet_control"></div>
@@ -174,7 +182,9 @@ $header = getHeader("Viewer");
         </div>
     </div>
 
-    <div id="controls-container" class="row d-flex mb-1">
+<!-- top-control -->
+    <div id="top-control">
+      <div id="controls-container" class="row d-flex mb-1" style="display:none" >
         <div class="col-3 mb-0">
              <div class="input-group filters" style="min-width:68%">
                 <select id="search-filter-type" class="custom-select">
@@ -392,17 +402,17 @@ $header = getHeader("Viewer");
                 </div>
             </div>
         </div>
-<!--XX upload KML overlay -->
-	<div class="col-2 mt-2">
+<!-- upload KML/KMZ overlay -->
+	<div class="col-2 mt-1">
 <input id="fileKML" type='file' onchange='uploadKMLFile(this.files)' style='display:none;'></input>
-<button id="kmlBtn" class="btn" onclick='javascript:document.getElementById("fileKML").click();' style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.25rem 0.5rem;"><span>Load kml/kmz</span></button>
-<button id="kmlSelectBtn" class="btn" style="display:none;color:#990000;background:white;padding:0.25rem 0.5rem;display:" onclick='updateKMLSelect()'  data-toggle="modal" data-target="#modalkmlselect"><span class="fas fa-circle"></span></button>
+<button id="kmlBtn" class="btn" onclick='javascript:document.getElementById("fileKML").click();' style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.25rem 0.5rem;"><span>Upload kml/kmz</span></button>
+<button id="kmlSelectBtn" class="btn" style="color:#990000;background:white;padding:0.25rem 0.5rem;display:none" onclick='updateKMLSelect()'  data-toggle="modal" data-target="#modalkmlselect"><span class="fas fa-circle"></span></button>
         </div>
-<!--XX Sesimicity -->
-        <div class="col-3 mt-2 pl-2">
+<!-- Sesimicity -->
+        <div class="col-3 mt-1 pl-0"> 
 <div id="loadSeismicity" class="row" style="width:20rem;display:">
-<button id="quakesBtn" class="btn" onClick="loadSeismicity()" style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.25rem 0.5rem;">Load relocated seismicity</button>
-<button id="quakeInfoBtn" class="btn" style="background:white;" data-toggle="modal" data-target="#modalinfoquake"><span class="glyphicon glyphicon-info-sign"></span></button>
+  <button id="quakeInfoBtn" class="btn" data-toggle="modal" data-target="#modalinfoquake" style='display:none'></button>
+  <button id="quakesBtn" class="btn" onClick="loadSeismicity()" onmouseover='showSeismicityInfo()' style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.25rem 0.5rem;display:">Load relocated seismicity</button>
 </div>
 <div id="showSeismicity" class="row" style="width:20rem; display:none">
 <select id="seismicitySelect" onchange="changePixiOverlay(this.value)"
@@ -451,22 +461,24 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
             </div>
 -->
         </div>
-    </div>
+      </div>
+    </div> <!-- top-control -->
 
 
     <div class="row mapData">
-        <div class="col-5 button-container d-flex flex-column" style="overflow:hidden;">
-<!-- XX -->
-            <div id="searchResult" style="overflow:hidden" class="mb-1"></div>
+	<div id="infoData" class="col-5 button-container d-flex flex-column pr-0" style="overflow:hidden">
+            <div id="searchResult" style="overflow:hidden; display:" class="mb-1"></div>
             <div id="geoSearchByObjGidResult" style="display:none"></div>
             <div id="phpResponseTxt"></div>
         </div>
-        <div class="col-7 pr-0 pl-2 ">
-            <div class="row w-100 mb-1" id='CFM_plot'
-                 style="position:relative;border:solid 1px #ced4da; height:576px;"></div>
+
+        <div id="top-map" class="col-7">
+            <div class="w-100 mb-1" id='CFM_plot'
+		 style="position:relative;border:solid 1px #ced4da; height:576px;">
+            </div>
         </div>
     </div>
-    <div class="row">
+    <div id="top-select" class="row">
       <div class="col-12">
         <div id="metadata-viewer-container" style="border:solid 1px #ced4da; overflow-x:hidden">
             <table id="metadata-viewer">
@@ -558,7 +570,7 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
             </table>
         </div>
       </div>
-    </div>
+    </div> <!-- top-select -->
 </div>
 
 <div class="row">&nbsp;</div>
@@ -727,7 +739,7 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
         </div>
       </div>
       <div class="modal-footer justify-content-center">
-        <button type="button" class="close" data-dismiss="modal" onclick="$('#sidebar').show();">&times;</button>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
     </div> <!--Content-->
@@ -798,7 +810,7 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
         </div>
       </div>
       <div class="modal-footer justify-content-center">
-        <button type="button" class="close" data-dismiss="modal" onclick="$('#sidebar').show();">&times;</button>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
     </div> <!--Content-->

@@ -1,4 +1,43 @@
+
 /* cfm viewer required styles */
+
+/* make unicode earth button */
+.unicode-earth-button {
+  display: inline-block;
+  white-space: nowrap;
+  width: auto;
+  padding: 0px 0px;
+  margin: 0.2em 0;
+  font-size: 1em;
+  color: white;
+  background-color: #3399cc;
+  border-radius: 0px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  transition: all 300ms ease;
+  border:0;
+  box-shadow:none;
+  text-shadow:none;
+}
+
+button.unicode-earth-button {
+  cursor: pointer;
+  overflow: visible;
+}
+
+.unicode-earth-button:before {
+content: "\1F30E";
+  padding-right: 0px;
+}
+
+.unicode-earth-button:focus {
+ outline: 0;
+}
+
+.unicode-earth-button:hover {
+  opacity: 0.9;
+  transition: all 180ms ease;
+}
 
 #refreshBtn {
   font-size: 4px;
