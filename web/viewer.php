@@ -138,8 +138,9 @@ $header = getHeader("Viewer");
 <div class="container">
 
 <div class="main">
-    <div class="row" style="float:right" >
-      <button id="bigMapBtn" class="btn unicode-earth-button" title="Expand into a larger map" style="background-color:white;display:" onclick="toggleBigMap()"></button>
+    <div class="row" style="float:right;" >
+      <button id="bigMapOneBtn" class="btn btn-default mt-2" title="Expand into a larger map" style="color=black;background-color:white;display:none" onclick="toggleBigMap()"><span class="fas fa-expand"></span>
+</button>
     </div>
 <!-- trace dumping buttons -->
     <div style="display:none">
@@ -161,7 +162,7 @@ $header = getHeader("Viewer");
     </div>
 
 <!-- top-intro -->
-    <div id="top-intro" class="row" style="display:">
+    <div id="top-intro" style="display:">
 <p>
 The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model (CFM)</a> are three-dimensional and non-planar; however, to simplify browsing the model, the viewer below provides a two-dimensional map-based view of the SCEC CFM version 5.3 preferred fault set. The alternative fault representations are only provided in the complete CFM archive available for download on the <a href="https://www.scec.org/research/cfm">CFM homepage</a>. Here, the viewer allows users to view and download fault geometry data as well as metadata for selected faults rather than downloading the entire CFM model archive. Once faults are selected, the “PLOT3D” button can be used to view the selected faults in a basic CAD-like environment. See the user guide for more details and site usage instructions.
 </p>
@@ -180,7 +181,7 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
     </div>
 
 <!-- top-control -->
-    <div id="dummy-row" class="row" style="display:none"><br></div>
+    <div id="dummy-row" class="row" style="display:none"></div>
     <div id="top-control">
       <div id="controls-container" class="row d-flex mb-1" style="display:none" >
         <div class="col-3 mb-0">
@@ -407,11 +408,9 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
 <button id="kmlSelectBtn" class="btn" style="color:#990000;background:white;padding:0.25rem 0.5rem;display:none" onclick='updateKMLSelect()'  data-toggle="modal" data-target="#modalkmlselect"><span class="fas fa-circle"></span></button>
         </div>
 <!-- Sesimicity -->
-        <div class="col-3 mt-1 pl-0"> 
+        <div class="col-2 mt-1 pl-0"> 
 <div id="loadSeismicity" class="row" style="width:20rem;display:">
-
-<div id="quakeInfoTip" data-toggle="modal" data-target="#modalinfoquake" style='display:'></div>
-<button id="quakesBtn" class="btn" onClick="loadSeismicity()" onmouseover='showSeismicityInfo()' style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.25rem 0.5rem;display:">Load relocated seismicity</button>
+<button id="quakesBtn" class="btn" onClick="loadSeismicity()" title="This loads the updated Hauksson et al. (2012) and Ross et al. (2019) relocated earthquake catalogs and provides a pull-down menu with options to color by depth, magnitude, or time. Significant historical events (1900-2021 >M6.0) are shown with red dots. These can be turned on/off by clicking on the red dot which appears here once the catalogs have been loaded" style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.25rem 0.5rem;display:">Load relocated seismicity</button>
 
 </div>
 <div id="showSeismicity" class="row" style="width:20rem; display:none">
@@ -432,6 +431,9 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
 </select>
 <button id="toggleHistoricalBtn" class="btn" title="Highlight significant earthquakes" style="color:red;background:white" onclick="toggleHistorical()"><span class="fas fa-circle fa-xs"></span></button>
 </div>
+        </div>
+	<div class="col-1 mt-1">
+            <button id="bigMapTwoBtn" class="btn btn-default mt-1" title="Expand into a larger map" style="float:right;background-color:white;display:" onclick="toggleBigMap()"><span class="fas fa-expand"></span>
         </div>
         <div class="col-4 d-flex justify-content-end">
             <div class="input-group input-group-sm cfm-input-group mt-2" id="map-controls">
@@ -461,6 +463,7 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
             </div>
 -->
         </div>
+
       </div>
     </div> <!-- top-control -->
 
@@ -723,25 +726,6 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
     </div> <!--Content-->
   </div>
 </div> <!--Modal: modalinfo3d-->
-
-<!--Modal: Model (modalinfoquake) -->
-<div class="modal" id="modalinfoquake" onmouseout='hideSeismicityInfo()' tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg" id="modalinfoquakeDialog" role="document">
-
-    <!--Content-->
-    <div class="modal-content" id="modalinfoquakeContent">
-      <!--Body-->
-      <div class="modal-body" id="modalinfoquakeBody">
-        <div class="row col-md-12 ml-auto" style="overflow:hidden;">
-          <div class="col-12" style="font-size:14pt">
-<p> This loads the updated Hauksson et al. (2012) and Ross et al. (2019) relocated earthquake catalogs and provides a pull-down menu with options to color by depth, magnitude, or time. Significant historical events (1900-2021 >M6.0) are shown with red dots. These can be turned on/off by clicking on the red dot which appears here once the catalogs have been loaded </p>
-          </div>
-        </div>
-      </div>
-
-    </div> <!--Content-->
-  </div>
-</div> <!--Modal: modalinfoquake-->
 
 <!--Modal: Model(modalshare) -->
 <div class="modal" id="modalshare" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

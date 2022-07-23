@@ -25,19 +25,26 @@ resize_map();
 function _toMinView()
 {
 let height=window.innerHeight;
+let width=window.innerWidth;
+
+	window.console.log("--->  %d X %d \n", width, height);
+
+$('#bigMapOneBtn').css("display", "");
 $('#dummy-row').css("display", "");
 $('#top-control').css("display", "none");
 $('#top-select').css("display", "none");
-$('#CFM_plot').css("height", height* 0.80);
+$('#CFM_plot').css("height", height* 0.8);
 resize_map();
 }
 
 function _toNormalView()
 {
+$('#bigMapOneBtn').css("display", "none");
 $('#dummy-row').css("display", "none");
 $('#top-control').css("display", "");
 $('#top-select').css("display", "");
 $('#CFM_plot').css("height", "576px");
+$('#CFM_plot').css("width", "635px");
 
 $('#top-intro').css("display", "");
 $('#searchResult').css("display", "");
@@ -90,20 +97,7 @@ function updatePrograssBar(width) {
   elm.val(n);
 }
 
-function showSeismicityInfo() {
-window.console.log("IN showSeisimicityInfo..");
-  $('#quakesBtn').removeAttr('onmouseover');
-  $('#modalinfoquake').modal('show');
-}
-
-function hideSeismicityInfo() {
-window.console.log("IN hideSeisimicityInfo..");
-  $('#modalinfoquake').removeAttr('onmouseover');
-  $("#modalinfoquake").modal('hide');
-}
-
 function loadSeismicity() {
-window.console.log("LOADING SEISMICITY..");
    if(seismicity_loaded == false) {
      initForPixiOverlay(); 
      if( seismicity_from_cache ) {
