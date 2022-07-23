@@ -138,10 +138,6 @@ $header = getHeader("Viewer");
 <div class="container">
 
 <div class="main">
-    <div class="row" style="float:right;" >
-      <button id="bigMapOneBtn" class="btn btn-default mt-2" title="Expand into a larger map" style="color=black;background-color:white;display:none" onclick="toggleBigMap()"><span class="fas fa-expand"></span>
-</button>
-    </div>
 <!-- trace dumping buttons -->
     <div style="display:none">
       <script type="text/javascript" src="js/cfm_misc_util.js?v=1"></script>
@@ -181,7 +177,6 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
     </div>
 
 <!-- top-control -->
-    <div id="dummy-row" class="row" style="display:none"></div>
     <div id="top-control">
       <div id="controls-container" class="row d-flex mb-1" style="display:none" >
         <div class="col-3 mb-0">
@@ -408,7 +403,7 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
 <button id="kmlSelectBtn" class="btn" style="color:#990000;background:white;padding:0.25rem 0.5rem;display:none" onclick='updateKMLSelect()'  data-toggle="modal" data-target="#modalkmlselect"><span class="fas fa-circle"></span></button>
         </div>
 <!-- Sesimicity -->
-        <div class="col-2 mt-1 pl-0"> 
+        <div class="col-3 mt-1 pl-0"> 
 <div id="loadSeismicity" class="row" style="width:20rem;display:">
 <button id="quakesBtn" class="btn" onClick="loadSeismicity()" title="This loads the updated Hauksson et al. (2012) and Ross et al. (2019) relocated earthquake catalogs and provides a pull-down menu with options to color by depth, magnitude, or time. Significant historical events (1900-2021 >M6.0) are shown with red dots. These can be turned on/off by clicking on the red dot which appears here once the catalogs have been loaded" style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.25rem 0.5rem;display:">Load relocated seismicity</button>
 
@@ -432,9 +427,7 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
 <button id="toggleHistoricalBtn" class="btn" title="Highlight significant earthquakes" style="color:red;background:white" onclick="toggleHistorical()"><span class="fas fa-circle fa-xs"></span></button>
 </div>
         </div>
-	<div class="col-1 mt-1">
-            <button id="bigMapTwoBtn" class="btn btn-default mt-1" title="Expand into a larger map" style="float:right;background-color:white;display:" onclick="toggleBigMap()"><span class="fas fa-expand"></span>
-        </div>
+<!-- Map Select -->
         <div class="col-4 d-flex justify-content-end">
             <div class="input-group input-group-sm cfm-input-group mt-2" id="map-controls">
                 <div class="input-group-prepend">
