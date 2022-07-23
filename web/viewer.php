@@ -139,7 +139,7 @@ $header = getHeader("Viewer");
 
 <div class="main">
     <div class="row" style="float:right" >
-      <button id="bigMapBtn" class="btn unicode-earth-button" style="background-color:white;display:" onclick="toggleBigMap()"></button>
+      <button id="bigMapBtn" class="btn unicode-earth-button" title="Expand into a larger map" style="background-color:white;display:" onclick="toggleBigMap()"></button>
     </div>
 <!-- trace dumping buttons -->
     <div style="display:none">
@@ -206,7 +206,7 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
                       class="btn btn-default cfm-small-btn pl-4 mt-2" onclick="recordActiveReference()" disabled>
                       <span class="glyphicon glyphicon-record"></span>
                   </button>
-                  <button id="lastRecordedReferenceBtn" title="refresh to last recorded reference fault set"
+                  <button id="lastRecordedReferenceBtn" title="Refresh to last recorded reference fault set"
                       class="btn btn-default cfm-small-btn mt-2" onclick="resetLastRecordReference()" disabled>
                       <span class="fas fa-step-backward"></span>
                   </button>
@@ -259,7 +259,7 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
                                        </div>
 <!--
                                        <div class="col-2 pr-0 align-items-center">
-                                           <button id="strikeBtn" type="button" title="search with strike range"
+                                           <button id="strikeBtn" type="button" title="Search with strike range"
                                                    class="btn btn-default cfm-small-btn " onclick="setupSearchByStrike()">
                                                <span class="glyphicon glyphicon-search"></span>
                                            </button>
@@ -298,7 +298,7 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
                                        </div>
 <!--
                                        <div class="col-2 pr-0 align-items-center">
-                                           <button id="dipBtn" type="button" title="search with an average dip range"
+                                           <button id="dipBtn" type="button" title="Search with an average dip range"
                                                    class="btn btn-default cfm-small-btn " onclick="setupSearchByDip()">
                                                <span class="glyphicon glyphicon-search"></span>
                                            </button>
@@ -322,7 +322,7 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
                                                class="form-control"
                                                onfocus="this.value=''" style=""/>
 <!--
-                                        <button id="keywordBtn" type="button" title="search with keyword"
+                                        <button id="keywordBtn" type="button" title="Search with keyword"
                                                 class="btn btn-default cfm-small-btn pl-3" onclick="searchByKeyword()">
                                             <span class="glyphicon glyphicon-search"></span>
                                         </button>
@@ -368,7 +368,7 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
                                     </div>
 <!--
                                     <div class="col-1 pr-0 align-items-center">
-                                        <button id="latlonBtn" type="button" title="search with latlon"
+                                        <button id="latlonBtn" type="button" title="Search with latlon"
                                                 class="btn btn-default cfm-small-btn " onclick="searchByLatlon(0)">
                                             <span class="glyphicon glyphicon-search"></span>
                                         </button>
@@ -387,7 +387,7 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
                                    <div class="" style="margin-left:20px; margin-top:10px">
 
                               <div class=""> Object gid:&bsp;<input type="text" id="objGidTxt" onfocus="this.value=''" style="right-margin:10px; border:1px solid black; color:orange; text-align:center;">
-                               <button id="objGidBtn" type="button" title="search with object gid" class="btn btn-default" onclick="getGeoJSONbyObjGid()">
+                               <button id="objGidBtn" type="button" title="Search with object gid" class="btn btn-default" onclick="getGeoJSONbyObjGid()">
                                     <span class="glyphicon glyphicon-search"></span>
                                </button>
                              </div>
@@ -409,11 +409,10 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
 <!-- Sesimicity -->
         <div class="col-3 mt-1 pl-0"> 
 <div id="loadSeismicity" class="row" style="width:20rem;display:">
-<!--
-  <button id="quakeInfoBtn" class="btn" data-toggle="modal" data-target="#modalinfoquake" style='display:none'></button>
-  <button id="quakesBtn" class="btn" onClick="loadSeismicity()" onmouseover='showSeismicityInfo()' style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.25rem 0.5rem;display:">Load relocated seismicity</button>
--->
-  <button id="quakesBtn" class="btn" onClick="loadSeismicity()" title="tooltip_text" style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.25rem 0.5rem;display:">Load relocated seismicity</button>
+
+<div id="quakeInfoTip" data-toggle="modal" data-target="#modalinfoquake" style='display:'></div>
+<button id="quakesBtn" class="btn" onClick="loadSeismicity()" onmouseover='showSeismicityInfo()' style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.25rem 0.5rem;display:">Load relocated seismicity</button>
+
 </div>
 <div id="showSeismicity" class="row" style="width:20rem; display:none">
 <select id="seismicitySelect" onchange="changePixiOverlay(this.value)"
@@ -431,7 +430,7 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
    <option value="historicaltime">Historical by time</option>
 -->
 </select>
-<button id="toggleHistoricalBtn" class="btn" title="highlight significant earthquakes" style="color:red;background:white" onclick="toggleHistorical()"><span class="fas fa-circle fa-xs"></span></button>
+<button id="toggleHistoricalBtn" class="btn" title="Highlight significant earthquakes" style="color:red;background:white" onclick="toggleHistorical()"><span class="fas fa-circle fa-xs"></span></button>
 </div>
         </div>
         <div class="col-4 d-flex justify-content-end">
@@ -726,7 +725,7 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
 </div> <!--Modal: modalinfo3d-->
 
 <!--Modal: Model (modalinfoquake) -->
-<div class="modal" id="modalinfoquake" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal" id="modalinfoquake" onmouseout='hideSeismicityInfo()' tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg" id="modalinfoquakeDialog" role="document">
 
     <!--Content-->
@@ -778,7 +777,7 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
           <div class="row col-md-12 ml-0" style="font-size:14pt;">
             <div id='externalTSList'></div>
             <div class="col">
-              <button class="btn cfm-small-btn pull-right" title="disable Evaluation Mode color schema" onclick="disableEvalColorMode()"><span class="fas fa-caret-up" id="evalBtn"></span>
+              <button class="btn cfm-small-btn pull-right" title="Disable Evaluation Mode color schema" onclick="disableEvalColorMode()"><span class="fas fa-caret-up" id="evalBtn"></span>
               </button>
             </div>
           </div>

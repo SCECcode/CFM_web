@@ -7,8 +7,6 @@ var showing_key = false;
 
 var big_map=0; // 0,1(some control),2(none)
 
-var seismicity_info = 0;
-
 var seismicity_loaded = false;
 var seismicity_from_cache = true;
 
@@ -92,27 +90,16 @@ function updatePrograssBar(width) {
   elm.val(n);
 }
 
-function hideSeismicityInfo() {
-  seismicity_info += 1;
-window.console.log("HUMHUM..%d",seismicity_info);
-  if(seismicity_info > 5) {
-window.console.log("calling hideSeismicityInfo..");
-    $('#modalinfoquake').unbind('mouseover');
-    $('#modalinfoquake').modal('hide');
-    } else {
-window.console.log("calling hideSeismicityInfo.. NOT YET");
-  }
+function showSeismicityInfo() {
+window.console.log("IN showSeisimicityInfo..");
+  $('#quakesBtn').removeAttr('onmouseover');
+  $('#modalinfoquake').modal('show');
 }
 
-function showSeismicityInfo() {
-window.console.log("calling showSeismicityInfo.. LOOKING");
-  if(seismicity_info == 0) {
-window.console.log("calling showSeismicityInfo.. SET it");
-    $("#quakeInfoBtn").click();
-//XX setup to capture any mouse key movement ?
-    $('#modalinfoquake').on('mouseover','', hideSeismicityInfo());
-    seismicity_info = 1;
-  }
+function hideSeismicityInfo() {
+window.console.log("IN hideSeisimicityInfo..");
+  $('#modalinfoquake').removeAttr('onmouseover');
+  $("#modalinfoquake").modal('hide');
 }
 
 function loadSeismicity() {
