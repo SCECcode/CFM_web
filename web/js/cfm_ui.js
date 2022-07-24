@@ -27,23 +27,30 @@ function _toMinView()
 let height=window.innerHeight;
 let width=window.innerWidth;
 
-	window.console.log("--->  %d X %d \n", width, height);
-
-$('#dummy-row').css("display", "");
 $('#top-control').css("display", "none");
 $('#top-select').css("display", "none");
-$('#CFM_plot').css("height", height* 0.8);
-$('#CFM_plot').css("width", "100%");
+$('.navbar').css("margin-bottom", "0px");
+$('.container').css("max-width", "100%");
+$('.container').css("padding-left", "0px");
+$('.container').css("padding-right", "0px");
+// minus the height of the container top 
+let c_height = document.getElementById('banner-container').clientHeight;
+let d = height - c_height - 10;
+window.console.log( "height: %d, %d > %d \n",height, c_height,d);
+$('#CFM_plot').css("height", d);
 resize_map();
 }
 
 function _toNormalView()
 {
-$('#dummy-row').css("display", "none");
 $('#top-control').css("display", "");
 $('#top-select').css("display", "");
 $('#CFM_plot').css("height", "576px");
 $('#CFM_plot').css("width", "635px");
+$('.navbar').css("margin-bottom", "20px");
+$('.container').css("max-width", "1140px");
+$('.container').css("padding-left", "15px");
+$('.container').css("padding-right", "15px");
 
 $('#top-intro').css("display", "");
 $('#searchResult').css("display", "");

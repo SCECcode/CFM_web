@@ -673,11 +673,13 @@ nav.navbar .nav-link.disabled {
     background-color: #FFFFFF;
 }
 
+/**** XXX
 @media only screen and (max-width: 768px) {
     .scec-main-container {
         border: 0px;
     }
 }
+****/
 
 label {
     font-weight: bold;
