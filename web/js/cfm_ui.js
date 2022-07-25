@@ -18,7 +18,6 @@ $('#infoData').removeClass('col-5').addClass('col-0');
 $('#top-map').removeClass('col-7').addClass('row');
 $('#actualData').removeClass('pl-2').addClass('pl-4');
 $('#mapDataBig').addClass('col-12').removeClass('row');
-// tell leaflet to reset the size
 resize_map();
 }
 
@@ -34,10 +33,14 @@ $('.container').css("max-width", "100%");
 $('.container').css("padding-left", "0px");
 $('.container').css("padding-right", "0px");
 // minus the height of the container top 
-let c_height = document.getElementById('banner-container').clientHeight;
-let d = height - c_height - 10;
-window.console.log( "height: %d, %d > %d \n",height, c_height,d);
-$('#CFM_plot').css("height", d);
+let elt = document.getElementById('banner-container');
+let c_height = elt.clientHeight;
+let h = height - c_height-4.5;
+let w = width - 15;
+//window.console.log( "height: %d, %d > %d \n",height, c_height,h);
+//window.console.log( "width: %d, %d  \n",width, w);
+$('#CFM_plot').css("height", h);
+$('#CFM_plot').css("width", w);
 resize_map();
 }
 
@@ -58,6 +61,7 @@ $('#infoData').addClass('col-5').removeClass('col-0');
 $('#top-map').removeClass('row').addClass('col-7');
 $('#actualData').removeClass('pl-4').addClass('pl-2');
 $('#mapDataBig').removeClass('col-12').addClass('row');
+resize_map();
 }
 
 function toggleBigMap()

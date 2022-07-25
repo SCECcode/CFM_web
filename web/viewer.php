@@ -399,8 +399,8 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
 <!-- upload KML/KMZ overlay -->
 	<div class="col-2 mt-1">
 <input id="fileKML" type='file' onchange='uploadKMLFile(this.files)' style='display:none;'></input>
-<button id="kmlBtn" class="btn" onclick='javascript:document.getElementById("fileKML").click();' style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.25rem 0.5rem;"><span>Upload kml/kmz</span></button>
-<button id="kmlSelectBtn" class="btn" style="color:#990000;background:white;padding:0.25rem 0.5rem;display:none" onclick='updateKMLSelect()'  data-toggle="modal" data-target="#modalkmlselect"><span class="fas fa-circle"></span></button>
+<button id="kmlBtn" class="btn" onclick='javascript:document.getElementById("fileKML").click();' title="Upload your own kml/kmz file to be displayed on the map interface. We currently support points, lines, paths, polygons, and image overlays (kmz only)." style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.25rem 0.5rem;"><span>Upload kml/kmz</span></button>
+<button id="kmlSelectBtn" class="btn" title="Show/Hide uploaded kml/kmz files"  style="color:#990000;background:white;padding:0.25rem 0.5rem;display:none" onclick='updateKMLSelect()'  data-toggle="modal" data-target="#modalkmlselect"><span class="fas fa-circle"></span></button>
         </div>
 <!-- Sesimicity -->
         <div class="col-3 mt-1 pl-0"> 
@@ -424,13 +424,13 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
    <option value="historicaltime">Historical by time</option>
 -->
 </select>
-<button id="toggleHistoricalBtn" class="btn" title="Highlight significant earthquakes" style="color:red;background:white" onclick="toggleHistorical()"><span class="fas fa-circle fa-xs"></span></button>
+<button id="toggleHistoricalBtn" class="btn" title="Show/Hide significant historic earthquakes (>M6) since 1900" style="color:red;background:white" onclick="toggleHistorical()"><span class="fas fa-circle fa-xs"></span></button>
 </div>
         </div>
 <!-- Map Select -->
         <div class="col-4 d-flex justify-content-end">
-            <div class="input-group input-group-sm cfm-input-group mt-2" id="map-controls">
-                <div class="input-group-prepend">
+	    <div class="input-group input-group-sm cfm-input-group mt-2" id="map-controls">
+                <div class="input-group-prepend" title="Change the basemap imagery">
                     <label class="input-group-text" for="mapLayer">Select Map Type</label>
                 </div>
                 <select id="mapLayer" class="custom-select custom-select-sm" style="width:auto;" onchange="switchLayer(this.value);">
@@ -492,7 +492,7 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
                     <th><div class="col text-center">
                             <div class="btn-group download-now">
 <!-- MODAL popup button, reuse download-counter -->
-                                <button id="plot3d-all" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
+                                <button id="plot3d-all" type="button" title="Plots the selected faults in an interactive 3D environment" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false" disabled>
                                     Plot3d <span id="plot-counter"></span>
                                 </button>
@@ -518,7 +518,7 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
                             </div>
                             &nbsp
                             <div class="btn-group download-now">
-                                <button id="download-all" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
+                                <button id="download-all" type="button" title="Download options for the selected fault objects" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false" disabled>
                                     Download<span id="download-counter"></span>
                                 </button>
@@ -569,7 +569,6 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
     </div> <!-- top-select -->
 </div>
 
-<div class="row">&nbsp;</div>
 <div id='queryBlock' class="col-6" style="overflow:hidden;display:;"> </div> <!-- query block -->
 
 <div id="dip-strike-key-container" style="display:none;">

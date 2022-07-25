@@ -439,7 +439,8 @@ function makeLeafletMarker2(bounds,size) {
 }
 
 
-function addMarkerLayerGroup(latlng,description) {
+// icon size 8 
+function addMarkerLayerGroup(latlng,description,sz) {
   var cnt=latlng.length;
   if(cnt < 1)
     return null;
@@ -448,7 +449,7 @@ function addMarkerLayerGroup(latlng,description) {
      var bounds = latlng[i];
      var desc = description[i];
      var cname="quake-color-historical default-point-icon";
-     var marker=makeLeafletMarker(bounds,cname,8);
+     var marker=makeLeafletMarker(bounds,cname,sz);
      marker.bindTooltip(desc);
      markers.push(marker);
   }
