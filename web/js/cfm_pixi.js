@@ -506,7 +506,7 @@ function setup_pixi(quake_type) {
   // this is used to simulate leaflet zoom animation timing:
   var loader = new PIXI.loaders.Loader();
 
-//window.console.log("setup_pixi loading >>>"+ quake_type);
+window.console.log("setup_pixi loading >>>"+ quake_type);
  
   if(loadOnce) {
     init_pixi(loader);
@@ -692,12 +692,13 @@ function toggleMarkerContainer(target_type,target_segment) {
 }
 
 function makePixiOverlayLayer(quake_type) {
+
     var zoomChangeTs = null;
 
     var pixiContainer = new PIXI.Container();
     var pContainers=[]; //particle container
 
-//window.console.log("making pixi overlay layer..");
+window.console.log("making pixi overlay layer..%d", quake_type);
 
     for(var i=0; i<DATA_SEGMENT_COUNT; i++) {
       var length=getMarkerCount(quake_type,i);
@@ -739,7 +740,8 @@ function makePixiOverlayLayer(quake_type) {
         initialScale = invScale / 16; // initial size of the marker
 //initialScale = invScale / 2; // initial size of the marker
 
-//window.console.log("First time making this pixiOverlay,"+quake_type+" initial scale "+initialScale +" mapzoom" + mapzoom);
+window.console.log("First time making this pixiOverlay,"+quake_type+" initial scale("+initialScale +") mapzoom" + mapzoom);
+
         //printMarkerLatlngInfo(quake_type);
 
         // fill in the particles
@@ -778,9 +780,10 @@ function makePixiOverlayLayer(quake_type) {
         var targetZoom = event.zoom;
         if (targetZoom >= eq_zoom_threshold || zoom >= eq_zoom_threshold) {
           zoomChangeTs = 0;
-          var targetScale = targetZoom >= eq_zoom_threshold ? (1 / getScale(event.zoom))/10  : initialScale;
+          var targetScale = targetZoom >= eq_zoom_threshold ? (1 / getScale(event.zoom))/6  : initialScale;
+//XXX          var targetScale = targetZoom >= eq_zoom_threshold ? (1 / getScale(event.zoom))/10  : initialScale;
 
-//window.console.log(" ZOOManim.. new targetScale "+targetScale);
+window.console.log(" >>>  ZOOManim.. initialScale("+initialScale+") targetScale("+targetScale+")");
 
           pContainers.forEach(function(innerContainer) {
             innerContainer.currentScale = innerContainer.localScale;

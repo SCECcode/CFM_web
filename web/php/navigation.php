@@ -33,12 +33,6 @@ function getHeader($this_page) {
  		</li>
 _END;
 	}
-        ### add expand
-	$page_links_html .= <<<_EXPAND
-	<li class="nav-item $active" style="padding:1rem 0rem;">
-	   <button id="bigMapOneBtn" class="btn" title="Expand into a larger map" style="background-color:transparent;color:white;" onclick="toggleBigMap()"><span class="fas fa-expand"></span></button>
- 	</li>
-_EXPAND;
 
 	$header = <<<_END
 <div id="banner-container" class="banner-container">

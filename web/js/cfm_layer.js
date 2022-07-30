@@ -1047,7 +1047,7 @@ function makeHistoricalEQLayer() {
    //   collect up latlng, description list, "red"
    cfm_quake_historical_layer=addMarkerLayerGroup(
                            cfm_quake_historical_latlng,
-                           cfm_quake_historical_description, 6);
+                           cfm_quake_historical_description, 8);
 };
 
 function toggleHistorical() {
