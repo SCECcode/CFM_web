@@ -134,7 +134,7 @@ const QUAKE_TYPE_ROSS=2;
 const QUAKE_TYPE_HISTORICAL=3;
 const QUAKE_TYPE_BUCKET=4;
 
-var showing_historical=false;
+var showing_historical=0; // 0(none),1(large),2(small)
 
 // for tracking groups of earthquakes for HISTORICAL dataset
 var cfm_quake_historical_layer=null;
@@ -1040,13 +1040,14 @@ function add_bounding_rectangle_layer(layer, a,b,c,d) {
 }
 
 /*********************************************************
+ 42 of them, significant historic earthquakes (>M6) since 1900
 *********************************************************/
 function makeHistoricalEQLayer() {
    // create a group layer with many marker within..
    //   collect up latlng, description list, "red"
    cfm_quake_historical_layer=addMarkerLayerGroup(
                            cfm_quake_historical_latlng,
-                           cfm_quake_historical_description);
+                           cfm_quake_historical_description, 8);
 };
 
 function toggleHistorical() {

@@ -11,7 +11,7 @@ var seismicity_map_zoom_level = 9;
 var enable_seismicity=0; // retrieve local seismicity on zoom demand
 var fault_width_change=0;
 
-var scecAttribution ='<a href="https://www.scec.org">SCEC</a>';
+var scecAttribution ='<a href="https://www.scec.org">SCEC</a><button id="bigMapBtn" class="btn cfm-small-btn" title="Expand into a larger map" style="padding: 0rem 0rem 0rem 0.5rem" onclick="toggleBigMap()"><span class="fas fa-expand"></span></button>';
 
 var rectangle_options = {
        showArea: false,
@@ -34,6 +34,11 @@ var visibleFaults = new L.FeatureGroup();
 function clear_popup()
 {
   viewermap.closePopup();
+}
+
+function resize_map()
+{
+  viewermap.invalidateSize();
 }
 
 function refresh_map()
@@ -434,7 +439,8 @@ function makeLeafletMarker2(bounds,size) {
 }
 
 
-function addMarkerLayerGroup(latlng,description) {
+// icon size 8 
+function addMarkerLayerGroup(latlng,description,sz) {
   var cnt=latlng.length;
   if(cnt < 1)
     return null;
@@ -443,7 +449,7 @@ function addMarkerLayerGroup(latlng,description) {
      var bounds = latlng[i];
      var desc = description[i];
      var cname="quake-color-historical default-point-icon";
-     var marker=makeLeafletMarker(bounds,cname,8);
+     var marker=makeLeafletMarker(bounds,cname,sz);
      marker.bindTooltip(desc);
      markers.push(marker);
   }

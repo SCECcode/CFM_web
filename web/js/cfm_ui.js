@@ -5,8 +5,83 @@
 var cfm_select_count=0;
 var showing_key = false;
 
+var big_map=0; // 0,1(some control),2(none)
+
 var seismicity_loaded = false;
 var seismicity_from_cache = true;
+
+function _toMedView()
+{
+$('#top-intro').css("display", "none");
+$('#searchResult').css("display", "none");
+$('#infoData').removeClass('col-5').addClass('col-0');
+$('#top-map').removeClass('col-7').addClass('row');
+$('#actualData').removeClass('pl-2').addClass('pl-4');
+$('#mapDataBig').addClass('col-12').removeClass('row');
+resize_map();
+}
+
+function _toMinView()
+{
+let height=window.innerHeight;
+let width=window.innerWidth;
+
+$('#top-control').css("display", "none");
+$('#top-select').css("display", "none");
+$('.navbar').css("margin-bottom", "0px");
+$('.container').css("max-width", "100%");
+$('.container').css("padding-left", "0px");
+$('.container').css("padding-right", "0px");
+// minus the height of the container top 
+let elt = document.getElementById('banner-container');
+let c_height = elt.clientHeight;
+let h = height - c_height-4.5;
+let w = width - 15;
+//window.console.log( "height: %d, %d > %d \n",height, c_height,h);
+//window.console.log( "width: %d, %d  \n",width, w);
+$('#CFM_plot').css("height", h);
+$('#CFM_plot').css("width", w);
+resize_map();
+}
+
+function _toNormalView()
+{
+$('#top-control').css("display", "");
+$('#top-select').css("display", "");
+$('#CFM_plot').css("height", "576px");
+$('#CFM_plot').css("width", "635px");
+$('.navbar').css("margin-bottom", "20px");
+$('.container').css("max-width", "1140px");
+$('.container').css("padding-left", "15px");
+$('.container').css("padding-right", "15px");
+
+$('#top-intro').css("display", "");
+$('#searchResult').css("display", "");
+$('#infoData').addClass('col-5').removeClass('col-0');
+$('#top-map').removeClass('row').addClass('col-7');
+$('#actualData').removeClass('pl-4').addClass('pl-2');
+$('#mapDataBig').removeClass('col-12').addClass('row');
+resize_map();
+}
+
+function toggleBigMap()
+{
+  switch (big_map)  {
+    case 0:
+      big_map=1;
+      _toMedView();		   
+      break;
+    case 1:
+      big_map=2;
+      _toMinView();		   
+      break;
+    case 2:
+      big_map=0;
+      _toNormalView();		   
+      break;
+  }
+}
+
 
 // dump the quake layer into file
 function dumpAllQuakeLayer() {
@@ -33,7 +108,6 @@ function updatePrograssBar(width) {
 }
 
 function loadSeismicity() {
-window.console.log("LOADING SEISMICITY..");
    if(seismicity_loaded == false) {
      initForPixiOverlay(); 
      if( seismicity_from_cache ) {
@@ -46,12 +120,12 @@ window.console.log("LOADING SEISMICITY..");
 }
 
 function finishLoadSeismicity() {
-     setup_pixi(EQ_HAUKSSON_FOR_DEPTH);
-     addHistoricalEQLayer();
-     seismicity_loaded = true;
-     showSeismicityKey("hauksson_depth");
-     $('#showSeismicity').css("display", "");
-     $('#loadSeismicity').css("display", "none");
+    setup_pixi(EQ_HAUKSSON_FOR_DEPTH);
+    addHistoricalEQLayer();
+    seismicity_loaded = true;
+    showSeismicityKey("hauksson_depth");
+    $('#showSeismicity').css("display", "");
+    $('#loadSeismicity').css("display", "none");
 }
 
 function disable_record_btn() {

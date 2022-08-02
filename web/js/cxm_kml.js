@@ -116,25 +116,25 @@ function uploadKMLFile(urls) {
   reader.onload=function(event) {
     var result =reader.result;
 
-    const parser = new DOMParser();
-    const kml = parser.parseFromString(result, 'text/xml');
-    const kmlLayer =new L.KML(kml);
+    var kmlLayer = L.kmzLayer();
+    kmlLayer.parse(result, { name: fname, icons: {} });
 
 //  add to kml table
     let tidx=addToKMLSelectTable(fname);
 
     kml_layer_list.push({"layer":kmlLayer,"name":fname,"visible":1,"idx":tidx });
-    //mymap.addLayer(kmlLayer);
     $('#kmlSelectBtn').css("display", "");
 
     removeKMLGroup();
     addKMLGroup();
 
-    const bounds = kmlLayer.getBounds();
-    mymap.fitBounds(bounds);
-
+    // only if kml file type
+    if( stub.toUpperCase() === ".KML" ) {
+      const bounds = kmlLayer.getBounds();
+      mymap.fitBounds(bounds);
+    }
   };
-  reader.readAsText(urls[0]);
+  reader.readAsArrayBuffer(urls[0]);
 }
 
 

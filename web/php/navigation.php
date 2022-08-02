@@ -30,11 +30,12 @@ function getHeader($this_page) {
 		$page_links_html .= <<<_END
 		 <li class="nav-item $active">
 			<a class="nav-link" href="${url}">${page}</a>
-		</li>
+ 		</li>
 _END;
 	}
+
 	$header = <<<_END
-<div class="banner-container">
+<div id="banner-container" class="banner-container">
     <div class="container top">
         <nav class="navbar navbar-expand-lg navbar-dark  scec-header">
             <a class="navbar-brand" href="$host_site_actual_path"><img class="scec-logo" src="img/sceclogo_transparent.png">

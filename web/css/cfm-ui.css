@@ -1,7 +1,7 @@
 /* cfm viewer required styles */
 
 #refreshBtn {
-  font-size: 4px;
+//  font-size: 4px;
   height: calc(2.25rem + 2px); 
 }
 
@@ -194,7 +194,7 @@ input, select, .custom-select, .input-group-text {
 }
 
 select:focus{
-    outline: none
+    outline: none;
 }
 
 
@@ -448,20 +448,6 @@ div.mapData {
     font-weight: bold;
 }
 
-.cfm-top-small-btn {
-    background: white;
-    padding: 1px 1px;
-    /*font-size: 14px;*/
-    color: #011638;
-    /*
-              color: #6c6cff;
-    */
-    width: 2vw;
-    height: 3vh;
-    display: inline-block;
-    border-radius: 2px;
-}
-
 .cfm-small-btn {
           background: transparent;
           color: #990000;
@@ -470,15 +456,30 @@ div.mapData {
           padding: 0rem 0.2rem 0rem 0.2rem;
           }
 
-.cfm-small-btn:hover {
+.cfm-small-btn:hover, .cfm-small-btn:active, .cfm-small-btn:focus, .cfm-small-btn:checked {
           color: #DC3545;
+          outline:0 !important;
           border: none;
           display: inline-block;
           }
 
 .cfm-small-btn:disabled {
-         color: white;
-        }
+          color: white;
+          }
+
+
+.cfm-small-2-btn {
+          background: transparent;
+          color: red;
+          border: none;
+          padding: 0.25rem 0.5rem;
+          }
+
+.cfm-small-2-btn:hover, .cfm-small-2-btn:active, .cfm-small-2-btn:focus {
+          color: #990000;
+          outline:0 !important;
+          border: none;
+          }
 
 div.button-container button {
     background: transparent;
