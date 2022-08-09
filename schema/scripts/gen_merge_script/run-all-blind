@@ -1,9 +1,0 @@
-./gen_sql_merge_blind_2.sh
-./gen_sql_merge_blind_3.sh
-./gen_sql_merge_blind_4.sh
-./gen_sql_merge_blind_5.sh
-./gen_sql_merge_blind_7.sh
-./gen_sql_merge_blind_8.sh
-./gen_sql_merge_blind_9.sh
-
-echo "done.."

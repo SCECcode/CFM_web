@@ -1,8 +1,7 @@
 /* cfm viewer required styles */
 
 #refreshBtn {
-//  font-size: 4px;
-  height: calc(2.25rem + 2px); 
+  height: calc(2rem - 1px);
 }
 
 #quakeInfoBtn, #seismicitySelect {
@@ -87,7 +86,7 @@
 }
 
 .custom-select-sm {
-  padding: 0.2rem 0.375rem 0.2rem 0.75rem;    
+  padding: 0.25rem 1.75rem 0.25rem 0.75rem;    
 }
 
 
@@ -453,7 +452,7 @@ div.mapData {
           color: #990000;
           border: none;
           display: inline-block;
-          padding: 0rem 0.2rem 0rem 0.2rem;
+          padding: 0rem 0.2rem 0rem 0.3rem;
           }
 
 .cfm-small-btn:hover, .cfm-small-btn:active, .cfm-small-btn:focus, .cfm-small-btn:checked {
@@ -472,13 +471,15 @@ div.mapData {
           background: transparent;
           color: red;
           border: none;
-          padding: 0.25rem 0.5rem;
+          display: inline-block;
+          padding: 0rem 0.2rem 0rem 0.3rem;
           }
 
 .cfm-small-2-btn:hover, .cfm-small-2-btn:active, .cfm-small-2-btn:focus {
           color: #990000;
           outline:0 !important;
           border: none;
+          display: inline-block;
           }
 
 div.button-container button {

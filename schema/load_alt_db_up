@@ -1,0 +1,29 @@
+#!/bin/bash
+
+dropdb --if-exists CFM6_alt_db 
+createdb CFM6_alt_db
+
+psql postgresql://postgres:example@localhost/CFM6_alt_db << AAA
+
+  CREATE EXTENSION postgis;
+  SELECT PostGIS_Version();
+
+  \i '/home/postgres/CFM/schema/sql/alternative/CFM6_alt_traces_nonblind.sql';
+  \i '/home/postgres/CFM/schema/sql/alternative/CFM6_alt_traces_blind.sql';
+  \i '/home/postgres/CFM/schema/sql/alternative/setup_schema.sql';
+  \i '/home/postgres/CFM/schema/sql/alternative/setup_tbs.sql';
+  \i '/home/postgres/CFM/schema/sql/alternative/setup_object_tb.sql';
+  \i '/home/postgres/CFM/schema/sql/alternative/linkup_traces.sql';
+  \i '/home/postgres/CFM/schema/sql/alternative/add_foreign_key.sql';
+
+  DROP ROLE webonly;
+  CREATE ROLE webonly WITH LOGIN PASSWORD 'scec';
+  GRANT SELECT ON ALL TABLES IN SCHEMA public TO webonly;
+  REVOKE CREATE ON SCHEMA public FROM PUBLIC;
+
+  SELECT UpdateGeometrySRID('trace_tb','geom',4326);
+
+  \dp
+  \q
+
+AAA

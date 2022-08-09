@@ -1,0 +1,22 @@
+
+// identical geometry
+
+select gid from trace_tb where layer='PNRA-CRSF-OCOT-Ocotillo_set1-CFM4-trace';
+
+ gid 
+-----
+ 429
+ 430
+(2 rows)
+
+// confliciting blinds
+
+select gid,___isblind from trace_tb where layer='PNRA-ELSZ-LGSD-Laguna_Salada_fault_south-CFM5-trace';
+
+ gid | ___isblind 
+-----+------------
+ 336 |           
+ 459 |          1
+ 460 |          1
+(3 rows)
+

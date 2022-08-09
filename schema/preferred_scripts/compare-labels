@@ -1,0 +1,27 @@
+1 CFM5.3 Fault Object Name,--1: CFM5.2 Fault Object Name
+2 Num,--2: Area index
+3 Fault Area/Major Fault System,--3: Fault Area/Major Fault System
+4 Code,--4: Area Abb
+5 Num,--5: Zone index
+6 Fault Zone/Region,--6: Fault Zone/Region
+7 Code,--7: Zone Abb
+8 Num,--8: Section index
+9 Fault Section,--9: Fault Section
+10 Code,-- 10: Section Abb
+11 Num,--11: Name index
+12 Fault Name,--12: Fault Name
+13 Code,--13: Name Abb
+14 Alternative,--14: Alternative
+15 Source/Author,--15: Source/Author
+16 Last Update,--16: CFM Version
+17 Descriptor,--18: Descriptor
+18 Avg Strike,-- 19: strike
+19 Avg Dip,--20: dip
+20 Area [km^2]--21: Area[m^2]
+21 Exposure,--22: Exposure
+22 Slip Sense,--23: final slip sense
+23 ID Comments--26: ID comments
+24 USGS ID,--27: USGS ID
+25 Fault Strand/Model Description,--17: Fault Strand/Model Description
+   XXX  --25: Reference check
+26 References,-- 24: References

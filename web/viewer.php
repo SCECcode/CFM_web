@@ -1,6 +1,9 @@
 <?php
 require_once("php/navigation.php");
 $header = getHeader("Viewer");
+$cfm_goto_option = getenv("CFM_GOTO_OPTION");
+$cfm_goto_port = getenv("CFM_GOTO_PORT");
+$cfm_goto_pathname = getenv("CFM_GOTO_PATHNAME");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -132,9 +135,9 @@ $header = getHeader("Viewer");
         });
 
     </script>
-</head>
+</head">
 <body>
-<?php echo $header; ?>
+<?php echo $header ?>
 <div class="container">
 
 <div class="main">
@@ -160,7 +163,7 @@ $header = getHeader("Viewer");
 <!-- top-intro -->
     <div id="top-intro" style="display:">
 <p>
-The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model (CFM)</a> are three-dimensional and non-planar; however, to simplify browsing the model, the viewer below provides a two-dimensional map-based view of the SCEC CFM version 5.3 preferred fault set. The alternative fault representations are only provided in the complete CFM archive available for download on the <a href="https://www.scec.org/research/cfm">CFM homepage</a>. Here, the viewer allows users to view and download fault geometry data as well as metadata for selected faults rather than downloading the entire CFM model archive. Once faults are selected, the “PLOT3D” button can be used to view the selected faults in a basic CAD-like environment. See the user guide for more details and site usage instructions.
+The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model</a> are three-dimensional and non-planar; however, to simplify browsing the model, the viewer below provides a two-dimensional map-based view of the SCEC CFM version 5.3 preferred fault set. The alternative fault representations are only provided in the complete CFM archive available for download on the <a href="https://www.scec.org/research/cfm">CFM homepage</a>. Here, the viewer allows users to view and download fault geometry data as well as metadata for selected faults rather than downloading the entire CFM model archive. Once faults are selected, the “PLOT3D” button can be used to view the selected faults in a basic CAD-like environment. See the user guide for more details and site usage instructions.
 </p>
     </div> <!-- top-intro -->
 
@@ -178,10 +181,27 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
 
 <!-- top-control -->
     <div id="top-control">
-      <div id="controls-container" class="row d-flex mb-1" style="display:none" >
-        <div class="col-3 mb-0">
-             <div class="input-group filters" style="min-width:68%">
-                <select id="search-filter-type" class="custom-select">
+      <div id="controls-container" class="row d-flex mb-0" style="display:" >
+        <div class="col-6">
+
+<div class="row">
+ <div class="col-3">
+<!-- XX switch between preferred/alternative set -->
+             <input type="text" id="gotoPort" value=<?php echo $cfm_goto_port ?> style="display:none">
+             <input type="text" id="gotoPathname" value=<?php echo $cfm_goto_pathname ?> style="display:none">
+             <input type="text" id="gotoOption" value=<?php echo $cfm_goto_option ?> style="display:none">
+
+             <select id="dataSelect" onchange="gotoOtherDB(this.value)" 
+             title="Select which fault set to display/search. Only one set can be searched/displayed at a time"
+             class="custom-select custom-select-sm" style="width:auto;min-width:9rem;">
+                <option <?php  if($cfm_goto_option == 0) echo "selected" ?> value="0">6.0 Preferred</option>
+                <option <?php  if($cfm_goto_option == 1) echo "selected" ?> value="1">6.0 Alternatives</option>
+             </select>
+ </div>
+ <div class="col-6 pl-3">
+<!-- XX RESET -->
+             <div class="input-group filters" style="min-width:85%">
+                <select id="search-filter-type" class="custom-select custom-select-sm">
                     <option value="dismissClick">Search by </option>
                     <option value="keywordClick">Keyword</option>
                     <option value="latlonClick">Latitude &amp; Longitude</option>
@@ -194,21 +214,21 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
                     <option value="dipClick">Average Dip</option>
                 </select>
                 <div class="input-group-append">
-                    <button id="refreshBtn" type="button" onclick="refreshAll()" class="btn btn-dark">Reset</button>
+                    <button id="refreshBtn" type="button" onclick="refreshAll()" class="btn btn-dark" >Reset</button>
                 </div>
 
                 <div>
                   <button id="recordReferenceBtn" title="Record a reference fault set"
-                      class="btn btn-default cfm-small-btn pl-4 mt-2" onclick="recordActiveReference()" disabled>
+                      class="btn btn-default cfm-small-btn pl-2" onclick="recordActiveReference()" disabled>
                       <span class="glyphicon glyphicon-record"></span>
                   </button>
                   <button id="lastRecordedReferenceBtn" title="Refresh to last recorded reference fault set"
-                      class="btn btn-default cfm-small-btn mt-2" onclick="resetLastRecordReference()" disabled>
+                      class="btn btn-default cfm-small-btn" style="padding:0rem;margin-right:0.2rem" onclick="resetLastRecordReference()" disabled>
                       <span class="fas fa-step-backward"></span>
                   </button>
                 </div>
             </div>
-            <div class="row" style="margin-bottom:-10px;">
+            <div class="row">
                 <div class="col input-group">
                     <ul id="sidebar" class="navigation" style="display:none">
                         <li id='area' class='navigationLi' style="display:none;">
@@ -395,53 +415,61 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
                     </ul> <!-- sidebar pull-out --> 
                 </div>
             </div>
+ </div>
+ <div class="col-3 pl-0">
+<!-- XX upload KML/KMZ overlay -->
+      <div class="row">
+             <input id="fileKML" type='file' onchange='uploadKMLFile(this.files)' style='display:none;'></input>
+             <button id="kmlBtn" class="btn" onclick='javascript:document.getElementById("fileKML").click();' title="Upload your own kml/kmz file to be displayed on the map interface. We currently support points, lines, paths, polygons, and image overlays (kmz only)." style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.15rem 0.5rem;"><span>Upload kml/kmz</span></button>
+             <button id="kmlSelectBtn" class="btn cfm-small-btn" title="Show/Hide uploaded kml/kmz files"  style="display:none" onclick='updateKMLSelect()'  data-toggle="modal" data-target="#modalkmlselect"><span class="fas fa-circle"></span></button>
+       </div> <!-- kml-row -->
+ </div>
+</div> <!-- row --> 
         </div>
-<!-- upload KML/KMZ overlay -->
-	<div class="col-2 mt-1">
-<input id="fileKML" type='file' onchange='uploadKMLFile(this.files)' style='display:none;'></input>
-<button id="kmlBtn" class="btn" onclick='javascript:document.getElementById("fileKML").click();' title="Upload your own kml/kmz file to be displayed on the map interface. We currently support points, lines, paths, polygons, and image overlays (kmz only)." style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.25rem 0.5rem;"><span>Upload kml/kmz</span></button>
-<button id="kmlSelectBtn" class="btn cfm-small-btn" title="Show/Hide uploaded kml/kmz files"  style="padding:0.25rem 0.5rem;display:none" onclick='updateKMLSelect()'  data-toggle="modal" data-target="#modalkmlselect"><span class="fas fa-circle"></span></button>
-        </div>
-<!-- Sesimicity -->
-        <div class="col-3 mt-1 pl-0"> 
-<div id="loadSeismicity" class="row" style="width:20rem;display:">
-<button id="quakesBtn" class="btn" onClick="loadSeismicity()" title="This loads the updated Hauksson et al. (2012) and Ross et al. (2019) relocated earthquake catalogs and provides a pull-down menu with options to color by depth, magnitude, or time. Significant historical events (1900-2021 >M6.0) are shown with red dots. These can be turned on/off by clicking on the red dot which appears here once the catalogs have been loaded" style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.25rem 0.5rem;display:">Load relocated seismicity</button>
 
-</div>
+        <div class="col-6">
+<div class="row" style="margin-left:-35px;">
+ <div class="col-6">
+<!-- XX Sesimicity -->
+             <input id="fileKML" type='file' onchange='uploadKMLFile(this.files)' style='display:none;'></input>
+             <div id="loadSeismicity" class="row" style="width:20rem;display:; ">
+               <button id="quakesBtn" class="btn" onClick="loadSeismicity()" title="This loads the updated Hauksson et al. (2012) and Ross et al. (2019) relocated earthquake catalogs and provides a pull-down menu with options to color by depth, magnitude, or time. Significant historical events (1900-2021 >M6.0) are shown with red dots. These can be turned on/off by clicking on the red dot which appears here once the catalogs have been loaded" style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.15rem 0.5rem;display:;">Load relocated seismicity</button>
+             </div>
 
-<div id="showSeismicity" class="row" style="width:20rem; display:none">
-<select id="seismicitySelect" onchange="changePixiOverlay(this.value)"
-class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5rem">
-   <option value="none">No seismicity</option>
-   <option selected value="haukssondepth">Hauksson et al. by depth</option>
-   <option value="haukssonmag">Hauksson et al. by magnitude</option>
-   <option value="haukssontime">Hauksson et al. by time</option>
-   <option value="rossdepth">Ross et al. by depth</option>
-   <option value="rossmag">Ross et al. by magnitude</option>
-   <option value="rosstime">Ross et al. by time</option>
-<!--
-   <option value="historicaldepth">Historical by depth</option>
-   <option value="historicalmag">Historical by magitude</option>
-   <option value="historicaltime">Historical by time</option>
--->
-</select>
-<button id="toggleHistoricalBtn" class="btn cfm-small-2-btn" title="Show/Hide significant historic earthquakes (M6+) since 1900" style="margin-left:0.25rem" onclick="toggleHistorical()"><span class="fas fa-circle fa-xs"></span></button>
-</div>
-        </div>
-<!-- Map Select -->
-        <div class="col-4 d-flex justify-content-end">
-	    <div class="input-group input-group-sm cfm-input-group mt-2" id="map-controls">
-                <div class="input-group-prepend" title="Change the basemap imagery">
+             <div id="showSeismicity" class="row" style="width:20rem; display:none;">
+                <select id="seismicitySelect" onchange="changePixiOverlay(this.value)"
+                class="custom-select custom-select-sm" style="width:auto;min-width:16rem;">
+                   <option value="none">No seismicity</option>
+                   <option selected value="haukssondepth">Hauksson et al. by depth</option>
+                   <option value="haukssonmag">Hauksson et al. by magnitude</option>
+                   <option value="haukssontime">Hauksson et al. by time</option>
+                   <option value="rossdepth">Ross et al. by depth</option>
+                   <option value="rossmag">Ross et al. by magnitude</option>
+                   <option value="rosstime">Ross et al. by time</option>
+                <!--
+                   <option value="historicaldepth">Historical by depth</option>
+                   <option value="historicalmag">Historical by magitude</option>
+                   <option value="historicaltime">Historical by time</option>
+                -->
+                </select>
+                <button id="toggleHistoricalBtn" class="btn cfm-small-2-btn" title="Show/Hide significant historic earthquakes (M6+) since 1900" onclick="toggleHistorical()"><span class="fas fa-circle fa-xs"></span></button>
+             </div>
+ </div>
+ <div class="col-6">
+<!-- XX Map Select -->
+	    <div class="input-group input-group-sm cfm-input-group" id="map-controls">
+                <div class="input-group-prepend" title="Change the basemap imagery" style="margin-left:-65px;">
                     <label class="input-group-text" for="mapLayer">Select Map Type</label>
                 </div>
-                <select id="mapLayer" class="custom-select custom-select-sm" style="width:auto;" onchange="switchLayer(this.value);">
+                <select id="mapLayer" class="custom-select custom-select-sm" style="width:auto;min-width:14rem;"
+onchange="switchLayer(this.value);">
                     <option selected value="esri topo">ESRI Topographic</option>
                     <option value="esri NG">ESRI National Geographic</option>
                     <option value="esri imagery">ESRI Imagery</option>
                     <option value="otm topo">OTM Topographic</option>
                     <option value="osm street">OSM Street</option>
                 </select>
-           </div>
+            </div>
 
 <!--
             <div class="input-group input-group-sm ml-md-2 ml-sm-0">
@@ -456,10 +484,11 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
                 </select>
             </div>
 -->
+ </div>
+</div> <!-- row -->
         </div>
-
-      </div>
-    </div> <!-- top-control -->
+  </div> <!-- control-container -->
+</div> <!-- top-control -->
 
 
     <div id="mapDataBig" class="row mapData">
@@ -469,7 +498,7 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
             <div id="phpResponseTxt"></div>
         </div>
 
-        <div id="top-map" class="col-7">
+        <div id="top-map" class="col-7 pl-1">
             <div class="w-100 mb-1" id='CFM_plot'
 		 style="position:relative;border:solid 1px #ced4da; height:576px;">
             </div>
@@ -612,7 +641,6 @@ class="custom-select custom-select-sm" style="width:16rem; padding:0.25rem 0.5re
       <div class="modal-footer justify-content-center" id="modal3DFooter">
 
         <div class="spinDialog" style="position:absolute;top:40%;left:50%; z-index:9999;">
-<!-- XX -->
           <div id="spinIconFor3D" align="center" style="display:none;"><i class="glyphicon glyphicon-cog fa-spin" style="color:red"></i></div>
         </div>
 

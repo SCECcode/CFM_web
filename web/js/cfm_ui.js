@@ -10,13 +10,40 @@ var big_map=0; // 0,1(some control),2(none)
 var seismicity_loaded = false;
 var seismicity_from_cache = true;
 
+//  got to another set of data on same host different port
+function gotoOtherDB(option) {
+//  http://localhost:8082
+//  http://moho.scec.org/cfm-viewer/
+  let noption=$('#gotoOption').val();
+  if(option == noption) {
+    return; // do nothing
+  }
+
+  let protocol=window.location.protocol;
+  let hostname=window.location.hostname;
+  let port=window.location.port;
+  let pathname=window.location.pathname;
+
+  let nport=$('#gotoPort').val();
+  let npathname=$('#gotoPathname').val();
+  let newLoc;
+
+  if(port === "") {
+     newLoc=protocol+"//"+hostname+"/"+npathname+"/";
+     } else {
+       newLoc=protocol+"//"+hostname+":"+nport;
+  }
+  window.console.log("new Loc >>"+newLoc);
+  location.replace(newLoc);
+}
+
 function _toMedView()
 {
 $('#top-intro').css("display", "none");
 $('#searchResult').css("display", "none");
 $('#infoData').removeClass('col-5').addClass('col-0');
 $('#top-map').removeClass('col-7').addClass('row');
-$('#actualData').removeClass('pl-2').addClass('pl-4');
+$('#top-map').removeClass('pl-1').addClass('pl-0');
 $('#mapDataBig').addClass('col-12').removeClass('row');
 resize_map();
 }
@@ -59,7 +86,7 @@ $('#top-intro').css("display", "");
 $('#searchResult').css("display", "");
 $('#infoData').addClass('col-5').removeClass('col-0');
 $('#top-map').removeClass('row').addClass('col-7');
-$('#actualData').removeClass('pl-4').addClass('pl-2');
+$('#top-map').removeClass('pl-1').addClass('pl-0');
 $('#mapDataBig').removeClass('col-12').addClass('row');
 resize_map();
 }
