@@ -39,8 +39,9 @@ function gotoOtherDB(option) {
 
 function _toMedView()
 {
-let elt = document.getElementById('top-intro');
-let c_height = elt.clientHeight;
+let elt = document.getElementById('banner-container');
+let celt = document.getElementById('top-intro');
+let c_height = elt.clientHeight+(celt.clientHeight/2);
 let h=576+c_height;
 
 $('#top-intro').css("display", "none");

@@ -140,7 +140,7 @@ $cfm_goto_pathname = getenv("CFM_GOTO_PATHNAME");
 <?php echo $header ?>
 <div class="container">
 
-<div class="main">
+<div class="main" id="cfmMain">
 <!-- trace dumping buttons -->
     <div style="display:none">
       <script type="text/javascript" src="js/cfm_misc_util.js?v=1"></script>
