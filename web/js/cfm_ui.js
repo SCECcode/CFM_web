@@ -39,8 +39,13 @@ function gotoOtherDB(option) {
 
 function _toMedView()
 {
+let elt = document.getElementById('top-intro');
+let c_height = elt.clientHeight;
+let h=576+c_height;
+
 $('#top-intro').css("display", "none");
 $('#searchResult').css("display", "none");
+$('#CFM_plot').css("height", h);
 $('#infoData').removeClass('col-5').addClass('col-0');
 $('#top-map').removeClass('col-7').addClass('row');
 $('#top-map').removeClass('pl-1').addClass('pl-0');

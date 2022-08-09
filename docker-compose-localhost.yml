@@ -17,7 +17,30 @@ services:
       dockerfile: Dockerfile-web
       context: ./
     restart: always
+    environment:
+      CFM_DB: CFM6_preferred_db 
+      CFM_GOTO_OPTION: 0
+      CFM_GOTO_PORT: 8086 
+      CFM_GOTO_PATHNAME: cfm-alt-viewer
     ports:
       - 8082:8081
       - 8083:80
 
+  altweb:
+    build:
+      dockerfile: Dockerfile-web
+      context: ./
+    restart: always
+    environment:
+      CFM_DB: CFM6_alt_db 
+      CFM_GOTO_OPTION: 1
+      CFM_GOTO_PORT: 8082 
+      CFM_GOTO_PATHNAME: cfm-viewer
+    ports:
+      - 8086:8081
+      - 8087:80
+
+#cfm_web_db  0.0.0.0:5432->5432/tcp, :::5432->5432/tcp cfm_web_db_1
+#cfm_web_web 0.0.0.0:8083->80/tcp, :::8083->80/tcp, 0.0.0.0:8082->8081/tcp, :::8082->8081/tcp   cfm_web_web_1
+#cgm_web_db  0.0.0.0:5433->5432/tcp, :::5433->5432/tcp  cgm_web_db_1
+#cgm_web_web 0.0.0.0:8085->80/tcp, :::8085->80/tcp, 0.0.0.0:8084->8081/tcp, :::8084->8081/tcp   cgm_web_web_1

@@ -1,7 +1,13 @@
 ## run as installer of the system stack
 
    yum install git
-   git clone https://github.com/SCECcode/CFM_web.git
+
+   git clone https://github.com/meihuisu/CFM_web.git
+
+## echo "!!! running doc/run-as-me !!!'
+   cp CFM_web/template/web/php/util_alt.php CFM_web/web/php/util.php
+   cp CFM_web/template/web/viewer_alt.php CFM_web/web/index.php
+
    yum install gcc
    yum install readline-devel
    yum install zlib-devel

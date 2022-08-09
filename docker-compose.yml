@@ -12,13 +12,13 @@ services:
       name: edric
       POSTGRES_PASSWORD: example
 
-  web:
+  altweb:
     build:
       dockerfile: Dockerfile-web
       context: ./
     restart: always
     ports:
 #      - 80:8081
-      - 8081:8081
-      - 8080:80
+      - 8086:8081
+      - 8087:80
 
