@@ -5,6 +5,18 @@ jQuery(document).ready(function() {
   frameHeight=window.innerHeight;
   frameWidth=window.innerWidth;
 
+  var uagent = navigator.userAgent.toLowerCase();
+
+  window.console.log("WHAT am I !! >>> "+uagent);
+  window.console.log("screen width..("+screen.width+") and frame width..",frameWidth);
+
+//if (navigator.userAgentData.mobile) { // do something }
+
+  if( screen.width <= 480 ) {
+    window.console.log("OH NO.. I am on Mini.."+screen_width);
+    //location.href = '/mobile.html';
+  }
+
   viewermap=setup_viewer();
 
 /****

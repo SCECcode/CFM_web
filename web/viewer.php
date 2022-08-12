@@ -185,7 +185,7 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
         <div class="col-6">
 
 <div class="row">
- <div class="col-3">
+ <div class="col-3" style="display:">
 <!-- XX switch between preferred/alternative set -->
              <input type="text" id="gotoPort" value=<?php echo $cfm_goto_port ?> style="display:none">
              <input type="text" id="gotoPathname" value=<?php echo $cfm_goto_pathname ?> style="display:none">
@@ -418,7 +418,7 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
  </div>
  <div class="col-3 pl-0">
 <!-- XX upload KML/KMZ overlay -->
-      <div class="row">
+      <div class="row" style="display:">
              <input id="fileKML" type='file' onchange='uploadKMLFile(this.files)' style='display:none;'></input>
              <button id="kmlBtn" class="btn" onclick='javascript:document.getElementById("fileKML").click();' title="Upload your own kml/kmz file to be displayed on the map interface. We currently support points, lines, paths, polygons, and image overlays (kmz only)." style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.15rem 0.5rem;"><span>Upload kml/kmz</span></button>
              <button id="kmlSelectBtn" class="btn cfm-small-btn" title="Show/Hide uploaded kml/kmz files"  style="display:none" onclick='updateKMLSelect()'  data-toggle="modal" data-target="#modalkmlselect"><span class="fas fa-circle"></span></button>
@@ -429,10 +429,9 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
 
         <div class="col-6">
 <div class="row" style="margin-left:-35px;">
- <div class="col-6">
+ <div class="col-6" style="display:">
 <!-- XX Sesimicity -->
-             <input id="fileKML" type='file' onchange='uploadKMLFile(this.files)' style='display:none;'></input>
-             <div id="loadSeismicity" class="row" style="width:20rem;display:; ">
+             <div id="loadSeismicity" class="row" style="width:20rem;">
                <button id="quakesBtn" class="btn" onClick="loadSeismicity()" title="This loads the updated Hauksson et al. (2012) and Ross et al. (2019) relocated earthquake catalogs and provides a pull-down menu with options to color by depth, magnitude, or time. Significant historical events (1900-2021 >M6.0) are shown with red dots. These can be turned on/off by clicking on the red dot which appears here once the catalogs have been loaded" style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.15rem 0.5rem;display:;">Load relocated seismicity</button>
              </div>
 
@@ -590,7 +589,7 @@ onchange="switchLayer(this.value);">
                 <tbody>
                 <tr id="placeholder-row">
 <!--- altered from 11 -->
-                    <td colspan="11">Metadata for selected faults will appear here. </td>
+                    <td colspan="10">Metadata for selected faults will appear here. </td>
                 </tr>
                 </tbody>
             </table>
