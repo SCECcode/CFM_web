@@ -781,14 +781,17 @@ window.console.log("First time making this pixiOverlay,"+quake_type+" initial sc
         if (targetZoom >= eq_zoom_threshold || zoom >= eq_zoom_threshold) {
           zoomChangeTs = 0;
           var targetScale = targetZoom >= eq_zoom_threshold ? (1 / getScale(event.zoom))/6  : initialScale;
+
 //XXX          var targetScale = targetZoom >= eq_zoom_threshold ? (1 / getScale(event.zoom))/10  : initialScale;
 
 window.console.log(" >>>  ZOOManim.. initialScale("+initialScale+") targetScale("+targetScale+")");
 
-          pContainers.forEach(function(innerContainer) {
-            innerContainer.currentScale = innerContainer.localScale;
-            innerContainer.targetScale = targetScale;
-          });
+          if(initialScale != targetScale) {
+            pContainers.forEach(function(innerContainer) {
+              innerContainer.currentScale = innerContainer.localScale;
+              innerContainer.targetScale = targetScale;
+            });
+          }
         }
         return null;
       }

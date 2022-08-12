@@ -82,12 +82,13 @@ function addToKMLSelectTable(fname) {
   var html_r ="<tr><td style=\"width:25px\"><button class=\"btn btn-sm cfm-small-btn\" title=\"toggle the kml\" onclick=toggle_kml(\""+t_label+"\","+idx+");> <span id=\""+t_label+"\" class=\"glyphicon glyphicon-check\"></span></button> </td> <td><label for=\""+t_label+"\">" + fname + "</label></td></tr>";
 
   if(idx == 0) {
-    html="<div class=\"kml-table\" ><table>";
-    html+="<tbody id=\"kml-table-body\">"+html_r+"</tbody></table></div>";
+    html="<div class=\"kml-table\"><table>";
+    var html_head ="<tr><td style=\"width:25px\"></td> <td>Some description</td></tr>";
+    html+="<tbody id=\"kml-table-body\">"+html_head+html_r+"</tbody></table></div>";
     document.getElementById("kmlselectTable-container").innerHTML = html;
     } else {
      let tmp= $("#kml-table-body");
-     tmp.prepend(html_r);
+     tmp.append(html_r);
   }
 
   return idx;
