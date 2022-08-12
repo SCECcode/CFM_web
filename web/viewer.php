@@ -39,7 +39,7 @@ $cfm_goto_pathname = getenv("CFM_GOTO_PATHNAME");
     <script type='text/javascript' src='js/vendor/zlib-util.js'></script>
     <script type='text/javascript' src='js/vendor/gunzip.min.js'></script>
     <script type='text/javascript' src='js/vendor/unzip.min.js'></script>
-    <script type='text/javascript' src='js/vendor/jquery.floatThead.min.js'></script>
+    <script type='text/javascript' src='js/vendor/jquery.floatThead.js'></script>
 
     <script type='text/javascript' src='js/vendor/togeojson.js'></script>
     <script type='text/javascript' src='js/vendor/leaflet-kmz-src.js'></script>
