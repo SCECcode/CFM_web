@@ -83,7 +83,7 @@ function addToKMLSelectTable(fname) {
 
   if(idx == 0) {
     html="<div class=\"kml-table\"><table>";
-    var html_head ="<tr><td style=\"width:25px\"></td> <td>Some description</td></tr>";
+    var html_head ="<tr><td colspan=\"2\">Some description</td></tr>";
     html+="<tbody id=\"kml-table-body\">"+html_head+html_r+"</tbody></table></div>";
     document.getElementById("kmlselectTable-container").innerHTML = html;
     } else {
