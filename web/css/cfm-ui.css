@@ -802,6 +802,7 @@ div.guide ul {
 
 #metadata-viewer .download-link a {
     display: table-cell;
+    max-width:100px;
 }
 
 #metadata-viewer .cfm-btn {
@@ -815,7 +816,9 @@ div.guide ul {
 
 .floatThead-container {
     overflow: visible !important;
+/*
     overflow-x: hidden;
+*/
 }
 
 #metadata-viewer #placeholder-row td {

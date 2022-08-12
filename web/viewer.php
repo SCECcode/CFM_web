@@ -503,7 +503,7 @@ onchange="switchLayer(this.value);">
             </div>
         </div>
     </div>
-    <div id="top-select" class="row">
+    <div id="top-select" class="row mb-2">
       <div class="col-12">
         <div id="metadata-viewer-container" style="border:solid 1px #ced4da; overflow-x:hidden">
             <table id="metadata-viewer">
