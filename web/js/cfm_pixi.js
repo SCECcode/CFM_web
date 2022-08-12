@@ -366,7 +366,7 @@ function _loadFromFileLatlngSet(tidx,tsz,sidx,ssz) {
                 if(sidx+1 == ssz) {
                   if(tidx+1 == tsz) { // all done
 //window.console.log("regular json data files : ALL DONE");
-                    // need to retrieve "historical_depth_log.json"
+// need to retrieve "historical_depth_log.json"
                     _loadFromFileLatlngLastSet();
                     } else {
                       _loadFromFileLatlngSet(tidx+1,tsz,0,ssz);
@@ -579,6 +579,7 @@ function _changeOverlay(typestr) {
   switch (typestr) {
     case "none": removeSeismicityKey();
                  removeHistoricalEQLayer();
+                 addHistoricalEQLayer();
                  break;
     case "haukssondepth": togglePixiOverlay(EQ_HAUKSSON_FOR_DEPTH);
                           showSeismicityKey("hauksson_depth");

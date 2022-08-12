@@ -153,10 +153,12 @@ function loadSeismicity() {
 }
 
 function finishLoadSeismicity() {
+/***
     setup_pixi(EQ_HAUKSSON_FOR_DEPTH);
+    showSeismicityKey("hauksson_depth");
+***/
     addHistoricalEQLayer();
     seismicity_loaded = true;
-    showSeismicityKey("hauksson_depth");
     $('#showSeismicity').css("display", "");
     $('#loadSeismicity').css("display", "none");
 }
@@ -405,6 +407,10 @@ function showSeismicityKey(type) {
     }
     if(type == "historial_time") {
         showColorLegend("historical_time.png");
+        return;
+    }
+    if(type == "none") {
+	// do nothing XXX
         return;
     }
 }
