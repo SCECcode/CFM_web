@@ -559,7 +559,7 @@ function getMetadataRowForDisplay(meta) {
        <td class="meta_td" >${meta['avg_strike']}</td>
        <td class="meta_td" >${meta['avg_dip']}</td>
        <td class="meta_td" >${meta['area_km2']}</td>
-       <td class="download-link" >${downloadButtons}</td>
+       <td class="download-link" ><div class=\"row\" style=\"display:flex; justify-content:center;\">${downloadButtons}</div></td>
    </tr>
    `;
    return content;

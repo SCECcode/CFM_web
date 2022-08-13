@@ -701,6 +701,7 @@ function addRemoveFromMetadataTable(gid) {
     } else {
         $("#metadata-viewer tbody").prepend(metadataRow);
         $("#metadata-viewer").trigger('reflow');
+ //       $("#metadata-viewer").floatThead('reflow');
         if (!select_all_flag) {
             $(`#metadata-viewer tbody tr#metadata-${gid}`).effect("highlight", {}, 1000);
         }
@@ -716,7 +717,6 @@ function toggle_highlight(gid,auto=0) {
    var h=s['highlight'];
    let $star=$(`#highlight_${gid}`);
    let $rowSelected = $(`#row_${gid}`);
-   let $itemCount = $("#itemCount");
 
    if ($rowSelected.hasClass("layer-hidden")) {
        return;
@@ -743,25 +743,12 @@ function toggle_highlight(gid,auto=0) {
        layer.setStyle({color: highlight_style.color});
      });
      cfm_select_count++;
-     // adjust width if needed
-     $itemCount.html(cfm_select_count).show();
-/* get actual rendered font/width
-     var fs = $('#itemCount').html(cfm_select_count).css('font-size');
-     var width = $('#itemCount').html(cfm_select_count).css('width');
-*/
-     if(cfm_select_count == 100)
-        $itemCount.html(cfm_select_count).css("width","30px");
-     } else {
+
+     } else { // h == 1
        $star.removeClass('glyphicon-check').addClass('glyphicon-unchecked');
        $rowSelected.removeClass("row-selected");
-       if(cfm_select_count == 99) // reset font size
-         $itemCount.html(cfm_select_count).css("width","20px");
        cfm_select_count--;
-       if(cfm_select_count == 0) {
-         $itemCount.html(cfm_select_count).hide();
-         } else {
-           $itemCount.html(cfm_select_count).show();
-       }
+
        s['highlight']=0;
        var l=find_layer_list(gid);
        var geolayer=l['layer'];
@@ -1051,10 +1038,13 @@ function makeHistoricalEQLayer() {
 };
 
 function toggleHistorical() {
+   let $elt=$('#toggle_historical');
    if(showing_historical) {
      removeHistoricalEQLayer();
+     $elt.removeClass('glyphicon-eye-open').addClass('glyphicon-eye-close');
      } else {
        addHistoricalEQLayer();
+       $elt.removeClass('glyphicon-eye-close').addClass('glyphicon-eye-open');
    }
 }
 

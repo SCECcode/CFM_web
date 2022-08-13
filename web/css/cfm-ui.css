@@ -48,6 +48,12 @@
    color: #990000;
 }
 
+/*
+.glyphicon.glyphicon-unchecked {
+   color: #011638;
+}
+*/
+
 #plot3d-all:not([disabled]):hover {
    background: #770000;
 }
@@ -467,21 +473,6 @@ div.mapData {
           }
 
 
-.cfm-small-2-btn {
-          background: transparent;
-          color: red;
-          border: none;
-          display: inline-block;
-          padding: 0rem 0.2rem 0rem 0.3rem;
-          }
-
-.cfm-small-2-btn:hover, .cfm-small-2-btn:active, .cfm-small-2-btn:focus {
-          color: #990000;
-          outline:0 !important;
-          border: none;
-          display: inline-block;
-          }
-
 div.button-container button {
     background: transparent;
     color: #011638;
@@ -816,9 +807,10 @@ div.guide ul {
 
 .floatThead-container {
     overflow: visible !important;
-/*
-    overflow-x: hidden;
-*/
+}
+
+.floatThead-wrapper {
+    overflow-x: scroll;
 }
 
 #metadata-viewer #placeholder-row td {

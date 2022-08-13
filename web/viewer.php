@@ -120,6 +120,7 @@ $cfm_goto_pathname = getenv("CFM_GOTO_PATHNAME");
 
             var $table = $('div.cfm-table table');
             $table.floatThead({
+                autoReflow: true,
                 scrollContainer: function ($table) {
                     return $table.closest('div.cfm-table');
                 }
@@ -127,6 +128,7 @@ $cfm_goto_pathname = getenv("CFM_GOTO_PATHNAME");
 
             var $download_queue_table = $('#metadata-viewer');
             $download_queue_table.floatThead({
+                autoReflow: true,
                 scrollContainer: function ($table) {
                     return $table.closest('div#metadata-viewer-container');
                 },
@@ -174,7 +176,6 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
 
             <button id="colorBtn" class="btn cfm-small-btn" onMouseEnter="expandColorsControl()">
                 <span class="glyphicon glyphicon-star"></span></button>
-            <div id="itemCount"></div>
             <div id="downloadSelect" class="cfm-control-download" onMouseLeave="removeDownloadControl()"></div>
         </div>
     </div>
@@ -421,7 +422,7 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
       <div class="row" style="display:">
              <input id="fileKML" type='file' onchange='uploadKMLFile(this.files)' style='display:none;'></input>
              <button id="kmlBtn" class="btn" onclick='javascript:document.getElementById("fileKML").click();' title="Upload your own kml/kmz file to be displayed on the map interface. We currently support points, lines, paths, polygons, and image overlays (kmz only)." style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.15rem 0.5rem;"><span>Upload kml/kmz</span></button>
-             <button id="kmlSelectBtn" class="btn cfm-small-btn" title="Show/Hide uploaded kml/kmz files"  style="display:none" onclick='updateKMLSelect()'  data-toggle="modal" data-target="#modalkmlselect"><span class="fas fa-circle"></span></button>
+             <button id="kmlSelectBtn" class="btn cfm-small-btn" title="Show/Hide uploaded kml/kmz files"  style="display:none" onclick='updateKMLSelect()'  data-toggle="modal" data-target="#modalkmlselect"><span id="toggle_kml" class="glyphicon glyphicon-eye-open"></span></button>
        </div> <!-- kml-row -->
  </div>
 </div> <!-- row --> 
@@ -451,7 +452,7 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
                    <option value="historicaltime">Historical by time</option>
                 -->
                 </select>
-                <button id="toggleHistoricalBtn" class="btn cfm-small-2-btn" title="Show/Hide significant historic earthquakes (M6+) since 1900" onclick="toggleHistorical()"><span class="fas fa-circle fa-xs"></span></button>
+                <button id="toggleHistoricalBtn" class="btn btn-sm cfm-small-btn" title="Show/Hide significant historic earthquakes (M6+) since 1900" onclick="toggleHistorical()"><span id="toggle_historical" class="glyphicon glyphicon-eye-open"></span></button>
              </div>
  </div>
  <div class="col-6">
@@ -505,7 +506,7 @@ onchange="switchLayer(this.value);">
     </div>
     <div id="top-select" class="row mb-2">
       <div class="col-12">
-        <div id="metadata-viewer-container" style="border:solid 1px #ced4da; overflow-x:hidden">
+        <div id="metadata-viewer-container" style="border:solid 1px #ced4da;overflow-x:hidden">
             <table id="metadata-viewer">
                 <thead>
                 <tr>
@@ -518,12 +519,12 @@ onchange="switchLayer(this.value);">
                     <th class="hoverColor" onClick="sortMetadataTableByRow(6,'n')">Avg<br>Strike<span id='sortCol_6' class="fas fa-angle-down"></span></th>
                     <th class="hoverColor" onClick="sortMetadataTableByRow(7,'n')">Avg<br>Dip<span id='sortCol_7' class="fas fa-angle-down"></span></th>
                     <th class="hoverColor" onClick="sortMetadataTableByRow(8,'n')">Area<br>(km<sup>2</sup>)<span id='sortCol_8' class="fas fa-angle-down"></span></th>
-                    <th><div class="col text-center">
+                    <th> <div class="row" style="display:flex; justify-content:center;">
                             <div class="btn-group download-now">
 <!-- MODAL popup button, reuse download-counter -->
                                 <button id="plot3d-all" type="button" title="Plots the selected faults in an interactive 3D environment" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false" disabled>
-                                    Plot3d <span id="plot-counter"></span>
+                                    Plot3d<span id="plot-counter"></span>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <button class="dropdown-item" type="button" value="native"

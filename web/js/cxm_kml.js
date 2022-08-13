@@ -66,9 +66,11 @@ function toggle_kml(label, idx) {
   if(vis == 1) {
     element['visible']= 0;
     $elt.removeClass('glyphicon-check').addClass('glyphicon-unchecked');
+    $elt.css("color","#011638");
     } else {
       element['visible']= 1;
       $elt.removeClass('glyphicon-unchecked').addClass('glyphicon-check');
+      $elt.css("color","#990000");
   }
   updateKMLSelect();
 }
@@ -83,7 +85,7 @@ function addToKMLSelectTable(fname) {
 
   if(idx == 0) {
     html="<div class=\"kml-table\"><table>";
-    var html_head ="<tr><td colspan=\"2\">Some description</td></tr>";
+    var html_head ="<tr><td colspan=\"2\">Turn on/off kml/kmz layer</td></tr>";
     html+="<tbody id=\"kml-table-body\">"+html_head+html_r+"</tbody></table></div>";
     document.getElementById("kmlselectTable-container").innerHTML = html;
     } else {
