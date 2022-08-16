@@ -59,6 +59,13 @@ function updateKMLSelect() {
   addKMLGroup();
 }
 
+function kml_btn_unfocus()
+{
+  var elt = document.getElementById('kmlSelectBtn');
+  elt.blur();
+}
+
+
 function toggle_kml(label, idx) {
   let element = kml_layer_list[idx];
   let vis = element['visible'];
