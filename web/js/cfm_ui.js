@@ -159,6 +159,7 @@ function finishLoadSeismicity() {
 ***/
     addHistoricalEQLayer();
     seismicity_loaded = true;
+    showSeismicityKey("hauksson_depth");
     $('#showSeismicity').css("display", "");
     $('#loadSeismicity').css("display", "none");
 }

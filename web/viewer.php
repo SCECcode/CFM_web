@@ -439,8 +439,8 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
              <div id="showSeismicity" class="row" style="width:20rem; display:none;">
                 <select id="seismicitySelect" onchange="changePixiOverlay(this.value)"
                 class="custom-select custom-select-sm" style="width:auto;min-width:16rem;">
-		   <option selected value="none">Display relocated seismicity</option>
-                   <option value="haukssondepth">Hauksson et al. by depth</option>
+		   <option value="none">Hide Seismicity</option>
+                   <option selected value="haukssondepth">Hauksson et al. by depth</option>
                    <option value="haukssonmag">Hauksson et al. by magnitude</option>
                    <option value="haukssontime">Hauksson et al. by time</option>
                    <option value="rossdepth">Ross et al. by depth</option>
