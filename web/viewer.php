@@ -220,7 +220,7 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
 
                 <div>
                   <button id="recordReferenceBtn" title="Record a reference fault set"
-                      class="btn btn-default cfm-small-btn pl-2" onclick="recordActiveReference()" disabled>
+                      class="btn btn-default cfm-small-btn pl-2" style="margin-top:0.3rem;" onclick="recordActiveReference()" disabled>
                       <span class="glyphicon glyphicon-record"></span>
                   </button>
                   <button id="lastRecordedReferenceBtn" title="Refresh to last recorded reference fault set"
