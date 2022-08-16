@@ -1038,7 +1038,7 @@ function makeHistoricalEQLayer() {
 };
 
 function toggleHistorical() {
-   let $elt=$('#toggle_historical');
+   let $elt=$('#eye_historical');
    if(showing_historical) {
      removeHistoricalEQLayer();
      $elt.removeClass('glyphicon-eye-open').addClass('glyphicon-eye-close');

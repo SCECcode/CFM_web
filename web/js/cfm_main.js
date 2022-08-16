@@ -85,6 +85,21 @@ http://localhost:8081/?name=["SAFS-SAFZ-MULT-Garnet_Hill_fault_strand-CFM4"]&ts=
       }
   });
 
+/*
+  $('#modalkmlselect').on('hide.bs.modal', function (e) {
+window.console.log(" >>> kml select's modal closed...");
+// do something when the modal closes
+//    kml_btn_blur();
+  });
+*/
+
+// https://stackoverflow.com/questions/982214/how-do-a-get-buttons-not-to-take-the-focus
+  $('#kmlSelectBtn').on('mousedown', function(event) {
+        event.preventDefault();
+    }
+  );
+
+
 // call modal, when sharelink-container got changed
   const watchShareLink = document.getElementById("shareLink-container");
   const shareObserver = new MutationObserver(function() {

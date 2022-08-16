@@ -11,6 +11,27 @@ var kml_layer_list=[];
 
 var visibleKML=null;
 
+function kml_foo() {
+window.console.log("HERE foo");
+};
+
+function toggleKML(show) {
+   window.console.log("HERE toggleKML >> %d ",show);
+   let $elt=$('#eye_kml');
+   if(show) {
+     $elt.removeClass('glyphicon-eye-open').addClass('glyphicon-eye-close');
+     } else {
+       $elt.removeClass('glyphicon-eye-close').addClass('glyphicon-eye-open');
+   }
+}
+
+function kml_btn_blur() {
+   let $elt=$('#kmlSelectBtn');
+toggleKML(0);	 
+   $('#kmlSelectBtn').blur();
+window.console.log("HERE 2");
+};
+
 function find_kml_layer(target) {
   let sz=kml_layer_list.length;
   for(let i=0; i<sz; i++) {
@@ -56,13 +77,9 @@ function removeKMLGroup() {
 
 function updateKMLSelect() {
   removeKMLGroup();
+	window.console.log(" >>> remove all");
   addKMLGroup();
-}
-
-function kml_btn_unfocus()
-{
-  var elt = document.getElementById('kmlSelectBtn');
-  elt.blur();
+	window.console.log(" >>> add all");
 }
 
 
@@ -92,7 +109,7 @@ function addToKMLSelectTable(fname) {
 
   if(idx == 0) {
     html="<div class=\"kml-table\"><table>";
-    var html_head ="<tr><td colspan=\"2\">Turn on/off kml/kmz layer</td></tr>";
+    var html_head ="<tr><td colspan=\"2\">Turn on/off kml/kmz layers</td></tr>";
     html+="<tbody id=\"kml-table-body\">"+html_head+html_r+"</tbody></table></div>";
     document.getElementById("kmlselectTable-container").innerHTML = html;
     } else {

@@ -153,13 +153,10 @@ function loadSeismicity() {
 }
 
 function finishLoadSeismicity() {
-/***
     setup_pixi(EQ_HAUKSSON_FOR_DEPTH);
     showSeismicityKey("hauksson_depth");
-***/
     addHistoricalEQLayer();
     seismicity_loaded = true;
-    showSeismicityKey("hauksson_depth");
     $('#showSeismicity').css("display", "");
     $('#loadSeismicity').css("display", "none");
 }
