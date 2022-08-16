@@ -422,7 +422,7 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
       <div class="row" style="display:">
              <input id="fileKML" type='file' onchange='uploadKMLFile(this.files)' style='display:none;'></input>
              <button id="kmlBtn" class="btn" onclick='javascript:document.getElementById("fileKML").click();' title="Upload your own kml/kmz file to be displayed on the map interface. We currently support points, lines, paths, polygons, and image overlays (kmz only)." style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.15rem 0.5rem;"><span>Upload kml/kmz</span></button>
-             <button id="kmlSelectBtn" class="btn cfm-small-btn" title="Show/Hide uploaded kml/kmz files"  style="display:none" onclick='updateKMLSelect()'  data-toggle="modal" data-target="#modalkmlselect"><span id="toggle_kml" class="glyphicon glyphicon-eye-open"></span></button>
+             <button id="kmlSelectBtn" class="btn cfm-small-btn" title="Show/Hide uploaded kml/kmz files" style="border:solid 2px green;display:none;" onclick='updateKMLSelect()'  data-toggle="modal" data-target="#modalkmlselect"><span class="glyphicon glyphicon-eye-open"></span></button>
        </div> <!-- kml-row -->
  </div>
 </div> <!-- row --> 
@@ -812,7 +812,7 @@ onchange="switchLayer(this.value);">
         </div>
       </div>
       <div class="modal-footer justify-content-center">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <button type="button" class="close" data-dismiss="modal" onclick="kml_btn_unfocus()" >&times;</button>
       </div>
 
     </div> <!--Content-->
