@@ -11,27 +11,6 @@ var kml_layer_list=[];
 
 var visibleKML=null;
 
-function kml_foo() {
-window.console.log("HERE foo");
-};
-
-function toggleKML(show) {
-   window.console.log("HERE toggleKML >> %d ",show);
-   let $elt=$('#eye_kml');
-   if(show) {
-     $elt.removeClass('glyphicon-eye-open').addClass('glyphicon-eye-close');
-     } else {
-       $elt.removeClass('glyphicon-eye-close').addClass('glyphicon-eye-open');
-   }
-}
-
-function kml_btn_blur() {
-   let $elt=$('#kmlSelectBtn');
-toggleKML(0);	 
-   $('#kmlSelectBtn').blur();
-window.console.log("HERE 2");
-};
-
 function find_kml_layer(target) {
   let sz=kml_layer_list.length;
   for(let i=0; i<sz; i++) {
@@ -77,9 +56,7 @@ function removeKMLGroup() {
 
 function updateKMLSelect() {
   removeKMLGroup();
-	window.console.log(" >>> remove all");
   addKMLGroup();
-	window.console.log(" >>> add all");
 }
 
 

@@ -93,12 +93,6 @@ window.console.log(" >>> kml select's modal closed...");
   });
 */
 
-// https://stackoverflow.com/questions/982214/how-do-a-get-buttons-not-to-take-the-focus
-  $('#kmlSelectBtn').on('mousedown', function(event) {
-        event.preventDefault();
-    }
-  );
-
 
 // call modal, when sharelink-container got changed
   const watchShareLink = document.getElementById("shareLink-container");
