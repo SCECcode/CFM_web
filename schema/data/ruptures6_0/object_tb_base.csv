@@ -1,0 +1,6 @@
+name,Alternative,Source/Author,Last Update,Descriptor,Avg Strike,Avg Dip,Area [km^2],Exposure,Slip Sense,ID Comments,USGS ID,Fault Strand/Model Description,References
+GRFS-GRFZ-EAST-Garlock_fault-CFM5,1,UCSB,CFM5,,254,86,1803.13,surface,llss,,69b-c,Qfaults + relocated seismicity,"Bryant, 2005+updates; Hauksson et al., 2012; Nicholson et al., 2012"
+OCBA-SCFZ-SCLI-San_Clemente_fault-CFM5,1,UCSB,CFM5,LEGG,139,90,1602.5,surface,rlss,,283,Legg seafloor trace + relocated seismicity; trimmed to seafloor,"Legg, et al., 2004, 2015; Hauksson et al., 2012+updates; Nicholson et al., 2014, 2020"
+OCCA-HSFZ-MULT-Hosgri_fault-CFM5,2,UCSB,CFM5,,333,84,2346.75,surface,orlr,,80+81a-e,coastal Qfaults+seismicity+Willingham/Sorlien models,"Walton et al., 2019; Hauksson et al. 2012+updates; Willingham et al., 2013; Sorlien et al., 2015; Nicholson et al., 2019"
+SAFS-SAFZ-CRRZ-San_Andreas_fault-CFM4,2,UCSB,CFM4,CRRZ,119,87,2235.47,surface,rlss,,1g,Qfaults + relocated seismicity,"Bryant, 2005+updates; Hauksson et al., 2012; Nicholson et al., 2012"
+WTRA-ORFZ-SFNV-Northridge_Frew_fault-CFM2,1,HRVD,CFM2,CFM2,119,35,859.59,blind,t,propose 94c,,"Carena & Suppe model for middle heart-shaped portion, edges of fault from Hudnut et al. 1996","Carena & Suppe, 2002 (JSG); Hudnut et al., 1996 (BSSA)"

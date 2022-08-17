@@ -196,7 +196,9 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
              title="Select which fault set to display/search. Only one set can be searched/displayed at a time"
              class="custom-select custom-select-sm" style="width:auto;min-width:9rem;">
                 <option <?php  if($cfm_goto_option == 0) echo "selected" ?> value="0">6.0 Preferred</option>
-                <option <?php  if($cfm_goto_option == 1) echo "selected" ?> value="1">6.0 Alternatives</option>
+                <option <?php  if($cfm_goto_option == 1) echo "selected" ?> value="1">6.0 Ruptures</option>
+                <option <?php  if($cfm_goto_option == 2) echo "selected" ?> value="2">6.0 Alternatives</option>
+                <option <?php  if($cfm_goto_option == 3) echo "selected" ?> value="3">5.3 Preferred</option>
              </select>
  </div>
  <div class="col-6 pl-3">
