@@ -1,6 +1,0 @@
-name,area,aabb,zone,zabb,section,sabb,fault
-GRFS-GRFZ-EAST-Garlock_fault-CFM5,Garlock Fault System,GRFS,Garlock fault zone,GRFZ,Eastern,EAST,Garlock fault
-OCBA-SCFZ-SCLI-San_Clemente_fault-CFM5,Offshore Continental Borderland Area,OCBA,San Clemente fault zone,SCFZ,San Clemente Island,SCLI,San Clemente fault
-OCCA-HSFZ-MULT-Hosgri_fault-CFM5,Offshore Central California Area,OCCA,Hosgri-San Simeon fault zone,HSFZ,Multiple sections,MULT,Hosgri fault
-SAFS-SAFZ-CRRZ-San_Andreas_fault-CFM4,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Carrizo,CRRZ,San Andreas fault
-WTRA-ORFZ-SFNV-Northridge_Frew_fault-CFM2,Western Transverse Ranges Area,WTRA,Oak Ridge fault zone,ORFZ,San Fernando Valley,SFNV,Northridge-Frew fault
