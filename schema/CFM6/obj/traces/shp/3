@@ -1,0 +1,12 @@
+mv CFM6.0_Alt_blind.cpg	CFM6.0_blind.cpg
+mv CFM6.0_Alt_blind.dbf	CFM6.0_blind.dbf
+mv CFM6.0_Alt_blind.prj	CFM6.0_blind.prj
+mv CFM6.0_Alt_blind.qmd	CFM6.0_blind.qmd
+mv CFM6.0_Alt_blind.shp	CFM6.0_blind.shp
+mv CFM6.0_Alt_blind.shx	CFM6.0_blind.shx
+mv CFM6.0_Alt_traces.cpg	CFM6.0_traces.cpg
+mv CFM6.0_Alt_traces.dbf	CFM6.0_traces.dbf
+mv CFM6.0_Alt_traces.prj	CFM6.0_traces.prj
+mv CFM6.0_Alt_traces.qmd	CFM6.0_traces.qmd
+mv CFM6.0_Alt_traces.shp	CFM6.0_traces.shp
+mv CFM6.0_Alt_traces.shx	CFM6.0_traces.shx
