@@ -1,0 +1,47 @@
+GOCAD TSurf 1 
+HEADER {
+comments:san_andreas_garlock/parkfield/alt1/extents/cfma_sa_parkfield_extruded_90dip_complete.ts
+ivolmap:false
+imap:false
+regions:false
+*regions*Region_1*visible:false
+*regions*region:Region_2
+*regions*Region_2*visible:false
+name:SAFS-SAFZ-PARK-San_Andreas_fault
+border:on
+*border*bstone:on
+}
+GOCAD_ORIGINAL_COORDINATE_SYSTEM
+NAME Default
+AXIS_NAME "X" "Y" "Z"
+AXIS_UNIT "m" "m" "m"
+ZPOSITIVE Elevation
+END_ORIGINAL_COORDINATE_SYSTEM
+PROPERTY_CLASS_HEADER Z {
+low_clip:-10148.010742
+high_clip:600.000000
+pclip:99
+is_z:on
+}
+TFACE
+VRTX 1 201014.625 3962406 -9604.84765625 
+VRTX 2 202230 3960889.75 350 
+VRTX 3 195901.40625 3968785 -8295.0419921875 
+VRTX 4 179036.34375 3989825.25 600 
+VRTX 5 202230 3960889.75 -9390.1162109375 
+VRTX 6 186636.90625 3980343 -9312.9345703125 
+VRTX 7 179036.34375 3989825.25 -10148.0107421875 
+TRGL 2 4 3 
+TRGL 6 4 7 
+TRGL 1 2 3 
+TRGL 5 2 1 
+TRGL 3 4 6 
+BSTONE 7 
+BSTONE 2 
+BSTONE 5 
+BSTONE 4 
+BORDER 8 7 4 
+BORDER 9 2 5 
+BORDER 10 5 1 
+BORDER 11 4 2 
+END
