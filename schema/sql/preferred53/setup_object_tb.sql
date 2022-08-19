@@ -1,5 +1,5 @@
 
-COPY OBJECT_tb(name,alternative,source_author,last_update,descriptor,avg_strike,avg_dip,area_km2,exposure,slip_sense,ID_comments,USGS_ID,fault_strand_model_description,reference) FROM '/home/postgres/CFM/schema/data/preferred/object_tb_base.csv' DELIMITER ',' CSV HEADER;
+COPY OBJECT_tb(name,alternative,source_author,last_update,descriptor,avg_strike,avg_dip,area_km2,exposure,slip_sense,ID_comments,USGS_ID,fault_strand_model_description,reference) FROM '/home/postgres/CFM/schema/data/preferred53/object_tb_base.csv' DELIMITER ',' CSV HEADER;
 
 
 CREATE TEMP TABLE tmp_x 
@@ -11,7 +11,7 @@ CREATE TEMP TABLE tmp_x
 
 
 COPY tmp_x(name,area,aabb,zone,zabb,section,sabb,fault)
-FROM '/home/postgres/CFM/schema/data/preferred/object_tb_head.csv' DELIMITER ',' CSV HEADER;
+FROM '/home/postgres/CFM/schema/data/preferred53/object_tb_head.csv' DELIMITER ',' CSV HEADER;
 
 UPDATE OBJECT_tb o SET 
     (AREA_tb_gid, ZONE_tb_gid, SECTION_tb_gid, FAULT_tb_gid)  =
