@@ -1,9 +1,9 @@
 <?php
 require_once("php/navigation.php");
 $header = getHeader("Viewer");
-$cfm_goto_option = getenv("CFM_GOTO_OPTION");
-$cfm_goto_port = getenv("CFM_GOTO_PORT");
-$cfm_goto_pathname = getenv("CFM_GOTO_PATHNAME");
+$cfm_my_db = getenv("CFM_MY_DB");
+$cfm_my_option = getenv("CFM_MY_OPTION");
+$cfm_my_port = getenv("CFM_MY_PORT");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -188,17 +188,17 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
 <div class="row">
  <div class="col-3" style="display:">
 <!-- XX switch between preferred/alternative set -->
-             <input type="text" id="gotoPort" value=<?php echo $cfm_goto_port ?> style="display:none">
-             <input type="text" id="gotoPathname" value=<?php echo $cfm_goto_pathname ?> style="display:none">
-             <input type="text" id="gotoOption" value=<?php echo $cfm_goto_option ?> style="display:none">
+             <input type="text" id="myPort" value=<?php echo $cfm_my_port ?> style="display:none">
+             <input type="text" id="myDb" value=<?php echo $cfm_my_db ?> style="display:none">
+             <input type="text" id="myOption" value=<?php echo $cfm_my_option ?> style="display:none">
 
-             <select id="dataSelect" onchange="gotoOtherDB(this.value)" 
+             <select id="dataSelect" onchange="gotoOtherViewer(this.value)" 
              title="Select which fault set to display/search. Only one set can be searched/displayed at a time"
              class="custom-select custom-select-sm" style="width:auto;min-width:9rem;">
-                <option <?php  if($cfm_goto_option == 0) echo "selected" ?> value="0">6.0 Preferred</option>
-                <option <?php  if($cfm_goto_option == 1) echo "selected" ?> value="1">6.0 Ruptures</option>
-                <option <?php  if($cfm_goto_option == 2) echo "selected" ?> value="2">6.0 Alternatives</option>
-                <option <?php  if($cfm_goto_option == 3) echo "selected" ?> value="3">5.3 Preferred</option>
+                <option <?php  if($cfm_my_option == 0) echo "selected" ?> value="0">6.0 Preferred</option>
+                <option <?php  if($cfm_my_option == 1) echo "selected" ?> value="1">6.0 Alternatives</option>
+                <option <?php  if($cfm_my_option == 2) echo "selected" ?> value="2">6.0 Ruptures</option>
+                <option <?php  if($cfm_my_option == 3) echo "selected" ?> value="3">5.3 Preferred</option>
              </select>
  </div>
  <div class="col-6 pl-3">

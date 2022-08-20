@@ -11,16 +11,15 @@ var seismicity_loaded = false;
 var seismicity_from_cache = true;
 
 
-//
 var CFM_DB_tb = {
    'viewers': [
         { 'option': 0, 'name':'CFM6_preferred','db':'CFM6_preferred_db',
           'pathname': 'cfm-viewer', 'port': 8082 },
         { 'option': 1, 'name':'CFM6_alternatives','db':'CFM6_alt_db',
           'pathname': 'cfm-alt-viewer', 'port': 8086 },
-        { 'option': 2, 'name':'CFM6_ruptures','CFM6_rup_db',
+        { 'option': 2, 'name':'CFM6_ruptures','db':'CFM6_rup_db',
           'pathname': 'cfm-rup-viewer', 'port': 8088 },
-        { 'option': 3, 'name':'CFM53_preferred','CFM53_preferred_db',
+        { 'option': 3, 'name':'CFM53_preferred','db':'CFM53_preferred_db',
           'pathname': 'cfm53-viewer', 'port': 8090 }
               ]
 };
@@ -39,16 +38,17 @@ function gotoOtherViewer(option) {
   let port=window.location.port;
   let pathname=window.location.pathname;
 
-  let nport;
-  let npathname;
+  var nport;
+  var npathname;
 
-  let tb=CFM_DEB_tb['viewers'];
+  let tb=CFM_DB_tb['viewers'];
   let icnt=tb.length;
   for(let i=0; i<icnt; i++) {
-     var item=tb[i];
+     let item=tb[i];
      if(item['option'] == option) {
         npathname=item['pathname'];
         nport=item['port'];
+        break;
      }
   }
 
