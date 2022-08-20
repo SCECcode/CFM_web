@@ -10,12 +10,27 @@ var big_map=0; // 0,1(some control),2(none)
 var seismicity_loaded = false;
 var seismicity_from_cache = true;
 
+
+//
+var CFM_DB_tb = {
+   'viewers': [
+        { 'option': 0, 'name':'CFM6_preferred','db':'CFM6_preferred_db',
+          'pathname': 'cfm-viewer', 'port': 8082 },
+        { 'option': 1, 'name':'CFM6_alternatives','db':'CFM6_alt_db',
+          'pathname': 'cfm-alt-viewer', 'port': 8086 },
+        { 'option': 2, 'name':'CFM6_ruptures','CFM6_rup_db',
+          'pathname': 'cfm-rup-viewer', 'port': 8088 },
+        { 'option': 3, 'name':'CFM53_preferred','CFM53_preferred_db',
+          'pathname': 'cfm53-viewer', 'port': 8090 }
+              ]
+};
+
 //  got to another set of data on same host different port
-function gotoOtherDB(option) {
+function gotoOtherViewer(option) {
 //  http://localhost:8082
 //  http://moho.scec.org/cfm-viewer/
-  let noption=$('#gotoOption').val();
-  if(option == noption) {
+  let myoption=$('#myOption').val();
+  if(option == myoption) {
     return; // do nothing
   }
 
@@ -24,10 +39,20 @@ function gotoOtherDB(option) {
   let port=window.location.port;
   let pathname=window.location.pathname;
 
-  let nport=$('#gotoPort').val();
-  let npathname=$('#gotoPathname').val();
-  let newLoc;
+  let nport;
+  let npathname;
 
+  let tb=CFM_DEB_tb['viewers'];
+  let icnt=tb.length;
+  for(let i=0; i<icnt; i++) {
+     var item=tb[i];
+     if(item['option'] == option) {
+        npathname=item['pathname'];
+        nport=item['port'];
+     }
+  }
+
+  let newLoc;
   if(port === "") {
      newLoc=protocol+"//"+hostname+"/"+npathname+"/";
      } else {

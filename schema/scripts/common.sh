@@ -8,9 +8,11 @@ PWD=`pwd`
 #EXCEL_NM="CFM5.3_Metadata"
 
 # CFM6.0_Alt_Metadata.xlsx, CFM6_alt_db
+# shp/CFM6.0_Alt_xxx
+# doc/CFM6.0_Alt_Metadata.xlsx
 CFMPATH=${PWD}"/../CFM6_alternatives/"
 CFMLOC=${CFMPATH}"shp/CFM6.0_Alt"
-CFMTYPE="CFM6_alt"
+CFMTYPE="CFM6_alternatives"
 EXCEL_NM="CFM6.0_Alt_Metadata"
 
 #CFM6.0_Metadata.xlsx, CFM6_preferred_db
@@ -22,7 +24,7 @@ EXCEL_NM="CFM6.0_Alt_Metadata"
 #CFM6.0_Rup_Metadata.xlsx, CFM6_rup_db
 #CFMPATH=${PWD}"/../CFM6_ruptures/"
 #CFMLOC=${CFMPATH}"shp/CFM6.0_Rup"
-#CFMTYPE="CFM6_rup"
+#CFMTYPE="CFM6_ruptures"
 #EXCEL_NM="CFM6.0_Rup_Metadata"
 
 
