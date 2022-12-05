@@ -87,8 +87,8 @@ CREATE TABLE OBJECT_tb (
    slip_sense VARCHAR(10),
    ID_comments VARCHAR(300),
    USGS_ID VARCHAR(100),
-   fault_strand_model_description VARCHAR(300),
-   reference VARCHAR(300)
+   fault_strand_model_description VARCHAR(3000),
+   reference VARCHAR(3000)
 );
 
 CREATE TABLE EQ_hauksson_tb (
@@ -125,7 +125,7 @@ CREATE TABLE EQ_historical_tb (
    Lat float,
    Depth float DEFAULT NULL,
    Mag float,
-   Description VARCHAR(300)
+   Description VARCHAR(3000)
 );
 SELECT AddGeometryColumn('','eq_historical_tb','geom','0','POINT',2);
 
