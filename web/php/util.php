@@ -1,6 +1,6 @@
 <?php
 function getConnection() {
-  $db=getenv("CFM_DB");
+  $db=getenv("CFM_MY_DB");
 
   if($db == "") { die('Could not get CFM_DB environment value'); }
 

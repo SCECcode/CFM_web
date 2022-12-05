@@ -10,8 +10,10 @@ initdb /home/postgres/cfm_db
 pg_ctl -D /home/postgres/cfm_db -l /home/postgres/logfile start
 
 /app/schema/load_db_setup
-/app/schema/load_alt_db_up
-/app/schema/load_preferred_db_up
+/app/schema/load_6_preferred_db_up
+/app/schema/load_6_alternatives_db_up
+/app/schema/load_6_ruptures_db_up
+/app/schema/load_53_preferred_db_up
 
   
 

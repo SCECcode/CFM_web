@@ -57,7 +57,7 @@ GVFA-PLFZ-MULT-Pleito_fault-CFM2,Great Valley Fault Area,GVFA,Pleito fault zone,
 GVFA-TDRS-COAL-Coalinga_blind_fault-CFM2,Great Valley Fault Area,GVFA,Temblor-Diablo Range thrust system,TDRS,Coalinga,COAL,Coalinga blind fault
 GVFA-TDRS-KTLM-Kettleman_Hills_blind_fault_North_Dome-CFM2,Great Valley Fault Area,GVFA,Temblor-Diablo Range thrust system,TDRS,Kettleman Hills,KTLM,Kettleman Hills blind fault
 GVFA-TDRS-LSTH-Lost_Hills_blind_fault-CFM2,Great Valley Fault Area,GVFA,Temblor-Diablo Range thrust system,TDRS,Lost Hills,LSTH,Lost Hills blind fault
-GVFA-WWFZ-MULT-White_Wolf_fault-CFM5,Great Valley Fault Area,GVFA,White Wolf fault zone,WWFZ,Multiple Sections,MULT,White Wolf fault
+GVFA-WWFZ-MULT-White_Wolf_fault-CFM5,Great Valley Fault Area,GVFA,White Wolf fault zone,WWFZ,Multiple sections,MULT,White Wolf fault
 GVFA-WWFZ-NEST-Scodie_Lineament-CFM5,Great Valley Fault Area,GVFA,White Wolf fault zone,WWFZ,North-Eastern,NEST,Scodie Lineament
 MJVA-BWFZ-MULT-Blackwater_fault-CFM5,Mojave Fault Area,MJVA,Blackwater fault zone,BWFZ,Multiple sections,MULT,Blackwater fault
 MJVA-CHFZ-MULT-Calico_Hidalgo_fault-CFM5,Mojave Fault Area,MJVA,Calico-Hildalgo fault zone,CHFZ,Multiple sections,MULT,Calico-Hildalgo fault
@@ -107,8 +107,14 @@ OCBA-CBFZ-EAST-Coronado_Bank_east_splay-CFM5,Offshore Continental Borderland Are
 OCBA-CBFZ-NCBF-Coronado_Bank_fault_north-CFM5,Offshore Continental Borderland Area,OCBA,Coronado Bank fault zone,CBFZ,Northern Coronado Bank,NCBF,Coronado Bank fault
 OCBA-CBFZ-SCBF-Coronado_Bank_fault_south-CFM5,Offshore Continental Borderland Area,OCBA,Coronado Bank fault zone,CBFZ,Southern Coronado Bank,SCBF,Coronado Bank fault
 OCBA-CBFZ-WEST-Coronado_Bank_west_splay-CFM5,Offshore Continental Borderland Area,OCBA,Coronado Bank fault zone,CBFZ,Western splay,WEST,Coronado Bank west splay
+<<<<<<< HEAD
 OCBA-CBKD-CRBS-Coronado_Bank_detachment-CFM5,Offshore Continental Borderland Area,OCBA,Coronado Bank Detachment,CBKD,Coronado Bank,CRBS,Coronado Bank detachment trim
 OCBA-CBKD-OCNS-Coronado_Bank_detachment_upper-CFM6,Offshore Continental Borderland Area,OCBA,Coronado Bank Detachment,CBKD,Oceanside,OCNS,Coronado Bank detachment upper
+=======
+OCBA-CBKD-CRBS-Coronado_Bank_detachment_trim-CFM5,Offshore Continental Borderland Area,OCBA,Coronado Bank Detachment,CBKD,Coronado Bank,CRBS,Coronado Bank detachment trim
+OCBA-CBKD-MULT-Coronado_Bank_detachment_upper-CFM5,Offshore Continental Borderland Area,OCBA,Coronado Bank Detachment,CBKD,Multiple sections,MULT,Coronado Bank detachment upper
+OCBA-CRSF-RDNC-Redondo_Canyon_fault-CFM2,Offshore Continental Borderland Area,OCBA,Cross Faults,CRSF,Redondo Canyon,RDNC,Redondo Canyon fault
+>>>>>>> 422177d5a010a5248b030ee02838a2dec342c21b
 OCBA-DSCS-EAST-Descanso_fault_east_splay-CFM5,Offshore Continental Borderland Area,OCBA,Descanso fault system,DSCS,Eastern splay - south,EAST,Descanso fault-east splay
 OCBA-DSCS-MAIN-Descanso_fault-CFM5,Offshore Continental Borderland Area,OCBA,Descanso fault system,DSCS,Main-central strand,MAIN,Descanso fault
 OCBA-DSCS-NRTH-Descanso_fault_A-CFM5,Offshore Continental Borderland Area,OCBA,Descanso fault system,DSCS,Northern section,NRTH,Descanso fault-A
@@ -132,9 +138,15 @@ OCBA-OCSD-OCNS-Oceanside_fault_north-CFM5,Offshore Continental Borderland Area,O
 OCBA-OCSD-OCNS-Oceanside_fault_south_east_A-CFM5,Offshore Continental Borderland Area,OCBA,Oceanside Detachment,OCSD,Oceanside,OCNS,Oceanside fault-south-east-A
 OCBA-OCSD-OCNS-Oceanside_fault_south_east_B-CFM5,Offshore Continental Borderland Area,OCBA,Oceanside Detachment,OCSD,Oceanside,OCNS,Oceanside fault-south-east-B
 OCBA-OCSD-OCNS-Oceanside_fault_south_east_C-CFM5,Offshore Continental Borderland Area,OCBA,Oceanside Detachment,OCSD,Oceanside,OCNS,Oceanside fault-south-east-C
+<<<<<<< HEAD
 OCBA-PVFZ-MULT-Palos_Verdes_fault-CFM6,Offshore Continental Borderland Area,OCBA,Palos Verdes fault zone,PVFZ,Multiple sections,MULT,Palos Verdes fault
 OCBA-PVFZ-RDNC-Redondo_Canyon_fault-CFM6,Offshore Continental Borderland Area,OCBA,Palos Verdes fault zone,PVFZ,Redondo Canyon,RDNC,Redondo Canyon fault
 OCBA-SCCR-MULT-Santa_Cruz_Catalina_Ridge_fault-CFM5,Offshore Continental Borderland Area,OCBA,Santa Cruz-Catalina Ridge fault system,SCCR,Multiple Sections,MULT,Santa Cruz-Catalina Ridge fault
+=======
+OCBA-OCSD-OCNS-Oceanside_fault_south_west-CFM5,Offshore Continental Borderland Area,OCBA,Oceanside Detachment,OCSD,Oceanside,OCNS,Oceanside fault-south-west
+OCBA-PVFZ-MULT-Palos_Verdes_fault-CFM5,Offshore Continental Borderland Area,OCBA,Palos Verdes fault zone,PVFZ,Multiple sections,MULT,Palos Verdes fault
+OCBA-SCCR-MULT-Santa_Cruz_Catalina_Ridge_fault-CFM5,Offshore Continental Borderland Area,OCBA,Santa Cruz-Catalina Ridge fault system,SCCR,Multiple sections,MULT,Santa Cruz-Catalina Ridge fault
+>>>>>>> 422177d5a010a5248b030ee02838a2dec342c21b
 OCBA-SCFZ-CTLB-San_Clemente_fault_splay-CFM5,Offshore Continental Borderland Area,OCBA,San Clemente fault zone,SCFZ,Catalina Basin,CTLB,San Clemente fault splay
 OCBA-SCFZ-SBRI-San_Clemente_fault_nw_strand-CFM5,Offshore Continental Borderland Area,OCBA,San Clemente fault zone,SCFZ,Santa Barbara Island area,SBRI,San Clemente fault nw-strand
 OCBA-SCFZ-SCBR-San_Clemente_fault-CFM5,Offshore Continental Borderland Area,OCBA,San Clemente fault zone,SCFZ,San Clemente Basin region,SCBR,San Clemente fault
@@ -161,6 +173,10 @@ OCBA-SPES-SPBS-San_Pedro_Escarpment_fault_D-CFM5,Offshore Continental Borderland
 OCBA-SPES-SPBS-San_Pedro_Escarpment_fault_E-CFM5,Offshore Continental Borderland Area,OCBA,San Pedro Escarpment fault system,SPES,San Pedro Basin,SPBS,San Pedro Escarpment fault-E
 OCBA-SPES-SPBS-San_Pedro_Escarpment_fault_F-CFM5,Offshore Continental Borderland Area,OCBA,San Pedro Escarpment fault system,SPES,San Pedro Basin,SPBS,San Pedro Escarpment fault-F
 OCBA-SPES-SPBS-San_Pedro_Escarpment_fault_YngB-CFM5,Offshore Continental Borderland Area,OCBA,San Pedro Escarpment fault system,SPES,San Pedro Basin,SPBS,San Pedro Escarpment fault-YngB
+<<<<<<< HEAD
+=======
+OCBA-TMBS-MULT-Thirtymile_Bank_detachment-CFM5,Offshore Continental Borderland Area,OCBA,Thirtymile Bank fault system,TMBS,Multiple sections,MULT,Thirtymile Bank detachment
+>>>>>>> 422177d5a010a5248b030ee02838a2dec342c21b
 OCBA-WBFS-HNTB-Huntington_Beach_fault-CFM5,Offshore Continental Borderland Area,OCBA,Wilmington Blind Fault System,WBFS,Huntington Beach,HNTB,Huntington Beach fault
 OCBA-WBFS-TRNC-Torrance_blind_fault-CFM5,Offshore Continental Borderland Area,OCBA,Wilmington Blind Fault System,WBFS,Torrance,TRNC,Torrance blind fault
 OCBA-WBFS-WLMT-Wilmington_blind_fault-CFM5,Offshore Continental Borderland Area,OCBA,Wilmington Blind Fault System,WBFS,Wilmington,WLMT,Wilmington blind fault

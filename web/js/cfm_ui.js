@@ -10,12 +10,26 @@ var big_map=0; // 0,1(some control),2(none)
 var seismicity_loaded = false;
 var seismicity_from_cache = true;
 
+
+var CFM_DB_tb = {
+   'viewers': [
+        { 'option': 0, 'name':'CFM6_preferred','db':'CFM6_preferred_db',
+          'pathname': 'cfm-viewer', 'port': 8082 },
+        { 'option': 1, 'name':'CFM6_alternatives','db':'CFM6_alt_db',
+          'pathname': 'cfm-alt-viewer', 'port': 8086 },
+        { 'option': 2, 'name':'CFM6_ruptures','db':'CFM6_rup_db',
+          'pathname': 'cfm-rup-viewer', 'port': 8088 },
+        { 'option': 3, 'name':'CFM53_preferred','db':'CFM53_preferred_db',
+          'pathname': 'cfm53-viewer', 'port': 8090 }
+              ]
+};
+
 //  got to another set of data on same host different port
-function gotoOtherDB(option) {
+function gotoOtherViewer(option) {
 //  http://localhost:8082
 //  http://moho.scec.org/cfm-viewer/
-  let noption=$('#gotoOption').val();
-  if(option == noption) {
+  let myoption=$('#myOption').val();
+  if(option == myoption) {
     return; // do nothing
   }
 
@@ -24,10 +38,21 @@ function gotoOtherDB(option) {
   let port=window.location.port;
   let pathname=window.location.pathname;
 
-  let nport=$('#gotoPort').val();
-  let npathname=$('#gotoPathname').val();
-  let newLoc;
+  var nport;
+  var npathname;
 
+  let tb=CFM_DB_tb['viewers'];
+  let icnt=tb.length;
+  for(let i=0; i<icnt; i++) {
+     let item=tb[i];
+     if(item['option'] == option) {
+        npathname=item['pathname'];
+        nport=item['port'];
+        break;
+     }
+  }
+
+  let newLoc;
   if(port === "") {
      newLoc=protocol+"//"+hostname+"/"+npathname+"/";
      } else {
@@ -471,7 +496,7 @@ function makeResultTable(str)
     window.console.log("calling makeResultTable..");
 
     var html="<div class=\"cfm-table\" ><table>";
-    html+="<thead><tr><th class='text-center'><button id=\"allBtn\" class=\"btn btn-sm cfm-small-btn\" title=\"select all visible faults\" onclick=\"selectAll();\"><span class=\"glyphicon glyphicon-unchecked\"></span></button></th><th class='text-center'></th><th class='myheader'>FM5.3 Fault Objects</th></tr></thead>";
+    html+="<thead><tr><th class='text-center'><button id=\"allBtn\" class=\"btn btn-sm cfm-small-btn\" title=\"select all visible faults\" onclick=\"selectAll();\"><span class=\"glyphicon glyphicon-unchecked\"></span></button></th><th class='text-center'></th><th class='myheader'>CFM Fault Objects</th></tr></thead>";
 
     var body=makeResultTableBody(str);
     html=html+ body + "</tbody></table></div>";
