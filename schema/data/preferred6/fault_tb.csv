@@ -1,6 +1,4 @@
 name
-2010 El Mayor-Cucapah rupture
-2019 Ridgecrest ruptures
 Agua Caliente fault zone
 Agua Tibia-Earthquake Valley fault
 Agua Tibia-Earthquake Valley fault-east
@@ -11,7 +9,7 @@ Anaheim fault
 Ash Hill fault
 Bailey fault
 Banning fault strand
-Banning-NPS fault splay
+Banning-North Palm Springs fault splay
 Beaumont A fault
 Beaumont B fault
 Beaumont C fault
@@ -82,7 +80,7 @@ Descanso fault-B
 Descanso fault-C
 Descanso fault-east splay
 Descanso fault-west splay
-Descanso-RC transfer fault
+Descanso-Rose Canyon transfer fault
 Devil's Canyon fault
 Dixieland_fault
 Eagle Rock fault
@@ -124,9 +122,11 @@ Ferrelo fault
 Fontana Seismicity lineament
 Galway Lake fault
 Garlic Springs fault
-Garlock fault
+Garlock fault-east
+Garlock fault-west
 Garnet Hill fault strand
-Glen Helen fault
+Glen Helen fault-NW extension
+Glen Helen fault-SE extension
 Glen Ivy North fault
 Glen Ivy South fault
 Goldstone Lake fault
@@ -137,21 +137,20 @@ Gravel Hills-Harper Lake fault
 Haiwee fault
 Haiwee fault connector
 Harper Valley fault
-Harper Valley - Mt_General fault
-Hector Mine rupture
+Harper Valley-Mt General fault
 Helendale-South Lockhart fault
 Hidden Springs fault
 Hollywood fault
 Holser fault
 Homestead Valley fault
-Hondo detachment-S-dip
+Hondo detachment
 Hosgri fault
 Hot Springs fault
 Hot Springs Fault
 Hot Springs fault-west
 Hunter Mountain fault
 Huntington Beach fault
-Icehouse Canyon fault-truncated
+Icehouse Canyon fault
 Imperial fault
 Imperial fault-east branch
 Independence fault
@@ -173,7 +172,6 @@ Lake Isabella lineament
 Landers-Barstow trend
 Landers cross fault-north-I
 Landers cross fault-north-II
-Landers rupture
 La Panza fault
 Las Cienagas fault
 Lavic Lake-North West Bullion fault
@@ -200,7 +198,7 @@ Malibu Coast fault-west
 Manix fault
 McLean Lake-Drinkwater Lake fault
 Mecca Hills fault
-Mecca Hills-Hidden Springs deep fault
+Mecca Hills-Hidden Springs fault
 Mesquite Lake fault
 Mid-Channel fault
 Mill Creek fault strand
@@ -222,6 +220,7 @@ Northern Davies Valley fault
 Northern Death Valley fault
 Northern San Gabriel fault
 North Palm Springs fault
+North Palm Springs fault-lower splay
 Northridge-Frew fault
 Northridge Hills fault
 North Salt Lake fault
@@ -233,7 +232,6 @@ Oceanside fault-north
 Oceanside fault-south-east-A
 Oceanside fault-south-east-B
 Oceanside fault-south-east-C
-Oceanside fault-south-west
 Ocotillo fault
 Ocotillo set1
 Ocotillo set2
@@ -260,8 +258,9 @@ Pine Mountain fault
 Pinto Mountain fault
 Pipes Canyon
 Pipes Canyon-north-extension
-Pisgah-Bullion-West_Bullion fault
+Pisgah-Bullion-West Bullion fault
 Pitas Point fault-east
+Pitas Point fault-east-splay
 Pitas Point fault-west
 Pitas Point fault-west-S
 Pitas Point-Ventura fault link
@@ -287,8 +286,8 @@ Rose Canyon fault
 Rose Valley cross fault
 Rose Valley fault
 San Andreas fault
-San Antonio Canyon fault splay-truncated
-San Antonio Canyon fault-truncated
+San Antonio Canyon fault
+San Antonio Canyon fault splay
 San Bernardino cross fault
 San Cayetano fault
 San Clemente fault
@@ -306,11 +305,12 @@ San Jose fault
 San Juan fault
 San Luis Bay fault
 San Luis Range fault system
-San Mateo-Carlsbad fault
 San Mateo splay
+San Onofre-Carlsbad fault
 San Onofre fault
 San Pedro Basin fault-north
 San Pedro Basin fault-south
+San Pedro Escarpment-Compton connector
 San Pedro Escarpment fault-A
 San Pedro Escarpment fault-B
 San Pedro Escarpment fault-C
@@ -322,16 +322,13 @@ Santa Ana fault
 Santa Cruz-Catalina Ridge fault
 Santa Cruz Island fault
 Santa Lucia Bank fault
-Santa Lucia Bank West fault
+Santa Lucia Bank west fault
 Santa Maria Basin thrust-A
 Santa Maria Basin thrust-B
 Santa Maria Basin thrust-C
-Santa Monica Bay detachment-east
-Santa Monica Bay detachment-mid
-Santa Monica Bay detachment-west
+Santa Monica Bay-Compton connector
+Santa Monica Bay detachment
 Santa Monica Bay fault
-Santa Monica Bay fault-east
-Santa Monica fault
 Santa Monica thrust
 Santa Rosa Island fault
 Santa Susana fault
@@ -349,7 +346,8 @@ Sierra Cucapah fault-NW_splay
 Sierra Madre-Cucamonga connector
 Sierra Madre fault
 Sierra Madre fault-west
-Simi-Santa Rosa fault-listric
+Simi-Santa Rosa fault
+Sisar detachment
 Smoketree Wash fault
 South Cuyuma fault
 Southern Death Valley fault
@@ -360,8 +358,8 @@ Southern Little Lake north fault
 Southern San Andreas fault
 Southern San Cayetano fault
 Southern San Gabriel fault
-South Fork-Stoddard Canyon fault-truncated
-Stoddard Canyon fault-truncated
+South Fork-Stoddard Canyon fault
+Stoddard Canyon fault
 Superstition Hills fault
 Superstition Mountain fault
 Sur fault-B
@@ -373,6 +371,7 @@ Torrance blind fault
 Tunnel Ridge-Arrastre Canyon fault
 Upland fault
 Upper Elysian Park fault
+Upper Southern San Cayetano fault
 Ventura fault
 Verdugo fault
 Walnut Creek fault
@@ -385,6 +384,7 @@ West Basin fault-A
 West Basin fault-B
 West Basin fault-C
 West Calico fault
+West Davies Valley fault
 Western Deep fault
 Western Heights fault
 Western North Frontal thrust
@@ -401,11 +401,12 @@ Willard fault
 Wilmington blind fault
 Workman Hill fault
 Yorba Linda Lineament
+Yuha Desert blind fault
 Yuha fault
 Yuha Wash fault
 Yuha Well fault-north set1
 Yuha Well fault-northwest
 Yuha Well fault-west
 Yuha Well fault zone
-Yuha Well-Vista del Anza_fault
+Yuha Well-Vista del Anza fault
 Zaca blind fault

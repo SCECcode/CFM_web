@@ -6,10 +6,10 @@
 . ./common.sh
 
 
-shp2pgsql -I -s GCS_WGS_1984 ${CFMLOC}_traces.shp nonblind_trace_tb > ${CFMTYPE}_traces_nonblind.sql
-shp2pgsql -I -s GCS_WGS_1984 ${CFMLOC}_blind.shp blind_trace_tb > ${CFMTYPE}_traces_blind.sql
+shp2pgsql -I -s GCS_WGS_1984 ${CFMLOC}.shp nonblind_trace_tb > ${CFMTYPE}_traces_nonblind.sql
+shp2pgsql -I -s GCS_WGS_1984 ${CFMLOC_BLIND}.shp blind_trace_tb > ${CFMTYPE}_traces_blind.sql
 
-cp $CFMPATH/doc/*.xlsx .
+#cp $CFMPATH/doc/*.xlsx .
 
 
 #>>MeiPro:CFM5_preferred_traces mei$ ./convert-shp.sh

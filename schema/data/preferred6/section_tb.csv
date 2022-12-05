@@ -1,11 +1,6 @@
 name,abb
-1812 Rupture-Mojave SAF+nSJF,1812
-1857 Rupture-Parkfield-Mojave,1857
-1872 rupture,1872
 1992 Big Bear rupture,1992
 1992 Joshua Tree rupture,1992
-2010 El Mayor-Cucapah rupture,2010
-2019 Ridgecrest Ruptures,2019
 Agua Caliente,AGCT
 Allicito Mountains,ALCM
 Anacapa-Dume,ANCP
@@ -51,6 +46,7 @@ Dana Point section,DANA
 Davies Valley,DVSV
 Detachment,DTMT
 East Bullion,EBLS
+East,EAST
 Eastern Big Pine,EAST
 Eastern,EAST
 Eastern San Bernardino Mtns,SBMT
@@ -69,7 +65,6 @@ Gravel Hills,GVHS
 Gravel Hills-Harper Lake,MULT
 Haiwee Reservoir,HWRS
 Harper Valley,HPVS
-Hector Mine rupture,1999
 Homestead Valley,HMSV
 Hot Springs,HOTS
 Huasna Valley,HSNV
@@ -100,10 +95,11 @@ Main-central strand,MAIN
 Manix,MANX
 Mecca Hills,MCHS
 Mesquite Lake,MSQL
+Mid,MIDS
 Mission Hills,MSNH
 Mojave,MJVS
 Morales,MRLS
-Morongo Valley,MORV
+Morongo Valley,MRVS
 Multiple-Los Angeles basin,LABS
 Multiple sections,MULT
 Multiple Sections,MULT
@@ -127,6 +123,7 @@ Orcutt,ORCT
 Oxnard Plain,OXNP
 Painted Gorge Wash,PGWS
 Palomas,PLMS
+Palos Verdes Anticlinorium,PVAS
 Palos Verdes,PVDS
 Paradise,PRDS
 Parkfield,PARK
@@ -158,6 +155,7 @@ San Joaquin Hills,SJQH
 San Luis Bay,SLBS
 San Mateo,SMTO
 San Miguelito anticline,SMGA
+San Onofre-Oceanside,SONO
 San Pedro Basin-San Diego Trough,STHS
 San Pedro Basin,SPBS
 Santa Barbara Island area,SBRI
@@ -168,8 +166,6 @@ Santa Cruz Island,SNCZ
 Santa Lucia Range-North,SLRN
 Santa Monica Bay-San Pedro Basin,NTHS
 Santa Monica Bay,SMBS
-Santa Monica Bay,SMBY
-Santa Monica Bay,SMNB
 Santa Monica Mountains,SMMT
 Santa Rosa Ridge,SRRS
 Santa Rosa-San Miguel Islands,SRSM
@@ -187,6 +183,7 @@ Southern Coronado Bank,SCBF
 Southern Johnson Valley,SJVS
 Southern,SOUT
 Southern,STHN
+South San Diego Trough,SSDT
 Stoddard Canyon,STDC
 Sulphur Mountain,SPMT
 Superstition Hills,SSHS
@@ -202,10 +199,12 @@ Upper Santa Ana Valley,USAV
 Ventura basin,VNTB
 Verdugo Mountains,VRDM
 West Calico section,WCLS
+West Davies Valley,WDVV
 Western Big Pine,WEST
 Western splay - north,WEST
 Western splay,WEST
 Western,WEST
+West,WEST
 Whittier,WHIT
 Wilmington,WLMT
 Yuha Desert,YUHA
