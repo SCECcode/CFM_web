@@ -8,9 +8,9 @@
 
 . ./common.sh
 
-##rm -f *.csv
-##XXX in2csv ${EXCEL_NM}.xlsx 2> ${EXCEL_NM}.err |csvcut -c 1-26 > ${EXCEL_NM}_raw.csv
-cat ${EXCEL_NM}.csv |csvcut -c 1-26 > ${EXCEL_NM}_raw.csv
+rm -f *.csv
+#in2csv --sheet "${EXCEL_NM_SHEET}" ${EXCEL_NM_FILE} | csvcut -c 1-26 > ${EXCEL_NM}_raw.csv
+cat ${CFMPATH}doc/${EXCEL_NM}.csv | csvcut -c 1-26 > ${EXCEL_NM}_raw.csv
 grep ",,,,,,,,$"  ${EXCEL_NM}_raw.csv > skip_subtitles
 grep -vf skip_subtitles ${EXCEL_NM}_raw.csv |sed "s/  / /g" | sed "s/, E/,E/"  > ${EXCEL_NM}.csv
 csvcut -n ${EXCEL_NM}.csv > ${EXCEL_NM}_column_labels
