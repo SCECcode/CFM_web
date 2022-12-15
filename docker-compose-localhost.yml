@@ -21,8 +21,8 @@ services:
       CFM_MY_DB: CFM6_preferred_db 
       CFM_MY_OPTION: 0
       CFM_MY_PORT: 8082 
-      CFM_MY_BLIND: cfm_blind_6.utm
-      CFM_MY_TRACE: cfm_trace_6.utm 
+      CFM_MY_BLIND: CFM6.0_blind.utm
+      CFM_MY_TRACE: CFM6.0_traces.utm
     ports:
       - 8082:8081
       - 8083:80
@@ -36,8 +36,8 @@ services:
       CFM_MY_DB: CFM6_alt_db 
       CFM_MY_OPTION: 1
       CFM_MY_PORT: 8086 
-      CFM_MY_BLIND: cfm_blind_6_alt.utm
-      CFM_MY_TRACE: cfm_trace_6_alt.utm 
+      CFM_MY_BLIND: CFM6.0_blind_Alt.utm
+      CFM_MY_TRACE: CFM6.0_traces_Alt.utm
     ports:
       - 8086:8081
       - 8087:80
@@ -51,8 +51,8 @@ services:
       CFM_MY_DB: CFM6_rup_db
       CFM_MY_OPTION: 2
       CFM_MY_PORT: 8088
-      CFM_MY_BLIND: cfm_blind_6_rup.utm
-      CFM_MY_TRACE: cfm_trace_6_rup.utm 
+      CFM_MY_BLIND: CFM6.0_blind_Rup.utm
+      CFM_MY_TRACE: CFM6.0_traces_Rup.utm
     ports:
       - 8088:8081
       - 8089:80
@@ -66,8 +66,8 @@ services:
       CFM_MY_DB: CFM53_preferred_db
       CFM_MY_OPTION: 3
       CFM_MY_PORT: 8090
-      CFM_MY_BLIND: cfm_blind_53.utm
-      CFM_MY_TRACE: cfm_trace_53.utm 
+      CFM_MY_BLIND: CFM5.3_blind.utm
+      CFM_MY_TRACE: CFM5.3_traces.utm
     ports:
       - 8090:8081
       - 8091:80
