@@ -57,7 +57,7 @@ GVFA-PLFZ-MULT-Pleito_fault-CFM2,Great Valley Fault Area,GVFA,Pleito fault zone,
 GVFA-TDRS-COAL-Coalinga_blind_fault-CFM2,Great Valley Fault Area,GVFA,Temblor-Diablo Range thrust system,TDRS,Coalinga,COAL,Coalinga blind fault
 GVFA-TDRS-KTLM-Kettleman_Hills_blind_fault_North_Dome-CFM2,Great Valley Fault Area,GVFA,Temblor-Diablo Range thrust system,TDRS,Kettleman Hills,KTLM,Kettleman Hills blind fault
 GVFA-TDRS-LSTH-Lost_Hills_blind_fault-CFM2,Great Valley Fault Area,GVFA,Temblor-Diablo Range thrust system,TDRS,Lost Hills,LSTH,Lost Hills blind fault
-GVFA-WWFZ-MULT-White_Wolf_fault-CFM5,Great Valley Fault Area,GVFA,White Wolf fault zone,WWFZ,Multiple Sections,MULT,White Wolf fault
+GVFA-WWFZ-MULT-White_Wolf_fault-CFM5,Great Valley Fault Area,GVFA,White Wolf fault zone,WWFZ,Multiple sections,MULT,White Wolf fault
 GVFA-WWFZ-NEST-Scodie_Lineament-CFM5,Great Valley Fault Area,GVFA,White Wolf fault zone,WWFZ,North-Eastern,NEST,Scodie Lineament
 MJVA-BWFZ-MULT-Blackwater_fault-CFM5,Mojave Fault Area,MJVA,Blackwater fault zone,BWFZ,Multiple sections,MULT,Blackwater fault
 MJVA-CHFZ-MULT-Calico_Hidalgo_fault-CFM5,Mojave Fault Area,MJVA,Calico-Hildalgo fault zone,CHFZ,Multiple sections,MULT,Calico-Hildalgo fault
@@ -109,13 +109,13 @@ OCBA-CBFZ-SCBF-Coronado_Bank_fault_south-CFM5,Offshore Continental Borderland Ar
 OCBA-CBFZ-WEST-Coronado_Bank_west_splay-CFM5,Offshore Continental Borderland Area,OCBA,Coronado Bank fault zone,CBFZ,Western splay,WEST,Coronado Bank west splay
 OCBA-CBKD-CRBS-Coronado_Bank_detachment-CFM5,Offshore Continental Borderland Area,OCBA,Coronado Bank Detachment,CBKD,Coronado Bank,CRBS,Coronado Bank detachment trim
 OCBA-CBKD-OCNS-Coronado_Bank_detachment_upper-CFM6,Offshore Continental Borderland Area,OCBA,Coronado Bank Detachment,CBKD,Oceanside,OCNS,Coronado Bank detachment upper
-OCBA-DSCS-EAST-Descanso_fault_east_splay-CFM5,Offshore Continental Borderland Area,OCBA,Descanso fault system,DSCS,Eastern splay - south,EAST,Descanso fault-east splay
+OCBA-DSCS-EAST-Descanso_fault_east_splay-CFM5,Offshore Continental Borderland Area,OCBA,Descanso fault system,DSCS,Eastern splay-south,EAST,Descanso fault-east splay
 OCBA-DSCS-MAIN-Descanso_fault-CFM5,Offshore Continental Borderland Area,OCBA,Descanso fault system,DSCS,Main-central strand,MAIN,Descanso fault
 OCBA-DSCS-NRTH-Descanso_fault_A-CFM5,Offshore Continental Borderland Area,OCBA,Descanso fault system,DSCS,Northern section,NRTH,Descanso fault-A
 OCBA-DSCS-NRTH-Descanso_fault_B-CFM5,Offshore Continental Borderland Area,OCBA,Descanso fault system,DSCS,Northern section,NRTH,Descanso fault-B
 OCBA-DSCS-NRTH-Descanso_fault_C-CFM5,Offshore Continental Borderland Area,OCBA,Descanso fault system,DSCS,Northern section,NRTH,Descanso fault-C
 OCBA-DSCS-RCNT-Descanso_RoseCanyon_transfer_fault-CFM5,Offshore Continental Borderland Area,OCBA,Descanso fault system,DSCS,Rose Canyon transfer,RCNT,Descanso-Rose Canyon transfer fault
-OCBA-DSCS-WEST-Descanso_fault_west_splay-CFM5,Offshore Continental Borderland Area,OCBA,Descanso fault system,DSCS,Western splay - north,WEST,Descanso fault-west splay
+OCBA-DSCS-WEST-Descanso_fault_west_splay-CFM5,Offshore Continental Borderland Area,OCBA,Descanso fault system,DSCS,Western splay-north,WEST,Descanso fault-west splay
 OCBA-ESCS-ESCB-East_Santa_Cruz_Basin_fault_A-CFM5,Offshore Continental Borderland Area,OCBA,East Santa Cruz Basin fault system,ESCS,East Santa Cruz Basin,ESCB,East Santa Cruz Basin fault-A
 OCBA-ESCS-ESCB-East_Santa_Cruz_Basin_fault_B-CFM5,Offshore Continental Borderland Area,OCBA,East Santa Cruz Basin fault system,ESCS,East Santa Cruz Basin,ESCB,East Santa Cruz Basin fault-B
 OCBA-ESCS-ESCB-East_Santa_Cruz_Basin_fault_D-CFM5,Offshore Continental Borderland Area,OCBA,East Santa Cruz Basin fault system,ESCS,East Santa Cruz Basin,ESCB,East Santa Cruz Basin fault-D
@@ -134,7 +134,7 @@ OCBA-OCSD-OCNS-Oceanside_fault_south_east_B-CFM5,Offshore Continental Borderland
 OCBA-OCSD-OCNS-Oceanside_fault_south_east_C-CFM5,Offshore Continental Borderland Area,OCBA,Oceanside Detachment,OCSD,Oceanside,OCNS,Oceanside fault-south-east-C
 OCBA-PVFZ-MULT-Palos_Verdes_fault-CFM6,Offshore Continental Borderland Area,OCBA,Palos Verdes fault zone,PVFZ,Multiple sections,MULT,Palos Verdes fault
 OCBA-PVFZ-RDNC-Redondo_Canyon_fault-CFM6,Offshore Continental Borderland Area,OCBA,Palos Verdes fault zone,PVFZ,Redondo Canyon,RDNC,Redondo Canyon fault
-OCBA-SCCR-MULT-Santa_Cruz_Catalina_Ridge_fault-CFM5,Offshore Continental Borderland Area,OCBA,Santa Cruz-Catalina Ridge fault system,SCCR,Multiple Sections,MULT,Santa Cruz-Catalina Ridge fault
+OCBA-SCCR-MULT-Santa_Cruz_Catalina_Ridge_fault-CFM5,Offshore Continental Borderland Area,OCBA,Santa Cruz-Catalina Ridge fault system,SCCR,Multiple sections,MULT,Santa Cruz-Catalina Ridge fault
 OCBA-SCFZ-CTLB-San_Clemente_fault_splay-CFM5,Offshore Continental Borderland Area,OCBA,San Clemente fault zone,SCFZ,Catalina Basin,CTLB,San Clemente fault splay
 OCBA-SCFZ-SBRI-San_Clemente_fault_nw_strand-CFM5,Offshore Continental Borderland Area,OCBA,San Clemente fault zone,SCFZ,Santa Barbara Island area,SBRI,San Clemente fault nw-strand
 OCBA-SCFZ-SCBR-San_Clemente_fault-CFM5,Offshore Continental Borderland Area,OCBA,San Clemente fault zone,SCFZ,San Clemente Basin region,SCBR,San Clemente fault
@@ -153,7 +153,7 @@ OCBA-SMCS-SMTO-San_Onofre_fault-CFM6,Offshore Continental Borderland Area,OCBA,S
 OCBA-SMCS-SONO-San_Onofre_Carlsbad_fault-CFM6,Offshore Continental Borderland Area,OCBA,San Mateo-San Onofre-Carlsbad fault system,SMCS,San Onofre-Oceanside,SONO,San Onofre-Carlsbad fault
 OCBA-SPBZ-NTHS-San_Pedro_Basin_fault_north-CFM5,Offshore Continental Borderland Area,OCBA,San Pedro Basin fault zone,SPBZ,Santa Monica Bay-San Pedro Basin,NTHS,San Pedro Basin fault-north
 OCBA-SPBZ-STHS-San_Pedro_Basin_fault_south-CFM5,Offshore Continental Borderland Area,OCBA,San Pedro Basin fault zone,SPBZ,San Pedro Basin-San Diego Trough,STHS,San Pedro Basin fault-south
-OCBA-SPES-MULT-San_Pedro_Escarpment_Compton_connector-CFM6,Offshore Continental Borderland Area,OCBA,San Pedro Escarpment fault system,SPES,Multiple Sections,MULT,San Pedro Escarpment-Compton connector
+OCBA-SPES-MULT-San_Pedro_Escarpment_Compton_connector-CFM6,Offshore Continental Borderland Area,OCBA,San Pedro Escarpment fault system,SPES,Multiple sections,MULT,San Pedro Escarpment-Compton connector
 OCBA-SPES-PVDS-San_Pedro_Escarpment_fault_B-CFM5,Offshore Continental Borderland Area,OCBA,San Pedro Escarpment fault system,SPES,Palos Verdes,PVDS,San Pedro Escarpment fault-B
 OCBA-SPES-SMBS-San_Pedro_Escarpment_fault_A-CFM5,Offshore Continental Borderland Area,OCBA,San Pedro Escarpment fault system,SPES,Santa Monica Bay,SMBS,San Pedro Escarpment fault-A
 OCBA-SPES-SPBS-San_Pedro_Escarpment_fault_C-CFM5,Offshore Continental Borderland Area,OCBA,San Pedro Escarpment fault system,SPES,San Pedro Basin,SPBS,San Pedro Escarpment fault-C
@@ -192,7 +192,7 @@ PNRA-CLEP-LABS-Compton_Los_Alamitos_fault-CFM2,Peninsular Ranges Area,PNRA,Compt
 PNRA-CLEP-PHLS-Lower_Elysian_Park_fault-CFM1,Peninsular Ranges Area,PNRA,Compton-Lower Elysian Park fault system,CLEP,Puente Hills,PHLS,Lower Elysian Park fault
 PNRA-CRSF-ALCM-Sawtooth_Range_fault-CFM4,Peninsular Ranges Area,PNRA,Cross Faults,CRSF,Allicito Mountains,ALCM,Sawtooth Range fault
 PNRA-CRSF-CHNH-Yorba_Linda_lineament-CFM2,Peninsular Ranges Area,PNRA,Cross Faults,CRSF,Chino Hills,CHNH,Yorba Linda Lineament
-PNRA-CRSF-CYMT-Devils_Canyon_fault-CFM4,Peninsular Ranges Area,PNRA,Cross Faults,CRSF,Coyote Mountains,CYMT,Devil's Canyon fault
+PNRA-CRSF-CYMT-Devils_Canyon_fault-CFM4,Peninsular Ranges Area,PNRA,Cross Faults,CRSF,Coyote Mountain,CYMT,Devil's Canyon fault
 PNRA-CRSF-EMCP-El_Mayor_Cucapah_normal_fault-CFM4,Peninsular Ranges Area,PNRA,Cross Faults,CRSF,El Mayor-Cucapah,EMCP,El Mayor-Cucapah normal fault
 PNRA-CRSF-EMCP-El_Mayor_Cucapah_west_fault-CFM4,Peninsular Ranges Area,PNRA,Cross Faults,CRSF,El Mayor-Cucapah,EMCP,El Mayor-Cucapah west fault
 PNRA-CRSF-OCOT-Ocotillo_fault-CFM5,Peninsular Ranges Area,PNRA,Cross Faults,CRSF,Ocotillo,OCOT,Ocotillo fault
@@ -216,8 +216,8 @@ PNRA-CSTF-SJQH-San_Joaquin_Hills_fault-CFM3,Peninsular Ranges Area,PNRA,Coastal 
 PNRA-DVVZ-DVSV-Davies_Valley_fault-CFM5,Peninsular Ranges Area,PNRA,Davies Valley fault zone,DVVZ,Davies Valley,DVSV,Davies Valley fault
 PNRA-DVVZ-NDVS-Northern_Davies_Valley_set1-CFM4,Peninsular Ranges Area,PNRA,Davies Valley fault zone,DVVZ,Northern Davies Valley,NDVS,Northern Davies Valley fault
 PNRA-DVVZ-WDVV-West_Davies_Valley_fault-CFM6,Peninsular Ranges Area,PNRA,Davies Valley fault zone,DVVZ,West Davies Valley,WDVV,West Davies Valley fault
-PNRA-ELSZ-CHNO-Chino_fault_Central_Ave-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Chino,CHNO,Chino Fault
-PNRA-ELSZ-CHNO-Chino_fault_main-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Chino,CHNO,Chino Fault
+PNRA-ELSZ-CHNO-Chino_fault_Central_Ave-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Chino,CHNO,Chino fault
+PNRA-ELSZ-CHNO-Chino_fault_main-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Chino,CHNO,Chino fault
 PNRA-ELSZ-CYMT-Elsinore_fault-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Coyote Mountain,CYMT,Elsinore fault
 PNRA-ELSZ-GLIV-Glen_Ivy_North_fault-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Glen Ivy,GLIV,Glen Ivy North fault
 PNRA-ELSZ-GLIV-Glen_Ivy_South_fault-CFM4,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Glen Ivy,GLIV,Glen Ivy South fault
@@ -249,7 +249,7 @@ PNRA-ELSZ-YUHA-Sierra_Cucapah_fault_blind_north-CFM5,Peninsular Ranges Area,PNRA
 PNRA-ELSZ-YUHA-Sierra_Cucapah_fault_NW_splay-CFM5,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Yuha Desert,YUHA,Sierra Cucapah fault-NW_splay
 PNRA-ELSZ-YUHA-Yuha_Desert_blind_fault-CFM6,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Yuha Desert,YUHA,Yuha Desert blind fault
 PNRA-HSSF-AGCT-Agua_Caliente_fault_zone-CFM4,Peninsular Ranges Area,PNRA,Hot Springs-San Felipe fault zone,HSSF,Agua Caliente,AGCT,Agua Caliente fault zone
-PNRA-HSSF-HOTS-Hot_Springs_fault-CFM4,Peninsular Ranges Area,PNRA,Hot Springs-San Felipe fault zone,HSSF,Hot Springs,HOTS,Hot Springs Fault
+PNRA-HSSF-HOTS-Hot_Springs_fault-CFM4,Peninsular Ranges Area,PNRA,Hot Springs-San Felipe fault zone,HSSF,Hot Springs,HOTS,Hot Springs fault
 PNRA-HSSF-MRHS-Murrieta_Hotsprings_fault-CFM4,Peninsular Ranges Area,PNRA,Hot Springs-San Felipe fault zone,HSSF,Murietta-Hot Springs,MRHS,Murietta-Hot Springs fault
 PNRA-NBJD-CDVD-Canada_David_detachment-CFM3,Peninsular Ranges Area,PNRA,Northern Baja detachments,NBJD,Canada David,CDVD,Canada David detachment
 PNRA-NBJD-SRCP-Cerro_Centinela_fault-CFM2,Peninsular Ranges Area,PNRA,Northern Baja detachments,NBJD,Sierra Cucapah,SRCP,Cerro-Centinela fault
@@ -291,7 +291,7 @@ SAFS-MHFZ-MULT-Mecca_Hills_Hidden_Springs_fault-CFM4,San Andreas Fault System,SA
 SAFS-SAFZ-BSZS-Southern_San_Andreas_blind_extension-CFM4,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Brawley Seismic Zone,BSZS,Southern San Andreas fault
 SAFS-SAFZ-CHLM-San_Andreas_fault-CFM6,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Cholame,CHLM,San Andreas fault
 SAFS-SAFZ-COAV-Banning_North_Palm_Springs_fault_splay-CFM4,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Coachella,COAV,Banning-North Palm Springs fault splay
-SAFS-SAFZ-COAV-East_Shoreline_fault-CFM5,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Coachella,COAV,East Shoreline Fault
+SAFS-SAFZ-COAV-East_Shoreline_fault-CFM5,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Coachella,COAV,East Shoreline fault
 SAFS-SAFZ-COAV-Mission_Creek_fault_strand-CFM4,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Coachella,COAV,Mission Creek fault strand
 SAFS-SAFZ-COAV-North_Palm_Springs_fault-CFM4,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Coachella,COAV,North Palm Springs fault
 SAFS-SAFZ-COAV-North_Palm_Springs_fault_lower_splay-CFM6,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Coachella,COAV,North Palm Springs fault-lower splay
@@ -360,8 +360,8 @@ SNFA-LLFZ-EAST-Eastern_Little_Lake_south_west_branch-CFM5,Sierra Nevada Fault Ar
 SNFA-LLFZ-SOUT-Southern_Little_Lake_main_fault-CFM5,Sierra Nevada Fault Area,SNFA,Little Lake fault zone,LLFZ,Southern,SOUT,Southern Little Lake main fault
 SNFA-LLFZ-SOUT-Southern_Little_Lake_north_fault-CFM5,Sierra Nevada Fault Area,SNFA,Little Lake fault zone,LLFZ,Southern,SOUT,Southern Little Lake north fault
 SNFA-OVFZ-MULT-Owens_Valley_fault-CFM6,Sierra Nevada Fault Area,SNFA,Owens Valley fault zone,OVFZ,Multiple sections,MULT,Owens Valley fault
-SNFA-OVFZ-STHN-Owens_Lake_deep_fault-CFM5,Sierra Nevada Fault Area,SNFA,Owens Valley fault zone,OVFZ,Southern,STHN,"blind Owens Lake fault, Lone Pine 2020 M5.8"
-SNFA-OVFZ-STHN-Owens_Valley_fault_southern_extension-CFM5,Sierra Nevada Fault Area,SNFA,Owens Valley fault zone,OVFZ,Southern,STHN,"Owens Valley fault, southern extension"
+SNFA-OVFZ-STHN-Owens_Lake_deep_fault-CFM5,Sierra Nevada Fault Area,SNFA,Owens Valley fault zone,OVFZ,Southern,STHN,Owens Lake fault
+SNFA-OVFZ-STHN-Owens_Valley_fault_southern_extension-CFM5,Sierra Nevada Fault Area,SNFA,Owens Valley fault zone,OVFZ,Southern,STHN,Owens Valley fault-southern extension
 SNFA-PMVZ-MULT-Panamint_Valley_fault-CFM2,Sierra Nevada Fault Area,SNFA,Panamint Valley fault zone,PMVZ,Northern Panamint-Brown Mtn,MULT,Panamint Valley fault
 SNFA-SSNZ-INDP-Independence_fault-CFM1,Sierra Nevada Fault Area,SNFA,Southern Sierra Nevada fault zone,SSNZ,Independence,INDP,Independence fault
 SNFA-SSNZ-MULT-Independence_Sierra_Nevada_fault-CFM1,Sierra Nevada Fault Area,SNFA,Southern Sierra Nevada fault zone,SSNZ,Independence-Haiwee Reservoir,MULT,Independence-Sierra Nevada fault

@@ -38,7 +38,6 @@ Coyote Creek,CYTC
 Coyote Hills,COYT
 Coyote Lake,CYTL
 Coyote Mountain,CYMT
-Coyote Mountains,CYMT
 Crafton Hills fault zone,CHFZ
 Cross,CRSS
 Cucamonga,CCMG
@@ -51,7 +50,7 @@ Eastern Big Pine,EAST
 Eastern,EAST
 Eastern San Bernardino Mtns,SBMT
 Eastern splay,EAST
-Eastern splay - south,EAST
+Eastern splay-south,EAST
 East Huasna,EHSN
 East Santa Cruz Basin,ESCB
 El Mayor-Cucapah,EMCP
@@ -102,7 +101,6 @@ Morales,MRLS
 Morongo Valley,MRVS
 Multiple-Los Angeles basin,LABS
 Multiple sections,MULT
-Multiple Sections,MULT
 Multiple sections-offshore,RSCN
 Murietta-Hot Springs,MRHS
 North Channel,NCHN
@@ -201,7 +199,7 @@ Verdugo Mountains,VRDM
 West Calico section,WCLS
 West Davies Valley,WDVV
 Western Big Pine,WEST
-Western splay - north,WEST
+Western splay-north,WEST
 Western splay,WEST
 Western,WEST
 West,WEST

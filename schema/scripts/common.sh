@@ -3,7 +3,7 @@
 #####  unmark the data type at the bottom
 #####
 #####    ./extract-csv.sh
-#####        mv *.csv to  schema/sql/target
+#####        mv *.csv to  schema/data/target
 #####    ./convert-shp.sh
 #####        mv *.sql to  schema/sql/target
 #####    ./create-csv.sh
@@ -14,8 +14,8 @@
 
 TOGGLE_P5=0
 TOGGLE_P6=0
-TOGGLE_A6=0
-TOGGLE_R6=1
+TOGGLE_A6=1
+TOGGLE_R6=0
 
 PWD=`pwd`
 
