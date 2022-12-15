@@ -4,6 +4,8 @@ $header = getHeader("Viewer");
 $cfm_my_db = getenv("CFM_MY_DB");
 $cfm_my_option = getenv("CFM_MY_OPTION");
 $cfm_my_port = getenv("CFM_MY_PORT");
+$cfm_my_blind = getenv("CFM_MY_BLIND");
+$cfm_my_trace = getenv("CFM_MY_TRACE");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -187,10 +189,12 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
 
 <div class="row">
  <div class="col-3" style="display:">
-<!-- XX switch between preferred/alternative set -->
+<!-- For switch between preferred/alternative set -->
              <input type="text" id="myPort" value=<?php echo $cfm_my_port ?> style="display:none">
              <input type="text" id="myDb" value=<?php echo $cfm_my_db ?> style="display:none">
              <input type="text" id="myOption" value=<?php echo $cfm_my_option ?> style="display:none">
+             <input type="text" id="myBlind" value=<?php echo $cfm_my_blind ?> style="display:none">
+             <input type="text" id="myTrace" value=<?php echo $cfm_my_trace ?> style="display:none">
 
              <select id="dataSelect" onchange="gotoOtherViewer(this.value)" 
              title="Select which fault set to display/search. Only one set can be searched/displayed at a time"
@@ -622,6 +626,7 @@ onchange="switchLayer(this.value);">
     <div class="modal-content" id="modal3DContent">
       <!--Header-->
       <div class="modal-header">
+        <!-- Park instance Data here --> 
         <button id="view3DToggleReprbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleRepr3Dview()">Show Wireframe</button>
         <button id="view3DToggleQuakebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleQuake3Dview()">No EQ</button>
         <button id="view3DToggleTracebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleTrace3Dview()">Hide Traces</button>

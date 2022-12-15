@@ -155,11 +155,15 @@ function show3dView(urls,nstr,path,nlstr) {
   $('#modal3D').modal('show');
 
 // urls causing problem when it is too large
-  let params=0;
+// prepend with trace and blind utm file name
+  let mytrace=$('#myTrace').val();
+  let myblind=$('#myBlind').val();
+  let params="viewTrace="+mytrace+"viewBlind="+myblind;
+
   if(path == undefined) {
-     params="viewUID="+viewUID+"&viewerType="+viewerType+"&fileURL="+urls+"&name="+nstr;
+     params=params+"viewUID="+viewUID+"&viewerType="+viewerType+"&fileURL="+urls+"&name="+nstr;
      } else {
-       params="viewUID="+viewUID+"&viewerType="+viewerType+"&fileURL="+urls+"&name="+nstr+"&filePATH="+path;
+       params=params+"viewUID="+viewUID+"&viewerType="+viewerType+"&fileURL="+urls+"&name="+nstr+"&filePATH="+path;
   }
 
   let externalTS=get_external_TS();

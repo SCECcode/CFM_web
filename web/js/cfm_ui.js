@@ -14,13 +14,14 @@ var seismicity_from_cache = true;
 var CFM_DB_tb = {
    'viewers': [
         { 'option': 0, 'name':'CFM6_preferred','db':'CFM6_preferred_db',
-          'pathname': 'cfm-viewer', 'port': 8082 },
+          'pathname': 'cfm-viewer', 'port': 8082},
+          'trace': 'cfm_trace_6.utm', 'blind': 'cfm_blind_6.utm' },
         { 'option': 1, 'name':'CFM6_alternatives','db':'CFM6_alt_db',
-          'pathname': 'cfm-alt-viewer', 'port': 8086 },
+          'pathname': 'cfm-alt-viewer', 'port': 8086},
         { 'option': 2, 'name':'CFM6_ruptures','db':'CFM6_rup_db',
-          'pathname': 'cfm-rup-viewer', 'port': 8088 },
+          'pathname': 'cfm-rup-viewer', 'port': 8088},
         { 'option': 3, 'name':'CFM53_preferred','db':'CFM53_preferred_db',
-          'pathname': 'cfm53-viewer', 'port': 8090 }
+          'pathname': 'cfm53-viewer', 'port': 8090}
               ]
 };
 
