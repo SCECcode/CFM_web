@@ -158,7 +158,7 @@ function show3dView(urls,nstr,path,nlstr) {
 // prepend with trace and blind utm file name
   let mytrace=$('#myTrace').val();
   let myblind=$('#myBlind').val();
-  let params="viewTrace="+mytrace+"viewBlind="+myblind;
+  let params="viewTrace="+mytrace+"&viewBlind="+myblind;
 
   if(path == undefined) {
      params=params+"viewUID="+viewUID+"&viewerType="+viewerType+"&fileURL="+urls+"&name="+nstr;

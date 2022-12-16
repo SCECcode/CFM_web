@@ -15,7 +15,6 @@ var CFM_DB_tb = {
    'viewers': [
         { 'option': 0, 'name':'CFM6_preferred','db':'CFM6_preferred_db',
           'pathname': 'cfm-viewer', 'port': 8082},
-          'trace': 'cfm_trace_6.utm', 'blind': 'cfm_blind_6.utm' },
         { 'option': 1, 'name':'CFM6_alternatives','db':'CFM6_alt_db',
           'pathname': 'cfm-alt-viewer', 'port': 8086},
         { 'option': 2, 'name':'CFM6_ruptures','db':'CFM6_rup_db',
