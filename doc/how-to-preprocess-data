@@ -3,30 +3,30 @@ Files in schema/data are being used by the sql scripts in schema/sql to populate
 CFM data server's postgres database
 
 When we get a fault model with a new xlsx file (ie. schema/CFM5_release_2017/
-CFM5.2-Fault_ID_preferred.xlsx), several csv files in schema/data need to be 
-regenerated.  Scripts are in schema/scripts.
+CFM5.2-Fault_ID_preferred.xlsx), we need to convert it to a csv file or files 
+depending on how many different set of datasets are in there. For example, CFM6.0
+has Preferred, Alternatives and Ruptures set. Can use in2csv to cut them from xlsx or
+being provided by model owner (the csv format might be alittle bit different and so
+need to be careful to match up the subsequent csv processing script.
 
-    extract-csv.sh  -- convert xlsx to various target.csv files
-                       make sure to edit the location of the xlsx to the new model
+Several csv files in schema/data need to be regenerate and sql files in schema/sql
+need to be created.
+
+    common.sh -- allow us to select which dataset to process (needs to do this one at
+                 a time, some standard stubs are being setup here
+
+    extract-csv.sh  -- convert master csv from the original xlsx to various target.csv 
+                       files
                        check zone_tb.csv, section_tb.csv, area_tb.csv and fault_tb.csv to
                              see if there are similar/duplicate or illformed entries
-                       move all *.csv to data directory
+    create-csv.sh -- create cloud data location entry for each native/500m/1000m/2000m ts
+                     files to the final amazon aws storage location
+                     Each fault object should have entry in the csv file to be
+          uniq_fault_object_name,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public
+          /projects/cfm/CFM5/CFM53_preferred/1000m/uniq_fault_object_name.ts
     covert-shp.sh   -- convert blind/non-blind shp file to target.sql
-                       make sure to edit location of the shp file to the new model
-                       and the file name stub, ie. bump up the version number
-                       move all .sql to sql directory
+    create-sql.sh   -- create the schema sql scripts
 
-    create various object_*_tb.csv linking the original ts files to final amazonaws
-    storage location using awk/sed and move to the data directory. Each fault object 
-    should have entry in the csv file to be
-
-    uniq_fault_object_name,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public
-    /projects/cfm/CFM5/CFM53_preferred/1000m/uniq_fault_object_name.ts
-
-
-When the T-surf files get updated, or moved (schema/data/object_1000m_tb.csv, 
-schema/data/object_500m_tb.csv, schema/data/object_native_tb.csv), depending on 
-the changes, they might need to be adjusted. There is no script for doing this
-currently. The initial set came from https://github.com/SCECcode/CFM
+    mv all the .csv to schema/data/target and all the .sql to schema/sql/target
 
     
