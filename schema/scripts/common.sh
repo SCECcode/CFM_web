@@ -13,8 +13,8 @@
 #####
 
 TOGGLE_P5=0
-TOGGLE_P6=0
-TOGGLE_A6=1
+TOGGLE_P6=1
+TOGGLE_A6=0
 TOGGLE_R6=0
 
 PWD=`pwd`
@@ -60,7 +60,7 @@ then
   EXCEL_NM_SHEET="CFM6.0 Preferred"
   EXCEL_NM_FILE=${PWD}"/../CFM6/doc/CFM6.0_Metadata.xlsx"
   DATATYPE="preferred6"
-  AWSPATH="https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Perferred"
+  AWSPATH="https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Preferred"
 fi
 
 ## CFM6_ruptures/doc/CFM6.0_Metadata_Rup.csv
