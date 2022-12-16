@@ -161,9 +161,9 @@ function show3dView(urls,nstr,path,nlstr) {
   let params="viewTrace="+mytrace+"&viewBlind="+myblind;
 
   if(path == undefined) {
-     params=params+"viewUID="+viewUID+"&viewerType="+viewerType+"&fileURL="+urls+"&name="+nstr;
+     params=params+"&viewUID="+viewUID+"&viewerType="+viewerType+"&fileURL="+urls+"&name="+nstr;
      } else {
-       params=params+"viewUID="+viewUID+"&viewerType="+viewerType+"&fileURL="+urls+"&name="+nstr+"&filePATH="+path;
+       params=params+"&viewUID="+viewUID+"&viewerType="+viewerType+"&fileURL="+urls+"&name="+nstr+"&filePATH="+path;
   }
 
   let externalTS=get_external_TS();
