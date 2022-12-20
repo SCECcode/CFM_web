@@ -504,7 +504,7 @@ function init_pixi(loader) {
 
 function setup_pixi(quake_type) {
   // this is used to simulate leaflet zoom animation timing:
-  var loader = new PIXI.loaders.Loader();
+  var loader = new PIXI.Loader();
 
 window.console.log("setup_pixi loading >>>"+ quake_type);
  
@@ -520,7 +520,7 @@ window.console.log("setup_pixi loading >>>"+ quake_type);
 
       pixiLayer = makePixiOverlayLayer(quake_type);
 
-      var ticker = new PIXI.ticker.Ticker();
+      var ticker = new PIXI.Ticker();
 
       ticker.add(function(delta) { 
         pixiLayer.redraw({type: 'redraw', delta: delta});
@@ -703,7 +703,7 @@ window.console.log("making pixi overlay layer..%d", quake_type);
 
     for(var i=0; i<DATA_SEGMENT_COUNT; i++) {
       var length=getMarkerCount(quake_type,i);
-      var a = new PIXI.particles.ParticleContainer(length, {vertices: true});
+      var a = new PIXI.ParticleContainer(length, {vertices: true});
       // add properties for our patched particleRenderer:
       a.texture = markerTextures[i];
       a.baseTexture = markerTextures[i].baseTexture;

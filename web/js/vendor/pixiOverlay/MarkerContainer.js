@@ -3,8 +3,8 @@
 // - customizing to our target: we want to render markers (e.g. scale is now a uniform)
 // Hope one day i'll have some times for a better solution
 
-var ParticleContainer = PIXI.particles.ParticleContainer;
-var ParticleRenderer = PIXI.particles.ParticleRenderer;
+var ParticleContainer = PIXI.ParticleContainer;
+var ParticleRenderer = PIXI.ParticleRenderer;
 var utils = PIXI.utils;
 
 ParticleContainer.prototype.addChild = function(child)
