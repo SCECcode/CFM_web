@@ -525,14 +525,13 @@ onchange="switchLayer(this.value);">
                     <th class="hoverColor" onClick="sortMetadataTableByRow(6,'n')">Avg<br>Strike<span id='sortCol_6' class="fas fa-angle-down"></span></th>
                     <th class="hoverColor" onClick="sortMetadataTableByRow(7,'n')">Avg<br>Dip<span id='sortCol_7' class="fas fa-angle-down"></span></th>
                     <th class="hoverColor" onClick="sortMetadataTableByRow(8,'n')">Area<br>(km<sup>2</sup>)<span id='sortCol_8' class="fas fa-angle-down"></span></th>
-                    <th> <div class="row" style="display:flex; justify-content:center;">
-                            <div class="btn-group download-now">
-<!-- MODAL popup button, reuse download-counter -->
+                    <th><div class="row" style="display:flex; justify-content:center;">
+                            <div class="btn-group download-now dropup">
                                 <button id="plot3d-all" type="button" title="Plots the selected faults in an interactive 3D environment" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false" disabled>
                                     Plot3d<span id="plot-counter"></span>
                                 </button>
-                                <div class="dropdown-menu dropdown-menu-right">
+                                <div class="dropdown-menu dropdown-menu-right" >
                                     <button class="dropdown-item" type="button" value="native"
                                             onclick="executePlot3d(this.value);">Native
                                     </button>
