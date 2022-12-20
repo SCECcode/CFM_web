@@ -96,7 +96,7 @@ $cfm_my_trace = getenv("CFM_MY_TRACE");
     <script type="text/javascript" src="js/cxm_kml.js?v=1"></script>
    
     <!-- pixi pixiOverlay -->
-    <script src="js/vendor/pixi.min.js"></script>
+    <script src="js/vendor/pixi.js"></script>
     <script src="js/vendor/pixiOverlay/L.PixiOverlay.js"></script>
     <script src="js/vendor/pixiOverlay/MarkerContainer.js"></script>
     <script src="js/vendor/pixiOverlay/bezier-easing.js"></script>
