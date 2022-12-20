@@ -96,7 +96,7 @@ $cfm_my_trace = getenv("CFM_MY_TRACE");
     <script type="text/javascript" src="js/cxm_kml.js?v=1"></script>
    
     <!-- pixi pixiOverlay -->
-    <script src="js/vendor/pixi.js"></script>
+    <script src="js/vendor/pixi.min.js"></script>
     <script src="js/vendor/pixiOverlay/L.PixiOverlay.js"></script>
     <script src="js/vendor/pixiOverlay/MarkerContainer.js"></script>
     <script src="js/vendor/pixiOverlay/bezier-easing.js"></script>
@@ -426,7 +426,7 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
  <div class="col-3 pl-0">
 <!-- XX upload KML/KMZ overlay -->
       <div class="row" style="display:">
-             <input id="fileKML" type='file' onchange='uploadKMLFile(this.files)' style='display:none;'></input>
+             <input id="fileKML" type='file' multiple onchange='uploadKMLFile(this.files)' style='display:none;'></input>
              <button id="kmlBtn" class="btn" onclick='javascript:document.getElementById("fileKML").click();' title="Upload your own kml/kmz file to be displayed on the map interface. We currently support points, lines, paths, polygons, and image overlays (kmz only)." style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.15rem 0.5rem;"><span>Upload kml/kmz</span></button>
              <button id="kmlSelectBtn" class="btn cfm-small-no-btn" title="Show/Hide uploaded kml/kmz files" style="display:none;" data-toggle="modal" data-target="#modalkmlselect"><span id="eye_kml"  class="glyphicon glyphicon-eye-open"></span></button>
        </div> <!-- kml-row -->
@@ -526,12 +526,12 @@ onchange="switchLayer(this.value);">
                     <th class="hoverColor" onClick="sortMetadataTableByRow(7,'n')">Avg<br>Dip<span id='sortCol_7' class="fas fa-angle-down"></span></th>
                     <th class="hoverColor" onClick="sortMetadataTableByRow(8,'n')">Area<br>(km<sup>2</sup>)<span id='sortCol_8' class="fas fa-angle-down"></span></th>
                     <th><div class="row" style="display:flex; justify-content:center;">
-                            <div class="btn-group download-now dropup">
+			    <div class="btn-group download-now">
                                 <button id="plot3d-all" type="button" title="Plots the selected faults in an interactive 3D environment" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false" disabled>
                                     Plot3d<span id="plot-counter"></span>
                                 </button>
-                                <div class="dropdown-menu dropdown-menu-right" >
+				<div class="dropdown-menu dropdown-menu-right">
                                     <button class="dropdown-item" type="button" value="native"
                                             onclick="executePlot3d(this.value);">Native
                                     </button>
@@ -552,7 +552,7 @@ onchange="switchLayer(this.value);">
                                 </div>
                             </div>
                             &nbsp
-                            <div class="btn-group download-now">
+			    <div class="btn-group download-now">
                                 <button id="download-all" type="button" title="Download options for the selected fault objects" class="btn btn-dark dropdown-toggle" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false" disabled>
                                     Download<span id="download-counter"></span>
@@ -763,7 +763,12 @@ onchange="switchLayer(this.value);">
       <div class="modal-body" id="modalshareBody">
         <div class="row col-md-12 ml-auto" style="overflow:hidden;">
           <div class="col-12" style="font-size:14pt">
-            <h4>Copy-and-Paste below command to share :<br><br></h4>
+	    <h4>Copy-and-Paste below command to share : 
+&nbsp;&nbsp;
+<button id="toClip" class="btn cfm-small-btn"  onClick="toClipBoard()">
+<span class="glyphicon glyphicon-share-alt"></span></button>
+<br>
+</h4>
             <p id="shareLink-container">...A LINK...</p>
           </div>
         </div>

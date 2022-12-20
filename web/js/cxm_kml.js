@@ -100,7 +100,16 @@ function addToKMLSelectTable(fname) {
 // from an user selected client side file
 function uploadKMLFile(urls) {
 
-  let fname= urls[0].name;
+  let sz=urls.length;
+  for(let i=0; i<sz; i++) { 
+// tracking table for a list of kmls
+    _readKMLFile(urls,i);
+  }
+}
+
+function _readKMLFile(urls,idx) {
+
+  let fname= urls[idx].name;
 
 // fname ends in .kml, or .kmz
   let stub = fname.substring(fname.length - 4, fname.length);
@@ -138,7 +147,7 @@ function uploadKMLFile(urls) {
       mymap.fitBounds(bounds);
     }
   };
-  reader.readAsArrayBuffer(urls[0]);
+  reader.readAsArrayBuffer(urls[idx]);
 }
 
 

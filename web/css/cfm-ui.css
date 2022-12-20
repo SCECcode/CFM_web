@@ -782,8 +782,8 @@ div.guide ul {
     overflow: visible !important;
 }
 
-.floatThead-wrapper {
-    overflow-x: scroll;
+floatThead-wrapper {
+    overflow-y: scroll;
 }
 
 #metadata-viewer #placeholder-row td {

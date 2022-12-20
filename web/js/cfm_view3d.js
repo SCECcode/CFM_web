@@ -539,6 +539,14 @@ function save3Dview() {
   window.console.log(cmd);
 }
 
+function toClipBoard() {
+  let html=document.getElementById('shareLink-container');
+  let msg = "Exceeded the maximum of 50 faults objects for sharing<br>Please reduce the selection and try again";
+  let phtml=html.innerHTML;
+  window.console.log("HERE.. toClipBoard");
+  window.console.log(phtml);
+}
+
 function share3Dview() {
   let loc = window.location;
   let path=loc.origin + location.pathname;
