@@ -504,7 +504,8 @@ function init_pixi(loader) {
 
 function setup_pixi(quake_type) {
   // this is used to simulate leaflet zoom animation timing:
-  var loader = new PIXI.Loader();
+  let PP=PIXI;
+  const loader = new PIXI.BackgroundLoader();
 
 window.console.log("setup_pixi loading >>>"+ quake_type);
  
