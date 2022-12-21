@@ -541,6 +541,7 @@ function save3Dview() {
 
 
 // https://stackoverflow.com/questions/69700991/simple-navigator-clipboard-writetext-does-not-work
+// https://developer.apple.com/forums/thread/691873
 function toClipBoard() {
   let html=document.getElementById('shareLink-container');
   let phtml=html.innerHTML;
@@ -550,10 +551,14 @@ function toClipBoard() {
 
   if (window.clipboardData && window.clipboardData.setData) {
     // IE: prevent textarea being shown while dialog is visible
+    alertify.notify('Copy to Clipboard (clipboardData)','success',1)
     return window.clipboardData.setData("Text", text);
-
+  } else if (navigator.clipboard &&
+	             navigator.clipboard.writeText) {
+    alertify.notify('Copy to Clipboard (clipboard)','success',1)
+    return navigator.clipboard.writeText(text);
   } else if (document.queryCommandSupported &&
-             document.queryCommandSupported("copy")) {
+                      document.queryCommandSupported("copy")) {
     var textarea = document.createElement("textarea");
     textarea.textContent = text;
     // Prevent scrolling to bottom of page in MS Edge
@@ -564,9 +569,10 @@ function toClipBoard() {
       // Security exception may be thrown by some browsers
       return document.execCommand("copy");
     } catch (ex) {
-      console.warn("Copy to clipboard failed.", ex);
+      alertify.notify('Copy to Clipboard failed','success',1)
       return false;
     } finally {
+      alertify.notify('Copy to Clipboard (textarea)','success',1)
       document.body.removeChild(textarea);
     }
   }

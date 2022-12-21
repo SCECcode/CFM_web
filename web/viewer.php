@@ -22,6 +22,8 @@ $cfm_my_trace = getenv("CFM_MY_TRACE");
     <link rel="stylesheet" href="css/vendor/jquery-ui.css">
     <link rel="stylesheet" href="css/vendor/glyphicons.css">
     <link rel="stylesheet" href="css/vendor/all.css">
+    <link rel="stylesheet" href="css/vendor/alertifyjs/css/alertify.min.css">
+    <link rel="stylesheet" href="css/vendor/alertifyjs/css/themes/default.min.css">
     <link rel="stylesheet" href="css/cfm-ui.css?v=1">
     <link rel="stylesheet" href="css/sidebar.css?v=1">
 
@@ -45,6 +47,8 @@ $cfm_my_trace = getenv("CFM_MY_TRACE");
 
     <script type='text/javascript' src='js/vendor/togeojson.js'></script>
     <script type='text/javascript' src='js/vendor/leaflet-kmz-src.js'></script>
+
+    <script type='text/javascript' src='js/vendor/alertifyjs/alertify.js'></script>
 
     <!--
     https://leaflet.github.io/Leaflet.draw/docs/Leaflet.draw-latest.html#l-draw
