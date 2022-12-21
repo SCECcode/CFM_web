@@ -307,7 +307,6 @@ function refresh3Dview() {
 
 // move current popup modal to a new tab
 function move3Dview() {
-window.console.log("HERE in move call");
   var yourDOCTYPE = "<!DOCTYPE html>"; // your doctype declaration
   var copyPreview = window.open('about:blank', 'CFM Plot3D', "resizable=yes,scrollbars=yes,status=yes");
   var newCopy = copyPreview.document;
@@ -539,13 +538,40 @@ function save3Dview() {
   window.console.log(cmd);
 }
 
+
+
+// https://stackoverflow.com/questions/69700991/simple-navigator-clipboard-writetext-does-not-work
 function toClipBoard() {
   let html=document.getElementById('shareLink-container');
-  let msg = "Exceeded the maximum of 50 faults objects for sharing<br>Please reduce the selection and try again";
   let phtml=html.innerHTML;
-  window.console.log("HERE.. toClipBoard");
-  window.console.log(phtml);
+  // phtml is a string <p>blah</p>
+  let sz=phtml.length;
+  let text=phtml.substring(3,sz-4);
+
+  if (window.clipboardData && window.clipboardData.setData) {
+    // IE: prevent textarea being shown while dialog is visible
+    return window.clipboardData.setData("Text", text);
+
+  } else if (document.queryCommandSupported &&
+             document.queryCommandSupported("copy")) {
+    var textarea = document.createElement("textarea");
+    textarea.textContent = text;
+    // Prevent scrolling to bottom of page in MS Edge
+    textarea.style.position = "fixed";
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+      // Security exception may be thrown by some browsers
+      return document.execCommand("copy");
+    } catch (ex) {
+      console.warn("Copy to clipboard failed.", ex);
+      return false;
+    } finally {
+      document.body.removeChild(textarea);
+    }
+  }
 }
+
 
 function share3Dview() {
   let loc = window.location;

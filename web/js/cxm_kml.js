@@ -6,10 +6,27 @@
 
 // tracking table for a list of kmls
 
-// [ { "idx": idx1, "layer": layer1, "name" : name1, "visible":1 }, ...]
+// [ { "idx": idx1, "layer": layer1, "name" : filename1, "visible":1 }, ...]
 var kml_layer_list=[];
 
 var visibleKML=null;
+
+// toggle off - turn off all
+// toggle on - show the list via modal
+function toggleKML() {
+   if(kml_layer_list.length == 0)
+     return;
+   let $elt=$('#eye_kml');
+   if($elt.hasClass('glyphicon-eye-open')) {
+     _toggle_off_all_kml();
+     $elt.removeClass('glyphicon-eye-open').addClass('glyphicon-eye-close');
+     } else {
+       // open modal
+       $('#modalkmlselect').modal('show')
+       $elt.removeClass('glyphicon-eye-close').addClass('glyphicon-eye-open');
+   }
+}
+
 
 function find_kml_layer(target) {
   let sz=kml_layer_list.length;
@@ -57,6 +74,19 @@ function removeKMLGroup() {
 function updateKMLSelect() {
   removeKMLGroup();
   addKMLGroup();
+}
+
+function _toggle_off_all_kml() {
+  let sz=kml_layer_list.length;
+  for(let i=0; i<sz; i++) {
+    let element = kml_layer_list[i];
+    element['visible']= 0;
+    let label="kml_"+i;
+    let $elt=$(`#${label}`);
+    $elt.removeClass('glyphicon-check').addClass('glyphicon-unchecked');
+    $elt.css("color","#011638");
+  }
+  updateKMLSelect();
 }
 
 

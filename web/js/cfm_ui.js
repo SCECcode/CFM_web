@@ -167,6 +167,8 @@ function updatePrograssBar(width) {
 
 function loadSeismicity() {
    if(seismicity_loaded == false) {
+     refresh_map();
+// return to initial map view so don't get funny dots
      initForPixiOverlay(); 
      if( seismicity_from_cache ) {
         loadFromFileMarkerLatlng();
