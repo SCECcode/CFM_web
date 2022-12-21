@@ -638,7 +638,7 @@ onchange="switchLayer(this.value);">
         <button id="view3DToggleBoundsbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleBounds3Dview()">Show Bounds</button>
         <button id="view3DToggleLegendbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleLegend3Dview()">Hide Legend</button>
         <button id="view3DToggleNorthbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleNorth3Dview()">Show Mapview</button>
-        <button id="view3DClosebtn" class="btn btn-outline-primary btn-sm" data-dismiss="modal" onclick="close3Dview()">Close</button>
+        <button id="view3DClosebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="close3Dview()">X</button>
       </div>
 
       <!--Body-->
