@@ -22,8 +22,6 @@ $cfm_my_trace = getenv("CFM_MY_TRACE");
     <link rel="stylesheet" href="css/vendor/jquery-ui.css">
     <link rel="stylesheet" href="css/vendor/glyphicons.css">
     <link rel="stylesheet" href="css/vendor/all.css">
-    <link rel="stylesheet" href="css/vendor/alertifyjs/css/alertify.min.css">
-    <link rel="stylesheet" href="css/vendor/alertifyjs/css/themes/default.min.css">
     <link rel="stylesheet" href="css/cfm-ui.css?v=1">
     <link rel="stylesheet" href="css/sidebar.css?v=1">
 
@@ -47,8 +45,6 @@ $cfm_my_trace = getenv("CFM_MY_TRACE");
 
     <script type='text/javascript' src='js/vendor/togeojson.js'></script>
     <script type='text/javascript' src='js/vendor/leaflet-kmz-src.js'></script>
-
-    <script type='text/javascript' src='js/vendor/alertifyjs/alertify.js'></script>
 
     <!--
     https://leaflet.github.io/Leaflet.draw/docs/Leaflet.draw-latest.html#l-draw
@@ -638,7 +634,10 @@ onchange="switchLayer(this.value);">
         <button id="view3DToggleBoundsbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleBounds3Dview()">Show Bounds</button>
         <button id="view3DToggleLegendbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleLegend3Dview()">Hide Legend</button>
         <button id="view3DToggleNorthbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleNorth3Dview()">Show Mapview</button>
-        <button id="view3DClosebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="close3Dview()">X</button>
+	<button id="view3DClosebtn" class="btn btn-sm" type="button" style="background-color:transparent" onclick="close3Dview()">[<b>x</b>]</button>
+<!--
+	<button id="view3DClosebtn" class="btn btn-sm" type="button" style="background-color:transparent" data-dismiss="modal" onclick="close3Dview()">[<b>x</b>]</button>
+-->
       </div>
 
       <!--Body-->
@@ -655,7 +654,6 @@ onchange="switchLayer(this.value);">
         <div class="spinDialog" style="position:absolute;top:40%;left:50%; z-index:9999;">
           <div id="spinIconFor3D" align="center" style="display:none;"><i class="glyphicon glyphicon-cog fa-spin" style="color:red"></i></div>
         </div>
-
 <!--
         <button id="view3DClosebtn" class="btn btn-outline-primary btn-sm" data-dismiss="modal" onclick="close3Dview()">Close</button>
 -->
@@ -772,9 +770,12 @@ onchange="switchLayer(this.value);">
         <div class="row col-md-12 ml-auto" style="overflow:hidden;">
           <div class="col-12" style="font-size:14pt">
 	    <h4>Copy-and-Paste below command to share : 
+<!--
 &nbsp;&nbsp;
 <button id="toClip" class="btn cfm-small-btn"  onClick="toClipBoard()">
 <span class="glyphicon glyphicon-share-alt"></span></button>
+-->
+<br>
 <br>
 </h4>
             <p id="shareLink-container">...A LINK...</p>
@@ -782,13 +783,29 @@ onchange="switchLayer(this.value);">
         </div>
       </div>
       <div class="modal-footer justify-content-center">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <button type="button" class="btn btn-outline-primary btn-md" data-dismiss="modal">Close</button>
       </div>
 
     </div> <!--Content-->
   </div>
 </div> <!--Modal: modalshare-->
 
+<!--Modal: Model(modalinotify) -->
+<div class="modal" id="modalnotify" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-small" id="modalnotifyDialog" role="document">
+    <!--Content-->
+    <div class="modal-content" id="modalnotifyContent">
+      <!--Body-->
+      <div class="modal-body" id="modalnotifyBody">
+        <div class="row col-md-12 ml-auto" style="overflow:hidden;">
+          <div class="col-12" style="font-size:14pt">
+            <p id="notify-container">blah blah</p>
+          </div>
+        </div>
+      </div>
+    </div> <!--Content-->
+  </div>
+</div> <!--Modal: modalnotify-->
 
 <!--Modal: Model (modalexternal) -->
 <div class="modal" id="modalexternal" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -808,7 +825,7 @@ onchange="switchLayer(this.value);">
         </div>
       </div>
       <div class="modal-footer justify-content-center">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <button type="button" class="btn btn-outline-primary btn-md" data-dismiss="modal">Close</button>
       </div>
 
     </div> <!--Content-->
@@ -831,7 +848,7 @@ onchange="switchLayer(this.value);">
         </div>
       </div>
       <div class="modal-footer justify-content-center">
-        <button type="button" class="close" data-dismiss="modal" >&times;</button>
+        <button type="button" class="btn btn-outline-primary btn-md" data-dismiss="modal">Close</button>
       </div>
 
     </div> <!--Content-->

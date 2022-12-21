@@ -128,7 +128,6 @@ function get_PARAMS() {
   name=[name1,name2]&ts=ts&ptype="main3d"
 ***/
 function set_SHARE_PARAMS(sparams) {
-window.console.log("new share param.."+sparams);
   $('#params3Dshare').attr('src',sparams);
 }
 function get_SHARE_PARAMS() {
@@ -282,7 +281,8 @@ function showPlot3dWarning() {
 
 // just need to reset the quake view
 function close3Dview() {
-window.console.log("close3Dview is called..");
+// can not figure out how to clean this modal just in case it is up
+  $('#modal3D').modal('hide');
   resetQuake3Dview();
 }
 
@@ -538,6 +538,13 @@ function save3Dview() {
   window.console.log(cmd);
 }
 
+// pop up the notify model with a timeout
+function _notify(msg) {
+  let html=document.getElementById('notify-container');
+  html.innerHTML=msg;
+  $('#modalnotify').modal('show');
+  setTimeout(function() {$('#modalnotify').modal('hide')}, 3000);
+}
 
 
 // https://stackoverflow.com/questions/69700991/simple-navigator-clipboard-writetext-does-not-work
@@ -551,11 +558,11 @@ function toClipBoard() {
 
   if (window.clipboardData && window.clipboardData.setData) {
     // IE: prevent textarea being shown while dialog is visible
-    alertify.notify('Copy to Clipboard (clipboardData)','success',1)
+    _notify('Copy to Clipboard (clipboardData)');
     return window.clipboardData.setData("Text", text);
   } else if (navigator.clipboard &&
 	             navigator.clipboard.writeText) {
-    alertify.notify('Copy to Clipboard (clipboard)','success',1)
+    _notify('Copy to Clipboard (clipboard)');
     return navigator.clipboard.writeText(text);
   } else if (document.queryCommandSupported &&
                       document.queryCommandSupported("copy")) {
@@ -569,10 +576,11 @@ function toClipBoard() {
       // Security exception may be thrown by some browsers
       return document.execCommand("copy");
     } catch (ex) {
-      alertify.notify('Copy to Clipboard failed','success',1)
+      _notify('Copy to Clipboard failed');
       return false;
     } finally {
-      alertify.notify('Copy to Clipboard (textarea)','success',1)
+      //alertify.notify('Copy to Clipboard (textarea)','success',3)
+      _notify('Copy to Clipboard (textarea)');
       document.body.removeChild(textarea);
     }
   }
@@ -609,8 +617,9 @@ function share3Dview() {
       html.innerHTML=phtml;
       waitInterval=0;
       PLOT3D_CAMERA=null;
+      setTimeout(function() {toClipBoard()}, 1000);
       } else {
-         window.console.log("Looping in interval..",waitInterval);
+         window.console.log("Looping in share3Dview, interval..",waitInterval);
     }
   }, 1000);
 }
