@@ -130,7 +130,7 @@
 <b>Avg Strike:</b> 276<br />
 <b>Avg Dip:</b> 82<br />
 <b>Surface Area (km^2):</b> 213.54<br />
-<b>Exposure:</b> <br />
+<b>Exposure:</b> surface<br />
 <b>References:</b> Bryant et al., 2005+updates; Hauksson et al., 2012+updates; Nicholson et al., 2014; Plesch et al., 2014<br />
 <br />
 <a href="https://www.scec.org/research/cfm">CFM Homepage</a><br />
@@ -903,7 +903,7 @@
 <b>Avg Strike:</b> 122<br />
 <b>Avg Dip:</b> 83<br />
 <b>Surface Area (km^2):</b> 8254.65<br />
-<b>Exposure:</b> <br />
+<b>Exposure:</b> surface<br />
 <b>References:</b> Fuis et al., 2012<br />
 <br />
 <a href="https://www.scec.org/research/cfm">CFM Homepage</a><br />
@@ -1374,7 +1374,7 @@
 <b>Avg Strike:</b> 108<br />
 <b>Avg Dip:</b> 37<br />
 <b>Surface Area (km^2):</b> 838.39<br />
-<b>Exposure:</b> <br />
+<b>Exposure:</b> surface<br />
 <b>References:</b> Seeber and Armbruster, 1994; Carena et al., 2004<br />
 <br />
 <a href="https://www.scec.org/research/cfm">CFM Homepage</a><br />
@@ -1414,7 +1414,7 @@
 <b>Avg Strike:</b> 108<br />
 <b>Avg Dip:</b> 37<br />
 <b>Surface Area (km^2):</b> 838.39<br />
-<b>Exposure:</b> <br />
+<b>Exposure:</b> surface<br />
 <b>References:</b> Seeber and Armbruster, 1994; Carena et al., 2004<br />
 <br />
 <a href="https://www.scec.org/research/cfm">CFM Homepage</a><br />
@@ -1498,8 +1498,8 @@
 <b>Avg Strike:</b> 153<br />
 <b>Avg Dip:</b> 25<br />
 <b>Surface Area (km^2):</b> 2129.75<br />
-<b>Exposure:</b> <br />
-<b>References:</b> Burchfiel, B.C., Hodges, K.V., and Royden, L.H., 1987, Geology of Panamint Valley-Saline Valley pull-apart system, California Palinspastic evidence for low-angle geometry of a Neogene range-bounding fault: Journal of Geophysical Research, v. 92, no. B10, p. 10,422-10,426. Chavez-Perez, S., J.N. Louie and S.K. Pullammanappallil, Seismic depth imaging of normal faulting in the southern Death Valley Basin, Geophysics, 63, n. 1, p. 223-230, DOI:10.1190/1.1444316 (1998) Gold, R. D., Stephenson, W. J., Briggs, R. W., DuRoss, C. B., Kirby, E., Woolery, E., et al. (2020). Seismic reflection imaging of the low-angle Panamint normal fault system, eastern California. Journal of Geophysical Research: Solid Earth, 125, e2020JB020243. https://doi.org/10.1029/2020JB020243 Hayman, N.W., J.R. Knott, D.S. Cowan, E.S. Nemser and A.M. Sarna-Wojcicki, Quaternary low-angle slip on detachment faults in Death Valley, California, Geology, 31, p. 343-346. DOI:10.1130/0091-7613 (2003). Gold, R. D., Stephenson, W. J., Briggs, R. W., DuRoss, C. B., Kirby, E., Woolery, E., et al. (2020). Seismic reflection imaging of the low-angle Panamint normal fault system, eastern California. Journal of Geophysical Research: Solid Earth, 125, e2020JB020243. https://doi.org/10.1029/2020JB020243<br />
+<b>Exposure:</b> surface<br />
+<b>References:</b> Burchfiel et al., 1987; Chavez-Perez et al., 1998; Gold et al., 2020; Hayman et al., 2003<br />
 <br />
 <a href="https://www.scec.org/research/cfm">CFM Homepage</a><br />
 <a href="https://www.scec.org/research/cfm-viewer/">CFM Viewer, Search, and Download Tool</a><br />
@@ -1582,7 +1582,7 @@
 <b>Avg Strike:</b> 278<br />
 <b>Avg Dip:</b> 47<br />
 <b>Surface Area (km^2):</b> 302.49<br />
-<b>Exposure:</b> <br />
+<b>Exposure:</b> surface<br />
 <b>References:</b> Hubbard et al., 2014<br />
 <br />
 <a href="https://www.scec.org/research/cfm">CFM Homepage</a><br />
@@ -1651,7 +1651,7 @@
 <b>Avg Strike:</b> 96<br />
 <b>Avg Dip:</b> 55<br />
 <b>Surface Area (km^2):</b> 841.48<br />
-<b>Exposure:</b> <br />
+<b>Exposure:</b> surface<br />
 <b>References:</b> <br />
 <br />
 <a href="https://www.scec.org/research/cfm">CFM Homepage</a><br />
@@ -2004,7 +2004,7 @@
 <b>Avg Strike:</b> 126<br />
 <b>Avg Dip:</b> 57<br />
 <b>Surface Area (km^2):</b> 389.43<br />
-<b>Exposure:</b> <br />
+<b>Exposure:</b> surface<br />
 <b>References:</b> Bryant et al., 2005+updates; Hauksson et al., 2012; Nicholson et al., 2013<br />
 <br />
 <a href="https://www.scec.org/research/cfm">CFM Homepage</a><br />
@@ -2140,7 +2140,7 @@
 <b>Avg Strike:</b> 89<br />
 <b>Avg Dip:</b> 61<br />
 <b>Surface Area (km^2):</b> 2505.55<br />
-<b>Exposure:</b> <br />
+<b>Exposure:</b> surface<br />
 <b>References:</b> Bryant et al., 2005+updates; Hauksson et al., 2012; Nicholson et al., 2013<br />
 <br />
 <a href="https://www.scec.org/research/cfm">CFM Homepage</a><br />

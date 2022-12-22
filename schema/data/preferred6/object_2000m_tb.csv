@@ -22,7 +22,7 @@ CRFA-OCNZ-MULT-Oceanic_fault-CFM5_2000m,https://s3-us-west-2.amazonaws.com/files
 CRFA-OCNZ-SLRN-Oceanic_backthrust-CFM4_2000m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Preferred/2000m/CRFA-OCNZ-SLRN-Oceanic_backthrust-CFM4_2000m.ts
 CRFA-REHZ-EHSN-East_Huasna_fault-CFM4_2000m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Preferred/2000m/CRFA-REHZ-EHSN-East_Huasna_fault-CFM4_2000m.ts
 CRFA-REHZ-MULT-Rinconada_fault-CFM4_2000m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Preferred/2000m/CRFA-REHZ-MULT-Rinconada_fault-CFM4_2000m.ts
-CRFA-SCFZ-SCYM-South_Cuyama_fault-CFM3_2000m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Preferred/2000m/CRFA-SCFZ-SCYM-South_Cuyama_fault-CFM3_2000m.ts
+CRFA-SCMZ-SCYM-South_Cuyama_fault-CFM3_2000m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Preferred/2000m/CRFA-SCMZ-SCYM-South_Cuyama_fault-CFM3_2000m.ts
 CRFA-SJMZ-CHMN-Big_Spring_fault-CFM5_2000m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Preferred/2000m/CRFA-SJMZ-CHMN-Big_Spring_fault-CFM5_2000m.ts
 CRFA-SJMZ-MRLS-Morales_fault-CFM3_2000m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Preferred/2000m/CRFA-SJMZ-MRLS-Morales_fault-CFM3_2000m.ts
 CRFA-SJMZ-MULT-San_Juan_fault-CFM5_2000m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Preferred/2000m/CRFA-SJMZ-MULT-San_Juan_fault-CFM5_2000m.ts
@@ -135,10 +135,10 @@ OCBA-OCSD-OCNS-Oceanside_fault_south_east_C-CFM5_2000m,https://s3-us-west-2.amaz
 OCBA-PVFZ-MULT-Palos_Verdes_fault-CFM6_2000m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Preferred/2000m/OCBA-PVFZ-MULT-Palos_Verdes_fault-CFM6_2000m.ts
 OCBA-PVFZ-RDNC-Redondo_Canyon_fault-CFM6_2000m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Preferred/2000m/OCBA-PVFZ-RDNC-Redondo_Canyon_fault-CFM6_2000m.ts
 OCBA-SCCR-MULT-Santa_Cruz_Catalina_Ridge_fault-CFM5_2000m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Preferred/2000m/OCBA-SCCR-MULT-Santa_Cruz_Catalina_Ridge_fault-CFM5_2000m.ts
-OCBA-SCFZ-CTLB-San_Clemente_fault_splay-CFM5_2000m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Preferred/2000m/OCBA-SCFZ-CTLB-San_Clemente_fault_splay-CFM5_2000m.ts
-OCBA-SCFZ-SBRI-San_Clemente_fault_nw_strand-CFM5_2000m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Preferred/2000m/OCBA-SCFZ-SBRI-San_Clemente_fault_nw_strand-CFM5_2000m.ts
-OCBA-SCFZ-SCBR-San_Clemente_fault-CFM5_2000m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Preferred/2000m/OCBA-SCFZ-SCBR-San_Clemente_fault-CFM5_2000m.ts
-OCBA-SCFZ-SCLI-San_Clemente_fault-CFM5_2000m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Preferred/2000m/OCBA-SCFZ-SCLI-San_Clemente_fault-CFM5_2000m.ts
+OCBA-SCLZ-CTLB-San_Clemente_fault_splay-CFM5_2000m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Preferred/2000m/OCBA-SCLZ-CTLB-San_Clemente_fault_splay-CFM5_2000m.ts
+OCBA-SCLZ-SBRI-San_Clemente_fault_nw_strand-CFM5_2000m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Preferred/2000m/OCBA-SCLZ-SBRI-San_Clemente_fault_nw_strand-CFM5_2000m.ts
+OCBA-SCLZ-SCBR-San_Clemente_fault-CFM5_2000m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Preferred/2000m/OCBA-SCLZ-SCBR-San_Clemente_fault-CFM5_2000m.ts
+OCBA-SCLZ-SCLI-San_Clemente_fault-CFM5_2000m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Preferred/2000m/OCBA-SCLZ-SCLI-San_Clemente_fault-CFM5_2000m.ts
 OCBA-SDTZ-30MB-San_Diego_Trough_fault-CFM5_2000m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Preferred/2000m/OCBA-SDTZ-30MB-San_Diego_Trough_fault-CFM5_2000m.ts
 OCBA-SDTZ-CTLB-San_Diego_Trough_fault-CFM5_2000m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Preferred/2000m/OCBA-SDTZ-CTLB-San_Diego_Trough_fault-CFM5_2000m.ts
 OCBA-SDTZ-SSDT-San_Diego_Trough_fault-CFM6_2000m,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Preferred/2000m/OCBA-SDTZ-SSDT-San_Diego_Trough_fault-CFM6_2000m.ts

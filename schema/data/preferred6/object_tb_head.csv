@@ -22,7 +22,7 @@ CRFA-OCNZ-MULT-Oceanic_fault-CFM5,Coast Ranges Fault Area,CRFA,Oceanic fault zon
 CRFA-OCNZ-SLRN-Oceanic_backthrust-CFM4,Coast Ranges Fault Area,CRFA,Oceanic fault zone,OCNZ,Santa Lucia Range-North,SLRN,Oceanic backthrust
 CRFA-REHZ-EHSN-East_Huasna_fault-CFM4,Coast Ranges Fault Area,CRFA,Rinconada-East Huasna fault system,REHZ,East Huasna,EHSN,East Huasna fault
 CRFA-REHZ-MULT-Rinconada_fault-CFM4,Coast Ranges Fault Area,CRFA,Rinconada-East Huasna fault system,REHZ,Multiple sections,MULT,Rinconada fault
-CRFA-SCFZ-SCYM-South_Cuyama_fault-CFM3,Coast Ranges Fault Area,CRFA,South Cuyama-Ozena fault zone,SCFZ,South Cuyama,SCYM,South Cuyuma fault
+CRFA-SCMZ-SCYM-South_Cuyama_fault-CFM3,Coast Ranges Fault Area,CRFA,South Cuyama-Ozena fault zone,SCMZ,South Cuyama,SCYM,South Cuyuma fault
 CRFA-SJMZ-CHMN-Big_Spring_fault-CFM5,Coast Ranges Fault Area,CRFA,San Juan-Morales fault zone,SJMZ,Chimineas,CHMN,Big Spring fault
 CRFA-SJMZ-MRLS-Morales_fault-CFM3,Coast Ranges Fault Area,CRFA,San Juan-Morales fault zone,SJMZ,Morales,MRLS,Morales fault
 CRFA-SJMZ-MULT-San_Juan_fault-CFM5,Coast Ranges Fault Area,CRFA,San Juan-Morales fault zone,SJMZ,Multiple sections,MULT,San Juan fault
@@ -135,10 +135,10 @@ OCBA-OCSD-OCNS-Oceanside_fault_south_east_C-CFM5,Offshore Continental Borderland
 OCBA-PVFZ-MULT-Palos_Verdes_fault-CFM6,Offshore Continental Borderland Area,OCBA,Palos Verdes fault zone,PVFZ,Multiple sections,MULT,Palos Verdes fault
 OCBA-PVFZ-RDNC-Redondo_Canyon_fault-CFM6,Offshore Continental Borderland Area,OCBA,Palos Verdes fault zone,PVFZ,Redondo Canyon,RDNC,Redondo Canyon fault
 OCBA-SCCR-MULT-Santa_Cruz_Catalina_Ridge_fault-CFM5,Offshore Continental Borderland Area,OCBA,Santa Cruz-Catalina Ridge fault system,SCCR,Multiple sections,MULT,Santa Cruz-Catalina Ridge fault
-OCBA-SCFZ-CTLB-San_Clemente_fault_splay-CFM5,Offshore Continental Borderland Area,OCBA,San Clemente fault zone,SCFZ,Catalina Basin,CTLB,San Clemente fault splay
-OCBA-SCFZ-SBRI-San_Clemente_fault_nw_strand-CFM5,Offshore Continental Borderland Area,OCBA,San Clemente fault zone,SCFZ,Santa Barbara Island area,SBRI,San Clemente fault nw-strand
-OCBA-SCFZ-SCBR-San_Clemente_fault-CFM5,Offshore Continental Borderland Area,OCBA,San Clemente fault zone,SCFZ,San Clemente Basin region,SCBR,San Clemente fault
-OCBA-SCFZ-SCLI-San_Clemente_fault-CFM5,Offshore Continental Borderland Area,OCBA,San Clemente fault zone,SCFZ,San Clemente Island,SCLI,San Clemente fault
+OCBA-SCLZ-CTLB-San_Clemente_fault_splay-CFM5,Offshore Continental Borderland Area,OCBA,San Clemente fault zone,SCLZ,Catalina Basin,CTLB,San Clemente fault splay
+OCBA-SCLZ-SBRI-San_Clemente_fault_nw_strand-CFM5,Offshore Continental Borderland Area,OCBA,San Clemente fault zone,SCLZ,Santa Barbara Island area,SBRI,San Clemente fault nw-strand
+OCBA-SCLZ-SCBR-San_Clemente_fault-CFM5,Offshore Continental Borderland Area,OCBA,San Clemente fault zone,SCLZ,San Clemente Basin region,SCBR,San Clemente fault
+OCBA-SCLZ-SCLI-San_Clemente_fault-CFM5,Offshore Continental Borderland Area,OCBA,San Clemente fault zone,SCLZ,San Clemente Island,SCLI,San Clemente fault
 OCBA-SDTZ-30MB-San_Diego_Trough_fault-CFM5,Offshore Continental Borderland Area,OCBA,San Diego Trough fault zone,SDTZ,Thirtymile Bank,30MB,San Diego Trough fault
 OCBA-SDTZ-CTLB-San_Diego_Trough_fault-CFM5,Offshore Continental Borderland Area,OCBA,San Diego Trough fault zone,SDTZ,Catalina Basin,CTLB,San Diego Trough fault
 OCBA-SDTZ-SSDT-San_Diego_Trough_fault-CFM6,Offshore Continental Borderland Area,OCBA,San Diego Trough fault zone,SDTZ,South San Diego Trough,SSDT,San Diego Trough fault

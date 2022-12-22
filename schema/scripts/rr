@@ -1,0 +1,16 @@
+#!/bin/sh
+
+. ./common.sh
+
+echo "GOING to " ${DATATYPE}
+
+./extract-csv.sh
+mv *.csv ../data/${DATATYPE}
+./convert-shp.sh
+mv *.sql ../sql/${DATATYPE}
+./create-csv.sh
+mv *.csv ../data/${DATATYPE}
+./create-sql.sh
+mv *.sql ../sql/${DATATYPE}
+mv *column_labels ../data/${DATATYPE}
+

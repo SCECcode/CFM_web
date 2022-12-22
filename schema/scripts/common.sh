@@ -13,9 +13,9 @@
 #####
 
 TOGGLE_P5=0
-TOGGLE_P6=1
+TOGGLE_P6=0
 TOGGLE_A6=0
-TOGGLE_R6=0
+TOGGLE_R6=1
 
 PWD=`pwd`
 
@@ -54,7 +54,7 @@ if [ $TOGGLE_P6 == 1 ]
 then
   CFMPATH=${PWD}"/../CFM6/"
   CFMLOC=${CFMPATH}"shp/CFM6.0_traces"
-  CFMLOC_BLIND=${CFMPATH}"shp/CFM6.0_blind.kml"
+  CFMLOC_BLIND=${CFMPATH}"shp/CFM6.0_blind"
   CFMTYPE="CFM6_preferred"
   EXCEL_NM="CFM6.0_Metadata"
   EXCEL_NM_SHEET="CFM6.0 Preferred"
