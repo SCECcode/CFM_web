@@ -428,8 +428,10 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
       <div class="row" style="display:">
              <input id="fileKML" type='file' multiple onchange='uploadKMLFile(this.files)' style='display:none;'></input>
              <button id="kmlBtn" class="btn" onclick='javascript:document.getElementById("fileKML").click();' title="Upload your own kml/kmz file to be displayed on the map interface. We currently support points, lines, paths, polygons, and image overlays (kmz only)." style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.15rem 0.5rem;"><span>Upload kml/kmz</span></button>
+<!--
 	     <button id="toggleKMLBtn" class="btn btn-sm cfm-small-btn" title="Show/Hide uploaded kml/kmz files" onclick="toggleKML()"><span id="eye_kml"  class="glyphicon glyphicon-eye-open"></span></button>
-             <button id="kmlSelectBtn" class="btn cfm-small-no-btn" title="Select which kml/kmz files to show" style="display:none;" data-toggle="modal" data-target="#modalkmlselect"></button>
+-->
+             <button id="kmlSelectBtn" class="btn cfm-small-no-btn" title="Show/Hide uploaded kml/kmz files" style="display:none;" data-toggle="modal" data-target="#modalkmlselect"><span id="eye_kml"  class="glyphicon glyphicon-eye-open"></span></button>
        </div> <!-- kml-row -->
  </div>
 </div> <!-- row --> 
@@ -634,10 +636,7 @@ onchange="switchLayer(this.value);">
         <button id="view3DToggleBoundsbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleBounds3Dview()">Show Bounds</button>
         <button id="view3DToggleLegendbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleLegend3Dview()">Hide Legend</button>
         <button id="view3DToggleNorthbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleNorth3Dview()">Show Mapview</button>
-	<button id="view3DClosebtn" class="btn btn-sm" type="button" style="background-color:transparent" onclick="close3Dview()">[<b>x</b>]</button>
-<!--
-	<button id="view3DClosebtn" class="btn btn-sm" type="button" style="background-color:transparent" data-dismiss="modal" onclick="close3Dview()">[<b>x</b>]</button>
--->
+	<button id="view3DClosebtn" class="btn btn-sm" type="button" style="background-color:transparent" onclick="close3Dview()"><span class="glyphicon glyphicon-remove"></span></button>
       </div>
 
       <!--Body-->
