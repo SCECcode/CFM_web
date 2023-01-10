@@ -435,9 +435,9 @@ function startDownload()
     alert("No fault selected"); 
     return;
   }
-  if (use_download_set == 'meta' || use_download_set == 'all') {
+  if (use_download_set == 'meta') {
     downloadCSVMeta(mlist);
-  } else if(use_download_set != 'meta') {
+  } else {
     downloadURLsAsZip(mlist);
   }
 }
