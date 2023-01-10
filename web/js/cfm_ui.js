@@ -28,6 +28,7 @@ var CFM_DB_tb = {
 function gotoOtherViewer(option) {
 //  http://localhost:8082
 //  http://moho.scec.org/cfm-viewer/
+//  https://moho.scec.org/cfm-viewer/
   let myoption=$('#myOption').val();
   if(option == myoption) {
     return; // do nothing
