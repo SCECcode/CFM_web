@@ -95,12 +95,12 @@ window.console.log(" >>> kml select's modal closed...");
 
 
 // call modal, when sharelink-container got changed
-  const watchShareLink = document.getElementById("shareLink-container");
-  const shareObserver = new MutationObserver(function() {
-       console.log('callback that runs when observer is triggered');
-       $('#modalshare').modal('show');
-  });
-  shareObserver.observe(watchShareLink, {subtree: true, childList: true});
+//  const watchShareLink = document.getElementById("shareLink-container");
+//  const shareObserver = new MutationObserver(function() {
+//       console.log('callback that runs when observer is triggered');
+//       $('#modalshare').modal('show');
+//  });
+//  shareObserver.observe(watchShareLink, {subtree: true, childList: true});
 
   $("#search-filter-type").trigger("change");
 

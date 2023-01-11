@@ -661,7 +661,7 @@ onchange="switchLayer(this.value);">
         <button id="view3DMovebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="move3Dview()">New Window</button>
         <button id="view3DWarnbtn" class="btn btn-outline-primary btn-sm" style="display:none" data-toggle="modal" data-target="#modalwarn3d"></button>
         <button id="view3DSavebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="save3Dview()">Save Image</button>
-        <button id="view3DSharebtn" class="btn btn-outline-primary btn-sm" onclick="share3Dview()">Share Link</button>
+        <button id="view3DSharebtn" class="btn btn-outline-primary btn-sm" onclick="share3Dview()">Copy Link</button>
         <button id="view3DHelpbtn" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modalinfo3d" onclick="$('#modal3D').modal('hide');">Help</button>
       </div> <!-- footer -->
 

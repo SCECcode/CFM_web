@@ -556,14 +556,15 @@ function toClipBoard() {
   // phtml is a string <p>blah</p>
   let sz=phtml.length;
   let text=phtml.substring(3,sz-4);
+window.console.log("in toClipBoard");
 
   if (window.clipboardData && window.clipboardData.setData) {
     // IE: prevent textarea being shown while dialog is visible
-    _notify('Copy to Clipboard (clipboardData)');
+    _notify('Link to current 3D view copied to clipboard');
     return window.clipboardData.setData("Text", text);
   } else if (navigator.clipboard &&
 	             navigator.clipboard.writeText) {
-    _notify('Copy to Clipboard (clipboard)');
+    _notify('Link to current 3D view copied to clipboard');
     return navigator.clipboard.writeText(text);
   } else if (document.queryCommandSupported &&
                       document.queryCommandSupported("copy")) {
@@ -581,7 +582,7 @@ function toClipBoard() {
       return false;
     } finally {
       //alertify.notify('Copy to Clipboard (textarea)','success',3)
-      _notify('Copy to Clipboard (textarea)');
+      _notify('Link to current 3D view copied to clipboard');
       document.body.removeChild(textarea);
     }
   }
@@ -618,11 +619,11 @@ function share3Dview() {
       html.innerHTML=phtml;
       waitInterval=0;
       PLOT3D_CAMERA=null;
-      setTimeout(function() {toClipBoard()}, 1000);
+      toClipBoard();
       } else {
          window.console.log("Looping in share3Dview, interval..",waitInterval);
     }
-  }, 1000);
+  }, 100);
 }
 
 
