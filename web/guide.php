@@ -37,8 +37,8 @@ $header = getHeader("User Guide");
             <h4><strong>Community Fault Model (CFM) Viewer Overview</strong></h4>
 
             <p>The CFM Viewer provides interactive map-based and 3D views of the <a
-               href="https://www.scec.org/research/cfm">CFM version 5.3</a> preferred
-               faults. The viewer allows users to view faults, associated metadata, and
+               href="https://www.scec.org/research/cfm">CFM version 6.0</a> and 5.3 
+               faults. The viewer allows users to select the model of interest(using the pull-down menu in the top left of the interface), view faults, associated metadata, and
                download selected fault data without having to download the entire CFM
                model archive. The pages on this site include the 
                <a href="<?php echo $host_site_actual_path; ?>">CFM viewer page</a>, 
@@ -46,7 +46,7 @@ $header = getHeader("User Guide");
                <a href="contact">contact information</a> page.</p>
 
             <p>The main interface is on the <a href="<?php echo $host_site_actual_path; ?>">
-               Viewer Page</a>. When first loaded, all CFM5.3 preferred faults are listed 
+               Viewer Page</a>. When first loaded, all CFM6.0 preferred faults are listed 
                on the left side of 
                the screen. Users can click on the checkboxes in the fault table to select faults 
                or click on faults on the map. (See <strong>Viewing and Downloading Metadata</strong>
@@ -55,7 +55,7 @@ $header = getHeader("User Guide");
 
             <p>
                 The interactive map on the right displays the geographic extent of each fault, 
-                with dashed lines indicating blind faults. In top right corner of the interactive 
+                with dashed lines indicating blind faults. In the top right corner of the interactive 
                 map, there is a pull-down menu that allows the base map to be changed. By default, 
                 the map shown is 
                 <a href="https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer">
@@ -64,6 +64,12 @@ $header = getHeader("User Guide");
                 <a href="https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer">ESRI Imagery</a>,
                 <a href="https://opentopomap.org">OTM Topographic</a>, and
                 <a href="https://www.openstreetmap.org">OSM Street</a>.</p>
+	    <p>The map interface has a small default size, but the map interface can be resized 
+	       by clicking on the black dashed square icon located in the bottom right corner of 
+	       the interface. Three size options are available, small (default), medium, and 
+	       full-screen. The medium and full-screen sizes hide some of the tools, so these 
+	       options are provided for visualization purposes and are not intended to be used 
+               when querying the model for download</p>
 
             <p><i>To report any bugs or issues, please see the <a href="contact">contact page</a>.</i></p>
 
@@ -75,7 +81,7 @@ $header = getHeader("User Guide");
                 controls will appear below in the form of another dropdown, text input boxes, or sliders.
                 Because CFM faults are non-planar, the average strike and dip values are calculated from 
                 the area-weighted normal vectors for all triangles comprising a given surface. 
-                Area weighting accounts for the differing triangular element sizes/shapes.</p>
+                Area weighting accounts for the differing triangular element sizes/shapes. The average strike and dip values therefore do not completely describe the non-planar CFM fault surfaces and are only provided for searching/sorting purposes.</p>
 
             <p> When performing a latitude/longitude search, there are two search methods.  Users can either
                 enter the latitude/longitude values of the bottom left and top right corners of a bounding 
@@ -105,11 +111,11 @@ $header = getHeader("User Guide");
             <h4><strong>Viewing in 3D and the Plot3D tool</strong></h4>
 
             <p> This "Plot3D" option is intended to provide potential CFM users with a quick and convenient way
-                to view CFM fault surfaces in their native 3D environment (UTM zone 11s). This tool is not 
+                to view CFM fault surfaces in their native 3D environment (UTM zone 11, NAD27 datum). This tool is not
                 designed to replace fully-functional CAD software. Refer to the 
                 <a href="https://www.scec.org/research/cfm">CFM homepage</a> for information about recommended
                 software. This tool currently does not have the ability to plot 3D axes, and a map scale in 3D
-                is not useful because any scale would only be valid at one given distance from the viewer. 
+                is not very useful because any scale would only be valid at one given distance from the viewer. 
                 For reference, faults in the CFM extend to the approximate base of the seismogenic zone
                 (max depth of earthquakes), which is approximately 15 – 20 km depth in most southern
                 California regions.</p>
@@ -126,11 +132,11 @@ $header = getHeader("User Guide");
             <h4><strong>Model Projection and Datum</strong></h4>
 
              <p> 3D fault representations in Gocad tsurf format are provided in Universal Transverse 
-                Mercator projection (UTM) zone 11S, North American datum 1927 (NAD27).</p>
+                Mercator projection (UTM) zone 11, North American datum 1927 (NAD27).</p>
 
             <h4><strong>Viewing Relocated Seismicity</strong></h4>
 
-             <p> In the top left corner of the map interface, there is a “Load relocated seismicity” 
+             <p> In the top of the 2D map interface, there is a “Load relocated seismicity” 
                  button that allows users to visualize two different relocated seismicity catalogs in
                  the map interface. These are large datasets, so loading the relocated seismicity may
                  take a minute or more depending on your connection speed. The default relocated seismicity 
@@ -152,22 +158,28 @@ $header = getHeader("User Guide");
                  hypocenters are shown in blue. Many of the CFM surfaces are based partly on relocated 
                  seismicity, so this feature allows users to see how the CFM faults relate to seismicity
                  in a 3D interactive environment.</p>
+            <h4><strong>KML/KMZ Uploader</strong></h4>
+	     <p>Users can now upload their own Google Earth kml/kmz files for display on the 2D map
+		interface. This is intended to allow users to compare their own data to the CFM. 
+                The kml/kmz uploader currently supports point/line data (kml/kmz) and image overlays (kmz only). 
+	       If you discover a kml/kmz file that will not display correctly, please contact us
+               at <nobr>scec-cfm-l@usc.edu</nobr>.</p>
 
             <h4><strong>Hierarchical Naming Structure</strong></h4>
 
-             <p> Fault object are named based on a hierarchical naming structure. To facilitate users 
+             <p> Fault objects are named based on a hierarchical naming structure. To facilitate users 
                  that wish to automate identification of CFM fault objects, each portion of the hierarchical
                  naming structure is separated by a hyphen (-), and all names contain the five components 
                  listed below. For example,</p>
              
              <dl>
-                 Object name: SAFS-SAFZ-MULT-Banning_fault_strand-CFM4
+                 Object name: SAFS-SAFZ-CHLM-San_Andreas_fault-CFM6
                  <ul>
                  <li>Fault area: SAFS</li>
                  <li>Fault zone: SAFZ</li>
-                 <li>Fault section: MULT</li>
-                 <li>Fault name: Banning fault strand</li>
-                 <li>CFM Version when added or last updated: CFM4</li>
+                 <li>Fault section: CHLM(Cholame)</li>
+                 <li>Fault name: San Andreas Fault</li>
+                 <li>CFM Version when added or last updated: CFM6</li>
                  </ul>
              </dl>
 
@@ -175,98 +187,8 @@ $header = getHeader("User Guide");
             <h4><strong>Browser Requirements</strong></h4>
             <p>This site supports the latest versions of <a href="https://www.mozilla.org/en-US/firefox/">Firefox</a>, <a href="https://www.google.com/chrome/">Chrome</a>, <a href="https://www.apple.com/safari/">Safari</a>, and <a href="https://www.microsoft.com/en-us/windows/microsoft-edge">Microsoft Edge</a>.</p>
 
-            <h4><strong>About the SCEC Community Fault Model (CFM)</strong></h4>
-
-            <figure class="cfm-perspective-view figure float-lg-right">
-                <img src="img/CFM5.3_View.png" class="figure-img img-fluid"
-                        alt="Perspective view of the CFM5.3, with fault surfaces colored by strike. Relocated seismicity is colored by time (calendar year).">
-                <figcaption class="figure-caption">Perspective view of the CFM5.3, with fault surfaces colored by strike. Relocated seismicity is colored by time (calendar year).
-                </figcaption>
-            </figure>
-
-            <p>The SCEC Community Fault Model (CFM) is an object-oriented, three-dimensional representation of 
-               active faults in southern California (Plesch et al., 2007). The model is organized into 
-               440 fault objects each of which include triangulated surface (t-surfs) and surface trace 
-               representations and associated meta-data including references. The 3D t-surfs are defined from 
-               a variety of data including
-               surface traces, seismicity, seismic reflection profiles, wells, geologic cross-sections and 
-               models. The model includes alternative representations of many faults, with preferred
-               versions established based on community evaluations by the SCEC community. To facilitate 
-               modeling of the CFM, the model t-surfs are provided in several semi-regularized
-               mesh resolutions. </p>
-
-            <p> The model serves the Southern California Earthquake Center (SCEC) as a unified resource for
-                physics-based fault systems modeling, strong ground-motion prediction, and probabilistic 
-                seismic hazards assessment (e.g., UCERF3).  Together with the Community Velocity
-                Model(CVM-H 15.1.0), the CFM comprises SCEC's Unified Structural Representation of the Southern 
-                California crust and upper mantle (Shaw et al., 2015).</p>
-
-            <p> The latest release of the CFM is version 5.3, which includes many new and revised fault 
-                representations, mainly in the Ridgecrest and offshore regions (Plesch et al., 2020). 
-                In addition, CFM5.3 has greatly expanded and improved metadata, including references, 
-                USGS Quaternary fault (QFault) ID (when available), last update (by CFM version), 
-                expected sense of slip, average strike/dip, and surface areas for each model object. 
-                The various filenames, hierarchical naming structures, fault orientations, and surface 
-                areas are now automatically checked for consistency by automated scripts.
-                This ensures the internal consistency and maintainability of the model. 
-                The hierarchical naming system enables model users to easily filter the model into a 
-                region of interest. Sense of slip for each fault object is now provided as metadata,
-                but is meant only as approximate, and in the absence of other data, sense of slip is 
-                based solely on the 3D surface orientation.</p>
-
-            <p> More information about the CFM, including a complete model archive, can be found at:
+            <p> More information including a complete model archive; can be found at:
                 <a href="https://www.scec.org/research/cfm">https://www.scec.org/research/cfm</a>.</p>
-
-            <h4><strong>References</strong></h4>
-            <ul class="references">
-                <li><a href="https://www.scec.org/user/hauksson">Hauksson, E.</a>,
-                    <a href="https://www.scec.org/user/wenzheny">Yang, W.</a>,
-                    <a href="https://www.scec.org/user/pshearer">Shearer, P.M.</a> (2012).
-                    "Waveform Relocated Earthquake Catalog for Southern California (1981 to June 2011)."
-                    Bulletin of the Seismological Society of America, 102, 5, 2239-2244,
-                    doi: 10.1785/0120120010.
-                    <a href="https://www.scec.org/publication/1528">SCEC Contribution 1528</a>.</li>
-                <li><a href="https://www.scec.org/user/plesch">Plesch, A.</a>,
-                    <a href="https://www.scec.org/user/nicholson">Nicholson, C.</a>,
-                    <a href="https://www.scec.org/user/jshaw">Shaw, J. H.</a>,
-                    <a href="https://www.scec.org/user/maechlin">Maechling, P.J.</a>,
-                    <a href="https://www.scec.org/user/mei">Su, M-H.</a> (2020).
-                    "The Community Fault Model version 5.3 and new web-based tools."
-                    Virtual Poster Presentation at the 2020 SCEC Annual Meeting. 
-                    <a href="https://www.scec.org/publication/10547">SCEC Contribution 10547</a>.</li>
-                <li><a href="https://www.scec.org/user/plesch">Plesch, A.</a>, et al. (2007).
-                    "Community Fault Model (CFM) for Southern California".
-                    Bulletin of the Seismological Society of America 97:1793-1802. 
-                    <a href="https://www.scec.org/publication/1134">SCEC Contribution 1134</a>.</li>
-                <li>
-                    <a href="https://www.scec.org/user/zross">Ross, Z.E.</a>,
-                    <a href="https://www.scec.org/user/dtrugs">Trugman, D.T.</a>,
-                    <a href="https://www.scec.org/user/hauksson">Hauksson, E.</a>,
-                    <a href="https://www.scec.org/user/pshearer">Shearer, P.M.</a> (2019).
-                    "Searching for hidden earthquakes in Southern California."
-                    Science, 364, 6442, 767-771, doi: 10.1126/science.aaw6888.</li>
-                <li><a href="https://www.scec.org/user/jshaw">Shaw, J.H.</a>, 
-                    <a href="https://www.scec.org/user/plesch">Plesch, A.</a>, 
-                    <a href="https://www.scec.org/user/carltape">Tape, C.</a>, Suess, M.,
-                    <a href="https://www.scec.org/user/tjordan">Jordan, T.H.</a>,
-                    <a href="https://www.scec.org/user/gely">Ely, G.</a>,
-                    <a href="https://www.scec.org/user/hauksson">Hauksson, E.</a>,
-                    &nbsp;<a href="https://www.scec.org/user/jtromp">Tromp, J.</a>,
-                    <a href="https://www.scec.org/user/toshiro">Tanimoto, T.</a>,
-                    <a href="https://www.scec.org/user/rgraves">Graves, R.</a>,
-                    <a href="https://www.scec.org/user/kbolsen">Olsen, K.</a>,
-                    <a href="https://www.scec.org/user/nicholson">Nicholson, C.</a>,
-                    <a href="https://www.scec.org/user/maechlin">Maechling, P.J.</a>,
-                    <a href="https://www.scec.org/user/rivero">Rivero, C.</a>,
-                    <a href="https://www.scec.org/user/plovely">Lovely, P.</a>,
-                    <a href="https://www.scec.org/user/brankman">Brankman, C.M.</a>,
-                    Munster, J. (2015). 
-                    "Unified Structural Representation of the southern California crust and upper mantle."
-                    Earth and Planetary Science Letters, 415, 1-15.
-                    <a href="https://dx.doi.org/10.1016/j.epsl.2015.01.016">doi: 10.1016/j.epsl.2015.01.016</a>.
-                    <a href="https://www.scec.org/publication/2068">SCEC Contribution 2068</a>.</li>
-            </ul>
-
 
             </p>
         </div>
