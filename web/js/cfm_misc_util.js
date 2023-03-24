@@ -12,9 +12,12 @@ function _trim_metadataRow(atrace) {
   var ttmp = tmp.features;
   var tttmp = ttmp[0].properties;
   var ttttmp = tttmp["metadataRow"];
-  delete tttmp["metadataRow"];
+  if(ttttmp != undefined) { 
+    ((tmp.features)[0].properties)["metadataRow"]="{}";
+  }
   return tmp;
 }
+
 // create CFM_geoJson.txt json file from cfm_trace_list.json
 function dumpActiveCFMGeo() {
   var tracelist = [];

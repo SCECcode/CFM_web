@@ -146,7 +146,7 @@ $cfm_my_trace = getenv("CFM_MY_TRACE");
 
 <div class="main" id="cfmMain">
 <!-- trace dumping buttons -->
-    <div style="display:none">
+    <div style="display:">
       <script type="text/javascript" src="js/cfm_misc_util.js?v=1"></script>
       <button id="dumpCFMGeoBtn" class="btn cfm-small-btn"  onClick="dumpActiveCFMGeo()">
                 <span class="glyphicon glyphicon-share-alt"></span> Export CFM geoJson</button>
