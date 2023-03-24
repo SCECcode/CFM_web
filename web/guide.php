@@ -37,10 +37,12 @@ $header = getHeader("User Guide");
             <h4><strong>Community Fault Model (CFM) Viewer Overview</strong></h4>
 
             <p>The CFM Viewer provides interactive map-based and 3D views of the <a
-               href="https://www.scec.org/research/cfm">CFM version 6.0</a> and 5.3 
-               faults. The viewer allows users to select the model of interest(using the pull-down menu in the top left of the interface), view faults, associated metadata, and
-               download selected fault data without having to download the entire CFM
-               model archive. The pages on this site include the 
+               href="https://www.scec.org/research/cfm">CFM version 6.0 and 5.3</a>
+	       faults. The viewer allows users to select the model of interest(using 
+	       the pull-down menu in the top left of the interface), view faults, 
+	       associated metadata, and download selected fault data without having 
+	       to download the entire CFM model archive. The pages on this site 
+               include the 
                <a href="<?php echo $host_site_actual_path; ?>">CFM viewer page</a>, 
                this user guide, <a href="disclaimer">a disclaimer</a>, and a 
                <a href="contact">contact information</a> page.</p>
@@ -98,7 +100,7 @@ $header = getHeader("User Guide");
 
             <h4><strong>Viewing and Downloading Data</strong></h4>
 
-            <p> Metadata files in CSV format and tsurf(.ts) files are available for download from this site. 
+            <p> Metadata files in CSV format and tsurf (.ts) files are available for download from this site. 
                 First, select the desired faults by clicking on the fault displayed on the map or clicking 
                 on fault listed in the list on the left side of the interface. Selected faults are 
                 highlighted in <span style="color:#cc0000">red</span> on the map. Metadata for the 
