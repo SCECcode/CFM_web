@@ -2,7 +2,7 @@
 
    yum install git
 
-   git clone https://github.com/meihuisu/CFM_web.git
+   git clone https://github.com/SCECcode/CFM_web.git
 
 ## echo "!!! running doc/run-as-me !!!'
 
