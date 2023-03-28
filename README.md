@@ -8,11 +8,11 @@ OpenTopoMap, https://www.opentopomap.org and leaflet esri plugin,
 https://esri.github.io/esri-leaflet, for Ersi basemap from ArcGIS and the CFM 
 releases from https://www.scec.org/research/cfm.
 
-### Community Fault Model 
+## Community Fault Model 
 
-## https://www.scec.org/research/cfm
+### https://www.scec.org/research/cfm
 
-### Screen Capture
+## Screen Capture
 
 Website URL: https://www.scec.org/research/cfm-viewer/
 
