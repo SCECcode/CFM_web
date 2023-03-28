@@ -1,17 +1,16 @@
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://github.com/SCECcode/CFM_web/blob/master/LICENSE.md)
 
-# Community Fault Model 
-
-
-### https://www.scec.org/research/cfm
-
-## CFM viewer
+# CFM viewer
 
 A 2D viewer based on Leaflet, an open-source JavaScript library for interactive maps,
 https://leafletjs.com, map data services from OpenStreetMap, https://www.openstreetmap.org,
 OpenTopoMap, https://www.opentopomap.org and leaflet esri plugin,
 https://esri.github.io/esri-leaflet, for Ersi basemap from ArcGIS and the CFM 
 releases from https://www.scec.org/research/cfm.
+
+### Community Fault Model 
+
+## https://www.scec.org/research/cfm
 
 ### Screen Capture
 
