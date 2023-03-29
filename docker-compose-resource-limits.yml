@@ -14,3 +14,11 @@ services:
      mem_limit: 5g
      cpus: 3
 
+  rupweb:
+     mem_limit: 5g
+     cpus: 3
+
+  old53web:
+     mem_limit: 5g
+     cpus: 3
+
