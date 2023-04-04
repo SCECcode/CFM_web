@@ -1,5 +1,5 @@
 # Use postgres/example user/password credentials
-version: '2.2'
+version: '3.1'
 
 services:
 
@@ -19,6 +19,6 @@ services:
     restart: always
     ports:
 #      - 80:8081
-      - 8086:8081
-      - 8087:80
+      - 8081:8081
+      - 8080:80
 

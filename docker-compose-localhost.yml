@@ -20,11 +20,11 @@ services:
     environment:
       CFM_MY_DB: CFM6_preferred_db 
       CFM_MY_OPTION: 0
-      CFM_MY_PORT: 8081 
+      CFM_MY_PORT: 8082 
       CFM_MY_BLIND: CFM6.0_blind.utm
       CFM_MY_TRACE: CFM6.0_traces.utm
     ports:
-      - 8081:8081
+      - 8082:8081
       - 8083:80
 
   altweb:

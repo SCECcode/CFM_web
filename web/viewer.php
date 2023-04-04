@@ -167,7 +167,10 @@ $cfm_my_trace = getenv("CFM_MY_TRACE");
 <!-- top-intro -->
     <div id="top-intro" style="display:">
 <p>
-The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model</a> are three-dimensional and non-planar; however, to simplify browsing the model, the viewer below provides a two-dimensional map-based view of the CFM. The web tools currently serve the CFM6.0 preferred (default), ruptures, and alternatives models, as well as the previous CFM5.3 preferred set. Use the pull-down menu at the top left of the map interface to select the model. These tools allow users to view and download fault geometry data as well as metadata for selected faults rather than downloading the <a href="https://doi.org/10.5281/zenodo.4651667">entire CFM model</a> archive. Once faults are selected, the “PLOT3D” button can be used to view the selected faults in a basic 3D CAD-like environment. See the <a href="guide">user guide</a> for more details and usage instructions.</p
+The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model</a> are three-dimensional and non-planar; however, to simplify browsing the model, the viewer below provides a two-dimensional map-based view of the CFM. The web tools currently serve the CFM6.0 preferred (default), ruptures, and alternatives models, as well as the previous CFM5.3 preferred set. Use the pull-down menu at the top left of the map interface to select the model. These tools allow users to view and download fault geometry data as well as metadata for selected faults rather than downloading the <a href="https://doi.org/10.5281/zenodo.4651667">entire CFM model</a> archive. Once faults are selected, the “PLOT3D” button can be used to view the selected faults in a basic 3D CAD-like environment. See the <a href="guide">user guide</a> for more details and usage instructions.
+</p>
+    </div>
+
 <!-- leaflet control -->
     <div class="row" style="display:none;">
         <div class="col justify-content-end custom-control-inline">
