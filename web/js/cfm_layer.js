@@ -456,8 +456,8 @@ function find_gid_by_name(target) {
    return -1;
 }
 
-
-function find_pretty_name_by_gid(target) {
+// return the 'representable' name by gid
+function find_cfm_name_by_gid(target) {
    var found="NA";
    var item=find_meta_list(target);
    if(item) {

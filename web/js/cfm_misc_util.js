@@ -29,7 +29,7 @@ function dumpActiveCFMGeo() {
   for(var i=0; i< tsz; i++) {
     var titem=cfm_trace_list[i];
     var gid=titem['gid'];
-    var tracename=find_pretty_name_by_gid(gid);
+    var tracename=find_cfm_name_by_gid(gid);
     var atrace=titem['trace'];
     // either all, or has a active list
     if(!csz || in_active_gid_list(gid)) {
