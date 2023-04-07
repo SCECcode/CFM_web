@@ -209,9 +209,9 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
 
  </div>
 </div>
-<div id="top-control-row-2" class="col-6">
+<div id="top-control-row-2" class="col-3">
         <div class="row">
- <div class="col-6 pl-3">
+ <div class="pl-3">
 <!-- RESET -->
              <div class="input-group filters" style="min-width:85%">
                 <select id="search-filter-type" class="custom-select custom-select-sm">
@@ -429,7 +429,15 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
                 </div>
             </div>
  </div>
- <div class="col-3 pl-0">
+
+</div> <!-- row --> 
+        </div>
+
+	<div class="col-9">
+<div class="row" style="margin-left:0px;">
+ <div class="col-1 style="border:solid 0px yellow">
+ </div>
+ <div class="col-2">
 <!-- XX upload KML/KMZ overlay -->
       <div class="row" style="display:">
              <input id="fileKML" type='file' multiple onchange='uploadKMLFile(this.files)' style='display:none;'></input>
@@ -440,12 +448,8 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
              <button id="kmlSelectBtn" class="btn cfm-small-no-btn" title="Show/Hide uploaded kml/kmz files" style="display:none;" data-toggle="modal" data-target="#modalkmlselect"><span id="eye_kml"  class="glyphicon glyphicon-eye-open"></span></button>
        </div> <!-- kml-row -->
  </div>
-</div> <!-- row --> 
-        </div>
 
-        <div class="col-6">
-<div class="row" style="margin-left:-35px;">
- <div class="col-6" style="display:">
+ <div class="col-3" style="display:;">
 <!-- XX Sesimicity -->
              <div id="loadSeismicity" class="row" style="width:20rem;">
                <button id="quakesBtn" class="btn" onClick="loadSeismicity()" title="This loads the updated Hauksson et al. (2012) and Ross et al. (2019) relocated earthquake catalogs and provides a pull-down menu with options to color by depth, magnitude, or time. Significant historical events (1900-2021 >M6.0) are shown with red dots. These can be turned on/off by clicking on the button on the right which appears here once the catalogs have been loaded" style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.15rem 0.5rem;display:;">Load relocated seismicity</button>
@@ -453,7 +457,7 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
 
              <div id="showSeismicity" class="row" style="width:20rem; display:none;">
                 <select id="seismicitySelect" onchange="changePixiOverlay(this.value)"
-                class="custom-select custom-select-sm" style="width:auto;min-width:16rem;">
+                class="custom-select custom-select-sm" style="width:auto;min-width:14rem;">
 		   <option value="none">Hide relocated seismicity</option>
                    <option selected value="haukssondepth">Hauksson et al. by depth</option>
                    <option value="haukssonmag">Hauksson et al. by magnitude</option>
@@ -473,7 +477,7 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
  <div class="col-6">
 <!-- XX Map Select -->
 	    <div class="input-group input-group-sm cfm-input-group" id="map-controls">
-                <div class="input-group-prepend" title="Change the basemap imagery" style="margin-left:-65px;">
+                <div class="input-group-prepend" title="Change the basemap imagery"">
                     <label class="input-group-text" for="mapLayer">Select Map Type</label>
                 </div>
                 <select id="mapLayer" class="custom-select custom-select-sm" style="width:auto;min-width:14rem;"
