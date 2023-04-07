@@ -185,26 +185,32 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
 <!-- top-control -->
     <div id="top-control">
       <div id="controls-container" class="row d-flex mb-0" style="display:" >
-        <div class="col-6">
 
-<div class="row">
- <div class="col-3" style="display:">
+<div id="top-control-row-1"  class="col-12">
+ <div class="row pl-4" style="display:;">
 <!-- For switch between preferred/alternative set -->
-             <input type="text" id="myPort" value=<?php echo $cfm_my_port ?> style="display:none">
-             <input type="text" id="myDb" value=<?php echo $cfm_my_db ?> style="display:none">
-             <input type="text" id="myOption" value=<?php echo $cfm_my_option ?> style="display:none">
-             <input type="text" id="myBlind" value=<?php echo $cfm_my_blind ?> style="display:none">
-             <input type="text" id="myTrace" value=<?php echo $cfm_my_trace ?> style="display:none">
+   <input type="text" id="myPort" value=<?php echo $cfm_my_port ?> style="display:none">
+   <input type="text" id="myDb" value=<?php echo $cfm_my_db ?> style="display:none">
+   <input type="text" id="myOption" value=<?php echo $cfm_my_option ?> style="display:none">
+   <input type="text" id="myBlind" value=<?php echo $cfm_my_blind ?> style="display:none">
+   <input type="text" id="myTrace" value=<?php echo $cfm_my_trace ?> style="display:none">
 
-             <select id="dataSelect" onchange="gotoOtherViewer(this.value)" 
-             title="Select which fault set to display/search. Only one set can be searched/displayed at a time"
-             class="custom-select custom-select-sm" style="width:auto;min-width:9rem;">
-                <option <?php  if($cfm_my_option == 0) echo "selected" ?> value="0">6.0 Preferred</option>
-                <option <?php  if($cfm_my_option == 2) echo "selected" ?> value="2">6.0 Ruptures</option>
-                <option <?php  if($cfm_my_option == 1) echo "selected" ?> value="1">6.0 Alternatives</option>
-                <option <?php  if($cfm_my_option == 3) echo "selected" ?> value="3">5.3 Preferred</option>
-             </select>
+   <form id="id_select_dataset">
+     <label for="dataset"> Choose CFM Model : </label>
+     <label><input type="radio" id="dataset0" name=dataset onclick="gotoOtherViewer(0)">
+            <span>6.0 PREFERRED</span></label>
+     <label><input type="radio" id="dataset1" name=dataset onclick="gotoOtherViewer(1)">
+            <span>6.0 ALTERNATIVES</span></label>
+     <label><input type="radio" id="dataset2" name=dataset onclick="gotoOtherViewer(2)">
+            <span>6.0 RUPTURES</span></label>
+     <label><input type="radio" id="dataset3" name=dataset onclick="gotoOtherViewer(3)">
+            <span>5.3 PREFERRED</span></label>
+   </form>
+
  </div>
+</div>
+<div id="top-control-row-2" class="col-6">
+        <div class="row">
  <div class="col-6 pl-3">
 <!-- XX RESET -->
              <div class="input-group filters" style="min-width:85%">

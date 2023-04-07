@@ -24,11 +24,19 @@ var CFM_DB_tb = {
               ]
 };
 
+function highlight_database_type() {
+  let myoption=$('#myOption').val();
+  let label="dataset"+myoption;
+  let elt=document.getElementById(label);
+  elt.click();
+}
+
 //  got to another set of data on same host different port
 function gotoOtherViewer(option) {
 //  http://localhost:8082
 //  http://moho.scec.org/cfm-viewer/
 //  https://moho.scec.org/cfm-viewer/
+window.console.log("HERE");	
   let myoption=$('#myOption').val();
   if(option == myoption) {
     return; // do nothing
@@ -41,8 +49,6 @@ function gotoOtherViewer(option) {
 
   var nport;
   var npathname;
-
-window.console.log("HERE");
 
   let tb=CFM_DB_tb['viewers'];
   let icnt=tb.length;
@@ -63,6 +69,8 @@ window.console.log("HERE");
   }
   window.console.log("new Loc >>"+newLoc);
   location.replace(newLoc);
+
+  highlight_database_type();
 }
 
 function _toMedView()

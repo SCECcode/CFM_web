@@ -108,6 +108,7 @@ window.console.log(" >>> kml select's modal closed...");
 
   getGeoTraceList();
   getAllTraces();
+  highlight_database_type();
   setupSearch();
   addDownloadSelect();
   setup_info3dTable();
