@@ -36,7 +36,6 @@ function gotoOtherViewer(option) {
 //  http://localhost:8082
 //  http://moho.scec.org/cfm-viewer/
 //  https://moho.scec.org/cfm-viewer/
-window.console.log("HERE");	
   let myoption=$('#myOption').val();
   if(option == myoption) {
     return; // do nothing
@@ -70,7 +69,8 @@ window.console.log("HERE");
   window.console.log("new Loc >>"+newLoc);
   location.replace(newLoc);
 
-  highlight_database_type();
+window.console.log("switch to a new loc");	
+//  highlight_database_type();
 }
 
 function _toMedView()
