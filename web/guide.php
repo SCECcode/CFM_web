@@ -38,8 +38,8 @@ $header = getHeader("User Guide");
 
             <p>The CFM Viewer provides interactive map-based and 3D views of the <a
                href="https://www.scec.org/research/cfm">CFM version 6.0 and 5.3</a>
-	       faults. The viewer allows users to select the model of interest(using 
-	       the pull-down menu in the top left of the interface), view faults, 
+	       faults. The viewer allows users to select the model of interest (using
+	       the buttons at the top of the interface), view faults,
 	       associated metadata, and download selected fault data without having 
 	       to download the entire CFM model archive. The pages on this site 
                include the 

@@ -3,22 +3,22 @@ version: '2.2'
 services:
 
   db:
-    mem_limit: 5g
-    cpus: 3
+    mem_limit: 1500m
+    cpus: 2.0
 
   web:
-    mem_limit: 5g
-    cpus: 3
+    mem_limit: 1g
+    cpus: 1.0
 
   altweb:
-     mem_limit: 5g
-     cpus: 3
+     mem_limit: 500m
+     cpus: 0.5
 
   rupweb:
-     mem_limit: 5g
-     cpus: 3
+     mem_limit: 500m
+     cpus: 0.5
 
   old53web:
-     mem_limit: 5g
-     cpus: 3
+     mem_limit: 500m
+     cpus: 0.5
 

@@ -6,18 +6,31 @@
 
 #id_select_dataset span {
   margin-left: 0.6rem;
-  padding: 0.15rem 1.5rem;
+  padding: 0.40rem 1.5rem;
   border: 1px solid #ced4da;
   border-radius: 0.2rem;
   background-color: #f2f2f2;
   color: #395057;
   font-size: 1rem;
+  cursor: pointer;
 }
 
 #id_select_dataset input[type="radio"]:checked + span {
   background-color: #990000;
   border: 1px solid #990000;
   color: white;
+}
+
+#id_select_dataset label {
+    font-weight: normal;
+}
+
+#id_select_dataset label:first-child {
+
+    font-weight: bold;
+}
+#top-control-row-1 {
+    margin: 9px 0 19px;
 }
 
 

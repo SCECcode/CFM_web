@@ -107,3 +107,4 @@ venv.bak/
 
 /error_log
 .idea/
+.DS_Store

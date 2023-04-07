@@ -16,7 +16,7 @@ releases from https://www.scec.org/research/cfm.
 
 Website URL: https://www.scec.org/research/cfm-viewer/
 
-![](doc/cfm-viewer.png)
+![](web/img/cfm-viewer.png)
 
 
 ## CFM data service

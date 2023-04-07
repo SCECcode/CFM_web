@@ -9,14 +9,19 @@ services:
     restart: unless-stopped
       
   web:
-   volumes:
-    - ./:/app
-    - ./custom-php.ini:/etc/php.d/custom-php.ini
-   restart: unless-stopped
+    volumes:
+      - ./:/app
 
   altweb:
-   volumes:
-    - ./:/app
-    - ./custom-php.ini:/etc/php.d/custom-php.ini
-   restart: unless-stopped
+    volumes:
+      - ./:/app
+
+  rupweb:
+    volumes:
+      - ./:/app
+
+  old53web:
+    volumes:
+      - ./:/app
+
 
