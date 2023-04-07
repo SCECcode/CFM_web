@@ -212,7 +212,7 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
 <div id="top-control-row-2" class="col-6">
         <div class="row">
  <div class="col-6 pl-3">
-<!-- XX RESET -->
+<!-- RESET -->
              <div class="input-group filters" style="min-width:85%">
                 <select id="search-filter-type" class="custom-select custom-select-sm">
                     <option value="dismissClick">Search by </option>
