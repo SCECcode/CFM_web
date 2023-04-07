@@ -68,9 +68,7 @@ function gotoOtherViewer(option) {
   }
   window.console.log("new Loc >>"+newLoc);
   location.replace(newLoc);
-
 window.console.log("switch to a new loc");	
-//  highlight_database_type();
 }
 
 function _toMedView()
