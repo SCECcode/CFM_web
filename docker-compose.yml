@@ -20,13 +20,12 @@ services:
     environment:
       CFM_MY_DB: CFM6_preferred_db 
       CFM_MY_OPTION: 0
-      CFM_MY_PORT: 8082 
+      CFM_MY_PORT: 8084
       CFM_MY_BLIND: CFM6.0_blind.utm
       CFM_MY_TRACE: CFM6.0_traces.utm
       CFM_PROD_PATH: "/research/cfm-viewer/6.0/preferred"
     ports:
-      - 8082:8081
-      - 8083:80
+      - "8084:8081"
 
   altweb:
     build:
@@ -41,8 +40,7 @@ services:
       CFM_MY_TRACE: CFM6.0_traces_Alt.utm
       CFM_PROD_PATH: "/research/cfm-viewer/6.0/alternatives"
     ports:
-      - 8086:8081
-      - 8087:80
+      - "8086:8081"
 
   rupweb:
     build:
@@ -57,8 +55,7 @@ services:
       CFM_MY_TRACE: CFM6.0_traces_Rup.utm
       CFM_PROD_PATH: "/research/cfm-viewer/6.0/ruptures"
     ports:
-      - 8088:8081
-      - 8089:80
+      - "8088:8081"
 
   old53web:
     build:
@@ -73,8 +70,7 @@ services:
       CFM_MY_TRACE: CFM5.3_traces.utm
       CFM_PROD_PATH: "/research/cfm-viewer/5.3/preferred"
     ports:
-      - 8090:8081
-      - 8091:80
+      - "8090:8081"
 
 #cfm_web_db  0.0.0.0:5432->5432/tcp, :::5432->5432/tcp cfm_web_db_1
 #cfm_web_web 0.0.0.0:8083->80/tcp, :::8083->80/tcp, 0.0.0.0:8082->8081/tcp, :::8082->8081/tcp   cfm_web_web_1
