@@ -223,7 +223,7 @@ window.addEventListener("DOMContentLoaded", function () {
   window.addEventListener('message', function(event) {
 
     var origin = event.origin;
-    if (origin != "http://localhost:8082" && origin != "http://moho.scec.org" 
+    if (origin != "http://localhost:8084" && origin != "http://moho.scec.org"
              && origin != "https://moho.scec.org" 
                && origin != "http://temp.scec.org"
         && origin != "https://www.scec.org"
