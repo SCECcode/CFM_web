@@ -630,6 +630,14 @@ onchange="switchLayer(this.value);">
     </div>
 </div> 
 
+<div id="expand-view-key-container" style="display:none;">
+  <div id="expand-view-key" class="row" style="opacity:0.8; height:1.4rem;">
+    <button id="bigMapBtn" class="btn cfm-small-btn" title="Expand into a larger map" style="color:black;padding: 0rem 0.3rem 0rem 0.3rem" onclick="toggleBigMap()"><span class="fas fa-expand"></span>
+    </button>
+  </div>
+</div> 
+
+
 
 <!--Modal: Model (modal3D)-->
 <div class="modal" id="modal3D" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="modal3D" aria-hidden="true">

@@ -222,6 +222,14 @@ hr {
     line-height: 1.2em;
 }
 
+#expand-view-key {
+    z-index: 8000;
+    position: absolute;
+    background-color: rgb(255,255,255);
+    right: 15px;
+    bottom: 0px;
+}
+
 #dip-strike-key {
     z-index: 8000;
     position: absolute;
