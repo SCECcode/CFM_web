@@ -225,7 +225,7 @@ window.addEventListener("DOMContentLoaded", function () {
     var origin = event.origin;
     if (origin != "http://localhost:8084" && origin != "http://moho.scec.org"
              && origin != "https://moho.scec.org" 
-               && origin != "http://temp.scec.org"
+               && origin != "http://training.scec.org"
         && origin != "https://www.scec.org"
         && origin != "https://stress.scec.org") {
         window.console.log("SERVER <<< bad message origin:", origin);
