@@ -1186,7 +1186,13 @@ function getPresetMode() {
   let myFullName=0;
   let myFullFileURL=0;
 
-  let qArray = param.split('&'); //get key-value pairs
+  // if there are '&amp' 
+  let qArray;
+  if(param.search("&amp;") != -1 ) {
+    qArray = param.split("&amp;"); //get key-value pairs
+    } else { 
+      qArray = param.split('&'); //get key-value pairs
+  }
   for (var i = 0; i < qArray.length; i++)
   {
      let pArr = qArray[i].split('='); //split key and value

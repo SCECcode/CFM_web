@@ -695,8 +695,6 @@ function addRemoveFromMetadataTable(gid) {
     let features_object = get_feature(gid);
     let metadataRow = features_object.features[0].properties.metadataRow;
 
-window.console.log("HERE");
-
     if (h == 0) {
         // exists, remove it
         targetElem.remove();
