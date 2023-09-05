@@ -113,7 +113,7 @@ function setup_viewer()
   currentLayer = esri_topographic;
 
 // ==> mymap <==
-  mymap = L.map('CFM_plot', { drawControl:false, layers: [esri_topographic, basemap], zoomControl:true} );
+  mymap = L.map('CFM_plot', { zoomSnap: 0.25, drawControl:false, layers: [esri_topographic, basemap], zoomControl:true} );
   mymap.setView([34.3, -118.4], init_map_zoom_level);
   mymap.attributionControl.addAttribution(scecAttribution);
 
@@ -259,6 +259,7 @@ let tmp=$(".leaflet-control-attribution");
 let v= document.getElementsByClassName("leaflet-control-attribution")[0];
 v.style.right="1.5rem";
 v.style.height="1.4rem";
+v.style.width="35rem";
 
 // finally,
   return mymap;

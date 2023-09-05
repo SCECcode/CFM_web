@@ -83,7 +83,9 @@ $header = getHeader("User Guide");
                 controls will appear below in the form of another dropdown, text input boxes, or sliders.
                 Because CFM faults are non-planar, the average strike and dip values are calculated from 
                 the area-weighted normal vectors for all triangles comprising a given surface. 
-                Area weighting accounts for the differing triangular element sizes/shapes. The average strike and dip values therefore do not completely describe the non-planar CFM fault surfaces and are only provided for searching/sorting purposes.</p>
+		Area weighting accounts for the differing triangular element sizes/shapes. The average 
+		strike and dip values therefore do not completely describe the non-planar CFM fault 
+                surfaces and are only provided for searching/sorting purposes.</p>
 
             <p> When performing a latitude/longitude search, there are two search methods.  Users can either
                 enter the latitude/longitude values of the bottom left and top right corners of a bounding 
