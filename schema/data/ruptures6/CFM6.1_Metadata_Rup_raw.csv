@@ -1,0 +1,34 @@
+CFM6.1 Rupture Object Name,Num,Fault Area/Major Fault System,Code,Num,Fault Zone/Region,Code,Num,Fault Section,Code,Num,Fault Name,Code,Alternative,Source/Author,Last Update,Descriptor,wAvgStrike,wAvgDip,Area [km^2],Exposure,Slip Sense,ID Comments,USGS ID,Fault Strand/Model Description,References
+SAN ANDREAS FAULT SYSTEM,,,,,,,,,,,,,,,,,,,,,,,,,
+SAFS-SAFZ-1812-San_Andreas_fault_rupture-RUP6,01,San Andreas Fault System,SAFS,01,SAFZ rupture models,SAFZ,12,1812 Rupture-Mojave SAF+nSJF,1812,01,San Andreas fault,SAF,02,UCSB,CFM6,LOZS,304,87,2837.02,surface,rlss,,1h + 125a,Lozos 1812 rupture model,"Lozos, 2016 (Science)"
+SAFS-SAFZ-1857-San_Andreas_fault_rupture-RUP6,01,San Andreas Fault System,SAFS,01,SAFZ rupture models,SAFZ,13,1857 Rupture-Parkfield-Mojave,1857,01,San Andreas fault,SAF,01,UCSB,CFM6,,122,74,4771.06,surface,rlss,,1 f-h,,"Wood, 1955 (BSSA), Scharer et al., 2014, (GRL)"
+SALTON TROUGH FAULT AREA,,,,,,,,,,,,,,,,,,,,,,,,,
+N/A,,,,,,,,,,,,,,,,,,,,,,,,,
+PENINSULAR RANGES AREA,,,,,,,,,,,,,,,,,,,,,,,,,
+PNRA-EMCP-2010-El_Mayor_Cucapah_rupture-RUP6,03,Peninsular Ranges Area,PNRA,00,2010 El Mayor rupture,EMCP,01,2010 El Mayor-Cucapah rupture,2010,01,2010 El Mayor-Cucapah rupture,EMCP,01,HRVD,CFM6,,340,55,3400.37,surface,orln,,multiple ids,2010 El Mayor ruptured segments,"Hauksson et al., 2010, 2011; Nicholson et al., 2011, 2012; Also see references for the individual segments"
+OFFSHORE CONTINENTAL BORDERLAND AREA,,,,,,,,,,,,,,,,,,,,,,,,,
+N/A,,,,,,,,,,,,,,,,,,,,,,,,,
+WESTERN TRANSVERSE RANGES AREA,,,,,,,,,,,,,,,,,,,,,,,,,
+WTRA-ORFZ-1994-Northridge_Frew_fault-RUP6,05,Western Transverse Ranges Area,WTRA,11,Oak Ridge fault zone,ORFZ,03,1994 Northridge Rupture,1994,01,Northridge-Frew fault,NRDF,01,HRVD,CFM6,,119,35,859.59,blind,r,propose 94c,,"Carena & Suppe (2002) model for middle heart-shaped portion, edges of fault from Hudnut et al. 1996","Carena & Suppe, 2002 (JSG); Hudnut et al., 1996 (BSSA)"
+EASTERN TRANSVERSE RANGES AREA,,,,,,,,,,,,,,,,,,,,,,,,,
+ETRA-BBFS-1992-Big_Bear_rupture-RUP6,06,Eastern Transverse Ranges Area,ETRA,03,Big Bear Fault system,BBFS,01,1992 Big Bear rupture,1992,01,Big Bear rupture,BGBR,01,HRVD,CFM6,,71,90,714.11,blind,llss,,missing,relocated seismicity,"Hauksson & Shearer 2005 (BSSA), Plesch et al. (2007)"
+ETRA-LSBM-1992-Joshua_Tree_sequence-RUP6,06,Eastern Transverse Ranges Area,ETRA,07,Little San Bernadino Mountains fault region,LSBM,04,1992 Joshua Tree rupture,1992,01,Joshua Tree sequence,JSTS,01,CMDT,CFM6,,179,90,258.38,blind,rlss,,395,relocated seismicity,"Bryant, 2005+updates; Hauksson et al., 2012; Nicholson et al., 2012"
+MOJAVE FAULT AREA,,,,,,,,,,,,,,,,,,,,,,,,,
+MJVA-ECSZ-1992-Landers_rupture_detailed_splays-RUP6,07,Mojave Fault Area,MJVA,01,Eastern California shear zone,ECSZ,01,Landers rupture,1992,05,Landers Rupture,LNDR,01,HRVD,CFM6,,152,90,1559.38,surface,orlr,,,,"Pollitz & Stacks 2002 (BSSA), Bryant 2005+updates, Hauksson et al., 2012+updates"
+MJVA-ECSZ-1992-Barstow_Trend-RUP6,07,Mojave Fault Area,MJVA,01,Eastern California shear zone,ECSZ,01,Landers rupture,1992,02,Landers-Barstow trend,LNBT,01,CMDT,CFM6,,341,90,114.44,blind,rlss,,missing,relocated seismicity,"Bryant, 2005+updates; Hauksson et al., 2012+updates; Plesch et al., 2014; Nicholson et al., 2014"
+MJVA-ECSZ-1992-Landers_cross_fault_North_I-RUP6,07,Mojave Fault Area,MJVA,01,Eastern California shear zone,ECSZ,01,Landers cross faults,1992,03,Landers cross fault-north-I,LCF1,01,CMDT,CFM6,,80,77,112.27,blind,llss,,missing,relocated seismicity,"Bryant, 2005+updates; Hauksson et al., 2012+updates; Plesch et al., 2014; Nicholson et al., 2014"
+MJVA-ECSZ-1992-Landers_cross_fault_North_II-RUP6,07,Mojave Fault Area,MJVA,01,Eastern California shear zone,ECSZ,01,Landers cross faults,1992,04,Landers cross fault-north-II,LCF2,01,CMDT,CFM6,,269,89,199.25,blind,llss,,missing,relocated seismicity,"Bryant, 2005+updates; Hauksson et al., 2012+updates; Plesch et al., 2014; Nicholson et al., 2014"
+MJVA-ECSZ-1999-Hector_Mine_rupture-RUP6,07,Mojave Fault Area,MJVA,01,Eastern California shear zone,ECSZ,02,Hector Mine rupture,1999,01,Hector Mine rupture,HCMR,01,HRVD,CFM6,,339,85,899.81,surface,rlss,,,,"Pollitz & Stacks 2002 (BSSA), Bryant 2005+updates, Hauksson et al., 2012+updates"
+GARLOCK FAULT SYSTEM,,,,,,,,,,,,,,,,,,,,,,,,,
+N/A,,,,,,,,,,,,,,,,,,,,,,,,,
+BASIN AND RANGE AREA,,,,,,,,,,,,,,,,,,,,,,,,,
+N/A,,,,,,,,,,,,,,,,,,,,,,,,,
+SIERRA NEVADA FAULT AREA,,,,,,,,,,,,,,,,,,,,,,,,,
+SNFA-OVFZ-1872-Owens_Valley_fault_rupture-RUP6,10,Sierra Nevada Fault Area,SNFA,01,Owens Valley fault zone,OVFZ,03,1872 rupture,1872,01,Owens Valley fault,OWVF,01,HRVD,CFM6,,162,90,1056.77,surface,orln,,51b,,"Beanland & Clark, 1994 (USGS Bull), Bryant, 2005+updates"
+SNFA-LLFZ-2019-Ridgecrest_ruptures-RUP6,10,Sierra Nevada Fault Area,SNFA,07,Little Lake fault zone,LLFZ,00,2019 Ridgecrest Ruptures,2019,01,2019 Ridgecrest ruptures,RIDG,01,HRVD,CFM6,,352,87,2817.84,surface,"rlss,llss",,72,fault segments ruptured in 2019 Ridgecrest sequence,"Hauksson et al., 2012+updates; Plesch et al. 2020 (SCEC)"
+GREAT VALLEY FAULT AREA,,,,,,,,,,,,,,,,,,,,,,,,,
+N/A,,,,,,,,,,,,,,,,,,,,,,,,,
+COAST RANGES FAULT AREA,,,,,,,,,,,,,,,,,,,,,,,,,
+N/A,,,,,,,,,,,,,,,,,,,,,,,,,
+OFFSHORE CENTRAL CALIFORNIA AREA,,,,,,,,,,,,,,,,,,,,,,,,,
+N/A,,,,,,,,,,,,,,,,,,,,,,,,,

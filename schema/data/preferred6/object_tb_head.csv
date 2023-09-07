@@ -291,14 +291,14 @@ SAFS-MHFZ-MULT-Mecca_Hills_Hidden_Springs_fault-CFM4,San Andreas Fault System,SA
 SAFS-SAFZ-BSZS-Southern_San_Andreas_blind_extension-CFM4,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Brawley Seismic Zone,BSZS,Southern San Andreas fault
 SAFS-SAFZ-CHLM-San_Andreas_fault-CFM6,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Cholame,CHLM,San Andreas fault
 SAFS-SAFZ-COAV-Banning_North_Palm_Springs_fault_splay-CFM4,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Coachella,COAV,Banning-North Palm Springs fault splay
-SAFS-SAFZ-COAV-East_Shoreline_fault-CFM5,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Coachella,COAV,East Shoreline fault
+SAFS-SAFZ-COAV-East_Shoreline_fault-CFM6,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Coachella,COAV,East Shoreline fault
 SAFS-SAFZ-COAV-Mission_Creek_fault_strand-CFM4,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Coachella,COAV,Mission Creek fault strand
 SAFS-SAFZ-COAV-North_Palm_Springs_fault-CFM4,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Coachella,COAV,North Palm Springs fault
 SAFS-SAFZ-COAV-North_Palm_Springs_fault_lower_splay-CFM6,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Coachella,COAV,North Palm Springs fault-lower splay
-SAFS-SAFZ-COAV-Southern_San_Andreas_fault-CFM4,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Coachella,COAV,Southern San Andreas fault
 SAFS-SAFZ-CRRZ-San_Andreas_fault-CFM6,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Carrizo,CRRZ,San Andreas fault
 SAFS-SAFZ-MJVS-San_Andreas_fault-CFM6,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Mojave,MJVS,San Andreas fault
 SAFS-SAFZ-MULT-Banning_fault-CFM6,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,San Bernardino-Coachella Valley,MULT,Banning fault strand
+SAFS-SAFZ-MULT-Southern_San_Andreas_fault_and_Banning-CFM6,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Multiple Sections,MULT,Southern San Andreas fault (with Banning Section)
 SAFS-SAFZ-PARK-San_Andreas_fault-CFM4,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Parkfield,PARK,San Andreas fault
 SAFS-SAFZ-SBMT-Garnet_Hill_fault-CFM6,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,San Bernardino Mountains,SBMT,Garnet Hill fault strand
 SAFS-SAFZ-SBMT-Mill_Creek_fault_strand-CFM4,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,San Bernardino Mountains,SBMT,Mill Creek fault strand
