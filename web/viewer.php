@@ -484,11 +484,14 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
                 </div>
                 <select id="mapLayer" class="custom-select custom-select-sm" style="width:auto;min-width:14rem;"
 onchange="switchLayer(this.value);">
-                    <option selected value="esri topo">ESRI Topographic</option>
-                    <option value="esri NG">ESRI National Geographic</option>
-                    <option value="esri imagery">ESRI Imagery</option>
-                    <option value="otm topo">OTM Topographic</option>
-                    <option value="osm street">OSM Street</option>
+                  <option selected value="esri topo">ESRI Topographic</option>
+                  <option value="esri imagery">ESRI Imagery</option>
+                  <option value="jawg light">Jawg Light</option>
+                  <option value="jawg dark">Jawg Dark</option>
+                  <option value="osm streets relief">OSM Streets Relief</option>
+                  <option value="otm topo">OTM Topographic</option>
+                  <option value="osm street">OSM Street</option>
+                  <option value="esri terrain">ESRI Terrain</option>
                 </select>
             </div>
 
