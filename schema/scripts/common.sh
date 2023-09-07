@@ -20,6 +20,7 @@ PWD=`pwd`
 
 case $DATATYPE in
    "preferred53")
+       echo "  --setup for "$DATATYPE
        CFMPATH=${PWD}"/../CFM5.3_latest"
 
        CFMSHP=${CFMPATH}"/obj/traces/shp"
@@ -37,6 +38,7 @@ case $DATATYPE in
        ;;
 ## CFM6_alternatives/doc/CFM6.1_Metadata_Alt.csv
    "alternatives6")
+       echo "  --setup for "$DATATYPE
        CFMPATH=${PWD}"/../CFM61"
 
        CFMSHP=${CFMPATH}"/obj/alternatives/traces/shp"
@@ -53,6 +55,7 @@ case $DATATYPE in
        ;;
 ## CFM61/doc/CFM6.1_Metadata.csv
    "preferred6")
+       echo "  --setup for "$DATATYPE
        CFMPATH=${PWD}"/../CFM61"
 
        CFMSHP=${CFMPATH}"/obj/preferred/traces/shp"
@@ -70,6 +73,7 @@ case $DATATYPE in
        ;;
 ## CFM6_ruptures/doc/CFM6.1_Metadata_Rup.csv
    "ruptures6")
+       echo "  --setup for "$DATATYPE
        CFMPATH=${PWD}"/../CFM61"
 
        CFMSHP=${CFMPATH}"/obj/ruptures/traces/shp"

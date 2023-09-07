@@ -5,7 +5,6 @@ DATATYPE="preferred53"
 #DATATYPE="preferred6"
 #DATATYPE="ruptures6"
 
-
 ./extract-csv.sh ${DATATYPE}
 mv *.csv ../data/${DATATYPE}
 

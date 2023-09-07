@@ -8,12 +8,15 @@
 #
 
 
+echo "running "$0
 DATATYPE=$1
 . ./common.sh
 
 rm -f *.csv
 
-if [ $DATATYPE == "preferred53" ] 
+
+
+if [ $DATATYPE == "preferred53" ];
 then
   in2csv --sheet "${EXCEL_NM_SHEET}" ${EXCEL_NM_FILE} | csvcut -c 1-26 > ${EXCEL_NM}_raw.csv
 else

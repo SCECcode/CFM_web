@@ -6,6 +6,7 @@
 ## add_foreign_key.sql linkup_traces.sql setup_object_tb.sql setup_schema.sql setup_tbs.sql
 ##
 
+echo "running "$0
 DATATYPE=$1
 . ./common.sh
 

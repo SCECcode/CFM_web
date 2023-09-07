@@ -3,6 +3,7 @@
 ## convert from shp file content to sql import script 
 ## shp2pgsql is part of postgres sql toolkit
 
+echo "running "$0
 DATATYPE=$1
 . ./common.sh
 

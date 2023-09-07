@@ -7,6 +7,8 @@
 ## object_1000m_tb.csv object_2000m_tb.csv  
 ##
 
+
+echo "running "$0
 DATATYPE=$1
 . ./common.sh
 
