@@ -1,21 +1,21 @@
 #!/bin/sh
 
-#TOGGLE_TYPE="P5"
-#TOGGLE_TYPE="P6"
-#TOGGLE_TYPE="A6"
-TOGGLE_TYPE="R6"
+DATATYPE="preferred53"
+#DATATYPE="alternatives6"
+#DATATYPE="preferred6"
+#DATATYPE="ruptures6"
 
-. ./common.sh
 
-echo "GOING to " ${DATATYPE}
-
-./extract-csv.sh
+./extract-csv.sh ${DATATYPE}
 mv *.csv ../data/${DATATYPE}
-./convert-shp.sh
+
+./convert-shp.sh ${DATATYPE}
 mv *.sql ../sql/${DATATYPE}
-./create-csv.sh
+
+./create-csv.sh ${DATATYPE}
 mv *.csv ../data/${DATATYPE}
-./create-sql.sh
+
+./create-sql.sh ${DATATYPE}
 mv *.sql ../sql/${DATATYPE}
 mv *column_labels ../data/${DATATYPE}
 

@@ -6,6 +6,7 @@
 ## add_foreign_key.sql linkup_traces.sql setup_object_tb.sql setup_schema.sql setup_tbs.sql
 ##
 
+DATATYPE=$1
 . ./common.sh
 
 ## no changes

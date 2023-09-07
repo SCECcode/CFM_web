@@ -7,6 +7,7 @@
 ## object_1000m_tb.csv object_2000m_tb.csv  
 ##
 
+DATATYPE=$1
 . ./common.sh
 
 TYPES="native 500m 1000m 2000m" 
