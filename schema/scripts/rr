@@ -1,9 +1,9 @@
 #!/bin/sh
 
-DATATYPE="preferred53"
+#DATATYPE="preferred53"
 #DATATYPE="alternatives6"
 #DATATYPE="preferred6"
-#DATATYPE="ruptures6"
+DATATYPE="ruptures6"
 
 ./extract-csv.sh ${DATATYPE}
 mv *.csv ../data/${DATATYPE}

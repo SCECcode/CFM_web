@@ -27,6 +27,8 @@ case $DATATYPE in
        CFMLOC=${CFMSHP}"/CFM5.3_traces"
        CFMLOC_BLIND=${CFMSHP}"/CFM5.3_blind"
 
+       CFMTS=${CFMPATH}"/obj"
+
        CFMTYPE="CFM53_preferred"
        EXCEL_NM="CFM5.3_Metadata"
        DATATYPE="preferred53"
@@ -45,6 +47,8 @@ case $DATATYPE in
        CFMLOC=${CFMSHP}"/CFM6.1_traces_ALT"
        CFMLOC_BLIND=${CFMSHP}"/CFM6.1_blind_ALT"
 
+       CFMTS=${CFMPATH}"/obj/alternatives"
+
        CFMTYPE="CFM6_alternatives"
        EXCEL_NM="CFM6.1_Metadata_Alt"
        EXCEL_NM_SHEET="CFM6.1 Alternatives"
@@ -61,6 +65,8 @@ case $DATATYPE in
        CFMSHP=${CFMPATH}"/obj/preferred/traces/shp"
        CFMLOC=${CFMSHP}"/CFM6.1_traces"
        CFMLOC_BLIND=${CFMSHP}"/CFM6.1_blind"
+
+       CFMTS=${CFMPATH}"/obj/preferred"
 
        CFMTYPE="CFM6_preferred"
        EXCEL_NM="CFM6.1_Metadata"
@@ -79,6 +85,8 @@ case $DATATYPE in
        CFMSHP=${CFMPATH}"/obj/ruptures/traces/shp"
        CFMLOC=${CFMSHP}"/CFM6.1_traces_Rup"
        CFMLOC_BLIND=${CFMSHP}"/CFM6.1_blind_Rup"
+
+       CFMTS=${CFMPATH}"/obj/ruptures"
 
        CFMTYPE="CFM6_ruptures"
        EXCEL_NM="CFM6.1_Metadata_Rup"

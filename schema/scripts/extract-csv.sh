@@ -16,13 +16,8 @@ rm -f *.csv
 
 
 
-if [ $DATATYPE == "preferred53" ];
-then
-  in2csv --sheet "${EXCEL_NM_SHEET}" ${EXCEL_NM_FILE} | csvcut -c 1-26 > ${EXCEL_NM}_raw.csv
-else
-  cat ${EXCEL_NM_CSV} | csvcut -c 1-26 > ${EXCEL_NM}_raw.csv
-fi
-
+##  in2csv --sheet "${EXCEL_NM_SHEET}" ${EXCEL_NM_FILE} | csvcut -c 1-26 > ${EXCEL_NM}_raw.csv
+cat ${EXCEL_NM_CSV} | csvcut -c 1-26 > ${EXCEL_NM}_raw.csv
 grep ",,,,,,,,$"  ${EXCEL_NM}_raw.csv > skip_subtitles
 grep -vf skip_subtitles ${EXCEL_NM}_raw.csv |sed "s/  / /g" | sed "s/, E/,E/"  > ${EXCEL_NM}.csv
 csvcut -n ${EXCEL_NM}.csv > ${EXCEL_NM}_column_labels
