@@ -1,5 +1,10 @@
 #!/bin/sh
 
+#TOGGLE_TYPE="P5"
+#TOGGLE_TYPE="P6"
+#TOGGLE_TYPE="A6"
+TOGGLE_TYPE="R6"
+
 . ./common.sh
 
 echo "GOING to " ${DATATYPE}
