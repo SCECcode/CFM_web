@@ -34,7 +34,9 @@ $cfm_my_trace = getenv("CFM_MY_TRACE");
     <script type='text/javascript' src='js/vendor/bootstrap.min.js'></script>
 
     <script type='text/javascript' src='js/vendor/jquery-ui.js'></script>
-    <script type='text/javascript' src='js/vendor/ersi-leaflet.js'></script>
+    <script type='text/javascript' src='js/vendor/esri-leaflet.js'></script>
+    <script type='text/javascript' src='js/vendor/esri-leaflet-vector.js' crossorigin=""></script>
+
     <script type='text/javascript' src='js/vendor/FileSaver.js'></script>
     <script type='text/javascript' src='js/vendor/jszip.js'></script>
     <script type='text/javascript' src='js/vendor/zlib.min.js'></script>
@@ -167,7 +169,7 @@ $cfm_my_trace = getenv("CFM_MY_TRACE");
 <!-- top-intro -->
     <div id="top-intro" style="display:">
 <p>
-The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model</a> are three-dimensional and non-planar; however, to simplify browsing the model, the viewer below provides a two-dimensional map-based view of the CFM. The web tools currently serve the CFM6.0 preferred (default), ruptures, and alternatives models, as well as the previous CFM5.3 preferred set. Use the buttons at the top of the map interface to select the model. These tools allow users to view and download fault geometry data as well as metadata for selected faults rather than downloading the <a href="https://doi.org/10.5281/zenodo.4651667">entire CFM model</a> archive. Once faults are selected, the “PLOT3D” button can be used to view the selected faults in a basic 3D CAD-like environment. See the <a href="guide">user guide</a> for more details and usage instructions.
+The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model</a> are three-dimensional and non-planar; however, to simplify browsing the model, the viewer below provides a two-dimensional map-based view of the CFM. The web tools currently serve the CFM6.1 preferred (default), ruptures, and alternatives models, as well as the previous CFM5.3 preferred set. Use the buttons at the top of the map interface to select the model. These tools allow users to view and download fault geometry data as well as metadata for selected faults rather than downloading the <a href="https://doi.org/10.5281/zenodo.4651667">entire CFM model</a> archive. Once faults are selected, the “PLOT3D” button can be used to view the selected faults in a basic 3D CAD-like environment. See the <a href="guide">user guide</a> for more details and usage instructions.
 </p>
     </div>
 
@@ -198,11 +200,11 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
    <form id="id_select_dataset">
      <label for="dataset"> Choose CFM Model : </label>
      <label><input type="radio" id="dataset0" name=dataset onclick="gotoOtherViewer(0)">
-            <span>6.0 PREFERRED</span></label>
+            <span>6.1 PREFERRED</span></label>
      <label><input type="radio" id="dataset1" name=dataset onclick="gotoOtherViewer(1)">
-            <span>6.0 ALTERNATIVES</span></label>
+            <span>6.1 ALTERNATIVES</span></label>
      <label><input type="radio" id="dataset2" name=dataset onclick="gotoOtherViewer(2)">
-            <span>6.0 RUPTURES</span></label>
+            <span>6.1 RUPTURES</span></label>
      <label><input type="radio" id="dataset3" name=dataset onclick="gotoOtherViewer(3)">
             <span>5.3 PREFERRED</span></label>
    </form>
@@ -349,13 +351,9 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
                                     <div class="d-flex">
                                         <input placeholder="Enter Keyword" type="text" id="keywordTxt"
                                                class="form-control"
-                                               onfocus="this.value=''" style=""/>
-<!--
-                                        <button id="keywordBtn" type="button" title="Search with keyword"
-                                                class="btn btn-default cfm-small-btn pl-3" onclick="searchByKeyword()">
-                                            <span class="glyphicon glyphicon-search"></span>
-                                        </button>
--->
+					       onfocus="this.value=''" 
+                                               onkeypress="javascript:if (event.key == 'Enter') $('#keywordTxt').mouseout();"
+                                               style=""/>
                                     </div>
                                 </div>
 
@@ -372,37 +370,29 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
                                                placeholder="Latitude"
                                                id="firstLatTxt"
                                                title="first lat"
-                                               onfocus="this.value=''"
+onkeypress="javascript:if (event.key == 'Enter') $('#firstLatTxt').mouseout();"
                                                class="latlon-item form-control">
                                         <input type="text" 
                                                id="firstLonTxt" 
                                                placeholder='Longitude' 
                                                title="first lon"
-                                               onfocus="this.value=''" 
+onkeypress="javascript:if (event.key == 'Enter') $('#firstLonTxt').mouseout();"
                                                class="latlon-item form-control mt-1">
                                     </div>
                                     <div class="col-2 pl-1 pr-0">
                                         <input type="text"
                                                id="secondLatTxt"
-                                               title="optional second lat"
+                                               title="Optional Latitude"
                                                value='optional'
-                                               onfocus="this.value=''"
+onkeypress="javascript:if (event.key == 'Enter') $('#secondLatTxt').mouseout();"
                                                class="latlon-item form-control">
                                         <input type="text"
                                                id="secondLonTxt"
-                                               title="optional second lon"
+                                               title="Optional Longitude"
                                                value='optional'
-                                               onfocus="this.value=''"
+onkeypress="javascript:if (event.key == 'Enter') $('#secondLonTxt').mouseout();"
                                                class="latlon-item form-control mt-1">
                                     </div>
-<!--
-                                    <div class="col-1 pr-0 align-items-center">
-                                        <button id="latlonBtn" type="button" title="Search with latlon"
-                                                class="btn btn-default cfm-small-btn " onclick="searchByLatlon(0)">
-                                            <span class="glyphicon glyphicon-search"></span>
-                                        </button>
-                                    </div>
--->
                                 </div>
                             </div>
                         </li>
@@ -482,11 +472,14 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
                 </div>
                 <select id="mapLayer" class="custom-select custom-select-sm" style="width:auto;min-width:14rem;"
 onchange="switchLayer(this.value);">
-                    <option selected value="esri topo">ESRI Topographic</option>
-                    <option value="esri NG">ESRI National Geographic</option>
-                    <option value="esri imagery">ESRI Imagery</option>
-                    <option value="otm topo">OTM Topographic</option>
-                    <option value="osm street">OSM Street</option>
+                  <option selected value="esri topo">ESRI Topographic</option>
+                  <option value="esri imagery">ESRI Imagery</option>
+                  <option value="jawg light">Jawg Light</option>
+                  <option value="jawg dark">Jawg Dark</option>
+                  <option value="osm streets relief">OSM Streets Relief</option>
+                  <option value="otm topo">OTM Topographic</option>
+                  <option value="osm street">OSM Street</option>
+                  <option value="esri terrain">ESRI Terrain</option>
                 </select>
             </div>
 
@@ -872,8 +865,6 @@ onchange="switchLayer(this.value);">
     </div> <!--Content-->
   </div>
 </div> <!--Modal: modalkmlselect-->
-
-
 
 
 </div>

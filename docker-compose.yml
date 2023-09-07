@@ -21,9 +21,9 @@ services:
       CFM_MY_DB: CFM6_preferred_db 
       CFM_MY_OPTION: 0
       CFM_MY_PORT: 8084
-      CFM_MY_BLIND: CFM6.0_blind.utm
-      CFM_MY_TRACE: CFM6.0_traces.utm
-      CFM_PROD_PATH: "/research/cfm-viewer/6.0/preferred"
+      CFM_MY_BLIND: CFM6.1_blind.utm
+      CFM_MY_TRACE: CFM6.1_traces.utm
+      CFM_PROD_PATH: "/research/cfm-viewer/6.1/preferred"
     ports:
       - "8084:8081"
 
@@ -36,9 +36,9 @@ services:
       CFM_MY_DB: CFM6_alt_db 
       CFM_MY_OPTION: 1
       CFM_MY_PORT: 8086 
-      CFM_MY_BLIND: CFM6.0_blind_Alt.utm
-      CFM_MY_TRACE: CFM6.0_traces_Alt.utm
-      CFM_PROD_PATH: "/research/cfm-viewer/6.0/alternatives"
+      CFM_MY_BLIND: CFM6.1_blind_Alt.utm
+      CFM_MY_TRACE: CFM6.1_traces_Alt.utm
+      CFM_PROD_PATH: "/research/cfm-viewer/6.1/alternatives"
     ports:
       - "8086:8081"
 
@@ -51,9 +51,9 @@ services:
       CFM_MY_DB: CFM6_rup_db
       CFM_MY_OPTION: 2
       CFM_MY_PORT: 8088
-      CFM_MY_BLIND: CFM6.0_blind_Rup.utm
-      CFM_MY_TRACE: CFM6.0_traces_Rup.utm
-      CFM_PROD_PATH: "/research/cfm-viewer/6.0/ruptures"
+      CFM_MY_BLIND: CFM6.1_blind_Rup.utm
+      CFM_MY_TRACE: CFM6.1_traces_Rup.utm
+      CFM_PROD_PATH: "/research/cfm-viewer/6.1/ruptures"
     ports:
       - "8088:8081"
 

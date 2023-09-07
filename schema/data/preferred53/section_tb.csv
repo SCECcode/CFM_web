@@ -1,7 +1,7 @@
 name,abb
 1812 Rupture-Mojave SAF+nSJF,1812
 1857 Rupture-Parkfield-Mojave,1857
-1872 rupture,1872
+1872 Owens Valley fault rupture,1872
 1992 Big Bear rupture,1992
 1992 Joshua Tree rupture,1992
 2010 El Mayor-Cucapah rupture,2010
@@ -106,6 +106,7 @@ Morales,MRLS
 Morongo Valley,MORV
 Multiple-Los Angeles basin,LABS
 Multiple sections,MULT
+Multiple Sections,MULT
 Multiple sections-offshore,RSCN
 Murietta-Hot Springs,MRHS
 North Channel,NCHN

@@ -7,6 +7,9 @@
 ## object_1000m_tb.csv object_2000m_tb.csv  
 ##
 
+
+echo "running "$0
+DATATYPE=$1
 . ./common.sh
 
 TYPES="native 500m 1000m 2000m" 
@@ -15,7 +18,7 @@ for TT in $TYPES
 do 
   echo "name,url" > object_${TT}_tb.csv
 ## interate through the files in a directory
-  FILES="${CFMPATH}obj/${TT}/*.ts"
+  FILES="${CFMTS}/${TT}/*.ts"
   for f in $FILES
   do
     fname="${f##*/}"

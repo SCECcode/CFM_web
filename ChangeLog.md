@@ -1,3 +1,14 @@
+## 2023-09-07  Mei-Hui Su <mei@usc.edu>
+* 3rd party tools upgrades
+* UI updates: new set of basemaps, attribution size limit,
+              enter-key input catching, rework expansion button
+* CFM6.1
+
+## 2023-03-27  Mei-Hui Su <mei@usc.edu>
+* Expanded to Preferred, Alternatives, and Ruptures in addition to 
+  original CFM5.3 preferred
+* CFM6.0
+
 ## 2022-09-01  Mei-Hui Su <mei@usc.edu>
 * Added dual datasets access through CFM_web : Preferred and Alternatives
 * Added KML/KMZ to leaflet layer 

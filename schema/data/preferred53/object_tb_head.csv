@@ -31,13 +31,13 @@ CRFA-SLRS-MULT-San_Luis_Range_fault_system-CFM4,Coast Ranges Fault Area,CRFA,San
 CRFA-SLRS-SHRL-Shoreline_fault-CFM4,Coast Ranges Fault Area,CRFA,San Luis Range fault system,SLRS,Shoreline,SHRL,Shoreline fault
 CRFA-SLRS-SLBS-San_Luis_Bay_fault-CFM4,Coast Ranges Fault Area,CRFA,San Luis Range fault system,SLRS,San Luis Bay,SLBS,San Luis Bay fault
 CRFA-SLRS-SYNV-Santa_Ynez_Valley_blind_fault-CFM5,Coast Ranges Fault Area,CRFA,San Luis Range fault system,SLRS,Santa Ynez Valley,SYNV,Santa Ynez Valley blind fault
-ETRA-BBFS-1992-Big_Bear_rupture-CFM2,Eastern Transverse Ranges Area,ETRA,Big Bear Fault system,BBFS,1992 Big Bear rupture,1992,Big Bear rupture
+ETRA-BBFS-1992-Big_Bear_rupture-CFM2,Eastern Transverse Ranges Area,ETRA,Big Bear Fault system,BBFS,1992 Big Bear rupture,1992,1992 Big Bear rupture
 ETRA-BCFZ-MULT-Blue_Cut_fault-CFM5,Eastern Transverse Ranges Area,ETRA,Blue Cut fault zone,BCFZ,Multiple sections,MULT,Blue Cut fault
 ETRA-CHRC-STWS-Smoketree_Wash_fault_vertical-CFM5,Eastern Transverse Ranges Area,ETRA,Chiriaco fault zone,CHRC,Smoketree Wash,STWS,Smoketree Wash fault
 ETRA-CLGZ-NCHS-Grass_Valley_fault_steep-CFM5,Eastern Transverse Ranges Area,ETRA,Cleghorn fault zone,CLGZ,Northern Cleghorn,NCHS,Grass Valley fault
 ETRA-CLGZ-SBMT-Tunnel_Ridge_Arrastre_Canyon_fault_steep-CFM5,Eastern Transverse Ranges Area,ETRA,Cleghorn fault zone,CLGZ,San Bernardino Mountains,SBMT,Tunnel Ridge-Arrastre Canyon fault
 ETRA-CLGZ-SCHS-Cleghorn_fault_steep-CFM5,Eastern Transverse Ranges Area,ETRA,Cleghorn fault zone,CLGZ,Southern Cleghorn,SCHS,Cleghorn fault
-ETRA-LSBM-1992-Joshua_Tree_sequence-CFM5,Eastern Transverse Ranges Area,ETRA,Little San Bernadino Mountains fault region,LSBM,1992 Joshua Tree rupture,1992,Joshua Tree sequence
+ETRA-LSBM-1992-Joshua_Tree_sequence-CFM5,Eastern Transverse Ranges Area,ETRA,Little San Bernadino Mountains fault region,LSBM,1992 Joshua Tree rupture,1992,1992 Joshua Tree rupture
 ETRA-LSBM-BRMT-Burnt_Mountain_East_Wide_Canyon_fault-CFM5,Eastern Transverse Ranges Area,ETRA,Little San Bernadino Mountains fault region,LSBM,Burnt Mountain,BRMT,Burnt Mountain-East Wide Canyon
 ETRA-LSBM-ERPK-Eureka_Peak_West_Deception_Canyon_fault-CFM5,Eastern Transverse Ranges Area,ETRA,Little San Bernadino Mountains fault region,LSBM,Eureka Peak,ERPK,Eureka Peak-West Deception Canyon
 ETRA-LSBM-LGCS-Long_Canyon_fault-CFM5,Eastern Transverse Ranges Area,ETRA,Little San Bernadino Mountains fault region,LSBM,Long Canyon,LGCS,Long Canyon fault
@@ -57,7 +57,7 @@ GVFA-PLFZ-MULT-Pleito_fault-CFM2,Great Valley Fault Area,GVFA,Pleito fault zone,
 GVFA-TDRS-COAL-Coalinga_blind_fault-CFM2,Great Valley Fault Area,GVFA,Temblor-Diablo Range thrust system,TDRS,Coalinga,COAL,Coalinga blind fault
 GVFA-TDRS-KTLM-Kettleman_Hills_blind_fault_North_Dome-CFM2,Great Valley Fault Area,GVFA,Temblor-Diablo Range thrust system,TDRS,Kettleman Hills,KTLM,Kettleman Hills blind fault
 GVFA-TDRS-LSTH-Lost_Hills_blind_fault-CFM2,Great Valley Fault Area,GVFA,Temblor-Diablo Range thrust system,TDRS,Lost Hills,LSTH,Lost Hills blind fault
-GVFA-WWFZ-MULT-White_Wolf_fault-CFM5,Great Valley Fault Area,GVFA,White Wolf fault zone,WWFZ,Multiple sections,MULT,White Wolf fault
+GVFA-WWFZ-MULT-White_Wolf_fault-CFM5,Great Valley Fault Area,GVFA,White Wolf fault zone,WWFZ,Multiple Sections,MULT,White Wolf fault
 GVFA-WWFZ-NEST-Scodie_Lineament-CFM5,Great Valley Fault Area,GVFA,White Wolf fault zone,WWFZ,North-Eastern,NEST,Scodie Lineament
 MJVA-BWFZ-MULT-Blackwater_fault-CFM5,Mojave Fault Area,MJVA,Blackwater fault zone,BWFZ,Multiple sections,MULT,Blackwater fault
 MJVA-CHFZ-MULT-Calico_Hidalgo_fault-CFM5,Mojave Fault Area,MJVA,Calico-Hildalgo fault zone,CHFZ,Multiple sections,MULT,Calico-Hildalgo fault
@@ -76,11 +76,11 @@ MJVA-CRSF-GNTM-McLean_Lake_Drinkwater_Lake_fault-CFM5,Mojave Fault Area,MJVA,Cro
 MJVA-CRSF-GNTM-Nelson_Lake_fault-CFM5,Mojave Fault Area,MJVA,Cross Faults,CRSF,Granite Mountains,GNTM,Nelson Lake fault
 MJVA-CRSF-MANX-Manix_fault-CFM5,Mojave Fault Area,MJVA,Cross Faults,CRSF,Manix,MANX,Manix fault
 MJVA-CRSF-TFMT-Coyote_Canyon_fault-CFM5,Mojave Fault Area,MJVA,Cross Faults,CRSF,Tiefort Mountains,TFMT,Coyote Canyon fault
-MJVA-ECSZ-1992-Barstow_Trend-CFM5,Mojave Fault Area,MJVA,Eastern California shear zone,ECSZ,Landers rupture,1992,Landers-Barstow trend
-MJVA-ECSZ-1992-Landers_cross_fault_North_I-CFM5,Mojave Fault Area,MJVA,Eastern California shear zone,ECSZ,Landers cross faults,1992,Landers cross fault-north-I
-MJVA-ECSZ-1992-Landers_cross_fault_North_II-CFM5,Mojave Fault Area,MJVA,Eastern California shear zone,ECSZ,Landers cross faults,1992,Landers cross fault-north-II
-MJVA-ECSZ-1992-Landers_rupture_detailed_splays-CFM3,Mojave Fault Area,MJVA,Eastern California shear zone,ECSZ,Landers rupture,1992,Landers rupture
-MJVA-ECSZ-1999-Hector_Mine_rupture_dipping-CFM2,Mojave Fault Area,MJVA,Eastern California shear zone,ECSZ,Hector Mine rupture,1999,Hector Mine rupture
+MJVA-ECSZ-1992-Barstow_Trend-CFM5,Mojave Fault Area,MJVA,Eastern California shear zone,ECSZ,Landers rupture,1992,1992 Landers-Barstow trend
+MJVA-ECSZ-1992-Landers_cross_fault_North_I-CFM5,Mojave Fault Area,MJVA,Eastern California shear zone,ECSZ,Landers cross faults,1992,1992 Landers cross fault-north-I
+MJVA-ECSZ-1992-Landers_cross_fault_North_II-CFM5,Mojave Fault Area,MJVA,Eastern California shear zone,ECSZ,Landers cross faults,1992,1992 Landers cross fault-north-II
+MJVA-ECSZ-1992-Landers_rupture_detailed_splays-CFM3,Mojave Fault Area,MJVA,Eastern California shear zone,ECSZ,Landers rupture,1992,1992 Landers rupture
+MJVA-ECSZ-1999-Hector_Mine_rupture_dipping-CFM2,Mojave Fault Area,MJVA,Eastern California shear zone,ECSZ,Hector Mine rupture,1999,1999 Hector Mine rupture
 MJVA-GLPS-GLDS-Goldstone_Lake_fault-CFM5,Mojave Fault Area,MJVA,Goldstone Lake-Paradise fault system,GLPS,Goldstone Lake,GLDS,Goldstone Lake fault
 MJVA-GLPS-PRDS-Paradise_fault-CFM5,Mojave Fault Area,MJVA,Goldstone Lake-Paradise fault system,GLPS,Paradise,PRDS,Paradise fault
 MJVA-HPFZ-GVHS-Gravel_Hills_fault_nw-CFM5,Mojave Fault Area,MJVA,Harper fault zone,HPFZ,Gravel Hills,GVHS,Gravel Hills fault-nw
@@ -140,7 +140,7 @@ OCBA-OCSD-OCNS-Oceanside_fault_south_east_B-CFM5,Offshore Continental Borderland
 OCBA-OCSD-OCNS-Oceanside_fault_south_east_C-CFM5,Offshore Continental Borderland Area,OCBA,Oceanside Detachment,OCSD,Oceanside,OCNS,Oceanside fault-south-east-C
 OCBA-OCSD-OCNS-Oceanside_fault_south_west-CFM5,Offshore Continental Borderland Area,OCBA,Oceanside Detachment,OCSD,Oceanside,OCNS,Oceanside fault-south-west
 OCBA-PVFZ-MULT-Palos_Verdes_fault-CFM5,Offshore Continental Borderland Area,OCBA,Palos Verdes fault zone,PVFZ,Multiple sections,MULT,Palos Verdes fault
-OCBA-SCCR-MULT-Santa_Cruz_Catalina_Ridge_fault-CFM5,Offshore Continental Borderland Area,OCBA,Santa Cruz-Catalina Ridge fault system,SCCR,Multiple sections,MULT,Santa Cruz-Catalina Ridge fault
+OCBA-SCCR-MULT-Santa_Cruz_Catalina_Ridge_fault-CFM5,Offshore Continental Borderland Area,OCBA,Santa Cruz-Catalina Ridge fault system,SCCR,Multiple Sections,MULT,Santa Cruz-Catalina Ridge fault
 OCBA-SCFZ-CTLB-San_Clemente_fault_splay-CFM5,Offshore Continental Borderland Area,OCBA,San Clemente fault zone,SCFZ,Catalina Basin,CTLB,San Clemente fault splay
 OCBA-SCFZ-SBRI-San_Clemente_fault_nw_strand-CFM5,Offshore Continental Borderland Area,OCBA,San Clemente fault zone,SCFZ,Santa Barbara Island area,SBRI,San Clemente fault nw-strand
 OCBA-SCFZ-SCBR-San_Clemente_fault-CFM5,Offshore Continental Borderland Area,OCBA,San Clemente fault zone,SCFZ,San Clemente Basin region,SCBR,San Clemente fault
@@ -160,7 +160,7 @@ OCBA-SPES-SPBS-San_Pedro_Escarpment_fault_D-CFM5,Offshore Continental Borderland
 OCBA-SPES-SPBS-San_Pedro_Escarpment_fault_E-CFM5,Offshore Continental Borderland Area,OCBA,San Pedro Escarpment fault system,SPES,San Pedro Basin,SPBS,San Pedro Escarpment fault-E
 OCBA-SPES-SPBS-San_Pedro_Escarpment_fault_F-CFM5,Offshore Continental Borderland Area,OCBA,San Pedro Escarpment fault system,SPES,San Pedro Basin,SPBS,San Pedro Escarpment fault-F
 OCBA-SPES-SPBS-San_Pedro_Escarpment_fault_YngB-CFM5,Offshore Continental Borderland Area,OCBA,San Pedro Escarpment fault system,SPES,San Pedro Basin,SPBS,San Pedro Escarpment fault-YngB
-OCBA-TMBS-MULT-Thirtymile_Bank_detachment-CFM5,Offshore Continental Borderland Area,OCBA,Thirtymile Bank fault system,TMBS,Multiple sections,MULT,Thirtymile Bank detachment
+OCBA-TMBS-MULT-Thirtymile_Bank_detachment-CFM5,Offshore Continental Borderland Area,OCBA,Thirtymile Bank fault system,TMBS,Multiple Sections,MULT,Thirtymile Bank detachment
 OCBA-WBFS-HNTB-Huntington_Beach_fault-CFM5,Offshore Continental Borderland Area,OCBA,Wilmington Blind Fault System,WBFS,Huntington Beach,HNTB,Huntington Beach fault
 OCBA-WBFS-TRNC-Torrance_blind_fault-CFM5,Offshore Continental Borderland Area,OCBA,Wilmington Blind Fault System,WBFS,Torrance,TRNC,Torrance blind fault
 OCBA-WBFS-WLMT-Wilmington_blind_fault-CFM5,Offshore Continental Borderland Area,OCBA,Wilmington Blind Fault System,WBFS,Wilmington,WLMT,Wilmington blind fault
@@ -286,8 +286,8 @@ SAFS-MHFZ-MCHS-Hidden_Springs_fault-CFM4,San Andreas Fault System,SAFS,Mecca Hil
 SAFS-MHFZ-MCHS-Mecca_Hills_fault-CFM4,San Andreas Fault System,SAFS,Mecca Hills-Hidden Springs fault zone,MHFZ,Mecca Hills,MCHS,Mecca Hills fault
 SAFS-MHFZ-MCHS-Painted_Canyon_fault-CFM4,San Andreas Fault System,SAFS,Mecca Hills-Hidden Springs fault zone,MHFZ,Mecca Hills,MCHS,Painted Canyon fault
 SAFS-MHFZ-MULT-Mecca_Hills_Hidden_Springs_fault_deep-CFM4,San Andreas Fault System,SAFS,Mecca Hills-Hidden Springs fault zone,MHFZ,Multiple sections,MULT,Mecca Hills-Hidden Springs deep fault
-SAFS-SAFZ-1812-San_Andreas_fault_rupture-CFM5,San Andreas Fault System,SAFS,SAFZ rupture models,SAFZ,1812 Rupture-Mojave SAF+nSJF,1812,San Andreas fault
-SAFS-SAFZ-1857-San_Andreas_fault_rupture-CFM5,San Andreas Fault System,SAFS,SAFZ rupture models,SAFZ,1857 Rupture-Parkfield-Mojave,1857,San Andreas fault
+SAFS-SAFZ-1812-San_Andreas_fault_rupture-CFM5,San Andreas Fault System,SAFS,SAFZ rupture models,SAFZ,1812 Rupture-Mojave SAF+nSJF,1812,1812 San Andreas fault rupture
+SAFS-SAFZ-1857-San_Andreas_fault_rupture-CFM5,San Andreas Fault System,SAFS,SAFZ rupture models,SAFZ,1857 Rupture-Parkfield-Mojave,1857,1857 San Andreas fault rupture
 SAFS-SAFZ-BSZS-Southern_San_Andreas_blind_extension-CFM4,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Brawley Seismic Zone,BSZS,Southern San Andreas fault
 SAFS-SAFZ-CHLM-San_Andreas_fault-CFM4,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Cholame,CHLM,San Andreas fault
 SAFS-SAFZ-COAV-Banning_NPS_fault_splay-CFM4,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Coachella,COAV,Banning-NPS fault splay
@@ -359,7 +359,7 @@ SNFA-LLFZ-EAST-Eastern_Little_Lake_NW_splay-CFM5,Sierra Nevada Fault Area,SNFA,L
 SNFA-LLFZ-EAST-Eastern_Little_Lake_south_west_branch-CFM5,Sierra Nevada Fault Area,SNFA,Little Lake fault zone,LLFZ,Eastern,EAST,Eastern Little Lake south west branch
 SNFA-LLFZ-SOUT-Southern_Little_Lake_main_fault-CFM5,Sierra Nevada Fault Area,SNFA,Little Lake fault zone,LLFZ,Southern,SOUT,Southern Little Lake main fault
 SNFA-LLFZ-SOUT-Southern_Little_Lake_north_fault-CFM5,Sierra Nevada Fault Area,SNFA,Little Lake fault zone,LLFZ,Southern,SOUT,Southern Little Lake north fault
-SNFA-OVFZ-1872-Owens_Valley_fault_rupture-CFM1,Sierra Nevada Fault Area,SNFA,Owens Valley fault zone,OVFZ,1872 rupture,1872,Owens Valley fault
+SNFA-OVFZ-1872-Owens_Valley_fault_rupture-CFM1,Sierra Nevada Fault Area,SNFA,Owens Valley fault zone,OVFZ,1872 Owens Valley fault rupture,1872,1872 Owens Valley fault rupture
 SNFA-OVFZ-STHN-Owens_Lake_deep_fault-CFM5,Sierra Nevada Fault Area,SNFA,Owens Valley fault zone,OVFZ,Southern,STHN,"blind Owens Lake fault, Lone Pine 2020 M5.8"
 SNFA-OVFZ-STHN-Owens_Valley_southern_extension_fault-CFM5,Sierra Nevada Fault Area,SNFA,Owens Valley fault zone,OVFZ,Southern,STHN,"Owens Valley fault, southern extension"
 SNFA-PMVZ-MULT-Panamint_Valley_fault_steep-CFM2,Sierra Nevada Fault Area,SNFA,Panamint Valley fault zone,PMVZ,Northern Panamint-Brown Mtn,MULT,Panamint Valley fault

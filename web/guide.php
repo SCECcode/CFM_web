@@ -37,7 +37,7 @@ $header = getHeader("User Guide");
             <h4><strong>Community Fault Model (CFM) Viewer Overview</strong></h4>
 
             <p>The CFM Viewer provides interactive map-based and 3D views of the <a
-               href="https://www.scec.org/research/cfm">CFM version 6.0 and 5.3</a>
+               href="https://www.scec.org/research/cfm">CFM version 6.1 and 5.3</a>
 	       faults. The viewer allows users to select the model of interest (using
 	       the buttons at the top of the interface), view faults,
 	       associated metadata, and download selected fault data without having 
@@ -48,7 +48,7 @@ $header = getHeader("User Guide");
                <a href="contact">contact information</a> page.</p>
 
             <p>The main interface is on the <a href="<?php echo $host_site_actual_path; ?>">
-               Viewer Page</a>. When first loaded, all CFM6.0 preferred faults are listed 
+               Viewer Page</a>. When first loaded, all CFM6.1 preferred faults are listed 
                on the left side of 
                the screen. Users can click on the checkboxes in the fault table to select faults 
                or click on faults on the map. (See <strong>Viewing and Downloading Metadata</strong>
@@ -83,7 +83,9 @@ $header = getHeader("User Guide");
                 controls will appear below in the form of another dropdown, text input boxes, or sliders.
                 Because CFM faults are non-planar, the average strike and dip values are calculated from 
                 the area-weighted normal vectors for all triangles comprising a given surface. 
-                Area weighting accounts for the differing triangular element sizes/shapes. The average strike and dip values therefore do not completely describe the non-planar CFM fault surfaces and are only provided for searching/sorting purposes.</p>
+		Area weighting accounts for the differing triangular element sizes/shapes. The average 
+		strike and dip values therefore do not completely describe the non-planar CFM fault 
+                surfaces and are only provided for searching/sorting purposes.</p>
 
             <p> When performing a latitude/longitude search, there are two search methods.  Users can either
                 enter the latitude/longitude values of the bottom left and top right corners of a bounding 
