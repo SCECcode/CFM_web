@@ -4,7 +4,7 @@ CFM data server's postgres database
 
 When we get a fault model with a new xlsx file (ie. schema/CFM5_release_2017/
 CFM5.2-Fault_ID_preferred.xlsx), we need to convert it to a csv file or files 
-depending on how many different set of datasets are in there. For example, CFM6.0
+depending on how many different set of datasets are in there. For example, CFM6.1
 has Preferred, Alternatives and Ruptures set. Can use in2csv to cut them from xlsx or
 being provided by model owner (the csv format might be alittle bit different and so
 need to be careful to match up the subsequent csv processing script.
