@@ -13,6 +13,8 @@ OCBA-SMCS-SMTO-San_Onofre_fault_upper-ALT6,https://s3-us-west-2.amazonaws.com/fi
 OCBA-SPES-MULT-San_Pedro_Escarpment_Compton_connector-ALT6,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Alternatives/native/OCBA-SPES-MULT-San_Pedro_Escarpment_Compton_connector-ALT6.ts
 PNRA-ELSZ-WHIT-Whittier_fault-ALT6,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Alternatives/native/PNRA-ELSZ-WHIT-Whittier_fault-ALT6.ts
 SAFS-SAFZ-CHLM-San_Andreas_fault-ALT6,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Alternatives/native/SAFS-SAFZ-CHLM-San_Andreas_fault-ALT6.ts
+SAFS-SAFZ-COAV-East_Shoreline_fault-ALT6,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Alternatives/native/SAFS-SAFZ-COAV-East_Shoreline_fault-ALT6.ts
+SAFS-SAFZ-COAV-Southern_San_Andreas_fault-ALT6,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Alternatives/native/SAFS-SAFZ-COAV-Southern_San_Andreas_fault-ALT6.ts
 SAFS-SAFZ-CRRZ-San_Andreas_fault-ALT6,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Alternatives/native/SAFS-SAFZ-CRRZ-San_Andreas_fault-ALT6.ts
 SAFS-SAFZ-MJVS-San_Andreas_fault-ALT6,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Alternatives/native/SAFS-SAFZ-MJVS-San_Andreas_fault-ALT6.ts
 SAFS-SAFZ-MULT-Banning_fault_strand-ALT6,https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Alternatives/native/SAFS-SAFZ-MULT-Banning_fault_strand-ALT6.ts

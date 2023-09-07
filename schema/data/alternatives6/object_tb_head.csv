@@ -13,6 +13,8 @@ OCBA-SMCS-SMTO-San_Onofre_fault_upper-ALT6,Offshore Continental Borderland Area,
 OCBA-SPES-MULT-San_Pedro_Escarpment_Compton_connector-ALT6,Offshore Continental Borderland Area,OCBA,San Pedro Escarpment fault system,SPES,Multiple Sections,MULT,San Pedro Escarpment-Compton connector
 PNRA-ELSZ-WHIT-Whittier_fault-ALT6,Peninsular Ranges Area,PNRA,Elsinore-Laguna Salada fault zone,ELSZ,Whittier,WHIT,Whittier fault
 SAFS-SAFZ-CHLM-San_Andreas_fault-ALT6,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Cholame,CHLM,San Andreas fault
+SAFS-SAFZ-COAV-East_Shoreline_fault-ALT6,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Coachella,COAV,East Shoreline fault
+SAFS-SAFZ-COAV-Southern_San_Andreas_fault-ALT6,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Coachella,COAV,Southern San Andreas fault
 SAFS-SAFZ-CRRZ-San_Andreas_fault-ALT6,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Carrizo,CRRZ,San Andreas fault
 SAFS-SAFZ-MJVS-San_Andreas_fault-ALT6,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,Mojave,MJVS,San Andreas fault
 SAFS-SAFZ-MULT-Banning_fault_strand-ALT6,San Andreas Fault System,SAFS,San Andreas fault zone,SAFZ,San Bernardino-Coachella Valley,MULT,Banning fault strand

@@ -874,8 +874,6 @@ onchange="switchLayer(this.value);">
 </div> <!--Modal: modalkmlselect-->
 
 
-
-
 </div>
 </body>
 </html>
