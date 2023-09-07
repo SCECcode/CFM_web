@@ -34,7 +34,9 @@ $cfm_my_trace = getenv("CFM_MY_TRACE");
     <script type='text/javascript' src='js/vendor/bootstrap.min.js'></script>
 
     <script type='text/javascript' src='js/vendor/jquery-ui.js'></script>
-    <script type='text/javascript' src='js/vendor/ersi-leaflet.js'></script>
+    <script type='text/javascript' src='js/vendor/esri-leaflet.js'></script>
+    <script type='text/javascript' src='js/vendor/esri-leaflet-vector.js' crossorigin=""></script>
+
     <script type='text/javascript' src='js/vendor/FileSaver.js'></script>
     <script type='text/javascript' src='js/vendor/jszip.js'></script>
     <script type='text/javascript' src='js/vendor/zlib.min.js'></script>
@@ -167,7 +169,7 @@ $cfm_my_trace = getenv("CFM_MY_TRACE");
 <!-- top-intro -->
     <div id="top-intro" style="display:">
 <p>
-The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model</a> are three-dimensional and non-planar; however, to simplify browsing the model, the viewer below provides a two-dimensional map-based view of the CFM. The web tools currently serve the CFM6.0 preferred (default), ruptures, and alternatives models, as well as the previous CFM5.3 preferred set. Use the buttons at the top of the map interface to select the model. These tools allow users to view and download fault geometry data as well as metadata for selected faults rather than downloading the <a href="https://doi.org/10.5281/zenodo.4651667">entire CFM model</a> archive. Once faults are selected, the “PLOT3D” button can be used to view the selected faults in a basic 3D CAD-like environment. See the <a href="guide">user guide</a> for more details and usage instructions.
+The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model</a> are three-dimensional and non-planar; however, to simplify browsing the model, the viewer below provides a two-dimensional map-based view of the CFM. The web tools currently serve the CFM6.1 preferred (default), ruptures, and alternatives models, as well as the previous CFM5.3 preferred set. Use the buttons at the top of the map interface to select the model. These tools allow users to view and download fault geometry data as well as metadata for selected faults rather than downloading the <a href="https://doi.org/10.5281/zenodo.4651667">entire CFM model</a> archive. Once faults are selected, the “PLOT3D” button can be used to view the selected faults in a basic 3D CAD-like environment. See the <a href="guide">user guide</a> for more details and usage instructions.
 </p>
     </div>
 
@@ -198,11 +200,11 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
    <form id="id_select_dataset">
      <label for="dataset"> Choose CFM Model : </label>
      <label><input type="radio" id="dataset0" name=dataset onclick="gotoOtherViewer(0)">
-            <span>6.0 PREFERRED</span></label>
+            <span>6.1 PREFERRED</span></label>
      <label><input type="radio" id="dataset1" name=dataset onclick="gotoOtherViewer(1)">
-            <span>6.0 ALTERNATIVES</span></label>
+            <span>6.1 ALTERNATIVES</span></label>
      <label><input type="radio" id="dataset2" name=dataset onclick="gotoOtherViewer(2)">
-            <span>6.0 RUPTURES</span></label>
+            <span>6.1 RUPTURES</span></label>
      <label><input type="radio" id="dataset3" name=dataset onclick="gotoOtherViewer(3)">
             <span>5.3 PREFERRED</span></label>
    </form>
