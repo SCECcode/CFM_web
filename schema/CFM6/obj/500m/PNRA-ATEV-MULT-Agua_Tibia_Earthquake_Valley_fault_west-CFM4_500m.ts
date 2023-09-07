@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-ATEV-MULT-Agua_Tibia_Earthquake_Valley_fault_west-CFM4_500m
 *visible:true
-*solid*color:0.297341 0.493904 0.066304 1
+*solid*color:0.680468 0.954207 0.983302 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

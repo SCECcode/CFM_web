@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SCFZ-SCLV-Holser_fault-CFM2_1000m
 *visible:true
-*solid*color:0.320693 0.152177 0.048288 1
+*solid*color:0.696515 0.135395 0.465949 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-PHTS-LABS-Upper_Elysian_Park_fault-CFM1
 *visible:true
-*solid*color:0.625683 0.011849 0.150569 1
+*solid*color:0.804823 0.999730 0.487261 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

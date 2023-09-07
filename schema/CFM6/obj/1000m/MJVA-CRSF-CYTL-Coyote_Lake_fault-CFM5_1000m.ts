@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-CRSF-CYTL-Coyote_Lake_fault-CFM5_1000m
 *visible:true
-*solid*color:0.761331 0.372588 0.123524 1
+*solid*color:0.131990 0.879083 0.323323 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-SJFZ-ANZA-Buck_Ridge_fault-CFM4_2000m
 *visible:true
-*solid*color:0.017577 0.334980 0.855007 1
+*solid*color:0.113958 0.330342 0.105451 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

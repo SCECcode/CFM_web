@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-SMCS-SMTO-San_Onofre_fault-CFM6_2000m
 *visible:true
-*solid*color:0.553490 0.173479 0.148818 1
+*solid*color:0.464106 0.923603 0.414044 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

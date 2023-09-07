@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-PHTS-STFS-Puente_Hills_Thrust_fault-CFM2_1000m
 *visible:true
-*solid*color:0.949744 0.859220 0.719795 1
+*solid*color:0.506030 0.687911 0.386693 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

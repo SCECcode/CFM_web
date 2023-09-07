@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SPJS-MULT-Padre_Juan_fault-CFM5
 *visible:true
-*solid*color:0.906179 0.908769 0.321513 1
+*solid*color:0.970189 0.114828 0.363247 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

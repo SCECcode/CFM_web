@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-CRSF-EMCP-El_Mayor_Cucapah_normal_fault-CFM4_1000m
 *visible:true
-*solid*color:0.961146 0.284957 0.102866 1
+*solid*color:0.435532 0.632809 0.240241 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-SJFZ-IMPV-Weinert_Superstition_Hills_link-CFM5
 *visible:true
-*solid*color:0.872715 0.624380 0.125295 1
+*solid*color:0.319809 0.156064 0.728103 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

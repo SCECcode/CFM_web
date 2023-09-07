@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:ETRA-CLGZ-SCHS-Cleghorn_fault-CFM5_1000m
 *visible:true
-*solid*color:0.657369 0.473603 0.915523 1
+*solid*color:0.891738 0.664176 0.621972 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

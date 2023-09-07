@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-ELSZ-WHIT-Workman_Hill_fault-CFM1_500m
 *visible:true
-*solid*color:0.717802 0.296472 0.144927 1
+*solid*color:0.714557 0.993208 0.313180 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

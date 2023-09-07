@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SGMF-STDC-South_Fork_Stoddard_Canyon_fault-CFM5
 *visible:true
-*solid*color:0.661849 0.955501 0.011403 1
+*solid*color:0.699573 0.956189 0.157244 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

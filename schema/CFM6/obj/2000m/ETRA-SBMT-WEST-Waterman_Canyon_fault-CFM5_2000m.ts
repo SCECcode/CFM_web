@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:ETRA-SBMT-WEST-Waterman_Canyon_fault-CFM5_2000m
 *visible:true
-*solid*color:0.079946 0.334726 0.874880 1
+*solid*color:0.526040 0.694270 0.548981 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

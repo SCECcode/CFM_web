@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-SJFZ-ANZA-Clark_fault_south_west-CFM4_500m
 *visible:true
-*solid*color:0.463388 0.969920 0.966699 1
+*solid*color:0.257641 0.555993 0.535207 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

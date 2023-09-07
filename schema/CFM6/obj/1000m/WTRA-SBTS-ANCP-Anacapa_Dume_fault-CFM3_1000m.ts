@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SBTS-ANCP-Anacapa_Dume_fault-CFM3_1000m
 *visible:true
-*solid*color:0.820330 0.540820 0.464208 1
+*solid*color:0.275467 0.344122 0.541991 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-NCVS-PPTV-Pitas_Point_fault_east_splay-CFM6_1000m
 *visible:true
-*solid*color:0.707249 0.439973 0.018804 1
+*solid*color:0.745646 0.410797 0.071119 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

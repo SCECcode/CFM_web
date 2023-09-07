@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-JVHZ-HMSV-Homestead_Valley_fault-CFM3_2000m
 *visible:true
-*solid*color:0.600388 0.696864 0.764630 1
+*solid*color:0.938413 0.940427 0.695293 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

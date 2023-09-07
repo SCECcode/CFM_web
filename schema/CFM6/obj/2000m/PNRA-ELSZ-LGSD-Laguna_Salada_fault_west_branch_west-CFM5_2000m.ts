@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-ELSZ-LGSD-Laguna_Salada_fault_west_branch_west-CFM5_2000m
 *visible:true
-*solid*color:0.429399 0.323963 0.120614 1
+*solid*color:0.381149 0.435361 0.032845 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

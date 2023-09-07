@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-CRSF-GNTM-Nelson_Lake_fault-CFM6_1000m
 *visible:true
-*solid*color:0.004282 0.899293 0.013095 1
+*solid*color:0.017998 0.738673 0.215430 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

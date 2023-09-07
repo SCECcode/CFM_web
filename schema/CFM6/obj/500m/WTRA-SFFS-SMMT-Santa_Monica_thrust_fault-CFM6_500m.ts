@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SFFS-SMMT-Santa_Monica_thrust_fault-CFM6_500m
 *visible:true
-*solid*color:0.273360 0.767824 0.906650 1
+*solid*color:0.489640 0.498603 0.101798 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

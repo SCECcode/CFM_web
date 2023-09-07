@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-NBJD-SRCP-Cerro_Centinela_fault-CFM2_1000m
 *visible:true
-*solid*color:0.107138 0.102398 0.093634 1
+*solid*color:0.028066 0.591658 0.996269 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

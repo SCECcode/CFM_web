@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-WBFS-WLMT-Wilmington_blind_fault-CFM5_2000m
 *visible:true
-*solid*color:0.795249 0.653522 0.604390 1
+*solid*color:0.712262 0.475736 0.512527 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

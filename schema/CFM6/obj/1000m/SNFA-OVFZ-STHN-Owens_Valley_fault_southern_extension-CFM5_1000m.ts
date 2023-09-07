@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SNFA-OVFZ-STHN-Owens_Valley_fault_southern_extension-CFM5_1000m
 *visible:true
-*solid*color:0.897229 0.690712 0.373016 1
+*solid*color:0.487633 0.243894 0.777065 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

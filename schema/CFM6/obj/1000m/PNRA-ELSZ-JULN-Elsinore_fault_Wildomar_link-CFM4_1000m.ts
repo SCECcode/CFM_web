@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-ELSZ-JULN-Elsinore_fault_Wildomar_link-CFM4_1000m
 *visible:true
-*solid*color:0.439070 0.466818 0.775034 1
+*solid*color:0.034510 0.441277 0.410520 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

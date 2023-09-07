@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SNFA-AHTC-ASHH-Ash_Hill_fault-CFM2_500m
 *visible:true
-*solid*color:0.181939 0.663496 0.841809 1
+*solid*color:0.870972 0.266748 0.100442 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

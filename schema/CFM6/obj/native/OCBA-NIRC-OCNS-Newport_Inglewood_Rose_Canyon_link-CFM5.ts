@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-NIRC-OCNS-Newport_Inglewood_Rose_Canyon_link-CFM5
 *visible:true
-*solid*color:0.641985 0.468446 0.827547 1
+*solid*color:0.179091 0.428216 0.180198 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

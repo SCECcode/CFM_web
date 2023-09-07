@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:GRFS-GRFZ-EAST-Garlock_fault-CFM5
 *visible:true
-*solid*color:0.579664 0.376413 0.227443 1
+*solid*color:0.742366 0.097542 0.979008 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

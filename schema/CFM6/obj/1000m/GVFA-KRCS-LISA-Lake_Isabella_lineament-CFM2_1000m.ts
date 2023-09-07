@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:GVFA-KRCS-LISA-Lake_Isabella_lineament-CFM2_1000m
 *visible:true
-*solid*color:0.497149 0.617747 0.617403 1
+*solid*color:0.967931 0.826794 0.749563 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

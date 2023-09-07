@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-CRSF-CADY-Cady_fault-CFM5_1000m
 *visible:true
-*solid*color:0.299903 0.382154 0.879584 1
+*solid*color:0.268343 0.959668 0.667547 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

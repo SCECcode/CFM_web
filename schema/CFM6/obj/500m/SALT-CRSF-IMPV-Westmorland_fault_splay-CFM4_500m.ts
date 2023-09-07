@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SALT-CRSF-IMPV-Westmorland_fault_splay-CFM4_500m
 *visible:true
-*solid*color:0.331272 0.611962 0.416601 1
+*solid*color:0.098782 0.728092 0.826800 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

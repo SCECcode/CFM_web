@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-USAV-USAV-Indian_Hill_fault-CFM5_2000m
 *visible:true
-*solid*color:0.013255 0.897109 0.523402 1
+*solid*color:0.039527 0.206775 0.716573 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

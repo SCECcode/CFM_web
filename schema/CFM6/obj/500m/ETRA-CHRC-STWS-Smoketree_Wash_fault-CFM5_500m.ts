@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:ETRA-CHRC-STWS-Smoketree_Wash_fault-CFM5_500m
 *visible:true
-*solid*color:0.751301 0.131461 0.507543 1
+*solid*color:0.480565 0.745987 0.402547 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

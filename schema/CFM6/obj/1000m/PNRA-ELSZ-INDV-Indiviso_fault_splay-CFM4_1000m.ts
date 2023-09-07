@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-ELSZ-INDV-Indiviso_fault_splay-CFM4_1000m
 *visible:true
-*solid*color:0.095663 0.618594 0.597304 1
+*solid*color:0.632735 0.029350 0.704399 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

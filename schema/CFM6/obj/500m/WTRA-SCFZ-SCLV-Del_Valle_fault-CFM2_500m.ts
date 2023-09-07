@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SCFZ-SCLV-Del_Valle_fault-CFM2_500m
 *visible:true
-*solid*color:0.175346 0.554043 0.894251 1
+*solid*color:0.053618 0.740276 0.194965 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

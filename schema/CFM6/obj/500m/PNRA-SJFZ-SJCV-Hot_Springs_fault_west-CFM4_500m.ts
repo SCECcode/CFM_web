@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-SJFZ-SJCV-Hot_Springs_fault_west-CFM4_500m
 *visible:true
-*solid*color:0.352245 0.238126 0.778404 1
+*solid*color:0.629612 0.266205 0.316942 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

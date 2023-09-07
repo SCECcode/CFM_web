@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-NCVS-VNTB-Ventura_fault_steep-ALT6
 *visible:true
-*solid*color:0.091497 0.214685 0.107181 1
+*solid*color:0.308781 0.458566 0.411519 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

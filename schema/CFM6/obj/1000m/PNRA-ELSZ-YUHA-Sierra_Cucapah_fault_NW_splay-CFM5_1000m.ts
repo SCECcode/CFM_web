@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-ELSZ-YUHA-Sierra_Cucapah_fault_NW_splay-CFM5_1000m
 *visible:true
-*solid*color:0.857575 0.175030 0.453376 1
+*solid*color:0.637443 0.203391 0.706694 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

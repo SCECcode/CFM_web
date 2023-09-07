@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-CRSF-USAV-Fontana_Seismicity_lineament-CFM1
 *visible:true
-*solid*color:0.184538 0.850365 0.025292 1
+*solid*color:0.198840 0.179063 0.821091 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

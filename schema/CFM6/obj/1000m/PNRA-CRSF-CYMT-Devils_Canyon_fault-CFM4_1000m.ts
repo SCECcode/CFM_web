@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-CRSF-CYMT-Devils_Canyon_fault-CFM4_1000m
 *visible:true
-*solid*color:0.437745 0.124237 0.730689 1
+*solid*color:0.465121 0.459183 0.889460 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

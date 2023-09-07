@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SAFS-SGPR-SJMT-San_Gorgonio_Pass_midcrust_detachment-CFM5_1000m
 *visible:true
-*solid*color:0.074009 0.939024 0.280230 1
+*solid*color:0.802435 0.800321 0.589114 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

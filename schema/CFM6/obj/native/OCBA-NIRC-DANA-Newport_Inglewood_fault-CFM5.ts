@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-NIRC-DANA-Newport_Inglewood_fault-CFM5
 *visible:true
-*solid*color:0.351532 0.046235 0.726492 1
+*solid*color:0.504738 0.936014 0.167933 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

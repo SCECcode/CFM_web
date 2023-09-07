@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:CRFA-LNHZ-MULT-Lions_Head_fault-CFM4_1000m
 *visible:true
-*solid*color:0.818350 0.640915 0.071683 1
+*solid*color:0.065147 0.777261 0.550982 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

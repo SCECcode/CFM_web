@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-SJFZ-ANZA-Hot_Springs_Buck_Ridge_link-CFM4_1000m
 *visible:true
-*solid*color:0.318716 0.551950 0.041413 1
+*solid*color:0.106462 0.904576 0.401846 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

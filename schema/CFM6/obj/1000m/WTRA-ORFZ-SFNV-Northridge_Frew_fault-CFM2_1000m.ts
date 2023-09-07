@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-ORFZ-SFNV-Northridge_Frew_fault-CFM2_1000m
 *visible:true
-*solid*color:0.277390 0.353489 0.271870 1
+*solid*color:0.129373 0.509344 0.966784 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

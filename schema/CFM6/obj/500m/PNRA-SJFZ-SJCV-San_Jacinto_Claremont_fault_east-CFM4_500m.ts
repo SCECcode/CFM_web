@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-SJFZ-SJCV-San_Jacinto_Claremont_fault_east-CFM4_500m
 *visible:true
-*solid*color:0.618348 0.871400 0.156199 1
+*solid*color:0.762231 0.836683 0.850369 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

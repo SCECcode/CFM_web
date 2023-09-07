@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:ETRA-NFTS-DTMT-Deep_detachment-CFM5
 *visible:true
-*solid*color:0.351369 0.047555 0.031033 1
+*solid*color:0.701378 0.580338 0.667387 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

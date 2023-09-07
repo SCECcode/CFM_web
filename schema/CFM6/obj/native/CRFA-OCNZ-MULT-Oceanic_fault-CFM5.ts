@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:CRFA-OCNZ-MULT-Oceanic_fault-CFM5
 *visible:true
-*solid*color:0.494475 0.808578 0.082831 1
+*solid*color:0.153737 0.731932 0.523651 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

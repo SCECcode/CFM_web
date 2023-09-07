@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-LLBM-MULT-Lavic_Lake_North_West_Bullion_fault-CFM3
 *visible:true
-*solid*color:0.394528 0.764546 0.045296 1
+*solid*color:0.914696 0.949332 0.245943 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

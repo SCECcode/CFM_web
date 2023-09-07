@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-CRSF-GNTM-McLean_Lake_Drinkwater_Lake_fault-CFM5_1000m
 *visible:true
-*solid*color:0.539734 0.392434 0.768265 1
+*solid*color:0.171347 0.615026 0.163402 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

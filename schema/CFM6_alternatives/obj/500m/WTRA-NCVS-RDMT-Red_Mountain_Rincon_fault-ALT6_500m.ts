@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-NCVS-RDMT-Red_Mountain_Rincon_fault-ALT6_500m
 *visible:true
-*solid*color:0.984553 0.903443 0.607241 1
+*solid*color:0.569479 0.784304 0.595227 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

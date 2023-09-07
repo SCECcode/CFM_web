@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SNFA-CJFZ-HWRS-Haiwee_fault-CFM5_500m
 *visible:true
-*solid*color:0.452514 0.296860 0.995958 1
+*solid*color:0.415020 0.797682 0.460087 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

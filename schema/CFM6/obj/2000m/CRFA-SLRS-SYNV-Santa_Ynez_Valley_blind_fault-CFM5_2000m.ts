@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:CRFA-SLRS-SYNV-Santa_Ynez_Valley_blind_fault-CFM5_2000m
 *visible:true
-*solid*color:0.629185 0.797051 0.012714 1
+*solid*color:0.673699 0.356115 0.663338 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

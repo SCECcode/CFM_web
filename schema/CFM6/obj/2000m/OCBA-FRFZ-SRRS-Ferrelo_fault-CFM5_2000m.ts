@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-FRFZ-SRRS-Ferrelo_fault-CFM5_2000m
 *visible:true
-*solid*color:0.002080 0.426845 0.402662 1
+*solid*color:0.514071 0.549192 0.105350 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-SDTZ-CTLB-San_Diego_Trough_fault-CFM5_1000m
 *visible:true
-*solid*color:0.476881 0.113570 0.275120 1
+*solid*color:0.392499 0.461233 0.859945 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-BWFZ-MULT-Blackwater_fault-CFM5
 *visible:true
-*solid*color:0.574716 0.603281 0.947600 1
+*solid*color:0.817844 0.470993 0.880736 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

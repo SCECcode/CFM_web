@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-ELSZ-CHNO-Chino_fault_Central_Ave-CFM4_2000m
 *visible:true
-*solid*color:0.567252 0.114659 0.802933 1
+*solid*color:0.519770 0.456567 0.684430 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

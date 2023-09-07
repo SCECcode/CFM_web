@@ -1,19 +1,18 @@
 -----------------------------------------------------------------------------------------------------------------------
-2022-12-09
-Version 6.0 of the Southern California Earthquake Center (SCEC) Community Fault Model (CFM)
+2023-09-05
+Version 6.1 of the Southern California Earthquake Center (SCEC) Community Fault Model (CFM)
 -----------------------------------------------------------------------------------------------------------------------
 DESCRIPTION OF METADATA COLUMNS
 -----------------------------------------------------------------------------------------------------------------------
-The CFM6.0_Metadata.xlxs file contains the CFM6.0 metadata. New to CFM6.0 are a rupture model that provides
-faults that ruptured during significant historic events, and an alternative model that provides alternative
-representations of faults where geometric differences have been proposed that may significantly change fault 
-mechanics and seismic hazards. See the README.txt file in the root directory of the archive for more information 
-on these models.
+The CFM6.1_Metadata.xlxs file contains the CFM6.1 metadata. New to CFM6 are a rupture model that provides faults that
+ruptured during significant historic events, and an alternative model that provides alternative representations of 
+faults where geometric differences have been proposed that may significantly change fault mechanics and seismic 
+hazards. See the README.txt file in the root directory of the archive for more information on these models.
 
 Here, we provide descriptions of the columns in the metadata spreadsheet. These same columns are used in the 
 preferred, ruptures, and alternative model sheets.
 
-CFM6.0 Fault Object Name
+CFM6.1 Fault Object Name
    This is the CFM object name. All object names use a hierarchical naming scheme and are consistently formatted to
    facilitate users that write scripts to automate CFM tasks. All object names have 5 parts separated by dashes.
    For example:
@@ -65,7 +64,7 @@ Slip Sense
 	  olln - oblique left-lateral normal
 
 ID Comments
-   Notes about when the CFM team has put in a USGS request for a new QFault ID.
+   Notes about when the CFM team has put in a request to the USGS for a new QFault ID.
 
 USGS ID
    The USGS QFaults ID.

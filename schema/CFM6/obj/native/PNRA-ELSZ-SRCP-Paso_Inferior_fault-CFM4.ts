@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-ELSZ-SRCP-Paso_Inferior_fault-CFM4
 *visible:true
-*solid*color:0.667317 0.064991 0.688474 1
+*solid*color:0.505431 0.973533 0.003013 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

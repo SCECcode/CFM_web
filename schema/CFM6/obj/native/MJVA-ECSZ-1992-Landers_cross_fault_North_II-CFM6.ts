@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-ECSZ-1992-Landers_cross_fault_North_II-CFM6
 *visible:true
-*solid*color:0.352657 0.537690 0.424693 1
+*solid*color:0.884556 0.927669 0.642920 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

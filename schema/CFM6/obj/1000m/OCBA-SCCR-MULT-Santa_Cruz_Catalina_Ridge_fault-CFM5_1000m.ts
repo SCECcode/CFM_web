@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-SCCR-MULT-Santa_Cruz_Catalina_Ridge_fault-CFM5_1000m
 *visible:true
-*solid*color:0.148834 0.555590 0.609515 1
+*solid*color:0.728642 0.529546 0.569293 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

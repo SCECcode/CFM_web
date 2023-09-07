@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SFFS-SRSM-Santa_Rosa_Island_fault-CFM5_500m
 *visible:true
-*solid*color:0.521442 0.278607 0.752535 1
+*solid*color:0.668708 0.851522 0.530131 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

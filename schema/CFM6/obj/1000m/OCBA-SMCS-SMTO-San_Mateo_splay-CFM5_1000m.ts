@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-SMCS-SMTO-San_Mateo_splay-CFM5_1000m
 *visible:true
-*solid*color:0.802582 0.446163 0.087810 1
+*solid*color:0.876847 0.694519 0.351121 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

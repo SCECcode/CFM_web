@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-OCSD-OCNS-Oceanside_fault_south_west-ALT6
 *visible:true
-*solid*color:0.657715 0.265403 0.882204 1
+*solid*color:0.627623 0.022510 0.936807 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

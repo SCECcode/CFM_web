@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:GVFA-KRCS-KRCN-Kern_Canyon_fault-CFM5_2000m
 *visible:true
-*solid*color:0.663574 0.486055 0.699591 1
+*solid*color:0.002896 0.821295 0.283877 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

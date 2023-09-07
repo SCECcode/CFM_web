@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:CRFA-SLRS-SHRL-Shoreline_fault-CFM4_500m
 *visible:true
-*solid*color:0.491187 0.493270 0.753989 1
+*solid*color:0.676083 0.209434 0.223307 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-CBFZ-NCBF-Coronado_Bank_fault_north-CFM5_1000m
 *visible:true
-*solid*color:0.585700 0.329463 0.744744 1
+*solid*color:0.425429 0.999431 0.549722 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

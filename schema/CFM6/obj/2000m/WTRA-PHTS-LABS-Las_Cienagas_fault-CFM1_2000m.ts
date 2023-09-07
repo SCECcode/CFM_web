@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-PHTS-LABS-Las_Cienagas_fault-CFM1_2000m
 *visible:true
-*solid*color:0.266625 0.023104 0.449723 1
+*solid*color:0.777965 0.851862 0.335369 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SAFS-MHFZ-LSBM-Indio_Hills_fault-CFM4_1000m
 *visible:true
-*solid*color:0.363334 0.767449 0.672414 1
+*solid*color:0.709097 0.315378 0.373652 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

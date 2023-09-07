@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-ELSZ-WHIT-Whittier_fault-ALT6_500m
 *visible:true
-*solid*color:0.843227 0.657199 0.883015 1
+*solid*color:0.693814 0.253637 0.314384 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:CRFA-BPPM-PMTS-Pine_Mountain_fault-CFM2_2000m
 *visible:true
-*solid*color:0.506188 0.162681 0.646755 1
+*solid*color:0.268461 0.067951 0.371720 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-DSCS-NRTH-Descanso_fault_A-CFM5_1000m
 *visible:true
-*solid*color:0.884168 0.627654 0.519600 1
+*solid*color:0.826783 0.981724 0.823032 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SAFS-SAFZ-COAV-North_Palm_Springs_fault_lower_splay-CFM6
 *visible:true
-*solid*color:0.975678 0.436882 0.305242 1
+*solid*color:0.930348 0.206477 0.008483 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

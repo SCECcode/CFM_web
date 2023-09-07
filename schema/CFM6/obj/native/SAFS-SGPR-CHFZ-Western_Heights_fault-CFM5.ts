@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SAFS-SGPR-CHFZ-Western_Heights_fault-CFM5
 *visible:true
-*solid*color:0.129595 0.273762 0.367423 1
+*solid*color:0.759360 0.002426 0.783224 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

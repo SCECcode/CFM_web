@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SBCF-MULT-Western_Deep_fault-CFM5_1000m
 *visible:true
-*solid*color:0.882212 0.252416 0.191677 1
+*solid*color:0.402579 0.320130 0.788305 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-USAV-USAV-Upland_fault-CFM1_500m
 *visible:true
-*solid*color:0.401909 0.049003 0.498630 1
+*solid*color:0.344789 0.628325 0.443818 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

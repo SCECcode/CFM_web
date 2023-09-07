@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:CRFA-LPNZ-MULT-La_Panza_fault-CFM4_500m
 *visible:true
-*solid*color:0.373562 0.984009 0.915496 1
+*solid*color:0.214363 0.925106 0.132694 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

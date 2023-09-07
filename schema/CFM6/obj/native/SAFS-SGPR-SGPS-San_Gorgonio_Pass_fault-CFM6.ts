@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SAFS-SGPR-SGPS-San_Gorgonio_Pass_fault-CFM6
 *visible:true
-*solid*color:0.354249 0.909462 0.372743 1
+*solid*color:0.040939 0.078797 0.875738 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

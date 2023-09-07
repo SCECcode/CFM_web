@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-OCSD-OCNS-Oceanside_fault_south_east_C-CFM5_1000m
 *visible:true
-*solid*color:0.154007 0.186501 0.622204 1
+*solid*color:0.755906 0.658743 0.667056 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

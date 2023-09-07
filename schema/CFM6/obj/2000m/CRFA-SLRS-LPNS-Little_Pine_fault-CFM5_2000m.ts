@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:CRFA-SLRS-LPNS-Little_Pine_fault-CFM5_2000m
 *visible:true
-*solid*color:0.455882 0.557232 0.966182 1
+*solid*color:0.043093 0.246026 0.899337 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

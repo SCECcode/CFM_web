@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SAFS-SGPR-CHFZ-Live_Oak_Canyon_fault-CFM5_500m
 *visible:true
-*solid*color:0.114138 0.032868 0.710925 1
+*solid*color:0.012258 0.592035 0.669832 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SAFS-SGPR-CHFZ-Chicken_Hill_fault-CFM5
 *visible:true
-*solid*color:0.622983 0.569267 0.746099 1
+*solid*color:0.430902 0.446085 0.637154 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

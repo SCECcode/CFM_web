@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-CRSF-ALCM-Sawtooth_Range_fault-CFM4
 *visible:true
-*solid*color:0.831321 0.666112 0.739282 1
+*solid*color:0.734911 0.235611 0.206273 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-ELSZ-TMCL-Wildomar_fault-CFM4_1000m
 *visible:true
-*solid*color:0.034050 0.611529 0.307899 1
+*solid*color:0.323238 0.931136 0.209690 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

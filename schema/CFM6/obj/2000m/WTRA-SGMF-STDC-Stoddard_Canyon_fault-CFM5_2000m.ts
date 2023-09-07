@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SGMF-STDC-Stoddard_Canyon_fault-CFM5_2000m
 *visible:true
-*solid*color:0.291147 0.179703 0.718664 1
+*solid*color:0.473092 0.021423 0.223833 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

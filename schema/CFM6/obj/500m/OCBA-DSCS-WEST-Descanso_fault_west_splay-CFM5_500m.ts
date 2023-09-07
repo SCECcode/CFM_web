@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-DSCS-WEST-Descanso_fault_west_splay-CFM5_500m
 *visible:true
-*solid*color:0.953730 0.503009 0.124175 1
+*solid*color:0.702263 0.971296 0.379490 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-CBKD-OCNS-Coronado_Bank_detachment_upper-CFM6_1000m
 *visible:true
-*solid*color:0.633118 0.003639 0.478368 1
+*solid*color:0.163707 0.276652 0.259642 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

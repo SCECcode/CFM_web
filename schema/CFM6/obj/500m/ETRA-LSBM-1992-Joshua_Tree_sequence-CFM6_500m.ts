@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:ETRA-LSBM-1992-Joshua_Tree_sequence-CFM6_500m
 *visible:true
-*solid*color:0.343683 0.176980 0.214260 1
+*solid*color:0.731018 0.765400 0.969057 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

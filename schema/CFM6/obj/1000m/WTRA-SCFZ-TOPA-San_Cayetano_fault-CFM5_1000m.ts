@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SCFZ-TOPA-San_Cayetano_fault-CFM5_1000m
 *visible:true
-*solid*color:0.986817 0.085083 0.936272 1
+*solid*color:0.347360 0.137300 0.760271 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

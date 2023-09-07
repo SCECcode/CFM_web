@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SCFZ-MULT-San_Cayetano_fault_60dip-ALT6_1000m
 *visible:true
-*solid*color:0.680693 0.176104 0.912538 1
+*solid*color:0.574675 0.295568 0.617600 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

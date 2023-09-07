@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SFNS-SFNV-San_Fernando_fault-CFM4_2000m
 *visible:true
-*solid*color:0.186578 0.978959 0.843844 1
+*solid*color:0.885259 0.598249 0.893915 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:CRFA-CSBL-ORCT-Orcutt_blind_fault-CFM5_2000m
 *visible:true
-*solid*color:0.588516 0.212926 0.893824 1
+*solid*color:0.220293 0.084971 0.584609 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

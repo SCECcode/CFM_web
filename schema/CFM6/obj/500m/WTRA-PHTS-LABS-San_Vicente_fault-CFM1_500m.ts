@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-PHTS-LABS-San_Vicente_fault-CFM1_500m
 *visible:true
-*solid*color:0.615092 0.547976 0.698818 1
+*solid*color:0.295662 0.573314 0.367627 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

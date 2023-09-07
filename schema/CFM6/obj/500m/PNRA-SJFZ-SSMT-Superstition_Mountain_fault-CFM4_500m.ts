@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-SJFZ-SSMT-Superstition_Mountain_fault-CFM4_500m
 *visible:true
-*solid*color:0.918293 0.791446 0.285183 1
+*solid*color:0.217361 0.781827 0.390808 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

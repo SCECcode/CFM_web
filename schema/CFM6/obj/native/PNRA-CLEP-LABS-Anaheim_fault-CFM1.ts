@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-CLEP-LABS-Anaheim_fault-CFM1
 *visible:true
-*solid*color:0.677490 0.941834 0.739690 1
+*solid*color:0.798768 0.951981 0.830748 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

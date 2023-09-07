@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-SMBS-EAST-Santa_Monica_Bay_detachment-CFM5_1000m
 *visible:true
-*solid*color:0.344354 0.746843 0.287210 1
+*solid*color:0.195576 0.812409 0.223459 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

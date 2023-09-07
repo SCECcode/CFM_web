@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SFFS-SMMT-Santa_Monica_fault_steep-ALT6_1000m
 *visible:true
-*solid*color:0.631246 0.703667 0.830280 1
+*solid*color:0.276498 0.776005 0.287950 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

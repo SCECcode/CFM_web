@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SAFS-SGPR-SGPS-San_Gorgonio_Pass_thrust_NPS-ALT6_1000m
 *visible:true
-*solid*color:0.996121 0.022922 0.890493 1
+*solid*color:0.077119 0.354519 0.769286 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

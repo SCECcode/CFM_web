@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-SMBS-MULT-Santa_Monica_Bay_fault-ALT6_500m
 *visible:true
-*solid*color:0.858599 0.730859 0.055713 1
+*solid*color:0.683675 0.260292 0.753913 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

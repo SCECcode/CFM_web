@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-CRSF-YUHA-Yuha_Well_fault_northwest-CFM5_500m
 *visible:true
-*solid*color:0.590949 0.301596 0.788282 1
+*solid*color:0.177585 0.551660 0.665226 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

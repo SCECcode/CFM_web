@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-SCLZ-SCBR-San_Clemente_fault-CFM5_500m
 *visible:true
-*solid*color:0.439827 0.886102 0.196613 1
+*solid*color:0.689932 0.536952 0.253273 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

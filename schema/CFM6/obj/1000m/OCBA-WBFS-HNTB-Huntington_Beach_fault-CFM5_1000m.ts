@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-WBFS-HNTB-Huntington_Beach_fault-CFM5_1000m
 *visible:true
-*solid*color:0.403879 0.188236 0.100672 1
+*solid*color:0.436524 0.443562 0.858970 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

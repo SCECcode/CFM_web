@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-LCLZ-LDLW-Ludlow_fault-CFM5_500m
 *visible:true
-*solid*color:0.204991 0.955010 0.885671 1
+*solid*color:0.931361 0.356182 0.770442 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

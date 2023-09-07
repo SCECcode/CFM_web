@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCCA-SLBS-NWST-Santa_Lucia_Bank_west_fault-CFM5_1000m
 *visible:true
-*solid*color:0.544592 0.010546 0.195712 1
+*solid*color:0.889637 0.548229 0.072998 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

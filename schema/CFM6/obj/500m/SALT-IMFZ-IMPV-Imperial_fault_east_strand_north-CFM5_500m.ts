@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SALT-IMFZ-IMPV-Imperial_fault_east_strand_north-CFM5_500m
 *visible:true
-*solid*color:0.722739 0.233529 0.049025 1
+*solid*color:0.846692 0.212919 0.807549 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

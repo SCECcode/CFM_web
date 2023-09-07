@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-CHFZ-WCLS-West_Calico_FaultA_fault-CFM5_500m
 *visible:true
-*solid*color:0.903338 0.107855 0.923237 1
+*solid*color:0.283325 0.407349 0.224330 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

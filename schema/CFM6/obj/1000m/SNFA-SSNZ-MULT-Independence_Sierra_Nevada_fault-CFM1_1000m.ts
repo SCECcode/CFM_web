@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SNFA-SSNZ-MULT-Independence_Sierra_Nevada_fault-CFM1_1000m
 *visible:true
-*solid*color:0.097667 0.245105 0.159956 1
+*solid*color:0.830412 0.519901 0.258873 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

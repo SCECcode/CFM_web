@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-PVFZ-MULT-Palos_Verdes_fault-CFM6_500m
 *visible:true
-*solid*color:0.751014 0.822842 0.896274 1
+*solid*color:0.124696 0.042893 0.923387 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SFNS-VRDM-Verdugo_fault_lowdip-ALT6
 *visible:true
-*solid*color:0.741450 0.794244 0.785381 1
+*solid*color:0.569057 0.619031 0.621994 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-CRSF-PGWS-Painted_Gorge_Wash_fault-CFM4
 *visible:true
-*solid*color:0.304431 0.459767 0.486863 1
+*solid*color:0.328880 0.631878 0.163723 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

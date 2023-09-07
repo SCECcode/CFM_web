@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-HSLZ-SBMT-Southern_Helendale_fault-CFM5_1000m
 *visible:true
-*solid*color:0.164910 0.342338 0.324300 1
+*solid*color:0.242379 0.147024 0.591620 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

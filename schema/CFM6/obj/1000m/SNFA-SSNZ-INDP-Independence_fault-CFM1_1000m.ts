@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SNFA-SSNZ-INDP-Independence_fault-CFM1_1000m
 *visible:true
-*solid*color:0.790652 0.591333 0.903742 1
+*solid*color:0.511780 0.389054 0.311287 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

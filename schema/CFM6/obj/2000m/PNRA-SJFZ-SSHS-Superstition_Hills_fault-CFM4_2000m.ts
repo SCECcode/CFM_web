@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-SJFZ-SSHS-Superstition_Hills_fault-CFM4_2000m
 *visible:true
-*solid*color:0.865053 0.091981 0.881355 1
+*solid*color:0.222490 0.150925 0.959490 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

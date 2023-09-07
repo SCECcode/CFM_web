@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SNFA-LLFZ-CRSS-Eastern_Little_Lake_north_north_east_cross_fault-CFM5_2000m
 *visible:true
-*solid*color:0.124759 0.204330 0.121573 1
+*solid*color:0.818528 0.552121 0.221835 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

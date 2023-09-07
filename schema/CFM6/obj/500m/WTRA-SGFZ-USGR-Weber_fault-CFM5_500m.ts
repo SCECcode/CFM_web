@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SGFZ-USGR-Weber_fault-CFM5_500m
 *visible:true
-*solid*color:0.913400 0.795770 0.665417 1
+*solid*color:0.995596 0.774029 0.067976 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

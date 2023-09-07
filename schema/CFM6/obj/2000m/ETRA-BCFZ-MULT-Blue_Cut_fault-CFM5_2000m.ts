@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:ETRA-BCFZ-MULT-Blue_Cut_fault-CFM5_2000m
 *visible:true
-*solid*color:0.278146 0.560728 0.914490 1
+*solid*color:0.676905 0.817578 0.944990 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

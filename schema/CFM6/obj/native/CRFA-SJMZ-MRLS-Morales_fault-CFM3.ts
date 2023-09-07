@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:CRFA-SJMZ-MRLS-Morales_fault-CFM3
 *visible:true
-*solid*color:0.865351 0.071085 0.792581 1
+*solid*color:0.391393 0.701689 0.492140 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-ECSZ-1992-Barstow_Trend-CFM6_2000m
 *visible:true
-*solid*color:0.290777 0.459270 0.975045 1
+*solid*color:0.176594 0.755948 0.485029 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

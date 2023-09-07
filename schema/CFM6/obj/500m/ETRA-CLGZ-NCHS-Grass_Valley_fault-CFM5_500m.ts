@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:ETRA-CLGZ-NCHS-Grass_Valley_fault-CFM5_500m
 *visible:true
-*solid*color:0.588721 0.620707 0.327578 1
+*solid*color:0.104099 0.352679 0.209754 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

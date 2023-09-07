@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SFNS-VRDM-Eagle_Rock_fault-CFM5_500m
 *visible:true
-*solid*color:0.586663 0.671495 0.717631 1
+*solid*color:0.841591 0.357112 0.383128 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

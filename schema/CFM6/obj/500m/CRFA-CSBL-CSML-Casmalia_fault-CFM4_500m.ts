@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:CRFA-CSBL-CSML-Casmalia_fault-CFM4_500m
 *visible:true
-*solid*color:0.212978 0.111425 0.112411 1
+*solid*color:0.503366 0.477772 0.978893 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

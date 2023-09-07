@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SMFZ-CCMG-Cucamonga_fault-CFM5_1000m
 *visible:true
-*solid*color:0.541179 0.307774 0.017803 1
+*solid*color:0.101041 0.405843 0.674707 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

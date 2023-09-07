@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:CRFA-SLRS-MULT-San_Luis_Range_fault_system-CFM4_500m
 *visible:true
-*solid*color:0.807102 0.423102 0.716523 1
+*solid*color:0.616366 0.879077 0.033841 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SAFS-MHFZ-MCHS-Mecca_Hills_fault-CFM4_1000m
 *visible:true
-*solid*color:0.938000 0.069184 0.912887 1
+*solid*color:0.355079 0.231180 0.863273 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

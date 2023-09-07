@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:BNRA-NDVZ-MULT-Northern_Death_Valley_fault-CFM2_2000m
 *visible:true
-*solid*color:0.967939 0.540668 0.802321 1
+*solid*color:0.459205 0.777450 0.268285 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

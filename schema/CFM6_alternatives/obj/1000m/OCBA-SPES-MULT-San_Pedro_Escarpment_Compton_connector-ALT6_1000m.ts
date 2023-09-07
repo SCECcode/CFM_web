@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-SPES-MULT-San_Pedro_Escarpment_Compton_connector-ALT6_1000m
 *visible:true
-*solid*color:0.352586 0.345060 0.715086 1
+*solid*color:0.095411 0.018375 0.295377 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

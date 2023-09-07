@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCCA-SLBS-NWST-Sur_fault_B-CFM5
 *visible:true
-*solid*color:0.105545 0.504032 0.604602 1
+*solid*color:0.079621 0.848790 0.364662 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

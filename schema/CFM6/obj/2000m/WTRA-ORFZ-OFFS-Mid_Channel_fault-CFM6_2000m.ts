@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-ORFZ-OFFS-Mid_Channel_fault-CFM6_2000m
 *visible:true
-*solid*color:0.677347 0.129927 0.878721 1
+*solid*color:0.444427 0.249943 0.988950 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

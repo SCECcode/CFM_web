@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-CRSF-TFMT-Coyote_Canyon_fault-CFM5_500m
 *visible:true
-*solid*color:0.017339 0.527059 0.390826 1
+*solid*color:0.175380 0.460329 0.005728 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

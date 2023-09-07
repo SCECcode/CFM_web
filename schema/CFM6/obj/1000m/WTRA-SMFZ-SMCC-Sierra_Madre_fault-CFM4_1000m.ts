@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SMFZ-SMCC-Sierra_Madre_fault-CFM4_1000m
 *visible:true
-*solid*color:0.878561 0.487276 0.370845 1
+*solid*color:0.747599 0.294331 0.188704 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

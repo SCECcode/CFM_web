@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-SPES-SPBS-San_Pedro_Escarpment_fault_YngB-CFM5_500m
 *visible:true
-*solid*color:0.032494 0.535566 0.312950 1
+*solid*color:0.035319 0.921307 0.661695 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

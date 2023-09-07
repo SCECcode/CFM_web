@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SPJS-SPMT-Lion_Canyon_fault-CFM6
 *visible:true
-*solid*color:0.368541 0.704663 0.096838 1
+*solid*color:0.394952 0.198234 0.781497 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

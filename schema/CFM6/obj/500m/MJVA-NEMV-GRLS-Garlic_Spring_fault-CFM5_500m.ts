@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-NEMV-GRLS-Garlic_Spring_fault-CFM5_500m
 *visible:true
-*solid*color:0.244156 0.456754 0.112655 1
+*solid*color:0.512695 0.938710 0.466902 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

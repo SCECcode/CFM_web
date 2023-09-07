@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:GRFS-GRFZ-EAST-Owl_Lake_fault-CFM5
 *visible:true
-*solid*color:0.590880 0.376543 0.130579 1
+*solid*color:0.197777 0.503212 0.516166 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

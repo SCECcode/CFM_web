@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SNFA-LLFZ-CNTR-Little_Lake_fault-CFM5
 *visible:true
-*solid*color:0.263279 0.354607 0.021298 1
+*solid*color:0.346139 0.332063 0.074328 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

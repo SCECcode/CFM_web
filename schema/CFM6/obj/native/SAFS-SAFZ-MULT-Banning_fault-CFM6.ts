@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SAFS-SAFZ-MULT-Banning_fault-CFM6
 *visible:true
-*solid*color:0.246347 0.260691 0.129171 1
+*solid*color:0.495131 0.583226 0.009622 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

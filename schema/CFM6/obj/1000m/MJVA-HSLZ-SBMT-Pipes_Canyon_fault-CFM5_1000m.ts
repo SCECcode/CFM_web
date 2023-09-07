@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-HSLZ-SBMT-Pipes_Canyon_fault-CFM5_1000m
 *visible:true
-*solid*color:0.006012 0.790635 0.443440 1
+*solid*color:0.103977 0.652935 0.558434 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

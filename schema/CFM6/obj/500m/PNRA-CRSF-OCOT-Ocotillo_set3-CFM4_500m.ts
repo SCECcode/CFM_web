@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-CRSF-OCOT-Ocotillo_set3-CFM4_500m
 *visible:true
-*solid*color:0.704926 0.358119 0.889533 1
+*solid*color:0.473679 0.289038 0.290767 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

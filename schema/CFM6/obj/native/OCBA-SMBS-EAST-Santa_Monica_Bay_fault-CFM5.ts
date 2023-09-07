@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-SMBS-EAST-Santa_Monica_Bay_fault-CFM5
 *visible:true
-*solid*color:0.436463 0.934634 0.823768 1
+*solid*color:0.123337 0.559105 0.866585 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SSRZ-MULT-Simi_Santa_Rosa_fault-CFM5_1000m
 *visible:true
-*solid*color:0.763050 0.509760 0.059299 1
+*solid*color:0.175045 0.703088 0.784747 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

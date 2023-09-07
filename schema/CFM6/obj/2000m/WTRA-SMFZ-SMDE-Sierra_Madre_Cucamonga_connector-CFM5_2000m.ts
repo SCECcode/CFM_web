@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SMFZ-SMDE-Sierra_Madre_Cucamonga_connector-CFM5_2000m
 *visible:true
-*solid*color:0.089981 0.702556 0.043103 1
+*solid*color:0.658699 0.272588 0.634158 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

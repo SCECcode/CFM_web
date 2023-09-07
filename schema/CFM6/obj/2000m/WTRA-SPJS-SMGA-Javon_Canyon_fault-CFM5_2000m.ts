@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SPJS-SMGA-Javon_Canyon_fault-CFM5_2000m
 *visible:true
-*solid*color:0.176372 0.444462 0.633088 1
+*solid*color:0.072023 0.211344 0.511337 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

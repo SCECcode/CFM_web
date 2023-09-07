@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCCA-HSFZ-STHN-Southern_Hosgri_fault-CFM5_1000m
 *visible:true
-*solid*color:0.390066 0.563646 0.187798 1
+*solid*color:0.309224 0.843506 0.513409 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-CRSF-YUHA-Shell_Beds_fault-CFM5
 *visible:true
-*solid*color:0.452412 0.573861 0.856850 1
+*solid*color:0.774376 0.444907 0.519883 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

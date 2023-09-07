@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SNFA-PMVZ-MULT-Panamint_Valley_fault_lowdip-ALT6_1000m
 *visible:true
-*solid*color:0.364256 0.128463 0.627647 1
+*solid*color:0.898316 0.158209 0.226627 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

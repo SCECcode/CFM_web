@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:CRFA-BPPM-EAST-Big_Pine_fault-CFM4_1000m
 *visible:true
-*solid*color:0.233278 0.568775 0.805184 1
+*solid*color:0.519932 0.909554 0.066804 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SNFA-HMFZ-MULT-Hunter_Mountain_fault-CFM1
 *visible:true
-*solid*color:0.824532 0.155178 0.290690 1
+*solid*color:0.490156 0.329890 0.272285 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

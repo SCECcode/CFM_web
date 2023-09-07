@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-ELSZ-GLIV-Glen_Ivy_South_fault-CFM4
 *visible:true
-*solid*color:0.263443 0.574303 0.174178 1
+*solid*color:0.454158 0.544605 0.454607 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

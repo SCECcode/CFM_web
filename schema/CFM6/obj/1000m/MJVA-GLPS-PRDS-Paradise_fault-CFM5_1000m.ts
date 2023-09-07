@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-GLPS-PRDS-Paradise_fault-CFM5_1000m
 *visible:true
-*solid*color:0.341959 0.359533 0.979028 1
+*solid*color:0.729080 0.659422 0.534596 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

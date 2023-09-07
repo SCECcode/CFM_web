@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SGFZ-PLMS-Northern_San_Gabriel_fault-CFM4_500m
 *visible:true
-*solid*color:0.346766 0.455340 0.384274 1
+*solid*color:0.775942 0.113786 0.130889 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

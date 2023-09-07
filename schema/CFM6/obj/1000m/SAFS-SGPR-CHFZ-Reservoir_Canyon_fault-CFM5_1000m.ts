@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SAFS-SGPR-CHFZ-Reservoir_Canyon_fault-CFM5_1000m
 *visible:true
-*solid*color:0.937676 0.250393 0.828964 1
+*solid*color:0.181490 0.524553 0.277328 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:CRFA-OCNZ-HSNV-West_Huasna_fault-CFM5_2000m
 *visible:true
-*solid*color:0.583229 0.533812 0.429805 1
+*solid*color:0.967505 0.533443 0.085871 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

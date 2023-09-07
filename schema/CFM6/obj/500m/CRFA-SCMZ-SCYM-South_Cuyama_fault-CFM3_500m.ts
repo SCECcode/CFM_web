@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:CRFA-SCMZ-SCYM-South_Cuyama_fault-CFM3_500m
 *visible:true
-*solid*color:0.564554 0.885903 0.490863 1
+*solid*color:0.692078 0.379187 0.747274 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

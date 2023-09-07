@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:CRFA-SJMZ-MULT-San_Juan_fault-CFM5
 *visible:true
-*solid*color:0.305913 0.636302 0.222562 1
+*solid*color:0.996540 0.670162 0.795802 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

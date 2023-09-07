@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-PBMZ-EBLS-East_Bullion_Valley_Mountain_fault-CFM5_1000m
 *visible:true
-*solid*color:0.208678 0.384519 0.944579 1
+*solid*color:0.344860 0.756603 0.843975 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

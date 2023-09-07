@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-PBMZ-MULT-Pisgah_Bullion_West_Bullion_fault-CFM5
 *visible:true
-*solid*color:0.097342 0.223045 0.582936 1
+*solid*color:0.484985 0.143435 0.806342 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

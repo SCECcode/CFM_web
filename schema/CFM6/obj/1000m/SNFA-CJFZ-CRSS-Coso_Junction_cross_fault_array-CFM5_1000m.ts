@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SNFA-CJFZ-CRSS-Coso_Junction_cross_fault_array-CFM5_1000m
 *visible:true
-*solid*color:0.061364 0.954876 0.040260 1
+*solid*color:0.881369 0.097523 0.243792 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

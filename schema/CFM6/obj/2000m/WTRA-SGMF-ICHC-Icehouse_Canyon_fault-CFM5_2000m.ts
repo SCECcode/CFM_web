@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SGMF-ICHC-Icehouse_Canyon_fault-CFM5_2000m
 *visible:true
-*solid*color:0.975737 0.296756 0.913026 1
+*solid*color:0.050132 0.378574 0.742347 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-NCVS-PPTV-Pitas_Point_Ventura_fault_link-CFM6_2000m
 *visible:true
-*solid*color:0.144330 0.892481 0.372683 1
+*solid*color:0.145962 0.914091 0.186810 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

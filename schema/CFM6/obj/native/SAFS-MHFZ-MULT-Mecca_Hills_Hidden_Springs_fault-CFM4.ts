@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SAFS-MHFZ-MULT-Mecca_Hills_Hidden_Springs_fault-CFM4
 *visible:true
-*solid*color:0.268139 0.381917 0.210086 1
+*solid*color:0.115345 0.294139 0.227149 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-SJFZ-SSMT-West_Mesa_fault-CFM5_500m
 *visible:true
-*solid*color:0.433280 0.275268 0.798792 1
+*solid*color:0.356494 0.019922 0.003046 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

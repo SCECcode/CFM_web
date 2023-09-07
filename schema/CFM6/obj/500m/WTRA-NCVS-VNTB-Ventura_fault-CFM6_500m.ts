@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-NCVS-VNTB-Ventura_fault-CFM6_500m
 *visible:true
-*solid*color:0.344842 0.945448 0.407551 1
+*solid*color:0.396325 0.770931 0.111325 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

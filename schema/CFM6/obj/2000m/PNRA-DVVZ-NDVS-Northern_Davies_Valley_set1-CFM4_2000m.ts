@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-DVVZ-NDVS-Northern_Davies_Valley_set1-CFM4_2000m
 *visible:true
-*solid*color:0.429148 0.943923 0.565044 1
+*solid*color:0.856224 0.549550 0.575873 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

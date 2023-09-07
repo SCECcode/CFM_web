@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SALT-CRSF-SLTS-Extra_fault-CFM3
 *visible:true
-*solid*color:0.635951 0.416238 0.141258 1
+*solid*color:0.575596 0.460221 0.550870 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

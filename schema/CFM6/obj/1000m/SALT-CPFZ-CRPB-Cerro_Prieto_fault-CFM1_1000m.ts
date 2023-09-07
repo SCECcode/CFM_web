@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SALT-CPFZ-CRPB-Cerro_Prieto_fault-CFM1_1000m
 *visible:true
-*solid*color:0.970533 0.926692 0.034845 1
+*solid*color:0.409815 0.556516 0.593404 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

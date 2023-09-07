@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-NCVS-PPTV-Pitas_Point_fault_west-CFM5_500m
 *visible:true
-*solid*color:0.803732 0.820200 0.035000 1
+*solid*color:0.130274 0.794587 0.492747 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

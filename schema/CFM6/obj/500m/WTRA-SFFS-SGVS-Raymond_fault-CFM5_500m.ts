@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SFFS-SGVS-Raymond_fault-CFM5_500m
 *visible:true
-*solid*color:0.793533 0.497034 0.173475 1
+*solid*color:0.058466 0.047386 0.037658 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

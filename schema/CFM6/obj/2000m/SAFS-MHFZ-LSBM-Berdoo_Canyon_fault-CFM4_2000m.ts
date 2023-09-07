@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SAFS-MHFZ-LSBM-Berdoo_Canyon_fault-CFM4_2000m
 *visible:true
-*solid*color:0.357619 0.179360 0.838606 1
+*solid*color:0.911740 0.847634 0.032322 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

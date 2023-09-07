@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SALT-IMFZ-IMPV-Imperial_fault_Edip_Nend-CFM5_2000m
 *visible:true
-*solid*color:0.042371 0.644663 0.162792 1
+*solid*color:0.743874 0.229938 0.200963 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

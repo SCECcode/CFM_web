@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-CREC-CPMT-Copper_Mountain_fault-CFM5
 *visible:true
-*solid*color:0.699195 0.229562 0.372217 1
+*solid*color:0.314916 0.883797 0.627329 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

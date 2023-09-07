@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-NCVS-NCHN-North_Channel_fault_west_end-CFM5_1000m
 *visible:true
-*solid*color:0.492878 0.001409 0.767784 1
+*solid*color:0.376993 0.201518 0.487147 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

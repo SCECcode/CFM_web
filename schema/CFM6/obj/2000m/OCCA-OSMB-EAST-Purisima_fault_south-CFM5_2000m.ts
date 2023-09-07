@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCCA-OSMB-EAST-Purisima_fault_south-CFM5_2000m
 *visible:true
-*solid*color:0.012404 0.208136 0.326017 1
+*solid*color:0.231047 0.538792 0.196600 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-ELSZ-TMCL-Willard_fault-CFM4_500m
 *visible:true
-*solid*color:0.309967 0.658270 0.225942 1
+*solid*color:0.515477 0.754245 0.840794 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

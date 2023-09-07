@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:CRFA-LOSO-LSOS-Los_Osos_fault-CFM4
 *visible:true
-*solid*color:0.661877 0.077850 0.425180 1
+*solid*color:0.660733 0.617934 0.824119 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

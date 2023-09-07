@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-LCLZ-CLGL-Cleghorn_Lake_fault-CFM5_1000m
 *visible:true
-*solid*color:0.685270 0.360662 0.519318 1
+*solid*color:0.796058 0.464539 0.614543 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

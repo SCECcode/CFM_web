@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCCA-HSFZ-MULT-Hosgri_fault-CFM5_2000m
 *visible:true
-*solid*color:0.622840 0.388650 0.958199 1
+*solid*color:0.882132 0.064342 0.432564 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

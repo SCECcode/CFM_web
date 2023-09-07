@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-NEMV-RDPS-Red_Pass_fault-CFM5_500m
 *visible:true
-*solid*color:0.268806 0.054331 0.046924 1
+*solid*color:0.014259 0.212519 0.223056 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

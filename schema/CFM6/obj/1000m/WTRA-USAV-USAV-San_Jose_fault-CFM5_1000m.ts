@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-USAV-USAV-San_Jose_fault-CFM5_1000m
 *visible:true
-*solid*color:0.326623 0.399719 0.857537 1
+*solid*color:0.294856 0.874691 0.290936 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

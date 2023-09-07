@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-CRSF-BCYL-Bicycle_Lake_fault-CFM5_2000m
 *visible:true
-*solid*color:0.404380 0.011725 0.918887 1
+*solid*color:0.653393 0.431805 0.696973 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SAFS-SAFZ-SBMT-Mill_Creek_fault_strand-CFM4_500m
 *visible:true
-*solid*color:0.273772 0.949135 0.642029 1
+*solid*color:0.081346 0.232937 0.220270 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

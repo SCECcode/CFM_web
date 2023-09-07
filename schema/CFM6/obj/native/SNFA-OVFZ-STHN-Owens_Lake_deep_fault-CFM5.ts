@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SNFA-OVFZ-STHN-Owens_Lake_deep_fault-CFM5
 *visible:true
-*solid*color:0.692373 0.916841 0.921455 1
+*solid*color:0.156521 0.620358 0.349613 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

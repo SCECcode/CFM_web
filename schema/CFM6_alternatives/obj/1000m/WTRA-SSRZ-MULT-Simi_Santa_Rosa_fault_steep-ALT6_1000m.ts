@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SSRZ-MULT-Simi_Santa_Rosa_fault_steep-ALT6_1000m
 *visible:true
-*solid*color:0.085248 0.814678 0.319264 1
+*solid*color:0.943937 0.084889 0.161552 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

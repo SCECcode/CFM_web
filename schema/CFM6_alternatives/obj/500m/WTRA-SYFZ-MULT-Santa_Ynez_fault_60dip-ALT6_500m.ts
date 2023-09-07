@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SYFZ-MULT-Santa_Ynez_fault_60dip-ALT6_500m
 *visible:true
-*solid*color:0.808990 0.327011 0.895860 1
+*solid*color:0.849110 0.672607 0.950101 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

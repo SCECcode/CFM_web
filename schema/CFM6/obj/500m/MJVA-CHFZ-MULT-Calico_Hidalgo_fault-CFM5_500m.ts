@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-CHFZ-MULT-Calico_Hidalgo_fault-CFM5_500m
 *visible:true
-*solid*color:0.025375 0.340687 0.270669 1
+*solid*color:0.114163 0.421491 0.149651 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

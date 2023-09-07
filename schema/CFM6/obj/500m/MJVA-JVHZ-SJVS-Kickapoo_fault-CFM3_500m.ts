@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-JVHZ-SJVS-Kickapoo_fault-CFM3_500m
 *visible:true
-*solid*color:0.730735 0.362707 0.595852 1
+*solid*color:0.192463 0.873408 0.474229 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

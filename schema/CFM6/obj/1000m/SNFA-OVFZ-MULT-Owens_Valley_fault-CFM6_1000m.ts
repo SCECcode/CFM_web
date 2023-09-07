@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SNFA-OVFZ-MULT-Owens_Valley_fault-CFM6_1000m
 *visible:true
-*solid*color:0.072525 0.119355 0.235229 1
+*solid*color:0.153323 0.766403 0.196685 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

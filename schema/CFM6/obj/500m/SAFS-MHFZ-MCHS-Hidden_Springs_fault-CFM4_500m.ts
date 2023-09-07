@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SAFS-MHFZ-MCHS-Hidden_Springs_fault-CFM4_500m
 *visible:true
-*solid*color:0.747396 0.470565 0.803809 1
+*solid*color:0.466953 0.989045 0.303878 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

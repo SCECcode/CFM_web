@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:GVFA-WWFZ-MULT-White_Wolf_fault-CFM5_1000m
 *visible:true
-*solid*color:0.831935 0.064897 0.256500 1
+*solid*color:0.143728 0.738626 0.957997 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

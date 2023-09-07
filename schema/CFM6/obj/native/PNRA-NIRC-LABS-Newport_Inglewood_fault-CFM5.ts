@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-NIRC-LABS-Newport_Inglewood_fault-CFM5
 *visible:true
-*solid*color:0.537562 0.485999 0.157936 1
+*solid*color:0.392105 0.737602 0.465190 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

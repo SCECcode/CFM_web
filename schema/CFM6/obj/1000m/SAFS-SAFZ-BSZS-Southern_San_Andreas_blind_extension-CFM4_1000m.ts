@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SAFS-SAFZ-BSZS-Southern_San_Andreas_blind_extension-CFM4_1000m
 *visible:true
-*solid*color:0.605332 0.468604 0.516231 1
+*solid*color:0.358168 0.675447 0.783010 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

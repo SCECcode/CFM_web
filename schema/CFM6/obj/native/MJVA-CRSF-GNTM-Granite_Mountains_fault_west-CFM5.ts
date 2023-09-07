@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-CRSF-GNTM-Granite_Mountains_fault_west-CFM5
 *visible:true
-*solid*color:0.931175 0.707434 0.485093 1
+*solid*color:0.323904 0.773625 0.961547 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

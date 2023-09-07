@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-ORFZ-MULT-Oak_Ridge_fault-CFM5_1000m
 *visible:true
-*solid*color:0.052350 0.548602 0.110124 1
+*solid*color:0.693233 0.540165 0.201866 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-CRSF-YUHA-Yuha_Wash_fault-CFM5_500m
 *visible:true
-*solid*color:0.251205 0.300470 0.482632 1
+*solid*color:0.559771 0.252879 0.223319 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

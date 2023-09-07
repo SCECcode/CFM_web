@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-DVVZ-DVSV-Davies_Valley_fault-CFM5
 *visible:true
-*solid*color:0.569617 0.174376 0.498202 1
+*solid*color:0.104844 0.539907 0.868696 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

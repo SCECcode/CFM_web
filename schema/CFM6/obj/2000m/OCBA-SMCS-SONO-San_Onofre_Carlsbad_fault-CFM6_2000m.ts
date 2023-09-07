@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-SMCS-SONO-San_Onofre_Carlsbad_fault-CFM6_2000m
 *visible:true
-*solid*color:0.713487 0.012532 0.074883 1
+*solid*color:0.984489 0.217963 0.721727 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

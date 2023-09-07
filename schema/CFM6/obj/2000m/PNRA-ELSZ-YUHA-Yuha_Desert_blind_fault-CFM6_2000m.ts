@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-ELSZ-YUHA-Yuha_Desert_blind_fault-CFM6_2000m
 *visible:true
-*solid*color:0.893996 0.679909 0.201279 1
+*solid*color:0.855935 0.623633 0.836380 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-WBFS-TRNC-Torrance_blind_fault-CFM5_1000m
 *visible:true
-*solid*color:0.751730 0.958231 0.712247 1
+*solid*color:0.235225 0.129095 0.706609 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

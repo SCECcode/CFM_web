@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SAFS-SAFZ-MULT-Garnet_Hill_fault_strand-ALT6_500m
 *visible:true
-*solid*color:0.090760 0.328933 0.537355 1
+*solid*color:0.570095 0.952265 0.265499 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

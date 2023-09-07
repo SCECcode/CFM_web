@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-ESCS-ESCB-East_Santa_Cruz_Basin_fault_main-CFM5_500m
 *visible:true
-*solid*color:0.379061 0.615435 0.770761 1
+*solid*color:0.645555 0.010151 0.212550 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

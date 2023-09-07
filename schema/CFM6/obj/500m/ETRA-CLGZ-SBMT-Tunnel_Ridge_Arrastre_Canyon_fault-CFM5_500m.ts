@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:ETRA-CLGZ-SBMT-Tunnel_Ridge_Arrastre_Canyon_fault-CFM5_500m
 *visible:true
-*solid*color:0.271531 0.682073 0.004424 1
+*solid*color:0.141069 0.524214 0.493591 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

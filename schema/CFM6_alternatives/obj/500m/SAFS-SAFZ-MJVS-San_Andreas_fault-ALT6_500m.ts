@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SAFS-SAFZ-MJVS-San_Andreas_fault-ALT6_500m
 *visible:true
-*solid*color:0.710316 0.708261 0.846596 1
+*solid*color:0.986297 0.635213 0.000630 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-IBFS-SCTI-Catalina_Island_detachment_upper-CFM5_1000m
 *visible:true
-*solid*color:0.436257 0.642490 0.276421 1
+*solid*color:0.288513 0.991619 0.560679 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-NCVS-PPTV-Pitas_Point_fault_east-ALT6_2000m
 *visible:true
-*solid*color:0.988741 0.861353 0.829255 1
+*solid*color:0.075838 0.223797 0.979565 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

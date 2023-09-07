@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SSFZ-MULT-Santa_Susana_fault-CFM5
 *visible:true
-*solid*color:0.942391 0.270510 0.989128 1
+*solid*color:0.884774 0.865061 0.876968 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

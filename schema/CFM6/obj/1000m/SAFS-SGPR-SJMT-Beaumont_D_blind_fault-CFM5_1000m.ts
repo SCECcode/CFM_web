@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SAFS-SGPR-SJMT-Beaumont_D_blind_fault-CFM5_1000m
 *visible:true
-*solid*color:0.980643 0.767110 0.627964 1
+*solid*color:0.389609 0.290298 0.639520 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

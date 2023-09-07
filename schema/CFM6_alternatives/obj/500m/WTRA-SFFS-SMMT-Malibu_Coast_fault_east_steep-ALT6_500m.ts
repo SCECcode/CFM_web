@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SFFS-SMMT-Malibu_Coast_fault_east_steep-ALT6_500m
 *visible:true
-*solid*color:0.026319 0.020782 0.056815 1
+*solid*color:0.918716 0.879598 0.500383 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

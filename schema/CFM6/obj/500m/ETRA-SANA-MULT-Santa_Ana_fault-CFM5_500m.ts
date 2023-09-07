@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:ETRA-SANA-MULT-Santa_Ana_fault-CFM5_500m
 *visible:true
-*solid*color:0.483133 0.418860 0.982635 1
+*solid*color:0.427052 0.158487 0.488562 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

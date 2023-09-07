@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:GRFS-GRFZ-WEST-Garlock_fault-CFM5_2000m
 *visible:true
-*solid*color:0.456719 0.521712 0.370840 1
+*solid*color:0.381156 0.620257 0.633179 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

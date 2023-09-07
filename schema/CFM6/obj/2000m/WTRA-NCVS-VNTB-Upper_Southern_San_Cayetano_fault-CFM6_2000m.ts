@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-NCVS-VNTB-Upper_Southern_San_Cayetano_fault-CFM6_2000m
 *visible:true
-*solid*color:0.399469 0.064753 0.182787 1
+*solid*color:0.664990 0.901364 0.929960 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

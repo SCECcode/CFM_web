@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:ETRA-PMFZ-MRVS-Morongo_Valley_fault-CFM5
 *visible:true
-*solid*color:0.379957 0.730779 0.384279 1
+*solid*color:0.481319 0.769677 0.222431 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

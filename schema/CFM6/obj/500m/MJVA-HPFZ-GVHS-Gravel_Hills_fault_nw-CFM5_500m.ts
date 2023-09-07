@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-HPFZ-GVHS-Gravel_Hills_fault_nw-CFM5_500m
 *visible:true
-*solid*color:0.643262 0.756802 0.728233 1
+*solid*color:0.284786 0.836483 0.265233 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-CRSF-RDNC-Redondo_Canyon_fault-ALT6_1000m
 *visible:true
-*solid*color:0.721393 0.699540 0.689004 1
+*solid*color:0.517478 0.523111 0.932637 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

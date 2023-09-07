@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-OCSD-OCNS-Oceanside_detachment_alt1-ALT6
 *visible:true
-*solid*color:0.701879 0.071660 0.981005 1
+*solid*color:0.642140 0.086257 0.685908 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

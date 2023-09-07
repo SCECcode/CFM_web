@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-SJFZ-SJCV-Casa_Loma_fault-CFM4_1000m
 *visible:true
-*solid*color:0.627110 0.462255 0.553792 1
+*solid*color:0.499898 0.045717 0.016851 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

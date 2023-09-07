@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SFFS-LABS-North_Salt_Lake_blind_fault-CFM3_500m
 *visible:true
-*solid*color:0.394480 0.586057 0.371324 1
+*solid*color:0.426435 0.666491 0.281092 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

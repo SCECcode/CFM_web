@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-LLBM-NBMS-Bullion_Mountains_fault-CFM6_1000m
 *visible:true
-*solid*color:0.254575 0.983109 0.946692 1
+*solid*color:0.288579 0.026925 0.413825 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

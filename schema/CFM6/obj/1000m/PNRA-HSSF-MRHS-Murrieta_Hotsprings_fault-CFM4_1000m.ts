@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-HSSF-MRHS-Murrieta_Hotsprings_fault-CFM4_1000m
 *visible:true
-*solid*color:0.506494 0.316724 0.126833 1
+*solid*color:0.708166 0.862854 0.510914 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

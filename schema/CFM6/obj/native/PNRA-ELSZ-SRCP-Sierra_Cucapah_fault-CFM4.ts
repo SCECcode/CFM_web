@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-ELSZ-SRCP-Sierra_Cucapah_fault-CFM4
 *visible:true
-*solid*color:0.062086 0.150449 0.000388 1
+*solid*color:0.581981 0.435956 0.022467 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

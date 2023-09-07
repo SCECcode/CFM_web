@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:BNRA-BMFZ-MULT-Black_Mountain_fault-CFM3_500m
 *visible:true
-*solid*color:0.244437 0.804603 0.282026 1
+*solid*color:0.477091 0.023461 0.876558 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

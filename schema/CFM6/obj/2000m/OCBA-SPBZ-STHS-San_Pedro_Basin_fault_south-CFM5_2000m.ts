@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-SPBZ-STHS-San_Pedro_Basin_fault_south-CFM5_2000m
 *visible:true
-*solid*color:0.924511 0.237055 0.226348 1
+*solid*color:0.199851 0.723552 0.834301 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

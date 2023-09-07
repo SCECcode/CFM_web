@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:GVFA-WWFZ-NEST-Scodie_Lineament-CFM5_500m
 *visible:true
-*solid*color:0.098495 0.913433 0.025794 1
+*solid*color:0.904303 0.502414 0.359367 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

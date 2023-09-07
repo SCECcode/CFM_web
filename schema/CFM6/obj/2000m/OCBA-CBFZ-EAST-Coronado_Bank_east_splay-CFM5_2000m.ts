@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-CBFZ-EAST-Coronado_Bank_east_splay-CFM5_2000m
 *visible:true
-*solid*color:0.165992 0.652854 0.356005 1
+*solid*color:0.630318 0.391153 0.395520 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

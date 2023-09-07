@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-MRFS-MULT-Mission_Ridge_Arroyo_Parida_fault-CFM5
 *visible:true
-*solid*color:0.907005 0.131699 0.038229 1
+*solid*color:0.032922 0.691393 0.321237 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-DSCS-RCNT-Descanso_RoseCanyon_transfer_fault-CFM5_2000m
 *visible:true
-*solid*color:0.574174 0.466606 0.607135 1
+*solid*color:0.969698 0.899595 0.883533 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

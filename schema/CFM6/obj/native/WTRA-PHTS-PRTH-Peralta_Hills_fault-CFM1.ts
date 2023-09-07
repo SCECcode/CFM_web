@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-PHTS-PRTH-Peralta_Hills_fault-CFM1
 *visible:true
-*solid*color:0.277875 0.635225 0.769648 1
+*solid*color:0.518427 0.445890 0.191984 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

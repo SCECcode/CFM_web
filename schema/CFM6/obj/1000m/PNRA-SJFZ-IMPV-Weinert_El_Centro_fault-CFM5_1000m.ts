@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-SJFZ-IMPV-Weinert_El_Centro_fault-CFM5_1000m
 *visible:true
-*solid*color:0.843725 0.835625 0.436534 1
+*solid*color:0.329001 0.260167 0.641859 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

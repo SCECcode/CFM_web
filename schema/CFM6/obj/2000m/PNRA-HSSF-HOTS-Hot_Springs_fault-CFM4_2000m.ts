@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-HSSF-HOTS-Hot_Springs_fault-CFM4_2000m
 *visible:true
-*solid*color:0.218865 0.352546 0.258771 1
+*solid*color:0.187751 0.882986 0.405932 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

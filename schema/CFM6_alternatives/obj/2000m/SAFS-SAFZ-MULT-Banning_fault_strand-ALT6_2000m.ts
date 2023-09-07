@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SAFS-SAFZ-MULT-Banning_fault_strand-ALT6_2000m
 *visible:true
-*solid*color:0.713883 0.571321 0.603626 1
+*solid*color:0.722510 0.167592 0.808627 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SNFA-LLFZ-EAST-Eastern_Little_Lake_south_west_branch-CFM5_500m
 *visible:true
-*solid*color:0.411383 0.481384 0.553349 1
+*solid*color:0.664955 0.476658 0.965360 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

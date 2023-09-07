@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-ELSZ-LGSD-Laguna_Salada_fault_east_branch_dipping_splay-CFM5
 *visible:true
-*solid*color:0.612721 0.704173 0.663894 1
+*solid*color:0.722014 0.683046 0.714213 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-HPFZ-HPVS-Harper_Valley_Mt_General_fault-CFM5_500m
 *visible:true
-*solid*color:0.212527 0.121101 0.229791 1
+*solid*color:0.867501 0.509566 0.356870 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SNFA-LLFZ-EAST-China_Lake_fault-CFM5_2000m
 *visible:true
-*solid*color:0.744820 0.347342 0.919477 1
+*solid*color:0.040427 0.688079 0.980588 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

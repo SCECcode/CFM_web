@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-SJFZ-IMPV-Dixieland_fault-CFM5_500m
 *visible:true
-*solid*color:0.946638 0.016108 0.825990 1
+*solid*color:0.461970 0.604952 0.710910 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-CREC-EMRS-Galway_Lake_fault-CFM2
 *visible:true
-*solid*color:0.010528 0.783391 0.081082 1
+*solid*color:0.958647 0.620523 0.091184 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

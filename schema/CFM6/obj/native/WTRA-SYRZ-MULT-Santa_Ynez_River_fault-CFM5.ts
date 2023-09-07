@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SYRZ-MULT-Santa_Ynez_River_fault-CFM5
 *visible:true
-*solid*color:0.382780 0.394830 0.386804 1
+*solid*color:0.077436 0.257903 0.870150 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

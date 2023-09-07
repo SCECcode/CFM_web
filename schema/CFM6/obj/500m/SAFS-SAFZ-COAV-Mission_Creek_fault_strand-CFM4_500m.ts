@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SAFS-SAFZ-COAV-Mission_Creek_fault_strand-CFM4_500m
 *visible:true
-*solid*color:0.915125 0.563863 0.279087 1
+*solid*color:0.529294 0.505284 0.772643 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

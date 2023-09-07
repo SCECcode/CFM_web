@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SSRZ-OXNP-Bailey_fault-CFM5_1000m
 *visible:true
-*solid*color:0.019973 0.785955 0.403530 1
+*solid*color:0.463083 0.872440 0.863227 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

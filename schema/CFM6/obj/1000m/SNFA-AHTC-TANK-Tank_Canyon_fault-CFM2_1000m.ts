@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SNFA-AHTC-TANK-Tank_Canyon_fault-CFM2_1000m
 *visible:true
-*solid*color:0.369668 0.447323 0.020837 1
+*solid*color:0.277549 0.677367 0.860122 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:ETRA-LSBM-BRMT-Burnt_Mountain_East_Wide_Canyon_fault-CFM5
 *visible:true
-*solid*color:0.904988 0.162667 0.734873 1
+*solid*color:0.609815 0.012791 0.714234 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

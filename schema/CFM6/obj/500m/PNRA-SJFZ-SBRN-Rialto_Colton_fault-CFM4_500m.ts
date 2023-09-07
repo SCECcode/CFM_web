@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-SJFZ-SBRN-Rialto_Colton_fault-CFM4_500m
 *visible:true
-*solid*color:0.949558 0.347415 0.912055 1
+*solid*color:0.431027 0.074585 0.897914 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

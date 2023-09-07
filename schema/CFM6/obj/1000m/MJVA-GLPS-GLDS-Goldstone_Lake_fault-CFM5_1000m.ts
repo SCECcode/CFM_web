@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-GLPS-GLDS-Goldstone_Lake_fault-CFM5_1000m
 *visible:true
-*solid*color:0.178605 0.260143 0.862788 1
+*solid*color:0.717686 0.933354 0.476815 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

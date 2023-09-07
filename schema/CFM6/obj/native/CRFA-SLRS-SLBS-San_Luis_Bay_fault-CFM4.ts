@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:CRFA-SLRS-SLBS-San_Luis_Bay_fault-CFM4
 *visible:true
-*solid*color:0.825290 0.265726 0.146869 1
+*solid*color:0.440066 0.656943 0.811307 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

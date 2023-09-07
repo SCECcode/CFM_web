@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SGMF-SANC-San_Antonio_Canyon_fault_splay-CFM5_2000m
 *visible:true
-*solid*color:0.658084 0.939036 0.888098 1
+*solid*color:0.093285 0.307338 0.612278 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

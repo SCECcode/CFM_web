@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-NIRC-RSCN-Rose_Canyon_fault-CFM5_2000m
 *visible:true
-*solid*color:0.135747 0.986493 0.117527 1
+*solid*color:0.956786 0.433024 0.907251 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

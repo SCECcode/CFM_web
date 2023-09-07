@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SNFA-CJFZ-CRSS-Rose_Valley_cross_fault-CFM5_1000m
 *visible:true
-*solid*color:0.014140 0.367117 0.948933 1
+*solid*color:0.514415 0.440300 0.882975 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

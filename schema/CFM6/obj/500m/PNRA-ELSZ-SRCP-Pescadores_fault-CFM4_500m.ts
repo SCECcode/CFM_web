@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-ELSZ-SRCP-Pescadores_fault-CFM4_500m
 *visible:true
-*solid*color:0.972438 0.584595 0.706178 1
+*solid*color:0.707489 0.584158 0.041614 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

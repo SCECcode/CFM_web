@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SFFS-SNCZ-Santa_Cruz_Island_fault-CFM5_500m
 *visible:true
-*solid*color:0.657484 0.688341 0.045017 1
+*solid*color:0.989203 0.303613 0.936959 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

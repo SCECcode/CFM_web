@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:CRFA-NAFZ-MULT-Nacimiento_fault_south-CFM2_500m
 *visible:true
-*solid*color:0.733357 0.915906 0.273839 1
+*solid*color:0.771099 0.238125 0.243117 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

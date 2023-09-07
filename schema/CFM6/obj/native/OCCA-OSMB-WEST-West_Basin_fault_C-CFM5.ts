@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCCA-OSMB-WEST-West_Basin_fault_C-CFM5
 *visible:true
-*solid*color:0.392977 0.449881 0.769271 1
+*solid*color:0.282981 0.448884 0.327553 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-PVFZ-RDNC-Redondo_Canyon_fault-CFM6
 *visible:true
-*solid*color:0.879602 0.803706 0.652402 1
+*solid*color:0.475691 0.273781 0.711741 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

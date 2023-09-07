@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:CRFA-CSBL-PEZN-Pezzoni_Casmalia_fault-CFM5_2000m
 *visible:true
-*solid*color:0.694917 0.411806 0.454203 1
+*solid*color:0.783634 0.411967 0.381817 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

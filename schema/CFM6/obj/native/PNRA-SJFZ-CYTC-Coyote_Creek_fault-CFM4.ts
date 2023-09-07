@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-SJFZ-CYTC-Coyote_Creek_fault-CFM4
 *visible:true
-*solid*color:0.800362 0.249250 0.045268 1
+*solid*color:0.103534 0.485513 0.427753 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

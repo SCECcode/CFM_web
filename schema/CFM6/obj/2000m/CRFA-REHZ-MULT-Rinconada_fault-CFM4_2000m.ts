@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:CRFA-REHZ-MULT-Rinconada_fault-CFM4_2000m
 *visible:true
-*solid*color:0.287019 0.424883 0.884842 1
+*solid*color:0.816277 0.082248 0.987593 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

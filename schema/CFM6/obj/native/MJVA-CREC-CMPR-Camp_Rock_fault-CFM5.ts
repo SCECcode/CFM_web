@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-CREC-CMPR-Camp_Rock_fault-CFM5
 *visible:true
-*solid*color:0.634746 0.624227 0.249194 1
+*solid*color:0.784195 0.761294 0.488493 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

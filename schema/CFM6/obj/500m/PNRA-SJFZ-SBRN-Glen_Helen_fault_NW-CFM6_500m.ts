@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-SJFZ-SBRN-Glen_Helen_fault_NW-CFM6_500m
 *visible:true
-*solid*color:0.305715 0.653422 0.697173 1
+*solid*color:0.453021 0.823560 0.376316 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

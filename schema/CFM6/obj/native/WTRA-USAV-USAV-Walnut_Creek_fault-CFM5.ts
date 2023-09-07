@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-USAV-USAV-Walnut_Creek_fault-CFM5
 *visible:true
-*solid*color:0.861498 0.131128 0.122960 1
+*solid*color:0.147789 0.249893 0.929835 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

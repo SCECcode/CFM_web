@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:ETRA-BBFS-1992-Big_Bear_rupture-CFM6
 *visible:true
-*solid*color:0.822541 0.903932 0.120954 1
+*solid*color:0.287897 0.269831 0.609925 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

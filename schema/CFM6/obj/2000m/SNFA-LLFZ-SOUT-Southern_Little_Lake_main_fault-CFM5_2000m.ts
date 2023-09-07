@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SNFA-LLFZ-SOUT-Southern_Little_Lake_main_fault-CFM5_2000m
 *visible:true
-*solid*color:0.015415 0.459843 0.647410 1
+*solid*color:0.640681 0.345876 0.946413 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

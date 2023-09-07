@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-NBJD-CDVD-Canada_David_detachment-CFM3_2000m
 *visible:true
-*solid*color:0.794943 0.983032 0.977227 1
+*solid*color:0.626218 0.111708 0.145408 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SAFS-SGPR-SBRN-Del_Rosa_cross_fault-CFM5_2000m
 *visible:true
-*solid*color:0.613025 0.071636 0.061149 1
+*solid*color:0.907602 0.481209 0.015743 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

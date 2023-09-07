@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SPJS-SPMT-Sisar_detachment-CFM6_500m
 *visible:true
-*solid*color:0.310723 0.024984 0.433635 1
+*solid*color:0.886307 0.502061 0.458611 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

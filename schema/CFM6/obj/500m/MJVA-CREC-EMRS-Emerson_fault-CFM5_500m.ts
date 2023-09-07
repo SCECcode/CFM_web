@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-CREC-EMRS-Emerson_fault-CFM5_500m
 *visible:true
-*solid*color:0.999094 0.233761 0.114037 1
+*solid*color:0.121505 0.569702 0.716245 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

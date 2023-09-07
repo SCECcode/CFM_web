@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SAFS-SGPR-CHFZ-Casa_Blanca_fault-CFM5_500m
 *visible:true
-*solid*color:0.161719 0.039222 0.032177 1
+*solid*color:0.287003 0.102127 0.565144 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

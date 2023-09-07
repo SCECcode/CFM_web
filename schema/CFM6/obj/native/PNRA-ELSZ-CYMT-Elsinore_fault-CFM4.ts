@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-ELSZ-CYMT-Elsinore_fault-CFM4
 *visible:true
-*solid*color:0.877112 0.724591 0.716533 1
+*solid*color:0.610411 0.156566 0.816103 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

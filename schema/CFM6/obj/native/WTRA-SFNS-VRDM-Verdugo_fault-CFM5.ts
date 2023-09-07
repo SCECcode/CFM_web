@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SFNS-VRDM-Verdugo_fault-CFM5
 *visible:true
-*solid*color:0.267589 0.822509 0.059895 1
+*solid*color:0.294123 0.950934 0.659271 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

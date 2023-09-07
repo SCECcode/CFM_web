@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SAFS-SGPR-SJMT-Palm_Springs_blind_fault-CFM4_1000m
 *visible:true
-*solid*color:0.506656 0.830071 0.655936 1
+*solid*color:0.491864 0.105315 0.473503 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

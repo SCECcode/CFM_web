@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCCA-OSMB-EAST-Lompoc_fault-CFM5_2000m
 *visible:true
-*solid*color:0.003873 0.513743 0.821624 1
+*solid*color:0.362837 0.627883 0.281823 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

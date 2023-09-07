@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-NCVS-RDMT-Red_Mountain_fault_SW_strand-CFM5_2000m
 *visible:true
-*solid*color:0.376049 0.757824 0.631509 1
+*solid*color:0.866710 0.248991 0.451729 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

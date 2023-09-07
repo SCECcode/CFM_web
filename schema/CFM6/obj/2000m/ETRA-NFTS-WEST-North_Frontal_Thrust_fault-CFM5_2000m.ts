@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:ETRA-NFTS-WEST-North_Frontal_Thrust_fault-CFM5_2000m
 *visible:true
-*solid*color:0.432235 0.233588 0.544136 1
+*solid*color:0.222108 0.322355 0.948992 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-LWLZ-MULT-Lenwood_Lockhart_fault-CFM5_2000m
 *visible:true
-*solid*color:0.823093 0.369653 0.294408 1
+*solid*color:0.590262 0.746767 0.734435 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SGFZ-BTJG-San_Gabriel_fault_splay-CFM4_1000m
 *visible:true
-*solid*color:0.481102 0.886142 0.839199 1
+*solid*color:0.751042 0.363899 0.177007 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

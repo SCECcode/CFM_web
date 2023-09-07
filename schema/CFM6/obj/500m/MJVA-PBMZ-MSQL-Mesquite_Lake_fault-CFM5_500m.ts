@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-PBMZ-MSQL-Mesquite_Lake_fault-CFM5_500m
 *visible:true
-*solid*color:0.745883 0.240412 0.911702 1
+*solid*color:0.305998 0.083926 0.957494 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

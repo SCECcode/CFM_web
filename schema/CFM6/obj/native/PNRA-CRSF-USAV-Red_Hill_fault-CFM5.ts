@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-CRSF-USAV-Red_Hill_fault-CFM5
 *visible:true
-*solid*color:0.656561 0.172037 0.080031 1
+*solid*color:0.938306 0.875137 0.988129 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

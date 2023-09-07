@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-CRSF-YUHA-Yuha_Well_Vista_del_Anza_fault-CFM5_1000m
 *visible:true
-*solid*color:0.237545 0.835525 0.830414 1
+*solid*color:0.671690 0.657639 0.860968 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

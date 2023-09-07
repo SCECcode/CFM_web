@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SMFZ-CSPC-Clamshell_Sawpit_Canyon_fault-CFM4_500m
 *visible:true
-*solid*color:0.167722 0.977795 0.449884 1
+*solid*color:0.500000 0.909351 0.512378 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

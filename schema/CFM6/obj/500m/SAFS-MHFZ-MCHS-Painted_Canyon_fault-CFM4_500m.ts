@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SAFS-MHFZ-MCHS-Painted_Canyon_fault-CFM4_500m
 *visible:true
-*solid*color:0.496477 0.513391 0.149135 1
+*solid*color:0.761453 0.259079 0.799881 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

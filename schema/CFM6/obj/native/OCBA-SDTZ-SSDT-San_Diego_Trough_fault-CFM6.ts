@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-SDTZ-SSDT-San_Diego_Trough_fault-CFM6
 *visible:true
-*solid*color:0.443142 0.458623 0.819491 1
+*solid*color:0.098420 0.814877 0.078123 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

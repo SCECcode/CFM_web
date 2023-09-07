@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SAFS-SAFZ-CHLM-San_Andreas_fault-CFM6_500m
 *visible:true
-*solid*color:0.709319 0.594269 0.215336 1
+*solid*color:0.965191 0.443684 0.161851 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

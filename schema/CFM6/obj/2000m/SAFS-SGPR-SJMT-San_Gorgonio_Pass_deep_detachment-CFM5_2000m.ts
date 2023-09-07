@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SAFS-SGPR-SJMT-San_Gorgonio_Pass_deep_detachment-CFM5_2000m
 *visible:true
-*solid*color:0.526012 0.500616 0.603975 1
+*solid*color:0.465088 0.390073 0.368653 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-SJFZ-SJCV-Claremont_fault-CFM4
 *visible:true
-*solid*color:0.869677 0.793699 0.962616 1
+*solid*color:0.923371 0.072287 0.421064 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

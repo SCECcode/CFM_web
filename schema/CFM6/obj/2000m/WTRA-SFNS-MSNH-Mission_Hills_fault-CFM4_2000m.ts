@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SFNS-MSNH-Mission_Hills_fault-CFM4_2000m
 *visible:true
-*solid*color:0.627968 0.869780 0.035765 1
+*solid*color:0.248741 0.318494 0.707903 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

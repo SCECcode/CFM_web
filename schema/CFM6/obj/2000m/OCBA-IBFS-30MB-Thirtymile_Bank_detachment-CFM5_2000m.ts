@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-IBFS-30MB-Thirtymile_Bank_detachment-CFM5_2000m
 *visible:true
-*solid*color:0.769733 0.073806 0.353592 1
+*solid*color:0.493010 0.280956 0.552024 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

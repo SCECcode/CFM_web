@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-DSCS-EAST-Descanso_fault_east_splay-CFM5
 *visible:true
-*solid*color:0.018923 0.569053 0.686135 1
+*solid*color:0.770121 0.440641 0.168911 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

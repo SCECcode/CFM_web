@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SBCF-WEST-Hondo_detachment-CFM5_1000m
 *visible:true
-*solid*color:0.022361 0.281138 0.025894 1
+*solid*color:0.362345 0.653880 0.606402 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

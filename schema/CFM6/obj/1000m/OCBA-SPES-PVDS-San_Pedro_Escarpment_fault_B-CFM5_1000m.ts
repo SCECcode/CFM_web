@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-SPES-PVDS-San_Pedro_Escarpment_fault_B-CFM5_1000m
 *visible:true
-*solid*color:0.186434 0.515979 0.098775 1
+*solid*color:0.724755 0.600605 0.946600 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

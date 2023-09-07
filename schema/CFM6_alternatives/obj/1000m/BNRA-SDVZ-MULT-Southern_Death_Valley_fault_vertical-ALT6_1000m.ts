@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:BNRA-SDVZ-MULT-Southern_Death_Valley_fault_vertical-ALT6_1000m
 *visible:true
-*solid*color:0.783093 0.931644 0.725103 1
+*solid*color:0.359091 0.315026 0.925290 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

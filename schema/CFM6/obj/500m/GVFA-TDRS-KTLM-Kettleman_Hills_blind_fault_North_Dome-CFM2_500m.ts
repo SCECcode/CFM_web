@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:GVFA-TDRS-KTLM-Kettleman_Hills_blind_fault_North_Dome-CFM2_500m
 *visible:true
-*solid*color:0.793679 0.496782 0.303811 1
+*solid*color:0.158649 0.135784 0.220526 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

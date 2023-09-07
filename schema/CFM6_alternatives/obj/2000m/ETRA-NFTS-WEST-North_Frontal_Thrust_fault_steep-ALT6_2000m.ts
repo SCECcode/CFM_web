@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:ETRA-NFTS-WEST-North_Frontal_Thrust_fault_steep-ALT6_2000m
 *visible:true
-*solid*color:0.882627 0.569939 0.584913 1
+*solid*color:0.980983 0.119072 0.139061 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

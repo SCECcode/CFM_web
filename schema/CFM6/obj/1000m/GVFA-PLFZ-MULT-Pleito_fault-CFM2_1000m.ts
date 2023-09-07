@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:GVFA-PLFZ-MULT-Pleito_fault-CFM2_1000m
 *visible:true
-*solid*color:0.819971 0.852136 0.049187 1
+*solid*color:0.791392 0.702603 0.160244 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:CRFA-REHZ-EHSN-East_Huasna_fault-CFM4
 *visible:true
-*solid*color:0.901249 0.518409 0.473544 1
+*solid*color:0.983878 0.402700 0.576858 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

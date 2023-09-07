@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-CLEP-BLDH-Compton_Los_Alamitos_fault-CFM5
 *visible:true
-*solid*color:0.121011 0.257804 0.810710 1
+*solid*color:0.322564 0.439918 0.674946 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

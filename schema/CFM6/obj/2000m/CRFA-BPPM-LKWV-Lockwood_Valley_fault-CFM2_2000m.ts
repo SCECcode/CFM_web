@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:CRFA-BPPM-LKWV-Lockwood_Valley_fault-CFM2_2000m
 *visible:true
-*solid*color:0.205458 0.376923 0.394571 1
+*solid*color:0.729652 0.257028 0.588060 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

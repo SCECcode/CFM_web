@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SFFS-LABS-Hollywood_fault-CFM5
 *visible:true
-*solid*color:0.020862 0.275851 0.531403 1
+*solid*color:0.309790 0.885832 0.617482 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

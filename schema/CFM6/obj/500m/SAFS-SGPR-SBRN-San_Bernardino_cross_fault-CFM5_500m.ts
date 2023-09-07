@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SAFS-SGPR-SBRN-San_Bernardino_cross_fault-CFM5_500m
 *visible:true
-*solid*color:0.481518 0.724403 0.826150 1
+*solid*color:0.130977 0.984469 0.058571 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

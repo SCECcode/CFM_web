@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SNFA-ALFZ-COSO-Airport_Lake_fault-CFM5_2000m
 *visible:true
-*solid*color:0.955475 0.529522 0.138118 1
+*solid*color:0.945993 0.482980 0.016807 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SALT-BRSZ-BRSZ-Brawley_Seismic_Zone_boundary-CFM1_500m
 *visible:true
-*solid*color:0.281692 0.389881 0.214879 1
+*solid*color:0.000224 0.213915 0.212874 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

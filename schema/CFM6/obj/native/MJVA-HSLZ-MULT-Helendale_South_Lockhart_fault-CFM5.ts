@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-HSLZ-MULT-Helendale_South_Lockhart_fault-CFM5
 *visible:true
-*solid*color:0.974577 0.634998 0.678323 1
+*solid*color:0.890713 0.861390 0.489826 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

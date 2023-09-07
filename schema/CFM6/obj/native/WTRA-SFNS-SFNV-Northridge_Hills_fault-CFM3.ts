@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SFNS-SFNV-Northridge_Hills_fault-CFM3
 *visible:true
-*solid*color:0.362921 0.830867 0.227538 1
+*solid*color:0.488413 0.029702 0.085747 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

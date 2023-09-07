@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:CRFA-CSBL-ZACA-Zaca_blind_fault-CFM5
 *visible:true
-*solid*color:0.816782 0.488078 0.432538 1
+*solid*color:0.454299 0.956389 0.124007 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

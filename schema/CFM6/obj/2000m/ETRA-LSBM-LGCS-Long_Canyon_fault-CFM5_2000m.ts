@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:ETRA-LSBM-LGCS-Long_Canyon_fault-CFM5_2000m
 *visible:true
-*solid*color:0.851850 0.555642 0.216835 1
+*solid*color:0.151803 0.778837 0.857063 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

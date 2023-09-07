@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SNFA-PMVZ-MULT-Panamint_Valley_fault-CFM2_2000m
 *visible:true
-*solid*color:0.285723 0.399981 0.172573 1
+*solid*color:0.165918 0.237816 0.660736 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

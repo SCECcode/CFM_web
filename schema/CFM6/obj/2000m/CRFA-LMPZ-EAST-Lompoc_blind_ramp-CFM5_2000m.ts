@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:CRFA-LMPZ-EAST-Lompoc_blind_ramp-CFM5_2000m
 *visible:true
-*solid*color:0.540028 0.738063 0.117760 1
+*solid*color:0.169041 0.666475 0.803003 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

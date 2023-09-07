@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-CRSF-CHNH-Yorba_Linda_lineament-CFM2_1000m
 *visible:true
-*solid*color:0.967552 0.360730 0.653993 1
+*solid*color:0.439353 0.708406 0.911682 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

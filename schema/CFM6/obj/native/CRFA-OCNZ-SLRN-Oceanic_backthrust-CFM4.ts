@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:CRFA-OCNZ-SLRN-Oceanic_backthrust-CFM4
 *visible:true
-*solid*color:0.575793 0.213202 0.441665 1
+*solid*color:0.082069 0.814235 0.251899 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

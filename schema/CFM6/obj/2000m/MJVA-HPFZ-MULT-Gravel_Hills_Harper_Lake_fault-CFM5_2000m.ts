@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-HPFZ-MULT-Gravel_Hills_Harper_Lake_fault-CFM5_2000m
 *visible:true
-*solid*color:0.787889 0.212920 0.489049 1
+*solid*color:0.193913 0.552857 0.859793 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

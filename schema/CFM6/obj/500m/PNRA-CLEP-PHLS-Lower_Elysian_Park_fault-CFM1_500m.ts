@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-CLEP-PHLS-Lower_Elysian_Park_fault-CFM1_500m
 *visible:true
-*solid*color:0.385035 0.693552 0.851720 1
+*solid*color:0.696694 0.986047 0.076773 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

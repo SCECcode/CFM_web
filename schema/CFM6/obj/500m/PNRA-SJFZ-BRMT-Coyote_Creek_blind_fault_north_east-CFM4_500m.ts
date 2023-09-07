@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-SJFZ-BRMT-Coyote_Creek_blind_fault_north_east-CFM4_500m
 *visible:true
-*solid*color:0.475335 0.964513 0.464907 1
+*solid*color:0.091874 0.418406 0.199855 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

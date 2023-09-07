@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:CRFA-CSBL-LALM-Los_Alamos_fault-CFM5_1000m
 *visible:true
-*solid*color:0.599500 0.222459 0.001156 1
+*solid*color:0.349966 0.458618 0.678195 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-CRSF-BCYL-Bitter_Springs_fault-CFM5_2000m
 *visible:true
-*solid*color:0.999232 0.547894 0.004597 1
+*solid*color:0.558388 0.182583 0.925657 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

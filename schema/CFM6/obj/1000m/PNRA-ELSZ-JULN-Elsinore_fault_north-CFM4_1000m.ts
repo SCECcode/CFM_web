@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-ELSZ-JULN-Elsinore_fault_north-CFM4_1000m
 *visible:true
-*solid*color:0.528353 0.728647 0.842013 1
+*solid*color:0.095292 0.575114 0.669505 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

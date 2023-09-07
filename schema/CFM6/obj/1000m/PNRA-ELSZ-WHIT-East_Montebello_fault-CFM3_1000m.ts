@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-ELSZ-WHIT-East_Montebello_fault-CFM3_1000m
 *visible:true
-*solid*color:0.778256 0.823203 0.674370 1
+*solid*color:0.540012 0.922334 0.340818 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:ETRA-PMFZ-MULT-Pinto_Mountain_fault-CFM5_500m
 *visible:true
-*solid*color:0.917467 0.784897 0.544702 1
+*solid*color:0.481431 0.329094 0.771837 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

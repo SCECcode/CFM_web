@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-JVHZ-MULT-Johnson_Valley_fault-CFM5_2000m
 *visible:true
-*solid*color:0.604459 0.533186 0.406735 1
+*solid*color:0.463985 0.382153 0.582179 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

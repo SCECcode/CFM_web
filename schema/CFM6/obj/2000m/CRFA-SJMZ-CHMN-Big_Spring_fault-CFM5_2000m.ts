@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:CRFA-SJMZ-CHMN-Big_Spring_fault-CFM5_2000m
 *visible:true
-*solid*color:0.005959 0.340022 0.737666 1
+*solid*color:0.958175 0.801385 0.309104 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

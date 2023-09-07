@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-CSTF-SJQH-San_Joaquin_Hills_fault-CFM3_2000m
 *visible:true
-*solid*color:0.695947 0.212098 0.843182 1
+*solid*color:0.999822 0.163810 0.258992 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

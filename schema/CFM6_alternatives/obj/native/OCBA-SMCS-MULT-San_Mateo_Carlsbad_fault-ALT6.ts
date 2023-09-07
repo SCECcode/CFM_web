@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-SMCS-MULT-San_Mateo_Carlsbad_fault-ALT6
 *visible:true
-*solid*color:0.931400 0.126185 0.112800 1
+*solid*color:0.792463 0.676477 0.818717 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

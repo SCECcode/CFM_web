@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCCA-OSMB-EAST-Santa_Maria_Basin_thrust_B-CFM5_500m
 *visible:true
-*solid*color:0.700050 0.277692 0.640275 1
+*solid*color:0.751349 0.560406 0.197536 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

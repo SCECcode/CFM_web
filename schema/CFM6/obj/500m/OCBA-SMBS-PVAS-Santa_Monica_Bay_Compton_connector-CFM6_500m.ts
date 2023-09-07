@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:OCBA-SMBS-PVAS-Santa_Monica_Bay_Compton_connector-CFM6_500m
 *visible:true
-*solid*color:0.279692 0.825422 0.611108 1
+*solid*color:0.779739 0.531227 0.995686 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-CLEP-LABS-Compton_Los_Alamitos_fault-CFM2_500m
 *visible:true
-*solid*color:0.550555 0.137939 0.367540 1
+*solid*color:0.488803 0.103141 0.058110 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

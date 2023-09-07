@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SAFS-SAFZ-SBMT-Garnet_Hill_fault-CFM6_1000m
 *visible:true
-*solid*color:0.501504 0.348554 0.344338 1
+*solid*color:0.110799 0.196586 0.747454 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

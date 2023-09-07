@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:GVFA-TDRS-COAL-Coalinga_blind_fault-CFM2_2000m
 *visible:true
-*solid*color:0.982648 0.487907 0.735176 1
+*solid*color:0.751057 0.843169 0.002721 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

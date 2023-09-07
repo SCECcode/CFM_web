@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-ELSZ-SRCP-Borrego_fault-CFM4_1000m
 *visible:true
-*solid*color:0.872350 0.559717 0.887629 1
+*solid*color:0.181665 0.890797 0.934148 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

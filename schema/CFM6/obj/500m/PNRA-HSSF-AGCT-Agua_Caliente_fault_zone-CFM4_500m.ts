@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-HSSF-AGCT-Agua_Caliente_fault_zone-CFM4_500m
 *visible:true
-*solid*color:0.946001 0.357360 0.738302 1
+*solid*color:0.234999 0.907048 0.135418 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

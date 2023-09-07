@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SALT-BRSZ-BRSZ-Brawley_fault-CFM5_2000m
 *visible:true
-*solid*color:0.763667 0.681819 0.783603 1
+*solid*color:0.991715 0.745947 0.666319 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

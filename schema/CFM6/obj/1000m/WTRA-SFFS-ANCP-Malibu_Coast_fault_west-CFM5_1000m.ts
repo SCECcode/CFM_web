@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SFFS-ANCP-Malibu_Coast_fault_west-CFM5_1000m
 *visible:true
-*solid*color:0.677513 0.038868 0.009519 1
+*solid*color:0.219590 0.389886 0.540111 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

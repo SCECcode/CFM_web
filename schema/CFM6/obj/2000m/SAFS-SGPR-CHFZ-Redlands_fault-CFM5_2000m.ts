@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SAFS-SGPR-CHFZ-Redlands_fault-CFM5_2000m
 *visible:true
-*solid*color:0.535153 0.629332 0.304877 1
+*solid*color:0.603572 0.814440 0.137955 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

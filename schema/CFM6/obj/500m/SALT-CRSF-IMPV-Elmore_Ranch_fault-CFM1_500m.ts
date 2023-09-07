@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SALT-CRSF-IMPV-Elmore_Ranch_fault-CFM1_500m
 *visible:true
-*solid*color:0.662655 0.987965 0.014818 1
+*solid*color:0.001940 0.671949 0.844166 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

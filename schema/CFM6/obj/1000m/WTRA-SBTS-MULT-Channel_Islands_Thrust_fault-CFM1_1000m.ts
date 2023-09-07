@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:WTRA-SBTS-MULT-Channel_Islands_Thrust_fault-CFM1_1000m
 *visible:true
-*solid*color:0.087534 0.317716 0.219800 1
+*solid*color:0.233780 0.291326 0.140971 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

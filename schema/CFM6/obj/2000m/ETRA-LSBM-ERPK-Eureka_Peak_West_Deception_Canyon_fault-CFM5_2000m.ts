@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:ETRA-LSBM-ERPK-Eureka_Peak_West_Deception_Canyon_fault-CFM5_2000m
 *visible:true
-*solid*color:0.820859 0.161938 0.089892 1
+*solid*color:0.019144 0.356690 0.243347 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

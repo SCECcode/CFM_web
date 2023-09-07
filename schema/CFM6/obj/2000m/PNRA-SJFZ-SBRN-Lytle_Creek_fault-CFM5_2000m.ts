@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-SJFZ-SBRN-Lytle_Creek_fault-CFM5_2000m
 *visible:true
-*solid*color:0.625900 0.460798 0.517247 1
+*solid*color:0.628748 0.036228 0.008896 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

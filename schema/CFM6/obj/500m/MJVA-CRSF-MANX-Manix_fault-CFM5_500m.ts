@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:MJVA-CRSF-MANX-Manix_fault-CFM5_500m
 *visible:true
-*solid*color:0.951718 0.981948 0.243801 1
+*solid*color:0.260644 0.506673 0.693351 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

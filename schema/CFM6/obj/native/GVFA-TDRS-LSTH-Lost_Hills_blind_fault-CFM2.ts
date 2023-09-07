@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:GVFA-TDRS-LSTH-Lost_Hills_blind_fault-CFM2
 *visible:true
-*solid*color:0.025135 0.811913 0.171332 1
+*solid*color:0.216054 0.476889 0.432558 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

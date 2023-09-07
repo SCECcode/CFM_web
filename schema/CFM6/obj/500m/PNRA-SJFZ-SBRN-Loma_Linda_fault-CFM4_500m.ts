@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:PNRA-SJFZ-SBRN-Loma_Linda_fault-CFM4_500m
 *visible:true
-*solid*color:0.975593 0.780174 0.850408 1
+*solid*color:0.990962 0.918618 0.868397 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

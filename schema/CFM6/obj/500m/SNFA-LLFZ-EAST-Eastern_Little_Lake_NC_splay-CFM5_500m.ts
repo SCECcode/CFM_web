@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SNFA-LLFZ-EAST-Eastern_Little_Lake_NC_splay-CFM5_500m
 *visible:true
-*solid*color:0.650315 0.904294 0.537893 1
+*solid*color:0.161807 0.001724 0.383377 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default

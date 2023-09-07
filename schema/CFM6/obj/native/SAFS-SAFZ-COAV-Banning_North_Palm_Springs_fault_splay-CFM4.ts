@@ -2,7 +2,7 @@ GOCAD TSurf 1
 HEADER {
 name:SAFS-SAFZ-COAV-Banning_North_Palm_Springs_fault_splay-CFM4
 *visible:true
-*solid*color:0.600871 0.289160 0.891890 1
+*solid*color:0.807834 0.263174 0.153574 1
 }
 GOCAD_ORIGINAL_COORDINATE_SYSTEM
 NAME Default
