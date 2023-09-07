@@ -351,13 +351,9 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
                                     <div class="d-flex">
                                         <input placeholder="Enter Keyword" type="text" id="keywordTxt"
                                                class="form-control"
-                                               onfocus="this.value=''" style=""/>
-<!--
-                                        <button id="keywordBtn" type="button" title="Search with keyword"
-                                                class="btn btn-default cfm-small-btn pl-3" onclick="searchByKeyword()">
-                                            <span class="glyphicon glyphicon-search"></span>
-                                        </button>
--->
+					       onfocus="this.value=''" 
+                                               onkeypress="javascript:if (event.key == 'Enter') $('#keywordTxt').mouseout();"
+                                               style=""/>
                                     </div>
                                 </div>
 
@@ -374,37 +370,29 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
                                                placeholder="Latitude"
                                                id="firstLatTxt"
                                                title="first lat"
-                                               onfocus="this.value=''"
+onkeypress="javascript:if (event.key == 'Enter') $('#firstLatTxt').mouseout();"
                                                class="latlon-item form-control">
                                         <input type="text" 
                                                id="firstLonTxt" 
                                                placeholder='Longitude' 
                                                title="first lon"
-                                               onfocus="this.value=''" 
+onkeypress="javascript:if (event.key == 'Enter') $('#firstLonTxt').mouseout();"
                                                class="latlon-item form-control mt-1">
                                     </div>
                                     <div class="col-2 pl-1 pr-0">
                                         <input type="text"
                                                id="secondLatTxt"
-                                               title="optional second lat"
+                                               title="Optional Latitude"
                                                value='optional'
-                                               onfocus="this.value=''"
+onkeypress="javascript:if (event.key == 'Enter') $('#secondLatTxt').mouseout();"
                                                class="latlon-item form-control">
                                         <input type="text"
                                                id="secondLonTxt"
-                                               title="optional second lon"
+                                               title="Optional Longitude"
                                                value='optional'
-                                               onfocus="this.value=''"
+onkeypress="javascript:if (event.key == 'Enter') $('#secondLonTxt').mouseout();"
                                                class="latlon-item form-control mt-1">
                                     </div>
-<!--
-                                    <div class="col-1 pr-0 align-items-center">
-                                        <button id="latlonBtn" type="button" title="Search with latlon"
-                                                class="btn btn-default cfm-small-btn " onclick="searchByLatlon(0)">
-                                            <span class="glyphicon glyphicon-search"></span>
-                                        </button>
-                                    </div>
--->
                                 </div>
                             </div>
                         </li>

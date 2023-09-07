@@ -217,10 +217,20 @@ function searchByKeyword() {
 
 // takes 2 or 4 entries
 function searchByLatlon(frommap) {
+
     var firstlatstr=document.getElementById("firstLatTxt").value;
     var firstlonstr=document.getElementById("firstLonTxt").value;
     var secondlatstr=document.getElementById("secondLatTxt").value;
     var secondlonstr=document.getElementById("secondLonTxt").value;
+
+    if ( (firstlatstr == "") || 
+	 (firstlonstr== "") ||
+         (secondlatstr != "" && secondlonstr == "") ||
+         (secondlatstr == "" && secondlonstr != "")) {
+window.console.log("SKIP search for now,");
+        return;
+    }
+
     if(secondlatstr == "optional")
         secondlatstr="0";
     if(secondlonstr == "optional")
@@ -231,29 +241,30 @@ function searchByLatlon(frommap) {
       chk_and_add_bounding_rectangle();
     }
     
+	/* ???
     if (firstlatstr == "" || firstlonstr=="") {
         document.getElementById("cfm-table-body").innerHTML = "";
         return;
     } else {
+        **/
 
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                toggle_off_all_layer();
-                document.getElementById("phpResponseTxt").innerHTML = this.responseText;
-                var str=processSearchResult("searchByLatLon");
-                document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
-            }
-        }
-        xmlhttp.open("GET","php/faultsByLatlon.php?firstlat="+firstlatstr+"&secondlat="+secondlatstr+"&firstlon="+firstlonstr+"&secondlon="+secondlonstr,true);
-        xmlhttp.send();
+    if (window.XMLHttpRequest) {
+      // code for IE7+, Firefox, Chrome, Opera, Safari
+      xmlhttp = new XMLHttpRequest();
+      } else {
+        // code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            toggle_off_all_layer();
+            document.getElementById("phpResponseTxt").innerHTML = this.responseText;
+            var str=processSearchResult("searchByLatLon");
+            document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
+        }
+    }
+    xmlhttp.open("GET","php/faultsByLatlon.php?firstlat="+firstlatstr+"&secondlat="+secondlatstr+"&firstlon="+firstlonstr+"&secondlon="+secondlonstr,true);
+    xmlhttp.send();
 }
 
 function searchByZone(str) {
