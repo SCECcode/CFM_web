@@ -1,0 +1,27 @@
+#!/bin/sh
+#
+
+DATATYPES="alternatives7 preferred7 ruptures7"
+
+for DATATYPE in $DATATYPES
+do 
+
+  rm -rf ../data/${DATATYPE}
+  mkdir ../data/${DATATYPE}
+  rm -rf ../sql/${DATATYPE}
+  mkdir ../sql/${DATATYPE}
+
+  ./extract-csv7.sh ${DATATYPE}
+  mv *.csv ../data/${DATATYPE}
+
+  #./convert-shp.sh ${DATATYPE}
+  #mv *.sql ../sql/${DATATYPE}
+
+  ./create-csv.sh ${DATATYPE}
+  mv *.csv ../data/${DATATYPE}
+
+  ./create-sql7.sh ${DATATYPE}
+  mv *.sql ../sql/${DATATYPE}
+  mv *column_labels ../data/${DATATYPE}
+
+done

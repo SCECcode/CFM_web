@@ -172,6 +172,7 @@ function updatePrograssBar(width) {
   let elm = $("#eq-progress");
   var n= width * 1  + '%';
   elm.val(n);
+window.console.log("Progress bar: update to ", n);
 }
 
 function loadSeismicity() {

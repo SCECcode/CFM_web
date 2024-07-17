@@ -97,4 +97,60 @@ case $DATATYPE in
        AWSPATH="https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM6/6.1/CFM6_Ruptures"
 
        ;;
+   "alternatives7")
+       echo "  --setup for "$DATATYPE
+       CFMPATH=${PWD}"/../CFM7"
+
+       CFMSHP=${CFMPATH}"/obj/alternatives/traces/shp"
+       CFMLOC=${CFMSHP}"/CFM7.0_traces_ALT"
+       CFMLOC_BLIND=${CFMSHP}"/CFM7.0_blind_ALT"
+
+       CFMTS=${CFMPATH}"/obj/alternatives"
+
+       CFMTYPE="CFM7_alternatives"
+       EXCEL_NM="CFM7.0_Metadata_Alt"
+       EXCEL_NM_SHEET="CFM7.0 Alternatives"
+       EXCEL_NM_FILE=${CFMPATH}"/doc/CFM7.0_Metadata.xlsx"
+       EXCEL_NM_CSV=${CFMPATH}"/doc/"$EXCEL_NM".csv"
+
+       AWSPATH="https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM7/7.0/CFM7_Alternatives"
+       ;;
+   "preferred7")
+       echo "  --setup for "$DATATYPE
+       CFMPATH=${PWD}"/../CFM7"
+
+       CFMSHP=${CFMPATH}"/obj/preferred/traces/shp"
+       CFMLOC=${CFMSHP}"/CFM7.0_traces"
+       CFMLOC_BLIND=${CFMSHP}"/CFM7.0_blind"
+
+       CFMTS=${CFMPATH}"/obj/preferred"
+
+       CFMTYPE="CFM7_preferred"
+       EXCEL_NM="CFM7.0_Metadata"
+       EXCEL_NM_SHEET="CFM7.0 Preferred"
+       EXCEL_NM_FILE=${CFMPATH}"/doc/CFM7.0_Metadata.xlsx"
+       EXCEL_NM_CSV=${CFMPATH}"/doc/"$EXCEL_NM".csv"
+
+       AWSPATH="https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM7/7.0/CFM7_Preferred"
+
+       ;;
+   "ruptures7")
+       echo "  --setup for "$DATATYPE
+       CFMPATH=${PWD}"/../CFM7"
+
+       CFMSHP=${CFMPATH}"/obj/ruptures/traces/shp"
+       CFMLOC=${CFMSHP}"/CFM7.0_traces_Rup"
+       CFMLOC_BLIND=${CFMSHP}"/CFM7.0_blind_Rup"
+
+       CFMTS=${CFMPATH}"/obj/ruptures"
+
+       CFMTYPE="CFM7_ruptures"
+       EXCEL_NM="CFM7.0_Metadata_Rup"
+       EXCEL_NM_SHEET="CFM7.0 Ruptures"
+       EXCEL_NM_FILE=${CFMPATH}"/doc/CFM7.0_Metadata.xlsx"
+       EXCEL_NM_CSV=${CFMPATH}"/doc/"$EXCEL_NM".csv"
+
+       AWSPATH="https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM7/7.0/CFM7_Ruptures"
+
+       ;;
 esac

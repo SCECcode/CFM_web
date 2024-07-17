@@ -96,8 +96,6 @@ function setup_viewer()
 // otm topo
   var topoURL='https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png';
   var topoAttribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreeMap</a> contributors,<a href=http://viewfinderpanoramas.org"> SRTM</a> | &copy; <a href="https://www.opentopomap.org/copyright">OpenTopoMap</a>(CC-BY-SA)';
-  L.tileLayer(topoURL, { detectRetina: true, attribution: topoAttribution, maxZoom:16 })
-
   var otm_topographic = L.tileLayer(topoURL, { detectRetina: true, attribution: topoAttribution, maxZoom:16});
 
   var jawg_dark = L.tileLayer('https://{s}.tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token={accessToken}', {
@@ -105,7 +103,8 @@ function setup_viewer()
         minZoom: 0,
         maxZoom: 16,
         accessToken: 'hv01XLPeyXg9OUGzUzaH4R0yA108K1Y4MWmkxidYRe5ThWqv2ZSJbADyrhCZtE4l'});
-	  var jawg_light = L.tileLayer('https://{s}.tile.jawg.io/jawg-light/{z}/{x}/{y}{r}.png?access-token={accessToken}', {
+
+  var jawg_light = L.tileLayer('https://{s}.tile.jawg.io/jawg-light/{z}/{x}/{y}{r}.png?access-token={accessToken}', {
         attribution: '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         minZoom: 0,
         maxZoom: 16,
@@ -115,6 +114,9 @@ function setup_viewer()
   var openURL='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
   var openAttribution ='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
   var osm_street=L.tileLayer(openURL, {attribution: openAttribution, maxZoom:16});
+  var white = L.tileLayer("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAAA1BMVEX///+nxBvIAAAAH0lEQVQYGe3BAQ0AAADCIPunfg43YAAAAAAAAAAA5wIhAAAB9aK9BAAAAABJRU5ErkJggg==", {minZoom: 6, maxZoom: 9});
+  var lyr = L.tileLayer('./data/cybershake22_12/{z}/{x}/{y}.png', {tms: 1, opacity: 1, attribution: "", minZoom: 6, maxZoom: 16});
+
 
   baseLayers = {
     "esri topo" : esri_topographic,
@@ -124,7 +126,8 @@ function setup_viewer()
     "osm streets relief" : osm_streets_relief,
     "otm topo": otm_topographic,
     "osm street" : osm_street,
-    "esri terrain": esri_terrain
+    "esri terrain": esri_terrain,
+    "cybershake":lyr
   };
 
   var overLayer = {};
@@ -135,6 +138,7 @@ function setup_viewer()
   mymap = L.map('CFM_plot', { zoomSnap: 0.25, drawControl:false, layers: [esri_topographic, basemap], zoomControl:true} );
   mymap.setView([34.3, -118.4], init_map_zoom_level);
   mymap.attributionControl.addAttribution(scecAttribution);
+
 
 // basemap selection
   var ctrl_div=document.getElementById('external_leaflet_control');
@@ -225,7 +229,7 @@ function setup_viewer()
 
   function onMapZoom(e) { // change fault weight
     var zoom=mymap.getZoom();
-//window.console.log("map got zoomed..>>",zoom);
+window.console.log("map got zoomed..>>",zoom);
     if( fault_width_change && zoom > default_zoom_threshold) {
        change_fault_weight(default_weight); // change width to 2px
 //window.console.log("change weight back to"+default_weight);

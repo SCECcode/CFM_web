@@ -76,13 +76,11 @@ CREATE TABLE OBJECT_tb (
    name VARCHAR(100) UNIQUE NOT NULL,
    url VARCHAR(300) UNIQUE,
 
-   alternative VARCHAR(3),
    source_author VARCHAR(20),
    last_update VARCHAR(6),
-   descriptor VARCHAR(10),
-   avg_strike real DEFAULT 0.0,
-   avg_dip real DEFAULT 0.0,
-   area_km2 numeric DEFAULT 0,
+   w_avg_strike real DEFAULT 0.0,
+   w_avg_dip real DEFAULT 0.0,
+   total_area_km2 numeric DEFAULT 0,
    exposure VARCHAR(10),
    slip_sense VARCHAR(10),
    ID_comments VARCHAR(300),
@@ -90,7 +88,6 @@ CREATE TABLE OBJECT_tb (
    fault_strand_model_description VARCHAR(3000),
    reference VARCHAR(3000)
 );
-
 
 CREATE TABLE EQ_hauksson_tb (
    gid serial PRIMARY KEY,

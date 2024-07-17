@@ -480,6 +480,7 @@ onchange="switchLayer(this.value);">
                   <option value="otm topo">OTM Topographic</option>
                   <option value="osm street">OSM Street</option>
                   <option value="esri terrain">ESRI Terrain</option>
+                  <option value="cybershake">Cybershake</option>
                 </select>
             </div>
 
