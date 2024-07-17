@@ -9,19 +9,21 @@ services:
     restart: unless-stopped
       
   web:
+    restart: unless-stopped
     volumes:
       - ./:/app
-
   altweb:
+    restart: unless-stopped
     volumes:
       - ./:/app
 
   rupweb:
+    restart: unless-stopped
     volumes:
       - ./:/app
 
   old53web:
+    restart: unless-stopped
     volumes:
       - ./:/app
-
 
