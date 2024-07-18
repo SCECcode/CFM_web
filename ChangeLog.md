@@ -1,3 +1,6 @@
+## 2024-07-22  Mei-Hui Su <mei@usc.edu>
+* Add CFM7.0 Preferred, Alternatives, and Ruptures
+
 ## 2023-09-07  Mei-Hui Su <mei@usc.edu>
 * 3rd party tools upgrades
 * UI updates: new set of basemaps, attribution size limit,

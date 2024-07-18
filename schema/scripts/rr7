@@ -7,20 +7,20 @@ for DATATYPE in $DATATYPES
 do 
 
   rm -rf ../data/${DATATYPE}
-  mkdir ../data/${DATATYPE}
+  mkdir -p ../data/${DATATYPE}
   rm -rf ../sql/${DATATYPE}
-  mkdir ../sql/${DATATYPE}
+  mkdir -p ../sql/${DATATYPE}
 
   ./extract-csv7.sh ${DATATYPE}
   mv *.csv ../data/${DATATYPE}
 
-  #./convert-shp.sh ${DATATYPE}
-  #mv *.sql ../sql/${DATATYPE}
+  ./convert-shp.sh ${DATATYPE}
+  mv *.sql ../sql/${DATATYPE}
 
   ./create-csv.sh ${DATATYPE}
   mv *.csv ../data/${DATATYPE}
 
-  ./create-sql7.sh ${DATATYPE}
+  ./create-sql.sh ${DATATYPE}
   mv *.sql ../sql/${DATATYPE}
   mv *column_labels ../data/${DATATYPE}
 

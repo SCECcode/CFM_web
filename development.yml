@@ -16,8 +16,20 @@ services:
     restart: unless-stopped
     volumes:
       - ./:/app
-
   rupweb:
+    restart: unless-stopped
+    volumes:
+      - ./:/app
+
+  old61web:
+    restart: unless-stopped
+    volumes:
+      - ./:/app
+  old61altweb:
+    restart: unless-stopped
+    volumes:
+      - ./:/app
+  old61rupweb:
     restart: unless-stopped
     volumes:
       - ./:/app

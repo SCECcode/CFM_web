@@ -14,6 +14,9 @@ pg_ctl -D /home/postgres/cfm_db -l /home/postgres/logfile start
 /app/schema/load_6_alternatives_db_up
 /app/schema/load_6_ruptures_db_up
 /app/schema/load_53_preferred_db_up
+/app/schema/load_7_preferred_db_up
+/app/schema/load_7_alternatives_db_up
+/app/schema/load_7_ruptures_db_up
 
   
 

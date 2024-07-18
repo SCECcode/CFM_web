@@ -8,11 +8,11 @@ for DATATYPE in $DATATYPES
 do 
 
   rm -rf ../data/${DATATYPE}
-  mkdir ../data/${DATATYPE}
+  mkdir -p ../data/${DATATYPE}
   rm -rf ../sql/${DATATYPE}
-  mkdir ../sql/${DATATYPE}
+  mkdir -p ../sql/${DATATYPE}
 
-  ./extract-csv7.sh ${DATATYPE}
+  ./extract-csv.sh ${DATATYPE}
   mv *.csv ../data/${DATATYPE}
 
   ./convert-shp.sh ${DATATYPE}

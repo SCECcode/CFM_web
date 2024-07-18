@@ -200,12 +200,18 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
    <form id="id_select_dataset">
      <label for="dataset"> Choose CFM Model : </label>
      <label><input type="radio" id="dataset0" name=dataset onclick="gotoOtherViewer(0)">
-            <span>6.1 PREFERRED</span></label>
+            <span>7.0 PREFERRED</span></label>
      <label><input type="radio" id="dataset1" name=dataset onclick="gotoOtherViewer(1)">
-            <span>6.1 ALTERNATIVES</span></label>
+            <span>7.0 ALTERNATIVES</span></label>
      <label><input type="radio" id="dataset2" name=dataset onclick="gotoOtherViewer(2)">
+            <span>7.0 RUPTURES</span></label>
+     <label><input type="radio" id="dataset0" name=dataset onclick="gotoOtherViewer(3)">
+            <span>6.1 PREFERRED</span></label>
+     <label><input type="radio" id="dataset1" name=dataset onclick="gotoOtherViewer(4)">
+            <span>6.1 ALTERNATIVES</span></label>
+     <label><input type="radio" id="dataset2" name=dataset onclick="gotoOtherViewer(5)">
             <span>6.1 RUPTURES</span></label>
-     <label><input type="radio" id="dataset3" name=dataset onclick="gotoOtherViewer(3)">
+     <label><input type="radio" id="dataset3" name=dataset onclick="gotoOtherViewer(6)">
             <span>5.3 PREFERRED</span></label>
    </form>
 

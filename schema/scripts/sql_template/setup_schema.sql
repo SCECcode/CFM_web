@@ -76,10 +76,8 @@ CREATE TABLE OBJECT_tb (
    name VARCHAR(100) UNIQUE NOT NULL,
    url VARCHAR(300) UNIQUE,
 
-   alternative VARCHAR(3),
    source_author VARCHAR(20),
    last_update VARCHAR(6),
-   descriptor VARCHAR(10),
    avg_strike real DEFAULT 0.0,
    avg_dip real DEFAULT 0.0,
    area_km2 numeric DEFAULT 0,

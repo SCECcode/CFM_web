@@ -41,7 +41,6 @@ name,abb
 "> area_tb.csv
 
 #name,area,aabb,zone,zabb,section,sabb,fault
-# 'CFM5.2 Fault Object Name','Fault Area/Major Fault System','Code','Fault Zone/Region','Code_2','Fault Section','Code_3','Fault Name','Code_4'
 csvcut -c "1,2,3,4,5,6,7,8" ${EXCEL_NM}.csv |csvcut -K 1|sort |uniq | sed "1i\\
 name,area,aabb,zone,zabb,section,sabb,fault
 "> object_tb_head.csv

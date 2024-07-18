@@ -49,6 +49,6 @@ name,area,aabb,zone,zabb,section,sabb,fault
 "> object_tb_head.csv
 
 #name,
-csvcut -c "1,14,15,16,17,18,19,20,21,22,23,24,25,26" ${EXCEL_NM}.csv |csvcut -K 1|sort |uniq | sed "1i\\
-name,Alternative,Source/Author,Last Update,Descriptor,Avg Strike,Avg Dip,Area [km^2],Exposure,Slip Sense,ID Comments,USGS ID,Fault Strand/Model Description,References
+csvcut -c "1,15,16,18,19,20,21,22,23,24,25,26" ${EXCEL_NM}.csv |csvcut -K 1|sort |uniq | sed "1i\\
+name,Source/Author,Last Update,Avg Strike,Avg Dip,Area [km^2],Exposure,Slip Sense,ID Comments,USGS ID,Fault Strand/Model Description,References
 "> object_tb_base.csv 

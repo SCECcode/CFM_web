@@ -102,8 +102,8 @@ case $DATATYPE in
        CFMPATH=${PWD}"/../CFM7"
 
        CFMSHP=${CFMPATH}"/obj/alternatives/traces/shp"
-       CFMLOC=${CFMSHP}"/CFM7.0_traces_ALT"
-       CFMLOC_BLIND=${CFMSHP}"/CFM7.0_blind_ALT"
+       CFMLOC=${CFMSHP}"/CFM7.0_traces_Alt"
+       CFMLOC_BLIND=${CFMSHP}"/CFM7.0_blind_Alt"
 
        CFMTS=${CFMPATH}"/obj/alternatives"
 
