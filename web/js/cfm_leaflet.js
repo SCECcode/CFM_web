@@ -5,7 +5,8 @@ This is leaflet specific utilities
 
 ***/
 
-var init_map_zoom_level = 7;
+var init_map_zoom_level = 5.5;
+var init_map_coordinates = [38, -120.0];
 var seismicity_map_zoom_level = 9;
 
 var enable_seismicity=0; // retrieve local seismicity on zoom demand
@@ -47,8 +48,7 @@ function refresh_map()
     window.console.log("refresh_map: BAD BAD BAD");
     } else {
       window.console.log("refresh_map: calling setView");
-      viewermap.setView([34.3, -118.4], init_map_zoom_level);
-      
+      viewermap.setView( init_map_coordinates , init_map_zoom_level);
   }
 }
 
@@ -70,8 +70,8 @@ function get_bounds()
 
 function get_map()
 {
-  var center=[34.3,-118.4];
-  var zoom=7;
+  var center=init_map_coordinates;
+  var zoom=init_map_zoom_level;
   if (viewermap == undefined) {
     window.console.log("get_map: BAD BAD BAD");
     } else {
@@ -136,7 +136,7 @@ function setup_viewer()
 
 // ==> mymap <==
   mymap = L.map('CFM_plot', { zoomSnap: 0.25, drawControl:false, layers: [esri_topographic, basemap], zoomControl:true} );
-  mymap.setView([34.3, -118.4], init_map_zoom_level);
+  mymap.setView( init_map_coordinates , init_map_zoom_level);
   mymap.attributionControl.addAttribution(scecAttribution);
 
 
