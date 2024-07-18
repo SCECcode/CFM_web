@@ -581,9 +581,7 @@ function getLevel3ContentFromMeta(meta) {
 // get info on this..
     var content=meta['fault'];
     content=content+"<hr>";
-//    content=_item(meta,content,'alternative','ALTERNATIVE');
     content=_item(meta,content,'fault_strand_model_description','MODEL_DESCRIPTION');
-//    content=_item(meta,content,'descriptor','DESCRIPTOR');
     content=_item(meta,content,'ID_comments','ID_COMMENTS');
     content=_item(meta,content,'reference','REFERENCE');
     return content;

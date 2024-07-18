@@ -42,7 +42,8 @@ function gotoOtherViewer(option) {
 //  http://localhost:8082
 //  http://moho.scec.org/cfm-viewer/
 //  https://moho.scec.org/cfm-viewer/
-  let myoption=$('#myOption').val();
+window.console.log(" XXX  gotoOtherViewer.."+option);
+  let myoption=parseInt($('#myOption').val());
   if(option == myoption) {
     return; // do nothing
   }
@@ -66,13 +67,16 @@ function gotoOtherViewer(option) {
      }
   }
 
+window.console.log("port "+ nport);
+window.console.log("npathname "+ npathname);
+
   let newLoc;
   if(port === "") {
      newLoc=protocol+"//"+hostname+"/"+npathname+"/";
      } else {
        newLoc=protocol+"//"+hostname+":"+nport;
   }
-  window.console.log("new Loc >>"+newLoc);
+window.console.log("new Loc >>"+newLoc);
   location.replace(newLoc);
 window.console.log("switch to a new loc");	
 }

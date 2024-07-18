@@ -2,10 +2,8 @@
 // for Fault Objects
 $gid=0;
 $name=1;
-#$alternative=2;
 $source_author=2;
 $last_update=3;
-#$descriptor=5;
 $avg_strike=4;
 $avg_dip=5;
 $area_km2=6;

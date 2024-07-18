@@ -21,10 +21,8 @@ $myObj = new \stdClass();
 
 $myObj->gid=$row[$gid];
 $myObj->name=$row[$name];
-#$myObj->alternative=$row[$alternative];
 $myObj->source_author=$row[$source_author];
 $myObj->last_update=$row[$last_update];
-#$myObj->descriptor=$row[$descriptor];
 $myObj->avg_strike=$row[$avg_strike];
 $myObj->avg_dip=$row[$avg_dip];
 $myObj->area_km2=$row[$area_km2];

@@ -205,13 +205,13 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
             <span>7.0 ALTERNATIVES</span></label>
      <label><input type="radio" id="dataset2" name=dataset onclick="gotoOtherViewer(2)">
             <span>7.0 RUPTURES</span></label>
-     <label><input type="radio" id="dataset0" name=dataset onclick="gotoOtherViewer(3)">
+     <label><input type="radio" id="dataset3" name=dataset onclick="gotoOtherViewer(3)">
             <span>6.1 PREFERRED</span></label>
-     <label><input type="radio" id="dataset1" name=dataset onclick="gotoOtherViewer(4)">
+     <label><input type="radio" id="dataset4" name=dataset onclick="gotoOtherViewer(4)">
             <span>6.1 ALTERNATIVES</span></label>
-     <label><input type="radio" id="dataset2" name=dataset onclick="gotoOtherViewer(5)">
+     <label><input type="radio" id="dataset5" name=dataset onclick="gotoOtherViewer(5)">
             <span>6.1 RUPTURES</span></label>
-     <label><input type="radio" id="dataset3" name=dataset onclick="gotoOtherViewer(6)">
+     <label><input type="radio" id="dataset6" name=dataset onclick="gotoOtherViewer(6)">
             <span>5.3 PREFERRED</span></label>
    </form>
 
