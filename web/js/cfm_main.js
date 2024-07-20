@@ -32,12 +32,10 @@ http://localhost:8081/?name=["SAFS-SAFZ-MULT-Garnet_Hill_fault_strand-CFM4"]&ts=
 
 // special handle keyword's input completion
   $('#keywordTxt').on("focus", function() {
-//     window.console.log("XXX in keyword input after focus->", event.type);
 
      $('#keywordTxt').on("blur mouseout", function(event) {
        $('#keywordTxt').off("mouseout");
        $('#keywordTxt').off("blur");
- //      window.console.log("XXX in keyword input with ->", $(this).val());
        if( $(this).val() != '' ) {
         searchByKeyword();
        }

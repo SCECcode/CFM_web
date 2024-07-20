@@ -296,11 +296,9 @@ function showColorLegend(param) {
 }
 
 function drawRectangle(){
-  window.console.log("XXX enable Rectangle..");
   rectangleDrawer.enable();
 }
 function skipRectangle(){
-  window.console.log("XXX disable Rectangle..");
   rectangleDrawer.disable();
 }
 

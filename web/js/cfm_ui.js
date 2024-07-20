@@ -42,7 +42,6 @@ function gotoOtherViewer(option) {
 //  http://localhost:8082
 //  http://moho.scec.org/cfm-viewer/
 //  https://moho.scec.org/cfm-viewer/
-window.console.log(" XXX  gotoOtherViewer.."+option);
   let myoption=parseInt($('#myOption').val());
   if(option == myoption) {
     return; // do nothing
