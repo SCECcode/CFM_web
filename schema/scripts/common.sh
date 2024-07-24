@@ -113,7 +113,7 @@ case $DATATYPE in
        EXCEL_NM_FILE=${CFMPATH}"/doc/CFM7.0_Metadata.xlsx"
        EXCEL_NM_CSV=${CFMPATH}"/doc/"$EXCEL_NM".csv"
 
-       AWSPATH="https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM7/7.0/CFM7_Alternatives"
+       AWSPATH="https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM7/7.0/alternatives"
        ;;
    "preferred7")
        echo "  --setup for "$DATATYPE
@@ -131,7 +131,7 @@ case $DATATYPE in
        EXCEL_NM_FILE=${CFMPATH}"/doc/CFM7.0_Metadata.xlsx"
        EXCEL_NM_CSV=${CFMPATH}"/doc/"$EXCEL_NM".csv"
 
-       AWSPATH="https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM7/7.0/CFM7_Preferred"
+       AWSPATH="https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM7/7.0/preferred"
 
        ;;
    "ruptures7")
@@ -150,7 +150,7 @@ case $DATATYPE in
        EXCEL_NM_FILE=${CFMPATH}"/doc/CFM7.0_Metadata.xlsx"
        EXCEL_NM_CSV=${CFMPATH}"/doc/"$EXCEL_NM".csv"
 
-       AWSPATH="https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM7/7.0/CFM7_Ruptures"
+       AWSPATH="https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM7/7.0/ruptures"
 
        ;;
 esac
