@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+  <name>CFM7.0_blind_Rup.kml</name>
+  <ScreenOverlay>
+    <name>SCEC Logo</name>
+    <Icon>
+      <href>https://www.scec.org/themes/scec/logo.png</href>
+    </Icon>
+    <overlayXY x="0" y="1" xunits="fraction" yunits="fraction"/>
+    <screenXY x="0.01" y="0.99" xunits="fraction" yunits="fraction"/>
+    <rotationXY x="0.5" y="0.5" xunits="fraction" yunits="fraction"/>
+    <size x="-1" y="-1" xunits="pixels" yunits="pixels"/>
+  </ScreenOverlay>
+
+  <Schema name="CFM" id="CFM">
+    <SimpleField name="ObjectName"   type="string"></SimpleField>
+    <SimpleField name="FaultArea"    type="string"></SimpleField>
+    <SimpleField name="Code1"        type="string"></SimpleField>
+    <SimpleField name="FaultZone"    type="string"></SimpleField>
+    <SimpleField name="Code2"        type="string"></SimpleField>
+    <SimpleField name="FaultSection" type="string"></SimpleField>
+    <SimpleField name="Code3"        type="string"></SimpleField>
+    <SimpleField name="FaultName"    type="string"></SimpleField>
+    <SimpleField name="Source"       type="string"></SimpleField>
+    <SimpleField name="LastUpdate"   type="string"></SimpleField>
+    <SimpleField name="wAvgStrike"   type="double"></SimpleField>
+    <SimpleField name="wAvgDip"      type="double"></SimpleField>
+    <SimpleField name="TotalArea"    type="double"></SimpleField>
+    <SimpleField name="Exposure"     type="string"></SimpleField>
+    <SimpleField name="SlipSense"    type="string"></SimpleField>
+    <SimpleField name="IDComments"   type="string"></SimpleField>
+    <SimpleField name="USGSID"       type="string"></SimpleField>
+    <SimpleField name="Description"  type="string"></SimpleField>
+    <SimpleField name="References"   type="string"></SimpleField>
+  </Schema>
+
+  <Style id="trace_norm">
+    <LabelStyle>
+      <scale>1</scale>
+    </LabelStyle>
+    <LineStyle>
+      <width>2</width>
+    </LineStyle>
+  </Style>
+
+  <Style id="blind_norm">
+    <LabelStyle>
+      <scale>0</scale>
+    </LabelStyle>
+    <LineStyle>
+      <color>ff00ffff</color>
+      <width>2</width>
+    </LineStyle>
+  </Style>
+
+  <Style id="highlight">
+    <LabelStyle>
+      <scale>1</scale>
+    </LabelStyle>
+    <LineStyle>
+      <color>ff0000ff</color>
+      <width>5</width>
+      <gx:physicalWidth>5</gx:physicalWidth>
+      <gx:labelVisibility>1</gx:labelVisibility>
+    </LineStyle>
+    <BalloonStyle>
+      <text>
+<![CDATA[
+<html>
+<style>
+table, th, td {
+  border: 1px solid black;
+  padding: 5px;
+  border-collapse: collapse;
+}
+tr:nth-child(even) {
+  background-color:#dddddd;
+}
+</style>
+<body>
+<a href="http://scec.org"><img src="https://www.scec.org/wp-content/uploads/2023/12/scec-statewide-logo-final-289x300_whitebg-v2.png"></a><br/>
+<h1>SCEC Community Fault Model 7.0<br/>
+$[CFM/FaultName]</h1>
+<h2>Fault Object Metadata</h2>
+<table>
+  <tr>
+    <td><b>Fault Name</b></th>
+    <td>$[CFM/FaultName]</th>
+  </tr>
+  <tr>
+    <td><b>CFM Object Name</b></th>
+    <td>$[CFM/ObjectName]</th>
+  </tr>
+  <tr>
+    <td><b>Fault Area</b></th>
+    <td>$[CFM/FaultArea]</th>
+  </tr>
+  <tr>
+    <td><b>Code</b></th>
+    <td>$[CFM/Code1]</th>
+  </tr>
+  <tr>
+    <td><b>Fault Zone</b></th>
+    <td>$[CFM/FaultZone]</th>
+  </tr>
+  <tr>
+    <td><b>Code</b></th>
+    <td>$[CFM/Code2]</th>
+  </tr>
+  <tr>
+    <td><b>Fault Section</b></th>
+    <td>$[CFM/FaultSection]</th>
+  </tr>
+  <tr>
+    <td><b>Code</b></th>
+    <td>$[CFM/Code3]</th>
+  </tr>
+  <tr>
+    <td><b>Source Creator</b></th>
+    <td>$[CFM/Source]</th>
+  </tr>
+  <tr>
+    <td><b>Last Update</b></th>
+    <td>$[CFM/LastUpdate]</th>
+  </tr>
+  <tr>
+    <td><b>Weighted Average Strike</b></th>
+    <td>$[CFM/wAvgStrike]</th>
+  </tr>
+  <tr>
+    <td><b>Weighted Average Dip</b></th>
+    <td>$[CFM/wAvgDip]</th>
+  </tr>
+  <tr>
+    <td><b>Total Surface Area</b></th>
+    <td>$[CFM/TotalArea] km^2</th>
+  </tr>
+  <tr>
+    <td><b>Exposure</b></th>
+    <td>$[CFM/Exposure]</th>
+  </tr>
+  <tr>
+    <td><b>Slip Sense</b></th>
+    <td>$[CFM/SlipSense]</th>
+  </tr>
+  <tr>
+    <td><b>ID Comments</b></th>
+    <td>$[CFM/IDComments]</th>
+  </tr>
+  <tr>
+    <td><b>USGS ID</b></th>
+    <td>$[CFM/USGSID]</th>
+  </tr>
+  <tr>
+    <td><b>Description</b></th>
+    <td>$[CFM/Description]</th>
+  </tr>
+  <tr>
+    <td><b>References</b></th>
+    <td>$[CFM/References]</th>
+  </tr>
+</table>
+<br/>
+For the complete metadata spreadsheet and other useful CFM data products refer to the <a href="https://southern.scec.org/research/cfm">Community Fault Model Homepage</a><br/>
+<br/>
+<a href="https://southern.scec.org/research/cfm">Community Fault Model Homepage</a><br/>
+<a href="https://central.scec.org/research/cfm-viewer/6.1/preferred/">Community Fault Model Explorer</a><br/>
+<a href="https://www.scec.org">SCEC Homepage</a><br/>
+<br/>
+</body>
+</html>
+]]>
+      </text>
+    </BalloonStyle>
+  </Style>
+
+  <StyleMap id="trace_style">
+    <Pair>
+      <key>normal</key>
+      <styleUrl>#trace_norm</styleUrl>
+    </Pair>
+    <Pair>
+      <key>highlight</key>
+      <styleUrl>#highlight</styleUrl>
+    </Pair>
+  </StyleMap>
+  <StyleMap id="blind_style">
+    <Pair>
+      <key>normal</key>
+      <styleUrl>#blind_norm</styleUrl>
+    </Pair>
+    <Pair>
+      <key>highlight</key>
+      <styleUrl>#highlight</styleUrl>
+    </Pair>
+  </StyleMap>
+//--------------------------------------------------------------------------------------------------------------------------------//
+  <Placemark>
+    <name>ETRA-BBFS-1992-Big_Bear_rupture-RUP6</name>
+    <styleUrl>#trace_style</styleUrl>
+    <ExtendedData>
+      <SchemaData schemaUrl="#CFM">
+        <SimpleData name="ObjectName"><![CDATA[ETRA-BBFS-1992-Big_Bear_rupture-RUP6]]></SimpleData>
+        <SimpleData name="FaultArea"><![CDATA[Eastern Transverse Ranges Area]]></SimpleData>
+        <SimpleData name="Code1"><![CDATA[ETRA]]></SimpleData>
+        <SimpleData name="FaultZone"><![CDATA[Big Bear Fault system]]></SimpleData>
+        <SimpleData name="Code2"><![CDATA[BBFS]]></SimpleData>
+        <SimpleData name="FaultSection"><![CDATA[1992 Big Bear rupture]]></SimpleData>
+        <SimpleData name="Code3">1992</SimpleData>
+        <SimpleData name="FaultName">Big Bear - 1992 rupture</SimpleData>
+        <SimpleData name="Source">HRVD</SimpleData>
+        <SimpleData name="LastUpdate"><![CDATA[CFM6]]></SimpleData>
+        <SimpleData name="wAvgStrike"><![CDATA[71]]></SimpleData>
+        <SimpleData name="wAvgDip">90</SimpleData>
+        <SimpleData name="TotalArea">714.11</SimpleData>
+        <SimpleData name="Exposure">blind</SimpleData>
+        <SimpleData name="SlipSense"><![CDATA[llss]]></SimpleData>
+        <SimpleData name="IDComments"><![CDATA[]]></SimpleData>
+        <SimpleData name="USGSID"><![CDATA[missing]]></SimpleData>
+        <SimpleData name="Description"><![CDATA[relocated seismicity]]></SimpleData>
+        <SimpleData name="References"><![CDATA[Hauksson & Shearer 2005 (BSSA), Plesch et al. (2007)]]></SimpleData>
+      </SchemaData>
+    </ExtendedData>
+    <LineString>
+      <tessellate>1</tessellate>
+      <coordinates>
+				-116.934737249423,34.284204953658,0.000000000
+				-116.808415233059,34.182029292700,0.000000000
+      </coordinates>
+    </LineString>
+  </Placemark>
+//--------------------------------------------------------------------------------------------------------------------------------//
+  <Placemark>
+    <name>ETRA-BBFS-1992-Big_Bear_rupture-RUP6</name>
+    <styleUrl>#trace_style</styleUrl>
+    <ExtendedData>
+      <SchemaData schemaUrl="#CFM">
+        <SimpleData name="ObjectName"><![CDATA[ETRA-BBFS-1992-Big_Bear_rupture-RUP6]]></SimpleData>
+        <SimpleData name="FaultArea"><![CDATA[Eastern Transverse Ranges Area]]></SimpleData>
+        <SimpleData name="Code1"><![CDATA[ETRA]]></SimpleData>
+        <SimpleData name="FaultZone"><![CDATA[Big Bear Fault system]]></SimpleData>
+        <SimpleData name="Code2"><![CDATA[BBFS]]></SimpleData>
+        <SimpleData name="FaultSection"><![CDATA[1992 Big Bear rupture]]></SimpleData>
+        <SimpleData name="Code3">1992</SimpleData>
+        <SimpleData name="FaultName">Big Bear - 1992 rupture</SimpleData>
+        <SimpleData name="Source">HRVD</SimpleData>
+        <SimpleData name="LastUpdate"><![CDATA[CFM6]]></SimpleData>
+        <SimpleData name="wAvgStrike"><![CDATA[71]]></SimpleData>
+        <SimpleData name="wAvgDip">90</SimpleData>
+        <SimpleData name="TotalArea">714.11</SimpleData>
+        <SimpleData name="Exposure">blind</SimpleData>
+        <SimpleData name="SlipSense"><![CDATA[llss]]></SimpleData>
+        <SimpleData name="IDComments"><![CDATA[]]></SimpleData>
+        <SimpleData name="USGSID"><![CDATA[missing]]></SimpleData>
+        <SimpleData name="Description"><![CDATA[relocated seismicity]]></SimpleData>
+        <SimpleData name="References"><![CDATA[Hauksson & Shearer 2005 (BSSA), Plesch et al. (2007)]]></SimpleData>
+      </SchemaData>
+    </ExtendedData>
+    <LineString>
+      <tessellate>1</tessellate>
+      <coordinates>
+				-116.907059763819,34.090511694060,0.000000000
+				-116.696642464017,34.285389508411,0.000000000
+      </coordinates>
+    </LineString>
+  </Placemark>
+//--------------------------------------------------------------------------------------------------------------------------------//
+  <Placemark>
+    <name>ETRA-LSBM-1992-Joshua_Tree_sequence-RUP6</name>
+    <styleUrl>#trace_style</styleUrl>
+    <ExtendedData>
+      <SchemaData schemaUrl="#CFM">
+        <SimpleData name="ObjectName"><![CDATA[ETRA-LSBM-1992-Joshua_Tree_sequence-RUP6]]></SimpleData>
+        <SimpleData name="FaultArea"><![CDATA[Eastern Transverse Ranges Area]]></SimpleData>
+        <SimpleData name="Code1"><![CDATA[ETRA]]></SimpleData>
+        <SimpleData name="FaultZone"><![CDATA[Little San Bernadino Mountains fault region]]></SimpleData>
+        <SimpleData name="Code2"><![CDATA[LSBM]]></SimpleData>
+        <SimpleData name="FaultSection"><![CDATA[1992 Joshua Tree rupture]]></SimpleData>
+        <SimpleData name="Code3">1992</SimpleData>
+        <SimpleData name="FaultName">Joshua Tree - 1992 sequence</SimpleData>
+        <SimpleData name="Source">CMDT</SimpleData>
+        <SimpleData name="LastUpdate"><![CDATA[CFM6]]></SimpleData>
+        <SimpleData name="wAvgStrike"><![CDATA[179]]></SimpleData>
+        <SimpleData name="wAvgDip">90</SimpleData>
+        <SimpleData name="TotalArea">258.38</SimpleData>
+        <SimpleData name="Exposure">blind</SimpleData>
+        <SimpleData name="SlipSense"><![CDATA[rlss]]></SimpleData>
+        <SimpleData name="IDComments"><![CDATA[]]></SimpleData>
+        <SimpleData name="USGSID"><![CDATA[395]]></SimpleData>
+        <SimpleData name="Description"><![CDATA[relocated seismicity]]></SimpleData>
+        <SimpleData name="References"><![CDATA[Bryant, 2005+updates; Hauksson et al., 2012; Nicholson et al., 2012]]></SimpleData>
+      </SchemaData>
+    </ExtendedData>
+    <LineString>
+      <tessellate>1</tessellate>
+      <coordinates>
+				-116.306531551926,33.933744442848,0.000000000
+				-116.313103652026,33.961814277961,0.000000000
+				-116.321641922194,33.988610963024,0.000000000
+				-116.320742146724,34.007660019760,0.000000000
+				-116.319842115512,34.026709201885,0.000000000
+				-116.319932506237,34.048038759309,0.000000000
+				-116.318681318676,34.070100315034,0.000000000
+				-116.309594596102,34.085855189592,-10.000000000
+      </coordinates>
+    </LineString>
+  </Placemark>
+//--------------------------------------------------------------------------------------------------------------------------------//
+  <Placemark>
+    <name>MJVA-ECSZ-1992-Barstow_Trend-RUP6</name>
+    <styleUrl>#trace_style</styleUrl>
+    <ExtendedData>
+      <SchemaData schemaUrl="#CFM">
+        <SimpleData name="ObjectName"><![CDATA[MJVA-ECSZ-1992-Barstow_Trend-RUP6]]></SimpleData>
+        <SimpleData name="FaultArea"><![CDATA[Mojave Fault Area]]></SimpleData>
+        <SimpleData name="Code1"><![CDATA[MJVA]]></SimpleData>
+        <SimpleData name="FaultZone"><![CDATA[Eastern California shear zone]]></SimpleData>
+        <SimpleData name="Code2"><![CDATA[ECSZ]]></SimpleData>
+        <SimpleData name="FaultSection"><![CDATA[Landers rupture]]></SimpleData>
+        <SimpleData name="Code3">1992</SimpleData>
+        <SimpleData name="FaultName">Landers-Barstow trend - 1992 rupture</SimpleData>
+        <SimpleData name="Source">CMDT</SimpleData>
+        <SimpleData name="LastUpdate"><![CDATA[CFM6]]></SimpleData>
+        <SimpleData name="wAvgStrike"><![CDATA[341]]></SimpleData>
+        <SimpleData name="wAvgDip">90</SimpleData>
+        <SimpleData name="TotalArea">114.44</SimpleData>
+        <SimpleData name="Exposure">blind</SimpleData>
+        <SimpleData name="SlipSense"><![CDATA[rlss]]></SimpleData>
+        <SimpleData name="IDComments"><![CDATA[]]></SimpleData>
+        <SimpleData name="USGSID"><![CDATA[missing]]></SimpleData>
+        <SimpleData name="Description"><![CDATA[relocated seismicity]]></SimpleData>
+        <SimpleData name="References"><![CDATA[Bryant, 2005+updates; Hauksson et al., 2012+updates; Plesch et al., 2014; Nicholson et al., 2014]]></SimpleData>
+      </SchemaData>
+    </ExtendedData>
+    <LineString>
+      <tessellate>1</tessellate>
+      <coordinates>
+				-116.931650607675,34.922055043146,-2166.382300000
+				-116.934375106290,34.930070087927,-2098.359400000
+				-116.937330225322,34.939028064188,-2022.391700000
+				-116.939639717888,34.946978928880,-1955.176000000
+				-116.942176006111,34.955018045674,-1887.078700000
+				-116.943180526337,34.963809918824,-2007.496800000
+				-116.944195228363,34.972168941225,-2134.755600000
+				-116.944918930229,34.981177065752,-2269.632300000
+				-116.948372399256,34.988948423060,-2403.293500000
+				-116.952974420689,34.995504036930,-2526.371300000
+				-116.959485566946,35.001882027718,-2658.549800000
+				-116.965593270287,35.008092636580,-2785.836700000
+				-116.970736480298,35.014827555149,-2914.816900000
+				-116.974380778955,35.023080402066,-3348.239500000
+				-116.976084389625,35.030638298857,-3732.505400000
+				-116.979545707774,35.035570991078,-4020.661600000
+      </coordinates>
+    </LineString>
+  </Placemark>
+//--------------------------------------------------------------------------------------------------------------------------------//
+  <Placemark>
+    <name>MJVA-ECSZ-1992-Landers_cross_fault_North_I-RUP6</name>
+    <styleUrl>#trace_style</styleUrl>
+    <ExtendedData>
+      <SchemaData schemaUrl="#CFM">
+        <SimpleData name="ObjectName"><![CDATA[MJVA-ECSZ-1992-Landers_cross_fault_North_I-RUP6]]></SimpleData>
+        <SimpleData name="FaultArea"><![CDATA[Mojave Fault Area]]></SimpleData>
+        <SimpleData name="Code1"><![CDATA[MJVA]]></SimpleData>
+        <SimpleData name="FaultZone"><![CDATA[Eastern California shear zone]]></SimpleData>
+        <SimpleData name="Code2"><![CDATA[ECSZ]]></SimpleData>
+        <SimpleData name="FaultSection"><![CDATA[Landers cross faults]]></SimpleData>
+        <SimpleData name="Code3">1992</SimpleData>
+        <SimpleData name="FaultName">Landers cross fault-north-I - 1992 rupture</SimpleData>
+        <SimpleData name="Source">CMDT</SimpleData>
+        <SimpleData name="LastUpdate"><![CDATA[CFM6]]></SimpleData>
+        <SimpleData name="wAvgStrike"><![CDATA[80]]></SimpleData>
+        <SimpleData name="wAvgDip">77</SimpleData>
+        <SimpleData name="TotalArea">112.27</SimpleData>
+        <SimpleData name="Exposure">blind</SimpleData>
+        <SimpleData name="SlipSense"><![CDATA[llss]]></SimpleData>
+        <SimpleData name="IDComments"><![CDATA[]]></SimpleData>
+        <SimpleData name="USGSID"><![CDATA[missing]]></SimpleData>
+        <SimpleData name="Description"><![CDATA[relocated seismicity]]></SimpleData>
+        <SimpleData name="References"><![CDATA[Bryant, 2005+updates; Hauksson et al., 2012+updates; Plesch et al., 2014; Nicholson et al., 2014]]></SimpleData>
+      </SchemaData>
+    </ExtendedData>
+    <LineString>
+      <tessellate>1</tessellate>
+      <coordinates>
+				-116.514980804499,34.638422420290,-3303.259300000
+				-116.519329914176,34.639170427911,-2892.773400000
+				-116.524976106476,34.639266881450,-2703.874300000
+				-116.530930473810,34.638556881454,-2702.990700000
+				-116.539649772524,34.637598393130,-2665.304900000
+				-116.547137475368,34.637746717361,-2318.449700000
+				-116.551398333607,34.637960914853,-2086.178700000
+				-116.555821919089,34.638002950395,-1948.563600000
+				-116.560901613132,34.637622087888,-1951.990700000
+				-116.566991638141,34.636857553542,-2091.148900000
+				-116.572676390671,34.635797644313,-2390.302500000
+				-116.580017090952,34.634412641733,-2768.342300000
+				-116.586397156796,34.633002090167,-3183.044900000
+				-116.592459973920,34.631741331017,-3622.694600000
+				-116.597815990840,34.631869087253,-3783.995100000
+				-116.603044858271,34.632462588162,-3918.015900000
+				-116.610055326223,34.633034544054,-3758.587900000
+				-116.616289403603,34.632267726670,-3518.015100000
+				-116.621719572804,34.630474271629,-3222.666300000
+				-116.624963290565,34.629011731578,-3026.840800000
+				-116.627657273879,34.627447518809,-2946.891800000
+      </coordinates>
+    </LineString>
+  </Placemark>
+//--------------------------------------------------------------------------------------------------------------------------------//
+  <Placemark>
+    <name>MJVA-ECSZ-1992-Landers_cross_fault_North_II-RUP6</name>
+    <styleUrl>#trace_style</styleUrl>
+    <ExtendedData>
+      <SchemaData schemaUrl="#CFM">
+        <SimpleData name="ObjectName"><![CDATA[MJVA-ECSZ-1992-Landers_cross_fault_North_II-RUP6]]></SimpleData>
+        <SimpleData name="FaultArea"><![CDATA[Mojave Fault Area]]></SimpleData>
+        <SimpleData name="Code1"><![CDATA[MJVA]]></SimpleData>
+        <SimpleData name="FaultZone"><![CDATA[Eastern California shear zone]]></SimpleData>
+        <SimpleData name="Code2"><![CDATA[ECSZ]]></SimpleData>
+        <SimpleData name="FaultSection"><![CDATA[Landers cross faults]]></SimpleData>
+        <SimpleData name="Code3">1992</SimpleData>
+        <SimpleData name="FaultName">Landers cross fault-north-II - 1992 rupture</SimpleData>
+        <SimpleData name="Source">CMDT</SimpleData>
+        <SimpleData name="LastUpdate"><![CDATA[CFM6]]></SimpleData>
+        <SimpleData name="wAvgStrike"><![CDATA[269]]></SimpleData>
+        <SimpleData name="wAvgDip">89</SimpleData>
+        <SimpleData name="TotalArea">199.25</SimpleData>
+        <SimpleData name="Exposure">blind</SimpleData>
+        <SimpleData name="SlipSense"><![CDATA[llss]]></SimpleData>
+        <SimpleData name="IDComments"><![CDATA[]]></SimpleData>
+        <SimpleData name="USGSID"><![CDATA[missing]]></SimpleData>
+        <SimpleData name="Description"><![CDATA[relocated seismicity]]></SimpleData>
+        <SimpleData name="References"><![CDATA[Bryant, 2005+updates; Hauksson et al., 2012+updates; Plesch et al., 2014; Nicholson et al., 2014]]></SimpleData>
+      </SchemaData>
+    </ExtendedData>
+    <LineString>
+      <tessellate>1</tessellate>
+      <coordinates>
+				-116.430352522674,34.565993652591,-3000.000000000
+				-116.438367720581,34.566544493801,-3366.750000000
+				-116.446383031625,34.567094809603,-3733.500000000
+				-116.454398456685,34.567644600869,-4100.250000000
+				-116.462413994299,34.568193724176,-4467.000000000
+				-116.468316885322,34.567269241316,-3902.750000000
+				-116.474219819364,34.566344472574,-3338.500000000
+				-116.480122285080,34.565419415770,-2774.250000000
+				-116.486024964813,34.564494073865,-2210.000000000
+				-116.493582720445,34.564369772164,-1720.000000000
+				-116.501140624041,34.564245003610,-1230.000000000
+				-116.508698398537,34.564119779962,-740.000000000
+				-116.516255986137,34.563994087579,-250.000000000
+				-116.520136016988,34.565494327689,150.000000000
+				-116.524016189678,34.566994162814,550.000000000
+				-116.529856437593,34.567824272798,550.000000000
+				-116.538231989927,34.566827747739,550.000000000
+				-116.546607178213,34.565830645012,550.000000000
+				-116.554982258401,34.564832967459,550.000000000
+				-116.563357146331,34.563834713920,550.000000000
+      </coordinates>
+    </LineString>
+  </Placemark>
+//--------------------------------------------------------------------------------------------------------------------------------//
+  <Placemark>
+    <name>WTRA-ORFZ-1994-Northridge_Frew_fault-RUP6</name>
+    <styleUrl>#trace_style</styleUrl>
+    <ExtendedData>
+      <SchemaData schemaUrl="#CFM">
+        <SimpleData name="ObjectName"><![CDATA[WTRA-ORFZ-1994-Northridge_Frew_fault-RUP6]]></SimpleData>
+        <SimpleData name="FaultArea"><![CDATA[Western Transverse Ranges Area]]></SimpleData>
+        <SimpleData name="Code1"><![CDATA[WTRA]]></SimpleData>
+        <SimpleData name="FaultZone"><![CDATA[Oak Ridge fault zone]]></SimpleData>
+        <SimpleData name="Code2"><![CDATA[ORFZ]]></SimpleData>
+        <SimpleData name="FaultSection"><![CDATA[1994 Northridge Rupture]]></SimpleData>
+        <SimpleData name="Code3">1994</SimpleData>
+        <SimpleData name="FaultName">Northridge-Frew fault - 1994 rupture</SimpleData>
+        <SimpleData name="Source">HRVD</SimpleData>
+        <SimpleData name="LastUpdate"><![CDATA[CFM6]]></SimpleData>
+        <SimpleData name="wAvgStrike"><![CDATA[119]]></SimpleData>
+        <SimpleData name="wAvgDip">35</SimpleData>
+        <SimpleData name="TotalArea">859.59</SimpleData>
+        <SimpleData name="Exposure">blind</SimpleData>
+        <SimpleData name="SlipSense"><![CDATA[r]]></SimpleData>
+        <SimpleData name="IDComments"><![CDATA[propose 94c]]></SimpleData>
+        <SimpleData name="USGSID"><![CDATA[]]></SimpleData>
+        <SimpleData name="Description"><![CDATA[Carena & Suppe (2002) model for middle heart-shaped portion, edges of fault from Hudnut et al. 1996]]></SimpleData>
+        <SimpleData name="References"><![CDATA[Carena & Suppe, 2002 (JSG); Hudnut et al., 1996 (BSSA)]]></SimpleData>
+      </SchemaData>
+    </ExtendedData>
+    <LineString>
+      <tessellate>1</tessellate>
+      <coordinates>
+				-118.378696471506,34.311496030952,-6526.986800000
+				-118.386930307762,34.315088845446,-6646.025400000
+				-118.395697805454,34.318409287858,-6741.271000000
+				-118.405480945756,34.322413191803,-6805.018100000
+				-118.415285010442,34.326384637585,-6866.399400000
+				-118.425308109425,34.329987112231,-6901.137700000
+				-118.436191383549,34.333105407273,-6895.671400000
+				-118.447243029519,34.335784804785,-6870.082500000
+				-118.458304718573,34.338435740101,-6842.682100000
+				-118.469309156777,34.341242321540,-6815.020000000
+				-118.480210080281,34.344313892491,-6783.795400000
+				-118.491156232206,34.347267128830,-6744.747600000
+				-118.497891684187,34.348911317173,-6710.896500000
+				-118.509255265688,34.351888669308,-6642.411600000
+				-118.520672642795,34.354735650105,-6582.605500000
+				-118.529160381802,34.354291133149,-6649.136200000
+				-118.537596352464,34.354217787849,-6765.530300000
+				-118.546643811493,34.356130465660,-6873.089800000
+				-118.553007373744,34.358733647234,-6943.211400000
+				-118.559223912906,34.361505177788,-7036.860300000
+				-118.566598710457,34.365407018711,-7215.080600000
+				-118.573900982651,34.369137446143,-7451.406700000
+				-118.581655988825,34.374718233890,-7651.189900000
+				-118.589459467332,34.380399320208,-7799.987800000
+				-118.596770815787,34.385274076576,-7871.211400000
+				-118.604240387937,34.390023730574,-7879.076700000
+				-118.610118974666,34.393524013821,-7849.676800000
+				-118.616022501126,34.396987607652,-7812.783700000
+				-118.625600611671,34.401361187244,-7860.211400000
+				-118.635153697177,34.405795476461,-7868.170400000
+				-118.644681886326,34.408636594682,-7974.792000000
+				-118.651419883795,34.409911903569,-8082.964800000
+				-118.658158070231,34.411186834728,-8191.137200000
+				-118.666984121269,34.411266137604,-8445.548800000
+				-118.675810334363,34.411344940237,-8699.960900000
+				-118.684662730762,34.411593500409,-8943.077100000
+				-118.695209306227,34.413837709870,-9094.552700000
+				-118.705753379251,34.416082441960,-9247.496100000
+				-118.713351088199,34.418945039038,-9281.144500000
+      </coordinates>
+    </LineString>
+  </Placemark>
+</Document>
+</kml>
