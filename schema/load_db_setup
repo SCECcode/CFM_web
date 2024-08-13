@@ -2,6 +2,7 @@
 
 mkdir -p /home/postgres/CFM
 cp -Rv /app/schema /home/postgres/CFM/
+(cd /home/postgres/CFM/schema/scripts; ./setup_data.sh)
 (cd /home/postgres/CFM/schema/data; gunzip eq_Hauksson_1_tb.csv.gz)
 (cd /home/postgres/CFM/schema/data; gunzip eq_Hauksson_2_tb.csv.gz)
 (cd /home/postgres/CFM/schema/data; gunzip eq_Ross_1_tb.csv.gz)

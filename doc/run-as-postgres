@@ -9,8 +9,6 @@ initdb /home/postgres/cfm_db
 # Start PostgreSQL server
 pg_ctl -D /home/postgres/cfm_db -l /home/postgres/logfile start
 
-/app/schema/scripts/setup_data.sh
-
 /app/schema/load_db_setup
 /app/schema/load_6_preferred_db_up
 /app/schema/load_6_alternatives_db_up
