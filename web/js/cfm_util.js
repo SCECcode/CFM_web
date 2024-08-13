@@ -652,7 +652,7 @@ function getGidFromMeta(meta) {
 
 function getColorFromMeta(meta) {
 
-    var color="black";
+    var color=default_color;
     var strike=meta['avg_strike'];
     var dip=meta['avg_dip'];
 

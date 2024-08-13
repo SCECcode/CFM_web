@@ -115,8 +115,14 @@ function setup_viewer()
   var openAttribution ='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
   var osm_street=L.tileLayer(openURL, {attribution: openAttribution, maxZoom:16});
   var white = L.tileLayer("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAAA1BMVEX///+nxBvIAAAAH0lEQVQYGe3BAQ0AAADCIPunfg43YAAAAAAAAAAA5wIhAAAB9aK9BAAAAABJRU5ErkJggg==", {minZoom: 6, maxZoom: 9});
-  var lyr = L.tileLayer('./data/cybershake22_12/{z}/{x}/{y}.png', {tms: 1, opacity: 1, attribution: "", minZoom: 6, maxZoom: 16});
 
+// With a png file, Create georeferenced tif image with QGIS 
+//   >>QGIS dashboard-load openstreet map-georeferencer-pick coordinates from map to referencer-export tiff image 
+// Create tiles from the georeferenced image with gdal2tiles: (pip install gdal2tiles)
+//     gdal2tiles.py -e  --zoom=6-16  georeference_image.tif output_folder
+	
+  var lyr = L.tileLayer('./data/cybershake22_12/{z}/{x}/{y}.png', {tms: 1, opacity: 1, attribution:scecAttribution, minZoom: 5, maxZoom: 13});
+  var lyr2 = L.tileLayer('./data/vs30_2022_v2/{z}/{x}/{y}.png', {tms: 1, opacity: 1, attribution:scecAttribution, minZoom: 5, maxZoom: 10});
 
   baseLayers = {
     "esri topo" : esri_topographic,
@@ -127,7 +133,8 @@ function setup_viewer()
     "otm topo": otm_topographic,
     "osm street" : osm_street,
     "esri terrain": esri_terrain,
-    "cybershake":lyr
+    "cybershake":lyr,
+    "v3 etree":lyr2
   };
 
   var overLayer = {};
