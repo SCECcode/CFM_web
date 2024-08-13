@@ -1,0 +1,5 @@
+### might need to start docker daemon with >>  sudo systemctl start docker
+docker rmi $(docker images -f dangling=true -q ) -f
+docker-compose -f docker-compose-localhost.yml -f development.yml down
+docker system prune -a -f --volumes
+docker-compose -f docker-compose-localhost.yml -f development.yml up --build --force -d
