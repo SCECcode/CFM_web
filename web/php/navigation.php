@@ -17,10 +17,10 @@ function getHeader($this_page) {
 	global $host_site_actual_path;
 
 	$all_pages = [
-		$host_site_actual_path => "Explorer",
-		"guide" => "User Guide",
-		"disclaimer" => "Disclaimer",
-		"contact" => "Contact"
+		"explorer.php" => "Explorer",
+		"guide.php" => "User Guide",
+		"disclaimer.php" => "Disclaimer",
+		"contact.php" => "Contact"
 	];
 
 	$page_links_html = "";
