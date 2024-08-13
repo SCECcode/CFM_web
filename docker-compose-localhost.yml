@@ -23,7 +23,7 @@ services:
       CFM_MY_PORT: 8104
       CFM_MY_BLIND: CFM7.0_blind.utm
       CFM_MY_TRACE: CFM7.0_traces.utm
-      CFM_PROD_PATH: "research/cfm-viewer/7.0/preferred"
+      CFM_PROD_PATH: "research/cfm-explorer/7.0/preferred"
     ports:
       - "8104:8081"
       - "8105:80"
@@ -39,7 +39,7 @@ services:
       CFM_MY_PORT: 8106 
       CFM_MY_BLIND: CFM7.0_blind_Alt.utm
       CFM_MY_TRACE: CFM7.0_traces_Alt.utm
-      CFM_PROD_PATH: "research/cfm-viewer/7.0/alternatives"
+      CFM_PROD_PATH: "research/cfm-explorer/7.0/alternatives"
     ports:
       - "8106:8081"
       - "8107:80"
@@ -55,7 +55,7 @@ services:
       CFM_MY_PORT: 8108
       CFM_MY_BLIND: CFM7.0_blind_Rup.utm
       CFM_MY_TRACE: CFM7.0_traces_Rup.utm
-      CFM_PROD_PATH: "research/cfm-viewer/7.0/ruptures"
+      CFM_PROD_PATH: "research/cfm-explorer/7.0/ruptures"
     ports:
       - "8108:8081"
       - "8109:80"
@@ -72,7 +72,7 @@ services:
       CFM_MY_PORT: 8084
       CFM_MY_BLIND: CFM6.1_blind.utm
       CFM_MY_TRACE: CFM6.1_traces.utm
-      CFM_PROD_PATH: "research/cfm-viewer/6.1/preferred"
+      CFM_PROD_PATH: "research/cfm-explorer/6.1/preferred"
     ports:
       - "8084:8081"
       - "8085:80"
@@ -88,7 +88,7 @@ services:
       CFM_MY_PORT: 8086 
       CFM_MY_BLIND: CFM6.1_blind_Alt.utm
       CFM_MY_TRACE: CFM6.1_traces_Alt.utm
-      CFM_PROD_PATH: "research/cfm-viewer/6.1/alternatives"
+      CFM_PROD_PATH: "research/cfm-explorer/6.1/alternatives"
     ports:
       - "8086:8081"
       - "8087:80"
@@ -104,7 +104,7 @@ services:
       CFM_MY_PORT: 8088
       CFM_MY_BLIND: CFM6.1_blind_Rup.utm
       CFM_MY_TRACE: CFM6.1_traces_Rup.utm
-      CFM_PROD_PATH: "research/cfm-viewer/6.1/ruptures"
+      CFM_PROD_PATH: "research/cfm-explorer/6.1/ruptures"
     ports:
       - "8088:8081"
       - "8089:80"
@@ -120,7 +120,7 @@ services:
       CFM_MY_PORT: 8090
       CFM_MY_BLIND: CFM5.3_blind.utm
       CFM_MY_TRACE: CFM5.3_traces.utm
-      CFM_PROD_PATH: "research/cfm-viewer/5.3/preferred"
+      CFM_PROD_PATH: "research/cfm-explorer/5.3/preferred"
     ports:
       - "8090:8081"
       - "8091:80"
