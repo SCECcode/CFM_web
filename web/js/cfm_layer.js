@@ -4,12 +4,12 @@
 // control whether the main mouseover popup should be active or not
 var skipPopup=false;
 
-//var default_color = "black";
-var default_color = "#495867"; // TRAN color
+var default_color = "black";
+//var default_color = "#495867"; // TRAN color
 
 var default_highlight_color = "red";
-//var default_weight = 2; 
-var default_weight = 3;  // TRAN weight
+var default_weight = 2; 
+//var default_weight = 3;  // TRAN weight
 var default_zoom_threshold=5; 
 
 //neon green var alternate_highlight_color = "#39FF14";

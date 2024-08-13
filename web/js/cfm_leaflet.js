@@ -132,6 +132,9 @@ function setup_viewer()
     "osm streets relief" : osm_streets_relief,
     "otm topo": otm_topographic,
     "osm street" : osm_street,
+/*
+    "esri terrain": esri_terrain
+*/
     "esri terrain": esri_terrain,
     "cybershake":lyr,
     "v3 etree":lyr2
