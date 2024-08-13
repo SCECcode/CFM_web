@@ -19,36 +19,36 @@ $header = getHeader("User Guide");
     <script type='text/javascript' src='js/vendor/jquery.min.js'></script>
     <script type='text/javascript' src='js/vendor/bootstrap.min.js'></script>
     <script type='text/javascript' src='js/vendor/jquery-ui.js'></script>
-    <title>Community Fault Model Viewer: User Guide</title>
+    <title>Community Fault Model Explorer: User Guide</title>
 </head>
 <body>
 <?php echo $header; ?>
 
 <div class="container info-page-container scec-main-container guide">
 
-    <h1>CFM Viewer User Guide</h1>
+    <h1>CFM Explorer User Guide</h1>
 
     <div class="row">
         <div class="col-12">
             <figure class="cfm-interface figure float-lg-right">
-                <img src="img/cfm-viewer.png" class="figure-img img-fluid" alt="Screen capture of CFM Viewer interface">
-                <figcaption class="figure-caption">Screen capture of CFM Viewer interface</figcaption>
+                <img src="img/cfm-viewer.png" class="figure-img img-fluid" alt="Screen capture of CFM Explorer interface">
+                <figcaption class="figure-caption">Screen capture of CFM Explorer interface</figcaption>
             </figure>
-            <h4><strong>Community Fault Model (CFM) Viewer Overview</strong></h4>
+            <h4><strong>Community Fault Model (CFM) Explorer Overview</strong></h4>
 
-            <p>The CFM Viewer provides interactive map-based and 3D views of the <a
-               href="https://www.scec.org/research/cfm">CFM version 6.1 and 5.3</a>
-	       faults. The viewer allows users to select the model of interest (using
+            <p>The CFM Explorer provides interactive map-based and 3D views of the <a
+               href="https://www.scec.org/research/cfm">CFM version 7.0, 6.1 and 5.3</a>
+	       faults. The explorer allows users to select the model of interest (using
 	       the buttons at the top of the interface), view faults,
 	       associated metadata, and download selected fault data without having 
 	       to download the entire CFM model archive. The pages on this site 
                include the 
-               <a href="<?php echo $host_site_actual_path; ?>">CFM viewer page</a>, 
+               <a href="<?php echo $host_site_actual_path; ?>">CFM explorer page</a>, 
                this user guide, <a href="disclaimer">a disclaimer</a>, and a 
                <a href="contact">contact information</a> page.</p>
 
             <p>The main interface is on the <a href="<?php echo $host_site_actual_path; ?>">
-               Viewer Page</a>. When first loaded, all CFM6.1 preferred faults are listed 
+               Explorer Page</a>. When first loaded, all CFM6.1 preferred faults are listed 
                on the left side of 
                the screen. Users can click on the checkboxes in the fault table to select faults 
                or click on faults on the map. (See <strong>Viewing and Downloading Metadata</strong>
@@ -77,7 +77,7 @@ $header = getHeader("User Guide");
 
             <h4><strong>Searching/Querying the CFM</strong></h4>
 
-            <p> The CFM viewer web tool provides a number of search criteria, including keyword,
+            <p> The CFM explorer web tool provides a number of search criteria, including keyword,
                 latitude/longitude, fault area, fault zone, section, and name. Users can also filter
                 results by the average strike and/or dip of fault objects. Once a search type is selected,
                 controls will appear below in the form of another dropdown, text input boxes, or sliders.

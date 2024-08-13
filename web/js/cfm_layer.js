@@ -702,11 +702,11 @@ function addRemoveFromMetadataTable(gid) {
         // exists, remove it
         targetElem.remove();
     } else {
-        $("#metadata-viewer tbody").prepend(metadataRow);
-        $("#metadata-viewer").trigger('reflow');
- //       $("#metadata-viewer").floatThead('reflow');
+        $("#metadata-table tbody").prepend(metadataRow);
+        $("#metadata-table").trigger('reflow');
+ //       $("#metadata-table").floatThead('reflow');
         if (!select_all_flag) {
-            $(`#metadata-viewer tbody tr#metadata-${gid}`).effect("highlight", {}, 1000);
+            $(`#metadata-table tbody tr#metadata-${gid}`).effect("highlight", {}, 1000);
         }
     }
 }

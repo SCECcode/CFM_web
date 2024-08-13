@@ -1,6 +1,6 @@
 <?php
 require_once("php/navigation.php");
-$header = getHeader("Viewer");
+$header = getHeader("Explorer");
 $cfm_my_db = getenv("CFM_MY_DB");
 $cfm_my_option = getenv("CFM_MY_OPTION");
 $cfm_my_port = getenv("CFM_MY_PORT");
@@ -10,7 +10,7 @@ $cfm_my_trace = getenv("CFM_MY_TRACE");
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Community Fault Model Viewer</title>
+    <title>Community Fault Model Explorer</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -130,11 +130,11 @@ $cfm_my_trace = getenv("CFM_MY_TRACE");
                 }
             });
 
-            var $download_queue_table = $('#metadata-viewer');
+            var $download_queue_table = $('#metadata-table');
             $download_queue_table.floatThead({
                 autoReflow: true,
                 scrollContainer: function ($table) {
-                    return $table.closest('div#metadata-viewer-container');
+                    return $table.closest('div#metadata-table-container');
                 },
             });
 
@@ -169,7 +169,7 @@ $cfm_my_trace = getenv("CFM_MY_TRACE");
 <!-- top-intro -->
     <div id="top-intro" style="display:">
 <p>
-The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model</a> are three-dimensional and non-planar; however, to simplify browsing the model, the viewer below provides a two-dimensional map-based view of the CFM. The web tools currently serve the CFM6.1 preferred (default), ruptures, and alternatives models, as well as the previous CFM5.3 preferred set. Use the buttons at the top of the map interface to select the model. These tools allow users to view and download fault geometry data as well as metadata for selected faults rather than downloading the <a href="https://doi.org/10.5281/zenodo.4651667">entire CFM model</a> archive. Once faults are selected, the “PLOT3D” button can be used to view the selected faults in a basic 3D CAD-like environment. See the <a href="guide">user guide</a> for more details and usage instructions.
+The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model</a> are three-dimensional and non-planar; however, to simplify browsing the model, the explorer below provides a two-dimensional map-based view of the CFM. The web tools currently serve the CFM6.1 preferred (default), ruptures, and alternatives models, as well as the previous CFM5.3 preferred set. Use the buttons at the top of the map interface to select the model. These tools allow users to view and download fault geometry data as well as metadata for selected faults rather than downloading the <a href="https://doi.org/10.5281/zenodo.4651667">entire CFM model</a> archive. Once faults are selected, the “PLOT3D” button can be used to view the selected faults in a basic 3D CAD-like environment. See the <a href="guide">user guide</a> for more details and usage instructions.
 </p>
     </div>
 
@@ -199,19 +199,19 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
 
    <form id="id_select_dataset">
      <label for="dataset"> Choose CFM Model : </label>
-     <label><input type="radio" id="dataset0" name=dataset onclick="gotoOtherViewer(0)">
+     <label><input type="radio" id="dataset0" name=dataset onclick="gotoOtherExplorer(0)">
             <span>7.0 PREFERRED</span></label>
-     <label><input type="radio" id="dataset1" name=dataset onclick="gotoOtherViewer(1)">
+     <label><input type="radio" id="dataset1" name=dataset onclick="gotoOtherExplorer(1)">
             <span>7.0 ALTERNATIVES</span></label>
-     <label><input type="radio" id="dataset2" name=dataset onclick="gotoOtherViewer(2)">
+     <label><input type="radio" id="dataset2" name=dataset onclick="gotoOtherExplorer(2)">
             <span>7.0 RUPTURES</span></label>
-     <label><input type="radio" id="dataset3" name=dataset onclick="gotoOtherViewer(3)">
+     <label><input type="radio" id="dataset3" name=dataset onclick="gotoOtherExplorer(3)">
             <span>6.1 PREFERRED</span></label>
-     <label><input type="radio" id="dataset4" name=dataset onclick="gotoOtherViewer(4)">
+     <label><input type="radio" id="dataset4" name=dataset onclick="gotoOtherExplorer(4)">
             <span>6.1 ALTERNATIVES</span></label>
-     <label><input type="radio" id="dataset5" name=dataset onclick="gotoOtherViewer(5)">
+     <label><input type="radio" id="dataset5" name=dataset onclick="gotoOtherExplorer(5)">
             <span>6.1 RUPTURES</span></label>
-     <label><input type="radio" id="dataset6" name=dataset onclick="gotoOtherViewer(6)">
+     <label><input type="radio" id="dataset6" name=dataset onclick="gotoOtherExplorer(6)">
             <span>5.3 PREFERRED</span></label>
    </form>
 
@@ -526,8 +526,8 @@ onchange="switchLayer(this.value);">
     </div>
     <div id="top-select" class="row mb-2">
       <div class="col-12">
-        <div id="metadata-viewer-container" style="border:solid 1px #ced4da;overflow-x:hidden">
-            <table id="metadata-viewer">
+        <div id="metadata-table-container" style="border:solid 1px #ced4da;overflow-x:hidden">
+            <table id="metadata-table">
                 <thead>
                 <tr>
                     <th>&nbsp;</th>

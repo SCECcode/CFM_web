@@ -6,7 +6,7 @@ $host_site_actual_path = "/";
 if (isset($_SERVER['HTTP_X_FORWARDED_SERVER']) ||
 	isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
 	// check that we're behind a proxy
-	$host_site_actual_path = getenv("CFM_PROD_PATH") ?? "/research/cfm-viewer";
+	$host_site_actual_path = getenv("CFM_PROD_PATH") ?? "/research/cfm-explorer";
 }
 
 
@@ -17,7 +17,7 @@ function getHeader($this_page) {
 	global $host_site_actual_path;
 
 	$all_pages = [
-		$host_site_actual_path => "Viewer",
+		$host_site_actual_path => "Explorer",
 		"guide" => "User Guide",
 		"disclaimer" => "Disclaimer",
 		"contact" => "Contact"
@@ -41,7 +41,7 @@ _END;
     <div class="container top">
         <nav class="navbar navbar-expand-lg navbar-dark  scec-header">
             <a class="navbar-brand" href="$host_site_actual_path"><img class="scec-logo" src="img/sceclogo_transparent.png">
-                &nbsp;Community Fault Model Viewer</a>
+                &nbsp;Community Fault Model Explorer</a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

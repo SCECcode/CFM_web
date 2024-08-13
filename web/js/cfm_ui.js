@@ -38,7 +38,7 @@ function highlight_database_type() {
 }
 
 //  got to another set of data on same host different port
-function gotoOtherViewer(option) {
+function gotoOtherExplorer(option) {
 //  http://localhost:8082
 //  http://moho.scec.org/cfm-viewer/
 //  https://moho.scec.org/cfm-viewer/
@@ -583,7 +583,7 @@ function makeResultTableWithList(glist)
 // type is "a"=alpha "n"=numerical
 function sortMetadataTableByRow(n,type) {
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-  table = document.getElementById("metadata-viewer");
+  table = document.getElementById("metadata-table");
   switching = true;
   // Set the sorting direction to ascending:
   dir = "asc"; 
