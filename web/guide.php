@@ -31,7 +31,7 @@ $header = getHeader("User Guide");
     <div class="row">
         <div class="col-12">
             <figure class="cfm-interface figure float-lg-right">
-                <img src="img/cfm-viewer.png" class="figure-img img-fluid" alt="Screen capture of CFM Explorer interface">
+                <img src="img/cfm-explorer.png" class="figure-img img-fluid" alt="Screen capture of CFM Explorer interface">
                 <figcaption class="figure-caption">Screen capture of CFM Explorer interface</figcaption>
             </figure>
             <h4><strong>Community Fault Model (CFM) Explorer Overview</strong></h4>
