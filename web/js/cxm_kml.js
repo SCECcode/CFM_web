@@ -101,7 +101,7 @@ function toggle_kml(label, idx) {
     } else {
       element['visible']= 1;
       $elt.removeClass('glyphicon-unchecked').addClass('glyphicon-check');
-      $elt.css("color","#990000");
+      $elt.css("color","#C22B48");
   }
   updateKMLSelect();
 }

@@ -16,8 +16,8 @@
 }
 
 #id_select_dataset input[type="radio"]:checked + span {
-  background-color: #990000;
-  border: 1px solid #990000;
+  background-color: #C22B48;
+  border: 1px solid #C22B48;
   color: white;
 }
 
@@ -62,12 +62,12 @@
 .fas.fa-caret-down,
 .fas.fa-angle-up,
 .fas.fa-angle-down {
-   color: #990000;
+   color: #C22B48;
 }
 
 .glyphicon.glyphicon-menu-up,
 .glyphicon.glyphicon-menu-down {
-   color: #990000;
+   color: #C22B48;
 }
 
 .glyphicon.glyphicon-record {
@@ -79,7 +79,7 @@
 }
 
 .glyphicon.glyphicon-check {
-   color: #990000;
+   color: #C22B48;
 }
 
 /*
@@ -94,12 +94,12 @@
 
 .btn-outline-primary {
   color: black;
-  border-color: #990000;
+  border-color: #C22B48;
 }
 
 .btn-outline-primary:hover {
-  border-color: #990000;
-  background-color: #990000;
+  border-color: #C22B48;
+  background-color: #C22B48;
 }
 
 .dropdown {
@@ -122,7 +122,7 @@
 }
 
 #plot3d-all:not([disabled]) {
-  background: #990000;
+  background: #C22B48;
 }
 
 .custom-select-sm {
@@ -167,7 +167,7 @@
 }
 
 body, html {
-    font-family: Arial, sans-serif;
+    font-family: "Open Sans", Arial, sans-serif;
     font-size: 10pt;
 }
 
@@ -550,11 +550,12 @@ input[type=text] {
 
 .banner-container {
     width: 100%;
-    background-color: #990000;
+    background-color: #E4EBF1;
+    padding-top: 50px;
 }
 
 .scec-header {
-    background-color: #990000;
+    background-color: #E4EBF1;
     border-radius: 0px;
 }
 
@@ -566,8 +567,35 @@ input[type=text] {
     padding: 0;
 }
 
+.navbar span {
+    color: #C22B48;
+    font-weight: 600;
+    font-size: 14pt;
+    margin-top: 18px;
+    margin-left: -2px;
+}
+
 .navbar-brand > img {
     display: block;
+}
+
+#top-intro div.links {
+    display: inline-block;
+}
+
+#top-intro div.links span {
+    position: absolute;
+    bottom: 24px;
+    left: 16px;
+}
+
+#top-intro div.links a:first-child {
+    display: block;
+    margin-bottom: 3px;
+}
+
+#top-intro p {
+    line-height: 19pt;
 }
 
 .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
@@ -596,27 +624,33 @@ input[type=text] {
     height: 50px;
     font-size: 11pt;
     line-height: 20px;
+    color: #C22B48;
 }
 
 .container .navbar-header a {
     color: white;
 }
 
+#banner-container .navbar-dark .navbar-brand {
+    color: #C22B48;
+    font-weight: bold;
+}
 .navbar-brand .scec-logo {
-    height: 40px;
-    width: 70px;
+    width: 110px;
     vertical-align: middle;
     display: inline-block;
+    bottom: 28px;
+    position: relative;
 }
 
 .nav-item.active .nav-link {
-    background-color: #770000;
+    background-color: #C22B48;
     padding-left: 0.75rem;
     padding-right: 0.75rem;
 }
 
 .navbar-dark .navbar-toggler {
-    color: white;
+    /*color: white;*/
 }
 
 img {
@@ -628,11 +662,11 @@ a {
 }
 
 .container a {
-    color: #990000;
+    color: #C22B48;
 }
 
 nav.navbar.navbar-dark a.nav-link  {
-    color: white;
+    color: #577399;
 }
 
 nav.navbar .nav-link.disabled {
@@ -699,7 +733,7 @@ div.download-now button {
 }
 
 tr.row-selected {
-    background-color: #F2F2F2;
+    background-color: #E4EBF1;
 }
 
 table tr td label {
@@ -756,11 +790,13 @@ table tr td label {
     border:1px solid gray;
     padding: 10px;
     background-color: whitesmoke;
+    margin-top: 51px;
 }
 
 .info-page-container.guide {
     position: relative;
     margin-bottom: 10px;
+
 }
 
 .info-page-container.guide div {
