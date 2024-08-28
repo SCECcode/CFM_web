@@ -34,10 +34,6 @@
 }
 
 
-#refreshBtn {
-  height: calc(2rem - 1px);
-}
-
 #quakeInfoBtn, #seismicitySelect {
 //    border: none;
     box-shadow: none;
@@ -63,6 +59,7 @@
 .fas.fa-angle-up,
 .fas.fa-angle-down {
    color: #C22B48;
+    margin-left: 5px;
 }
 
 .glyphicon.glyphicon-menu-up,
@@ -87,10 +84,6 @@
    color: #011638;
 }
 */
-
-#plot3d-all:not([disabled]):hover {
-   background: #770000;
-}
 
 .btn-outline-primary {
   color: black;
@@ -121,8 +114,16 @@
   display: block;
 }
 
-#plot3d-all:not([disabled]) {
-  background: #C22B48;
+/*#plot3d-all:not([disabled]) {*/
+/*  background: #C22B48;*/
+/*}*/
+
+#top-select .btn-group .btn-dark[disabled] {
+   cursor:  default;
+}
+
+#top-select .btn-group .btn-dark:not([disabled]) {
+    background: #577399;
 }
 
 .custom-select-sm {
@@ -279,17 +280,25 @@ table, td, th {
 
 table tr th {
     background-color: #F2F2F2;
+    vertical-align: bottom;
+}
+
+table tr th:last-child {
+    vertical-align: middle;
+
 }
 
 .hoverColor:hover {
     background-color: #b9bec4;
+    cursor: pointer;
 }
 
-.container button.btn-dark {
+.container .floatThead-container button.btn-dark {
     text-transform: uppercase;
-    background-color: #333333;
-    border: 1px solid #333333;
+    background-color: #bbbbbb;
+    border: 1px solid #bbbbbb;
     font-size: 8pt;
+    width: 128px;
 }
 
 th {
@@ -579,15 +588,13 @@ input[type=text] {
     display: block;
 }
 
+#top-intro {
+    margin-bottom: 15px;
+}
+
 #top-intro div.links {
     display: inline-block;
     white-space: nowrap;
-}
-
-#top-intro div.links span {
-    position: absolute;
-    bottom: 24px;
-    left: 16px;
 }
 
 #top-intro div.links a:first-child {
@@ -597,6 +604,8 @@ input[type=text] {
 
 #top-intro p {
     line-height: 19pt;
+    margin-bottom: 0;
+    padding-left: 55px;
 }
 
 .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
@@ -649,7 +658,7 @@ input[type=text] {
 }
 
 .navbar-light .navbar-nav .active>.nav-link {
-    background-color: #C22B48;
+    background-color: #577399;
     padding-left: 0.75rem;
     padding-right: 0.75rem;
     color: white;
@@ -777,8 +786,8 @@ tr.layer-hidden * {
 }
 
 .container .btn-dark {
-    background-color: #495057;
-    border-color: #495057;
+    background-color: #577399;
+    border-color: #577399;
     color: white;
 }
 
@@ -819,9 +828,7 @@ table tr td label {
 }
 
 .info-page-container {
-    border:1px solid gray;
     padding: 10px;
-    background-color: whitesmoke;
     margin-top: 51px;
 }
 
@@ -834,6 +841,10 @@ table tr td label {
 .info-page-container.guide div {
     z-index: 100;
     position: relative;
+}
+
+.info-page-container h4 {
+    margin-top: 20px;
 }
 
 .info-page-container.guide .cfm-interface img {
@@ -864,30 +875,6 @@ div.guide ul {
     padding-left: 40px;
 }
 
-#metadata-viewer-container {
-    max-height:400px;
-    overflow-y:scroll;
-}
-
-#metadata-viewer {
-    width: 100%; 
-    max-width: 1100px;
-}
-
-#metadata-viewer .download-link a {
-    display: table-cell;
-    max-width:100px;
-}
-
-#metadata-viewer .cfm-btn {
-    background-color: inherit;
-    padding: 0;
-}
-
-#metadata-viewer thead th {
-    white-space: nowrap;
-}
-
 .floatThead-container {
     overflow: visible !important;
 }
@@ -896,9 +883,10 @@ floatThead-wrapper {
     overflow-y: scroll;
 }
 
-#metadata-viewer #placeholder-row td {
-    text-align: center;
-    font-style: italic;
+#metadata-table .glyphicon-download {
+    position: relative;
+    top: 2px;
+    right: 1px;
 }
 
 .modal-full {
