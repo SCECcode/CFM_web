@@ -581,6 +581,7 @@ input[type=text] {
 
 #top-intro div.links {
     display: inline-block;
+    white-space: nowrap;
 }
 
 #top-intro div.links span {
@@ -686,14 +687,32 @@ nav.navbar .nav-link.disabled {
     background-color: #FFFFFF;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 990px) {
     .scec-main-container {
-        border: 0px;
+        border: 0;
     }
 
     ul.navbar-nav {
         margin-top: 45px;
+        padding-bottom: 20px;
     }
+
+    a.navbar-brand span {
+        font-size: 12pt;
+    }
+    .banner-container {
+        margin-bottom: 45px;
+    }
+}
+
+.navbar-light .navbar-toggler-icon {
+    z-index: 100;
+}
+
+a.navbar-brand span {
+    position: relative;
+    top: 19px;
+    left: 21px;
 }
 
 label {

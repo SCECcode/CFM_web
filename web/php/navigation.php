@@ -41,8 +41,8 @@ _END;
     <div class="container top">
         <nav class="navbar navbar-expand-lg navbar-light scec-header">
           
-            <a class="navbar-brand" href="$host_site_actual_path"><img class="scec-logo" src="img/scec-statewide-logo-white-bg.png">
-                </a>&nbsp;<span>Community Fault Model Explorer</span>
+            <a class="navbar-brand" href="$host_site_actual_path"><img class="scec-logo d-inline-block align-top" src="img/scec-statewide-logo-white-bg.png">
+               <span>Community Fault Model Explorer</span></a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
