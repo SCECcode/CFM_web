@@ -155,8 +155,9 @@ function show3dView(urls,nstr,path,nlstr) {
 
 // urls causing problem when it is too large
 // prepend with trace and blind utm file name
-  let mytrace=$('#myTrace').val();
-  let myblind=$('#myBlind').val();
+  let mytrace=getMyTrace(currentModel);
+  let myblind=getMyBlind(currentModel);
+
   let params="viewTrace="+mytrace+"&viewBlind="+myblind;
 
   if(path == undefined) {
@@ -171,6 +172,8 @@ function show3dView(urls,nstr,path,nlstr) {
   }
 
   set_PARAMS(params);
+
+//  alert(currentModel);
 
   //name=[name1,name2]&ts=ts&ptype="main3d"
   //let ABB='?abb=\["SSNF"\]';

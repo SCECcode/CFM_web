@@ -16,18 +16,25 @@ let currentModel = defaultModel;
 var CFM_DB_tb = {
    'viewers': [
         { 'option': 0, 'name':'CFM7_preferred','db':'CFM7_preferred_db',
+		'trace':'CFM7.0_traces.utm','blind':'CFM7.0_blind.utm',
           'pathname': 'research/cfm-explorer/7.0/preferred', 'port': 8104},
         { 'option': 1, 'name':'CFM7_alternatives','db':'CFM7_alt_db',
+		'trace':'CFM7.0_traces_Alt.utm','blind':'CFM7.0_blind_Alt.utm',
           'pathname': 'research/cfm-explorer/7.0/alternatives', 'port': 8106},
         { 'option': 2, 'name':'CFM7_ruptures','db':'CFM7_rup_db',
+		'trace':'CFM7.0_traces_Rup.utm','blind':'CFM7.0_blind_Rup.utm',
           'pathname': 'research/cfm-explorer/7.0/ruptures', 'port': 8108},
-        { 'option': 3, 'name':'CFM7_preferred','db':'CFM7_preferred_db',
+        { 'option': 3, 'name':'CFM6_preferred','db':'CFM6_preferred_db',
+		'trace':'CFM6.1_traces.utm','blind':'CFM6.1_blind.utm',
           'pathname': 'research/cfm-explorer/6.1/preferred', 'port': 8084},
         { 'option': 4, 'name':'CFM6_alternatives','db':'CFM6_alt_db',
+		'trace':'CFM6.1_traces_Alt.utm','blind':'CFM6.1_blind_Alt.utm',
           'pathname': 'research/cfm-explorer/6.1/alternatives', 'port': 8086},
         { 'option': 5, 'name':'CFM6_ruptures','db':'CFM6_rup_db',
+		'trace':'CFM6.1_traces_Rup.utm','blind':'CFM6.1_blind_Rup.utm',
           'pathname': 'research/cfm-explorer/6.1/ruptures', 'port': 8088},
         { 'option': 6, 'name':'CFM53_preferred','db':'CFM53_preferred_db',
+		'trace':'CFM5.3_traces.utm','blind':'CFM5.3_blind.utm',
           'pathname': 'research/cfm-explorer/5.3/preferred', 'port': 8090}
               ]
 };
@@ -35,6 +42,33 @@ var CFM_DB_tb = {
 function highlight_database_type() {
     $(`#id_select_dataset input`).removeAttr("checked");
     $(`#id_select_dataset input[data-db-name="${currentModel}"]`).attr("checked","checked");
+}
+
+
+function getMyBlind(db)
+{ 
+  let tb=CFM_DB_tb['viewers'];
+  let icnt=tb.length;
+  for(let i=0; i<icnt; i++) {
+     let item=tb[i];
+     if(item['db'] == db) {
+        return item['blind'];
+     }
+  }
+  return "";
+}
+
+function getMyTrace(db)
+{ 
+  let tb=CFM_DB_tb['viewers'];
+  let icnt=tb.length;
+  for(let i=0; i<icnt; i++) {
+     let item=tb[i];
+     if(item['db'] == db) {
+        return item['trace'];
+     }
+  }
+  return "";
 }
 
 //  got to another set of data on same host different port

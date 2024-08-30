@@ -47,6 +47,7 @@ jQuery(document).ready(function() {
   let requestedModel = getDBFromRequestParam("model");
   if (requestedModel !== false) {
       currentModel = requestedModel;
+//alert(currentModel);
   }
 
 /****

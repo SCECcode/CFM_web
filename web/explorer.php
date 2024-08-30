@@ -1,8 +1,6 @@
 <?php
 require_once("php/navigation.php");
 $header = getHeader("Explorer");
-$cfm_my_blind = getenv("CFM_MY_BLIND");
-$cfm_my_trace = getenv("CFM_MY_TRACE");
 require_once("php/util.php");
 ?>
 <!DOCTYPE html>
@@ -205,9 +203,6 @@ require_once("php/util.php");
 
 <div id="top-control-row-1"  class="col-12">
  <div class="row pl-4" style="display:;">
-   <input type="text" id="myBlind" value=<?php echo $cfm_my_blind ?> style="display:none">
-   <input type="text" id="myTrace" value=<?php echo $cfm_my_trace ?> style="display:none">
-
    <form id="id_select_dataset">
      <label for="dataset"> Choose CFM Model : </label>
      <label><input type="radio" id="dataset0" name=dataset data-db-name="CFM7_preferred_db">
@@ -729,16 +724,18 @@ legend -->
                 <input type="text" style="margin-left:50px;width:100px;" id="eq-total" value="0">
                 <input type="text" style="width:100px;margin-right:50px;" id="eq-expected" value="0">
                 </div>
-                <input type="text" style="text-align:center;width:60px;margin-right:50px;margin-left:10px;padding:0px" id="eq-progress" value="0%" disabled>
+                <input type="text" style="text-align:center;width:60px;margin-right:50px;margin-left:20px;padding:0px" id="eq-progress" value="0%" disabled>
                 <div class="row" id="myProgress" style="border:2px solid grey"><div id="myProgressBar"></div>
                 </div>
            </p>
            </div>
-           <div class="row ml-2 mt-2">
-             <p id="modalwaiteqLabel2" style="text-align:center;font-size:10px">Please wait:  with ~1600k events, this may take a few minutes</p>
-	     <p style="font-size:14px">The seismicity that is loading consists of a combination of the Hauksson et al. (2012, and updates) and Waldhauser (2009) catalogs. The catalogs have been cropped to avoid any overlap. Once loaded, you can color the relocated seismicity by depth(, magnitude, or time). Significant historic earthquakes (M6+) will be shown on the map interface with red dots. If you mouse over the dots, the year and magnitude will be displayed. The significant earthquakes can be toggled on/off by clicking on the eyeball icon next to the seismicity pull down menu at the top of the map interface.<br>
+           <div class="row mt-2" style="border:0px solid blue">
+             <p id="modalwaiteqLabel2" style="text-align:center;font-size:10px; border:0px solid red">Please wait:  with ~1600k events, this may take a few minutes</p>
+<div>
+	     <p style="font-size:14px; text-align:left;border:0px solid green;">The seismicity that is loading consists of a combination of the Hauksson et al. (2012, and updates) and Waldhauser (2009) catalogs. The catalogs have been cropped to avoid any overlap. Once loaded, you can color the relocated seismicity by depth(, magnitude, or time). Significant historic earthquakes (M6+) will be shown on the map interface with red dots. If you mouse over the dots, the year and magnitude will be displayed. The significant earthquakes can be toggled on/off by clicking on the eyeball icon next to the seismicity pull down menu at the top of the map interface.<br>
 The Hauksson et al. (2012) catalogs are available <a href="https://scedc.caltech.edu/data/alt-2011-dd-hauksson-yang-shearer.html">here</a>.<br>
 The Waldhauser (2009) catalogs are available <a href="https://nocaldd.ldeo.columbia.edu/">here</a>.</p>
+</div>
            </div>
         </div>
       </div>

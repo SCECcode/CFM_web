@@ -12,7 +12,7 @@ function reset_search_selection() {
 }
 
 /*********************************/
-// this is for the external ts files
+// this is for the external ts files used during 'fault evalation' 
 
 var EXTERNAL_TS_LIST=[];
 var EXTERNAL_TS_NAME=[];
