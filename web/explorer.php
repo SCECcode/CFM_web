@@ -1,11 +1,7 @@
 <?php
 require_once("php/navigation.php");
 $header = getHeader("Explorer");
-$cfm_my_db = getenv("CFM_MY_DB");
-$cfm_my_option = getenv("CFM_MY_OPTION");
-$cfm_my_port = getenv("CFM_MY_PORT");
-$cfm_my_blind = getenv("CFM_MY_BLIND");
-$cfm_my_trace = getenv("CFM_MY_TRACE");
+require_once("php/util.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -84,6 +80,9 @@ $cfm_my_trace = getenv("CFM_MY_TRACE");
     <script type='text/javascript' src="plugin/Leaflet.draw/edit/handler/Edit.Circle.js"></script>
 
     <!-- cfm js -->
+       <script type="text/javascript">
+           const defaultModel = `<?php echo DEFAULT_DB; ?>`;
+       </script>
     <script type="text/javascript" src="js/debug.js?v=1"></script>
     <script type="text/javascript" src="js/cfm_leaflet.js?v=1"></script>
     <script type="text/javascript" src="js/cfm_layer.js?v=1"></script>
@@ -194,28 +193,22 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
 
 <div id="top-control-row-1"  class="col-12">
  <div class="row pl-4" style="display:;">
-<!-- For switch between preferred/alternative set -->
-   <input type="text" id="myPort" value=<?php echo $cfm_my_port ?> style="display:none">
-   <input type="text" id="myDb" value=<?php echo $cfm_my_db ?> style="display:none">
-   <input type="text" id="myOption" value=<?php echo $cfm_my_option ?> style="display:none">
-   <input type="text" id="myBlind" value=<?php echo $cfm_my_blind ?> style="display:none">
-   <input type="text" id="myTrace" value=<?php echo $cfm_my_trace ?> style="display:none">
 
    <form id="id_select_dataset">
      <label for="dataset"> Choose CFM Model : </label>
-     <label><input type="radio" id="dataset0" name=dataset onclick="gotoOtherExplorer(0)">
+     <label><input type="radio" id="dataset0" name=dataset data-db-name="CFM7_preferred_db">
             <span>7.0 PREFERRED</span></label>
-     <label><input type="radio" id="dataset1" name=dataset onclick="gotoOtherExplorer(1)">
+     <label><input type="radio" id="dataset1" name=dataset data-db-name="CFM7_alt_db">
             <span>7.0 ALTERNATIVES</span></label>
-     <label><input type="radio" id="dataset2" name=dataset onclick="gotoOtherExplorer(2)">
+     <label><input type="radio" id="dataset2" name=dataset data-db-name="CFM7_rup_db">
             <span>7.0 RUPTURES</span></label>
-     <label><input type="radio" id="dataset3" name=dataset onclick="gotoOtherExplorer(3)">
+     <label><input type="radio" id="dataset3" name=dataset data-db-name="CFM6_preferred_db">
             <span>6.1 PREFERRED</span></label>
-     <label><input type="radio" id="dataset4" name=dataset onclick="gotoOtherExplorer(4)">
+     <label><input type="radio" id="dataset4" name=dataset data-db-name="CFM6_alt_db">
             <span>6.1 ALTERNATIVES</span></label>
-     <label><input type="radio" id="dataset5" name=dataset onclick="gotoOtherExplorer(5)">
+     <label><input type="radio" id="dataset5" name=dataset data-db-name="CFM6_rup_db">
             <span>6.1 RUPTURES</span></label>
-     <label><input type="radio" id="dataset6" name=dataset onclick="gotoOtherExplorer(6)">
+     <label><input type="radio" id="dataset6" name=dataset data-db-name="CFM53_preferred_db">
             <span>5.3 PREFERRED</span></label>
    </form>
 

@@ -10,6 +10,8 @@ var big_map=0; // 0,1(some control),2(none)
 var seismicity_loaded = false;
 var seismicity_from_cache = true;
 
+let currentModel = defaultModel;
+
 
 var CFM_DB_tb = {
    'viewers': [
@@ -31,10 +33,8 @@ var CFM_DB_tb = {
 };
 
 function highlight_database_type() {
-  let myoption=$('#myOption').val();
-  let label="dataset"+myoption;
-  let elt=document.getElementById(label);
-  elt.click();
+    $(`#id_select_dataset input`).removeAttr("checked");
+    $(`#id_select_dataset input[data-db-name="${currentModel}"]`).attr("checked","checked");
 }
 
 //  got to another set of data on same host different port
@@ -78,6 +78,10 @@ window.console.log("npathname "+ npathname);
 window.console.log("new Loc >>"+newLoc);
   location.replace(newLoc);
 window.console.log("switch to a new loc");	
+}
+
+function switchModel(option) {
+    location.replace("?model=" + option);
 }
 
 function _toMedView()

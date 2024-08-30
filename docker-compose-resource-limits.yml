@@ -10,28 +10,3 @@ services:
     mem_limit: 1g
     cpus: 1.0
 
-  altweb:
-     mem_limit: 500m
-     cpus: 0.5
-
-  rupweb:
-     mem_limit: 500m
-     cpus: 0.5
-
-  old61web:
-    mem_limit: 1g
-    cpus: 1.0
-
-  old61altweb:
-     mem_limit: 500m
-     cpus: 0.5
-
-  old61rupweb:
-     mem_limit: 500m
-     cpus: 0.5
-
-
-  old53web:
-     mem_limit: 500m
-     cpus: 0.5
-
