@@ -1,7 +1,7 @@
 /**
-    cxm_kml_util.c
+    cxm_kml.c
 
-    manage user uploaded kml being handled as a leaflet overlay layer
+    manage uploaded kml being handled as a leaflet overlay layer
 **/
 
 // tracking table for a list of kmls

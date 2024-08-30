@@ -98,11 +98,13 @@ $cfm_my_trace = getenv("CFM_MY_TRACE");
     <script type="text/javascript" src="js/cxm_kml.js?v=1"></script>
    
     <!-- pixi pixiOverlay -->
-    <script src="js/vendor/pixi.js"></script>
-    <script src="js/vendor/pixiOverlay/L.PixiOverlay.js"></script>
-    <script src="js/vendor/pixiOverlay/MarkerContainer.js"></script>
-    <script src="js/vendor/pixiOverlay/bezier-easing.js"></script>
-    <script src="js/cfm_pixi.js"></script>
+    <script type="text/javascript" src="js/vendor/pixi.js"></script>
+    <script type="text/javascript" src="js/vendor/pixiOverlay/L.PixiOverlay.js"></script>
+    <script src="js/cxm_eq_util.js"></script>
+    <script src="js/cxm_eq.js"></script>
+    <script src="js/cxm_pixi.js"></script>
+    <script src="js/cxm_eq_pixi_util.js"></script>
+    <script src="js/cxm_eq_legend.js"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-495056-12"></script>
@@ -152,12 +154,14 @@ $cfm_my_trace = getenv("CFM_MY_TRACE");
       <script type="text/javascript" src="js/cfm_misc_util.js?v=1"></script>
       <button id="dumpCFMGeoBtn" class="btn cfm-small-btn"  onClick="dumpActiveCFMGeo()">
                 <span class="glyphicon glyphicon-share-alt"></span> Export CFM geoJson</button>
+<!-- chunked latlong groups used by explorer for caching --> 
       <button id="dumpMarkerLatlngBtn" class="btn cfm-small-btn" onClick="toFileMarkerLatlng()">
-                <span class="glyphicon glyphicon-share"></span> Export Marker Latlng</button>
-      <button id="filterSeismicityBtn" class="btn cfm-small-btn" onClick="toFileAllQuakes()">
-                <span class="glyphicon glyphicon-share"></span> Export Seismicity </button>
+                <span class="glyphicon glyphicon-share"></span> Export EQ Marker Latlng</button>
+<!-- utm files used by the VTK -->
+      <button id="filterSeismicityBtn" class="btn cfm-small-btn" onClick="toUTMFileAllQuakes()">
+                <span class="glyphicon glyphicon-share"></span> Export EQ utm </button>
       <button id="dumpSeismicityLayerBtn" class="btn cfm-small-btn" onClick="dumpAllQuakeLayer()">
-                <span class="glyphicon glyphicon-share"></span> Export Seismicity Geo layer</button>
+                <span class="glyphicon glyphicon-share"></span> Export EQ Geo layer</button>
     </div>
 
 <!-- housekeeping buttons -->
@@ -448,26 +452,20 @@ onkeypress="javascript:if (event.key == 'Enter') $('#secondLonTxt').mouseout();"
  <div class="col-3" style="display:;">
 <!-- XX Sesimicity -->
              <div id="loadSeismicity" class="row" style="width:20rem;">
-               <button id="quakesBtn" class="btn" onClick="loadSeismicity()" title="This loads the updated Hauksson et al. (2012) and Ross et al. (2019) relocated earthquake catalogs and provides a pull-down menu with options to color by depth, magnitude, or time. Significant historical events (1900-2021 >M6.0) are shown with red dots. These can be turned on/off by clicking on the button on the right which appears here once the catalogs have been loaded" style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.15rem 0.5rem;display:;">Load relocated seismicity</button>
+	       <button id="quakesBtn" class="btn" onClick="loadSeismicity()" title="The seismicity that is loading consists of a combination of the Hauksson et al. (2012, and updates) and Waldhauser (2009) catalogs. The catalogs have been cropped to avoid any overlap. Once loaded, you can color the relocated seismicity by depth, magnitude, or time. Significant historic earthquakes (M6+) will be shown on the map interface with red dots. If you mouse over the dots, the year and magnitude will be displayed. The significant earthquakes can be toggled on/off by clicking on the eyeball icon next to the seismicity pull down menu at the top of the map interface." style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.15rem 0.5rem;display:;">Load relocated seismicity</button>
              </div>
 
              <div id="showSeismicity" class="row" style="width:20rem; display:none;">
                 <select id="seismicitySelect" onchange="changePixiOverlay(this.value)"
                 class="custom-select custom-select-sm" style="width:auto;min-width:14rem;">
 		   <option value="none">Hide relocated seismicity</option>
-                   <option selected value="haukssondepth">Hauksson et al. by depth</option>
-                   <option value="haukssonmag">Hauksson et al. by magnitude</option>
-                   <option value="haukssontime">Hauksson et al. by time</option>
-                   <option value="rossdepth">Ross et al. by depth</option>
-                   <option value="rossmag">Ross et al. by magnitude</option>
-                   <option value="rosstime">Ross et al. by time</option>
-                <!--
-                   <option value="historicaldepth">Historical by depth</option>
-                   <option value="historicalmag">Historical by magitude</option>
-                   <option value="historicaltime">Historical by time</option>
-                -->
+                   <option selected value="haukssondepth">Color seismicity by depth</option>
+<!--
+                   <option value="haukssonmag">Color seismicity by magnitude</option>
+                   <option value="haukssontime">Color seismicity by time</option>
+-->
                 </select>
-                <button id="toggleHistoricalBtn" class="btn btn-sm cfm-small-btn" title="Show/Hide significant historic earthquakes (M6+) since 1900" onclick="toggleHistorical()"><span id="eye_historical" class="glyphicon glyphicon-eye-open"></span></button>
+                <button id="toggleSignificantBtn" class="btn btn-sm cfm-small-btn" title="Show/Hide significant historic earthquakes (M6+) since 1900" onclick="toggleSignificant()"><span id="eye_significant" class="glyphicon glyphicon-eye-open"></span></button>
              </div>
  </div>
  <div class="col-6">
@@ -486,8 +484,10 @@ onchange="switchLayer(this.value);">
                   <option value="otm topo">OTM Topographic</option>
                   <option value="osm street">OSM Street</option>
                   <option value="esri terrain">ESRI Terrain</option>
+<!--
                   <option value="cybershake">Cybershake</option>
                   <option value="v3 etree">V3 Etree</option>
+-->
                 </select>
             </div>
 
@@ -521,8 +521,25 @@ onchange="switchLayer(this.value);">
         <div id="top-map" class="col-7 pl-1">
             <div class="w-100 mb-1" id='CFM_plot'
 		 style="position:relative;border:solid 1px #ced4da; height:576px;">
+
+<!-- spinner -->
+               <div class="spinDialog" style="position:absolute;top:40%;left:50%; z-index:9999;">
+                 <div id="cfm-wait-spin" align="center" style="display:none;"><i class="glyphicon glyphicon-cog fa-spin" style="color:red"></i></div>
+               </div>
+
+<!-- legend --
+               <div class="main-legend geometry top center" style="bottom:10%;background-color: rgba(255,255,255,0.5);">
+                 <div class="col">
+                    <div class="row" style="margin:0px 2px 0px -20px">
+                      <div class="legend mt-2" id="pixi-legend-color"></div>
+                      <div class="legend" id="pixi-legend-label"></div>
+                    </div>
+                    <div id="pixi-legend-title" align="center" class="legend content mt-1" style="border-top:2px solid grey">Degrees</div>
+                 </div>
+	       </div> 
+legend -->
             </div>
-        </div>
+        </div> <!-- top-map -->
     </div>
     <div id="top-select" class="row mb-2">
       <div class="col-12">
@@ -712,6 +729,9 @@ onchange="switchLayer(this.value);">
            </div>
            <div class="row ml-2 mt-2">
              <p id="modalwaiteqLabel2" style="text-align:center;font-size:10px">Please wait:  with ~1600k events, this may take a few minutes</p>
+	     <p style="font-size:14px">The seismicity that is loading consists of a combination of the Hauksson et al. (2012, and updates) and Waldhauser (2009) catalogs. The catalogs have been cropped to avoid any overlap. Once loaded, you can color the relocated seismicity by depth(, magnitude, or time). Significant historic earthquakes (M6+) will be shown on the map interface with red dots. If you mouse over the dots, the year and magnitude will be displayed. The significant earthquakes can be toggled on/off by clicking on the eyeball icon next to the seismicity pull down menu at the top of the map interface.<br>
+The Hauksson et al. (2012) catalogs are available <a href="https://scedc.caltech.edu/data/alt-2011-dd-hauksson-yang-shearer.html">here</a>.<br>
+The Waldhauser (2009) catalogs are available <a href="https://nocaldd.ldeo.columbia.edu/">here</a>.</p>
            </div>
         </div>
       </div>
@@ -719,6 +739,25 @@ onchange="switchLayer(this.value);">
     </div> <!--Content-->
   </div>
 </div> <!--Modal: modalwaiteq-->
+
+<!--Modal: Model (modalwaitpixi) -->
+<div class="modal" id="modalwaitpixi" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" id="modalwaitpixiDialog" role="document">
+
+    <!--Content-->
+    <div class="modal-content" id="modalwaitpixiContent">
+      <!--Body-->
+      <div class="modal-body" id="modalwaitpixiBody">
+        <div class="row col-md-12 ml-auto" style="overflow:hidden; font-size:10pt">
+           <p style="font-size:25px">Please wait for the EQ layer to be made &nbsp;
+                <i class="glyphicon glyphicon-cog fa-spin" style='color:#990000'></i>
+           </p>
+        </div>
+      </div>
+
+    </div> <!--Content-->
+  </div>
+</div> <!--Modal: modalwaitpixi-->
 
 <!--Modal: Model (modalwait) -->
 <div class="modal" id="modalwait" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

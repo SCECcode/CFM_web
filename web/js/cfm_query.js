@@ -4,7 +4,7 @@
 
 const DATA_CHUNK_COUNT=20;
 
-function quakesAllToFile(quake_type,msg) {
+function quakesAllToUTMFile(quake_type,msg) {
     var uid=getRnd();
     if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -16,17 +16,10 @@ function quakesAllToFile(quake_type,msg) {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
-            if(quake_type == QUAKE_TYPE_HAUKSSON) {
-                window.console.log("done with quakesAllToFile..for Hauksson");
-                let t={"size":2,"color":{"r":0,"g":0,"b":1}}
-                let mmsg=JSON.stringify(t);
-                quakesAllToFile(QUAKE_TYPE_ROSS,mmsg);
-                } else {
-                  window.console.log("done with quakesAllToFile..for Ross");
-            }
+            window.console.log("done with quakesAllToUTMFile.");
         }
     };
-    xmlhttp.open("GET","php/quakesAllToFile.php?quake_type="+quake_type+"&uid="+uid+"&msg="+msg,true);
+    xmlhttp.open("GET","php/quakesAllToUTMFile.php?quake_type="+quake_type+"&uid="+uid+"&msg="+msg,true);
     xmlhttp.send();
 }
 
@@ -664,8 +657,7 @@ function getAllEarthQuakesByChunk(quake_type,quake_meta) {
    var chunks;
    switch (quake_type) {
       case QUAKE_TYPE_HAUKSSON : chunks=DATA_CHUNK_COUNT*2; break;
-      case QUAKE_TYPE_ROSS : chunks=DATA_CHUNK_COUNT*2; break;
-      case QUAKE_TYPE_HISTORICAL : chunks=1; break;
+      case QUAKE_TYPE_SIGNIFICANT : chunks=1; break;
    }
 
    var chunk_step = Math.floor(total / chunks);
@@ -695,25 +687,25 @@ function _getAllQuakesByChunk(quake_type, current_chunk, total_chunk, chunk_step
 
     var startpoint= chunk_step * current_chunk;
     var endpoint= startpoint + chunk_step;
+    var next_chunk =current_chunk+1;
+//window.console.log("XX  grabbing next_chunk %d (total is %d)\n", next_chunk, total_chunk);
 
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
             var eqarray=processQuakeResult("allQuakesByChunk");
+// window.console.log("XXX chunk size of eqarray..%d\n", eqarray.length);
             add2QuakeCounter(eqarray.length);
-            var next_chunk=current_chunk+1;
 
             if(next_chunk == total_chunk) { // got last chunk 
               add2QuakePoints(quake_type,eqarray);
               doneQuakeCounter();
-              if(quake_type == QUAKE_TYPE_HAUKSSON) { // load ROSS next 
-                 getAllQuakes(QUAKE_TYPE_ROSS);
-              }
-              if(quake_type == QUAKE_TYPE_ROSS) {
-                 getAllQuakes(QUAKE_TYPE_HISTORICAL);
+              if(quake_type == QUAKE_TYPE_HAUKSSON) { // load significan set next 
+//window.console.log(" >>>    calling to get significant ones..");
+                 getAllQuakes(QUAKE_TYPE_SIGNIFICANT);
               }
               // all data are in, 
-              if(quake_type == QUAKE_TYPE_HISTORICAL) {
+              if(quake_type == QUAKE_TYPE_SIGNIFICANT) {
                   finishLoadSeismicity();
               } 
               } else{
@@ -743,9 +735,8 @@ function _getLastQuakesByChunk(quake_type, startpoint, endpoint, chunk_step) {
             add2QuakeCounter(eqarray.length);
             add2QuakePoints(quake_type,eqarray);
             // start earlier set
-            var chunks = (quake_type == QUAKE_TYPE_HISTORICAL) ? 1 : (DATA_CHUNK_COUNT *2);
+            var chunks = (quake_type == QUAKE_TYPE_SIGNIFICANT) ? 1 : (DATA_CHUNK_COUNT *2);
 /* XX  */            _getAllQuakesByChunk(quake_type, 0, chunks, chunk_step);
-//* XX */             _getAllQuakesByChunk(quake_type, 0, 6, 1000);
         }
     };
 window.console.log(" calling php on the leftover.."+"start"+startpoint+" end"+endpoint);

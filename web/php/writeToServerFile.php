@@ -12,7 +12,12 @@ $dbconn = getConnection();
 $fname = $_POST['fname'];
 $dstr = $_POST['dstr'];
 
-$fp= fopen($fname,"w") or die("Unable to open file!"+$fname);
+$stub="../result/";
+$file=$stub.$fname;
+
+echo $file;
+
+$fp= fopen($file,"w") or die("Unable to open file!"+$file);
 fwrite($fp,$dstr); 
 fclose($fp);
 

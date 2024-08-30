@@ -37,30 +37,31 @@ function switchModalWaitEQLabel(quake_type) {
   var p2 = document.getElementById("modalwaiteqLabel2");
   switch (quake_type) {
      case QUAKE_TYPE_HAUKSSON: 
-       p.textContent="Retrieving Hauksson et al.(2012) relocated seismicity";
-       p2.textContent="Please wait: with ~700k events, this may take a few minutes"; break;
-     case QUAKE_TYPE_ROSS:
-       p.textContent="Retrieving Ross et al.(2019) relocated seismicity";
-       p2.textContent="Please wait: with ~980k events, this may take a few minutes"; break;
-     case QUAKE_TYPE_HISTORICAL:
+       p.textContent="Retrieving relocated seismicity";
+       p2.textContent="Please wait: with ~1.6m events, this may take a few minutes"; break;
+     case QUAKE_TYPE_SIGNIFICANT:
        p.textContent="Retrieving events 1900-2021 > M6.0";
        p2.textContent="Should be very quick"; break;
   }
 }
 
+var eq_counter_cnt;
 // track the eq-counter
 function startQuakeCounter(quake_meta) {
   let elm = $("#eq-expected");
   elm.val(parseInt(quake_meta['total']));
   elm = $("#eq-total");
   elm.val(0);
+  eq_counter_cnt=0;
   $("#modalwaiteq").modal({ backdrop: 'static', keyboard: false });
 }
 function doneQuakeCounter() { 
   $("#modalwaiteq").modal('hide');
 }
+
 function add2QuakeCounter(v) {
-window.console.log("adding more EQs: "+v);
+//window.console.log("V: adding more EQs: %d(%d)",v, eq_counter_cnt);
+  eq_counter_cnt++;
   let elm = $("#eq-total");
   let o=parseInt(elm.val());
   let n=o+v; 
@@ -71,20 +72,24 @@ window.console.log("adding more EQs: "+v);
   updatePrograssBar(width);
 }
 
-// track the eq-counter
+// buckets starts with 36 
+var eq_valcounter_cnt;
 function startQuakeCounterWithVal(buckets) {
   let elm = $("#eq-expected");
   elm.val(buckets);
   elm = $("#eq-total");
   elm.val(0);
+  eq_valcounter_cnt=0;
   $("#modalwaiteq").modal({ backdrop: 'static', keyboard: false });
 }
 function doneQuakeCounterWithVal() {
   $("#modalwaiteq").modal('hide');
 }
 function add2QuakeCounterWithVal(v) {
+//window.console.log("B: adding more EQs: and now has %d",eq_valcounter_cnt);
   let elm = $("#eq-total");
   let o=parseInt(elm.val());
+  eq_valcounter_cnt++;
   let n=o+v;
   elm.val(n);
   let maxelm  = $("#eq-expected");
@@ -981,129 +986,6 @@ function collectURLsFor3d(mlist) {
 
 }
 
-
-/****************** for handling earthquakes ********************/
-function processQuakeResult(type) {
-    var eqstr=[];
-    var eqarray=[]; // array of json items
-
-    if ( type == 'quakesByDepth') {
-       eqstr = $('[data-side="quakesByDepth"]').data('params');
-    } else if (type == 'quakesByLatLon') {
-       eqstr = $('[data-side="quakesByLatLon"]').data('params');
-    } else if (type == 'allQuakesByChunk') {
-       eqstr = $('[data-side="allQuakesByChunk"]').data('params');
-    } 
-
-    if(eqstr == undefined) {
-        window.console.log("processQuakeResult: BAD BAD BAD");
-        return;
-    }
-
-    var sz=(Object.keys(eqstr).length);
-    window.console.log("Number of eq blobs received from backend ->",sz);
-    for( var i=0; i< sz; i++) {
-       var tmp= JSON.parse(eqstr[i]);
-       eqarray.push(tmp);
-    }
-    return eqarray;
-}
-
-function _processTimeString(t) {
-    var str=t.replace(" ","T");
-    return str;
-}
-
-function add2QuakePoints(quake_type,eqarray) {
-    eqarray.forEach(function(marker) {
-        var lat=parseFloat(marker['Lat']);
-        var lng=parseFloat(marker['Lon']);
-        var depth=parseFloat(marker['Depth']);
-        var mag=parseFloat(marker['Mag']);
-// from backend always get: "1981-01-01 01:49:29.504"
-// but need it to be in :"1981-01-01T01:49:29.504"
-        var t=_processTimeString(marker['Time']);
-        var otime=new Date(t);
-        switch (quake_type) {
-          case QUAKE_TYPE_HAUKSSON:
-            var didx=getRangeIdx(EQ_HAUKSSON_FOR_DEPTH, depth);
-            updateMarkerLatlng(EQ_HAUKSSON_FOR_DEPTH,didx,lat,lng);
-            var midx= getRangeIdx(EQ_HAUKSSON_FOR_MAG, mag);
-            updateMarkerLatlng(EQ_HAUKSSON_FOR_MAG,midx,lat,lng);
-            var tidx= getRangeIdx(EQ_HAUKSSON_FOR_TIME, otime);
-            updateMarkerLatlng(EQ_HAUKSSON_FOR_TIME,tidx,lat,lng);
-            break;
-          case QUAKE_TYPE_ROSS:
-            var didx=getRangeIdx(EQ_ROSS_FOR_DEPTH, depth);
-            updateMarkerLatlng(EQ_ROSS_FOR_DEPTH,didx,lat,lng);
-            var midx= getRangeIdx(EQ_ROSS_FOR_MAG, mag);
-            updateMarkerLatlng(EQ_ROSS_FOR_MAG,midx,lat,lng);
-            var tidx= getRangeIdx(EQ_ROSS_FOR_TIME, otime);
-            updateMarkerLatlng(EQ_ROSS_FOR_TIME,tidx,lat,lng);
-            break;
-          case QUAKE_TYPE_HISTORICAL:
-            // it is possible to null for depth in this case
-            if(!isNaN(depth)) {
-              var didx=getRangeIdx(EQ_HISTORICAL_FOR_DEPTH, depth);
-              updateMarkerLatlng(EQ_HISTORICAL_FOR_DEPTH,didx,lat,lng);
-              } else {
-                     window.console.log("Historical EQ, got a null depth !!");
-            }
-            var midx= getRangeIdx(EQ_HISTORICAL_FOR_MAG, mag);
-            updateMarkerLatlng(EQ_HISTORICAL_FOR_MAG,midx,lat,lng);
-            var tidx= getRangeIdx(EQ_HISTORICAL_FOR_TIME, otime);
-            updateMarkerLatlng(EQ_HISTORICAL_FOR_TIME,tidx,lat,lng);
-            cfm_quake_historical_latlng.push([lat,lng]);
-            cfm_quake_historical_description.push( marker['Description']);
-            break;
-        }
-    });
-}
-
-function add2QuakePointsChunk(quake_type, eqarray, next_chunk, total_chunk, step) {
-    add2QuakePoints(quake_type,eqarray);
-    // get next chunk
-    _getAllQuakesByChunk(quake_type, next_chunk, total_chunk, step);
-}
-
-// default to depth
-function showQuakePointsAndBound(eqarray,swlat,swlon,nelat,nelon) {
-   // XX should grab type from the UI
-   showQuakePoints(EQ_HAUKSSON_FOR_DEPTH,eqarray);
-   // create a bounding area and add to the layergroup
-   var layer=makeRectangleLayer(swlat,swlon,nelat,nelon);
-   cfm_quake_group.addLayer(layer);
-}
-
-// Hauksson's
-function processQuakeMeta(quake_type) {
-    var str = $('[data-side="quake-meta"]').data('params');
-    var blob;
-    switch (quake_type) {
-      case QUAKE_TYPE_HAUKSSON:
-        blob=str.Hauksson; // 
-        break;
-      case QUAKE_TYPE_ROSS:
-        blob=str.Ross; // 
-        break;
-      case QUAKE_TYPE_HISTORICAL:
-        blob=str.Historical; // 
-        break;
-    }
-    var meta=JSON.parse(blob);
-
-    window.console.log("seismicity time >>"+ meta['minTime']+" to "+meta['maxTime']);
-    window.console.log("seismicity lon >>"+ meta['minLon']+" to "+meta['maxLon']);
-    window.console.log("seismicity lat >>"+ meta['minLat']+" to "+meta['maxLat']);
-    window.console.log("seismicity depth >>"+ meta['minDepth']+" to "+meta['maxDepth']);
-    window.console.log("seismicity mag >>"+ meta['minMag']+" to "+meta['maxMag']);
-    window.console.log("seismicity total >>"+meta['total']);
-    return meta;
-}
-
-function get_seismicity(sw,ne) {
-    quakesByLatlon(sw['lat'],sw['lng'],ne['lat'],ne['lng']);
-}
 
 /****************** for handling parameters ********************/
 // url : to start with limit of =1

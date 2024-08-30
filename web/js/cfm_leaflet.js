@@ -32,6 +32,10 @@ var mymap, baseLayers, layerControl, currentLayer;
 var mylegend;
 var visibleFaults = new L.FeatureGroup();
 
+// hold the historical siginifcant EQs
+var visibleMarkers= [];
+var visibleMarkersGroup;
+
 function clear_popup()
 {
   viewermap.closePopup();
@@ -237,9 +241,11 @@ function setup_viewer()
   }
   mymap.on('mouseover', onMapMouseOver);
 
-  function onMapZoom(e) { // change fault weight
+  function onMapZoom(e) { 
     var zoom=mymap.getZoom();
 window.console.log("map got zoomed..>>",zoom);
+
+// change fault weight
     if( fault_width_change && zoom > default_zoom_threshold) {
        change_fault_weight(default_weight); // change width to 2px
 //window.console.log("change weight back to"+default_weight);
@@ -434,23 +440,6 @@ function makeRectangleLayer(latA,lonA,latB,lonB) {
 }
 
 
-function makeLeafletMarker3(bounds,size) {
-  var leafIcon = L.icon({
-    iconUrl: 'img/star_icon.png',
-    iconSize:     [10, 10], 
-    iconAnchor:   [0, 0], 
-    popupAnchor:  [-3, -5] // point from which the popup should open relative to the iconAnchor
-  });
-  var myOptions = { icon : leafIcon};
-
-  var layer = L.marker(bounds, myOptions);
-  var icon = layer.options.icon;
-  var opt=icon.options;
-  icon.options.iconSize = [size,size];
-  layer.setIcon(icon);
-  return layer;
-}
-
 function makeLeafletMarker(bounds,cname,size) {
   var myIcon = L.divIcon({className:cname});
   var myOptions = { icon : myIcon};
@@ -463,34 +452,17 @@ function makeLeafletMarker(bounds,cname,size) {
   return layer;
 }
 
-function makeLeafletMarker2(bounds,size) {
-  
-  var myAwesomeIcon = L.divIcon({
-    html: '<i class="fas fa-sun fa-xs" aria-hidden="true"></i>',
-    iconSize: [size, size],
-    className: 'awesome-icon' 
-  }); 
-  var myOptions = { icon : myAwesomeIcon};
-  
-  var layer = L.marker(bounds, myOptions);
-  var icon = layer.options.icon;
-  var opt=icon.options; 
-  icon.options.iconSize = [size,size];
-  layer.setIcon(icon);
-  return layer;
-}
-
-
-// icon size 8 
+// icon size 6 
+// latlngs are in [ {'lat':lat,'lng':lng} ...]
 function addMarkerLayerGroup(latlng,description,sz) {
   var cnt=latlng.length;
   if(cnt < 1)
     return null;
   var markers=[];
   for(var i=0;i<cnt;i++) {
-     var bounds = latlng[i];
+     var bounds = [ latlng[i].lat, latlng[i].lng ];
      var desc = description[i];
-     var cname="quake-color-historical default-point-icon";
+     var cname="quake-color-significant default-point-icon";
      var marker=makeLeafletMarker(bounds,cname,sz);
      marker.bindTooltip(desc);
      markers.push(marker);
@@ -500,6 +472,41 @@ function addMarkerLayerGroup(latlng,description,sz) {
   return group;
 }
 
+//       and add mouse in/mouse out and focusing event
+//       and also zoom in and zoom out pixiel calc
+function makeLeafletCircleMarker(latlng,description) {
+  if(visibleMarkers.length > 0) {
+	return visibleMarkersGroup;
+  }
+  let sz=3;
+  let cnt=latlng.length;
+  for(let i=0;i<cnt;i++) {
+    let bounds = latlng[i];
+    let desc = description[i];
+    let marker = L.circleMarker(bounds,
+        {
+            color: "red",
+            fillColor: "red",
+            fillOpacity: 1,
+            radius: sz,
+            riseOnHover: true,
+            weight: 1,
+        });
+    marker.bindTooltip(desc);
+    marker.on({
+                  mouseover: function(e) {
+                        marker.setRadius(sz*5);
+                        },
+                  mouseout: function(e) {
+                        marker.setRadius(sz);
+                        },
+                });
+    visibleMarkers.push(marker);
+  }
+  visibleMarkersGroup = new L.FeatureGroup(visibleMarkers);
+  mymap.addLayer(visibleMarkersGroup);
+  return visibleMarkersGroup;
+}
 
 function switchLayer(layerString) {
     mymap.removeLayer(currentLayer);

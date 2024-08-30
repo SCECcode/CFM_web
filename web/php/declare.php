@@ -21,8 +21,7 @@ $TRACE_tb_gid=17;
 
 // for EQ_tb
 $quake_type_Hauksson=1;
-$quake_type_Ross=2;
-$quake_type_Historical=3;
+$quake_type_Significant=2;
 
 $eq_gid_latlon=0;
 $eq_EventTime_latlon=1;

@@ -1,0 +1,46 @@
+EQs catalog are preprocessed to speed up the in-demand loading
+
+1) preprocess EQs catalog 
+
+  a) chop off the comment lines and turn to a valid csv file
+     with delimiter=comma, use this to generate base input for eq tables
+
+      ==> HaukssonWaldhauserEQs.txt <==
+      lon,lat,easting,northing,depth,mag,GMT_dateTime,id,source
+
+      ==> base_csv <==
+      EventTime,EventID,Lat,Lon,Depth,Mag,Easting,Northing,Description
+      2010-09-01T13:01:47.759,10790541,32.92295,-116.23240,9.152,1.45,571849.89,3642810.52,Hauk
+
+  b) run schema/scripts/chopEQs.sh to do the reformatting
+
+  Removed a bad entry
+     -120.58285 36.02570  177207.89 3992541.44  4.570  1.20 2016-00-00T00:00:00.530 72571870 Wald
+
+2) preprocess Significant EQs catalog 
+
+  a) make sure the format looks like this
+
+   EventTime,EventID,Lat,Lon,Depth(km),Magnitude,TextLabel
+   2019-07-06T03:19:53.040,ci38457511,35.7695,-117.5993333,8,7.1,2019 M7.1
+   2019-07-04T17:33:49.000,ci38443183,35.7053333,-117.5038333,10.5,6.4,2019 M6.4
+   2010-04-04T22:40:42.360,ci14607652,32.2861667,-115.2953333,9.987,7.2,2010 M7.2
+
+3) run schema/scripts/setup_data.sh every time any of the EQs got altered
+
+
+
+== Debug  Hints ==
+   ./run_connect with cfm_web_db
+
+   psql -E CFM7_preferred_db -U  webonly
+
+     \l
+     \c  db_name
+     \dt *.
+     \d
+     select * from eq_significant_tb;
+
+
+   psql -U webonly -l
+

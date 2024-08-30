@@ -14,13 +14,16 @@ COPY OBJECT_500m_tb(name, url)
 FROM '/home/postgres/CFM/schema/data/preferred7/object_500m_tb.csv' DELIMITER ',' CSV HEADER;
 COPY OBJECT_native_tb(name, url)
 FROM '/home/postgres/CFM/schema/data/preferred7/object_native_tb.csv' DELIMITER ',' CSV HEADER;
-COPY EQ_hauksson_tb(EventTime,EventID,Lat,Lon,Depth,Mag,Easting,Northing)
-FROM '/home/postgres/CFM/schema/data/eq_Hauksson_1_tb.csv' DELIMITER ',' CSV HEADER;
-COPY EQ_hauksson_tb(EventTime,EventID,Lat,Lon,Depth,Mag,Easting,Northing)
-FROM '/home/postgres/CFM/schema/data/eq_Hauksson_2_tb.csv' DELIMITER ',' CSV HEADER;
-COPY EQ_ross_tb(EventTime,EventID,Lat,Lon,Depth,Mag,Easting,Northing)
-FROM '/home/postgres/CFM/schema/data/eq_Ross_1_tb.csv' DELIMITER ',' CSV HEADER;
-COPY EQ_ross_tb(EventTime,EventID,Lat,Lon,Depth,Mag,Easting,Northing)
-FROM '/home/postgres/CFM/schema/data/eq_Ross_2_tb.csv' DELIMITER ',' CSV HEADER;
-COPY EQ_historical_tb(EventTime,EventID,Lat,Lon,Depth,Mag,Description)
-FROM '/home/postgres/CFM/schema/data/eq_Historical_tb.csv' DELIMITER ',' CSV HEADER;
+
+
+COPY EQ_hauksson_tb(EventTime,EventID,Lat,Lon,Depth,Mag,Easting,Northing,Description)
+FROM '/home/postgres/CFM/schema/data/eq_HaukssonWaldhauser_1_tb.csv' DELIMITER ',' CSV HEADER;
+COPY EQ_hauksson_tb(EventTime,EventID,Lat,Lon,Depth,Mag,Easting,Northing,Description)
+FROM '/home/postgres/CFM/schema/data/eq_HaukssonWaldhauser_2_tb.csv' DELIMITER ',' CSV HEADER;
+COPY EQ_hauksson_tb(EventTime,EventID,Lat,Lon,Depth,Mag,Easting,Northing,Description)
+FROM '/home/postgres/CFM/schema/data/eq_HaukssonWaldhauser_3_tb.csv' DELIMITER ',' CSV HEADER;
+COPY EQ_hauksson_tb(EventTime,EventID,Lat,Lon,Depth,Mag,Easting,Northing,Description)
+FROM '/home/postgres/CFM/schema/data/eq_HaukssonWaldhauser_4_tb.csv' DELIMITER ',' CSV HEADER;
+
+COPY EQ_significant_tb(EventTime,EventID,Lat,Lon,Depth,Mag,Description)
+FROM '/home/postgres/CFM/schema/data/eq_Significant_tb.csv' DELIMITER ',' CSV HEADER;

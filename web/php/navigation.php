@@ -40,10 +40,7 @@ _END;
 <div id="banner-container" class="banner-container">
     <div class="container top">
         <nav class="navbar navbar-expand-lg navbar-dark  scec-header">
-            <a class="navbar-brand" href="explorer.php"><img class="scec-logo" src="img/sceclogo_transparent.png">
-<!--
-            <a class="navbar-brand" href="$host_site_actual_path"><img class="scec-logo" src="img/sceclogo_transparent.png">
--->
+            <a class="navbar-brand" href="explorer.php"><img class="scec-logo" src="img/scec-statewide-logo-final-289x300_whitebg-v2.png">
                 &nbsp;Community Fault Model Explorer</a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>

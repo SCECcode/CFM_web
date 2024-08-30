@@ -18,11 +18,8 @@ $endpoint = intVal($_GET['endpoint']);
 if ($quake_type == $quake_type_Hauksson ) { 
   $query = "SELECT EventId, Lon, Lat, Depth, Mag, EventTime FROM EQ_hauksson_tb WHERE gid > $1 AND gid <= $2";
 }
-if ($quake_type == $quake_type_Ross ) { 
-  $query = "SELECT EventId, Lon, Lat, Depth, Mag, EventTime FROM EQ_ross_tb WHERE gid > $1 AND gid <= $2";
-}
-if ($quake_type == $quake_type_Historical ) { 
-  $query = "SELECT EventId, Lon, Lat, Depth, Mag, EventTime, Description FROM EQ_historical_tb WHERE gid > $1 AND gid <= $2";
+if ($quake_type == $quake_type_Significant ) { 
+  $query = "SELECT EventId, Lon, Lat, Depth, Mag, EventTime, Description FROM EQ_significant_tb WHERE gid > $1 AND gid <= $2";
 }
 $data = array($startpoint, $endpoint);
 $result = pg_query_params($dbconn, $query, $data);
@@ -30,7 +27,7 @@ $result = pg_query_params($dbconn, $query, $data);
 $eqList=array();
 
 while($row = pg_fetch_row($result)) {
-  if($quake_type == $quake_type_Historical) {
+  if($quake_type == $quake_type_Significant) {
     array_push($eqList, makeEQChunkWithDescriptionObj($row));
     } else {
       array_push($eqList, makeEQChunkObj($row));

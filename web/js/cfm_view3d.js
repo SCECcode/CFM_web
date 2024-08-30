@@ -17,8 +17,8 @@ var VIEW3D_tb = {
          'name': 'Hide Traces',
          'description': 'Show/Hide Fault traces and upper tiplines of Blind faults'},
        { 'id':4,
-         'name': 'Hauksson',
-         'description': 'Select the seismicity to show: Hauksson et al., Ross et al. or None'},
+         'name': 'Show EQs',
+         'description': 'Show/Hide relocated seismicity'},
        { 'id':5,
          'name': 'Hide Coastline',
          'description': 'Show/Hide California outline and coastline'},
@@ -388,22 +388,20 @@ function toggleNorth3Dview() {
   document.getElementById("view3DIfram").contentDocument.getElementById("Northbtn").click();
 }
 
-var track_seismicity=0; // 0 is none, 1 is hauksson, 3 is ross 
+var track_seismicity=0; // 0 is none, 1 is hauksson
 //publicAPI.toggle
 function toggleQuake3Dview() {
   document.getElementById("view3DIfram").contentDocument.getElementById("Quakebtn").click();
   let elt=document.getElementById("view3DToggleQuakebtn");
 
-  track_seismicity = ( track_seismicity + 1 ) % 3;
   switch( track_seismicity ) {
-    case 0:
-      elt.innerHTML="Relocated Seismicity Off";
-      break;
     case 1:
-      elt.innerHTML="Hauksson et al.(2012)";
+      elt.innerHTML="Relocated Seismicity Off";
+      track_seismicity = 0;
       break;
-    case 2:
-      elt.innerHTML="Ross et al.(2019)";
+    case 0:
+      elt.innerHTML="Relocated Seismicity On";
+      track_seismicity = 1;
       break;
   }
 }
@@ -424,10 +422,7 @@ function setQuake3Dview(val) {
       elt.innerHTML="Relocated Seismicity Off";
       break;
     case 1:
-      elt.innerHTML="Hauksson et al.(2012)";
-      break;
-    case 2:
-      elt.innerHTML="Ross et al.(2019)";
+      elt.innerHTML="Relocated Seismicity On";
       break;
   }
 }

@@ -128,30 +128,7 @@ var cfm_latlon_area_list=[];
 // { gid1, gid2, ... }, tracking which object is 'blind'
 var cfm_blind_gid_list=[];
 
-/*********************************************************
-*********************************************************/
-// quake_type,  Hauksson=1, Ross=2, Historical=3
-
-const QUAKE_TYPE_HAUKSSON=1;
-const QUAKE_TYPE_ROSS=2;
-const QUAKE_TYPE_HISTORICAL=3;
-const QUAKE_TYPE_BUCKET=4;
-
-var showing_historical=0; // 0(none),1(large),2(small)
-
-// for tracking groups of earthquakes for HISTORICAL dataset
-var cfm_quake_historical_layer=null;
-var cfm_quake_historical_latlng=[];
-var cfm_quake_historical_description=[];
-
-// Not USED
-var cfm_quake_group=null;
-// {"group_id":groupid, "trace":a_trace}
-var cfm_quake_group_list=[];
-   
-/*********************************************************
-*********************************************************/
-
+/*********************************************************/
 function reset_geo_plot() {
   // can not really 'destroy' layer and so need to reuse..
   cfm_active_gid_list=[];
@@ -1027,45 +1004,6 @@ function add_bounding_rectangle_layer(layer, a,b,c,d) {
   var tmp={"layer":layer, "latlngs":[{"lat":a,"lon":b},{"lat":c,"lon":d}]};
   set_latlons(a,b,c,d);
   cfm_latlon_area_list.push(tmp);
-}
-
-/*********************************************************
- 42 of them, significant historic earthquakes (>M6) since 1900
-*********************************************************/
-function makeHistoricalEQLayer() {
-   // create a group layer with many marker within..
-   //   collect up latlng, description list, "red"
-   cfm_quake_historical_layer=addMarkerLayerGroup(
-                           cfm_quake_historical_latlng,
-                           cfm_quake_historical_description, 8);
-};
-
-function toggleHistorical() {
-   let $elt=$('#eye_historical');
-   if(showing_historical) {
-     removeHistoricalEQLayer();
-     $elt.removeClass('glyphicon-eye-open').addClass('glyphicon-eye-close');
-     } else {
-       addHistoricalEQLayer();
-       $elt.removeClass('glyphicon-eye-close').addClass('glyphicon-eye-open');
-   }
-}
-
-function removeHistoricalEQLayer() {
-    viewermap.removeLayer(cfm_quake_historical_layer);
-    showing_historical=false;
-}
-
-function addHistoricalEQLayer() {
-    if(showing_historical)
-      return;
-
-    if(cfm_quake_historical_layer==null) {
-      makeHistoricalEQLayer();
-      } else {
-        viewermap.addLayer(cfm_quake_historical_layer);
-    }
-    showing_historical=true;
 }
 
 // NOT USED:

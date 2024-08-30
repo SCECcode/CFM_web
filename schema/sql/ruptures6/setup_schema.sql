@@ -99,32 +99,33 @@ CREATE TABLE EQ_hauksson_tb (
    Depth float,
    Mag float,
    Easting float,
-   Northing float
+   Northing float,
+   Description VARCHAR(10)
 );
 SELECT AddGeometryColumn('','eq_hauksson_tb','geom','0','POINT',2);
 
-CREATE TABLE EQ_ross_tb (
+CREATE TABLE EQ_hauksson_waldhauser_tb (
    gid serial PRIMARY KEY,
    EventTime timestamp,
    EventID integer,
-   Lon float, 
+   Lon float,
    Lat float,
    Depth float,
    Mag float,
    Easting float,
-   Northing float
+   Northing float,
+   Description VARCHAR(10)
 );
-SELECT AddGeometryColumn('','eq_ross_tb','geom','0','POINT',2);
+SELECT AddGeometryColumn('','eq_hauksson_waldhauser_tb','geom','0','POINT',2);
 
-CREATE TABLE EQ_historical_tb (
+CREATE TABLE EQ_significant_tb (
    gid serial PRIMARY KEY,
    EventTime timestamp,
-   EventID VARCHAR(20),
+   EventID VARCHAR(40),
    Lon float, 
    Lat float,
    Depth float DEFAULT NULL,
    Mag float,
    Description VARCHAR(3000)
 );
-SELECT AddGeometryColumn('','eq_historical_tb','geom','0','POINT',2);
-
+SELECT AddGeometryColumn('','eq_significant_tb','geom','0','POINT',2);

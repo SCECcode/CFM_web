@@ -17,14 +17,11 @@ $maxmag = floatVal($_GET['max']);
 
 $dbconn = getConnection();
 
-$fname="./data/seismicity/";
+$fname="../result/";
 
 if ($quake_type == $quake_type_Hauksson) {
   $query = "SELECT Easting, Northing, Depth FROM EQ_hauksson_tb WHERE Mag > $1 AND Mag < $2";
   $fname=$fname+"hauksson_mag_"+$uid+".utm";
-  } else {
-  $query = "SELECT Easting, Northing, Depth FROM EQ_ross_tb WHERE Mag > $1 AND Mag < $2";
-  $fname=$fname+"ross_mag_"+$uid+".utm";
 }
 $fp= fopen($fname,"w") or die("Unable to open file!"+$fname);
 $data = array($minmag, $maxmag);

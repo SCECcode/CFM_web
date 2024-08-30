@@ -158,55 +158,6 @@ function toggleBigMap()
   }
 }
 
-
-// dump the quake layer into file
-function dumpAllQuakeLayer() {
-// TODO -- maybe some webgl page dump ??
-// start with hauksson and then ross within
-//  dumpQuakeCFMGeo(QUAKE_TYPE_HAUKSSON);
-}
-
-// extract all EQ northing/easting info to file 
-function toFileAllQuakes() {
-  let meta={"size":1,"color":{"r":0,"g":0.61,"b":0}};
-  let msg=JSON.stringify(meta); 
-  // start with hauksson and then ross within
-  quakesAllToFile(QUAKE_TYPE_HAUKSSON,msg);
-}
-
-function updatePrograssBar(width) {
-  var element = document.getElementById("myProgressBar");   
-  element.style.width = width + '%'; 
-//  element.innerHTML = width * 1  + '%';
-  let elm = $("#eq-progress");
-  var n= width * 1  + '%';
-  elm.val(n);
-window.console.log("Progress bar: update to ", n);
-}
-
-function loadSeismicity() {
-   if(seismicity_loaded == false) {
-     refresh_map();
-// return to initial map view so don't get funny dots
-     initForPixiOverlay(); 
-     if( seismicity_from_cache ) {
-        loadFromFileMarkerLatlng();
-        } else {
-// ROSS and HISTORICAL are loaded as side-effect
-          getAllQuakes(QUAKE_TYPE_HAUKSSON);  
-     }
-   }
-}
-
-function finishLoadSeismicity() {
-    setup_pixi(EQ_HAUKSSON_FOR_DEPTH);
-    showSeismicityKey("hauksson_depth");
-    addHistoricalEQLayer();
-    seismicity_loaded = true;
-    $('#showSeismicity').css("display", "");
-    $('#loadSeismicity').css("display", "none");
-}
-
 function disable_record_btn() {
   $('#recordReferenceBtn').attr("disabled", true);
 }
@@ -427,30 +378,6 @@ function showSeismicityKey(type) {
     }
     if(type == "hauksson_time") {
         showColorLegend("hauksson_time.png");
-        return;
-    }
-    if(type == "ross_depth") {
-        showColorLegend("ross_depth.png");
-        return;
-    }
-    if(type == "ross_mag") {
-        showColorLegend("ross_mag.png");
-        return;
-    }
-    if(type == "ross_time") {
-        showColorLegend("ross_time.png");
-        return;
-    }
-    if(type == "historical_depth") {
-        showColorLegend("historical_depth.png");
-        return;
-    }
-    if(type == "historical_mag") {
-        showColorLegend("historical_mag.png");
-        return;
-    }
-    if(type == "historial_time") {
-        showColorLegend("historical_time.png");
         return;
     }
     if(type == "none") {

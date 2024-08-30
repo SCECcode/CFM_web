@@ -1,3 +1,15 @@
+/**
+ *
+ * cfm_main.js
+**/
+
+try {
+    var isFileSaverSupported = !!new Blob;
+} catch (e) {
+    window.console.log("FileSaver is not working!!!");
+    abort();
+}
+
 var viewermap;
 
 jQuery(document).ready(function() {

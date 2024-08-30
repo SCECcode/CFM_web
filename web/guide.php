@@ -141,27 +141,32 @@ $header = getHeader("User Guide");
             <h4><strong>Viewing Relocated Seismicity</strong></h4>
 
              <p> In the top of the 2D map interface, there is a “Load relocated seismicity” 
-                 button that allows users to visualize two different relocated seismicity catalogs in
-                 the map interface. These are large datasets, so loading the relocated seismicity may
-                 take a minute or more depending on your connection speed. The default relocated seismicity 
-                 catalog shown is the Hauksson et al. (2012) catalog, which is available for download 
-                 <a href="https://scedc.caltech.edu/data/alt-2011-dd-hauksson-yang-shearer.html">here</a>.
-                 The pull-down menu at the top left of the interface also allows for visualization
-                 of the Ross et al. (2019) catalog, which is available for download
-                 <a href="https://scedc.caltech.edu/eq-catalogs/qtm.html">here</a>. Epicenters are
-                 colored by depth by default, but the pull-down menu at the top left of the interface 
-                 provides options to color by depth, magnitude, or time, for either the Hauksson et al. (2012),
-                 or Ross et al. (2019). The Hauksson et al. (2012) catalog contains ~700k events from 
-                 1981-2019, while the Ross et al. (2019) catalog contains ~900k events from 2008-2017.
-             <p> The Hauksson et al. (2012) or Ross et al. (2019) relocated catalogs can also be viewed
+		 button that allows users to visualize seismicity catalogs in the map interface. 
+		 These are large datasets, so loading the relocated seismicity may take a minute or 
+                 more depending on your connection speed.
+
+		 The seismicity consists of a combination of the Hauksson et al. (2012, and updates) 
+		 and Waldhauser (2009) catalogs. The catalogs have been cropped to avoid any overlap. 
+		 Once loaded, you can color the relocated seismicity by depth(, magnitude, or time).
+		 Significant historic earthquakes (M6+) will be shown on the map interface with red dots.
+		 If you mouse over the dots, the year and magnitude will be displayed. The significant 
+		 earthquakes can be toggled on/off by clicking on the eyeball icon next to the seismicity
+                 pull down menu at the top of the map interface.
+
+             <p> The Hauksson et al. (2012) and Waldhauser (2009) relocated catalogs can also be viewed
                  in 3D using the plot3D option. Once faults have been selected on the map interface and
                  the plot3D button is clicked, the 3D interface loads. There is a button labeled 
                  “Relocated Seismicity Off” at the top that can be clicked on to display the hypocenters
-                 of the Hauksson et al. (2012) or Ross et al. (2019) relocated catalogs. 
-                 Hauksson et al. (2012) hypocenters are shown in green while the Ross et al. (2019) 
-                 hypocenters are shown in blue. Many of the CFM surfaces are based partly on relocated 
+		 of the Hauksson et al. (2012) and Waldhauser (2009( relocated catalogs.  Many of the CFM
+                 surfaces are based partly on relocated 
                  seismicity, so this feature allows users to see how the CFM faults relate to seismicity
                  in a 3D interactive environment.</p>
+
+             <p> The Hauksson et al. (2012) catalogs are available at:
+		 <a href="https://scedc.caltech.edu/data/alt-2011-dd-hauksson-yang-shearer.html">https://scedc.caltech.edu/data/alt-2011-dd-hauksson-yang-shearer.html</a>.<br>
+                 The Waldhauser (2009) catalogs are available at:
+		 <a href="https://nocaldd.ldeo.columbia.edu/">https://nocaldd.ldeo.columbia.edu/</a>.</p>
+
             <h4><strong>KML/KMZ Uploader</strong></h4>
 	     <p>Users can now upload their own Google Earth kml/kmz files for display on the 2D map
 		interface. This is intended to allow users to compare their own data to the CFM. 
@@ -186,7 +191,6 @@ $header = getHeader("User Guide");
                  <li>CFM Version when added or last updated: CFM6</li>
                  </ul>
              </dl>
-
 
             <h4><strong>Browser Requirements</strong></h4>
             <p>This site supports the latest versions of <a href="https://www.mozilla.org/en-US/firefox/">Firefox</a>, <a href="https://www.google.com/chrome/">Chrome</a>, <a href="https://www.apple.com/safari/">Safari</a>, and <a href="https://www.microsoft.com/en-us/windows/microsoft-edge">Microsoft Edge</a>.</p>

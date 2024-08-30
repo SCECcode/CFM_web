@@ -11,11 +11,11 @@ CREATE INDEX ON TRACE_tb USING GIST ("geom");
 UPDATE EQ_hauksson_tb SET geom = ST_SetSRID(ST_MakePoint(lon, lat),4326); 
 CREATE INDEX ON EQ_hauksson_tb USING GIST ("geom");
 
-UPDATE EQ_ross_tb SET geom = ST_SetSRID(ST_MakePoint(lon, lat),4326); 
-CREATE INDEX ON EQ_ross_tb USING GIST ("geom");
+UPDATE EQ_hauksson_waldhauser_tb SET geom = ST_SetSRID(ST_MakePoint(lon, lat),4326); 
+CREATE INDEX ON EQ_hauksson_waldhauser_tb USING GIST ("geom");
 
-UPDATE EQ_historical_tb SET geom = ST_SetSRID(ST_MakePoint(lon, lat),4326); 
-CREATE INDEX ON EQ_historical_tb USING GIST ("geom");
+UPDATE EQ_significant_tb SET geom = ST_SetSRID(ST_MakePoint(lon, lat),4326); 
+CREATE INDEX ON EQ_significant_tb USING GIST ("geom");
 
 CREATE TEMP TABLE tmp_x AS
      SELECT name, gid from OBJECT_tb;
