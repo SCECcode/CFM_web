@@ -16,8 +16,8 @@
 }
 
 #id_select_dataset input[type="radio"]:checked + span {
-  background-color: #990000;
-  border: 1px solid #990000;
+  background-color: #C22B48;
+  border: 1px solid #C22B48;
   color: white;
 }
 
@@ -33,10 +33,6 @@
     margin: 9px 0 19px;
 }
 
-
-#refreshBtn {
-  height: calc(2rem - 1px);
-}
 
 #quakeInfoBtn, #seismicitySelect {
 //    border: none;
@@ -62,12 +58,13 @@
 .fas.fa-caret-down,
 .fas.fa-angle-up,
 .fas.fa-angle-down {
-   color: #990000;
+   color: #C22B48;
+    margin-left: 5px;
 }
 
 .glyphicon.glyphicon-menu-up,
 .glyphicon.glyphicon-menu-down {
-   color: #990000;
+   color: #C22B48;
 }
 
 .glyphicon.glyphicon-record {
@@ -79,7 +76,7 @@
 }
 
 .glyphicon.glyphicon-check {
-   color: #990000;
+   color: #C22B48;
 }
 
 /*
@@ -88,18 +85,14 @@
 }
 */
 
-#plot3d-all:not([disabled]):hover {
-   background: #770000;
-}
-
 .btn-outline-primary {
   color: black;
-  border-color: #990000;
+  border-color: #C22B48;
 }
 
 .btn-outline-primary:hover {
-  border-color: #990000;
-  background-color: #990000;
+  border-color: #C22B48;
+  background-color: #C22B48;
 }
 
 .dropdown {
@@ -121,8 +114,16 @@
   display: block;
 }
 
-#plot3d-all:not([disabled]) {
-  background: #990000;
+/*#plot3d-all:not([disabled]) {*/
+/*  background: #C22B48;*/
+/*}*/
+
+#top-select .btn-group .btn-dark[disabled] {
+   cursor:  default;
+}
+
+#top-select .btn-group .btn-dark:not([disabled]) {
+    background: #577399;
 }
 
 .custom-select-sm {
@@ -167,7 +168,7 @@
 }
 
 body, html {
-    font-family: Arial, sans-serif;
+    font-family: "Open Sans", Arial, sans-serif;
     font-size: 10pt;
 }
 
@@ -279,17 +280,25 @@ table, td, th {
 
 table tr th {
     background-color: #F2F2F2;
+    vertical-align: bottom;
+}
+
+table tr th:last-child {
+    vertical-align: middle;
+
 }
 
 .hoverColor:hover {
     background-color: #b9bec4;
+    cursor: pointer;
 }
 
-.container button.btn-dark {
+.container .floatThead-container button.btn-dark {
     text-transform: uppercase;
-    background-color: #333333;
-    border: 1px solid #333333;
+    background-color: #bbbbbb;
+    border: 1px solid #bbbbbb;
     font-size: 8pt;
+    width: 128px;
 }
 
 th {
@@ -550,11 +559,12 @@ input[type=text] {
 
 .banner-container {
     width: 100%;
-    background-color: #990000;
+    background-color: #E4EBF1;
+    padding-top: 50px;
 }
 
 .scec-header {
-    background-color: #990000;
+    background-color: #E4EBF1;
     border-radius: 0px;
 }
 
@@ -566,8 +576,36 @@ input[type=text] {
     padding: 0;
 }
 
+.navbar span {
+    color: #C22B48;
+    font-weight: 600;
+    font-size: 14pt;
+    margin-top: 18px;
+    margin-left: -2px;
+}
+
 .navbar-brand > img {
     display: block;
+}
+
+#top-intro {
+    margin-bottom: 15px;
+}
+
+#top-intro div.links {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+#top-intro div.links a:first-child {
+    display: block;
+    margin-bottom: 3px;
+}
+
+#top-intro p {
+    line-height: 19pt;
+    margin-bottom: 0;
+    padding-left: 55px;
 }
 
 .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
@@ -586,8 +624,12 @@ input[type=text] {
 
 @media (min-width: 768px) {
     .navbar-nav > li > a {
-        padding-top: 15px;
-        padding-bottom: 15px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+    }
+
+    .navbar-nav {
+        margin-bottom: -17px;
     }
 }
 
@@ -596,27 +638,38 @@ input[type=text] {
     height: 50px;
     font-size: 11pt;
     line-height: 20px;
+    color: #C22B48;
 }
 
 .container .navbar-header a {
     color: white;
 }
 
+#banner-container .navbar-brand {
+    color: #C22B48;
+    font-weight: bold;
+}
 .navbar-brand .scec-logo {
-    height: 40px;
-    width: 70px;
+    width: 110px;
     vertical-align: middle;
     display: inline-block;
+    bottom: 28px;
+    position: relative;
 }
 
-.nav-item.active .nav-link {
-    background-color: #770000;
+.navbar-light .navbar-nav .active>.nav-link {
+    background-color: #577399;
     padding-left: 0.75rem;
     padding-right: 0.75rem;
+    color: white;
 }
 
-.navbar-dark .navbar-toggler {
+.navbar-light .navbar-nav .nav-link:hover {
     color: white;
+}
+
+ .navbar-toggler {
+     border: 0;
 }
 
 img {
@@ -628,11 +681,11 @@ a {
 }
 
 .container a {
-    color: #990000;
+    color: #C22B48;
 }
 
-nav.navbar.navbar-dark a.nav-link  {
-    color: white;
+nav.scec-header.navbar a.nav-link  {
+    color: #577399;
 }
 
 nav.navbar .nav-link.disabled {
@@ -643,10 +696,32 @@ nav.navbar .nav-link.disabled {
     background-color: #FFFFFF;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 990px) {
     .scec-main-container {
-        border: 0px;
+        border: 0;
     }
+
+    ul.navbar-nav {
+        margin-top: 45px;
+        padding-bottom: 20px;
+    }
+
+    a.navbar-brand span {
+        font-size: 12pt;
+    }
+    .banner-container {
+        margin-bottom: 45px;
+    }
+}
+
+.navbar-light .navbar-toggler-icon {
+    z-index: 100;
+}
+
+a.navbar-brand span {
+    position: relative;
+    top: 19px;
+    left: 21px;
 }
 
 label {
@@ -699,7 +774,7 @@ div.download-now button {
 }
 
 tr.row-selected {
-    background-color: #F2F2F2;
+    background-color: #E4EBF1;
 }
 
 table tr td label {
@@ -711,8 +786,8 @@ tr.layer-hidden * {
 }
 
 .container .btn-dark {
-    background-color: #495057;
-    border-color: #495057;
+    background-color: #577399;
+    border-color: #577399;
     color: white;
 }
 
@@ -753,19 +828,23 @@ table tr td label {
 }
 
 .info-page-container {
-    border:1px solid gray;
     padding: 10px;
-    background-color: whitesmoke;
+    margin-top: 51px;
 }
 
 .info-page-container.guide {
     position: relative;
     margin-bottom: 10px;
+
 }
 
 .info-page-container.guide div {
     z-index: 100;
     position: relative;
+}
+
+.info-page-container h4 {
+    margin-top: 20px;
 }
 
 .info-page-container.guide .cfm-interface img {
@@ -796,30 +875,6 @@ div.guide ul {
     padding-left: 40px;
 }
 
-#metadata-viewer-container {
-    max-height:400px;
-    overflow-y:scroll;
-}
-
-#metadata-viewer {
-    width: 100%; 
-    max-width: 1100px;
-}
-
-#metadata-viewer .download-link a {
-    display: table-cell;
-    max-width:100px;
-}
-
-#metadata-viewer .cfm-btn {
-    background-color: inherit;
-    padding: 0;
-}
-
-#metadata-viewer thead th {
-    white-space: nowrap;
-}
-
 .floatThead-container {
     overflow: visible !important;
 }
@@ -828,9 +883,10 @@ floatThead-wrapper {
     overflow-y: scroll;
 }
 
-#metadata-viewer #placeholder-row td {
-    text-align: center;
-    font-style: italic;
+#metadata-table .glyphicon-download {
+    position: relative;
+    top: 2px;
+    right: 1px;
 }
 
 .modal-full {
