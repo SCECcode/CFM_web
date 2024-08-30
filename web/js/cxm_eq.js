@@ -65,8 +65,11 @@ var eq_hauksson_max_time = new Date("2020-01-01T00:00:00");
 
  for each group,  all data are put in this structure with NUM(20) chunks/segments
      eqLatlngList= {"uid":uid,"data":datalist}
-       (array of arrays)
-       datalist[ [{'lat':v,'lon':vv}...], [{...}], ... ]
+
+       uid is EQ_HAUKSSON_FOR_DEPTH, EQ_HAUKSSON_FOR_MAG, EQ_HAUKSSON_FOR_TIME
+
+       datalist is (array of arrays)
+       [ [[lat0,lon0],[lat1,lon1],...],  ]
 
  segments track number of data per segment/chunk
        [ len1, len2 .. ]
@@ -81,7 +84,7 @@ var eqPixiOverlayList=[];
 
 // break up data into buckets (one per segment)
 // [ { marker-latlngs } {mag-latlngs} {time-latlngs} ]  
-/* [{"uid":EQ_HAUKSSON_FOR_DEPTH, "data":[ [{"lat":lat,"lng":lng},...], ...] }] */
+/* [{"uid":EQ_HAUKSSON_FOR_DEPTH, "data":[ [[lat,lng], ...], ...] */
 //var pixiLatlngList=[];
 var eqLatlngList=[];
 
@@ -257,7 +260,8 @@ function updateEQMarkerLatlng(quake_metric_type,idx,lat,lng) {
           window.console.log("hum.. BAD...eqLatlngList did not get initialized.."); 
   }
   var item=eptr.data;
-  item[idx].push({'lat':lat,"lng":lng});
+  item[idx].push([lat,lng]);
+//XXX   item[idx].push({'lat':lat,"lng":lng});
 }
 
 function getEQMarkerCount(quake_metric_type,idx) {
@@ -378,7 +382,7 @@ function clearAllPixiOverlay() {
 function togglePixiOverlay(target_type) {
   let pixi=pixiFindPixiWithUid(target_type);
   if(pixi == null) { 
-window.console.log(" XXX togglePixiOverlay..> need to make a NEW ONE>>"+target_type);
+window.console.log(" togglePixiOverlay..> need to make a NEW ONE>>"+target_type);
     setup_new_pixi(target_type);
     return;
   }

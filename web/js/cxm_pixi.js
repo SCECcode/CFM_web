@@ -75,6 +75,7 @@ function getParticleLatlngs(latlonlist,idx) {
   return dlist;
 }
 
+
 /*************************************************************************/
 function pixiGetSegmentRangeIdx(vs_target, N, vs_max, vs_min) {
   if(vs_target <= vs_min) {
@@ -503,7 +504,8 @@ used by cfm_web
    input : pixiLatlngList, sid, datalist
            pxiLatlngList, ptr to list
            sid, segment id
-           datalist, {"lat":lat,"lng":lng}
+//           datalist, {"lat":lat,"lng":lng}
+           datalist, [lat,lon]
 **/
 function _loadup_data_list_segment(pixiLatlngList,sid,datalist) {
    let dlist=pixiLatlngList.data;
@@ -675,10 +677,7 @@ window.console.log(" >>>   PIXI: redraw event -- with data update");
 
                segments.push(len);
                for (var j = 0; j < len; j++) {
-                  var latlng=latlngs[j];
-                  var ll=latlng['lat'];
-                  var gg=latlng['lng'];
-                  var coords = pixiProject([ll,gg]);
+                  var coords = pixiProject(latlngs[j]);
               
                   var particle = new PIXI.TilingSprite(pTexture);
                   particle.clampMargin = -0.5;
@@ -746,10 +745,7 @@ window.console.log(" >>>   PIXI: add event");
              collect_len=collect_len+len;
              segments.push(len);
              for (var j = 0; j < len; j++) {
-                var latlng=latlngs[j];
-                var ll=latlng['lat'];
-                var gg=latlng['lng'];
-                var coords = pixiProject([ll,gg]);
+                var coords = pixiProject(latlngs[j]);
   
   
   // our patched particleContainer accepts simple {x: ..., y: ...} objects as children:
