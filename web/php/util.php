@@ -1,6 +1,12 @@
 <?php
+
+const DEFAULT_DB = "CFM7_preferred_db";
+
 function getConnection() {
-  $db=getenv("CFM_MY_DB");
+  $db = $_REQUEST['model'] ?: DEFAULT_DB;
+
+  // ensure only the allowable characters are used
+  $db = preg_replace('/[^0-9A-Za-z_]/', '', $db);
 
   if($db == "") { die('Could not get CFM_DB environment value'); }
 

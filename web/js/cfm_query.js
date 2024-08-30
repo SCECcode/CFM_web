@@ -1,6 +1,6 @@
 /***
-   cfm_query.js
-***/
+ cfm_query.js
+ ***/
 
 const DATA_CHUNK_COUNT=20;
 
@@ -21,12 +21,13 @@ function quakesAllToFile(quake_type,msg) {
                 let t={"size":2,"color":{"r":0,"g":0,"b":1}}
                 let mmsg=JSON.stringify(t);
                 quakesAllToFile(QUAKE_TYPE_ROSS,mmsg);
-                } else {
-                  window.console.log("done with quakesAllToFile..for Ross");
+            } else {
+                window.console.log("done with quakesAllToFile..for Ross");
             }
         }
     };
-    xmlhttp.open("GET","php/quakesAllToFile.php?quake_type="+quake_type+"&uid="+uid+"&msg="+msg,true);
+    
+    xmlhttp.open("GET","php/quakesAllToFile.php?quake_type="+quake_type+"&uid="+uid+"&msg="+msg+"&model="+currentModel,true);
     xmlhttp.send();
 }
 
@@ -44,7 +45,8 @@ function quakeByMagnitudeToFile(quake_type,uid,msg,min,max) {
             window.console.log("file being created.."+this.responseText);
         }
     };
-    xmlhttp.open("GET","php/quakeByMagnitudeToFile.php?quake_type+"+quake_type+"&min="+min+"&max="+max+"&uid="+uid+"&msg="+msg,true);
+    
+    xmlhttp.open("GET","php/quakeByMagnitudeToFile.php?quake_type+"+quake_type+"&min="+min+"&max="+max+"&uid="+uid+"&msg="+msg+"&model="+currentModel,true);
     xmlhttp.send();
 }
 
@@ -90,36 +92,37 @@ function searchByStrikeRange(min,max) {
                 document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
             }
         };
-        xmlhttp.open("GET","php/faultsByStrikeRange.php?min="+min+"&max="+max,true);
+        
+        xmlhttp.open("GET","php/faultsByStrikeRange.php?min="+min+"&max="+max+"&model="+currentModel,true);
         xmlhttp.send();
     }
 }
 
 
 function setupSearchByStrike() {
-  var lowstrikestr=document.getElementById("lowStrikeTxt").value;
-  var highstrikestr=document.getElementById("highStrikeTxt").value;
-  var lowval=parseFloat(lowstrikestr);
-  var highval=parseFloat(highstrikestr);
-  var minval= $( "#slider-strike-range" ).slider("option", "min");
-  var maxval= $( "#slider-strike-range" ).slider("option", "max");
-  /* bad case.. reset to all */
-  if( lowval < minval || lowval > maxval || highval < minval || highval > maxval ||
-          highval < lowval ) {
-    window.console.log("BAD user input for strike range");
-    lowval=minval;
-    highval=maxval;
-  }
+    var lowstrikestr=document.getElementById("lowStrikeTxt").value;
+    var highstrikestr=document.getElementById("highStrikeTxt").value;
+    var lowval=parseFloat(lowstrikestr);
+    var highval=parseFloat(highstrikestr);
+    var minval= $( "#slider-strike-range" ).slider("option", "min");
+    var maxval= $( "#slider-strike-range" ).slider("option", "max");
+    /* bad case.. reset to all */
+    if( lowval < minval || lowval > maxval || highval < minval || highval > maxval ||
+        highval < lowval ) {
+        window.console.log("BAD user input for strike range");
+        lowval=minval;
+        highval=maxval;
+    }
 
-  $("#slider-strike-range" ).slider( "option", "values", [lowval, highval]);
-  searchByStrikeRange(lowval,highval);
+    $("#slider-strike-range" ).slider( "option", "values", [lowval, highval]);
+    searchByStrikeRange(lowval,highval);
 }
 
 function searchWithStrikeRange() {
 
-  //grab the min and max from the slider..
-  var vals = $( "#slider-strike-range" ).slider("option", "values");
-  searchByStrikeRange(vals[0],vals[1]);
+    //grab the min and max from the slider..
+    var vals = $( "#slider-strike-range" ).slider("option", "values");
+    searchByStrikeRange(vals[0],vals[1]);
 }
 
 
@@ -143,34 +146,35 @@ function searchByDipRange(min,max) {
                 document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
             }
         };
-        xmlhttp.open("GET","php/faultsByDipRange.php?min="+min+"&max="+max,true);
+        
+        xmlhttp.open("GET","php/faultsByDipRange.php?min="+min+"&max="+max+"&model="+currentModel,true);
         xmlhttp.send();
     }
 }
 
 function setupSearchByDip() {
-  var lowdipstr=document.getElementById("lowDipTxt").value;
-  var highdipstr=document.getElementById("highDipTxt").value;
-  var lowval=parseFloat(lowdipstr);
-  var highval=parseFloat(highdipstr);
-  var minval= $( "#slider-dip-range" ).slider("option", "min");
-  var maxval= $( "#slider-dip-range" ).slider("option", "max");
-  /* bad case.. reset to all */
-  if( lowval < minval || lowval > maxval || highval < minval || highval > maxval ||
-          highval < lowval ) {
-    window.console.log("BAD user input for dip range");
-    lowval=minval;
-    highval=maxval;
-  }
+    var lowdipstr=document.getElementById("lowDipTxt").value;
+    var highdipstr=document.getElementById("highDipTxt").value;
+    var lowval=parseFloat(lowdipstr);
+    var highval=parseFloat(highdipstr);
+    var minval= $( "#slider-dip-range" ).slider("option", "min");
+    var maxval= $( "#slider-dip-range" ).slider("option", "max");
+    /* bad case.. reset to all */
+    if( lowval < minval || lowval > maxval || highval < minval || highval > maxval ||
+        highval < lowval ) {
+        window.console.log("BAD user input for dip range");
+        lowval=minval;
+        highval=maxval;
+    }
 
-  $("#slider-dip-range" ).slider( "option", "values", [lowval, highval]);
-  searchByDipRange(lowval,highval);
+    $("#slider-dip-range" ).slider( "option", "values", [lowval, highval]);
+    searchByDipRange(lowval,highval);
 }
 
 function searchWithDipRange() {
-  //grab the min and max from the slider..
-  vals = $( "#slider-dip-range" ).slider("option", "values");
-  searchByDipRange(vals[0],vals[1]);
+    //grab the min and max from the slider..
+    vals = $( "#slider-dip-range" ).slider("option", "values");
+    searchByDipRange(vals[0],vals[1]);
 }
 
 
@@ -191,7 +195,8 @@ function searchByFaultObjectName() {
             document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
         }
     };
-    xmlhttp.open("GET","php/faultsByFaultObjectName.php?q="+str,true);
+    
+    xmlhttp.open("GET","php/faultsByFaultObjectName.php?q="+str+"&model="+currentModel,true);
     xmlhttp.send();
 }
 function searchByKeyword() {
@@ -211,7 +216,8 @@ function searchByKeyword() {
             document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
         }
     };
-    xmlhttp.open("GET","php/faultsByKeyword.php?q="+str,true);
+    
+    xmlhttp.open("GET","php/faultsByKeyword.php?q="+str+"&model="+currentModel,true);
     xmlhttp.send();
 }
 
@@ -223,11 +229,11 @@ function searchByLatlon(frommap) {
     var secondlatstr=document.getElementById("secondLatTxt").value;
     var secondlonstr=document.getElementById("secondLonTxt").value;
 
-    if ( (firstlatstr == "") || 
-	 (firstlonstr== "") ||
-         (secondlatstr != "" && secondlonstr == "") ||
-         (secondlatstr == "" && secondlonstr != "")) {
-window.console.log("SKIP search for now,");
+    if ( (firstlatstr == "") ||
+        (firstlonstr== "") ||
+        (secondlatstr != "" && secondlonstr == "") ||
+        (secondlatstr == "" && secondlonstr != "")) {
+        window.console.log("SKIP search for now,");
         return;
     }
 
@@ -238,10 +244,10 @@ window.console.log("SKIP search for now,");
 
 // if in hand input mode, need to add the marker+retangle..
     if(!frommap) {
-      chk_and_add_bounding_rectangle();
+        chk_and_add_bounding_rectangle();
     }
-    
-	/* ???
+
+    /* ???
     if (firstlatstr == "" || firstlonstr=="") {
         document.getElementById("cfm-table-body").innerHTML = "";
         return;
@@ -249,9 +255,9 @@ window.console.log("SKIP search for now,");
         **/
 
     if (window.XMLHttpRequest) {
-      // code for IE7+, Firefox, Chrome, Opera, Safari
-      xmlhttp = new XMLHttpRequest();
-      } else {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    } else {
         // code for IE6, IE5
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
@@ -263,7 +269,8 @@ window.console.log("SKIP search for now,");
             document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
         }
     }
-    xmlhttp.open("GET","php/faultsByLatlon.php?firstlat="+firstlatstr+"&secondlat="+secondlatstr+"&firstlon="+firstlonstr+"&secondlon="+secondlonstr,true);
+    
+    xmlhttp.open("GET","php/faultsByLatlon.php?firstlat="+firstlatstr+"&secondlat="+secondlatstr+"&firstlon="+firstlonstr+"&secondlon="+secondlonstr+"&model="+currentModel,true);
     xmlhttp.send();
 }
 
@@ -287,7 +294,8 @@ function searchByZone(str) {
                 document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
             }
         };
-        xmlhttp.open("GET","php/faultsByZone.php?q="+str,true);
+        
+        xmlhttp.open("GET","php/faultsByZone.php?q="+str+"&model="+currentModel,true);
         xmlhttp.send();
     }
 }
@@ -312,7 +320,8 @@ function searchBySection(str) {
                 document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
             }
         };
-        xmlhttp.open("GET","php/faultsBySection.php?q="+str,true);
+        
+        xmlhttp.open("GET","php/faultsBySection.php?q="+str+"&model="+currentModel,true);
         xmlhttp.send();
     }
 }
@@ -338,7 +347,8 @@ function searchByArea(str) {
             }
 
         };
-        xmlhttp.open("GET","php/faultsByArea.php?q="+str,true);
+        
+        xmlhttp.open("GET","php/faultsByArea.php?q="+str+"&model="+currentModel,true);
         xmlhttp.send();
     }
 }
@@ -363,7 +373,8 @@ function searchByName(str) {
                 document.getElementById("cfm-table-body").innerHTML = makeResultTableBody(str);
             }
         };
-        xmlhttp.open("GET","php/faultsByName.php?q="+str,true);
+        
+        xmlhttp.open("GET","php/faultsByName.php?q="+str+"&model="+currentModel,true);
         xmlhttp.send();
     }
 }
@@ -385,13 +396,14 @@ function getGeoTraceList() {
             processGeoList();
         }
     };
-    xmlhttp.open("GET","php/getGeoTraceList.php",true);
+    
+    xmlhttp.open("GET","php/getGeoTraceList.php?model="+currentModel,true);
     xmlhttp.send();
 }
 
 
 function getAllTraces() {
-window.console.log("calling getAllTraces..");
+    window.console.log("calling getAllTraces..");
     if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
@@ -410,7 +422,8 @@ window.console.log("calling getAllTraces..");
             })
         }
     };
-    xmlhttp.open("GET","php/getAllFaultTraces.php",true);
+    
+    xmlhttp.open("GET","php/getAllFaultTraces.php?model="+currentModel,true);
     xmlhttp.send();
 }
 
@@ -428,7 +441,8 @@ function getZoneList() {
             document.getElementById("zoneList").innerHTML = makeZoneList();
         }
     };
-    xmlhttp.open("GET","php/getZoneList.php",true);
+    
+    xmlhttp.open("GET","php/getZoneList.php?model="+currentModel,true);
     xmlhttp.send();
 }
 
@@ -446,7 +460,8 @@ function getSectionList() {
             document.getElementById("sectionList").innerHTML = makeSectionList();
         }
     };
-    xmlhttp.open("GET","php/getSectionList.php",true);
+    
+    xmlhttp.open("GET","php/getSectionList.php?model="+currentModel,true);
     xmlhttp.send();
 }
 
@@ -464,7 +479,8 @@ function getNameList() {
             document.getElementById("nameList").innerHTML = makeNameList();
         }
     };
-    xmlhttp.open("GET","php/getNameList.php",true);
+    
+    xmlhttp.open("GET","php/getNameList.php?model="+currentModel,true);
     xmlhttp.send();
 }
 
@@ -483,7 +499,8 @@ function getAreaList() {
             document.getElementById("areaList").innerHTML = makeAreaList();
         }
     };
-    xmlhttp.open("GET","php/getAreaList.php",true);
+    
+    xmlhttp.open("GET","php/getAreaList.php?model="+currentModel,true);
     xmlhttp.send();
 }
 
@@ -501,7 +518,8 @@ function getNativeList() {
             makeNativeList();
         }
     };
-    xmlhttp.open("GET","php/getNativeList.php",true);
+    
+    xmlhttp.open("GET","php/getNativeList.php?model="+currentModel,true);
     xmlhttp.send();
 }
 
@@ -519,7 +537,8 @@ function get500mList() {
             make500mList();
         }
     };
-    xmlhttp.open("GET","php/get500mList.php",true);
+    
+    xmlhttp.open("GET","php/get500mList.php?model="+currentModel,true);
     xmlhttp.send();
 }
 
@@ -537,7 +556,8 @@ function get1000mList() {
             make1000mList();
         }
     };
-    xmlhttp.open("GET","php/get1000mList.php",true);
+    
+    xmlhttp.open("GET","php/get1000mList.php?model="+currentModel,true);
     xmlhttp.send();
 }
 
@@ -556,7 +576,8 @@ function get2000mList() {
             make2000mList();
         }
     };
-    xmlhttp.open("GET","php/get2000mList.php",true);
+    
+    xmlhttp.open("GET","php/get2000mList.php?model="+currentModel,true);
     xmlhttp.send();
 }
 
@@ -575,7 +596,8 @@ function getStrikeRange() {
             setupStrikeRangeSlider(rangeMin, rangeMax);
         }
     };
-    xmlhttp.open("GET","php/getStrikeRange.php",true);
+    
+    xmlhttp.open("GET","php/getStrikeRange.php?model="+currentModel,true);
     xmlhttp.send();
 }
 
@@ -594,94 +616,96 @@ function getDipRange() {
             setupDipRangeSlider(rangeMin, rangeMax);
         }
     };
-    xmlhttp.open("GET","php/getDipRange.php",true);
+    
+    xmlhttp.open("GET","php/getDipRange.php?model="+currentModel,true);
     xmlhttp.send();
 }
 
 
 function getGeoJSONbyObjGid(gidarray, metaarray) {
     // if gidarray is not set look for it in the input field
-    if(typeof gidarray == 'undefined') {    
+    if(typeof gidarray == 'undefined') {
         let tmp=document.getElementById("objGidTxt").value;
         gidarray= [ tmp ];
     }
     var gidarraystr=gidarray.toString();
-        
+
     if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
     } else {
         // code for IE6, IE5
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }   
+    }
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("geoSearchByObjGidResult").innerHTML = this.responseText;      
+            document.getElementById("geoSearchByObjGidResult").innerHTML = this.responseText;
             // grab the geoJSON
             var geoDataList=grabGeoJSONDataList();
             var gcount=geoDataList.length;
             for(var i=0;i<gcount;i++) {
-              var geom=geoDataList[i];
-              var geoJSONList=grabGeoJSONList(geom);
-              var geoBlindList=grabTraceBlindList(geom);
-            
-              var gid=parseInt(gidarray[i]);
-              var trace=makeGeoJSONFeature(geoJSONList, geoBlindList, gid, metaarray[i]);
-              if(trace != undefined)
-                load_a_trace(gid,trace);
+                var geom=geoDataList[i];
+                var geoJSONList=grabGeoJSONList(geom);
+                var geoBlindList=grabTraceBlindList(geom);
+
+                var gid=parseInt(gidarray[i]);
+                var trace=makeGeoJSONFeature(geoJSONList, geoBlindList, gid, metaarray[i]);
+                if(trace != undefined)
+                    load_a_trace(gid,trace);
             }
-        }     
-    };  
-    xmlhttp.open("GET","php/getGeoJSONbyObjGid.php?obj_gid="+gidarraystr,true);
+        }
+    };
+    
+    xmlhttp.open("GET","php/getGeoJSONbyObjGid.php?obj_gid="+gidarraystr+"&model="+currentModel,true);
     xmlhttp.send();
-}   
+}
 
 
 function setupSearch()
 {
-   queryByType("area");
-   queryByType("zone");
-   queryByType("section");
-   queryByType("name");
-   getStrikeRange();
-   getDipRange();
-   getNativeList();
-   get1000mList();
-   get2000mList();
-   get500mList();
+    queryByType("area");
+    queryByType("zone");
+    queryByType("section");
+    queryByType("name");
+    getStrikeRange();
+    getDipRange();
+    getNativeList();
+    get1000mList();
+    get2000mList();
+    get500mList();
 }
 
 /****************** for handling earthquakes ********************/
 // to retrieve all is too big, and so going to make multiple calls with range
 // make it to match with multiples of DATA_CHUNK_COUNT
 function getAllEarthQuakesByChunk(quake_type,quake_meta) {
-   if(quake_meta == null) { 
-     window.console.log("BADD.. need to get metadata for seismicity first..");
-     return;
-   }
-   var total = parseInt(quake_meta['total']);
-   var chunk_step;
-   var chunks;
-   switch (quake_type) {
-      case QUAKE_TYPE_HAUKSSON : chunks=DATA_CHUNK_COUNT*2; break;
-      case QUAKE_TYPE_ROSS : chunks=DATA_CHUNK_COUNT*2; break;
-      case QUAKE_TYPE_HISTORICAL : chunks=1; break;
-   }
+    if(quake_meta == null) {
+        window.console.log("BADD.. need to get metadata for seismicity first..");
+        return;
+    }
+    var total = parseInt(quake_meta['total']);
+    var chunk_step;
+    var chunks;
+    switch (quake_type) {
+        case QUAKE_TYPE_HAUKSSON : chunks=DATA_CHUNK_COUNT*2; break;
+        case QUAKE_TYPE_ROSS : chunks=DATA_CHUNK_COUNT*2; break;
+        case QUAKE_TYPE_HISTORICAL : chunks=1; break;
+    }
 
-   var chunk_step = Math.floor(total / chunks);
-   var leftover=total - (chunk_step * chunks);
+    var chunk_step = Math.floor(total / chunks);
+    var leftover=total - (chunk_step * chunks);
 
-   switchModalWaitEQLabel(quake_type);
-   startQuakeCounter(quake_meta);
+    switchModalWaitEQLabel(quake_type);
+    startQuakeCounter(quake_meta);
 
-   if(leftover > 0) {
-      var startpoint= chunk_step * chunks;
-      var endpoint= startpoint + leftover;
-      _getLastQuakesByChunk(quake_type, startpoint, endpoint, chunk_step);
-      } else {
+    if(leftover > 0) {
+        var startpoint= chunk_step * chunks;
+        var endpoint= startpoint + leftover;
+        _getLastQuakesByChunk(quake_type, startpoint, endpoint, chunk_step);
+    } else {
         _getAllQuakesByChunk(quake_type, 0, chunks, chunk_step);
 
-   } 
+    }
 }
 
 function _getAllQuakesByChunk(quake_type, current_chunk, total_chunk, chunk_step) {
@@ -703,26 +727,27 @@ function _getAllQuakesByChunk(quake_type, current_chunk, total_chunk, chunk_step
             add2QuakeCounter(eqarray.length);
             var next_chunk=current_chunk+1;
 
-            if(next_chunk == total_chunk) { // got last chunk 
-              add2QuakePoints(quake_type,eqarray);
-              doneQuakeCounter();
-              if(quake_type == QUAKE_TYPE_HAUKSSON) { // load ROSS next 
-                 getAllQuakes(QUAKE_TYPE_ROSS);
-              }
-              if(quake_type == QUAKE_TYPE_ROSS) {
-                 getAllQuakes(QUAKE_TYPE_HISTORICAL);
-              }
-              // all data are in, 
-              if(quake_type == QUAKE_TYPE_HISTORICAL) {
-                  finishLoadSeismicity();
-              } 
-              } else{
+            if(next_chunk == total_chunk) { // got last chunk
+                add2QuakePoints(quake_type,eqarray);
+                doneQuakeCounter();
+                if(quake_type == QUAKE_TYPE_HAUKSSON) { // load ROSS next
+                    getAllQuakes(QUAKE_TYPE_ROSS);
+                }
+                if(quake_type == QUAKE_TYPE_ROSS) {
+                    getAllQuakes(QUAKE_TYPE_HISTORICAL);
+                }
+                // all data are in,
+                if(quake_type == QUAKE_TYPE_HISTORICAL) {
+                    finishLoadSeismicity();
+                }
+            } else{
                 add2QuakePointsChunk(quake_type, eqarray,next_chunk, total_chunk, chunk_step);
             }
         }
     };
-window.console.log("  calling php, current_chunk "+current_chunk+" start"+startpoint+" end"+endpoint);
-    xmlhttp.open("GET","php/getAllQuakesByChunk.php?quake_type="+quake_type+"&startpoint="+startpoint+"&endpoint="+endpoint,true);
+    window.console.log("  calling php, current_chunk "+current_chunk+" start"+startpoint+" end"+endpoint);
+    
+    xmlhttp.open("GET","php/getAllQuakesByChunk.php?quake_type="+quake_type+"&startpoint="+startpoint+"&endpoint="+endpoint+"&model="+currentModel,true);
     xmlhttp.send();
 }
 
@@ -744,13 +769,14 @@ function _getLastQuakesByChunk(quake_type, startpoint, endpoint, chunk_step) {
             add2QuakePoints(quake_type,eqarray);
             // start earlier set
             var chunks = (quake_type == QUAKE_TYPE_HISTORICAL) ? 1 : (DATA_CHUNK_COUNT *2);
-/* XX  */            _getAllQuakesByChunk(quake_type, 0, chunks, chunk_step);
+            /* XX  */            _getAllQuakesByChunk(quake_type, 0, chunks, chunk_step);
 //* XX */             _getAllQuakesByChunk(quake_type, 0, 6, 1000);
         }
     };
-window.console.log(" calling php on the leftover.."+"start"+startpoint+" end"+endpoint);
+    window.console.log(" calling php on the leftover.."+"start"+startpoint+" end"+endpoint);
     // need to include the last point..
-    xmlhttp.open("GET","php/getAllQuakesByChunk.php?quake_type="+quake_type+"&startpoint="+startpoint+"&endpoint="+endpoint,true);
+    
+    xmlhttp.open("GET","php/getAllQuakesByChunk.php?quake_type="+quake_type+"&startpoint="+startpoint+"&endpoint="+endpoint+"&model="+currentModel,true);
     xmlhttp.send();
 }
 
@@ -771,13 +797,14 @@ function getAllQuakes(quake_type) {
             getAllEarthQuakesByChunk(quake_type,cfm_quake_meta);
         }
     };
-    xmlhttp.open("GET","php/getQuakeMeta.php?quake_type="+quake_type,true);
+    
+    xmlhttp.open("GET","php/getQuakeMeta.php?quake_type="+quake_type+"&model="+currentModel,true);
     xmlhttp.send();
 }
 
 function quakesByLatlon(quake_meta,swLat,swLon,neLat,neLon) {
     if (window.XMLHttpRequest) {
-      // code for IE7+, Firefox, Chrome, Opera, Safari
+        // code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
     } else {
         // code for IE6, IE5
@@ -796,6 +823,19 @@ function quakesByLatlon(quake_meta,swLat,swLon,neLat,neLon) {
             doneQuakeCounter();
         }
     }
-    xmlhttp.open("GET","php/quakesByLatlon.php?swlat="+swLat+"&swlon="+swLon+"&nelat="+neLat+"&nelon="+neLon,true);
+    
+    xmlhttp.open("GET","php/quakesByLatlon.php?swlat="+swLat+"&swlon="+swLon+"&nelat="+neLat+"&nelon="+neLon+"&model="+currentModel,true);
     xmlhttp.send();
+}
+
+function getDBFromRequestParam(param) {
+    const url = new URL(window.location.href);
+    const params = new URLSearchParams(url.search);
+    let paramValue = params.get(param);
+    if (paramValue) {
+        paramValue.replace(/[^A-Za-z_]/g, ''); // remove any characters besides alpha letters and underscores
+        return paramValue;
+    }   else {
+        return false;
+    }
 }

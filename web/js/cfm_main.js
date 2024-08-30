@@ -1,5 +1,19 @@
 var viewermap;
 
+function initializeViewer() {
+    /** MAIN setup **/
+
+    getGeoTraceList();
+    getAllTraces();
+    highlight_database_type();
+    setupSearch();
+    addDownloadSelect();
+    setup_info3dTable();
+    setup_warn3dTable();
+    setup_externalTSList();
+
+}
+
 jQuery(document).ready(function() {
 
   frameHeight=window.innerHeight;
@@ -18,6 +32,10 @@ jQuery(document).ready(function() {
   }
 
   viewermap=setup_viewer();
+  let requestedModel = getDBFromRequestParam("model");
+  if (requestedModel !== false) {
+      currentModel = requestedModel;
+  }
 
 /****
   $("#view3d-all").on('click',function() {
@@ -102,16 +120,12 @@ window.console.log(" >>> kml select's modal closed...");
 
   $("#search-filter-type").trigger("change");
 
-/** MAIN setup **/
+  $("form#id_select_dataset input").bind('click', function(e){
+      switchModel($(this).data("db-name"));
+  });
 
-  getGeoTraceList();
-  getAllTraces();
-  highlight_database_type();
-  setupSearch();
-  addDownloadSelect();
-  setup_info3dTable();
-  setup_warn3dTable();
-  setup_externalTSList(); 
+
+  initializeViewer();
 
 }); // end of MAIN
 
