@@ -140,7 +140,11 @@ require_once("php/util.php");
         });
 
     </script>
-</head">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+</head>
 <body>
 <?php echo $header ?>
 <div class="container">
@@ -166,9 +170,15 @@ require_once("php/util.php");
     </div>
 
 <!-- top-intro -->
-    <div id="top-intro" style="display:">
-<p>
-The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model</a> are three-dimensional and non-planar; however, to simplify browsing the model, the explorer below provides a two-dimensional map-based view of the CFM. The web tools currently serve the CFM7.0 (default) and CFM6.1 preferred, ruptures, and alternatives models, as well as the previous CFM5.3 preferred set. Use the buttons at the top of the map interface to select the model. These tools allow users to view and download fault geometry data as well as metadata for selected faults rather than downloading the <a href="https://doi.org/10.5281/zenodo.4651667">entire CFM model</a> archive. Once faults are selected, the “PLOT3D” button can be used to view the selected faults in a basic 3D CAD-like environment. See the <a href="guide">user guide</a> for more details and usage instructions.
+    <div id="top-intro" class="row">
+        <div class="col-1 links d-none d-md-block align-self-end">
+            <div>
+                <a href="https://www.scec.org/about">About SCEC</a>
+                <a href="https://www.scec.org/science/cem">About CEM</a>
+            </div>
+        </div>
+<p class="col-11 intro-text">
+    The <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model (CFM)</a> includes complex, three-dimensional faults. This CFM explorer provides a simplified two-dimensional map view.  It currently supports multiple CFM versions and allows users to view and download fault geometry data without accessing the <a href="https://doi.org/10.5281/zenodo.4651667">entire CFM model</a> archive. Selected faults can be visualized in a basic 3D format using the "PLOT3D" button. For detailed instructions, refer to the  <a href="guide">user guide</a>.
 </p>
     </div>
 
@@ -723,7 +733,7 @@ onchange="switchLayer(this.value);">
       <div class="modal-body" id="modalwaitBody">
         <div class="row col-md-12 ml-auto" style="overflow:hidden; font-size:10pt">
            <p style="font-size:25px">Please wait for the model to load &nbsp;
-                <i class="glyphicon glyphicon-cog fa-spin" style='color:#990000'></i>
+                <i class="glyphicon glyphicon-cog fa-spin" style='color:#C22B48'></i>
            </p>
         </div>
       </div>
