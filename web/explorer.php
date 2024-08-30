@@ -1,6 +1,8 @@
 <?php
 require_once("php/navigation.php");
 $header = getHeader("Explorer");
+$cfm_my_blind = getenv("CFM_MY_BLIND");
+$cfm_my_trace = getenv("CFM_MY_TRACE");
 require_once("php/util.php");
 ?>
 <!DOCTYPE html>
@@ -193,6 +195,8 @@ The faults of the <a href="https://www.scec.org/research/cfm">SCEC Community Fau
 
 <div id="top-control-row-1"  class="col-12">
  <div class="row pl-4" style="display:;">
+   <input type="text" id="myBlind" value=<?php echo $cfm_my_blind ?> style="display:none">
+   <input type="text" id="myTrace" value=<?php echo $cfm_my_trace ?> style="display:none">
 
    <form id="id_select_dataset">
      <label for="dataset"> Choose CFM Model : </label>
