@@ -158,7 +158,7 @@ function show3dView(urls,nstr,path,nlstr) {
   let mytrace=getMyTrace(currentModel);
   let myblind=getMyBlind(currentModel);
 
-  let params="viewTrace="+mytrace+"&viewBlind="+myblind;
+  let params="model="+currentModel+"&viewTrace="+mytrace+"&viewBlind="+myblind;
 
   if(path == undefined) {
      params=params+"&viewUID="+viewUID+"&viewerType="+viewerType+"&fileURL="+urls+"&name="+nstr;
@@ -181,7 +181,7 @@ function show3dView(urls,nstr,path,nlstr) {
   // If there is nlstr == "", too many faults selected,
   // should not show shareLink
   if(nlstr != "[]") {
-    let NAME='?name='+nlstr;
+    let NAME='?model='+currentModel+'&name='+nlstr;
     let TS='&ts="'+use_download_set+'"';
     let PTYPE='&ptype="main3d"';
     let share_params=NAME+TS+PTYPE;
@@ -557,7 +557,8 @@ function toClipBoard() {
   // phtml is a string <p>blah</p>
   let sz=phtml.length;
   let text=phtml.substring(3,sz-4);
-window.console.log("in toClipBoard");
+
+//window.console.log("in toClipBoard");
 
   if (window.clipboardData && window.clipboardData.setData) {
     // IE: prevent textarea being shown while dialog is visible
@@ -620,6 +621,7 @@ function share3Dview() {
       html.innerHTML=phtml;
       waitInterval=0;
       PLOT3D_CAMERA=null;
+  alert(cmd);
       toClipBoard();
       } else {
          window.console.log("Looping in share3Dview, interval..",waitInterval);

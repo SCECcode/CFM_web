@@ -52,7 +52,8 @@ function getMyBlind(db)
   for(let i=0; i<icnt; i++) {
      let item=tb[i];
      if(item['db'] == db) {
-        return item['blind'];
+        let blind=item['blind'];
+        return blind;
      }
   }
   return "";
@@ -65,7 +66,8 @@ function getMyTrace(db)
   for(let i=0; i<icnt; i++) {
      let item=tb[i];
      if(item['db'] == db) {
-        return item['trace'];
+        let trace=item['trace'];
+        return trace;
      }
   }
   return "";

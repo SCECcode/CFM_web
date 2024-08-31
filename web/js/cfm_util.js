@@ -434,10 +434,9 @@ function startDownload()
   var hlist=get_highlight_list();
   var mlist=get_meta_list(hlist);
   var cnt=mlist.length;
-  window.console.log("number of entry to download...");
-  window.console.log(cnt);
+window.console.log("number of entry to download..."+cnt);
   if(cnt == 0) {
-    alert("No fault selected"); 
+    alert("startDownload: No fault selected"); 
     return;
   }
   if (use_download_set == 'meta') {
@@ -460,7 +459,7 @@ function startPlot3d()
   var mlist=get_meta_list(hlist);
   var cnt=mlist.length;
   if(cnt == 0) {
-    alert("No fault selected"); 
+    alert("startPlot3d: No fault selected"); 
     return;
   }
 
