@@ -120,6 +120,9 @@ function switchModel(option) {
     location.replace("?model=" + option);
 }
 
+// need to tinker with top-control-row-1
+//   from margin: 9px 0px 19px;
+//     to margin: 29px 0px 9px;
 function _toMedView()
 {
 let elt = document.getElementById('banner-container');
@@ -127,9 +130,9 @@ let celt = document.getElementById('top-intro');
 let c_height = elt.clientHeight+(celt.clientHeight/2);
 let h=576+c_height;
 
-$('#top-intro').css("display", "none");
+//$('#top-intro').css("display", "none");
 $('#searchResult').css("display", "none");
-$('#CFM_plot').css("height", h);
+//$('#CFM_plot').css("height", h);
 $('#infoData').removeClass('col-5').addClass('col-0');
 $('#top-map').removeClass('col-7').addClass('row');
 $('#top-map').removeClass('pl-1').addClass('pl-0');
@@ -142,21 +145,35 @@ function _toMinView()
 let height=window.innerHeight;
 let width=window.innerWidth;
 
-$('#top-control').css("display", "none");
-$('#top-select').css("display", "none");
 $('.navbar').css("margin-bottom", "0px");
 $('.container').css("max-width", "100%");
-$('.container').css("padding-left", "0px");
-$('.container').css("padding-right", "0px");
+$('.container').css("padding-left", "2px");
+$('.container').css("padding-right", "2px");
+
+let pelt = document.getElementById('CFM_plot');
+let p_height = pelt.clientHeight;
+let telt = document.getElementById('top-control');
+let t_height = telt.clientHeight;
+let celt = document.getElementById('controls-container');
+let c_height = celt.clientHeight;
+let belt = document.getElementById('banner-container');
+let b_height = belt.clientHeight;
+
+$('#top-control').css("display", "none");
+$('#top-select').css("display", "none");
+
 // minus the height of the container top 
-let elt = document.getElementById('banner-container');
-let c_height = elt.clientHeight;
-let h = height - c_height-4.5;
+//XXlet elt = document.getElementById('banner-container');
+//XXlet c_height = elt.clientHeight;
+//XXlet h = height - c_height-4.5;
+let h = height - b_height + t_height - c_height;
+let hh = p_height + b_height + t_height + c_height;
+$('#CFM_plot').css("height", h);
+
 let w = width - 15;
+$('#CFM_plot').css("width", w);
 //window.console.log( "height: %d, %d > %d \n",height, c_height,h);
 //window.console.log( "width: %d, %d  \n",width, w);
-$('#CFM_plot').css("height", h);
-$('#CFM_plot').css("width", w);
 resize_map();
 }
 
