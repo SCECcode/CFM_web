@@ -406,31 +406,6 @@ function removeKey() {
     showing_key = false;
 }
 
-// depth, mag, time
-function showSeismicityKey(type) {
-    if(type == "hauksson_depth") {
-        showColorLegend("hauksson_depth.png");
-        return;
-    }
-    if(type == "hauksson_mag") {
-        showColorLegend("hauksson_mag.png");
-        return;
-    }
-    if(type == "hauksson_time") {
-        showColorLegend("hauksson_time.png");
-        return;
-    }
-    if(type == "none") {
-	// do nothing XXX
-        return;
-    }
-}
-
-function removeSeismicityKey() {
-    removeColorLegend();    
-}
-
-
 function nullTableEntry(target) {
    // disable the toggle and highlight button
    t_btn="#toggle_"+target;

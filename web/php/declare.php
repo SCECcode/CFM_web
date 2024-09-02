@@ -20,8 +20,8 @@ $fault=16;
 $TRACE_tb_gid=17;
 
 // for EQ_tb
-$quake_type_Hauksson=1;
-$quake_type_Significant=2;
+$quake_type_Hauksson=0;
+$quake_type_Significant=1;
 
 $eq_gid_latlon=0;
 $eq_EventTime_latlon=1;

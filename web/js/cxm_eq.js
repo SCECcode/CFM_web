@@ -19,13 +19,15 @@ const EQ_HAUKSSON_FOR_MAG=1;
 const EQ_HAUKSSON_FOR_TIME=2;
 
 const EQ_METRIC_LIST = [ EQ_HAUKSSON_FOR_DEPTH, EQ_HAUKSSON_FOR_MAG, EQ_HAUKSSON_FOR_TIME];
+const EQ_METRIC_NAME_LIST = [ "hauksson_depth", "hauksson_mag", "hauksson_time"];
 
 /*********************************************************
 *********************************************************/
 // quake_type,  Hauksson=1, Significant=2
-const QUAKE_TYPE_HAUKSSON=1;
-const QUAKE_TYPE_SIGNIFICANT=2;
-const QUAKE_TYPE_BUCKET=3;
+const QUAKE_TYPE_HAUKSSON=0;
+const QUAKE_TYPE_SIGNIFICANT=1;
+const QUAKE_TYPE_BUCKET=2;
+const EQ_QUAKE_TYPE_NAME_LIST=["hauksson","significant","bucket"];
 
 var showing_significant=false;
 
@@ -107,6 +109,11 @@ var  eq_spec = [];
 var  eq_metric_spec = [];
 
 /**********************************************************************/
+function getEQType(typestr) {
+  if(typestr == "haukssondepth" || typestr == "haukssonmag" || typestr == "haukssontime" )
+    return QUAKE_TYPE_HAUKSSON;  
+  return null;
+}
 
 // datalist match up with chunks per metrix
 function setupEQDatalist() {
@@ -185,10 +192,10 @@ function _loadFromFileLatlngSignificantSet() {
 // tsz= total metric
 // sidx=segment idx
 // ssz= total segments
-function _loadFromFileLatlngSet(tidx,tsz,sidx,ssz) {
+function _loadFromFileEQLatlngSet(tidx,tsz,sidx,ssz) {
     var ttype=EQ_METRIC_LIST[tidx];
     var fname=_eq_gzfname(ttype,sidx);
-//window.console.log("XXX _loadFromFileLatlngSet in cxm_eq.js..%s",fname);
+//window.console.log("XXX _loadFromFileEQLatlngSet in cxm_eq.js..%s",fname);
 
     fetch(fname)
         .then(
@@ -201,7 +208,7 @@ function _loadFromFileLatlngSet(tidx,tsz,sidx,ssz) {
 
           // Examine the text in the response
             response.arrayBuffer().then(function(zdata) {
-window.console.log("processing incoming file-- "+fname);
+//window.console.log("processing incoming file-- "+fname);
                 var fdata= _decompress2JSON(zdata);
 
                 _process_json(fdata,ttype,sidx);
@@ -214,15 +221,68 @@ window.console.log("processing incoming file-- "+fname);
 // need to retrieve "significant_log.json"
                     _loadFromFileLatlngSignificantSet();
                     } else { // next set
-                      _loadFromFileLatlngSet(tidx+1,tsz,0,eq_metric_spec[tidx+1].chunks);
+                      _loadFromFileEQLatlngSet(tidx+1,tsz,0,eq_metric_spec[tidx+1].chunks);
                   }
                   } else {
-                    _loadFromFileLatlngSet(tidx,tsz,sidx+1,ssz);
+                    _loadFromFileEQLatlngSet(tidx,tsz,sidx+1,ssz);
                 }
             });
          }
        )
        .catch(function(err) { window.console.log("Fetch Error :-S"+err); });
+}
+
+function _loadEQMetaFromFile(quake_type) {
+      var fname=SEISMICITY_DIR+"/"+EQ_QUAKE_TYPE_NAME_LIST[quake_type]+"_meta.json.gz";
+window.console.log("XXX _loadEQMetaFromFile cxm_eq.js..%s",fname);
+
+      fetch(fname)
+        .then(
+          function(response) {
+            if (response.status !== 200) {
+               window.console.log('Fetching, Looks like there was a problem. Status Code: ' +
+                         response.status);
+               return;
+            }
+
+          // Examine the text in the response
+            response.arrayBuffer().then(function(zdata) {
+//window.console.log("processing incoming file-- "+fname);
+                var fdata= _decompress2JSON(zdata);
+// ??  var spec=JSON.parse(fdata);
+                eq_spec.push ( fdata );
+            });
+         }
+      ).catch(function(err) { window.console.log("Fetch Error :-S"+err); });
+}
+
+function _loadEQMetricMetaFromFile() {
+    var cnt = EQ_METRIC_LIST.length;
+    for(let i=0; i<cnt; i++) {
+      var quake_type=EQ_METRIC_LIST[i];
+      var fname=_eq_log_gzfname(quake_type);
+window.console.log("XXX _loadEQMetricMetaFromFile cxm_eq.js..%s",fname);
+
+      fetch(fname)
+        .then(
+          function(response) {
+            if (response.status !== 200) {
+               window.console.log('Fetching, Looks like there was a problem. Status Code: ' +
+                         response.status);
+               return;
+            }
+
+          // Examine the text in the response
+            response.arrayBuffer().then(function(zdata) {
+//window.console.log("processing incoming file-- "+fname);
+                var fdata= _decompress2JSON(zdata);
+// ??		var meta=JSON.parse(fdata);
+		eq_metric_spec.push (fdata);
+
+            });
+         }
+      ).catch(function(err) { window.console.log("Fetch Error :-S"+err); });
+    }
 }
 
 function _total_eq_segments() {
@@ -240,7 +300,9 @@ function loadFromFileEQMarkerLatlng() {
     switchModalWaitEQLabel(QUAKE_TYPE_BUCKET);
     startQuakeCounterWithVal(counterTotal);
     // start with first one
-    _loadFromFileLatlngSet(0,sz,0,eq_metric_spec[0].chunks);
+    _loadFromFileEQLatlngSet(0,sz,0,eq_metric_spec[0].chunks);
+    _loadEQMetricMetaFromFile();
+    _loadEQMetaFromFile(QUAKE_TYPE_HAUKSSON); // load hauksson's eq meta
 }
 
 function _process_json(response_data,quake_metric_type,sidx) {
@@ -342,32 +404,33 @@ function setup_new_pixi(quake_metric_type) {
 }
 
 function changePixiOverlay(typestr) {
+  let target_type=getEQType(typestr);
   clearAllPixiOverlay();
 
   var center, zoom;
   [center, zoom] = get_map();
 //window.console.log("save map.."+center+" and "+zoom);
-  _changeOverlay(typestr, center, zoom);
+  _changeOverlay(target_type, typestr, center, zoom);
 }
 
-function _changeOverlay(typestr, center, zoom) {
+function _changeOverlay(target_type, typestr, center, zoom) {
 
 // return to initial map
   refresh_map();
 
   switch (typestr) {
-    case "none": removeSeismicityKey();
-                 break;
+    case "none": removePixiLegend();
+                 viewermap.setView(center, zoom);
+                 return;
     case "haukssondepth": togglePixiOverlay(EQ_HAUKSSON_FOR_DEPTH);
-                          showSeismicityKey("hauksson_depth");
                           break;
     case "haukssonmag": togglePixiOverlay(EQ_HAUKSSON_FOR_MAG);
-                        showSeismicityKey("hauksson_mag");
                         break;
     case "haukssontime": togglePixiOverlay(EQ_HAUKSSON_FOR_TIME);
-                         showSeismicityKey("hauksson_time");
                          break;
   }
+  let seginfo=pixiFindSegmentProperties(target_type);
+  setupPixiLegend(target_type,typestr,seginfo);
 
   // refocus back
   viewermap.setView(center, zoom);
@@ -376,6 +439,7 @@ function _changeOverlay(typestr, center, zoom) {
 
 function clearAllPixiOverlay() {
   pixiClearAllPixiOverlay();
+  removePixiLegend();
 }
 
 // show which pixiOverlay
@@ -387,6 +451,7 @@ window.console.log(" togglePixiOverlay..> need to make a NEW ONE>>"+target_type)
     return;
   }
   pixiShowPixiOverlay(target_type);
+
 }
 
 // toggle off a child container from an overlay layer

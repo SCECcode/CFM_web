@@ -77,18 +77,19 @@ function getParticleLatlngs(latlonlist,idx) {
 
 
 /*************************************************************************/
-function pixiGetSegmentRangeIdx(vs_target, N, vs_max, vs_min) {
-  if(vs_target <= vs_min) {
+function pixiGetSegmentRangeIdx(v_target, N, v_max, v_min) {
+  if(v_target <= v_min) {
     return 0;  
   }
-  if(vs_target >= vs_max) {
+  if(v_target >= v_max) {
     return N-1;
   }
-  var step = (vs_max - vs_min)/N;
-  var offset= Math.floor((vs_target-vs_min)/step);
+  var step = (v_max - v_min)/N;
+  var offset= Math.floor((v_target-v_min)/step);
   return offset;
 }
 
+// uid = quake_type
 function pixiFindSegmentProperties(uid) {
   let rlist={};
   let namelist=[];
@@ -131,31 +132,33 @@ function pixiFindSegmentProperties(uid) {
 
 
 // create a list of N values for creating legend labels
-function pixiGetSegmentRangeList(N, vs_max, vs_min) {
-  var step = (vs_max - vs_min)/N;
-  var mult=10;
+function pixiGetSegmentRangeList(N, v_max, v_min) {
+  var step = (v_max - v_min)/N;
+  let mult=10;
   let abs_step=Math.abs(step);
-  let abs_vs_min=Math.abs(vs_min);
+  let abs_v_min=Math.abs(v_min);
 
-  if (abs_step < 0.00001 || (abs_vs_min < 0.00009 && abs_vs_min!=0)) {
-    mult=1000000; 
-  } else if (abs_step < 0.0001 || (abs_vs_min < 0.0009 && abs_vs_min!=0))  {
+//  let abs_v_min=Math.abs(v_min);
+  if (abs_step < 0.00001 || (abs_v_min < 0.00009 && abs_v_min!=0)) {
+    mult=1000000;
+  } else if (abs_step < 0.0001 || (abs_v_min < 0.0009 && abs_v_min!=0))  {
     mult=100000;
-  } else if (abs_step < 0.001 || (abs_vs_min < 0.009 && abs_vs_min!=0))  { 
+  } else if (abs_step < 0.001 || (abs_v_min < 0.009 && abs_v_min!=0))  {
     mult=10000;
-  } else if (abs_step < 0.01 || (abs_vs_min < 0.09 && abs_vs_min!=0))  { 
+  } else if (abs_step < 0.01 || (abs_v_min < 0.09 && abs_v_min!=0))  {
     mult=1000;
-  } else if (abs_step < 0.1 || (abs_vs_min < 0.9 && abs_vs_min!=0))  { 
+  } else if (abs_step < 0.1 || (abs_v_min < 0.9 && abs_v_min!=0))  {
     mult=100;
   }
-//window.console.log( "  ---> STEP is ", abs_step);
-//window.console.log( "  ---> vs_min is ", abs_vs_min);
-//window.console.log( "  ---> USING MULTI is ", mult);
+
+window.console.log( "  ---> STEP is ", abs_step);
+window.console.log( "  ---> v_min is ", abs_v_min);
+window.console.log( "  ---> USING MULTI is ", mult);
   let digits=0;
 
   let tlist= [];
   for(let i=0; i<N; i++) {
-    let v= (Math.floor((vs_min + (step * i ))*mult)/mult);
+    let v= (Math.floor((v_min + (step * i ))*mult)/mult);
     let parts=String(v).split('.');
     if(parts[1] != undefined) {
       let t=parts[1].length;
@@ -164,6 +167,7 @@ function pixiGetSegmentRangeList(N, vs_max, vs_min) {
       }
     }
     tlist.push(v);
+window.console.log("segment: v is "+v);
   }
 
   var slist=[];
@@ -172,7 +176,7 @@ function pixiGetSegmentRangeList(N, vs_max, vs_min) {
   }
 
 // including the last one
-  slist.push( (Math.floor(vs_max*mult)/mult).toFixed(digits));
+  slist.push( (Math.floor(v_max*mult)/mult).toFixed(digits));
   return slist;
 }
 
@@ -579,7 +583,7 @@ window.console.log( "  >>>> CALLING makeEQPixiOverlayLayer for %d ",quake_metric
     segment_color_list=getSegmentParticleRGBList(quake_metric_type);
 
     PIXI_DATA_SEGMENT_COUNT= eq_metric_spec[quake_metric_type].chunks;
-    PIXI_DATA_MIN_V, PIXI_DATA_MAX_V = get_EQ_range(QUAKE_TYPE_HAUKSSON, quake_metric_type);
+    [ PIXI_DATA_MIN_V, PIXI_DATA_MAX_V ] = get_EQ_range(QUAKE_TYPE_HAUKSSON, quake_metric_type);
 
     var segment_label_list=pixiGetSegmentRangeList(PIXI_DATA_SEGMENT_COUNT, PIXI_DATA_MAX_V, PIXI_DATA_MIN_V);
 

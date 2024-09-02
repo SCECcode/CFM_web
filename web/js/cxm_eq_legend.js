@@ -29,12 +29,14 @@ function _legendoptionlabel(label) {
 "haukssontime"  date
 
 legendinfo:
-
 */
-
 function setupPixiLegend(pixiuid,metric,legendinfo) {
+
+window.console.log("XXX calling setupPixiLegend for ..");
+
      if(jQuery.isEmptyObject(legendinfo)) {
         $("#pixi-legend").html("");
+alert("empty legend info "+pixiuid);
         return;
      }
 
@@ -80,7 +82,12 @@ function setupPixiLegend(pixiuid,metric,legendinfo) {
        } else {
           $("#pixi-legend-title").html("Time(date)");
      }
+     $('#mylegend').css("display", "")
 };
+
+function removePixiLegend() {
+     $('#mylegend').css("display", "none")
+}
 
 function togglePixiLegend(pixiuid, n, label) {
 //window.console.log("calling togglePixiLegend.. with ",n,"on pixiuid ",pixiuid);

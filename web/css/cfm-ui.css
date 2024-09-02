@@ -1,5 +1,49 @@
 /* cfm viewer required styles */
 
+div.legend .legend-label {
+    margin-left: 8px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+}
+
+div.legend .color {
+    position: relative;
+    height: 18px;
+    width: 18px;
+    float: left;
+    margin-left: 15px;
+    border:solid 1px black;
+}
+
+div.main-legend {
+        z-index: 9990;
+        position: absolute;
+        left: 10px;
+        font-size: 12px;
+        margin-right: 10px;
+}
+
+div.main-legend ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+}
+
+div.main-legend li {
+        padding-top: 0em;
+        padding-bottom: 0em;
+}
+
+div.main-legend label {
+        margin-bottom: 0;
+}
+
+div.main-legend label:hover {
+        color: #990000;
+}
+
+
 #id_select_dataset input[type="radio"] {
   display: none;
 }

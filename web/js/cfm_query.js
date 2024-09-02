@@ -782,6 +782,7 @@ function getAllQuakes(quake_type) {
     }
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
+window.console.log(" XXX getAllQuakes..");
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
             cfm_quake_meta=processQuakeMeta(quake_type);
             getAllEarthQuakesByChunk(quake_type,cfm_quake_meta);

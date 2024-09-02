@@ -6,7 +6,7 @@ This is leaflet specific utilities
 ***/
 
 var init_map_zoom_level = 5.5;
-var init_map_coordinates = [38, -120.0];
+var init_map_coordinates = [38, -122.0];
 var seismicity_map_zoom_level = 9;
 
 var enable_seismicity=0; // retrieve local seismicity on zoom demand
@@ -29,7 +29,6 @@ var rectangle_options = {
 };
 var rectangleDrawer;
 var mymap, baseLayers, layerControl, currentLayer;
-var mylegend;
 var visibleFaults = new L.FeatureGroup();
 
 // hold the historical siginifcant EQs
@@ -198,29 +197,6 @@ function setup_viewer()
   to remove,
   mymap.removeControl(myWatermark);
 */
-
-//==> seismicity legend <==  
-  mylegend=L.control( {position:'bottomleft'});
-
-  mylegend.onAdd = function (map) {
-    this._div = L.DomUtil.create('div'); 
-    this.update();
-    return this._div;
-  };
-
-  mylegend.update = function (props, param=null) {
-     if(param == null) {
-       this._div.innerHTML="";
-       return;
-     }
-     this._div.innerHTML='<img src="./img/'+param+'" style="width:200px; margin-left:-5px;" >';
-  }
-
-  mylegend.addTo(mymap);
-  //mylegend.update({}, "cfm-viewer.png");
-  //to remove,
-  //mymap.removeControl(mylegend);
-
 
 // ==> mouse location popup <==
 //   var popup = L.popup();

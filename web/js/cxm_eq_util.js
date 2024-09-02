@@ -60,6 +60,7 @@ function processQuakeMeta(quake_type) {
     }
 
     // save this to eq_spec..
+alert("adding to eq_spec");
     eq_spec.push ( { 'name': quake_type, 'meta': meta });
     return meta;
 }
@@ -71,13 +72,13 @@ function get_EQ_range(quake_type, quake_metric_type) {
       if(eq_spec[i].name==quake_type) {
          let meta=eq_spec[i].meta;
          if(quake_metric_type == EQ_HAUKSSON_FOR_DEPTH) {
-            return (meta.minDepth, meta.maxDepth)
+            return [parseFloat(meta.minDepth), parseFloat(meta.maxDepth)];
          }
          if(quake_metric_type == EQ_HAUKSSON_FOR_MAG) {
-            return (meta.minMag, meta.maxMag)
+            return [parseFloat(meta.minMag), parseFloat(meta.maxMag)];
          }
          if(quake_metric_type == EQ_HAUKSSON_FOR_TIME) {
-            return (meta.minTime, meta.maxTime)
+            return [meta.minTime, meta.maxTime];
          }
 
       }
@@ -183,6 +184,20 @@ function _toFileLatlngSet(tidx,tsz,sidx,ssz) {
       }
       log={total:sum , list:loglist};
       _outputBlob(log,logname);
+      // output the meta data only if tidx is also 0
+      if(tidx == 0) {
+// TODO.. need to think of anothe way..
+        var quake_type=QUAKE_TYPE_HAUKSSON;
+        var metaname=EQ_QUAKE_TYPE_NAME_LIST[quake_type]+"_meta.json";
+        if(eq_spec.length != 0) {
+          let spec=eq_spec[quake_type];
+          //let meta=spec['meta'];
+          _outputBlob(spec,metaname);
+          } else {
+            window.console.log("ERROR:  meta should have been loaded..\n");
+        }
+      }
+
     }
 
     var fname=_eq_fname(ttype,sidx);
@@ -276,6 +291,12 @@ function _eq_fname(ttype,sidx) {
 function _eq_gzfname(ttype,sidx) {
     var stub=_eq_full_fname_stub(ttype);
     var fname=stub+sidx+".json.gz";
+    return fname;
+}
+
+function _eq_log_gzfname(ttype) {
+    var stub=_eq_full_fname_stub(ttype);
+    var fname=stub+"log.json.gz";
     return fname;
 }
 

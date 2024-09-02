@@ -529,17 +529,16 @@ onchange="switchLayer(this.value);">
                  <div id="cfm-wait-spin" align="center" style="display:none;"><i class="glyphicon glyphicon-cog fa-spin" style="color:red"></i></div>
                </div>
 
-<!-- legend --
-               <div class="main-legend geometry top center" style="bottom:10%;background-color: rgba(255,255,255,0.5);">
+<!-- legend -->
+               <div id="mylegend" class="main-legend geometry top center" style="bottom:10%;background-color: rgba(255,255,255,0.5);display:none">
                  <div class="col">
                     <div class="row" style="margin:0px 2px 0px -20px">
                       <div class="legend mt-2" id="pixi-legend-color"></div>
                       <div class="legend" id="pixi-legend-label"></div>
                     </div>
-                    <div id="pixi-legend-title" align="center" class="legend content mt-1" style="border-top:2px solid grey">Degrees</div>
+                    <div id="pixi-legend-title" align="center" class="legend content mt-1" style="border-top:2px solid grey">Depth(km)</div>
                  </div>
-	       </div> 
-legend -->
+	       </div> <!--legend -->
             </div>
         </div> <!-- top-map -->
     </div>
