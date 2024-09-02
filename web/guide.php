@@ -147,7 +147,7 @@ $header = getHeader("User Guide");
 
 		 The seismicity consists of a combination of the Hauksson et al. (2012, and updates) 
 		 and Waldhauser (2009) catalogs. The catalogs have been cropped to avoid any overlap. 
-		 Once loaded, you can color the relocated seismicity by depth(, magnitude, or time).
+		 Once loaded, you can color the relocated seismicity by depth.
 		 Significant historic earthquakes (M6+) will be shown on the map interface with red dots.
 		 If you mouse over the dots, the year and magnitude will be displayed. The significant 
 		 earthquakes can be toggled on/off by clicking on the eyeball icon next to the seismicity
