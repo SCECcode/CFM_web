@@ -146,6 +146,10 @@ function finishLoadSeismicity() {
 
     $('#showSeismicity').css("display", "");
     $('#loadSeismicity').css("display", "none");
+
+//switch to different basemap
+    document.getElementById('mapLayer').value='esri imagery';
+    switchLayer('esri imagery');
 }
 
 
