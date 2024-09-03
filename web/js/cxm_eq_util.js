@@ -60,7 +60,6 @@ function processQuakeMeta(quake_type) {
     }
 
     // save this to eq_spec..
-alert("adding to eq_spec");
     eq_spec.push ( { 'name': quake_type, 'meta': meta });
     return meta;
 }
@@ -72,7 +71,9 @@ function get_EQ_range(quake_type, quake_metric_type) {
       if(eq_spec[i].name==quake_type) {
          let meta=eq_spec[i].meta;
          if(quake_metric_type == EQ_HAUKSSON_FOR_DEPTH) {
-            return [parseFloat(meta.minDepth), parseFloat(meta.maxDepth)];
+// forcing the range to be between 0 and 20
+//            return [parseFloat(meta.minDepth), parseFloat(meta.maxDepth)];
+            return [eq_hauksson_min_depth,eq_hauksson_max_depth];
          }
          if(quake_metric_type == EQ_HAUKSSON_FOR_MAG) {
             return [parseFloat(meta.minMag), parseFloat(meta.maxMag)];

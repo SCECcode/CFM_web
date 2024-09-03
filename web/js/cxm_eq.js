@@ -376,6 +376,7 @@ function getEQRangeIdx(quake_metric_type,target) {
      eq_target=target.getTime();
   }
  
+
   if(eq_target <= eq_min) {
     return 0;  
   }
@@ -383,7 +384,10 @@ function getEQRangeIdx(quake_metric_type,target) {
     return data_segment_count-1;
   }
   var step = (eq_max - eq_min)/data_segment_count;
+
   var idx= Math.floor((eq_target-eq_min)/step);
+
+//  alert("min"+eq_min+"max"+eq_max+"target"+eq_target+"step"+step+"idx is"+idx);
 
   return idx;
 }
