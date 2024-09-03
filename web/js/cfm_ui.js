@@ -130,6 +130,7 @@ let h=576+c_height;
 //$('#top-intro').css("display", "none");
 $('#searchResult').css("display", "none");
 //$('#CFM_plot').css("height", h);
+$('.leaflet-control-attribution').css("width", "50rem");
 $('#infoData').removeClass('col-5').addClass('col-0');
 $('#top-map').removeClass('col-7').addClass('row');
 $('#top-map').removeClass('pl-1').addClass('pl-0');
@@ -158,6 +159,7 @@ let b_height = belt.clientHeight;
 
 $('#top-control').css("display", "none");
 $('#top-select').css("display", "none");
+$('.leaflet-control-attribution').css("width", "75rem");
 
 // minus the height of the container top 
 //XXlet elt = document.getElementById('banner-container');
@@ -184,8 +186,8 @@ $('.container').css("max-width", "1140px");
 $('.container').css("padding-left", "15px");
 $('.container').css("padding-right", "15px");
 
-$('#top-intro').css("display", "");
 $('#searchResult').css("display", "");
+$('.leaflet-control-attribution').css("width", "35rem");
 $('#infoData').addClass('col-5').removeClass('col-0');
 $('#top-map').removeClass('row').addClass('col-7');
 $('#top-map').removeClass('pl-1').addClass('pl-0');
