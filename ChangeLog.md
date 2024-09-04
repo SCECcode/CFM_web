@@ -1,3 +1,8 @@
+## 2024-09-04  Mei-Hui Su <mei@usc.edu>
+* New Statewide styling <edric@usc.edu>
+* Replace EQ catalog (Wald & Hauksson) 
+* Update pixi layer code for EQs
+
 ## 2024-07-22  Mei-Hui Su <mei@usc.edu>
 * Add CFM7.0 Preferred, Alternatives, and Ruptures
 
