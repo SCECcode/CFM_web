@@ -106,10 +106,32 @@ function cxm_eq_init_pixi() {
 // setup textures depth/mag/time
   let rgblist=getSegmentParticleRGBList(EQ_HAUKSSON_FOR_DEPTH);
   for(let i =0; i< rgblist.length; i++) {
+
+/* old way
+{ 
     let name="particleSet0_"+i;
     let rgb=rgblist[i];
     let texture=pixiCreateBaseTexture(rgb,name);
     particleTexturesSet0.push(texture);
+}
+*/
+
+/*  using icon.png, trying marker20_icon.png */
+{
+    let idx=i+1;
+    let fname="img/marker"+i+"_icon.png";
+    let texture=PIXI.Texture.from(fname);
+    particleTexturesSet0.push(texture);
+}
+
+/*
+{
+    var circle=new PIXI.GraphicsContext().circle(100,100,50).fill(rgb);
+    let texture=renderer.genreateTexture(circle);
+    particleTexturesSet0.push(texture);
+}
+*/
+
   }
   rgblist=getSegmentParticleRGBList(EQ_HAUKSSON_FOR_MAG);
   for(let i =0; i< rgblist.length; i++) {

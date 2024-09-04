@@ -49,10 +49,10 @@ alert("empty legend info "+pixiuid);
      let chtml = "";
      let lhtml = "";
      // include the top 'invisible' one
-     for(let i=0; i<n; i++) {
+     for(let i=n-1; i>=0; i--) {
          let name=namelist[i];
          let color=colorlist[i];
-         let label=labellist[i]; // segment's label 
+         let label=labellist[i+1]; // segment's label 
          let length=lengthlist[i];
          let check=checklist[i];
          if(length == 0) {
@@ -66,7 +66,7 @@ alert("empty legend info "+pixiuid);
          lhtml=_legendoptionlabel(label)+lhtml;
      }
       // include the top 'invisible' one
-     lhtml=_legendoptionlabel(labellist[n])+lhtml;
+     lhtml=_legendoptionlabel(labellist[0])+lhtml;
 
      chtml="<ul>"+chtml+"</ul>";
      $("#pixi-legend-color").html(chtml);

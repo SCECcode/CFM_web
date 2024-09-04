@@ -530,9 +530,9 @@ onchange="switchLayer(this.value);">
                </div>
 
 <!-- legend -->
-               <div id="mylegend" class="main-legend geometry top center" style="bottom:10%;background-color: rgba(255,255,255,0.5);display:none">
+               <div id="mylegend" class="main-legend geometry top center" style="bottom:10%;background-color: rgba(255,255,255,0.6);display:none">
                  <div class="col">
-                    <div class="row" style="margin:0px 2px 0px -20px">
+                    <div class="row" style="margin:0px 2px 0px -16px">
                       <div class="legend mt-2" id="pixi-legend-color"></div>
                       <div class="legend" id="pixi-legend-label"></div>
                     </div>

@@ -8,8 +8,9 @@
    as a leaflet overlay layer
 ***/
 
-const SEISMICITY_DIR="./data/seismicity";
+//const SEISMICITY_DIR="./data/seismicity";
 //const SEISMICITY_DIR="https://files.scec.org/s3fs-public/projects/cfm/CFM6/CFM6_Seismicity";
+const SEISMICITY_DIR="https://files.scec.org/s3fs-public/projects/cfm/seismicity/cache";
 
 
 // these are being used as 'uid' for eqPixiOverlayList

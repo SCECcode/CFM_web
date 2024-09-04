@@ -683,7 +683,8 @@ window.console.log(" >>>   PIXI: redraw event -- with data update");
                for (var j = 0; j < len; j++) {
                   var coords = pixiProject(latlngs[j]);
               
-                  var particle = new PIXI.TilingSprite(pTexture);
+//                  var particle = new PIXI.TilingSprite(pTexture);
+                  var particle = new PIXI.Sprite(pTexture);
                   particle.clampMargin = -0.5;
                
                   particle.alpha=1; // add, multiply,screen

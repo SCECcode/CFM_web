@@ -1,11 +1,11 @@
 #/bin/bash
 
-mkdir -p seismicity
-cd seismicity
-wget https://files.scec.org/s3fs-public/projects/cfm/seismicity/cfm-v7.0-seismicity-cache.tar.gz
-tar xvf cfm-v7.0-seismicity-cache.tar.gz
-cd ..
-mv seismicity web/data
+#mkdir -p seismicity
+#cd seismicity
+#wget https://files.scec.org/s3fs-public/projects/cfm/seismicity/cfm-v7.0-seismicity-cache.tar.gz
+#tar xvf cfm-v7.0-seismicity-cache.tar.gz
+#cd ..
+#mv seismicity web/data
 
 mkdir -p cfm_data
 cd cfm_data
