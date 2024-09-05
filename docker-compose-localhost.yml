@@ -23,7 +23,6 @@ services:
       CFM_MY_PORT: 8104
       CFM_MY_BLIND: CFM7.0_blind.utm
       CFM_MY_TRACE: CFM7.0_traces.utm
-      CFM_PROD_PATH: "research/cfm-explorer"
     ports:
       - "8104:8081"
       - "8105:80"

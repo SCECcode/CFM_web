@@ -6,7 +6,7 @@ $host_site_actual_path = "/";
 if (isset($_SERVER['HTTP_X_FORWARDED_SERVER']) ||
 	isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
 	// check that we're behind a proxy
-	$host_site_actual_path = getenv("CFM_PROD_PATH") ?? "/research/cfm-explorer";
+	$host_site_actual_path = "/research/cfm-explorer";
 }
 
 
@@ -19,6 +19,7 @@ function getHeader($this_page) {
 	$all_pages = [
 		"explorer.php" => "CFM Explorer",
 		"guide.php" => "User Guide",
+		"cite" => "How to Cite",
 		"disclaimer.php" => "Disclaimer",
 		"contact.php" => "Contact"
 	];

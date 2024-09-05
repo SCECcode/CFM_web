@@ -44,7 +44,7 @@ $header = getHeader("User Guide");
 	       to download the entire CFM model archive. The pages on this site 
                include the 
                <a href="<?php echo $host_site_actual_path; ?>">CFM explorer page</a>, 
-               this user guide, <a href="disclaimer">a disclaimer</a>, and a 
+               this user guide, <a href="cite">citing usage of this dataset</a>, <a href="disclaimer">a disclaimer</a>, and a
                <a href="contact">contact information</a> page.</p>
 
             <p>The main interface is on the <a href="<?php echo $host_site_actual_path; ?>">
