@@ -17,11 +17,11 @@ function getHeader($this_page) {
 	global $host_site_actual_path;
 
 	$all_pages = [
-		"explorer.php" => "CFM Explorer",
-		"guide.php" => "User Guide",
+		$host_site_actual_path => "CFM Explorer",
+		"guide" => "User Guide",
 		"cite" => "How to Cite",
-		"disclaimer.php" => "Disclaimer",
-		"contact.php" => "Contact"
+		"disclaimer" => "Disclaimer",
+		"contact" => "Contact"
 	];
 
 	$page_links_html = "";
