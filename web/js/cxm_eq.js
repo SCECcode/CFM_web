@@ -235,7 +235,6 @@ function _loadFromFileEQLatlngSet(tidx,tsz,sidx,ssz) {
 
 function _loadEQMetaFromFile(quake_type) {
       var fname=SEISMICITY_DIR+"/"+EQ_QUAKE_TYPE_NAME_LIST[quake_type]+"_meta.json.gz";
-window.console.log("XXX _loadEQMetaFromFile cxm_eq.js..%s",fname);
 
       fetch(fname)
         .then(
@@ -262,7 +261,6 @@ function _loadEQMetricMetaFromFile() {
     for(let i=0; i<cnt; i++) {
       var quake_type=EQ_METRIC_LIST[i];
       var fname=_eq_log_gzfname(quake_type);
-window.console.log("XXX _loadEQMetricMetaFromFile cxm_eq.js..%s",fname);
 
       fetch(fname)
         .then(

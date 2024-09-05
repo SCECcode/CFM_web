@@ -471,7 +471,7 @@ function makeResultTableBody(str)
 // str=metadata
 function makeResultTable(str)
 {
-    window.console.log("calling makeResultTable..");
+//    window.console.log("calling makeResultTable..");
 
     var html="<div class=\"cfm-table\" ><table>";
     html+="<thead><tr><th class='text-center'><button id=\"allBtn\" class=\"btn btn-sm cfm-small-btn\" title=\"select all visible faults\" onclick=\"selectAll();\"><span class=\"glyphicon glyphicon-unchecked\"></span></button></th><th class='text-center'></th><th class='myheader'>CFM Fault Objects</th></tr></thead>";
@@ -485,7 +485,7 @@ function makeResultTable(str)
 // using internal information, existing style_list
 function _makeResultTableBodyWithGList(glist)
 {
-    window.console.log("calling _makeResultTableBodyWithGList..");
+//    window.console.log("calling _makeResultTableBodyWithGList..");
 
     clear_popup();
 
@@ -526,7 +526,7 @@ function _makeResultTableBodyWithGList(glist)
 // using existing gid_list,
 function makeResultTableWithList(glist)
 {
-    window.console.log("calling makeResultTableWithList..");
+//    window.console.log("calling makeResultTableWithList..");
 
     if(glist.length > 0) {
       toggle_layer_with_list(glist);

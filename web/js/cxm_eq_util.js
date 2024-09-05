@@ -135,6 +135,10 @@ window.console.log("XXX --> loading from db and then chopped... slowww..");
 }
 
 function finishLoadSeismicity() {
+	
+//switch to different basemap
+    document.getElementById('mapLayer').value='esri imagery';
+    switchLayer('esri imagery');
 
     setup_pixi();
     changePixiOverlay("haukssondepth");
@@ -146,10 +150,6 @@ function finishLoadSeismicity() {
 
     $('#showSeismicity').css("display", "");
     $('#loadSeismicity').css("display", "none");
-
-//switch to different basemap
-    document.getElementById('mapLayer').value='esri imagery';
-    switchLayer('esri imagery');
 }
 
 

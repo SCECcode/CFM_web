@@ -112,7 +112,7 @@ function addOne2GeoCounter() {
   let max = parseInt(maxelm.val());
   elm.val(v);
   if (v == max) { // turn off spinner
-window.console.log("Finished loading faults..");
+//window.console.log("Finished loading faults..");
     $("#modalwait").modal('hide')
     return 1;
   }
@@ -1128,7 +1128,7 @@ function setupPresetMode() {
     PLOT3D_PRESET_STATE=state;
 
     // preset_type: note, main, main+plot3d
-    window.console.log("PresetMode >>>>got "+abb+" "+name+" "+ts+" "+ptype);
+//    window.console.log("PresetMode >>>>got "+abb+" "+name+" "+ts+" "+ptype);
     if(ts==0 || ptype == 0)
       return;
     if(name != 0) {

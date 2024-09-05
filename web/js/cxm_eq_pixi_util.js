@@ -107,22 +107,24 @@ function cxm_eq_init_pixi() {
   let rgblist=getSegmentParticleRGBList(EQ_HAUKSSON_FOR_DEPTH);
   for(let i =0; i< rgblist.length; i++) {
 
-/* old way
+	  /*
 { 
     let name="particleSet0_"+i;
     let rgb=rgblist[i];
-    let texture=pixiCreateBaseTexture(rgb,name);
+    var texture=pixiCreateBaseTexture(rgb,name);
     particleTexturesSet0.push(texture);
 }
-*/
+   */
 
-/*  using icon.png, trying marker20_icon.png */
+/*  using icon.png, trying marker20_icon.png 
+ */
 {
     let idx=i+1;
-    let fname="img/marker"+i+"_icon.png";
-    let texture=PIXI.Texture.from(fname);
+    let fname="img/marker"+idx+"_icon.png";
+    var texture=PIXI.Texture.from(fname);
     particleTexturesSet0.push(texture);
 }
+/* */
 
 /*
 {

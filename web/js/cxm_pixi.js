@@ -151,9 +151,6 @@ function pixiGetSegmentRangeList(N, v_max, v_min) {
     mult=100;
   }
 
-window.console.log( "  ---> STEP is ", abs_step);
-window.console.log( "  ---> v_min is ", abs_v_min);
-window.console.log( "  ---> USING MULTI is ", mult);
   let digits=0;
 
   let tlist= [];
@@ -167,7 +164,7 @@ window.console.log( "  ---> USING MULTI is ", mult);
       }
     }
     tlist.push(v);
-window.console.log("segment: v is "+v);
+//window.console.log("segment: v is "+v);
   }
 
   var slist=[];
@@ -616,7 +613,7 @@ window.console.log( "  >>>> CALLING makeEQPixiOverlayLayer for %d ",quake_metric
       } else { 
         pixiOverlay=L.pixiOverlay(function(utils, event) {
 
-window.console.log("PIXI: calling pixiOverlay - callback to fill in data");
+//window.console.log("PIXI: calling pixiOverlay - callback to fill in data >> "+event.type);
 
         if(event.type == "undefined") {
           window.console.log(" ???? XXX why is event type of undefined ???");
@@ -628,13 +625,14 @@ window.console.log("PIXI: calling pixiOverlay - callback to fill in data");
         pixiProject = utils.latLngToLayerPoint;
         var getScale = utils.getScale;
         var invScale = 1 / getScale();
+window.console.log("invScale is set at.."+invScale);
   
         if (event.type === "redraw") {
 
           var data=event.data;
 
           if(data != undefined) {
-window.console.log(" >>>   PIXI: redraw event -- with data update");
+window.console.log(" >>>   PIXI EVENT: redraw/moveend event -- with data update");
             uid=pixiLatlngList.uid;
             spec=data.spec;
 
@@ -649,13 +647,7 @@ window.console.log(" >>>   PIXI: redraw event -- with data update");
 
             var origin = pixiProject([mapcenter['lat'], mapcenter['lng']]);
   
-            let scaleFactor=16; // default came from seismicity
-            if(spec.scale_hint == 2 ) { // when grid points are about 2km len is 70k
-              scaleFactor=24;
-            }
-            if(spec.scale_hint == 5) {  // when grid points are about 5km
-              scaleFactor=8; 
-            }
+            let scaleFactor=32; // default came from seismicity
   
   // :-) very hacky, just in case it got zoomed in before search
             let t= (8/invScale);
@@ -683,8 +675,8 @@ window.console.log(" >>>   PIXI: redraw event -- with data update");
                for (var j = 0; j < len; j++) {
                   var coords = pixiProject(latlngs[j]);
               
-//                  var particle = new PIXI.TilingSprite(pTexture);
-                  var particle = new PIXI.Sprite(pTexture);
+                  var particle = new PIXI.TilingSprite(pTexture);
+//                  var particle = new PIXI.Sprite(pTexture);
                   particle.clampMargin = -0.5;
                
                   particle.alpha=1; // add, multiply,screen
@@ -694,6 +686,7 @@ window.console.log(" >>>   PIXI: redraw event -- with data update");
                   particle.y= coords.y - origin.y;
     
                   particle.scale.set(invScale/scaleFactor);
+window.console.log(" AAA calling with "+invScale/scaleFactor);
                   a.addChild(particle);
               }
             }
@@ -704,12 +697,12 @@ window.console.log(" >>>   PIXI: redraw event -- with data update");
             pixi.active_opacity=opacity;		    
 window.console.log("        redraw adding into group--(",uid,") >>", particleGroups.length);
             } else {
-               window.console.log(" >>>   PIXI: redraw event - with no data");
+               window.console.log(" >>>   PIXI EVENT: redraw - with no data???");
           }
         }
   
         if (event.type === 'add') {
-window.console.log(" >>>   PIXI: add event");
+window.console.log(" >>>   PIXI EVENT: add event");
 
           if (_foundOverlay(uid)) { // only add it first time
             return null;
@@ -720,18 +713,12 @@ window.console.log(" >>>   PIXI: add event");
   
           var origin = pixiProject([mapcenter['lat'], mapcenter['lng']]);
   
-          let scaleFactor=16; // default came from seismicity
+          let scaleFactor=32; // default came from seismicity
 
-          if(spec.scale_hint == 2 ) { // when grid points are about 2km len is 70k
-            scaleFactor=24;
-          }
-          if(spec.scale_hint == 5) {  // when grid points are about 5km
-            scaleFactor=8; 
-          }
-  
   // :-) very hacky, just in case it got zoomed in before search
           let t= (8/invScale);
           scaleFactor=scaleFactor / t;
+window.console.log("        AND: scaleFactor "+scaleFactor);
   
           // fill in the particles one group at a time
           let collect_len=0;
@@ -771,9 +758,11 @@ window.console.log(" >>>   PIXI: add event");
           }
 window.console.log("PIXI: total of len, ",collect_len); 
           particleGroups.push( { "uid":uid, "visible":true, "segments":segments, "opacity": opacity, inner:particleContainers} ); 
+		
        }
 
        renderer.render(container,{ antialias: false, resolution:2 });
+window.console.log("PIXI: calling renderer to render"); 
 
     }, pixiContainer, {
       doubleBuffering: doubleBuffering,

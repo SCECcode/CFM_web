@@ -729,9 +729,9 @@ onchange="switchLayer(this.value);">
            </p>
            </div>
            <div class="row mt-2" style="border:0px solid blue">
-             <p id="modalwaiteqLabel2" style="text-align:center;font-size:10px; border:0px solid red">Please wait:  with ~1600k events, this may take a few minutes</p>
+             <p id="modalwaiteqLabel2" style="text-align:center;font-size:10px; margin-left:3px; margin-right:6px; border:0px solid red">Please wait:  with ~1600k events, this may take a few minutes. If earthquakes are not displayed after loading, please click and drag the map or zoom in/out.</p>
 <div>
-	     <p style="font-size:14px; text-align:left;border:0px solid green;margin-left:2px;margin-right:3px">The seismicity that is loading consists of a combination of the Hauksson et al. (2012, and updates) and Waldhauser (2009) catalogs. The catalogs have been cropped to avoid any overlap. Once loaded, you can color the relocated seismicity by depth. Significant historic earthquakes (M6+) will be shown on the map interface with red dots. If you mouse over the dots, the year and magnitude will be displayed. The significant earthquakes can be toggled on/off by clicking on the eyeball icon next to the seismicity pull down menu at the top of the map interface.<br>
+	     <p style="font-size:14px; text-align:left;border:0px solid green;margin-left:3px;margin-right:6px">The seismicity that is loading consists of a combination of the Hauksson et al. (2012, and updates) and Waldhauser (2009) catalogs. The catalogs have been cropped to avoid any overlap. Once loaded, you can color the relocated seismicity by depth. Significant historic earthquakes (M6+) will be shown on the map interface with red dots.&nbsp;&nbsp;If you mouse over the dots, the year and magnitude will be displayed. The significant earthquakes can be toggled on/off by clicking on the eyeball icon next to the seismicity pull down menu at the top of the map interface.<br><br>
 The Hauksson et al. (2012) catalogs are available <a href="https://scedc.caltech.edu/data/alt-2011-dd-hauksson-yang-shearer.html">here</a>.<br>
 The Waldhauser (2009) catalogs are available <a href="https://nocaldd.ldeo.columbia.edu/">here</a>.</p>
 </div>
