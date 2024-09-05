@@ -182,7 +182,7 @@ require_once("php/util.php");
             </div>
         </div>
 <p class="col-11 intro-text">
-    The <a href="https://www.scec.org/research/cfm">SCEC Community Fault Model (CFM)</a> includes complex, three-dimensional faults. This CFM explorer provides a simplified two-dimensional map view.  It currently supports multiple CFM versions and allows users to view and download fault geometry data without accessing the <a href="https://doi.org/10.5281/zenodo.4651667">entire CFM model</a> archive. Selected faults can be visualized in a basic 3D format using the "PLOT3D" button. For detailed instructions, refer to the  <a href="guide">user guide</a>.
+    The <a href="https://doi.org/10.5281/zenodo.4651667">SCEC Community Fault Model (CFM)</a> includes complex, three-dimensional faults. This CFM explorer provides a simplified two-dimensional map view.  It currently supports multiple CFM versions and allows users to view and download fault geometry data without accessing the <a href="https://doi.org/10.5281/zenodo.4651667">entire CFM model</a> archive. Selected faults can be visualized in a basic 3D format using the "PLOT3D" button. For detailed instructions, refer to the  <a href="guide">user guide</a>.
 </p>
     </div>
 
