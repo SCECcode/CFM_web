@@ -143,35 +143,23 @@ function _toMinView()
 let height=window.innerHeight;
 let width=window.innerWidth;
 
-$('.navbar').css("margin-bottom", "0px");
-$('.container').css("max-width", "100%");
-$('.container').css("padding-left", "2px");
-$('.container').css("padding-right", "2px");
-
-let pelt = document.getElementById('CFM_plot');
-let p_height = pelt.clientHeight;
-let telt = document.getElementById('top-control');
-let t_height = telt.clientHeight;
-let celt = document.getElementById('controls-container');
-let c_height = celt.clientHeight;
-let belt = document.getElementById('banner-container');
-let b_height = belt.clientHeight;
-
 $('#top-control').css("display", "none");
 $('#top-select').css("display", "none");
 $('.leaflet-control-attribution').css("width", "75rem");
+$('.navbar').css("margin-bottom", "0px");
+$('.container').css("max-width", "100%");
 
-// minus the height of the container top 
-//XXlet elt = document.getElementById('banner-container');
-//XXlet c_height = elt.clientHeight;
-//XXlet h = height - c_height-4.5;
-let h = height - t_height - c_height - 65;
-$('#CFM_plot').css("height", h);
+let belt = document.getElementById('banner-container');
+let b_height = belt.clientHeight;
+let b_width = belt.clientWidth;
 
-let w = width - 15;
+let telt = document.getElementById('top-intro');
+let t_height = telt.clientHeight;
+
+let w = b_width;
 $('#CFM_plot').css("width", w);
-//window.console.log( "height: %d, %d > %d \n",height, c_height,h);
-//window.console.log( "width: %d, %d  \n",width, w);
+let h = height - b_height - t_height - 40 - 20;
+$('#CFM_plot').css("height", h);
 resize_map();
 }
 
