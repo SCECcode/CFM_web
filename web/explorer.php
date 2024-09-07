@@ -514,13 +514,13 @@ onchange="switchLayer(this.value);">
 
 
     <div id="mapDataBig" class="row mapData">
-	<div id="infoData" class="col-5 button-container d-flex flex-column pr-0" style="overflow:hidden">
+	<div id="infoData" class="col-5 button-container d-flex flex-column pr-1" style="overflow:hidden">
             <div id="searchResult" style="overflow:hidden; display:" class="mb-1"></div>
             <div id="geoSearchByObjGidResult" style="display:none"></div>
             <div id="phpResponseTxt"></div>
         </div>
 
-        <div id="top-map" class="col-7 pl-1">
+        <div id="top-map" class="col-7 pl-0">
             <div class="w-100 mb-1" id='CFM_plot'
 		 style="position:relative;border:solid 1px #ced4da; height:576px;">
 
