@@ -226,12 +226,11 @@ window.addEventListener("DOMContentLoaded", function () {
   window.addEventListener('message', function(event) {
 
     var origin = event.origin;
-    if (origin != "http://localhost:8084" && origin != "http://moho.scec.org"
+    if (origin != "http://localhost:8084" 
+	     && origin != "http://moho.scec.org"
              && origin != "https://moho.scec.org" 
-               && origin != "http://training.scec.org"
-        && origin != "https://cfm.localhost"
-        && origin != "https://central.scec.org"
-        && origin != "https://stress.scec.org") {
+             && origin != "https://central.scec.org" 
+             && origin != "https://stress.scec.org") {
         window.console.log("SERVER <<< bad message origin:", origin);
         return;
     }
