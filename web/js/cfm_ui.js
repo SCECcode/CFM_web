@@ -165,7 +165,7 @@ $('.leaflet-control-attribution').css("width", "75rem");
 //XXlet elt = document.getElementById('banner-container');
 //XXlet c_height = elt.clientHeight;
 //XXlet h = height - c_height-4.5;
-let h = height - t_height - c_height - 50;
+let h = height - t_height - c_height - 65;
 $('#CFM_plot').css("height", h);
 
 let w = width - 15;
