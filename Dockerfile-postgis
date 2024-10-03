@@ -7,6 +7,10 @@ WORKDIR /app
 
 COPY . /app
 
+RUN cd /app/schema/data && \
+    wget https://files.scec.org/s3fs-public/projects/cfm/seismicity/cfm-v7.0-seismicity-data.tar.gz &&\
+    tar zxvf cfm-v7.0-seismicity-data.tar.gz
+
 RUN mkdir /home/postgres
 RUN chown postgres /home/postgres
 RUN su postgres -c /app/doc/run-as-postgres
