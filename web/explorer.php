@@ -514,12 +514,128 @@ onchange="switchLayer(this.value);">
 
 
     <div id="mapDataBig" class="row mapData">
-	<div id="infoData" class="col-5 button-container d-flex flex-column pr-1" style="overflow:hidden">
-            <div id="searchResult" style="overflow:hidden; display:" class="mb-1"></div>
-            <div id="geoSearchByObjGidResult" style="display:none"></div>
-            <div id="phpResponseTxt"></div>
-        </div>
+        <ul class="navigation col-5" style="background:whitesmoke; border:1px solid green">       
+          <li id="infoData" style="display:" >
+  	    <div id="infoData" class="col-12 button-container d-flex flex-column pr-1" style="overflow:hidden">
+                <div id="searchResult" style="overflow:hidden; display:" class="mb-1"></div>
+                <div id="geoSearchByObjGidResult" style="display:none"></div>
+                <div id="phpResponseTxt"></div>
+            </div>
+          </li>
+          <li id='recentEQ' class='navigationLi' style="display:none">
+              <div id='recentEQMenu' class='menu'>
 
+                  <div class="row mt-2">
+                      <div class="col-12">
+                          <p>Search Recent Earthquakes</p>
+                          <p>Data from USGS ComCat. Results are limited to 20K events</p>
+                      </div>
+                  </div>
+
+                  <div class="row d-flex ">
+                      <div class="col-5 pr-0">
+                          <input type="text"
+                                 id="minMagnitudeTxt" 
+                                 placeholder='Min Magnitude'
+                                 title="min magnitude"
+                                 onfocus="this.value=''" 
+                                 onchange="reset_minMagnitude_presets()"
+                                 class="form-control">
+                          <input type="text"
+                                 id="maxMagnitudeTxt"
+                                 title="max Magnitude"
+                                 placeholder='Max Magnitude'
+                                 onfocus="this.value=''"
+                                 onchange="reset_maxMagnitude_presets()"
+                                 class="form-control mt-1">
+                      </div>
+                      <div class="col-5 pr-0">
+                          <input type="text"
+                                 placeholder="Start Time (UTC)"
+                                 id="startTimeTxt"
+                                 title="start Time"
+                                 onfocus="this.value=''"
+                                 onchange="reset_startTime_presets()"
+                                 class="form-control">
+                          <input type="text"
+                                 id="endTimeTxt"
+                                 title="end Time"
+                                 placeholder="End Time (UTC)"
+                                 onfocus="this.value=''"
+                                 onchange="reset_endTime_presets()"
+                                 class="form-control mt-1">
+                      </div>
+                  </div>
+                     
+                  <div class="row mt-2">
+                      <div class="col-12">
+                          <p>Geographic Region</p>
+                          <p>Draw a rectangle (click and drag) on the map or enter coordinates below</p>
+                      </div>
+                  </div>
+
+                  <div class="row d-flex ">
+                      <div class="col-5 pr-0">
+                          <input type="text"
+                                 id="recentEQFirstLonTxt" 
+                                 placeholder='Begin Longitude'
+                                 title="first lon"
+                                 onfocus="this.value=''" 
+                                 onchange="reset_recentEQ_presets()"
+                                 class="form-control">
+                          <input type="text"
+                                 id="recentEQSecondLonTxt"
+                                 title="second lon"
+                                 placeholder='End Longitude'
+                                 onfocus="this.value=''"
+                                 onchange="reset_recentEQ_presets()"
+                                 class="form-control mt-1">
+                          <input type="text"
+                                 id="recentEQMinZTxt"
+                                 placeholder="Min Depth (m)"
+                                 title="recentEQMinZTxt"
+                                 onfocus="this.value=''"
+                                 class="form-control mt-1">
+                      </div>
+                      <div class="col-5 pr-0">
+                          <input type="text"
+                                 placeholder="Begin Latitude"
+                                 id="recentEQFirstLatTxt"
+                                 title="first lat"
+                                 onfocus="this.value=''"
+                                 class="form-control">
+                          <input type="text"
+                                 id="recentEQSecondLatTxt"
+                                 title="second lat"
+                                 placeholder='End Latitude'
+                                 onfocus="this.value=''"
+                                 onchange="reset_recentEQ_presets()"
+                                 class="form-control mt-1">
+                          <input type="text"
+                                 id="recentEQMaxZTxt"
+                                 placeholder="Max Depth (m)"
+                                 title="recentEQMaxZTxt"
+                                 onfocus="this.value=''"
+                                 class="form-control mt-1">
+                      </div>
+                  </div>
+                  <div class="row d-flex mt-1">
+                      <div class="col-5 pr-0">
+                          <div class="col-12" style="padding:5px 0px 10px 0px">
+                              <button id="recentEQResetAllBtn" class="btn btn-dark" 
+	                      onclick="recentEqResetAll()" style="width:100%;border-radius:0.25rem">Reset All</button>
+                          </div>
+                      </div>
+                      <div class="col-5 pr-0">
+                          <div class="col-12" style="padding:5px 0px 10px 0px">
+			      <button id="recentEqExtractDataBtn" class="btn btn-dark" 
+                              onclick="recentEQExtractData()" style="width:100%;border-radius:0.25rem">Extract Data</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </li>
+        </ul>
         <div id="top-map" class="col-7 pl-0">
             <div class="w-100 mb-1" id='CFM_plot'
 		 style="position:relative;border:solid 1px #ced4da; height:576px;">

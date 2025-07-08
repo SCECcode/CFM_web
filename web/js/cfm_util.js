@@ -1147,12 +1147,13 @@ function findByNameInPreset(name, ptype, ts) {
       } else {
         for(let i=0; i < sz; i++) {
           let gid=find_gid_by_name(name[i]);
-          toggle_highlight(gid,1);
+          toggle_highlight(gid);
+//	  toggle_layer(gid);
           window.console.log("name >>"+name[i]);
         }
         switch (ptype) {
-          case "main":
-            // do nothing
+          case "main2d":
+            zoom2SelectFaults();
             break;
           case "main3d":
             setTimeout(executePlot3d(ts), 3000);

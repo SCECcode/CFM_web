@@ -723,6 +723,7 @@ function toggle_highlight(gid,auto=0) {
        layer.setStyle({color: highlight_style.color});
      });
      cfm_select_count++;
+     selectFaults.addLayer(geolayer);
 
      } else { // h == 1
        $star.removeClass('glyphicon-check').addClass('glyphicon-unchecked');
@@ -739,10 +740,12 @@ function toggle_highlight(gid,auto=0) {
             layer.setStyle({color:ocolor});
           }); 
        }
+       selectFaults.removeLayer(geolayer);
    }
 
-    addRemoveFromDownloadQueue(gid);
-    addRemoveFromMetadataTable(gid);
+   // not sure what this means	  
+   addRemoveFromDownloadQueue(gid);
+   addRemoveFromMetadataTable(gid);
 }
 
 function get_leaflet_id(layer) {

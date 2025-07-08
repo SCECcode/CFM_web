@@ -29,7 +29,12 @@ var rectangle_options = {
 };
 var rectangleDrawer;
 var mymap, baseLayers, layerControl, currentLayer;
+// faults that is visible on 2d map
 var visibleFaults = new L.FeatureGroup();
+
+// faults that is selected (highlight)
+var selectFaults = new L.FeatureGroup();
+
 
 // hold the historical siginifcant EQs
 var visibleMarkers= [];
@@ -371,6 +376,20 @@ function addGeoToMap(cfmTrace, mymap) {
 // if doen=1, all traces are done, else 0
   let done=addOne2GeoCounter();
   return [geoLayer, done];
+}
+
+function zoom2VisibleFaults()
+{
+ if (visibleFaults.getBounds().isValid()) {
+   viewermap.fitBounds(visibleFaults.getBounds());
+ }
+}
+
+function zoom2SelectFaults()
+{
+ if (selectFaults.getBounds().isValid()) {
+   viewermap.fitBounds(selectFaults.getBounds());
+ }
 }
 
 
