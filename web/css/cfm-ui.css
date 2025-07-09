@@ -1,5 +1,45 @@
 /* cfm viewer required styles */
 
+.my-custom-select {
+    padding: 0.375remm .75rem;
+    display: block;
+    width: 100%;
+    height: calc(2.15rem);
+    color: #67727b;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    -webkit-border-radius: 0.25rem;
+    -moz-border-radius: 0.25rem;
+    border-radius: 0.25rem;
+}
+
+.png-custom-select {
+  position: relative;
+  display: inline-block;
+  font-family: "Open Sans", Arial, sans-serif;
+}
+
+.custom-select.active .options {
+  display: block;
+}
+
+//.custom-select-sm {
+//  padding: 0.2rem 0.375rem 0.2rem 0.75rem;
+//}
+
+custom-select {
+    width: 100%;
+    border: 2px solid grey;
+    border-radius: 2px;
+}
+
+custom-select:hover {
+    background: #D5D5D5;
+}
+
 div.legend .legend-label {
     margin-left: 8px;
     position: relative;
@@ -220,7 +260,7 @@ div.container.main {
     min-width: 1140px;
 }
 
-input, select, .custom-select, .input-group-text {
+input, select, .btn, .custom-select, .input-group-text {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
@@ -229,7 +269,6 @@ input, select, .custom-select, .input-group-text {
 select:focus{
     outline: none;
 }
-
 
 .btn {
     -webkit-border-radius: 0;
@@ -591,9 +630,8 @@ select {
 }
 
 input[type=text] {
-    /*width: 140px;*/
-    /*padding: 0px 5px 0px 5px;*/
-  padding: 0.375rem 0.60rem
+//  padding: 0.375rem 0.60rem
+  height: calc(2.15rem);
 }
 
 .body-container {

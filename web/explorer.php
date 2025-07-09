@@ -513,27 +513,34 @@ onchange="switchLayer(this.value);">
 </div> <!-- top-control -->
 
 
-    <div id="mapDataBig" class="row mapData">
-        <ul class="navigation col-5" style="background:whitesmoke; border:1px solid green">       
-          <li id="infoData" style="display:" >
+    <div id="mapDataBig" class="row mapData mt-1">
+        <ul class="navigation col-5 mb-0" style="margin-top:0px">       
+          <li id="infoData" class='navigationLi' style="display:none;border:1px solid red" >
   	    <div id="infoData" class="col-12 button-container d-flex flex-column pr-1" style="overflow:hidden">
                 <div id="searchResult" style="overflow:hidden; display:" class="mb-1"></div>
                 <div id="geoSearchByObjGidResult" style="display:none"></div>
                 <div id="phpResponseTxt"></div>
             </div>
           </li>
-          <li id='recentEQ' class='navigationLi' style="display:none">
+          <li id='recentEQ' class='navigationLi ml-3' style="display:;border:1px solid green">
               <div id='recentEQMenu' class='menu'>
 
                   <div class="row mt-2">
                       <div class="col-12">
-                          <p>Search Recent Earthquakes</p>
-                          <p>Data from USGS ComCat. Results are limited to 20K events</p>
+			  <p style="text-align:center;font-size:15px"><b style="font-size:22px">Search Recent Earthquakes</b>
+                        <br>Data from USGS ComCat. Results are limited to 20K events</p>
                       </div>
                   </div>
 
-                  <div class="row d-flex ">
-                      <div class="col-5 pr-0">
+                  <div class="row d-flex">
+                      <div class="col-5 pr-0 ml-2">
+                          <p class="mb-1"><b style="font-size:15px">Magnitude</b></p>
+                          <input type="radio" id=twoFivePlusMagnitude" name="magnitude" value="2.5">
+                          <label for="html">2.5+</label><br>
+                          <input type="radio" id=fourFivePlusMagnitude" name="magnitude" value="4.5">
+                          <label for="html">4.5+</label><br>
+                          <input type="radio" id=customMagnitude" name="magnitude" value="custom">
+                          <label for="html">custom</label><br>
                           <input type="text"
                                  id="minMagnitudeTxt" 
                                  placeholder='Min Magnitude'
@@ -541,6 +548,7 @@ onchange="switchLayer(this.value);">
                                  onfocus="this.value=''" 
                                  onchange="reset_minMagnitude_presets()"
                                  class="form-control">
+
                           <input type="text"
                                  id="maxMagnitudeTxt"
                                  title="max Magnitude"
@@ -550,6 +558,13 @@ onchange="switchLayer(this.value);">
                                  class="form-control mt-1">
                       </div>
                       <div class="col-5 pr-0">
+                          <p class="mb-1"><b style="font-size:15px">Date & Time</b></p>
+                          <input type="radio" id=past7Days" name="durationTime" value="7">
+                          <label for="html">Past 7 Days</label><br>
+                          <input type="radio" id=past30Days" name="durationTime" value="30">
+                          <label for="html">Past 30 Days</label><br>
+                          <input type="radio" id=customDuration" name="durationTime" value="custom">
+                          <label for="html">custom</label><br>
                           <input type="text"
                                  placeholder="Start Time (UTC)"
                                  id="startTimeTxt"
@@ -567,15 +582,14 @@ onchange="switchLayer(this.value);">
                       </div>
                   </div>
                      
-                  <div class="row mt-2">
+                  <div class="row mt-3">
                       <div class="col-12">
-                          <p>Geographic Region</p>
-                          <p>Draw a rectangle (click and drag) on the map or enter coordinates below</p>
+			  <p class="ml-2"><b style="font-size:15px">Geographic Region</b><br>Draw a rectangle (click and drag) on the map or enter coordinates below</p>
                       </div>
                   </div>
 
                   <div class="row d-flex ">
-                      <div class="col-5 pr-0">
+                      <div class="col-5 pr-0 ml-2">
                           <input type="text"
                                  id="recentEQFirstLonTxt" 
                                  placeholder='Begin Longitude'
@@ -612,15 +626,15 @@ onchange="switchLayer(this.value);">
                                  onchange="reset_recentEQ_presets()"
                                  class="form-control mt-1">
                           <input type="text"
-                                 id="recentEQMaxZTxt"
-                                 placeholder="Max Depth (m)"
+				 id="recentEQMaxZTxt"
+				 placeholder="Max Depth (m)"
                                  title="recentEQMaxZTxt"
                                  onfocus="this.value=''"
                                  class="form-control mt-1">
                       </div>
                   </div>
                   <div class="row d-flex mt-1">
-                      <div class="col-5 pr-0">
+                      <div class="col-5 pr-0 ml-2">
                           <div class="col-12" style="padding:5px 0px 10px 0px">
                               <button id="recentEQResetAllBtn" class="btn btn-dark" 
 	                      onclick="recentEqResetAll()" style="width:100%;border-radius:0.25rem">Reset All</button>
