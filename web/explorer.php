@@ -515,18 +515,18 @@ onchange="switchLayer(this.value);">
 
     <div id="mapDataBig" class="row mapData mt-1">
         <ul class="navigation col-5 mb-0" style="margin-top:0px">       
-          <li id="infoData" class='navigationLi' style="display:none;border:1px solid red" >
+          <li id="infoData" class='navigationLi' style="display:none;" >
   	    <div id="infoData" class="col-12 button-container d-flex flex-column pr-1" style="overflow:hidden">
                 <div id="searchResult" style="overflow:hidden; display:" class="mb-1"></div>
                 <div id="geoSearchByObjGidResult" style="display:none"></div>
                 <div id="phpResponseTxt"></div>
             </div>
           </li>
-          <li id='recentEQ' class='navigationLi ml-3' style="display:;border:1px solid green">
+          <li id='recentEQ' class='navigationLi ml-3 mr-2' style="display:;background:whitesmoke;border:0px solid green">
               <div id='recentEQMenu' class='menu'>
 
-                  <div class="row mt-2">
-                      <div class="col-12">
+                  <div class="row">
+                      <div class="col-12 mt-2">
 			  <p style="text-align:center;font-size:15px"><b style="font-size:22px">Search Recent Earthquakes</b>
                         <br>Data from USGS ComCat. Results are limited to 20K events</p>
                       </div>
@@ -637,15 +637,26 @@ onchange="switchLayer(this.value);">
                       <div class="col-5 pr-0 ml-2">
                           <div class="col-12" style="padding:5px 0px 10px 0px">
                               <button id="recentEQResetAllBtn" class="btn btn-dark" 
-	                      onclick="recentEqResetAll()" style="width:100%;border-radius:0.25rem">Reset All</button>
+	                      onclick="recentEqResetAll()" style="width:100%;border-radius:0.25rem;padding:0.375rem 0.75rem">Reset All</button>
                           </div>
                       </div>
                       <div class="col-5 pr-0">
                           <div class="col-12" style="padding:5px 0px 10px 0px">
 			      <button id="recentEqExtractDataBtn" class="btn btn-dark" 
-                              onclick="recentEQExtractData()" style="width:100%;border-radius:0.25rem">Extract Data</button>
+                              onclick="recentEQExtractData()" style="width:100%;border-radius:0.25rem;padding:0.375rem 0.75rem">Extract Data</button>
                           </div>
                       </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-12">
+		      <p class="ml-2"><b>Extracted data will be visible on the 2D and Plot3D options.</b></p>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-12">
+		      <p class="ml-2 mr-3" style="margin-bottom:2px;" >Data courtesy of: U.S. Geological Survey, Earthquake Hazards Program, 2017. Advanced National Seismic System (ANSS) Comprehensive Catalog of Earthquake Events and Products: Various, https://doi.org/10.5066/F7MS3QZH.</p>
+
                   </div>
               </div>
           </li>
