@@ -1127,9 +1127,12 @@ function setupPresetMode() {
     PLOT3D_PRESET_CAMERA=camera;
     PLOT3D_PRESET_STATE=state;
 
-    // preset_type: note, main, main+plot3d
+    // preset_type: note, main2d, main3d(plot3d)
 //    window.console.log("PresetMode >>>>got "+abb+" "+name+" "+ts+" "+ptype);
-    if(ts==0 || ptype == 0)
+// ts could be null if it is main2d
+    if(ptype == 0)
+      return;
+    if(ts == 0 && ptype != "main2d")
       return;
     if(name != 0) {
       findByNameInPreset(name,ptype,ts);
