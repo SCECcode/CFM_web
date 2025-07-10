@@ -70,6 +70,7 @@ function makeARecentEQMarker(data) {
   let depth=data.coord[2];
   let time=data.time;
   let mag=data.mag;
+  let magtype=data.magtype;
   let loc=data.place;                                          
   let id=data.id;
 
@@ -79,7 +80,7 @@ function makeARecentEQMarker(data) {
 
   marker.bindTooltip(eq_info).openTooltip();
 
-  marker.bindPopup("<strong>Location: </strong>"+loc+"<br><strong>When: </strong>"+ new Date(time).toLocaleString() +"<br><strong>Magnitude: </strong>"+mag+" (???)<br><strong>Depth: </strong>"+depth+" (km)<br><strong>Location: </strong> ("+longitude+","+latitude+")<br><strong>ID: </strong>"+id,{maxWidth: 500});
+  marker.bindPopup("<strong>Location: </strong>"+loc+"<br><strong>When: </strong>"+ new Date(time).toLocaleString() +"<br><strong>Magnitude: </strong>"+mag+" ("+magtype+")<br><strong>Depth: </strong>"+depth+" (km)<br><strong>Location: </strong> ("+longitude+","+latitude+")<br><strong>ID: </strong>"+id,{maxWidth: 500});
 
   marker.scec_properties = {
                     id: id,
@@ -88,6 +89,7 @@ function makeARecentEQMarker(data) {
                     latitude: latitude,
                     depth: depth,
                     magnitude: mag,
+                    magtype: magtype,
                     time:time};
 
   cxm_recent_quake_layer.addLayer(marker);

@@ -29,7 +29,7 @@ function setup_recent_eq()
 
   cxm_recent_quake_layer= make_markerGroup(enableCluster);
 
-  getRecentEQFromUSGS();
+  get_RecentEQFromUSGS();
 
 }
 
@@ -68,7 +68,7 @@ function recentEQExtractData()
 //
 function get_RecentEQFromUSGS() {
   let reqEQ_spec='&limit=20000&starttime=2025-07-01&endtime=2025-07-09&minlatitude=27.0518&minlongitude=-129.0751&maxlatitude=45.639&maxlongitude=-109.1346&minmagnitude=3.0';
-  const reqEQ_url = reqEQ_host+req_spec;
+  const reqEQ_url = reqEQ_host+reqEQ_spec;
 
   _getRecentEQFromUSGS(reqEQ_url);
 }
@@ -101,13 +101,14 @@ async function _getRecentEQFromUSGS(reqEQ) {
         data.features.forEach(eq => {
           let place = eq.properties.place;
           let mag = eq.properties.mag;
+          let magtype = eq.properties.magType;
           let ntime = new Date(eq.properties.time).toLocaleString();
           let time = eq.properties.time;
           let coord = eq.geometry.coordinates;
           let id = eq.id;
           window.console.log(`- ${ntime} | M${mag} | ${place} | ${coord} | ${id}`);
     
-          let tmp = { id: id, coord: coord, place: place, mag: mag, time: time };
+          let tmp = { id: id, coord: coord, place: place, mag: mag, magtype: magtype, time: time };
           eq_list.push(tmp);
           eq_cnt++;
         });
@@ -115,13 +116,14 @@ async function _getRecentEQFromUSGS(reqEQ) {
         } else { 
           let place = data.properties.place;
           let mag = data.properties.mag;
+          let magtype = data.properties.magtype;
           let ntime = new Date(data.properties.time).toLocaleString();
           let time = data.properties.time;
           let coord = data.geometry.coordinates;
           let id = data.id;
           window.console.log(`- ${ntime} | M${mag} | ${place} | ${coord} | ${id}`);
     
-          let tmp = { id: id, coord: coord, place: place, mag: mag, time: time };
+          let tmp = { id: id, coord: coord, place: place, mag: mag, magtype: magtype,time: time };
           eq_list.push(tmp);
           eq_cnt++;
     }
