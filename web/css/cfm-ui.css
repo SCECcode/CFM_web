@@ -1,5 +1,17 @@
 /* cfm viewer required styles */
 
+.cfm-cluster {
+    background-color: rgba(0,110,144,1);
+    border:solid 1px white;
+    border-radius: 30%;
+}
+.cfm-cluster-highlight {
+    background-color: rgba(153,0,0,1);
+    border:solid 1px white;
+    border-radius: 30%;
+}
+
+
 .my-custom-select {
     padding: 0.375remm .75rem;
     display: block;
@@ -726,6 +738,10 @@ input[type=text] {
 
 .container .navbar-header a {
     color: white;
+}
+
+.container a {
+    color: #C22B48;
 }
 
 #banner-container .navbar-brand {

@@ -14,6 +14,7 @@ var viewermap;
 
 function initializeViewer() {
     /** MAIN setup **/
+window.console.log("CALLING initializeViewer()");
 
     getGeoTraceList();
     getAllTraces();
@@ -23,6 +24,7 @@ function initializeViewer() {
     setup_info3dTable();
     setup_warn3dTable();
     setup_externalTSList();
+    setup_recent_eq();
 
 }
 

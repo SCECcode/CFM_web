@@ -93,6 +93,8 @@ require_once("php/util.php");
     <script type="text/javascript" src="js/cfm_sidebar.js?v=1"></script>
     <script type="text/javascript" src="js/cfm_view3d_util.js?v=1"></script>
     <script type="text/javascript" src="js/cfm_view3d.js?v=1"></script>
+    <script type="text/javascript" src="js/cxm_recent_eq_util.js?v=1"></script>
+    <script type="text/javascript" src="js/cxm_recent_eq.js?v=1"></script>
 
     <script type="text/javascript" src="js/cxm_kml.js?v=1"></script>
    
@@ -375,7 +377,7 @@ require_once("php/util.php");
                             <div id='latlonMenu' class='menu'>
                                 <div class="row">
                                     <div class="col-5">
-                                        <p>Draw a rectangle on the map or enter latitudes and longitudes.</p>
+                                        <p class="mb-0">Draw a rectangle on the map or enter latitudes and longitudes.</p>
                                     </div>
                                     <div class="col-2 pl-0 pr-0">
                                         <input type="text"
@@ -470,6 +472,8 @@ onkeypress="javascript:if (event.key == 'Enter') $('#secondLonTxt').mouseout();"
                 <button id="toggleSignificantBtn" class="btn btn-sm cfm-small-btn" title="Show/Hide significant historic earthquakes (M6+) since 1900" onclick="toggleSignificant()"><span id="eye_significant" class="glyphicon glyphicon-eye-open"></span></button>
              </div>
  </div>
+
+
  <div class="col-6">
 <!-- XX Map Select -->
 	    <div class="input-group input-group-sm cfm-input-group" id="map-controls">
@@ -526,7 +530,7 @@ onchange="switchLayer(this.value);">
               <div id='recentEQMenu' class='menu'>
 
                   <div class="row">
-                      <div class="col-12 mt-2">
+                      <div class="col-12 mt-3">
 			  <p style="text-align:center;font-size:15px"><b style="font-size:22px">Search Recent Earthquakes</b>
                         <br>Data from USGS ComCat. Results are limited to 20K events</p>
                       </div>
@@ -535,12 +539,12 @@ onchange="switchLayer(this.value);">
                   <div class="row d-flex">
                       <div class="col-5 pr-0 ml-2">
                           <p class="mb-1"><b style="font-size:15px">Magnitude</b></p>
-                          <input type="radio" id=twoFivePlusMagnitude" name="magnitude" value="2.5">
-                          <label for="html">2.5+</label><br>
-                          <input type="radio" id=fourFivePlusMagnitude" name="magnitude" value="4.5">
-                          <label for="html">4.5+</label><br>
-                          <input type="radio" id=customMagnitude" name="magnitude" value="custom">
-                          <label for="html">custom</label><br>
+			  <input type="radio" id="twoFivePlusMagnitude" name="magnitude" 
+			      value="2.5" onclick="getNmagnitude(this.value);"> <label for="html">2.5+</label><br>
+			  <input type="radio" id="fourFivePlusMagnitude" name="magnitude" 
+                              value="4.5" onclick="getNmagnitude(this.value);"> <label for="html">4.5+</label><br>
+			  <input type="radio" id="customMagnitude" name="magnitude"
+                              value="custom" onclick="getNmagnitude(10);"> <label for="html">custom</label><br>
                           <input type="text"
                                  id="minMagnitudeTxt" 
                                  placeholder='Min Magnitude'
@@ -559,11 +563,14 @@ onchange="switchLayer(this.value);">
                       </div>
                       <div class="col-5 pr-0">
                           <p class="mb-1"><b style="font-size:15px">Date & Time</b></p>
-                          <input type="radio" id=past7Days" name="durationTime" value="7">
+			  <input type="radio" id="past7Days" name="durationTime" 
+                                 value="7" onclick="getNdays(this.value);">
                           <label for="html">Past 7 Days</label><br>
-                          <input type="radio" id=past30Days" name="durationTime" value="30">
+			  <input type="radio" id="past30Days" name="durationTime" 
+                                 value="30" onclick="getNdays(this.value);">
                           <label for="html">Past 30 Days</label><br>
-                          <input type="radio" id=customDuration" name="durationTime" value="custom">
+			  <input type="radio" id="customDuration" name="durationTime" 
+                                 value="custom" onclick="getNdays(10);">
                           <label for="html">custom</label><br>
                           <input type="text"
                                  placeholder="Start Time (UTC)"
@@ -584,7 +591,7 @@ onchange="switchLayer(this.value);">
                      
                   <div class="row mt-3">
                       <div class="col-12">
-			  <p class="ml-2"><b style="font-size:15px">Geographic Region</b><br>Draw a rectangle (click and drag) on the map or enter coordinates below</p>
+			  <p class="ml-2" style="margin-bottom:5px"><b style="font-size:15px">Geographic Region</b><br>Draw a rectangle (click and drag) on the map or enter coordinates below</p>
                       </div>
                   </div>
 
@@ -650,12 +657,12 @@ onchange="switchLayer(this.value);">
               </div>
               <div class="row">
                   <div class="col-12">
-		      <p class="ml-2"><b>Extracted data will be visible on the 2D and Plot3D options.</b></p>
+		      <p class="ml-2" style="margin-bottom:5px"><b>Extracted data will be visible on the 2D and Plot3D options.</b></p>
                   </div>
               </div>
               <div class="row">
                   <div class="col-12">
-		      <p class="ml-2 mr-3" style="margin-bottom:2px;" >Data courtesy of: U.S. Geological Survey, Earthquake Hazards Program, 2017. Advanced National Seismic System (ANSS) Comprehensive Catalog of Earthquake Events and Products: Various, https://doi.org/10.5066/F7MS3QZH.</p>
+		      <p class="ml-2 mr-4" style="margin-right: 10px" >Data courtesy of: U.S. Geological Survey, Earthquake Hazards Program, 2017. Advanced National Seismic System (ANSS) Comprehensive Catalog of Earthquake Events and Products: Various, <a href="https://doi.org/10.5066/F7MS3QZH">https://doi.org/10.5066/F7MS3QZH</a></p>
 
                   </div>
               </div>
@@ -921,6 +928,25 @@ The Waldhauser (2009) catalogs are available <a href="https://nocaldd.ldeo.colum
     </div> <!--Content-->
   </div>
 </div> <!--Modal: modalwait-->
+
+<!--Modal: Model (modalwaitrecenteq) -->
+<div class="modal" id="modalwaitrecenteq" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" id="modalwaitrecenteqDialog" role="document">
+
+    <!--Content-->
+    <div class="modal-content" id="modalwaitrecenteqContent">
+      <!--Body-->
+      <div class="modal-body" id="modalwaitrecenteqBody">
+        <div class="row col-md-12 ml-auto" style="overflow:hidden; font-size:10pt">
+           <p style="font-size:25px">Please wait for the recent earthquake to load &nbsp;
+                <i class="glyphicon glyphicon-cog fa-spin" style='color:#C22B48'></i>
+           </p>
+        </div>
+      </div>
+
+    </div> <!--Content-->
+  </div>
+</div> <!--Modal: modalwaitrecenteq-->
 
 <!--Modal: Model (modalwarn3d) -->
 <div class="modal" id="modalwarn3d" tabindex="-1" style="z-index:9999" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
