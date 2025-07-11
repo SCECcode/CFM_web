@@ -439,8 +439,10 @@ onkeypress="javascript:if (event.key == 'Enter') $('#secondLonTxt').mouseout();"
 
 	<div class="col-9">
 <div class="row" style="margin-left:0px;">
- <div class="col-1 style="border:solid 0px yellow">
- </div>
+
+  <button id="recentEQBtn" class="btn btn-sm cfm-small-btn" onclick="toggleRecentEQMenu()">recent EQ</button>
+  <input type="text" id="recentEQ-counter" value="0" style="display:">
+
  <div class="col-2">
 <!-- XX upload KML/KMZ overlay -->
       <div class="row" style="display:">
@@ -519,14 +521,14 @@ onchange="switchLayer(this.value);">
 
     <div id="mapDataBig" class="row mapData mt-1">
         <ul class="navigation col-5 mb-0" style="margin-top:0px">       
-          <li id="infoData" class='navigationLi' style="display:none;" >
-  	    <div id="infoData" class="col-12 button-container d-flex flex-column pr-1" style="overflow:hidden">
+          <li id="infoData" class='navigationLi' style="display:;">
+  	    <div id="infoDataMenu" class="col-12 button-container d-flex flex-column pr-1" style="overflow:hidden">
                 <div id="searchResult" style="overflow:hidden; display:" class="mb-1"></div>
                 <div id="geoSearchByObjGidResult" style="display:none"></div>
                 <div id="phpResponseTxt"></div>
             </div>
           </li>
-          <li id='recentEQ' class='navigationLi ml-3 mr-2' style="display:;background:whitesmoke;border:0px solid green">
+          <li id='recentEQ' class='navigationLi ml-3 mr-2' style="display:none;background:whitesmoke;border:0px solid green">
               <div id='recentEQMenu' class='menu'>
 
                   <div class="row">
@@ -540,11 +542,11 @@ onchange="switchLayer(this.value);">
                       <div class="col-5 pr-0 ml-2">
                           <p class="mb-1"><b style="font-size:15px">Magnitude</b></p>
 			  <input type="radio" id="twoFivePlusMagnitude" name="magnitude" 
-			      value="2.5" onclick="getNmagnitude(this.value);"> <label for="html">2.5+</label><br>
+			      value="2.5" onclick="setNmagnitude(this.value);"> <label for="html">2.5+</label><br>
 			  <input type="radio" id="fourFivePlusMagnitude" name="magnitude" 
-                              value="4.5" onclick="getNmagnitude(this.value);"> <label for="html">4.5+</label><br>
+                              value="4.5" onclick="setNmagnitude(this.value);"> <label for="html">4.5+</label><br>
 			  <input type="radio" id="customMagnitude" name="magnitude"
-                              value="custom" onclick="getNmagnitude(10);"> <label for="html">custom</label><br>
+                              value="custom" onclick="setNmagnitude(6);"> <label for="html">custom</label><br>
                           <input type="text"
                                  id="minMagnitudeTxt" 
                                  placeholder='Min Magnitude'
@@ -564,13 +566,13 @@ onchange="switchLayer(this.value);">
                       <div class="col-5 pr-0">
                           <p class="mb-1"><b style="font-size:15px">Date & Time</b></p>
 			  <input type="radio" id="past7Days" name="durationTime" 
-                                 value="7" onclick="getNdays(this.value);">
+                                 value="7" onclick="setNdays(this.value);">
                           <label for="html">Past 7 Days</label><br>
 			  <input type="radio" id="past30Days" name="durationTime" 
-                                 value="30" onclick="getNdays(this.value);">
+                                 value="30" onclick="setNdays(this.value);">
                           <label for="html">Past 30 Days</label><br>
 			  <input type="radio" id="customDuration" name="durationTime" 
-                                 value="custom" onclick="getNdays(10);">
+                                 value="custom" onclick="setNdays(10);">
                           <label for="html">custom</label><br>
                           <input type="text"
                                  placeholder="Start Time (UTC)"
@@ -591,7 +593,7 @@ onchange="switchLayer(this.value);">
                      
                   <div class="row mt-3">
                       <div class="col-12">
-			  <p class="ml-2" style="margin-bottom:5px"><b style="font-size:15px">Geographic Region</b><br>Draw a rectangle (click and drag) on the map or enter coordinates below</p>
+			  <p class="ml-2" style="margin-bottom:5px"><b style="font-size:15px">Geographic Region</b><button id="markerBtn" class="btn cfm-small-btn ml-2" style="color:red"><span class="glyphicon glyphicon-pencil"></span></button><br>Draw a rectangle (click and drag) on the map or enter coordinates below</p>
                       </div>
                   </div>
 
@@ -643,8 +645,8 @@ onchange="switchLayer(this.value);">
                   <div class="row d-flex mt-1">
                       <div class="col-5 pr-0 ml-2">
                           <div class="col-12" style="padding:5px 0px 10px 0px">
-                              <button id="recentEQResetAllBtn" class="btn btn-dark" 
-	                      onclick="recentEqResetAll()" style="width:100%;border-radius:0.25rem;padding:0.375rem 0.75rem">Reset All</button>
+                              <button id="recentEQResetBtn" class="btn btn-dark" 
+	                      onclick="recentEQReset()" style="width:100%;border-radius:0.25rem;padding:0.375rem 0.75rem">Reset All</button>
                           </div>
                       </div>
                       <div class="col-5 pr-0">

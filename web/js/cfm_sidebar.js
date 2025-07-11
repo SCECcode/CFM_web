@@ -116,10 +116,8 @@ function sectionClick() {
   section_sidebar = !section_sidebar;
   if(section_sidebar) {
     sidebar_section_slideOut();
-    $('#sectionBtn').addClass('pick');
     } else {
       sidebar_section_slideIn();
-      $('#sectionBtn').removeClass('pick');
   }
 }
 
@@ -152,10 +150,8 @@ function nameClick() {
   name_sidebar = !name_sidebar;
   if(name_sidebar) {
     sidebar_name_slideOut();
-    $('#nameBtn').addClass('pick');
     } else {
       sidebar_name_slideIn();
-      $('#nameBtn').removeClass('pick');
   }
 }
 
@@ -189,10 +185,8 @@ function keywordClick() {
   keyword_sidebar = !keyword_sidebar;
   if(keyword_sidebar) {
     sidebar_keyword_slideOut();
-    $('#keywordBtn').addClass('pick');
     } else {
       sidebar_keyword_slideIn();
-      $('#keywordBtn').removeClass('pick');
   }
 }
 
@@ -307,12 +301,10 @@ function latlonClick() {
   latlon_sidebar = !latlon_sidebar;
   if(latlon_sidebar) {
     sidebar_latlon_slideOut();
-    $('#latlonBtn').addClass('pick');
     markLatlon();
     } else {
       // enable the popup on map
       sidebar_latlon_slideIn();
-      $('#latlonBtn').removeClass('pick');
   }
 }
 
@@ -391,12 +383,10 @@ function markLatlon() {
     skipPopup = true;
     drawing_rectangle=true;
     unbind_layer_popup();
-    $('#markerBtn').css("color","red");
     } else {
        skipPopup = false;
        drawing_rectangle=false;
        skipRectangle();
-       $('#markerBtn').css("color","blue");
        remove_bounding_rectangle_layer();
        rebind_layer_popup();
   }
@@ -404,7 +394,6 @@ function markLatlon() {
 
 function reset_markLatlon() {
   skipPopup = false;
-  $('#markerBtn').css("color","blue");
   drawing_rectangle=false;
   skipRectangle();
   rebind_layer_popup();
@@ -433,10 +422,8 @@ function gidClick() {
   gid_sidebar = !gid_sidebar;
   if(gid_sidebar) {
     sidebar_gid_slideOut();
-    $('#gidBtn').addClass('pick');
     } else {
       sidebar_gid_slideIn();
-      $('#gidBtn').removeClass('pick');
   }
 }
 

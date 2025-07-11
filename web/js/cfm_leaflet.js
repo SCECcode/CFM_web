@@ -19,8 +19,8 @@ var rectangle_options = {
          shapeOptions: {
               stroke: true,
               color: "red",
-              weight: 3,
-              opacity: 0.5,
+              weight: 2,
+              opacity: 0.1,
               fill: true,
               fillColor: null, //same as color by default
               fillOpacity: 0.1,
@@ -257,6 +257,7 @@ window.console.log("map got zoomed..>>",zoom);
         layer = e.layer;
     if (type === 'rectangle') {  // only tracks rectangles
         // get the boundary of the rectangle
+window.console.log("in retangleDrawer.. drawing there");
         var latlngs=layer.getLatLngs();
         // first one is always the south-west,
         // third one is always the north-east

@@ -12,29 +12,40 @@ popup info
 
 const reqEQ_host = 'https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson';
 
-/**********************************************************/
-
-// for query params
-// magnitude - (min max)
-// date (start end)
-//          YYYY-MM-DD HR:MIN:SEC
-// region (start lat, end lon, min depth, max depth)
-//
-
 /**********************************************************************/
+function setRecentEQCounter(v) {
+  document.getElementById("recentEQ-counter").value=v;
+}
+
+var recentEQ_on=false;
+function toggleRecentEQMenu()
+{
+   if(recentEQ_on == false) {
+     $('#recentEQ').css("display", "");
+     $('#infoData').css("display", "none");
+     recentEQ_on=true;
+     recentEQ_on_bounding_rectangle_layer();
+// show region on map 
+     } else {
+        $('#recentEQ').css("display", "none");
+        $('#infoData').css("display", "");
+        recentEQ_on=false;
+// suppress region from map
+        recentEQ_off_bounding_rectangle_layer();
+   }
+}
+
 function setup_recent_eq()
 {
   document.getElementById("past7Days").click();
   document.getElementById("twoFivePlusMagnitude").click();
+  setRecentEQRegion();
 
   cxm_recent_quake_layer= make_markerGroup(enableCluster);
-
-  get_RecentEQFromUSGS();
-
 }
 
 // ui
-function getNdays(n) {
+function setNdays(n) {
   let now=Date.now();
   let nowMinusNdays= now - (parseFloat(n) * 24 * 60 * 60 * 1000);
 
@@ -48,28 +59,79 @@ function getNdays(n) {
 }
 
 // ui
-function getNmagnitude(n) {
+function setNmagnitude(n) {
   let min=parseFloat(n);
-  let max=min+10;
 
   document.getElementById("minMagnitudeTxt").value = min;
-  document.getElementById("maxMagnitudeTxt").value = max;
+  document.getElementById("maxMagnitudeTxt").value = '-';
+}
+
+// ui
+function setRecentEQRegion() {
+  let minlat=27.0518;
+  let minlon=-129.0751;
+  let maxlat=45.639;
+  let maxlon=-109.1346;
+
+  document.getElementById("recentEQFirstLonTxt").value=minlon;
+  document.getElementById("recentEQFirstLatTxt").value=minlat;
+  document.getElementById("recentEQSecondLonTxt").value=maxlon;
+  document.getElementById("recentEQSecondLatTxt").value=maxlat;
+  document.getElementById("recentEQMinZTxt").value=0.0;//m
+  document.getElementById("recentEQMaxZTxt").value=30000;
+  recentEQ_add_bounding_rectangle(minlat, minlon, maxlat,maxlon);
+
+  // zoom in
+}
+
+// minlat, minlon, maxlat, maxlon
+function recentEQ_set_latlons(a,b,c,d) {
+  document.getElementById("recentEQFirstLonTxt").value=a;
+  document.getElementById("recentEQFirstLatTxt").value=b;
+  document.getElementById("recentEQSecondLonTxt").value=c;
+  document.getElementById("recentEQSecondLatTxt").value=d;
+
 }
 
 /**********************************************************************/
 
-function recentEQExtractData()
-{
-	addRecentEQLayer();
+function recentEQExtractData() {
+  get_RecentEQFromUSGS();
+  addRecentEQLayer();
 }
 
-//recentEqResetAll()
+function recentEQReset() {
+  if(cxm_recent_quake_layer != null) {
+    clearRecentEQLayer();
+  }
+}
 
-//
 function get_RecentEQFromUSGS() {
-  let reqEQ_spec='&limit=20000&starttime=2025-07-01&endtime=2025-07-09&minlatitude=27.0518&minlongitude=-129.0751&maxlatitude=45.639&maxlongitude=-109.1346&minmagnitude=3.0';
-  const reqEQ_url = reqEQ_host+reqEQ_spec;
+  let starttime=document.getElementById("startTimeTxt").value;
+  let endtime=document.getElementById("endTimeTxt").value;
+  let minmag=document.getElementById("minMagnitudeTxt").value;
+  let maxmag=document.getElementById("maxMagnitudeTxt").value;
 
+  let firstlon=document.getElementById("recentEQFirstLonTxt").value;
+  let firstlat=document.getElementById("recentEQFirstLatTxt").value;
+  let secondlon=document.getElementById("recentEQSecondLonTxt").value;
+  let secondlat=document.getElementById("recentEQSecondLatTxt").value;
+  let minz=document.getElementById("recentEQMinZTxt").value;
+  let maxz=document.getElementById("recentEQMaxZTxt").value;
+
+// make sure latlons are ordered 
+	
+//  let reqEQ_spec='&limit=20000&starttime=2025-07-01&endtime=2025-07-09&minlatitude=27.0518&minlongitude=-129.0751&maxlatitude=45.639&maxlongitude=-109.1346&minmagnitude=3.0';
+	
+  let reqEQ_spec;
+  if(maxmag == '-') {
+    reqEQ_spec='&limit=20000&starttime='+starttime+'&endtime='+endtime+'&minlatitude=27.0518&minlongitude=-129.0751&maxlatitude=45.639&maxlongitude=-109.1346&minmagnitude='+minmag;
+    } else {
+      reqEQ_spec='&limit=20000&starttime='+starttime+'&endtime='+endtime+'&minlatitude=27.0518&minlongitude=-129.0751&maxlatitude=45.639&maxlongitude=-109.1346&minmagnitude='+minmag+'&maxmagnitude='+maxmag;
+  }
+	
+window.console.log(reqEQ_spec);
+  const reqEQ_url = reqEQ_host+reqEQ_spec;
   _getRecentEQFromUSGS(reqEQ_url);
 }
 
@@ -79,8 +141,6 @@ function get_RecentEQFromUSGS_withID(id) {
 
   _getRecentEQFromUSGS(reqEQ_url);
 }
-
-
 
 async function _getRecentEQFromUSGS(reqEQ) {
   window.console.log("CALLING  EQ from USGS");
@@ -134,6 +194,8 @@ window.console.log("GOT complete LIST");
     for (let i=0; i< eq_cnt; i++) {
         makeARecentEQMarker(eq_list[i]);
     }    
+    window.console.log(eq_cnt);
+    setRecentEQCounter(eq_cnt);
 
   } catch (error) {
     $("#modalwaitrecenteq").modal('hide');

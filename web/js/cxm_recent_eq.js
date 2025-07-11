@@ -17,44 +17,117 @@ var showing_recent_quake=false;
 var enableCluster=false;
 var use_markerCluster=0;
 
-    var site_colors = {
-        //normal: '#006E90', // original
-        normal: '#FF4207', // original
-        selected: '#B02E0C',
-        abnormal: '#00FFFF',
-    };
+// recent_eq_region={"layer":layer, "latlngs":[{"lat":a,"lon":b},{"lat":c,"lon":d}]};
+var recent_eq_region=null;
 
-    var site_marker_style = {
-        normal: {
-            color: "white",
-            fillColor: site_colors.normal,
-            fillOpacity: 1,
-            radius: 3,
-            riseOnHover: true,
-            weight: 1,
-        },
-        selected: {
-            color: "white",
-            fillColor: site_colors.selected,
-            fillOpacity: 1,
-            radius: 3,
-            riseOnHover: true,
-            weight: 1,
-        },
-        hover: {
-            fillOpacity: 1,
-            radius: 10,
-            weight: 2,
-        },
-    };
+var site_colors = {
+    //normal: '#006E90', // original
+    normal: '#FF4207', // original
+    selected: '#B02E0C',
+    abnormal: '#00FFFF',
+};
 
+var site_marker_style = {
+    normal: {
+        color: "white",
+        fillColor: site_colors.normal,
+        fillOpacity: 1,
+        radius: 3,
+        riseOnHover: true,
+        weight: 1,
+    },
+    selected: {
+        color: "white",
+        fillColor: site_colors.selected,
+        fillOpacity: 1,
+        radius: 3,
+        riseOnHover: true,
+        weight: 1,
+    },
+    hover: {
+        fillOpacity: 1,
+        radius: 10,
+        weight: 2,
+    },
+};
+
+
+/**********************************************************************/
+
+function recentEQ_markLatlon() {
+  if(skipPopup == false) { // enable marking
+    clear_popup();
+    skipPopup = true;
+    drawing_rectangle=true;
+    unbind_layer_popup();
+    $('#markerBtn').css("color","red");
+    } else {
+       skipPopup = false;
+       drawing_rectangle=false;
+       skipRectangle();
+       $('#markerBtn').css("color","blue");
+       recentEQ_remove_bounding_rectangle_layer();
+       rebind_layer_popup();
+  }
+}
+
+function recentEQ_reset_markLatlon() {
+  skipPopup = false;
+  $('#markerBtn').css("color","blue");
+  drawing_rectangle=false;
+  skipRectangle();
+  rebind_layer_popup();
+  recentEQ_remove_bounding_rectangle_layer();
+  recentEQ_reset_select_latlon();
+}
+
+function recentEQ_remove_bounding_rectangle_layer() {
+   if(recent_eq_region != null) {
+     let layer=recent_eq_region["layer"];
+     viewermap.removeLayer(layer);
+     recent_eq_region=null;
+   }
+}
+
+function recentEQ_add_bounding_rectangle(a,b,c,d) {
+  // remove old one and add a new one
+window.console.log("XXX");
+  recentEQ_remove_bounding_rectangle_layer();
+  var layer=makeRectangleLayer(a,b,c,d);
+  recent_eq_region={"layer":layer, "latlngs":[{"lat":a,"lon":b},{"lat":c,"lon":d}]};
+}
+
+// just not showing it
+function recentEQ_off_bounding_rectangle_layer() {
+   if(recent_eq_region != null) {
+     let layer=recent_eq_region["layer"];
+     viewermap.removeLayer(layer);
+   }
+}
+
+function recentEQ_on_bounding_rectangle_layer() {
+   if(recent_eq_region != null) {
+     let layer=recent_eq_region["layer"];
+     viewermap.addLayer(layer);
+     if (layer.getBounds().isValid()) {
+       viewermap.fitBounds(layer.getBounds());
+     }
+   }
+}
+
+function recentEQ_add_bounding_rectangle_layer(layer, a,b,c,d) {
+  // remove old one and add a new one
+  recentEQ_remove_bounding_rectangle_layer();
+  recent_eq_region={"layer":layer, "latlngs":[{"lat":a,"lon":b},{"lat":c,"lon":d}]};
+  recentEQ_set_latlons(a,b,c,d);
+}
 
 
 /**********************************************************************/
 
 function makeRecentEQLayer() {
 
-window.console.log("CALLING makeREcentEQLayer");
+window.console.log("CALLING makeRecentEQLayer");
 
 //  let reqEQ = 'https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&limit=20000&starttime=2025-07-01&endtime=2025-07-09&minlatitude=27.0518&minlongitude=-129.0751&maxlatitude=45.639&maxlongitude=-109.1346&minmagnitude=3.0';
 
@@ -80,7 +153,7 @@ function makeARecentEQMarker(data) {
 
   marker.bindTooltip(eq_info).openTooltip();
 
-  marker.bindPopup("<strong>Location: </strong>"+loc+"<br><strong>When: </strong>"+ new Date(time).toLocaleString() +"<br><strong>Magnitude: </strong>"+mag+" ("+magtype+")<br><strong>Depth: </strong>"+depth+" (km)<br><strong>Location: </strong> ("+longitude+","+latitude+")<br><strong>ID: </strong>"+id,{maxWidth: 500});
+  marker.bindPopup("<strong>Location: </strong>"+loc+"<br><strong>When: </strong>"+ new Date(time).toLocaleString() +"<br><strong>Magnitude: </strong>"+mag+" ("+magtype+")<br><strong>Depth: </strong>"+depth+" (km)<br><strong>Location: </strong> ("+longitude+", "+latitude+")<br><strong>ID: </strong>"+id,{maxWidth: 500});
 
   marker.scec_properties = {
                     id: id,
@@ -98,34 +171,32 @@ function makeARecentEQMarker(data) {
 
 function toggleRecentEQ() {
    if(showing_recent_quake) {
-     removeRecentEQLayer();
+     viewermap.removeLayer(cxm_recent_quake_layer);
+     showing_recent_quake=false;
      } else {
-       addRecentEQLayer();
+       viewermap.addLayer(cxm_recent_quake_layer);
+       showing_recent_quake=true;
    }
 }
 
-function removeRecentEQLayer() {
-    viewermap.removeLayer(cxm_recent_quake_layer);
-    showing_recent_quake=false;
-}
-
 function addRecentEQLayer() {
-
-window.console.log("  TRYING TO add EQ layer..");
-
-    if(showing_recent_quake)
-      return;
-
     if(cxm_recent_quake_layer==null) {
-      makeRecentEQLayer();
+      window.console.log("BAD.. should have made one already..");
+      get_RecentEQFromUSGS();
       } else {
         viewermap.addLayer(cxm_recent_quake_layer);
     }
     showing_recent_quake=true;
 }
 
+function clearRecentEQLayer() {
+    if(cxm_recent_quake_layer!=null) {
+      viewermap.removeLayer(cxm_recent_quake_layer);
+      cxm_recent_quake_layer=null;
+    }
+}
+
 function zoom2RecentEQ(){
-window.console.log("   trying to zoom..");
  if (cxm_recent_quake_layer.getBounds().isValid()) {
    viewermap.fitBounds(cxm_recent_quake_layer.getBounds());
  }
