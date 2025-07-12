@@ -37,6 +37,18 @@ function dismissClick() {
   dismiss_sidebar();
 }
 
+function disableSearchFilter(){
+  const select = document.getElementById("search-filter-type");
+  select.disabled = true;
+  select.style.backgroundColor = "#e0e0e0";
+}
+
+function enableSearchFilter(){
+  const select = document.getElementById("search-filter-type");
+  select.disabled = false;
+  select.style.backgroundColor = "";
+}
+
 // area sidebar js
 
 // slide out

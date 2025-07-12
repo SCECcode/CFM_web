@@ -16,16 +16,16 @@ var scecAttribution ='<a href="https://www.scec.org">SCEC</a>';
 
 var rectangle_options = {
        showArea: false,
-         shapeOptions: {
+       shapeOptions: {
               stroke: true,
               color: "red",
-              weight: 2,
-              opacity: 0.1,
+              weight: 1,
+              opacity: 0.3,
               fill: true,
               fillColor: null, //same as color by default
-              fillOpacity: 0.1,
+              fillOpacity: 0.3,
               clickable: false
-         }
+       }
 };
 var rectangleDrawer;
 var mymap, baseLayers, layerControl, currentLayer;
@@ -424,14 +424,23 @@ function addRectangleLayer(latA,lonA,latB,lonB) {
                                   viewermap.containerPointToLatLng(pointB));
 */
   var bounds = [[latA, lonA], [latB, lonB]];
-  var layer=L.rectangle(bounds).addTo(viewermap);
+  var layer=L.rectangle(bounds, rectangle_options).addTo(viewermap);
   return layer;
 }
 
 // make it without adding to map
 function makeRectangleLayer(latA,lonA,latB,lonB) {
   var bounds = [[latA, lonA], [latB, lonB]];
-  var layer=L.rectangle(bounds);
+  var layer=L.rectangle(bounds,
+	     {color: "#B0B0B0",
+              weight: 2,
+              opacity: 0.8,
+              fill: true,
+              fillColor: null, //same as color by default
+              fillOpacity: 0.2,
+              clickable: false}
+             );
+  var options=layer.options;
   return layer;
 }
 

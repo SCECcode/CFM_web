@@ -14,6 +14,7 @@ var cxm_recent_quake_layer=null;
 var cxm_recent_quake_group_list=[];
 
 var showing_recent_quake=false;
+var recent_quake_count=0;
 var enableCluster=false;
 var use_markerCluster=0;
 
@@ -91,7 +92,6 @@ function recentEQ_remove_bounding_rectangle_layer() {
 
 function recentEQ_add_bounding_rectangle(a,b,c,d) {
   // remove old one and add a new one
-window.console.log("XXX");
   recentEQ_remove_bounding_rectangle_layer();
   var layer=makeRectangleLayer(a,b,c,d);
   recent_eq_region={"layer":layer, "latlngs":[{"lat":a,"lon":b},{"lat":c,"lon":d}]};
@@ -109,6 +109,8 @@ function recentEQ_on_bounding_rectangle_layer() {
    if(recent_eq_region != null) {
      let layer=recent_eq_region["layer"];
      viewermap.addLayer(layer);
+// put it at the very back
+     layer.bringToBack();	  
      if (layer.getBounds().isValid()) {
        viewermap.fitBounds(layer.getBounds());
      }
@@ -181,7 +183,6 @@ function toggleRecentEQ() {
 
 function addRecentEQLayer() {
     if(cxm_recent_quake_layer==null) {
-      window.console.log("BAD.. should have made one already..");
       get_RecentEQFromUSGS();
       } else {
         viewermap.addLayer(cxm_recent_quake_layer);
@@ -191,8 +192,9 @@ function addRecentEQLayer() {
 
 function clearRecentEQLayer() {
     if(cxm_recent_quake_layer!=null) {
-      viewermap.removeLayer(cxm_recent_quake_layer);
-      cxm_recent_quake_layer=null;
+      recentEQ_remove_bounding_rectangle_layer();
+      setRecentEQCounter(0);
+      cxm_recent_quake_layer= make_markerGroup(enableCluster);
     }
 }
 

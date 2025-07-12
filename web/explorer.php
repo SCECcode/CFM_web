@@ -440,8 +440,8 @@ onkeypress="javascript:if (event.key == 'Enter') $('#secondLonTxt').mouseout();"
 	<div class="col-9">
 <div class="row" style="margin-left:0px;">
 
-  <button id="recentEQBtn" class="btn btn-sm cfm-small-btn" onclick="toggleRecentEQMenu()">recent EQ</button>
-  <input type="text" id="recentEQ-counter" value="0" style="display:">
+  <button id="recentEQBtn" class="btn btn-sm cfm-small-btn" onclick="toggleRecentEQMenu()">recent EQ(0)</button>
+  <input type="text" id="recentEQ-counter" value="0" style="display:none">
 
  <div class="col-2">
 <!-- XX upload KML/KMZ overlay -->
@@ -552,7 +552,6 @@ onchange="switchLayer(this.value);">
                                  placeholder='Min Magnitude'
                                  title="min magnitude"
                                  onfocus="this.value=''" 
-                                 onchange="reset_minMagnitude_presets()"
                                  class="form-control">
 
                           <input type="text"
@@ -560,7 +559,6 @@ onchange="switchLayer(this.value);">
                                  title="max Magnitude"
                                  placeholder='Max Magnitude'
                                  onfocus="this.value=''"
-                                 onchange="reset_maxMagnitude_presets()"
                                  class="form-control mt-1">
                       </div>
                       <div class="col-5 pr-0">
@@ -579,14 +577,12 @@ onchange="switchLayer(this.value);">
                                  id="startTimeTxt"
                                  title="start Time"
                                  onfocus="this.value=''"
-                                 onchange="reset_startTime_presets()"
                                  class="form-control">
                           <input type="text"
                                  id="endTimeTxt"
                                  title="end Time"
                                  placeholder="End Time (UTC)"
                                  onfocus="this.value=''"
-                                 onchange="reset_endTime_presets()"
                                  class="form-control mt-1">
                       </div>
                   </div>
@@ -604,14 +600,12 @@ onchange="switchLayer(this.value);">
                                  placeholder='Begin Longitude'
                                  title="first lon"
                                  onfocus="this.value=''" 
-                                 onchange="reset_recentEQ_presets()"
                                  class="form-control">
                           <input type="text"
                                  id="recentEQSecondLonTxt"
                                  title="second lon"
                                  placeholder='End Longitude'
                                  onfocus="this.value=''"
-                                 onchange="reset_recentEQ_presets()"
                                  class="form-control mt-1">
                           <input type="text"
                                  id="recentEQMinZTxt"
@@ -632,7 +626,6 @@ onchange="switchLayer(this.value);">
                                  title="second lat"
                                  placeholder='End Latitude'
                                  onfocus="this.value=''"
-                                 onchange="reset_recentEQ_presets()"
                                  class="form-control mt-1">
                           <input type="text"
 				 id="recentEQMaxZTxt"

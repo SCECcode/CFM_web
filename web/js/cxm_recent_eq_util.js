@@ -15,23 +15,31 @@ const reqEQ_host = 'https://earthquake.usgs.gov/fdsnws/event/1/query?format=geoj
 /**********************************************************************/
 function setRecentEQCounter(v) {
   document.getElementById("recentEQ-counter").value=v;
+  document.getElementById("recentEQBtn").innerText = `recent EQ(${v})`;
+  recent_quake_count=v;
 }
 
 var recentEQ_on=false;
 function toggleRecentEQMenu()
 {
+
    if(recentEQ_on == false) {
+// special case, just in case sidebar is open
+     dismissClick();
+     disableSearchFilter();
+
      $('#recentEQ').css("display", "");
      $('#infoData').css("display", "none");
      recentEQ_on=true;
-     recentEQ_on_bounding_rectangle_layer();
 // show region on map 
+     recentEQ_on_bounding_rectangle_layer();
      } else {
         $('#recentEQ').css("display", "none");
         $('#infoData').css("display", "");
         recentEQ_on=false;
 // suppress region from map
         recentEQ_off_bounding_rectangle_layer();
+        enableSearchFilter();
    }
 }
 
@@ -96,12 +104,16 @@ function recentEQ_set_latlons(a,b,c,d) {
 /**********************************************************************/
 
 function recentEQExtractData() {
+  if(recent_quake_count != 0) {
+    recentEQ_remove_bounding_rectangle_layer()
+    clearRecentEQLayer();
+  }
   get_RecentEQFromUSGS();
   addRecentEQLayer();
 }
 
 function recentEQReset() {
-  if(cxm_recent_quake_layer != null) {
+  if(recent_quake_count != null) {
     clearRecentEQLayer();
   }
 }
@@ -119,15 +131,15 @@ function get_RecentEQFromUSGS() {
   let minz=document.getElementById("recentEQMinZTxt").value;
   let maxz=document.getElementById("recentEQMaxZTxt").value;
 
-// make sure latlons are ordered 
+// ??? make sure latlons are ordered 
 	
-//  let reqEQ_spec='&limit=20000&starttime=2025-07-01&endtime=2025-07-09&minlatitude=27.0518&minlongitude=-129.0751&maxlatitude=45.639&maxlongitude=-109.1346&minmagnitude=3.0';
+// XXX  ??? need to redraw the rectangle..	
 	
   let reqEQ_spec;
   if(maxmag == '-') {
-    reqEQ_spec='&limit=20000&starttime='+starttime+'&endtime='+endtime+'&minlatitude=27.0518&minlongitude=-129.0751&maxlatitude=45.639&maxlongitude=-109.1346&minmagnitude='+minmag;
+    reqEQ_spec='&limit=20000&starttime='+starttime+'&endtime='+endtime+'&minlatitude='+firstlat+'&minlongitude='+firstlon+'&maxlatitude='+secondlat+'&maxlongitude='+secondlon+'&minmagnitude='+minmag;
     } else {
-      reqEQ_spec='&limit=20000&starttime='+starttime+'&endtime='+endtime+'&minlatitude=27.0518&minlongitude=-129.0751&maxlatitude=45.639&maxlongitude=-109.1346&minmagnitude='+minmag+'&maxmagnitude='+maxmag;
+      reqEQ_spec='&limit=20000&starttime='+starttime+'&endtime='+endtime+'&minlatitude='+firstlat+'&minlongitude='+firstlon+'&maxlatitude='+secondlat+'&maxlongitude='+secondlon+'&minmagnitude='+minmag+'&maxmagnitude='+maxmag;
   }
 	
 window.console.log(reqEQ_spec);
@@ -166,7 +178,7 @@ async function _getRecentEQFromUSGS(reqEQ) {
           let time = eq.properties.time;
           let coord = eq.geometry.coordinates;
           let id = eq.id;
-          window.console.log(`- ${ntime} | M${mag} | ${place} | ${coord} | ${id}`);
+//          window.console.log(`- ${ntime} | M${mag} | ${place} | ${coord} | ${id}`);
     
           let tmp = { id: id, coord: coord, place: place, mag: mag, magtype: magtype, time: time };
           eq_list.push(tmp);
