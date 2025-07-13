@@ -1,4 +1,11 @@
 /* cfm viewer required styles */
+.control-btn {
+    color:#395057;
+    background-color:#f2f2f2;
+    border:1px solid #ced4da;
+    border-radius:0.2rem;
+    padding:0.15rem 0.5rem;
+}
 
 .cfm-cluster {
     background-color: rgba(0,110,144,1);

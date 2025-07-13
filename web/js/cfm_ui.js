@@ -690,11 +690,13 @@ function addDownloadSelect() {
 }
 
 
-function saveAsJSONBlobFile(data, timestamp)
+function saveAsJSONBlobMetaFile(data, timestamp) { saveAsJSONBlobFile("CFM_metadata_", data, timestamp) }
+
+function saveAsJSONBlobFile(stub, data, timestamp)
 {
 //http://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript
 //   var rnd= Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-    var fname="CFM_metadata_"+timestamp+".json";
+    var fname=stub+timestamp+".json";
     var blob = new Blob([data], {
         type: "text/plain;charset=utf-8"
     });
@@ -702,11 +704,13 @@ function saveAsJSONBlobFile(data, timestamp)
     saveAs(blob, fname);
 }
 
-function saveAsCSVBlobFile(data, timestamp)
+function saveAsCSVBlobMetaFile(data, timestamp) { saveAsCSVBlobFile("CFM_metadata_", data, timestamp) }
+
+function saveAsCSVBlobFile(stub, data, timestamp)
 {
 //http://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript
 //   var rnd= Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-    var fname="CFM_metadata_"+timestamp+".csv";
+    var fname=stub+timestamp+".csv";
     var blob = new Blob([data], {
         type: "text/plain;charset=utf-8"
     });

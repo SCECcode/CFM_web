@@ -38,9 +38,11 @@ function dismissClick() {
 }
 
 function disableSearchFilter(){
+  dismiss_sidebar();
   const select = document.getElementById("search-filter-type");
   select.disabled = true;
   select.style.backgroundColor = "#e0e0e0";
+  select.value = "dismissClick";
 }
 
 function enableSearchFilter(){
@@ -308,6 +310,7 @@ function sidebar_dip_slideIn() {
 // latlon sidebar js
 // slide out
 function latlonClick() {
+window.console.log("in latlonClick");
   if(!latlon_sidebar) { dismiss_sidebar(); }
 
   latlon_sidebar = !latlon_sidebar;

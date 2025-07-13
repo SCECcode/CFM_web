@@ -226,8 +226,6 @@ require_once("php/util.php");
  </div>
 </div>
 <div id="top-control-row-2" class="col-3">
-        <div class="row">
- <div class="pl-3">
 <!-- RESET -->
              <div class="input-group filters" style="min-width:85%">
                 <select id="search-filter-type" class="custom-select custom-select-sm">
@@ -431,53 +429,64 @@ onkeypress="javascript:if (event.key == 'Enter') $('#secondLonTxt').mouseout();"
 -->
                     </ul> <!-- sidebar pull-out --> 
                 </div>
-            </div>
- </div>
 
 </div> <!-- row --> 
         </div>
 
 	<div class="col-9">
-<div class="row" style="margin-left:0px;">
-
-  <button id="recentEQBtn" class="btn btn-sm cfm-small-btn" onclick="toggleRecentEQMenu()">recent EQ(0)</button>
-  <input type="text" id="recentEQ-counter" value="0" style="display:none">
+<div class="row"> <!-  right-row -->
 
  <div class="col-2">
-<!-- XX upload KML/KMZ overlay -->
-      <div class="row" style="display:">
-             <input id="fileKML" type='file' multiple onchange='uploadKMLFile(this.files)' style='display:none;'></input>
-             <button id="kmlBtn" class="btn" onclick='javascript:document.getElementById("fileKML").click();' title="Upload your own kml/kmz file to be displayed on the map interface. We currently support points, lines, paths, polygons, and image overlays (kmz only)." style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.15rem 0.5rem;"><span>Upload kml/kmz</span></button>
-<!--
-	     <button id="toggleKMLBtn" class="btn btn-sm cfm-small-btn" title="Show/Hide uploaded kml/kmz files" onclick="toggleKML()"><span id="eye_kml"  class="glyphicon glyphicon-eye-open"></span></button>
--->
-             <button id="kmlSelectBtn" class="btn cfm-small-no-btn" title="Show/Hide uploaded kml/kmz files" style="display:none;" data-toggle="modal" data-target="#modalkmlselect"><span id="eye_kml"  class="glyphicon glyphicon-eye-open"></span></button>
-       </div> <!-- kml-row -->
+     <div class="row">
+       <button id="recentEQBtn" class="control-btn" onclick="toggleRecentEQMenu()">recent EQ(0)</button>
+       <button id="recentEQDownloadBtn" class="btn cfm-small-btn"
+                        onClick="downloadRecentEQ()" style="display:none">
+                       <span class="glyphicon glyphicon-download"
+                            title="Download Recent EQ"
+                            style="font-size:14px"></span></button>
+       <button id="recentEQShowBtn" class="btn cfm-small-btn"
+                        onClick="showRecentEQ()" style="display:none">
+                       <span id="eye_recentEQ" class="glyphicon glyphicon-eye-open"
+                            title="Show Recent EQ"
+                            style="font-size:14px"></span></button>
+
+       <input type="text" id="recentEQ-counter" value="0" style="display:none">
+     </div>
  </div>
 
- <div class="col-3" style="display:;">
+ <div class="col-3">
 <!-- XX Sesimicity -->
-             <div id="loadSeismicity" class="row" style="width:20rem;">
-	       <button id="quakesBtn" class="btn" onClick="loadSeismicity()" title="The seismicity that is loading consists of a combination of the Hauksson et al. (2012, and updates) and Waldhauser (2009) catalogs. The catalogs have been cropped to avoid any overlap. Once loaded, you can color the relocated seismicity by depth. Significant historic earthquakes (M6+) will be shown on the map interface with red dots. If you mouse over the dots, the year and magnitude will be displayed. The significant earthquakes can be toggled on/off by clicking on the eyeball icon next to the seismicity pull down menu at the top of the map interface." style="color:#395057;background-color:#f2f2f2;border:1px solid #ced4da;border-radius:0.2rem;padding:0.15rem 0.5rem;display:;">Load relocated seismicity</button>
-             </div>
+     <div id="loadSeismicity" class="row" style="width:20rem;">
+       <button id="quakesBtn" class="control-btn" onClick="loadSeismicity()" title="The seismicity that is loading consists of a combination of the Hauksson et al. (2012, and updates) and Waldhauser (2009) catalogs. The catalogs have been cropped to avoid any overlap. Once loaded, you can color the relocated seismicity by depth. Significant historic earthquakes (M6+) will be shown on the map interface with red dots. If you mouse over the dots, the year and magnitude will be displayed. The significant earthquakes can be toggled on/off by clicking on the eyeball icon next to the seismicity pull down menu at the top of the map interface.">Load relocated seismicity</button>
+     </div>
 
-             <div id="showSeismicity" class="row" style="width:20rem; display:none;">
-                <select id="seismicitySelect" onchange="changePixiOverlay(this.value)"
+     <div id="showSeismicity" class="row" style="width:20rem; display:none;">
+       <select id="seismicitySelect" onchange="changePixiOverlay(this.value)"
                 class="custom-select custom-select-sm" style="width:auto;min-width:14rem;">
-		   <option value="none">Hide relocated seismicity</option>
-                   <option selected value="haukssondepth">Color seismicity by depth</option>
+	    <option value="none">Hide relocated seismicity</option>
+            <option selected value="haukssondepth">Color seismicity by depth</option>
 <!--
                    <option value="haukssonmag">Color seismicity by magnitude</option>
                    <option value="haukssontime">Color seismicity by time</option>
 -->
-                </select>
-                <button id="toggleSignificantBtn" class="btn btn-sm cfm-small-btn" title="Show/Hide significant historic earthquakes (M6+) since 1900" onclick="toggleSignificant()"><span id="eye_significant" class="glyphicon glyphicon-eye-open"></span></button>
-             </div>
+       </select>
+       <button id="toggleSignificantBtn" class="btn btn-sm cfm-small-btn" title="Show/Hide significant historic earthquakes (M6+) since 1900" onclick="toggleSignificant()"><span id="eye_significant" class="glyphicon glyphicon-eye-open"></span></button>
+     </div>
  </div>
 
+ <div class="col-2">
+<!-- XX upload KML/KMZ overlay -->
+     <div class="row" style="display:">
+             <input id="fileKML" type='file' multiple onchange='uploadKMLFile(this.files)' style='display:none;'></input>
+             <button id="kmlBtn" class="control-btn" onclick='javascript:document.getElementById("fileKML").click();' title="Upload your own kml/kmz file to be displayed on the map interface. We currently support points, lines, paths, polygons, and image overlays (kmz only)."><span>Upload kml/kmz</span></button>
+<!--
+         <button id="toggleKMLBtn" class="btn btn-sm cfm-small-btn" title="Show/Hide uploaded kml/kmz files" onclick="toggleKML()"><span id="eye_kml"  class="glyphicon glyphicon-eye-open"></span></button>
+-->
+             <button id="kmlSelectBtn" class="btn cfm-small-no-btn" title="Show/Hide uploaded kml/kmz files" style="display:none;" data-toggle="modal" data-target="#modalkmlselect"><span id="eye_kml"  class="glyphicon glyphicon-eye-open"></span></button>
+     </div> <!-- kml-row -->
+ </div>
 
- <div class="col-6">
-<!-- XX Map Select -->
+ <div class="col-5"> <!-- basemap -->
 	    <div class="input-group input-group-sm cfm-input-group" id="map-controls">
                 <div class="input-group-prepend" title="Change the basemap imagery"">
                     <label class="input-group-text" for="mapLayer">Select Map Type</label>
@@ -512,9 +521,11 @@ onchange="switchLayer(this.value);">
                 </select>
             </div>
 -->
+ </div> <!-- basemap -->
+
  </div>
-</div> <!-- row -->
-        </div>
+</div> <!-- right-row -->
+        </div> <!-- col-9 -->
   </div> <!-- control-container -->
 </div> <!-- top-control -->
 
@@ -522,20 +533,27 @@ onchange="switchLayer(this.value);">
     <div id="mapDataBig" class="row mapData mt-1">
         <ul class="navigation col-5 mb-0" style="margin-top:0px">       
           <li id="infoData" class='navigationLi' style="display:;">
-  	    <div id="infoDataMenu" class="col-12 button-container d-flex flex-column pr-1" style="overflow:hidden">
+  	    <div id="infoDataMenu" class='col-12 button-container d-flex flex-column pr-1' style="overflow:hidden">
                 <div id="searchResult" style="overflow:hidden; display:" class="mb-1"></div>
                 <div id="geoSearchByObjGidResult" style="display:none"></div>
                 <div id="phpResponseTxt"></div>
             </div>
           </li>
           <li id='recentEQ' class='navigationLi ml-3 mr-2' style="display:none;background:whitesmoke;border:0px solid green">
-              <div id='recentEQMenu' class='menu'>
-
-                  <div class="row">
-                      <div class="col-12 mt-3">
-			  <p style="text-align:center;font-size:15px"><b style="font-size:22px">Search Recent Earthquakes</b>
-                        <br>Data from USGS ComCat. Results are limited to 20K events</p>
-                      </div>
+              <div id="recentEQMenu" class='menu'>
+                  <div class='row' >
+                     <div class="col-11" style="border:0px solid orange">
+                         <button id="EQBtn" class="btn cfm-small-btn pull-right"
+                            onClick="toggleRecentEQMenu()" style="border:0px solid green">
+                            <span style="font-size:14px"><b>X</b></span></button>
+                     </div>
+                  </div>
+                  <div class='row'>
+                     <div class="col-12">
+			 <p style="text-align:center;font-size:15px;margin-bottom:8px">
+                            <b style="font-size:22px">Search Recent Earthquakes</b>
+                            <br>Data from USGS ComCat. Results are limited to 20K events</p>
+                     </div>
                   </div>
 
                   <div class="row d-flex">
@@ -657,7 +675,7 @@ onchange="switchLayer(this.value);">
               </div>
               <div class="row">
                   <div class="col-12">
-		      <p class="ml-2 mr-4" style="margin-right: 10px" >Data courtesy of: U.S. Geological Survey, Earthquake Hazards Program, 2017. Advanced National Seismic System (ANSS) Comprehensive Catalog of Earthquake Events and Products: Various, <a href="https://doi.org/10.5066/F7MS3QZH">https://doi.org/10.5066/F7MS3QZH</a></p>
+		      <p class="ml-2 mr-4" style="margin-right:10px;margin-bottom:5px" >Data courtesy of: U.S. Geological Survey, Earthquake Hazards Program, 2017. Advanced National Seismic System (ANSS) Comprehensive Catalog of Earthquake Events and Products: Various, <a href="https://doi.org/10.5066/F7MS3QZH">https://doi.org/10.5066/F7MS3QZH</a></p>
 
                   </div>
               </div>

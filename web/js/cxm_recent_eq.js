@@ -8,8 +8,8 @@
 /**********************************************************/
 
 // for tracking groups of recent earthquakes 
+// this holds the points layers as one
 var cxm_recent_quake_layer=null;
-
 // json {'id':eq_id, 'layer':layer }
 var cxm_recent_quake_group_list=[];
 
@@ -19,6 +19,7 @@ var enableCluster=false;
 var use_markerCluster=0;
 
 // recent_eq_region={"layer":layer, "latlngs":[{"lat":a,"lon":b},{"lat":c,"lon":d}]};
+// this holds the layer that has the 'region boundary'
 var recent_eq_region=null;
 
 var site_colors = {
@@ -83,6 +84,7 @@ function recentEQ_reset_markLatlon() {
 }
 
 function recentEQ_remove_bounding_rectangle_layer() {
+window.console.log(" === removing it");
    if(recent_eq_region != null) {
      let layer=recent_eq_region["layer"];
      viewermap.removeLayer(layer);
@@ -91,6 +93,7 @@ function recentEQ_remove_bounding_rectangle_layer() {
 }
 
 function recentEQ_add_bounding_rectangle(a,b,c,d) {
+window.console.log(" === adding on");
   // remove old one and add a new one
   recentEQ_remove_bounding_rectangle_layer();
   var layer=makeRectangleLayer(a,b,c,d);
@@ -99,6 +102,7 @@ function recentEQ_add_bounding_rectangle(a,b,c,d) {
 
 // just not showing it
 function recentEQ_off_bounding_rectangle_layer() {
+window.console.log(" === turning off");
    if(recent_eq_region != null) {
      let layer=recent_eq_region["layer"];
      viewermap.removeLayer(layer);
@@ -106,6 +110,7 @@ function recentEQ_off_bounding_rectangle_layer() {
 }
 
 function recentEQ_on_bounding_rectangle_layer() {
+window.console.log(" ===  turning on");
    if(recent_eq_region != null) {
      let layer=recent_eq_region["layer"];
      viewermap.addLayer(layer);
@@ -119,6 +124,7 @@ function recentEQ_on_bounding_rectangle_layer() {
 
 function recentEQ_add_bounding_rectangle_layer(layer, a,b,c,d) {
   // remove old one and add a new one
+window.console.log(" ===  calling recentEQ_add_bounding_rectangle_layer with layer");
   recentEQ_remove_bounding_rectangle_layer();
   recent_eq_region={"layer":layer, "latlngs":[{"lat":a,"lon":b},{"lat":c,"lon":d}]};
   recentEQ_set_latlons(a,b,c,d);
@@ -162,7 +168,7 @@ function makeARecentEQMarker(data) {
 	            loc: loc,
                     longitude: longitude,
                     latitude: latitude,
-                    depth: depth,
+                    "depth(km)": depth,
                     magnitude: mag,
                     magtype: magtype,
                     time:time};
@@ -192,9 +198,11 @@ function addRecentEQLayer() {
 
 function clearRecentEQLayer() {
     if(cxm_recent_quake_layer!=null) {
-      recentEQ_remove_bounding_rectangle_layer();
+      viewermap.removeLayer(cxm_recent_quake_layer);
       setRecentEQCounter(0);
       cxm_recent_quake_layer= make_markerGroup(enableCluster);
+      cxm_recent_quake_group_list=[];
+      recent_quake_count=0;
     }
 }
 

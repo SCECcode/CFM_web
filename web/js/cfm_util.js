@@ -250,7 +250,7 @@ function downloadJSONMeta(mlist) {
    var data;
    var timestamp;
    [data,timestamp]=getJSONFromMeta(mlist);
-   saveAsJSONBlobFile(data, timestamp);
+   saveAsJSONBlobMetaFile(data, timestamp);
 }
 
 // download meta data of selected highlighted faults 
@@ -259,7 +259,7 @@ function downloadCSVMeta(mlist) {
    var data;
    var timestamp;
    [data,timestamp]=getCSVFromMeta(mlist);
-   saveAsCSVBlobFile(data, timestamp);
+   saveAsCSVBlobMetaFile(data, timestamp);
 }
 
 function expandColorsControl() {

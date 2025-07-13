@@ -12,11 +12,68 @@ popup info
 
 const reqEQ_host = 'https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson';
 
+/**********************************************************************
+ from marker list
+ cxm_recent_quake_group_list.push( {"id":id, "layer":marker});
+ recent_quake_count
+ marker.scec_properties = {
+                    id: id,
+                    loc: loc,
+                    longitude: longitude,
+                    latitude: latitude,
+                    depth: depth,
+                    magnitude: mag,
+                    magtype: magtype,
+                    time:time};
+************************************************************************/
+function downloadRecentEQ() {
+  if(recent_quake_count > 0) {
+    getRecentEQCSV();
+  }
+}
+
+function getRecentEQCSV() {
+  let mlist=[];
+
+  for(let i=0; i<recent_quake_count; i++) {
+      let eq=cxm_recent_quake_group_list[i]["layer"];
+      let prop=eq.scec_properties;      
+      mlist.push(prop);
+  }
+
+//  let rc=getCSVFromMeta(mlist);
+//  downloadCSVMeta(mlist);
+  var data;
+  var timestamp;
+  [data,timestamp]=getCSVFromMeta(mlist);
+  saveAsCSVBlobFile("CFM_EQ_", data, timestamp);
+
+//	downloadJSONMeta(mlist);
+}
+
+/**********************************************************************/
+// toggle cxm_recent_quake_layer on and off
+// eye_recentEQ
+function showRecentEQ() {
+  toggleRecentEQ();
+  if(showing_recent_quake) {
+    $('#eye_recentEQ').removeClass('glyphicon-eye-open').addClass('glyphicon-eye-close');
+    } else {
+      $('#eye_recentEQ').removeClass('glyphicon-eye-close').addClass('glyphicon-eye-open');
+  }
+}
 /**********************************************************************/
 function setRecentEQCounter(v) {
   document.getElementById("recentEQ-counter").value=v;
   document.getElementById("recentEQBtn").innerText = `recent EQ(${v})`;
   recent_quake_count=v;
+  if(recent_quake_count > 0) {
+    $('#recentEQDownloadBtn').css("display", "");
+    $('#recentEQShowBtn').css("display", "");
+    } else {
+      $('#recentEQDownloadBtn').css("display", "none");
+      $('#recentEQShowBtn').css("display", "none");
+  }
 }
 
 var recentEQ_on=false;
@@ -88,8 +145,6 @@ function setRecentEQRegion() {
   document.getElementById("recentEQMinZTxt").value=0.0;//m
   document.getElementById("recentEQMaxZTxt").value=30000;
   recentEQ_add_bounding_rectangle(minlat, minlon, maxlat,maxlon);
-
-  // zoom in
 }
 
 // minlat, minlon, maxlat, maxlon
@@ -105,17 +160,25 @@ function recentEQ_set_latlons(a,b,c,d) {
 
 function recentEQExtractData() {
   if(recent_quake_count != 0) {
-    recentEQ_remove_bounding_rectangle_layer()
     clearRecentEQLayer();
+    recentEQ_remove_bounding_rectangle_layer();
   }
+
+  $("#modalwaitrecenteq").modal('show');
+
   get_RecentEQFromUSGS();
   addRecentEQLayer();
+  recentEQ_on_bounding_rectangle_layer();
+  zoom2RecentEQ();
 }
 
 function recentEQReset() {
   if(recent_quake_count != null) {
     clearRecentEQLayer();
+    recentEQ_remove_bounding_rectangle_layer();
   }
+  setup_recent_eq();
+  recentEQ_on_bounding_rectangle_layer();
 }
 
 function get_RecentEQFromUSGS() {
@@ -133,7 +196,7 @@ function get_RecentEQFromUSGS() {
 
 // ??? make sure latlons are ordered 
 	
-// XXX  ??? need to redraw the rectangle..	
+  recentEQ_add_bounding_rectangle(firstlat,firstlon,secondlat,secondlon);
 	
   let reqEQ_spec;
   if(maxmag == '-') {
@@ -163,7 +226,7 @@ async function _getRecentEQFromUSGS(reqEQ) {
     }
 
     const data = await response.json();
-    window.console.log("Recent Earthquakes (Magnitude ≥ 5):");
+    window.console.log("Recent Earthquakes...:");
 
     let eq_list = [];
     let eq_cnt=0;
@@ -200,7 +263,6 @@ async function _getRecentEQFromUSGS(reqEQ) {
           eq_cnt++;
     }
     
-    $("#modalwaitrecenteq").modal('hide');
     // process and store it..
 window.console.log("GOT complete LIST");
     for (let i=0; i< eq_cnt; i++) {
@@ -208,6 +270,7 @@ window.console.log("GOT complete LIST");
     }    
     window.console.log(eq_cnt);
     setRecentEQCounter(eq_cnt);
+    $("#modalwaitrecenteq").modal('hide');
 
   } catch (error) {
     $("#modalwaitrecenteq").modal('hide');
