@@ -541,14 +541,14 @@ onchange="switchLayer(this.value);">
           </li>
           <li id='recentEQ' class='navigationLi ml-3 mr-2' style="display:none;background:whitesmoke;border:0px solid green">
               <div id="recentEQMenu" class='menu'>
-                  <div class='row' >
-                     <div class="col-11" style="border:0px solid orange">
-                         <button id="EQBtn" class="btn cfm-small-btn pull-right"
-                            onClick="toggleRecentEQMenu()" style="border:0px solid green">
+                  <div class="row" >
+                     <div class="col-1" style="border:1px solid orange">
+                         <button id="EQBtn" class="btn cfm-small-btn"
+                            onClick="toggleRecentEQMenu()">
                             <span style="font-size:14px"><b>X</b></span></button>
                      </div>
                   </div>
-                  <div class='row'>
+                  <div class="row">
                      <div class="col-12">
 			 <p style="text-align:center;font-size:15px;margin-bottom:8px">
                             <b style="font-size:22px">Search Recent Earthquakes</b>
