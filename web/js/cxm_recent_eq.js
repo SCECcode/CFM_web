@@ -165,12 +165,12 @@ function makeARecentEQMarker(data) {
 
   marker.scec_properties = {
                     id: id,
-	            loc: loc,
                     longitude: longitude,
                     latitude: latitude,
                     "depth(km)": depth,
                     magnitude: mag,
                     magtype: magtype,
+	            loc: loc,
                     time:time};
 
   cxm_recent_quake_layer.addLayer(marker);
