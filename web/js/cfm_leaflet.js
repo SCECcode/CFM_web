@@ -76,6 +76,13 @@ function get_bounds()
    return bounds;
 }
 
+function get_zoom()
+{
+   let zoom=viewermap.getZoom();
+   return zoom;
+}
+
+
 function get_map()
 {
   var center=init_map_coordinates;
@@ -237,7 +244,8 @@ window.console.log("map got zoomed..>>",zoom);
        change_fault_weight(default_weight/2); // half the width
        fault_width_change=1;
     } 
-
+//See if recentEQ markers need to be zoomed or not..
+    recentEQ_Zoomed(zoom);
   }
   mymap.on('zoomend dragend', onMapZoom);
 

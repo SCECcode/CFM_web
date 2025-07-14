@@ -173,8 +173,52 @@ function makeARecentEQMarker(data) {
 	            loc: loc,
                     time:time};
 
+  marker.on('mouseover', function (e) {
+      let normal=3;
+      let target = normal;
+      let zoom = get_zoom();
+      if(zoom > 6)  {
+        target = (zoom > 9) ? 7 : (zoom - 6)+target;
+      }
+      target = target *2;
+      window.console.log(" marker mouseover", target);
+      this.setStyle( {radius:target});
+  });
+
+  marker.on('mouseout', function (e) {
+      let normal=3;
+      let target = normal;
+      let zoom = get_zoom();
+      if(zoom > 6)  {
+        target = (zoom > 9) ? 7 : (zoom - 6)+target;
+      }
+      this.setStyle( {radius:target});
+  });
+
   cxm_recent_quake_layer.addLayer(marker);
   cxm_recent_quake_group_list.push( {"id":id, "layer":marker});
+}
+
+function recentEQ_Zoomed(zoom) {
+  window.console.log("Calling recentEQ_Zoomed");
+  if(recent_quake_count == 0) return;
+
+  let normal=3;
+  let target = normal;
+  if(zoom > 6)  {
+    target = (zoom > 9) ? 7 : (zoom - 6)+target;
+  }
+  if(site_marker_style.normal.radius == target) { // no changes..
+    return;
+  }
+  site_marker_style.normal.radius=target;
+  site_marker_style.selected.radius=target;
+  site_marker_style.hover.radius = (target *2);
+
+//window.console.log(" RESIZE: marker zoom("+zoom+") radius "+target);
+  cxm_recent_quake_layer.eachLayer(function(layer){
+              layer.setRadius(target);
+  })
 }
 
 function toggleRecentEQ() {
@@ -203,6 +247,7 @@ function clearRecentEQLayer() {
       cxm_recent_quake_layer= make_markerGroup(enableCluster);
       cxm_recent_quake_group_list=[];
       recent_quake_count=0;
+      showing_recent_quake=false;
     }
 }
 

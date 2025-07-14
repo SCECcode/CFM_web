@@ -57,9 +57,9 @@ function getRecentEQCSV() {
 function showRecentEQ() {
   toggleRecentEQ();
   if(showing_recent_quake) {
-    $('#eye_recentEQ').removeClass('glyphicon-eye-open').addClass('glyphicon-eye-close');
+    $('#eye_recentEQ').removeClass('glyphicon-eye-close').addClass('glyphicon-eye-open');
     } else {
-      $('#eye_recentEQ').removeClass('glyphicon-eye-close').addClass('glyphicon-eye-open');
+      $('#eye_recentEQ').removeClass('glyphicon-eye-open').addClass('glyphicon-eye-close');
   }
 }
 /**********************************************************************/
