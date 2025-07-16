@@ -22,17 +22,17 @@ var use_markerCluster=0;
 // this holds the layer that has the 'region boundary'
 var recent_eq_region=null;
 
-var site_colors = {
+var eq_marker_colors = {
     //normal: '#006E90', // original
     normal: '#FF4207', // original
     selected: '#B02E0C',
     abnormal: '#00FFFF',
 };
 
-var site_marker_style = {
+var eq_marker_style = {
     normal: {
         color: "white",
-        fillColor: site_colors.normal,
+        fillColor: eq_marker_colors.normal,
         fillOpacity: 1,
         radius: 3,
         riseOnHover: true,
@@ -40,7 +40,7 @@ var site_marker_style = {
     },
     selected: {
         color: "white",
-        fillColor: site_colors.selected,
+        fillColor: eq_marker_colors.selected,
         fillOpacity: 1,
         radius: 3,
         riseOnHover: true,
@@ -116,8 +116,9 @@ window.console.log(" ===  turning on");
      viewermap.addLayer(layer);
 // put it at the very back
      layer.bringToBack();	  
+
      if (layer.getBounds().isValid()) {
-       viewermap.fitBounds(layer.getBounds());
+       zoom2Bounds(layer.getBounds());
      }
    }
 }
@@ -132,22 +133,9 @@ window.console.log(" ===  calling recentEQ_add_bounding_rectangle_layer with lay
 
 
 /**********************************************************************/
-
-function makeRecentEQLayer() {
-
-window.console.log("CALLING makeRecentEQLayer");
-
-//  let reqEQ = 'https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&limit=20000&starttime=2025-07-01&endtime=2025-07-09&minlatitude=27.0518&minlongitude=-129.0751&maxlatitude=45.639&maxlongitude=-109.1346&minmagnitude=3.0';
-
-let reqEQ = 'https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventid=us7000qalq';
-
-  getRecentEQFromUSGS(reqEQ);
-
-}
-
 function makeARecentEQMarker(data) {
-  let latitude= data.coord[1];
   let longitude=data.coord[0];
+  let latitude= data.coord[1];
   let depth=data.coord[2];
   let time=data.time;
   let mag=data.mag;
@@ -155,13 +143,20 @@ function makeARecentEQMarker(data) {
   let loc=data.place;                                          
   let id=data.id;
 
-  let marker = makeLeafletEQCircleMarker([latitude, longitude], site_marker_style.normal);
+  let utmCoords=fromLatLon(latitude, longitude);
+  let utmEasting=utmCoords.easting.toFixed(2);
+  let utmNorthing=utmCoords.northing.toFixed(2);
+  let utmZoneNum=utmCoords.zoneNum;
+  let utmZoneLetter=utmCoords.zoneLetter;
+
+  let marker = makeLeafletEQCircleMarker([latitude, longitude], eq_marker_style.normal);
 
   let eq_info = `${id}`;
 
   marker.bindTooltip(eq_info).openTooltip();
 
-  marker.bindPopup("<strong>Location: </strong>"+loc+"<br><strong>When: </strong>"+ new Date(time).toLocaleString() +"<br><strong>Magnitude: </strong>"+mag+" ("+magtype+")<br><strong>Depth: </strong>"+depth+" (km)<br><strong>Location: </strong> ("+longitude+", "+latitude+")<br><strong>ID: </strong>"+id,{maxWidth: 500});
+  marker.bindPopup("<strong>Recent Earthquake</strong><br><strong>Location: </strong>"+loc+"<br><strong>When: </strong>"+ new Date(time).toLocaleString() +"<br><strong>Magnitude: </strong>"+mag+" ("+magtype+")<br><strong>Depth: </strong>"+depth+" (km)<br><strong>Location: </strong> ("+longitude+", "+latitude+")<br><strong>ID: </strong>"+id,{maxWidth: 500});
+
 
   marker.scec_properties = {
                     id: id,
@@ -171,7 +166,11 @@ function makeARecentEQMarker(data) {
                     magnitude: mag,
                     magtype: magtype,
 	            loc: loc,
-                    time:time};
+                    time: time,
+	            utmeasting: utmEasting,
+	            utmnorthing: utmNorthing,
+	            utmzonenumber: utmZoneNum,
+	            utmzoneletter: utmZoneLetter };
 
   marker.on('mouseover', function (e) {
       let normal=3;
@@ -200,7 +199,6 @@ function makeARecentEQMarker(data) {
 }
 
 function recentEQ_Zoomed(zoom) {
-  window.console.log("Calling recentEQ_Zoomed");
   if(recent_quake_count == 0) return;
 
   let normal=3;
@@ -208,12 +206,12 @@ function recentEQ_Zoomed(zoom) {
   if(zoom > 6)  {
     target = (zoom > 9) ? 7 : (zoom - 6)+target;
   }
-  if(site_marker_style.normal.radius == target) { // no changes..
+  if(eq_marker_style.normal.radius == target) { // no changes..
     return;
   }
-  site_marker_style.normal.radius=target;
-  site_marker_style.selected.radius=target;
-  site_marker_style.hover.radius = (target *2);
+  eq_marker_style.normal.radius=target;
+  eq_marker_style.selected.radius=target;
+  eq_marker_style.hover.radius = (target *2);
 
 //window.console.log(" RESIZE: marker zoom("+zoom+") radius "+target);
   cxm_recent_quake_layer.eachLayer(function(layer){
@@ -233,9 +231,11 @@ function toggleRecentEQ() {
 
 function addRecentEQLayer() {
     if(cxm_recent_quake_layer==null) {
-      get_RecentEQFromUSGS();
+      window.console.log("BAD: addRecentEQLayer, cxm_recent_quake_layer should not be null");
+      //get_RecentEQFromUSGS();
       } else {
         viewermap.addLayer(cxm_recent_quake_layer);
+        zoom2RecentEQ();
     }
     showing_recent_quake=true;
 }
@@ -252,24 +252,14 @@ function clearRecentEQLayer() {
 }
 
 function zoom2RecentEQ(){
- if (cxm_recent_quake_layer.getBounds().isValid()) {
-   viewermap.fitBounds(cxm_recent_quake_layer.getBounds());
+ if (recent_quake_count > 1 && cxm_recent_quake_layer.getBounds().isValid()) {
+   let t=cxm_recent_quake_layer.getBounds();
+   zoom2Bounds(t);
  }
 }
 
 
 /**********************************************************************/
-
-// let marker = L.circleMarker([latitude, longitude], site_marker_style.normal);
-function makeLeafletEQCircleMarker(latlng, opt, cname=undefined) {
-
-  if(cname != undefined) {
-    opt.className=cname;
-  }
-  let marker= L.circleMarker(latlng, opt);
-  return marker;
-}
-
 function refresh_markerGroup(markers) {
    if(use_markerCluster) {
      markers.refreshClusters();

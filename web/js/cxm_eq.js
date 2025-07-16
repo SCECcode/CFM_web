@@ -541,8 +541,10 @@ function add2QuakePoints(quake_type,eqarray) {
             updateEQMarkerLatlng(EQ_HAUKSSON_FOR_TIME,tidx,lat,lng);
             break;
           case QUAKE_TYPE_SIGNIFICANT:
+window.console.log("XXX significant point..",marker['Id']);
             cxm_quake_significant_latlng.push({lat:lat,lng:lng});
             cxm_quake_significant_description.push( marker['Description']);
+
             break;
         }
     });
@@ -571,6 +573,7 @@ function makeSignificantEQLayer() {
    // create a group layer with many marker within..
    //   collect up latlng, description list, "red"
 //   cxm_quake_significant_layer2=addMarkerLayerGroup( cxm_quake_significant_latlng, cxm_quake_significant_description, 6);
+window.console.log("XXX makeSignificantEQLayer");
    cxm_quake_significant_layer=makeLeafletCircleMarker( cxm_quake_significant_latlng, cxm_quake_significant_description);
 
 };

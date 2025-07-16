@@ -26,13 +26,47 @@ const reqEQ_host = 'https://earthquake.usgs.gov/fdsnws/event/1/query?format=geoj
                     magtype: magtype,
                     time:time};
 ************************************************************************/
+// needs lat/lon/depth/mag/id
+// compose utm data file from the grouplist to be sent to plot3d
+function recentEQ_makeUTMBlob() {
+  let bloblist=[];
+ 
+  let cnt=0;
+
+  for(let i=0; i<recent_quake_count; i++) {
+      let eq=cxm_recent_quake_group_list[i]["layer"];
+      let prop=eq.scec_properties;      
+      let depth= prop['depth(km)'];
+      if(depth == '' || undefined) {
+        continue;
+      }
+      let nprop = { lat: prop['latitude'],
+	            lon: prop['longitude'],
+                    easting: prop['utmeasting'],
+                    northing: prop['utmnorthing'],
+	            depth: prop['depth(km)'],
+	            mag: prop['magnitude'],
+	            magtype: prop['magtype'],
+                    id: prop['id'],
+	            loc: prop['loc'] }
+      bloblist.push(nprop);
+      cnt++;
+  }
+  if(cnt == 0) return null;
+
+  // string it up
+  var jsonstring=JSON.stringify(bloblist);
+  return jsonstring;
+}
+
 function downloadRecentEQ() {
   if(recent_quake_count > 0) {
-    getRecentEQCSV();
+    saveRecentEQCSV();
   }
 }
 
-function getRecentEQCSV() {
+// grab the scec_properites and save it to a file in CSV
+function saveRecentEQCSV() {
   let mlist=[];
 
   for(let i=0; i<recent_quake_count; i++) {
@@ -157,6 +191,13 @@ function recentEQ_set_latlons(a,b,c,d) {
 }
 
 /**********************************************************************/
+function recentEQExtractData_withID(id) {
+  if(recent_quake_count != 0) {
+    clearRecentEQLayer();
+    recentEQ_remove_bounding_rectangle_layer();
+  }
+  get_RecentEQFromUSGS_withID(id);
+}
 
 function recentEQExtractData() {
   if(recent_quake_count != 0) {
@@ -167,9 +208,7 @@ function recentEQExtractData() {
   $("#modalwaitrecenteq").modal('show');
 
   get_RecentEQFromUSGS();
-  addRecentEQLayer();
   recentEQ_on_bounding_rectangle_layer();
-  zoom2RecentEQ();
 }
 
 function recentEQReset() {
@@ -211,7 +250,8 @@ window.console.log(reqEQ_spec);
 }
 
 function get_RecentEQFromUSGS_withID(id) {
-  let reqEQ_spec = '&eventid=us7000qalq';
+  // example let reqEQ_spec = '&eventid=us7000qalq';
+  let reqEQ_spec = '&eventid='+id;
   let reqEQ_url = reqEQ_host + reqEQ_spec;
 
   _getRecentEQFromUSGS(reqEQ_url);
@@ -271,6 +311,8 @@ window.console.log("GOT complete LIST");
     window.console.log(eq_cnt);
     setRecentEQCounter(eq_cnt);
     $("#modalwaitrecenteq").modal('hide');
+
+    addRecentEQLayer();
 
   } catch (error) {
     $("#modalwaitrecenteq").modal('hide');

@@ -14,6 +14,9 @@ var PLOT3D_PRESET_CAMERA = 0;
 var PLOT3D_PRESET_STATE = 0;
 var PLOT3D_PRESET_NAMELIST=[];  // bare name list
 
+// This is for recentEQ PRESET MODE
+var RECENT_EQ_PRESET_EVENTIDLIST=[];
+
 // from the whole fault object set
 var strike_range_min_ref=0;
 var strike_range_max_ref=360;
@@ -454,6 +457,9 @@ function executePlot3d(type) {
 
 function startPlot3d()
 {
+  // make passable recentEQ site info
+  var eqstr=recentEQ_makeUTMBlob();
+
   // collect up the meta data from the highlighted set of traces
   var hlist=get_highlight_list();
   var mlist=get_meta_list(hlist);
@@ -468,7 +474,7 @@ function startPlot3d()
   var str=get_MODAL_TS_LIST();
   var pstr=get_MODAL_TS_PATH();
   var nlstr=JSON.stringify(PLOT3D_PRESET_NAMELIST);
-  show3dView(str,nstr,pstr,nlstr);
+  show3dView(str,nstr,pstr,nlstr,eqstr);
 }
 
 function plotAll() {
@@ -1038,19 +1044,53 @@ function inPresetMode() {
   PLOT3D_PRESET_CAMERA = 0;
   PLOT3D_PRESET_STATE = 0;
   PLOT3D_PRESET_NAMELIST=[];  // bare name list
+
+  RECENT_EQ_PRESET_EVENTIDLIST=[];
+
   return 1;
 }
     
 /**
-http://localhost:8081?abb=["BCLF","EQVE"]&ts="native"&ptype="main"
-http://localhost:8081?abb=["SSNF"]&ts="2000m"&ptype="main"
-http://localhost:8081?abb=["INHF"]&ts="native"&ptype="main"
-http://localhost:8081/?name=["WTRA-USAV-USAV-San_Jose_fault-CFM5"]&ts="1000m"&
-ptype="main3d"&camera={"pos":[486326.6875,69849.9453125,-3838326.5],"angle":30,
-"viewup":[-0.19568131864070892,-0.5419068336486816,-0.8173406720161438],
-"distance":116818.2594697855,"focal":[426630.109375,-6666.62158203125,-3773303.125]}
-fullname=[...]
-fullfileurl=[...]
+main3d:  
+http://moho.scec.org/research/cfm-explorer/?model=CFM7_preferred_db
+&name=["BNRA-SDVZ-MULT-Southern_Death_Valley_fault-CFM6",
+       "CRFA-BPPM-LKWV-Lockwood_Valley_fault-CFM2",
+       "GVFA-CGVT-ENGH-Great_Valley-CFM7",
+       "SFBY-LPFZ-LVRV-Las_Positas-CFM7",
+       "SFBY-NCRH-SLCR-Silver_Creek-CFM7",
+       "SFBY-SAFZ-NPEN-San_Andreas-CFM7",
+       "SFBY-SAFZ-STCL-Monte_Vista_Shannon-CFM7"]
+&ts="native"
+&ptype="main3d"
+&state={"trace":true,"shore":true,"legend":true,"seismicity":0,"repr":0,"bounds":0,
+"full":false}&camera={"pos":[277459.609375,1371165.0471987922,-4069495.375],"angle":30,
+"viewup":[0,0,-1],"distance":1378782.0188784797,
+"focal":[277459.609375,-7616.9716796875,-4069495.375]}
+
+main2d:
+http://moho.scec.org/research/cfm-explorer/?model=CFM7_preferred_db
+&name=["BNRA-SDVZ-MULT-Southern_Death_Valley_fault-CFM6",
+       "CRFA-BPPM-LKWV-Lockwood_Valley_fault-CFM2",
+       "GVFA-CGVT-ENGH-Great_Valley-CFM7",
+       "SFBY-LPFZ-LVRV-Las_Positas-CFM7",
+       "SFBY-NCRH-SLCR-Silver_Creek-CFM7",
+       "SFBY-SAFZ-NPEN-San_Andreas-CFM7",
+       "SFBY-SAFZ-STCL-Monte_Vista_Shannon-CFM7"]
+&ptype="main2d"
+
+another main2d
+http://moho.scec.org/research/cfm-explorer/?model=CFM7_preferred_db
+&name=["BNRA-SDVZ-MULT-Southern_Death_Valley_fault-CFM6",
+       "CRFA-BPPM-LKWV-Lockwood_Valley_fault-CFM2",
+       "GVFA-CGVT-ENGH-Great_Valley-CFM7",
+       "SFBY-LPFZ-LVRV-Las_Positas-CFM7",
+       "SFBY-NCRH-SLCR-Silver_Creek-CFM7",
+       "SFBY-SAFZ-NPEN-San_Andreas-CFM7",
+       "SFBY-SAFZ-STCL-Monte_Vista_Shannon-CFM7"]
+&ptype="main2d"
+&eventid={"recenteq":["us7000qalq"]}
+**expecting just 1 eventid at this time
+
 **/
 function getPresetMode() {
   skip_warning=true; // skip 3d warning
@@ -1061,6 +1101,7 @@ function getPresetMode() {
   let myName=0;
   let myCamera=0;
   let myState=0;
+  let myEventId=0;
 
   let myFullName=0;
   let myFullFileURL=0;
@@ -1103,6 +1144,8 @@ function getPresetMode() {
         case "state":
              myState=dd; // keep it as a string
              break;
+        case "eventid":
+             myEventId=dd; // keep it as a string
         default: // do nothing
              break;
      }
@@ -1111,7 +1154,7 @@ function getPresetMode() {
   if(myFullName !=0 && myFullFileURL !=0) {
     setExternalTS(myFullName, myFullFileURL);
   }
-  return [myPtype, myAbb, myName, myTS, myCamera, myState];
+  return [myPtype, myAbb, myName, myTS, myCamera, myState, myEventId];
 }
 
 
@@ -1122,10 +1165,23 @@ function setupPresetMode() {
     let name=0;
     let camera=0;
     let state=0;
+    let eventid=0;
+    let eqeventid=0;
 
-    [ptype, abb, name, ts, camera, state]=getPresetMode();
+    [ptype, abb, name, ts, camera, state, eventid]=getPresetMode();
     PLOT3D_PRESET_CAMERA=camera;
     PLOT3D_PRESET_STATE=state;
+
+    if(eventid != 0) {
+      let jblob=JSON.parse(eventid);
+      let elist=jblob['recenteq'];
+      let cnt=elist.length;
+      for(let i=0; i<cnt; i++) {
+        RECENT_EQ_PRESET_EVENTIDLIST.push(elist[i]);
+window.console.log("FOUND event id ",elist[i]);
+        eqeventid=elist[i];
+      }
+    }
 
     // preset_type: note, main2d, main3d(plot3d)
 //    window.console.log("PresetMode >>>>got "+abb+" "+name+" "+ts+" "+ptype);
@@ -1135,7 +1191,7 @@ function setupPresetMode() {
     if(ts == 0 && ptype != "main2d")
       return;
     if(name != 0) {
-      findByNameInPreset(name,ptype,ts);
+      findByNameInPreset(name,ptype,ts,eqeventid);
       return;
     }
   }
@@ -1143,7 +1199,7 @@ function setupPresetMode() {
 
 // name => array of fault name
 // no need to go to server,
-function findByNameInPreset(name, ptype, ts) {
+function findByNameInPreset(name, ptype, ts, eqeventid) {
     let sz=name.length;
     if(sz == 0) {
       return; 
@@ -1156,7 +1212,12 @@ function findByNameInPreset(name, ptype, ts) {
         }
         switch (ptype) {
           case "main2d":
-            zoom2SelectFaults();
+// if there are event ids, call recentEQ to bring them in
+            if(eqeventid==0) {
+              zoom2SelectFaults();
+              } else {
+                recentEQExtractData_withID(eqeventid);
+            }
             break;
           case "main3d":
             setTimeout(executePlot3d(ts), 3000);

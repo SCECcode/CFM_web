@@ -135,8 +135,11 @@ function get_SHARE_PARAMS() {
   return sparams;
 }
 
-function show3dView(urls,nstr,path,nlstr) {
+/*
+model=CFM7_preferred_db&viewTrace=CFM7.0_traces.utm&viewBlind=CFM7.0_blind.utm&viewUID=1752626777&viewerType=CFM&fileURL=[native/BNRA-SDVZ-MULT-Southern_Death_Valley_fault-CFM6.ts,native/CRFA-BPPM-LKWV-Lockwood_Valley_fault-CFM2.ts,native/GVFA-CGVT-ENGH-Great_Valley-CFM7.ts,native/SFBY-LPFZ-LVRV-Las_Positas-CFM7.ts,native/SFBY-NCRH-SLCR-Silver_Creek-CFM7.ts,native/SFBY-SAFZ-NPEN-San_Andreas-CFM7.ts,native/SFBY-SAFZ-STCL-Monte_Vista_Shannon-CFM7.ts]&name=[Southern Death Valley fault,Lockwood Valley fault,Great Valley thrust (English Hills),Las Positas fault,Silver Creek fault,San Andreas fault,MonteVista-Shannon fault]&filePATH=[https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM7/7.0/preferred/]&EQ=[{"lat":43.285,"lon":-126.7102,"easting":"685775.93","northing":"4795010.26","depth":10,"mag":4.2,"id":"us7000qalq","loc":"187 km W of Bandon, Oregon"}]
+*/
 
+function show3dView(urls,nstr,path,nlstr,eqstr) {
 // set it once
   viewUID = Math.floor( $.now()/1000 ); // in seconds
   PLOT3D_CAMERA=null;
@@ -166,10 +169,15 @@ function show3dView(urls,nstr,path,nlstr) {
        params=params+"&viewUID="+viewUID+"&viewerType="+viewerType+"&fileURL="+urls+"&name="+nstr+"&filePATH="+path;
   }
 
+  if(eqstr !=null) {
+     params=params+"&EQ="+eqstr;
+  }
+
   let externalTS=get_external_TS();
   if(externalTS &&  externalTS != null) {
      params=params+externalTS;
   }
+
 
   set_PARAMS(params);
 
@@ -190,7 +198,9 @@ function show3dView(urls,nstr,path,nlstr) {
       set_SHARE_PARAMS("");
   }
 
-  if(params.length > 1000) {
+  let plen=params.length;
+  if(plen > 1000) {
+window.console.log(">>> params too long");
     $('#view3DIfram').attr('src',"cfm_3d.html?2Long");
     } else {
 window.console.log(">>>"+params);

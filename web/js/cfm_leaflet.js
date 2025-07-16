@@ -401,6 +401,12 @@ function zoom2SelectFaults()
  }
 }
 
+function zoom2Bounds(bounds)
+{
+   viewermap.fitBounds(bounds);
+}
+
+
 
 // binding the 'detail' fault content
 function bindPopupEachFeature(feature, layer) {
@@ -483,6 +489,17 @@ function addMarkerLayerGroup(latlng,description,sz) {
   var group = new L.FeatureGroup(markers);
   mymap.addLayer(group);
   return group;
+}
+
+// used by recent_eq and also significant_eq
+// let marker = L.circleMarker([latitude, longitude], eq_marker_style.normal);
+function makeLeafletEQCircleMarker(latlng, opt, cname=undefined) {
+
+  if(cname != undefined) {
+    opt.className=cname;
+  }
+  let marker= L.circleMarker(latlng, opt);
+  return marker;
 }
 
 //       and add mouse in/mouse out and focusing event

@@ -163,10 +163,17 @@ function toFileMarkerLatlng() {
 }
 
 function _toFileLatlngSignificantSet() {
+
     var fname="significant_log.json";
+
+// iterate through all the marker and dump out structure..
+// XXX
+
     var fdata=cxm_quake_significant_latlng;
     var desc=cxm_quake_significant_description;
+
     var log={description:desc, latlng:fdata};
+
     _outputBlob(log,fname);
 }
 
