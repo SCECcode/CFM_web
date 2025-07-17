@@ -136,7 +136,7 @@ function get_SHARE_PARAMS() {
 }
 
 /*
-model=CFM7_preferred_db&viewTrace=CFM7.0_traces.utm&viewBlind=CFM7.0_blind.utm&viewUID=1752626777&viewerType=CFM&fileURL=[native/BNRA-SDVZ-MULT-Southern_Death_Valley_fault-CFM6.ts,native/CRFA-BPPM-LKWV-Lockwood_Valley_fault-CFM2.ts,native/GVFA-CGVT-ENGH-Great_Valley-CFM7.ts,native/SFBY-LPFZ-LVRV-Las_Positas-CFM7.ts,native/SFBY-NCRH-SLCR-Silver_Creek-CFM7.ts,native/SFBY-SAFZ-NPEN-San_Andreas-CFM7.ts,native/SFBY-SAFZ-STCL-Monte_Vista_Shannon-CFM7.ts]&name=[Southern Death Valley fault,Lockwood Valley fault,Great Valley thrust (English Hills),Las Positas fault,Silver Creek fault,San Andreas fault,MonteVista-Shannon fault]&filePATH=[https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM7/7.0/preferred/]&EQ=[{"lat":43.285,"lon":-126.7102,"easting":"685775.93","northing":"4795010.26","depth":10,"mag":4.2,"id":"us7000qalq","loc":"187 km W of Bandon, Oregon"}]
+model=CFM7_preferred_db&viewTrace=CFM7.0_traces.utm&viewBlind=CFM7.0_blind.utm&viewUID=1752626777&viewerType=CFM&fileURL=[native/BNRA-SDVZ-MULT-Southern_Death_Valley_fault-CFM6.ts,native/CRFA-BPPM-LKWV-Lockwood_Valley_fault-CFM2.ts,native/GVFA-CGVT-ENGH-Great_Valley-CFM7.ts,native/SFBY-LPFZ-LVRV-Las_Positas-CFM7.ts,native/SFBY-NCRH-SLCR-Silver_Creek-CFM7.ts,native/SFBY-SAFZ-NPEN-San_Andreas-CFM7.ts,native/SFBY-SAFZ-STCL-Monte_Vista_Shannon-CFM7.ts]&name=[Southern Death Valley fault,Lockwood Valley fault,Great Valley thrust (English Hills),Las Positas fault,Silver Creek fault,San Andreas fault,MonteVista-Shannon fault]&filePATH=[https://s3-us-west-2.amazonaws.com/files.scec.org/s3fs-public/projects/cfm/CFM7/7.0/preferred/]&viewEQ=[{"lat":43.285,"lon":-126.7102,"easting":"685775.93","northing":"4795010.26","depth":10,"mag":4.2,"id":"us7000qalq","loc":"187 km W of Bandon, Oregon"}]
 */
 
 function show3dView(urls,nstr,path,nlstr,eqstr) {
@@ -170,7 +170,7 @@ function show3dView(urls,nstr,path,nlstr,eqstr) {
   }
 
   if(eqstr !=null) {
-     params=params+"&EQ="+eqstr;
+     params=params+"&viewEQ="+eqstr;
   }
 
   let externalTS=get_external_TS();

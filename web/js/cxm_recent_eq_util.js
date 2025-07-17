@@ -50,12 +50,15 @@ function recentEQ_makeUTMBlob() {
                     id: prop['id'],
 	            loc: prop['loc'] }
       bloblist.push(nprop);
+      window.console.log("loc", prop['loc']);
       cnt++;
   }
   if(cnt == 0) return null;
 
+  eqjson= { 'recentEQ': bloblist }; 
   // string it up
-  var jsonstring=JSON.stringify(bloblist);
+  var jsonstring=JSON.stringify(eqjson);
+  window.console.log("stringified ..",jsonstring);
   return jsonstring;
 }
 
