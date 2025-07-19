@@ -11,6 +11,7 @@ popup info
 ***/
 
 const reqEQ_host = 'https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson';
+var recentEQ_on=false;
 
 /**********************************************************************
  from marker list
@@ -50,7 +51,8 @@ function recentEQ_makeUTMBlob() {
                     id: prop['id'],
 	            loc: prop['loc'] }
       bloblist.push(nprop);
-      window.console.log("loc", prop['loc']);
+      window.console.log(prop['utmeasting'], prop['utmnorthing'], -1000*prop['depth(km)']);      
+      window.console.log("\n");
       cnt++;
   }
   if(cnt == 0) return null;
@@ -113,10 +115,8 @@ function setRecentEQCounter(v) {
   }
 }
 
-var recentEQ_on=false;
 function toggleRecentEQMenu()
 {
-
    if(recentEQ_on == false) {
 // special case, just in case sidebar is open
      dismissClick();
@@ -174,6 +174,12 @@ function setRecentEQRegion() {
   let minlon=-129.0751;
   let maxlat=45.639;
   let maxlon=-109.1346;
+/*
+  let minlat=32.8657;
+  let minlon=-118.8917;
+  let maxlat=35.2254;
+  let maxlon=-115.8753;
+*/
 
   document.getElementById("recentEQFirstLonTxt").value=minlon;
   document.getElementById("recentEQFirstLatTxt").value=minlat;
@@ -190,7 +196,6 @@ function recentEQ_set_latlons(a,b,c,d) {
   document.getElementById("recentEQFirstLatTxt").value=b;
   document.getElementById("recentEQSecondLonTxt").value=c;
   document.getElementById("recentEQSecondLatTxt").value=d;
-
 }
 
 /**********************************************************************/
@@ -212,6 +217,7 @@ function recentEQExtractData() {
 
   get_RecentEQFromUSGS();
   recentEQ_on_bounding_rectangle_layer();
+//  recentEQ_reset_markLatlon();
 }
 
 function recentEQReset() {
@@ -221,6 +227,7 @@ function recentEQReset() {
   }
   setup_recent_eq();
   recentEQ_on_bounding_rectangle_layer();
+  recentEQ_reset_markLatlon();
 }
 
 function get_RecentEQFromUSGS() {

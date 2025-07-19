@@ -604,7 +604,7 @@ onchange="switchLayer(this.value);">
                      
                   <div class="row mt-3">
                       <div class="col-12">
-			  <p class="ml-2" style="margin-bottom:5px"><b style="font-size:15px">Geographic Region</b><button id="markerBtn" class="btn cfm-small-btn ml-2" style="color:red"><span class="glyphicon glyphicon-pencil"></span></button><br>Draw a rectangle (click and drag) on the map or enter coordinates below</p>
+			  <p class="ml-2" style="margin-bottom:5px"><b style="font-size:15px">Geographic Region</b><button id="markerEQBtn" class="btn cfm-small-btn ml-2" style="color:blue" onclick="recentEQ_markLatlon()"><span class="glyphicon glyphicon-pencil"></span></button><br>Draw a rectangle (click and drag) on the map or enter coordinates below</p>
                       </div>
                   </div>
 

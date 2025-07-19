@@ -57,17 +57,23 @@ var eq_marker_style = {
 /**********************************************************************/
 
 function recentEQ_markLatlon() {
+
+window.console.log("XXX", recentEQ_on);
+
   if(skipPopup == false) { // enable marking
+window.console.log("XXX HERE..false>>", recentEQ_on);
     clear_popup();
     skipPopup = true;
     drawing_rectangle=true;
+    drawRectangle();
     unbind_layer_popup();
-    $('#markerBtn').css("color","red");
+    $('#markerEQBtn').css("color","red");
     } else {
+window.console.log("XXX HERE.. true>>", recentEQ_on);
        skipPopup = false;
        drawing_rectangle=false;
        skipRectangle();
-       $('#markerBtn').css("color","blue");
+       $('#markerEQBtn').css("color","blue");
        recentEQ_remove_bounding_rectangle_layer();
        rebind_layer_popup();
   }
@@ -75,12 +81,12 @@ function recentEQ_markLatlon() {
 
 function recentEQ_reset_markLatlon() {
   skipPopup = false;
-  $('#markerBtn').css("color","blue");
+  $('#markerEQBtn').css("color","blue");
   drawing_rectangle=false;
   skipRectangle();
   rebind_layer_popup();
   recentEQ_remove_bounding_rectangle_layer();
-  recentEQ_reset_select_latlon();
+  setRecentEQRegion();
 }
 
 function recentEQ_remove_bounding_rectangle_layer() {

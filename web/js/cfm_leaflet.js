@@ -272,12 +272,18 @@ window.console.log("in retangleDrawer.. drawing there");
         var loclist=latlngs[0];
         var sw=loclist[0];
         var ne=loclist[2];
-        add_bounding_rectangle_layer(layer,sw['lat'],sw['lng'],ne['lat'],ne['lng']);
-        mymap.addLayer(layer);
+        if (recentEQ_on ) { 
+            // add to another list, 
+            recentEQ_add_bounding_rectangle_layer(layer,sw['lat'],sw['lng'],ne['lat'],ne['lng']);
+            } else {
+                add_bounding_rectangle_layer(layer,sw['lat'],sw['lng'],ne['lat'],ne['lng']);
 // XX CHECK, the rectangle created on the mapview does not seem to 'confirm'
 // like hand inputed rectangle. Maybe some property needs to be set
 // For now, just make the rectangle to be redrawn
-        searchByLatlon(0);
+                searchByLatlon(0);
+        }
+        mymap.addLayer(layer);
+//        searchByLatlon(0);
     }
   });
 
