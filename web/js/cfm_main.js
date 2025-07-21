@@ -103,7 +103,7 @@ http://localhost:8081/?name=["SAFS-SAFZ-MULT-Garnet_Hill_fault_strand-CFM4"]&ts=
        $('.latlon-item').off("mouseout");
        $('.latlon-item').off("blur");
        if( $(this).val() != '' ) {
-         searchByLatlon(0);
+         searchByLatlon();
        }
        $(this).blur();
      });

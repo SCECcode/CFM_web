@@ -7,6 +7,7 @@ https://earthquake.usgs.gov/fdsnws/event/1/
 color by depth
 sz by magnitude
 popup info
+window.console.log("XXX calling Grey makeRectangleLayer with just corners");
 
 ***/
 
@@ -180,11 +181,6 @@ function setRecentEQRegion() {
   let maxlat=35.2254;
   let maxlon=-115.8753;
 */
-
-  document.getElementById("recentEQFirstLonTxt").value=minlon;
-  document.getElementById("recentEQFirstLatTxt").value=minlat;
-  document.getElementById("recentEQSecondLonTxt").value=maxlon;
-  document.getElementById("recentEQSecondLatTxt").value=maxlat;
   document.getElementById("recentEQMinZTxt").value=0.0;//m
   document.getElementById("recentEQMaxZTxt").value=30000;
   recentEQ_add_bounding_rectangle(minlat, minlon, maxlat,maxlon);
@@ -192,10 +188,10 @@ function setRecentEQRegion() {
 
 // minlat, minlon, maxlat, maxlon
 function recentEQ_set_latlons(a,b,c,d) {
-  document.getElementById("recentEQFirstLonTxt").value=a;
-  document.getElementById("recentEQFirstLatTxt").value=b;
-  document.getElementById("recentEQSecondLonTxt").value=c;
-  document.getElementById("recentEQSecondLatTxt").value=d;
+  document.getElementById("recentEQFirstLatTxt").value=a;
+  document.getElementById("recentEQFirstLonTxt").value=b;
+  document.getElementById("recentEQSecondLatTxt").value=c;
+  document.getElementById("recentEQSecondLonTxt").value=d;
 }
 
 /**********************************************************************/
@@ -217,16 +213,14 @@ function recentEQExtractData() {
 
   get_RecentEQFromUSGS();
   recentEQ_on_bounding_rectangle_layer();
-//  recentEQ_reset_markLatlon();
 }
 
 function recentEQReset() {
-  if(recent_quake_count != null) {
+   window.console.log("XXX again.");
+  if(recent_quake_count != null && recent_quake_count !=0) {
     clearRecentEQLayer();
     recentEQ_remove_bounding_rectangle_layer();
   }
-  setup_recent_eq();
-  recentEQ_on_bounding_rectangle_layer();
   recentEQ_reset_markLatlon();
 }
 

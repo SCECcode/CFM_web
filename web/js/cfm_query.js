@@ -214,7 +214,7 @@ function searchByKeyword() {
 }
 
 // takes 2 or 4 entries
-function searchByLatlon(frommap) {
+function searchByLatlon() {
 
     var firstlatstr=document.getElementById("firstLatTxt").value;
     var firstlonstr=document.getElementById("firstLonTxt").value;
@@ -234,10 +234,8 @@ function searchByLatlon(frommap) {
     if(secondlonstr == "optional")
         secondlonstr="0";
 
-// if in hand input mode, need to add the marker+retangle..
-    if(!frommap) {
-        chk_and_add_bounding_rectangle();
-    }
+//need to add the marker+retangle..
+    chk_and_add_bounding_rectangle();
 
     /* ???
     if (firstlatstr == "" || firstlonstr=="") {

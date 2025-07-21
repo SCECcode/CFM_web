@@ -450,7 +450,6 @@ function makeResultTableBody(str)
     html=html+ tmp + "</tbody>";
 
     if (visibleFaults.getBounds().isValid()) {
-        window.console.log("XXX fitBounds: inside cfm_util.js");
         viewermap.fitBounds(visibleFaults.getBounds());
     }
 

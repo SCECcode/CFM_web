@@ -58,10 +58,7 @@ var eq_marker_style = {
 
 function recentEQ_markLatlon() {
 
-window.console.log("XXX", recentEQ_on);
-
   if(skipPopup == false) { // enable marking
-window.console.log("XXX HERE..false>>", recentEQ_on);
     clear_popup();
     skipPopup = true;
     drawing_rectangle=true;
@@ -69,12 +66,10 @@ window.console.log("XXX HERE..false>>", recentEQ_on);
     unbind_layer_popup();
     $('#markerEQBtn').css("color","red");
     } else {
-window.console.log("XXX HERE.. true>>", recentEQ_on);
        skipPopup = false;
        drawing_rectangle=false;
        skipRectangle();
        $('#markerEQBtn').css("color","blue");
-       recentEQ_remove_bounding_rectangle_layer();
        rebind_layer_popup();
   }
 }
@@ -85,12 +80,13 @@ function recentEQ_reset_markLatlon() {
   drawing_rectangle=false;
   skipRectangle();
   rebind_layer_popup();
-  recentEQ_remove_bounding_rectangle_layer();
+window.console.log("HERE");
   setRecentEQRegion();
+  // add default region layer
+  recentEQ_on_bounding_rectangle_layer();
 }
 
 function recentEQ_remove_bounding_rectangle_layer() {
-window.console.log(" === removing it");
    if(recent_eq_region != null) {
      let layer=recent_eq_region["layer"];
      viewermap.removeLayer(layer);
@@ -99,16 +95,15 @@ window.console.log(" === removing it");
 }
 
 function recentEQ_add_bounding_rectangle(a,b,c,d) {
-window.console.log(" === adding on");
   // remove old one and add a new one
   recentEQ_remove_bounding_rectangle_layer();
   var layer=makeRectangleLayer(a,b,c,d);
   recent_eq_region={"layer":layer, "latlngs":[{"lat":a,"lon":b},{"lat":c,"lon":d}]};
+  recentEQ_set_latlons(a,b,c,d);
 }
 
 // just not showing it
 function recentEQ_off_bounding_rectangle_layer() {
-window.console.log(" === turning off");
    if(recent_eq_region != null) {
      let layer=recent_eq_region["layer"];
      viewermap.removeLayer(layer);
@@ -116,7 +111,6 @@ window.console.log(" === turning off");
 }
 
 function recentEQ_on_bounding_rectangle_layer() {
-window.console.log(" ===  turning on");
    if(recent_eq_region != null) {
      let layer=recent_eq_region["layer"];
      viewermap.addLayer(layer);
@@ -131,10 +125,9 @@ window.console.log(" ===  turning on");
 
 function recentEQ_add_bounding_rectangle_layer(layer, a,b,c,d) {
   // remove old one and add a new one
-window.console.log(" ===  calling recentEQ_add_bounding_rectangle_layer with layer");
   recentEQ_remove_bounding_rectangle_layer();
-  recent_eq_region={"layer":layer, "latlngs":[{"lat":a,"lon":b},{"lat":c,"lon":d}]};
-  recentEQ_set_latlons(a,b,c,d);
+  recentEQ_add_bounding_rectangle(a,b,c,d); // add the gray one
+  recentEQ_on_bounding_rectangle_layer();
 }
 
 

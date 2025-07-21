@@ -335,7 +335,7 @@ function set_latlons(firstlat,firstlon,secondlat,secondlon) {
 
 function draw_at()
 {
-   if(latlon_sidebar && drawing_rectangle) {
+   if((latlon_sidebar || recentEQ_on)  && drawing_rectangle) {
      drawRectangle();
    }
 }

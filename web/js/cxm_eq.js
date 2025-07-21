@@ -559,6 +559,7 @@ function add2QuakePointsChunk(quake_type, eqarray, next_chunk, total_chunk, step
 
 // default to depth
 function showQuakePointsAndBound(eqarray,swlat,swlon,nelat,nelon) {
+	window.console.log("XXX showQuakePointsAndBound");
    // XX should grab type from the UI
    showQuakePoints(EQ_HAUKSSON_FOR_DEPTH,eqarray);
    // create a bounding area and add to the layergroup

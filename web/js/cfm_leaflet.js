@@ -20,10 +20,10 @@ var rectangle_options = {
               stroke: true,
               color: "red",
               weight: 1,
-              opacity: 0.3,
+              opacity: 0.8,
               fill: true,
               fillColor: null, //same as color by default
-              fillOpacity: 0.3,
+              fillOpacity: 0.2,
               clickable: false
        }
 };
@@ -265,7 +265,6 @@ window.console.log("map got zoomed..>>",zoom);
         layer = e.layer;
     if (type === 'rectangle') {  // only tracks rectangles
         // get the boundary of the rectangle
-window.console.log("in retangleDrawer.. drawing there");
         var latlngs=layer.getLatLngs();
         // first one is always the south-west,
         // third one is always the north-east
@@ -280,10 +279,8 @@ window.console.log("in retangleDrawer.. drawing there");
 // XX CHECK, the rectangle created on the mapview does not seem to 'confirm'
 // like hand inputed rectangle. Maybe some property needs to be set
 // For now, just make the rectangle to be redrawn
-                searchByLatlon(0);
+                searchByLatlon();
         }
-        mymap.addLayer(layer);
-//        searchByLatlon(0);
     }
   });
 
@@ -436,6 +433,7 @@ function unbindPopupEachFeature(layer) {
     layer.off('click');
 }
 
+// make a blue rectangle layer without adding to map
 function addRectangleLayer(latA,lonA,latB,lonB) {
 /*
   var pointA=L.point(latA,lonA);
@@ -448,16 +446,16 @@ function addRectangleLayer(latA,lonA,latB,lonB) {
   return layer;
 }
 
-// make it without adding to map
+// make a gray rectangle without adding to map
 function makeRectangleLayer(latA,lonA,latB,lonB) {
   var bounds = [[latA, lonA], [latB, lonB]];
   var layer=L.rectangle(bounds,
 	     {color: "#B0B0B0",
-              weight: 2,
-              opacity: 0.8,
+              weight: 1,
+              opacity: 1.0,
               fill: true,
               fillColor: null, //same as color by default
-              fillOpacity: 0.2,
+              fillOpacity: 0.4,
               clickable: false}
              );
   var options=layer.options;
