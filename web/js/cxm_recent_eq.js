@@ -158,7 +158,9 @@ function makeARecentEQMarker(data) {
   
   window.console.log("XXX foo");
   if(sourceZ == "10S" || sourceZ == "10T" ) {
-    [ utmEasting, utmNorthing ] = proj2NAD27(latitude, longitude, sourceZ);
+    window.console.log("OLD",utmEasting);
+    window.console.log("OLD",utmNorthing);
+    proj2NAD27(latitude, longitude);
   }
 
   let marker = makeLeafletEQCircleMarker([latitude, longitude], eq_marker_style.normal);

@@ -4,7 +4,7 @@
 
 const DATA_CHUNK_COUNT=20;
 
-function proj2NAD27(lat, lon, zone) {
+function proj2NAD27(lat, lon) {
     if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
@@ -15,15 +15,23 @@ function proj2NAD27(lat, lon, zone) {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("phpResponseTxt").innerHTML = this.responseText;
+            window.console.log("XXX");
+            window.console.log(this.responseText);
             var str = $('[data-side="proj2NAD27"]').data('params');
+            window.console.log(str);
             // should just have 1 set
-            let tmp= JSON.parse(str);
-            let utmEasting=parseFloat(tmp['easting']);
-            let utmNorthing=parseFloat(tmp['northing']);
-            return [utmEasting, utmNorthing];
+		/*
+            //let tmp= JSON.parse(str);
+            var utmEasting=parseFloat(tmp['easting']);
+            var utmNorthing=parseFloat(tmp['northing']);
+            window.console.log(utmEasting);
+            window.console.log(utmNorthing);
+	         */
+            return 0;
+//		[utmEasting, utmNorthing];
         }
     }
-    xmlhttp.open("GET","php/proj2NAD27.php?lat="+lat+"&lon="+lon+"&zone="+zone,true);
+    xmlhttp.open("GET","php/proj2NAD27.php?lat="+lat+"&lon="+lon,true);
     xmlhttp.send();
 }
 

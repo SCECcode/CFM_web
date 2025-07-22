@@ -435,7 +435,7 @@ onkeypress="javascript:if (event.key == 'Enter') $('#secondLonTxt').mouseout();"
         </div>
 
 	<div class="col-9">
-<div class="row"> <!-  right-row -->
+<div class="row"> <!-- right-row -->
 
  <div class="col-2">
      <div class="row">

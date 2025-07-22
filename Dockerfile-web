@@ -6,7 +6,7 @@ COPY . /app
 
 RUN yum install -y httpd && \
     amazon-linux-extras install -y php7.2 && \
-    yum install -y php php-pgsql wget tar 
+    yum install -y php php-pgsql wget tar proj 
 
 #RUN cd /app/web/cfm_data && \
 #    wget https://files.scec.org/s3fs-public/projects/cfm/seismicity/cfm-v7.0-seismicity-utm.tar.gz &&\
