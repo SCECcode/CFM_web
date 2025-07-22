@@ -4,6 +4,29 @@
 
 const DATA_CHUNK_COUNT=20;
 
+function proj2NAD27(lat, lon, zone) {
+    if (window.XMLHttpRequest) {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        // code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("phpResponseTxt").innerHTML = this.responseText;
+            var str = $('[data-side="proj2NAD27"]').data('params');
+            // should just have 1 set
+            let tmp= JSON.parse(str);
+            let utmEasting=parseFloat(tmp['easting']);
+            let utmNorthing=parseFloat(tmp['northing']);
+            return [utmEasting, utmNorthing];
+        }
+    }
+    xmlhttp.open("GET","php/proj2NAD27.php?lat="+lat+"&lon="+lon+"&zone="+zone,true);
+    xmlhttp.send();
+}
+
 function quakesAllToUTMFile(quake_type,msg) {
     var uid=getRnd();
     if (window.XMLHttpRequest) {

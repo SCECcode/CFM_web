@@ -11,6 +11,7 @@ window.console.log("XXX calling Grey makeRectangleLayer with just corners");
 
 ***/
 
+// The USGS Earthquake API uses the WGS84 datum, which stands for World Geodetic System 1984
 const reqEQ_host = 'https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson';
 var recentEQ_on=false;
 
@@ -171,16 +172,17 @@ function setNmagnitude(n) {
 
 // ui
 function setRecentEQRegion() {
+/*
   let minlat=27.0518;
   let minlon=-129.0751;
   let maxlat=45.639;
   let maxlon=-109.1346;
-/*
+*/
   let minlat=32.8657;
   let minlon=-118.8917;
   let maxlat=35.2254;
   let maxlon=-115.8753;
-*/
+
   document.getElementById("recentEQMinZTxt").value=0.0;//m
   document.getElementById("recentEQMaxZTxt").value=30000;
   recentEQ_add_bounding_rectangle(minlat, minlon, maxlat,maxlon);

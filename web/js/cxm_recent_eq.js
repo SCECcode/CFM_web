@@ -132,6 +132,12 @@ function recentEQ_add_bounding_rectangle_layer(layer, a,b,c,d) {
 
 
 /**********************************************************************/
+
+function proj4byZone(utmEasting, utmNorthing, fooZone) {
+	window.console.log("XXX need to do something");
+   return [utmEasting, utmNorthing];
+}
+
 function makeARecentEQMarker(data) {
   let longitude=data.coord[0];
   let latitude= data.coord[1];
@@ -148,13 +154,20 @@ function makeARecentEQMarker(data) {
   let utmZoneNum=utmCoords.zoneNum;
   let utmZoneLetter=utmCoords.zoneLetter;
 
+  let sourceZ=utmZoneNum+utmZoneLetter;
+  
+  window.console.log("XXX foo");
+  if(sourceZ == "10S" || sourceZ == "10T" ) {
+    [ utmEasting, utmNorthing ] = proj2NAD27(latitude, longitude, sourceZ);
+  }
+
   let marker = makeLeafletEQCircleMarker([latitude, longitude], eq_marker_style.normal);
 
   let eq_info = `${id}`;
 
   marker.bindTooltip(eq_info).openTooltip();
 
-  marker.bindPopup("<strong>Recent Earthquake</strong><br><strong>Location: </strong>"+loc+"<br><strong>When: </strong>"+ new Date(time).toLocaleString() +"<br><strong>Magnitude: </strong>"+mag+" ("+magtype+")<br><strong>Depth: </strong>"+depth+" (km)<br><strong>Location: </strong> ("+longitude+", "+latitude+")<br><strong>ID: </strong>"+id,{maxWidth: 500});
+  marker.bindPopup("<strong>Recent Earthquake</strong><br><strong>Location: </strong>"+loc+"<br><strong>When: </strong>"+ new Date(time).toLocaleString() +"<br><strong>Magnitude: </strong>"+mag+" ("+magtype+")<br><strong>Depth: </strong>"+depth+" (km)<br><strong>Location: </strong> ("+longitude+", "+latitude+")<br><strong>ID: </strong>"+id+"<br>Easting("+utmEasting+"),Northing("+utmNorthing+")"+utmZoneNum+utmZoneLetter,{maxWidth: 500});
 
 
   marker.scec_properties = {

@@ -33,9 +33,10 @@ const EQ_QUAKE_TYPE_NAME_LIST=["hauksson","significant","bucket"];
 var showing_significant=false;
 
 // for tracking groups of earthquakes for SIGNIFICANT eq dataset
-var cxm_quake_significant_layer=null;
-var cxm_quake_significant_latlng=[];
-var cxm_quake_significant_description=[];
+var cxm_significant_quake_layer;
+var cxm_significant_quake_group_list=[];
+
+var cxm_significant_quake_layer=null;
 
 // Not USED
 var cxm_quake_group=null;
@@ -177,8 +178,12 @@ function _loadFromFileLatlngSignificantSet() {
               var jzdata= _decompress2JSON(zdata);
               var desc=jzdata['description'];
               var latlng=jzdata['latlng'];
-              cxm_quake_significant_latlng=latlng;
-              cxm_quake_significant_description=desc;
+
+//XXX
+
+              let cxm_quake_significant_latlng=latlng;
+              let cxm_quake_significant_description=desc;
+
               doneQuakeCounterWithVal();
               finishLoadSeismicity();
             });
@@ -523,10 +528,12 @@ function _processTimeString(t) {
 function add2QuakePoints(quake_type,eqarray) {
 //window.console.log( "XXX add2QuakePoints quake_type(%d) with size %d\n", quake_type, Object.keys(eqarray).length);
     eqarray.forEach(function(marker) {
+        var id=marker['Id'];
         var lat=parseFloat(marker['Lat']);
         var lng=parseFloat(marker['Lon']);
         var depth=parseFloat(marker['Depth']);
         var mag=parseFloat(marker['Mag']);
+        var loc=parseFloat(marker['Description']);
 // from backend always get: "1981-01-01 01:49:29.504"
 // but need it to be in :"1981-01-01T01:49:29.504"
         var t=_processTimeString(marker['Time']);
@@ -540,10 +547,56 @@ function add2QuakePoints(quake_type,eqarray) {
             var tidx= getEQRangeIdx(EQ_HAUKSSON_FOR_TIME, otime);
             updateEQMarkerLatlng(EQ_HAUKSSON_FOR_TIME,tidx,lat,lng);
             break;
-          case QUAKE_TYPE_SIGNIFICANT:
-window.console.log("XXX significant point..",marker['Id']);
-            cxm_quake_significant_latlng.push({lat:lat,lng:lng});
-            cxm_quake_significant_description.push( marker['Description']);
+
+          case QUAKE_TYPE_SIGNIFICANT: 
+window.console.log("FOUND a significant ",id);
+            if(cxm_significant_quake_layer==null) { makeSignificantEQLayer(); }
+
+            // create a marker and push into marker_layer
+            let utmCoords=fromLatLon(latitude, longitude);
+            let utmEasting=utmCoords.easting.toFixed(2);
+            let utmNorthing=utmCoords.northing.toFixed(2);
+            let utmZoneNum=utmCoords.zoneNum;
+            let utmZoneLetter=utmCoords.zoneLetter;
+
+	    let marker = makeLeafletEQCircleMarker([lat, lng], site_marker_style.normal);
+
+            let eq_info = `${id}`;
+            marker.bindTooltip(eq_info).openTooltip(); 
+
+            marker.bindPopup("<strong>Significant Earthquake<strong><br>Location: </strong>"+loc+"<br><strong>When: </strong>"+ new Date(time).toLocaleString() +"<br><strong>Magnitude: </strong>"+mag+"<br><strong>Depth: </strong>"+depth+" (km)<br><strong>Location: </strong> ("+longitude+", "+latitude+")<br><strong>ID: </strong>"+id,{maxWidth: 500});
+
+            marker.scec_properties = {
+                    id: id,
+                    longitude: lng,
+                    latitude: lat,
+                    "depth(km)": depth,
+                    magnitude: mag,
+                    loc: loc,
+                    time: time,
+                    utmeasting: utmEasting,
+                    utmnorthing: utmNorthing,
+                    utmzonenumber: utmZoneNum,
+                    utmzoneletter: utmZoneLetter };
+
+            marker.on('mouseover', function (e) {
+               let normal=3;
+               let target = normal;
+               let zoom = get_zoom();
+               if(zoom > 6)  { target = (zoom > 9) ? 7 : (zoom - 6)+target; }
+               target = target *2;
+               this.setStyle( {radius:target});
+            });
+
+            marker.on('mouseout', function (e) {
+               let normal=3;
+               let target = normal;
+               let zoom = get_zoom();
+               if(zoom > 6)  { target = (zoom > 9) ? 7 : (zoom - 6)+target; }
+               this.setStyle( {radius:target});
+            });
+            xm_significant_quake_layer.addLayer(marker);
+            xm_significant_quake_group_list.push( {"id":id, "layer":marker});
 
             break;
         }
@@ -559,7 +612,6 @@ function add2QuakePointsChunk(quake_type, eqarray, next_chunk, total_chunk, step
 
 // default to depth
 function showQuakePointsAndBound(eqarray,swlat,swlon,nelat,nelon) {
-	window.console.log("XXX showQuakePointsAndBound");
    // XX should grab type from the UI
    showQuakePoints(EQ_HAUKSSON_FOR_DEPTH,eqarray);
    // create a bounding area and add to the layergroup
@@ -572,10 +624,7 @@ function showQuakePointsAndBound(eqarray,swlat,swlon,nelat,nelon) {
 *********************************************************/
 function makeSignificantEQLayer() {
    // create a group layer with many marker within..
-   //   collect up latlng, description list, "red"
-//   cxm_quake_significant_layer2=addMarkerLayerGroup( cxm_quake_significant_latlng, cxm_quake_significant_description, 6);
-window.console.log("XXX makeSignificantEQLayer");
-   cxm_quake_significant_layer=makeLeafletCircleMarker( cxm_quake_significant_latlng, cxm_quake_significant_description);
+   cxm_significant_quake_layer=new L.FeatureGroup();
 
 };
 
@@ -591,7 +640,7 @@ function toggleSignificant() {
 }
 
 function removeSignificantEQLayer() {
-    viewermap.removeLayer(cxm_quake_significant_layer);
+    viewermap.removeLayer(cxm_significant_quake_layer);
     showing_significant=false;
 }
 
@@ -599,10 +648,10 @@ function addSignificantEQLayer() {
     if(showing_significant)
       return;
 
-    if(cxm_quake_significant_layer==null) {
+    if(cxm_significant_quake_layer==null) {
       makeSignificantEQLayer();
       } else {
-        viewermap.addLayer(cxm_quake_significant_layer);
+        viewermap.addLayer(cxm_significant_quake_layer);
     }
     showing_significant=true;
 }
