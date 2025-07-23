@@ -410,7 +410,6 @@ function zoom2Bounds(bounds)
 }
 
 
-
 // binding the 'detail' fault content
 function bindPopupEachFeature(feature, layer) {
     var popupContent="";

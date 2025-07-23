@@ -4,36 +4,33 @@
 
 const DATA_CHUNK_COUNT=20;
 
-function proj2NAD27(lat, lon) {
-    if (window.XMLHttpRequest) {
-        // code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp = new XMLHttpRequest();
-    } else {
-        // code for IE6, IE5
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+// make it synchronise, project to NAD27, zone 11S
+async function proj2NAD27(lat, lon) {
+  try {
+    const response = await fetch(`php/proj2NAD27.php?lat=${lat}&lon=${lon}`);
+    const html = await response.text();
+
+    // Create a temporary DOM element to parse the response
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = html;
+    const dataDiv = tempDiv.querySelector('[data-side="proj2NAD27"]');
+
+    if (!dataDiv) {
+      window.console.log("BAD BAD", lat, lon);
+      throw new Error("data-side='proj2NAD27' not found in response");
     }
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("phpResponseTxt").innerHTML = this.responseText;
-            window.console.log("XXX");
-            window.console.log(this.responseText);
-            var str = $('[data-side="proj2NAD27"]').data('params');
-            window.console.log(str);
-            // should just have 1 set
-		/*
-            //let tmp= JSON.parse(str);
-            var utmEasting=parseFloat(tmp['easting']);
-            var utmNorthing=parseFloat(tmp['northing']);
-            window.console.log(utmEasting);
-            window.console.log(utmNorthing);
-	         */
-            return 0;
-//		[utmEasting, utmNorthing];
-        }
-    }
-    xmlhttp.open("GET","php/proj2NAD27.php?lat="+lat+"&lon="+lon,true);
-    xmlhttp.send();
+
+    const data = JSON.parse(dataDiv.getAttribute('data-params'));
+    var east = parseFloat(data.easting);
+    var north = parseFloat(data.northing);
+    return [east, north];
+  } catch (error) {
+    console.error("proj2NAD27 error:", error);
+    return [null, null];
+  }
+
 }
+
 
 function quakesAllToUTMFile(quake_type,msg) {
     var uid=getRnd();

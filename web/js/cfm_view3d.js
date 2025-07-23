@@ -440,6 +440,47 @@ function setQuake3Dview(val) {
   }
 }
 
+var track_recenteq=1; // 0 is none, 1 is on
+//publicAPI.toggle
+function toggleRecentEQ3Dview() {
+  if(recent_quake_count == 0)  // do nothing
+    return;
+  document.getElementById("view3DIfram").contentDocument.getElementById("RecentEQbtn").click();
+  let elt=document.getElementById("view3DToggleRecentEQbtn");
+
+  switch( track_recenteq ) {
+    case 1:
+      elt.innerHTML="Show Recent EQ";
+      track_recenteq = 0;
+      break;
+    case 0:
+      elt.innerHTML="Hide Recent EQ";
+      track_recenteq = 1;
+      break;
+  }
+}
+function resetRecentEQ3Dview() {
+  track_recenteq=1;
+  let elt=document.getElementById("view3DToggleRecentEQbtn");
+  elt.innerHTML="Hide Recent EQ";
+}
+
+function setRecentEQ3Dview() {
+  if(recent_quake_count == 0)  // do nothing
+    return;
+  document.getElementById("view3DIfram").contentDocument.getElementById("SetRecentEQbtn").click();
+  track_recenteq=val;
+  let elt=document.getElementById("view3DToggleRecentEQbtn");
+  switch( track_recenteq ) {
+    case 0:
+      elt.innerHTML="Show Recent EQ";
+      break;
+    case 1:
+      elt.innerHTML="Hide Recent EQ";
+      break;
+  }
+}
+
 var track_representation=0; // 1 is wireframe 0 is surface 2 is surface + edge
 //publicAPI.toggle
 function toggleRepr3Dview() {

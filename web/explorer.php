@@ -33,7 +33,7 @@ require_once("php/util.php");
     <script type='text/javascript' src='js/vendor/esri-leaflet.js'></script>
     <script type='text/javascript' src='js/vendor/esri-leaflet-vector.js' crossorigin=""></script>
 
-    <script type='text/javascript' src='js/vendor/FileSaver.js'></script>
+    <script type='text/javascript' src='js/vendor/FileSaver.js'></script
     <script type='text/javascript' src='js/vendor/jszip.js'></script>
     <script type='text/javascript' src='js/vendor/zlib.min.js'></script>
     <script type='text/javascript' src='js/vendor/zlib-util.js'></script>
@@ -437,21 +437,23 @@ onkeypress="javascript:if (event.key == 'Enter') $('#secondLonTxt').mouseout();"
 	<div class="col-9">
 <div class="row"> <!-- right-row -->
 
- <div class="col-2">
-     <div class="row">
-       <button id="recentEQBtn" class="control-btn" onclick="toggleRecentEQMenu()">recent EQ(0)</button>
-       <button id="recentEQDownloadBtn" class="btn cfm-small-btn"
-                        onClick="downloadRecentEQ()" style="display:none">
+ <div class="col-3">
+     <div id="searchRecentEQ" class="row" style="min-width:20rem;">
+       <button id="recentEQBtn" class="control-btn" onclick="toggleRecentEQMenu()">Search recent EQ(0)</button>
+       <div id="showRecentEQ" class="row pl-4" style="display:none;">
+         <button id="recentEQDownloadBtn" class="btn cfm-small-btn"
+                        onClick="downloadRecentEQ()">
                        <span class="glyphicon glyphicon-download"
                             title="Download Recent EQ"
                             style="font-size:14px"></span></button>
-       <button id="recentEQShowBtn" class="btn cfm-small-btn"
-                        onClick="showRecentEQ()" style="display:none">
+         <button id="recentEQShowBtn" class="btn cfm-small-btn"
+                        onClick="showRecentEQ()">
                        <span id="eye_recentEQ" class="glyphicon glyphicon-eye-open"
                             title="Show Recent EQ"
                             style="font-size:14px"></span></button>
 
-       <input type="text" id="recentEQ-counter" value="0" style="display:none">
+         <input type="text" id="recentEQ-counter" value="0" style="display:none">
+       </div>
      </div>
  </div>
 
@@ -487,12 +489,12 @@ onkeypress="javascript:if (event.key == 'Enter') $('#secondLonTxt').mouseout();"
      </div> <!-- kml-row -->
  </div>
 
- <div class="col-5"> <!-- basemap -->
+ <div class="col-4"> <!-- basemap -->
 	    <div class="input-group input-group-sm cfm-input-group" id="map-controls">
                 <div class="input-group-prepend" title="Change the basemap imagery"">
                     <label class="input-group-text" for="mapLayer">Select Map Type</label>
                 </div>
-                <select id="mapLayer" class="custom-select custom-select-sm" style="width:auto;min-width:14rem;"
+                <select id="mapLayer" class="custom-select custom-select-sm" style="width:auto;min-width:6rem;"
 onchange="switchLayer(this.value);">
                   <option selected value="esri topo">ESRI Topographic</option>
                   <option value="esri imagery">ESRI Imagery</option>
@@ -826,6 +828,7 @@ onchange="switchLayer(this.value);">
       <div class="modal-header">
         <!-- Park instance Data here --> 
         <button id="view3DToggleReprbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleRepr3Dview()">Show Wireframe</button>
+        <button id="view3DToggleRecentEQbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleRecentEQ3Dview()">Hide Recent EQ</button>
         <button id="view3DToggleQuakebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleQuake3Dview()">No EQ</button>
         <button id="view3DToggleTracebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleTrace3Dview()">Hide Traces</button>
         <button id="view3DToggleShorebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleShore3Dview()">Hide Coastline</button>

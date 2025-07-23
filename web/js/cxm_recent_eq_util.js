@@ -43,18 +43,13 @@ function recentEQ_makeUTMBlob() {
       if(depth == '' || undefined) {
         continue;
       }
-      let nprop = { lat: prop['latitude'],
-	            lon: prop['longitude'],
-                    easting: prop['utmeasting'],
-                    northing: prop['utmnorthing'],
+      let nprop = { easting: prop['eastNAD27'],
+                    northing: prop['northNAD27'],
 	            depth: prop['depth(km)'],
 	            mag: prop['magnitude'],
 	            magtype: prop['magtype'],
-                    id: prop['id'],
-	            loc: prop['loc'] }
+                    id: prop['id'] }
       bloblist.push(nprop);
-      window.console.log(prop['utmeasting'], prop['utmnorthing'], -1000*prop['depth(km)']);      
-      window.console.log("\n");
       cnt++;
   }
   if(cnt == 0) return null;
@@ -106,14 +101,12 @@ function showRecentEQ() {
 /**********************************************************************/
 function setRecentEQCounter(v) {
   document.getElementById("recentEQ-counter").value=v;
-  document.getElementById("recentEQBtn").innerText = `recent EQ(${v})`;
+  document.getElementById("recentEQBtn").innerText = `Search recent EQ(${v})`;
   recent_quake_count=v;
   if(recent_quake_count > 0) {
-    $('#recentEQDownloadBtn').css("display", "");
-    $('#recentEQShowBtn').css("display", "");
+    $('#showRecentEQ').css("display", "");
     } else {
-      $('#recentEQDownloadBtn').css("display", "none");
-      $('#recentEQShowBtn').css("display", "none");
+      $('#showRecentEQ').css("display", "none");
   }
 }
 
@@ -218,7 +211,6 @@ function recentEQExtractData() {
 }
 
 function recentEQReset() {
-   window.console.log("XXX again.");
   if(recent_quake_count != null && recent_quake_count !=0) {
     clearRecentEQLayer();
     recentEQ_remove_bounding_rectangle_layer();
@@ -245,9 +237,10 @@ function get_RecentEQFromUSGS() {
 	
   let reqEQ_spec;
   if(maxmag == '-') {
-    reqEQ_spec='&limit=20000&starttime='+starttime+'&endtime='+endtime+'&minlatitude='+firstlat+'&minlongitude='+firstlon+'&maxlatitude='+secondlat+'&maxlongitude='+secondlon+'&minmagnitude='+minmag;
+    reqEQ_spec='&limit='+RECENT_EQ_SIZE_LIMIT+'&starttime='+starttime+'&endtime='+endtime+'&minlatitude='+firstlat+'&minlongitude='+firstlon+'&maxlatitude='+secondlat+'&maxlongitude='+secondlon+'&minmagnitude='+minmag;
+
     } else {
-      reqEQ_spec='&limit=20000&starttime='+starttime+'&endtime='+endtime+'&minlatitude='+firstlat+'&minlongitude='+firstlon+'&maxlatitude='+secondlat+'&maxlongitude='+secondlon+'&minmagnitude='+minmag+'&maxmagnitude='+maxmag;
+      reqEQ_spec='&limit='+RECENT_EQ_SIZE_LIMIT+'&starttime='+starttime+'&endtime='+endtime+'&minlatitude='+firstlat+'&minlongitude='+firstlon+'&maxlatitude='+secondlat+'&maxlongitude='+secondlon+'&minmagnitude='+minmag+'&maxmagnitude='+maxmag;
   }
 	
 window.console.log(reqEQ_spec);
@@ -308,13 +301,16 @@ async function _getRecentEQFromUSGS(reqEQ) {
           eq_list.push(tmp);
           eq_cnt++;
     }
+
+    if(eq_cnt > RECENT_EQ_SIZE_LIMIT) { // cap it
+       window.console.log("BAD: service sent back more than"+RECENT_EQ_SIZE_LIMIT);
+       eq_cnt=RECENT_EQ_SIZE_LIMIT; 
+    }
     
     // process and store it..
-window.console.log("GOT complete LIST");
     for (let i=0; i< eq_cnt; i++) {
         makeARecentEQMarker(eq_list[i]);
     }    
-    window.console.log(eq_cnt);
     setRecentEQCounter(eq_cnt);
     $("#modalwaitrecenteq").modal('hide');
 
