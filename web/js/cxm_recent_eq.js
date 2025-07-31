@@ -162,7 +162,9 @@ function makeARecentEQMarker(data) {
   let tmp=new Date(time).toLocaleString();
 
 
-  marker.bindPopup("<strong>Recent Earthquake</strong><br><strong>Location: </strong>"+loc+"<br><strong>When: </strong>"+ tmp +"<br><strong>Magnitude: </strong>"+mag+" ("+magtype+")<br><strong>Depth: </strong>"+depth+" (km)<br><strong>Location: </strong> ("+longitude+", "+latitude+")<br><strong>ID: </strong>"+id,{maxWidth: 500});
+  marker.bindPopup("<strong>Recent Earthquake</strong><br><strong>Location: </strong>"+loc+"<br><strong>When: </strong>"+ tmp +"<br><strong>Magnitude: </strong>"+mag+" ("+magtype+")<br><strong>Depth: </strong>"+depth+" (km)<br><strong>Location: </strong> ("+longitude+", "+latitude+")<br><strong>ID: </strong> <a href=\"https://earthquake.usgs.gov/earthquakes/eventpage/"+id+"/executive\" target=\"_blank\">"+id+"</a>",{maxWidth: 500});
+
+ // marker.bindPopup("<strong>Recent Earthquake</strong><br><strong>Location: </strong>"+loc+"<br><strong>When: </strong>"+ tmp +"<br><strong>Magnitude: </strong>"+mag+" ("+magtype+")<br><strong>Depth: </strong>"+depth+" (km)<br><strong>Location: </strong> ("+longitude+", "+latitude+")<br><strong>ID: </strong>"+id,{maxWidth: 500});
 
   marker.scec_properties = {
                     time: tmp,
@@ -277,8 +279,6 @@ function toggleRecentEQ() {
 }
 
 function addRecentEQLayer() {
-
-    window.console.log("XXX addRecentEQLayer");
 
     if(cxm_recent_quake_layer==null) {
       window.console.log("BAD: addRecentEQLayer, cxm_recent_quake_layer should not be null");
