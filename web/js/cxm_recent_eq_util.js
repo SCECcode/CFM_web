@@ -237,10 +237,10 @@ function get_RecentEQFromUSGS() {
 	
   let reqEQ_spec;
   if(maxmag == '-') {
-    reqEQ_spec='&limit='+RECENT_EQ_SIZE_LIMIT+'&starttime='+starttime+'&endtime='+endtime+'&minlatitude='+firstlat+'&minlongitude='+firstlon+'&maxlatitude='+secondlat+'&maxlongitude='+secondlon+'&minmagnitude='+minmag;
+    reqEQ_spec='&limit='+RECENT_EQ_COUNT_LIMIT+'&starttime='+starttime+'&endtime='+endtime+'&minlatitude='+firstlat+'&minlongitude='+firstlon+'&maxlatitude='+secondlat+'&maxlongitude='+secondlon+'&minmagnitude='+minmag;
 
     } else {
-      reqEQ_spec='&limit='+RECENT_EQ_SIZE_LIMIT+'&starttime='+starttime+'&endtime='+endtime+'&minlatitude='+firstlat+'&minlongitude='+firstlon+'&maxlatitude='+secondlat+'&maxlongitude='+secondlon+'&minmagnitude='+minmag+'&maxmagnitude='+maxmag;
+      reqEQ_spec='&limit='+RECENT_EQ_COUNT_LIMIT+'&starttime='+starttime+'&endtime='+endtime+'&minlatitude='+firstlat+'&minlongitude='+firstlon+'&maxlatitude='+secondlat+'&maxlongitude='+secondlon+'&minmagnitude='+minmag+'&maxmagnitude='+maxmag;
   }
 	
 window.console.log(reqEQ_spec);
@@ -302,15 +302,18 @@ async function _getRecentEQFromUSGS(reqEQ) {
           eq_cnt++;
     }
 
-    if(eq_cnt > RECENT_EQ_SIZE_LIMIT) { // cap it
-       window.console.log("BAD: service sent back more than"+RECENT_EQ_SIZE_LIMIT);
-       eq_cnt=RECENT_EQ_SIZE_LIMIT; 
+    if(eq_cnt > RECENT_EQ_COUNT_LIMIT) { // cap it
+       window.console.log("BAD: service sent back more than"+RECENT_EQ_COUNT_LIMIT);
+       eq_cnt=RECENT_EQ_COUNT_LIMIT; 
     }
     
     // process and store it..
+    RECENT_EQ_MAG_MAX = 0;
+    RECENT_EQ_MAG_MIN = 0;
     for (let i=0; i< eq_cnt; i++) {
         makeARecentEQMarker(eq_list[i]);
     }    
+    window.console.log("XXX,magnitude of %d: max %f min %f\n", eq_cnt,RECENT_EQ_MAG_MAX,RECENT_EQ_MAG_MIN);
     setRecentEQCounter(eq_cnt);
     $("#modalwaitrecenteq").modal('hide');
 

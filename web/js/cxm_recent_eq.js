@@ -17,7 +17,12 @@ var showing_recent_quake=false;
 var recent_quake_count=0;
 var enableCluster=false;
 var use_markerCluster=0;
-var RECENT_EQ_SIZE_LIMIT = 2000;
+
+var RECENT_EQ_COUNT_LIMIT = 2000;
+// in magtype == ml, conver on mw if within 3.5/6.5 range
+var RECENT_EQ_MAG_MAX = 0;
+var RECENT_EQ_MAG_MIN = 0;
+
 
 // recent_eq_region={"layer":layer, "latlngs":[{"lat":a,"lon":b},{"lat":c,"lon":d}]};
 // this holds the layer that has the 'region boundary'
@@ -133,12 +138,6 @@ function recentEQ_add_bounding_rectangle_layer(layer, a,b,c,d) {
 
 
 /**********************************************************************/
-
-function proj4byZone(utmEasting, utmNorthing, fooZone) {
-	window.console.log("XXX need to do something");
-   return [utmEasting, utmNorthing];
-}
-
 function makeARecentEQMarker(data) {
   let longitude=data.coord[0];
   let latitude= data.coord[1];
@@ -176,8 +175,31 @@ function makeARecentEQMarker(data) {
 	            utmeasting: utmEasting,
 	            utmnorthing: utmNorthing,
 	            utmzonenumber: utmZoneNum,
-	            utmzoneletter: utmZoneLetter
+	            utmzoneletter: utmZoneLetter,
+	            id: id
                   };
+
+// tracking the max and min of the magnitude in this selected group
+// usually for small eq, ml is used, larger ones mw is used
+// for eq from 3.5 to 6.5, Hanks and Kanamori (1979) equation: 
+// ml= 1.5* (mw - 1.0)
+	//
+//
+	
+  let tmp_mag=parseFloat(mag);
+  let tmp_magtype= magtype;
+  { 
+    if(tmp_magtype == "mw" && tmp_mag < 6.5 && tmp_mag > 3.5) {
+       tmp_mag=1.5 * (tmp_mag - 1.0);
+       tmp_magtype = "ml";
+    } 
+    if(tmp_magtype == "ml") {
+      if(RECENT_EQ_MAG_MIN == 0 || tmp_mag < RECENT_EQ_MAG_MIN) { RECENT_EQ_MAG_MIN=tmp_mag; }
+      if(tmp_mag > RECENT_EQ_MAG_MAX) {	RECENT_EQ_MAG_MAX=tmp_mag; }
+      } else {
+        window.console.log("XXX can not process %s due to magtype\n",id); 
+    }
+  }
 
   if(sourceZ == "10S" || sourceZ == "10T" ) {
     (async () => {
