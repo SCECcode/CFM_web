@@ -29,6 +29,23 @@ var recentEQ_on=false;
                     magtype: magtype,
                     time:time};
 ************************************************************************/
+function recentEQ_makeIDList() {
+	// {"recenteq":["ci40699207","ci41249424"]}
+  let idlist=[];
+  for(let i=0; i<recent_quake_count; i++) {
+    let eq=cxm_recent_quake_group_list[i]["layer"];
+    let prop=eq.scec_properties;
+    let id= prop['id'];
+    if(id == '' || undefined) {
+        continue;
+    }
+    idlist.push(id);
+  }
+  let blob= { recenteq : idlist }; 
+  var jsonstring=JSON.stringify(blob);
+  return jsonstring;
+}
+
 // needs lat/lon/depth/mag/id
 // compose utm data file from the grouplist to be sent to plot3d
 function recentEQ_makeUTMBlob() {
@@ -36,6 +53,7 @@ function recentEQ_makeUTMBlob() {
  
   let cnt=0;
 
+  var mdiff=(RECENT_EQ_MAG_MAX-RECENT_EQ_MAG_MIN);
   for(let i=0; i<recent_quake_count; i++) {
       let eq=cxm_recent_quake_group_list[i]["layer"];
       let prop=eq.scec_properties;      
@@ -43,14 +61,30 @@ function recentEQ_makeUTMBlob() {
       if(depth == '' || undefined) {
         continue;
       }
+      var msz=prop['mag_mw'];
+      if(msz != 0 && mdiff !=0) {
+        var t = ((msz - RECENT_EQ_MAG_MIN ) / mdiff);
+        var tt = t*t;
+        msz= 0.3+(tt * 0.7);
+      }
+
+/* exponential rescale between 0.5 to 1 
+ *  xnew = 0.5 + (x-a/b-a)power of 2 * (1-0.5)
+ *  a is min
+ *  b is max
+*/
+      if(recent_quake_count==1) {
+         msz=0.5;
+      }
       let nprop = { easting: prop['eastNAD27'],
                     northing: prop['northNAD27'],
 	            depth: prop['depth(km)'],
 	            mag: prop['magnitude'],
 	            magtype: prop['magtype'],
-                    id: prop['id'] }
-      bloblist.push(nprop);
-      cnt++;
+                    id: prop['id'],
+	            msz: msz}
+        bloblist.push(nprop);
+        cnt++;
   }
   if(cnt == 0) return null;
 
@@ -102,12 +136,18 @@ function showRecentEQ() {
 function setRecentEQCounter(v) {
   document.getElementById("recentEQ-counter").value=v;
   document.getElementById("recentEQBtn").innerText = `Search recent EQ(${v})`;
+
   recent_quake_count=v;
   if(recent_quake_count > 0) {
     $('#showRecentEQ').css("display", "");
     } else {
       $('#showRecentEQ').css("display", "none");
   }
+}
+
+function getRecentEQCounter() {
+  let v=parseFloat(document.getElementById("recentEQ-counter").value);
+  return v;
 }
 
 function toggleRecentEQMenu()
@@ -157,7 +197,7 @@ function setNdays(n) {
 
 // ui
 function setNmagnitude(n) {
-  let min=parseFloat(n);
+  let min=parseInt(n);
 
   document.getElementById("minMagnitudeTxt").value = min;
   document.getElementById("maxMagnitudeTxt").value = '-';
@@ -190,13 +230,40 @@ function recentEQ_set_latlons(a,b,c,d) {
 }
 
 /**********************************************************************/
-function recentEQExtractData_withID(id) {
+/****
+function recentEQExtractData_withID(id_list) {
   if(recent_quake_count != 0) {
     clearRecentEQLayer();
     recentEQ_remove_bounding_rectangle_layer();
   }
-  get_RecentEQFromUSGS_withID(id);
+
+  RECENT_EQ_MAG_MAX = 0;
+  RECENT_EQ_MAG_MIN = 0;
+
+  let cnt=id_list.length;
+  let eq_cnt=0;
+  for(let i=0; i<cnt; i++) {
+    let id=id_list[i];
+    get_RecentEQFromUSGS_withID(id);
+  }
+  return 0;
 }
+
+**/
+
+async function recentEQExtractData_withID(id_list) {
+  if (recent_quake_count !== 0) {
+    clearRecentEQLayer();
+    recentEQ_remove_bounding_rectangle_layer();
+  }
+
+  RECENT_EQ_MAG_MAX = 0;
+  RECENT_EQ_MAG_MIN = 0;
+
+  let promises = id_list.map(id => get_RecentEQFromUSGS_withID(id));
+  await Promise.all(promises); // waits for all fetches to complete
+}
+
 
 function recentEQExtractData() {
   if(recent_quake_count != 0) {
@@ -208,6 +275,8 @@ function recentEQExtractData() {
 
   get_RecentEQFromUSGS();
   recentEQ_on_bounding_rectangle_layer();
+  //toggle, reset the pen only
+  recentEQ_markLatlon();
 }
 
 function recentEQReset() {
@@ -232,7 +301,6 @@ function get_RecentEQFromUSGS() {
   let maxz=document.getElementById("recentEQMaxZTxt").value;
 
 // ??? make sure latlons are ordered 
-	
   recentEQ_add_bounding_rectangle(firstlat,firstlon,secondlat,secondlon);
 	
   let reqEQ_spec;
@@ -245,7 +313,10 @@ function get_RecentEQFromUSGS() {
 	
 window.console.log(reqEQ_spec);
   const reqEQ_url = reqEQ_host+reqEQ_spec;
-  _getRecentEQFromUSGS(reqEQ_url);
+
+  RECENT_EQ_MAG_MAX = 0;
+  RECENT_EQ_MAG_MIN = 0;
+  return _getRecentEQFromUSGS(reqEQ_url);
 }
 
 function get_RecentEQFromUSGS_withID(id) {
@@ -253,11 +324,11 @@ function get_RecentEQFromUSGS_withID(id) {
   let reqEQ_spec = '&eventid='+id;
   let reqEQ_url = reqEQ_host + reqEQ_spec;
 
-  _getRecentEQFromUSGS(reqEQ_url);
+  return _getRecentEQFromUSGS(reqEQ_url);
 }
 
 async function _getRecentEQFromUSGS(reqEQ) {
-  window.console.log("CALLING  EQ from USGS");
+  window.console.log("CALLING for EQ from USGS");
   try {
     const response = await fetch(reqEQ);
     if (!response.ok) {
@@ -271,6 +342,7 @@ async function _getRecentEQFromUSGS(reqEQ) {
     let eq_cnt=0;
 
     if("features" in data)  {
+
 // this is for many
         data.features.forEach(eq => {
           let place = eq.properties.place;
@@ -286,11 +358,12 @@ async function _getRecentEQFromUSGS(reqEQ) {
           eq_list.push(tmp);
           eq_cnt++;
         });
+
 // this is just for 1
         } else { 
           let place = data.properties.place;
           let mag = data.properties.mag;
-          let magtype = data.properties.magtype;
+          let magtype = data.properties.magType;
           let ntime = new Date(data.properties.time).toLocaleString();
           let time = data.properties.time;
           let coord = data.geometry.coordinates;
@@ -299,22 +372,24 @@ async function _getRecentEQFromUSGS(reqEQ) {
     
           let tmp = { id: id, coord: coord, place: place, mag: mag, magtype: magtype,time: time };
           eq_list.push(tmp);
-          eq_cnt++;
+          eq_cnt=1;
     }
+
+    RECENT_EQ_COUNT=RECENT_EQ_COUNT+eq_cnt;
 
     if(eq_cnt > RECENT_EQ_COUNT_LIMIT) { // cap it
        window.console.log("BAD: service sent back more than"+RECENT_EQ_COUNT_LIMIT);
        eq_cnt=RECENT_EQ_COUNT_LIMIT; 
     }
-    
+
     // process and store it..
-    RECENT_EQ_MAG_MAX = 0;
-    RECENT_EQ_MAG_MIN = 0;
     for (let i=0; i< eq_cnt; i++) {
         makeARecentEQMarker(eq_list[i]);
     }    
-    window.console.log("XXX,magnitude of %d: max %f min %f\n", eq_cnt,RECENT_EQ_MAG_MAX,RECENT_EQ_MAG_MIN);
-    setRecentEQCounter(eq_cnt);
+
+    window.console.log(" -- adding eq_cnt %d: max %f min %f\n", eq_cnt,RECENT_EQ_MAG_MAX,RECENT_EQ_MAG_MIN);
+    setRecentEQCounter(RECENT_EQ_COUNT);
+
     $("#modalwaitrecenteq").modal('hide');
 
     addRecentEQLayer();

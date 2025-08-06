@@ -1191,7 +1191,7 @@ window.console.log("FOUND event id ",elist[i]);
     if(ts == 0 && ptype != "main2d")
       return;
     if(name != 0) {
-      findByNameInPreset(name,ptype,ts,eqeventid);
+      findByNameInPreset(name,ptype,ts,RECENT_EQ_PRESET_EVENTIDLIST);
       return;
     }
   }
@@ -1199,7 +1199,7 @@ window.console.log("FOUND event id ",elist[i]);
 
 // name => array of fault name
 // no need to go to server,
-function findByNameInPreset(name, ptype, ts, eqeventid) {
+function findByNameInPreset(name, ptype, ts, eqeventid_list) {
     let sz=name.length;
     if(sz == 0) {
       return; 
@@ -1213,14 +1213,21 @@ function findByNameInPreset(name, ptype, ts, eqeventid) {
         switch (ptype) {
           case "main2d":
 // if there are event ids, call recentEQ to bring them in
-            if(eqeventid==0) {
+            if(eqeventid_list.length==0) {
               zoom2SelectFaults();
               } else {
-                recentEQExtractData_withID(eqeventid);
+                recentEQExtractData_withID(eqeventid_list);
             }
             break;
           case "main3d":
-            setTimeout(executePlot3d(ts), 3000);
+             (async function handleEQData() {
+                if (eqeventid_list.length !== 0) {
+                      await recentEQExtractData_withID(eqeventid_list);
+                }
+                executePlot3d(ts);
+             })();
+	     // setTimeout(() => executePlot3d(ts), 3000);
+             // setTimeout(executePlot3d(ts), 3000);
             break;
           case "note":
             window.console.log("NOTE type: not sure what to do..");

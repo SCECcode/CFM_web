@@ -587,7 +587,7 @@ onchange="switchLayer(this.value);">
                                  value="30" onclick="setNdays(this.value);">
                           <label for="html">Past 30 Days</label><br>
 			  <input type="radio" id="customDuration" name="durationTime" 
-                                 value="custom" onclick="setNdays(10);">
+                                 value="custom" onclick="setNdays(365);">
                           <label for="html">custom</label><br>
                           <input type="text"
                                  placeholder="Start Time (UTC)"

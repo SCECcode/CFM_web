@@ -22,6 +22,7 @@ var RECENT_EQ_COUNT_LIMIT = 2000;
 // in magtype == ml, conver on mw if within 3.5/6.5 range
 var RECENT_EQ_MAG_MAX = 0;
 var RECENT_EQ_MAG_MIN = 0;
+var RECENT_EQ_COUNT = 0;
 
 
 // recent_eq_region={"layer":layer, "latlngs":[{"lat":a,"lon":b},{"lat":c,"lon":d}]};
@@ -86,7 +87,6 @@ function recentEQ_reset_markLatlon() {
   drawing_rectangle=false;
   skipRectangle();
   rebind_layer_popup();
-window.console.log("HERE");
   setRecentEQRegion();
   // add default region layer
   recentEQ_on_bounding_rectangle_layer();
@@ -181,25 +181,29 @@ function makeARecentEQMarker(data) {
 	            id: id
                   };
 
-// tracking the max and min of the magnitude in this selected group
-// usually for small eq, ml is used, larger ones mw is used
-// for eq from 3.5 to 6.5, Hanks and Kanamori (1979) equation: 
-// ml= 1.5* (mw - 1.0)
-	//
-//
-	
+/* convert to mw for everything
+   (for california)
+    Mw = 0.85 Ml + 0.33
+    Mw = 0.67 Md + 1.14
+*/
   let tmp_mag=parseFloat(mag);
   let tmp_magtype= magtype;
   { 
-    if(tmp_magtype == "mw" && tmp_mag < 6.5 && tmp_mag > 3.5) {
-       tmp_mag=1.5 * (tmp_mag - 1.0);
-       tmp_magtype = "ml";
-    } 
     if(tmp_magtype == "ml") {
+       tmp_mag= (0.85 * tmp_mag)+ 0.33;
+       tmp_magtype = "mw";
+    } 
+    if(tmp_magtype == "md") {
+       tmp_mag= (0.67 * tmp_mag)+ 1.14;
+       tmp_magtype = "mw";
+    } 
+    if(tmp_magtype == "mw") {
       if(RECENT_EQ_MAG_MIN == 0 || tmp_mag < RECENT_EQ_MAG_MIN) { RECENT_EQ_MAG_MIN=tmp_mag; }
       if(tmp_mag > RECENT_EQ_MAG_MAX) {	RECENT_EQ_MAG_MAX=tmp_mag; }
+      marker.scec_properties.mag_mw=tmp_mag;  // magnitude in ml
       } else {
-        window.console.log("XXX can not process %s due to magtype\n",id); 
+        window.console.log("  XXX can not process %s due to magtype\n",id); 
+        marker.scec_properties.mag_mw=0;  // magnitude in ???
     }
   }
 
@@ -229,9 +233,18 @@ function makeARecentEQMarker(data) {
         target = (zoom > 9) ? 7 : (zoom - 6)+target;
       }
       target = target *2;
-      window.console.log(" marker mouseover", target);
+      window.console.log(" marker mouseover", target, "base zoom", zoom);
       this.setStyle( {radius:target});
   });
+
+
+	/*
+function updateRadius() {
+  const currentZoom = map.getZoom();
+  const scaleFactor = Math.pow(2, currentZoom - baseZoom);
+  marker.setRadius(baseRadius * scaleFactor);
+}
+         */
 
   marker.on('mouseout', function (e) {
       let normal=3;
@@ -240,6 +253,7 @@ function makeARecentEQMarker(data) {
       if(zoom > 6)  {
         target = (zoom > 9) ? 7 : (zoom - 6)+target;
       }
+      window.console.log(" marker mouseout", target, "base zoom", zoom);
       this.setStyle( {radius:target});
   });
 

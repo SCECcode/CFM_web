@@ -193,7 +193,13 @@ function show3dView(urls,nstr,path,nlstr,eqstr) {
     let TS='&ts="'+use_download_set+'"';
     let PTYPE='&ptype="main3d"';
     let share_params=NAME+TS+PTYPE;
+	  //eventid={"recenteq":["ci40699207","ci41249424"]}
+    if(eqstr !=null) {
+       let eqlist=recentEQ_makeIDList();
+       share_params=share_params+"&eventid="+eqlist;
+    }
     set_SHARE_PARAMS(share_params);
+window.console.log(" XXXX share_params is>> ",share_params);   
     } else {
       set_SHARE_PARAMS("");
   }
