@@ -53,19 +53,23 @@ function recentEQ_makeUTMBlob() {
  
   let cnt=0;
 
-  var mdiff=(RECENT_EQ_MAG_MAX-RECENT_EQ_MAG_MIN);
+
+window.console.log(" YYY calling recentEQ_makeUTMBlob");
+
+  let expMin=Math.exp(RECENT_EQ_MAG_MIN  * 0.1);
+  let expMax=Math.exp(RECENT_EQ_MAG_MAX);
   for(let i=0; i<recent_quake_count; i++) {
-      let eq=cxm_recent_quake_group_list[i]["layer"];
+if(cxm_recent_quake_group_list[i] == undefined) { window.console.log("BAD"); }
+      let eq=cxm_recent_quake_group_list[i]['layer'];
       let prop=eq.scec_properties;      
       let depth= prop['depth(km)'];
       if(depth == '' || undefined) {
         continue;
       }
       var msz=prop['mag_mw'];
-      if(msz != 0 && mdiff !=0) {
-        var t = ((msz - RECENT_EQ_MAG_MIN ) / mdiff);
-        var tt = t*t;
-        msz= 0.3+(tt * 0.7);
+      if(msz != 0) {
+        let expX=Math.exp(msz);
+        msz= 0.5 + ((expX - expMin)/(expMax-expMin)) * (1-0.5);
       }
 
 /* exponential rescale between 0.5 to 1 
@@ -76,6 +80,8 @@ function recentEQ_makeUTMBlob() {
       if(recent_quake_count==1) {
          msz=0.5;
       }
+window.console.log(" XXX msz/mag_mw --> ", msz, " orig ", prop['mag_mw']);
+
       let nprop = { easting: prop['eastNAD27'],
                     northing: prop['northNAD27'],
 	            depth: prop['depth(km)'],
@@ -167,8 +173,8 @@ function toggleRecentEQMenu()
         $('#infoData').css("display", "");
         recentEQ_on=false;
 // suppress region from map
-        recentEQ_off_bounding_rectangle_layer();
         enableSearchFilter();
+	recentEQ_reset_markLatlon();
    }
 }
 
@@ -203,7 +209,7 @@ function setNmagnitude(n) {
   document.getElementById("maxMagnitudeTxt").value = '-';
 }
 
-// ui
+// ui initial region
 function setRecentEQRegion() {
   let minlat=27.0518;
   let minlon=-129.0751;
@@ -230,28 +236,8 @@ function recentEQ_set_latlons(a,b,c,d) {
 }
 
 /**********************************************************************/
-/****
-function recentEQExtractData_withID(id_list) {
-  if(recent_quake_count != 0) {
-    clearRecentEQLayer();
-    recentEQ_remove_bounding_rectangle_layer();
-  }
-
-  RECENT_EQ_MAG_MAX = 0;
-  RECENT_EQ_MAG_MIN = 0;
-
-  let cnt=id_list.length;
-  let eq_cnt=0;
-  for(let i=0; i<cnt; i++) {
-    let id=id_list[i];
-    get_RecentEQFromUSGS_withID(id);
-  }
-  return 0;
-}
-
-**/
-
-async function recentEQExtractData_withID(id_list) {
+// call with a list of usgs id
+async function recentEQExtractData_withIDs(id_list) {
   if (recent_quake_count !== 0) {
     clearRecentEQLayer();
     recentEQ_remove_bounding_rectangle_layer();
@@ -261,22 +247,33 @@ async function recentEQExtractData_withID(id_list) {
   RECENT_EQ_MAG_MIN = 0;
 
   let promises = id_list.map(id => get_RecentEQFromUSGS_withID(id));
-  await Promise.all(promises); // waits for all fetches to complete
+  let result=await Promise.all(promises); // waits for all fetches to complete
+window.console.log("  XXX -- result of recentEQExtractData_withIDs  is ",result.length);
+  // got how many markers out of this ??
+  let eq_cnt=cxm_recent_quake_group_list.length;
+  setRecentEQCounter(eq_cnt);
+  addRecentEQLayer();
 }
 
 
+// call with region
 function recentEQExtractData() {
   if(recent_quake_count != 0) {
     clearRecentEQLayer();
     recentEQ_remove_bounding_rectangle_layer();
   }
 
+  RECENT_EQ_MAG_MAX = 0;
+  RECENT_EQ_MAG_MIN = 0;
+
   $("#modalwaitrecenteq").modal('show');
 
   get_RecentEQFromUSGS();
   recentEQ_on_bounding_rectangle_layer();
   //toggle, reset the pen only
-  recentEQ_markLatlon();
+  recentEQ_reset_markLatlon();
+
+  addRecentEQLayer();
 }
 
 function recentEQReset() {
@@ -314,8 +311,6 @@ function get_RecentEQFromUSGS() {
 window.console.log(reqEQ_spec);
   const reqEQ_url = reqEQ_host+reqEQ_spec;
 
-  RECENT_EQ_MAG_MAX = 0;
-  RECENT_EQ_MAG_MIN = 0;
   return _getRecentEQFromUSGS(reqEQ_url);
 }
 
@@ -338,65 +333,50 @@ async function _getRecentEQFromUSGS(reqEQ) {
     const data = await response.json();
     window.console.log("Recent Earthquakes...:");
 
-    let eq_list = [];
-    let eq_cnt=0;
+    if("features" in data)  { // this is for many
+      let fcnt=data.features.length;
+      if(fcnt > RECENT_EQ_COUNT_LIMIT) { // cap it
+        window.console.log("BAD: service sent back more than"+RECENT_EQ_COUNT_LIMIT);
+        fcnt=RECENT_EQ_COUNT_LIMIT; 
+      }
+      for(let i=0; i<fcnt; i++) {
+        let eq=data.features[i];
+        let place = eq.properties.place;
+        let mag = eq.properties.mag;
+        let magtype = eq.properties.magType;
+        let ntime = new Date(eq.properties.time).toLocaleString();
+        let time = eq.properties.time;
+        let coord = eq.geometry.coordinates;
+        let id = eq.id;
+//window.console.log(`- ${ntime} | M${mag} | ${place} | ${coord} | ${id}`);
+        let eqq = { id: id, coord: coord, place: place, mag: mag, magtype: magtype, time: time };
+        makeARecentEQMarker(eqq);
+      }
+      let eq_cnt=cxm_recent_quake_group_list.length;
+window.console.log(" -- adding %d: max %f min %f\n", eq_cnt,RECENT_EQ_MAG_MAX,RECENT_EQ_MAG_MIN);
+      setRecentEQCounter(eq_cnt);
 
-    if("features" in data)  {
-
-// this is for many
-        data.features.forEach(eq => {
-          let place = eq.properties.place;
-          let mag = eq.properties.mag;
-          let magtype = eq.properties.magType;
-          let ntime = new Date(eq.properties.time).toLocaleString();
-          let time = eq.properties.time;
-          let coord = eq.geometry.coordinates;
-          let id = eq.id;
-//          window.console.log(`- ${ntime} | M${mag} | ${place} | ${coord} | ${id}`);
+      } else { // this is just for 1
+        let place = data.properties.place;
+        let mag = data.properties.mag;
+        let magtype = data.properties.magType;
+        let ntime = new Date(data.properties.time).toLocaleString();
+        let time = data.properties.time;
+        let coord = data.geometry.coordinates;
+        let id = data.id;
+//window.console.log(`- ${ntime} | M${mag} | ${place} | ${coord} | ${id}`);
     
-          let tmp = { id: id, coord: coord, place: place, mag: mag, magtype: magtype, time: time };
-          eq_list.push(tmp);
-          eq_cnt++;
-        });
-
-// this is just for 1
-        } else { 
-          let place = data.properties.place;
-          let mag = data.properties.mag;
-          let magtype = data.properties.magType;
-          let ntime = new Date(data.properties.time).toLocaleString();
-          let time = data.properties.time;
-          let coord = data.geometry.coordinates;
-          let id = data.id;
-          window.console.log(`- ${ntime} | M${mag} | ${place} | ${coord} | ${id}`);
-    
-          let tmp = { id: id, coord: coord, place: place, mag: mag, magtype: magtype,time: time };
-          eq_list.push(tmp);
-          eq_cnt=1;
+        let eqq = { id: id, coord: coord, place: place, mag: mag, magtype: magtype,time: time };
+        makeARecentEQMarker(eqq);
     }
-
-    RECENT_EQ_COUNT=RECENT_EQ_COUNT+eq_cnt;
-
-    if(eq_cnt > RECENT_EQ_COUNT_LIMIT) { // cap it
-       window.console.log("BAD: service sent back more than"+RECENT_EQ_COUNT_LIMIT);
-       eq_cnt=RECENT_EQ_COUNT_LIMIT; 
-    }
-
-    // process and store it..
-    for (let i=0; i< eq_cnt; i++) {
-        makeARecentEQMarker(eq_list[i]);
-    }    
-
-    window.console.log(" -- adding eq_cnt %d: max %f min %f\n", eq_cnt,RECENT_EQ_MAG_MAX,RECENT_EQ_MAG_MIN);
-    setRecentEQCounter(RECENT_EQ_COUNT);
-
     $("#modalwaitrecenteq").modal('hide');
-
-    addRecentEQLayer();
 
   } catch (error) {
     $("#modalwaitrecenteq").modal('hide');
     console.error("Error fetching earthquake data from USGS:", error);
   }
+
+  return 0;
+
 }
 

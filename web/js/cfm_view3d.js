@@ -259,14 +259,16 @@ window.console.log(" to-SERVER <<< send params");
         }
         if(event.data.value == "done with loading traces") {
 window.console.log(" to-SERVER <<< turn off load spinner");
-          document.getElementById('spinIconFor3D').style.display = "none";
+          hideSpinnerById('spinIconFor3D');
+//          document.getElementById('spinIconFor3D').style.display = "none";
           // plot3d in iframe is all up and ready
           presetPlot3d_first();
           return;
         }
         if(event.data.value == "start loading") {
 window.console.log(" to-SERVER <<< turn on loading spinner");
-          document.getElementById('spinIconFor3D').style.display = "block";
+          showSpinnerById('spinIconFor3D');
+//          document.getElementById('spinIconFor3D').style.display = "block";
           return;
         }
         if(event.data.value == "ready") {

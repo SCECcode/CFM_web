@@ -1216,13 +1216,13 @@ function findByNameInPreset(name, ptype, ts, eqeventid_list) {
             if(eqeventid_list.length==0) {
               zoom2SelectFaults();
               } else {
-                recentEQExtractData_withID(eqeventid_list);
+                recentEQExtractData_withIDs(eqeventid_list);
             }
             break;
           case "main3d":
              (async function handleEQData() {
                 if (eqeventid_list.length !== 0) {
-                      await recentEQExtractData_withID(eqeventid_list);
+                      await recentEQExtractData_withIDs(eqeventid_list);
                 }
                 executePlot3d(ts);
              })();

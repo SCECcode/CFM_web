@@ -24,7 +24,6 @@ var RECENT_EQ_MAG_MAX = 0;
 var RECENT_EQ_MAG_MIN = 0;
 var RECENT_EQ_COUNT = 0;
 
-
 // recent_eq_region={"layer":layer, "latlngs":[{"lat":a,"lon":b},{"lat":c,"lon":d}]};
 // this holds the layer that has the 'region boundary'
 var recent_eq_region=null;
@@ -286,6 +285,7 @@ function toggleRecentEQ() {
    if(showing_recent_quake) {
      viewermap.removeLayer(cxm_recent_quake_layer);
      showing_recent_quake=false;
+     // 
      } else {
        viewermap.addLayer(cxm_recent_quake_layer);
        showing_recent_quake=true;
@@ -307,10 +307,10 @@ function addRecentEQLayer() {
 function clearRecentEQLayer() {
     if(cxm_recent_quake_layer!=null) {
       viewermap.removeLayer(cxm_recent_quake_layer);
-      setRecentEQCounter(0);
       cxm_recent_quake_layer= make_markerGroup(enableCluster);
       cxm_recent_quake_group_list=[];
       recent_quake_count=0;
+      setRecentEQCounter(0);
       showing_recent_quake=false;
     }
 }

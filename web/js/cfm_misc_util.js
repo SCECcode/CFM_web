@@ -6,6 +6,48 @@ b) import external geoJson.txt and create a groupLayer with optional name popup
 c) import external latlon.csv with 'name' and create a group Layerof mulitple groups of points with different color 
 **/
 
+
+function hideSpinnerById(id, retries = 5, delay = 1000) {
+  let attempt = 0;
+
+  function tryHide() {
+    const elt  = document.getElementById(id);
+    if (elt) {
+      elt.style.display = "none";
+      console.log(`Element '${id}' hidden successfully.`);
+    } else if (attempt < retries) {
+      attempt++;
+      console.log(`Retrying to hide '${id}'... attempt ${attempt}`);
+      setTimeout(tryHide, delay);
+    } else {
+      console.warn(`Failed to find element '${id}' after ${retries} attempts.`);
+    }
+  }
+  tryHide();
+}
+
+
+function showSpinnerById(id, retries = 5, delay = 500) {
+  let attempt = 0;
+
+  function tryShow() {
+    const elt = document.getElementById(id);
+    if (elt) {
+      elt.style.display = "block";
+      console.log(`Element '${id}' show successfully.`);
+    } else if (attempt < retries) {
+      attempt++;
+      console.log(`Retrying to show '${id}'... attempt ${attempt}`);
+      setTimeout(tryHide, delay);
+    } else {
+      console.warn(`Failed to find element '${id}' after ${retries} attempts.`);
+    }
+  }
+  tryShow();
+}
+
+
+
 // *** specifically for CFM_web ***
 function _trim_metadataRow(atrace) {
   var tmp = JSON.parse(JSON.stringify(atrace));
