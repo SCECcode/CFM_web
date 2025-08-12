@@ -67,7 +67,7 @@ if(cxm_recent_quake_group_list[i] == undefined) { window.console.log("BAD"); }
         continue;
       }
       //var msz=prop['mag_mw'];
-      var msz=prop['mag'];
+      var msz=prop['magnitude'];
       if(msz != 0) {
         let expX=Math.exp(msz);
         msz= 0.5 + ((expX - expMin)/(expMax-expMin)) * (1-0.5);
