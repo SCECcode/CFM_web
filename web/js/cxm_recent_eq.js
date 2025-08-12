@@ -211,6 +211,9 @@ function makeARecentEQMarker(data) {
     }
   }
   ***********/
+  let tmp_mag=parseFloat(mag);
+  if(RECENT_EQ_MAG_MIN == 0 || tmp_mag < RECENT_EQ_MAG_MIN) { RECENT_EQ_MAG_MIN=tmp_mag; }
+  if(tmp_mag > RECENT_EQ_MAG_MAX) { RECENT_EQ_MAG_MAX=tmp_mag; }
 
   if(sourceZ == "10S" || sourceZ == "10T" ) {
     (async () => {

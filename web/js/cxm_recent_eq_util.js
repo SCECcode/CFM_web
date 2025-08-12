@@ -282,8 +282,10 @@ function recentEQReset() {
     clearRecentEQLayer();
     recentEQ_remove_bounding_rectangle_layer();
   }
-  recentEQ_free_markLatlon();
+  recentEQ_off_markLatlon();
+  // reset region and show it
   setRecentEQRegion();
+  recentEQ_on_bounding_rectangle_layer();
 }
 
 function get_RecentEQFromUSGS() {

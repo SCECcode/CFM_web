@@ -5,12 +5,22 @@ WORKDIR /app
 COPY . /app
 
 
-RUN amazon-linux-extras enable epel && \
+#RUN amazon-linux-extras enable epel && \
+#    yum install -y epel-release && \
+#    yum update && \
+#    yum install -y httpd && \
+#    amazon-linux-extras install -y php7.2 && \
+#    yum install -y php php-pgsql wget tar proj
+
+
+RUN yum update -y && \
+    yum install -y amazon-linux-extras && \
+    amazon-linux-extras enable epel && \
     yum install -y epel-release && \
-    yum update && \
-    yum install -y httpd && \
-    amazon-linux-extras install -y php7.2 && \
-    yum install -y php php-pgsql wget tar proj
+    yum install -y httpd wget tar proj && \
+    amazon-linux-extras enable php7.2 && \
+    yum clean metadata && \
+    yum install -y php php-pgsql
 
 
 #RUN sudo amazon-linux-extra enable epel && \
