@@ -11,10 +11,10 @@ $dbconn = getConnection();
 
 // if there are only 1 set of lat lon, then expand into a range
 
-$firstlat = floatVal($_GET['firstlat']);
-$secondlat = floatVal($_GET['secondlat']);
-$firstlon = floatVal($_GET['firstlon']);
-$secondlon = floatVal($_GET['secondlon']);
+$firstlat = floatval($_GET['firstlat']);
+$secondlat = floatval($_GET['secondlat']);
+$firstlon = floatval($_GET['firstlon']);
+$secondlon = floatval($_GET['secondlon']);
 
 if($secondlat == "0") { 
   $secondlat = $firstlat+0.01;

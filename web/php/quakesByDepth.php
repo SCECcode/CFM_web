@@ -8,8 +8,8 @@
 
 include("declare.php");
 include("util.php");
-$mindepth = floatVal($_GET['min']);
-$maxdepth = floatVal($_GET['max']);
+$mindepth = floatval($_GET['min']);
+$maxdepth = floatval($_GET['max']);
 
 $dbconn = getConnection();
 

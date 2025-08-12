@@ -12,8 +12,8 @@ include("util.php");
 $quake_type = intVal($_GET['quake_type']);
 $msg = $_GET['msg'];
 $uid = intVal($_GET['uid']);
-$minmag = floatVal($_GET['min']);
-$maxmag = floatVal($_GET['max']);
+$minmag = floatval($_GET['min']);
+$maxmag = floatval($_GET['max']);
 
 $dbconn = getConnection();
 
@@ -38,9 +38,9 @@ $dstr="> \""+$msg+"\"\n";
 fwrite($fp,$dstr); 
 
 while($row = pg_fetch_row($result)) {
-    $easting=floatVal($row[0]);
-    $northing=floatVal($row[1]);
-    $depth=floatVal($row[2])*1000;
+    $easting=floatval($row[0]);
+    $northing=floatval($row[1]);
+    $depth=floatval($row[2])*1000;
     $dstr="  "+$easting+"   "+northing+"   "+$depth+"\n";
     fwrite($fp,$dstr); 
 }

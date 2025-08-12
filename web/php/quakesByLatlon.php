@@ -9,10 +9,10 @@
 include ("util.php");
 $dbconn = getConnection();
 
-$swlat = floatVal($_GET['swlat']);
-$swlon = floatVal($_GET['swlon']);
-$nelat = floatVal($_GET['nelat']);
-$nelon = floatVal($_GET['nelon']);
+$swlat = floatval($_GET['swlat']);
+$swlon = floatval($_GET['swlon']);
+$nelat = floatval($_GET['nelat']);
+$nelon = floatval($_GET['nelon']);
 
 //echo "lat range: ", $swlat,", ",$nelat,"<br>";
 //echo "lon range: ", $swlon,", ",$nelon,"<br>";

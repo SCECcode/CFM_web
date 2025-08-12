@@ -9,8 +9,8 @@
 include ("util.php");
 $dbconn = getConnection();
 
-$min = floatVal($_GET['min']);
-$max = floatVal($_GET['max']);
+$min = floatval($_GET['min']);
+$max = floatval($_GET['max']);
 
 $query = "SELECT gid,name FROM OBJECT_tb WHERE avg_dip IS NOT NULL AND avg_dip >= $1 AND avg_dip <= $2";
 $data = array($min,$max);

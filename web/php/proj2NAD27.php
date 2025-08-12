@@ -29,10 +29,11 @@ $result=exec(escapeshellcmd($tmpfile), $retval, $status);
 unlink($tmpfile);
 
 $tokens = preg_split('/\s+/', trim($result));
+
 $item = new \stdClass();
 if(count($tokens) >= 2) {
-  $item->easting=floatVal($tokens[0]);
-  $item->northing=floatVal($tokens[1]);
+  $item->easting=floatval($tokens[0]);
+  $item->northing=floatval($tokens[1]);
 }
     
 $resultstring = htmlspecialchars(json_encode($item), ENT_QUOTES, 'UTF-8');
