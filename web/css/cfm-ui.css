@@ -1,4 +1,9 @@
 /* cfm viewer required styles */
+#placeholder-row td {
+  text-align: center;
+  font-style: italic;
+}
+
 .control-btn {
     color:#395057;
     background-color:#f2f2f2;

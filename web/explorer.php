@@ -788,7 +788,6 @@ title="Turn on/off geographic selection on map" onclick="recentEQ_markLatlon()">
                 </thead>
                 <tbody>
                 <tr id="placeholder-row">
-<!--- altered from 11 -->
                     <td colspan="10">Metadata for selected faults will appear here. </td>
                 </tr>
                 </tbody>
