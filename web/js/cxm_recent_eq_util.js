@@ -66,7 +66,8 @@ if(cxm_recent_quake_group_list[i] == undefined) { window.console.log("BAD"); }
       if(depth == '' || undefined) {
         continue;
       }
-      var msz=prop['mag_mw'];
+      //var msz=prop['mag_mw'];
+      var msz=prop['mag'];
       if(msz != 0) {
         let expX=Math.exp(msz);
         msz= 0.5 + ((expX - expMin)/(expMax-expMin)) * (1-0.5);
@@ -80,7 +81,6 @@ if(cxm_recent_quake_group_list[i] == undefined) { window.console.log("BAD"); }
       if(recent_quake_count==1) {
          msz=0.5;
       }
-window.console.log(" XXX msz/mag_mw --> ", msz, " orig ", prop['mag_mw']);
 
       let nprop = { easting: prop['eastNAD27'],
                     northing: prop['northNAD27'],
@@ -158,6 +158,7 @@ function getRecentEQCounter() {
 
 function toggleRecentEQMenu()
 {
+window.console.log("XXX toggleRecent");
    if(recentEQ_on == false) {
 // special case, just in case sidebar is open
      dismissClick();
@@ -174,7 +175,7 @@ function toggleRecentEQMenu()
         recentEQ_on=false;
 // suppress region from map
         enableSearchFilter();
-	recentEQ_reset_markLatlon();
+	recentEQ_off_markLatlon();
    }
 }
 
@@ -238,6 +239,7 @@ function recentEQ_set_latlons(a,b,c,d) {
 /**********************************************************************/
 // call with a list of usgs id
 async function recentEQExtractData_withIDs(id_list) {
+
   if (recent_quake_count !== 0) {
     clearRecentEQLayer();
     recentEQ_remove_bounding_rectangle_layer();
@@ -258,6 +260,7 @@ window.console.log("  XXX -- result of recentEQExtractData_withIDs  is ",result.
 
 // call with region
 function recentEQExtractData() {
+window.console.log("XXX");
   if(recent_quake_count != 0) {
     clearRecentEQLayer();
     recentEQ_remove_bounding_rectangle_layer();
@@ -269,10 +272,8 @@ function recentEQExtractData() {
   $("#modalwaitrecenteq").modal('show');
 
   get_RecentEQFromUSGS();
-  recentEQ_on_bounding_rectangle_layer();
-  //toggle, reset the pen only
-  recentEQ_reset_markLatlon();
-
+  //toggle, turn off the pen only
+  recentEQ_off_markLatlon();
   addRecentEQLayer();
 }
 
@@ -281,7 +282,8 @@ function recentEQReset() {
     clearRecentEQLayer();
     recentEQ_remove_bounding_rectangle_layer();
   }
-  recentEQ_reset_markLatlon();
+  recentEQ_free_markLatlon();
+  setRecentEQRegion();
 }
 
 function get_RecentEQFromUSGS() {
@@ -333,12 +335,13 @@ async function _getRecentEQFromUSGS(reqEQ) {
     const data = await response.json();
     window.console.log("Recent Earthquakes...:");
 
-    if("features" in data)  { // this is for many
+    if("features" in data)  { // this is for one to many
       let fcnt=data.features.length;
       if(fcnt > RECENT_EQ_COUNT_LIMIT) { // cap it
         window.console.log("BAD: service sent back more than"+RECENT_EQ_COUNT_LIMIT);
         fcnt=RECENT_EQ_COUNT_LIMIT; 
       }
+
       for(let i=0; i<fcnt; i++) {
         let eq=data.features[i];
         let place = eq.properties.place;

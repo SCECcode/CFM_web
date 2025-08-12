@@ -138,6 +138,13 @@ $header = getHeader("User Guide");
              <p> 3D fault representations in Gocad tsurf format are provided in Universal Transverse 
                 Mercator projection (UTM) zone 11, North American datum 1927 (NAD27).</p>
 
+            <h4><strong>Search and Display Recent Earthquakes</strong></h4>
+
+	     <p>The CFM Explorer provides the ability to query recent earthquakes from the <a href="https://earthquake.usgs.gov/data/comcat/">USGS ComCat catalog</a>. This catalog is near real-time and allows users to see how recent seismicity relates to the CFM. Results are initially plotted on the 2D map interface as clickable red circles, but if faults are selected the recent seismicity can also be viewed in 3D using the plot3D button near the bottom right of the Explorer interface.</p>
+
+	     <p>The CFM Explorer provides the ability to search USGS ComCat catalog with filtering by magnitude, date & time, and geographic region. These options are very similar in style and options to the <a href="https://earthquake.usgs.gov/earthquakes/search/">USGS ComCat search tools</a>. To turn on/off the geographic search drag and click option, click on the pen icon next to "Geographic Region". The geographic region parameters include longitude, latitude, and depth filters. Once a search is complete, users can click the X at the top right of the search box to get back to the regular CFM Explorer interface. Also, once a recent seismicity search has completed, the source data visibility on the map can be turned on/off using the eye icon next to the "Search recent EQ" button, and the source data can be downloaded in csv format. Note that all search queries are limited by the USGS to 20,000 events.</p>
+
+
             <h4><strong>Viewing Relocated Seismicity</strong></h4>
 
              <p> In the top of the 2D map interface, there is a “Load relocated seismicity” 

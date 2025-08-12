@@ -606,7 +606,8 @@ onchange="switchLayer(this.value);">
                      
                   <div class="row mt-3">
                       <div class="col-12">
-			  <p class="ml-2" style="margin-bottom:5px"><b style="font-size:15px">Geographic Region</b><button id="markerEQBtn" class="btn cfm-small-btn ml-2" style="color:blue" onclick="recentEQ_markLatlon()"><span class="glyphicon glyphicon-pencil"></span></button><br>Draw a rectangle (click and drag) on the map or enter coordinates below</p>
+			  <p class="ml-2" style="margin-bottom:5px"><b style="font-size:15px">Geographic Region</b><button id="markerEQBtn" class="btn cfm-small-btn ml-2" style="color:blue" 
+title="Turn on/off geographic selection on map" onclick="recentEQ_markLatlon()"><span class="glyphicon glyphicon-pencil"></span></button><br>Draw a rectangle (click and drag) on the map or enter coordinates below</p>
                       </div>
                   </div>
 
@@ -852,9 +853,6 @@ onchange="switchLayer(this.value);">
         <div class="spinDialog" style="position:absolute;top:40%;left:50%; z-index:9999;">
           <div id="spinIconFor3D" align="center" style="display:none;"><i class="glyphicon glyphicon-cog fa-spin" style="color:red"></i></div>
         </div>
-<!--
-        <button id="view3DClosebtn" class="btn btn-outline-primary btn-sm" data-dismiss="modal" onclick="close3Dview()">Close</button>
--->
         <button id="view3DExpandbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="toggleExpand3Dview()">Shrink</button>
         <button id="view3DRefreshbtn" class="btn btn-outline-primary btn-sm" type="button" onclick="refresh3Dview()">Reset</button>
         <button id="view3DMovebtn" class="btn btn-outline-primary btn-sm" type="button" onclick="move3Dview()">New Window</button>

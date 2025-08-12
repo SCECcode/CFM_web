@@ -80,16 +80,18 @@ function recentEQ_markLatlon() {
   }
 }
 
-function recentEQ_reset_markLatlon() {
-  skipPopup = false;
-  $('#markerEQBtn').css("color","blue");
-  drawing_rectangle=false;
-  skipRectangle();
-  rebind_layer_popup();
-  setRecentEQRegion();
-  // add default region layer
+// turn off markLatlon 
+function recentEQ_off_markLatlon() {
+  if(drawing_rectangle) {
+    skipPopup = false;
+    $('#markerEQBtn').css("color","blue");
+    drawing_rectangle=false;
+    skipRectangle();
+    rebind_layer_popup();
+  }
   recentEQ_on_bounding_rectangle_layer();
 }
+
 
 function recentEQ_remove_bounding_rectangle_layer() {
    if(recent_eq_region != null) {
@@ -179,12 +181,15 @@ function makeARecentEQMarker(data) {
 	            utmzoneletter: utmZoneLetter,
 	            id: id
                   };
+	
 
 /* convert to mw for everything
    (for california)
     Mw = 0.85 Ml + 0.33
     Mw = 0.67 Md + 1.14
-*/
+
+   SKIP conversion and use given as comparable equals
+
   let tmp_mag=parseFloat(mag);
   let tmp_magtype= magtype;
   { 
@@ -205,6 +210,7 @@ function makeARecentEQMarker(data) {
         marker.scec_properties.mag_mw=0;  // magnitude in ???
     }
   }
+  ***********/
 
   if(sourceZ == "10S" || sourceZ == "10T" ) {
     (async () => {
