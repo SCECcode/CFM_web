@@ -59,7 +59,7 @@ var VIEW3D_tb = {
 };
 
 function getCurrent3dState() {
-  let state={ "trace":track_trace, "shore":track_shore, "legend":track_legend, "seismicity":track_seismicity, "repr":track_representation, "bounds":track_bounds, "full":track_full};
+  let state={ "trace":track_trace, "shore":track_shore, "recenteq":track_recenteq, "legend":track_legend, "seismicity":track_seismicity, "repr":track_representation, "bounds":track_bounds, "full":track_full};
    return JSON.stringify(state);
 }
 

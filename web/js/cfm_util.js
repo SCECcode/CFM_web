@@ -1094,7 +1094,10 @@ http://moho.scec.org/research/cfm-explorer/?model=CFM7_preferred_db
 **/
 function getPresetMode() {
   skip_warning=true; // skip 3d warning
+
   let param = window.location.search.substring(1);
+  window.console.log("  === STRING ",  param);
+
   let myAbb=0;
   let myTS=0;
   let myPtype=0;
@@ -1105,6 +1108,28 @@ function getPresetMode() {
 
   let myFullName=0;
   let myFullFileURL=0;
+
+  let searchParams = new URLSearchParams(param);
+  myFullFileURL=searchParams.get("fullFileURL");
+  myFullName=searchParams.get("fullName");
+  let tmp=searchParams.get("abb");
+  if(tmp!=null)
+      myAbb=JSON.parse(tmp);
+  tmp=searchParams.get("name");
+  if(tmp!=null) { myName=JSON.parse(decodeURI(tmp)); }
+  tmp=searchParams.get("ts");
+  if(tmp!=null) {  myTS=JSON.parse(decodeURI(tmp)); }
+  tmp=searchParams.get("ptype");
+  if(tmp!=null) { myPtype=JSON.parse(decodeURI(tmp)); }
+  myCamera=searchParams.get("camera");
+  myState=searchParams.get("state");
+  tmp=searchParams.get("eventid");
+  if(tmp!=null) { myEventId=JSON.parse(decodeURI(tmp)); }
+  if(myFullName !=null && myFullFileURL !=null) {
+    setExternalTS(myFullName, myFullFileURL);
+  }
+
+/****
 
   // if there are '&amp' 
   let qArray;
@@ -1117,7 +1142,6 @@ function getPresetMode() {
   {
      let pArr = qArray[i].split('='); //split key and value
 
-//window.console.log(pArr[1]);
      let dd=decodeURI(pArr[1]);
      switch (pArr[0]) {
         case "fullFileURL":
@@ -1150,10 +1174,11 @@ function getPresetMode() {
              break;
      }
   }
-
   if(myFullName !=0 && myFullFileURL !=0) {
     setExternalTS(myFullName, myFullFileURL);
   }
+***/
+
   return [myPtype, myAbb, myName, myTS, myCamera, myState, myEventId];
 }
 
@@ -1173,8 +1198,7 @@ function setupPresetMode() {
     PLOT3D_PRESET_STATE=state;
 
     if(eventid != 0) {
-      let jblob=JSON.parse(eventid);
-      let elist=jblob['recenteq'];
+      let elist=eventid['recenteq'];
       let cnt=elist.length;
       for(let i=0; i<cnt; i++) {
         RECENT_EQ_PRESET_EVENTIDLIST.push(elist[i]);
