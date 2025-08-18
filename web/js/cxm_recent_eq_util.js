@@ -204,7 +204,7 @@ function setNdays(n) {
 
 // ui
 function setNmagnitude(n) {
-  let min=parseInt(n);
+  let min=parseFloat(n);
 
   document.getElementById("minMagnitudeTxt").value = min;
   document.getElementById("maxMagnitudeTxt").value = '-';
