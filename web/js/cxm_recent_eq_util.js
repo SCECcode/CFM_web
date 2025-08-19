@@ -158,7 +158,6 @@ function getRecentEQCounter() {
 
 function toggleRecentEQMenu()
 {
-window.console.log("XXX toggleRecent");
    if(recentEQ_on == false) {
 // special case, just in case sidebar is open
      dismissClick();
@@ -250,7 +249,7 @@ async function recentEQExtractData_withIDs(id_list) {
 
   let promises = id_list.map(id => get_RecentEQFromUSGS_withID(id));
   let result=await Promise.all(promises); // waits for all fetches to complete
-window.console.log("  XXX -- result of recentEQExtractData_withIDs  is ",result.length);
+//window.console.log("  XXX -- result of recentEQExtractData_withIDs  is ",result.length);
   // got how many markers out of this ??
   let eq_cnt=cxm_recent_quake_group_list.length;
   setRecentEQCounter(eq_cnt);
@@ -260,7 +259,6 @@ window.console.log("  XXX -- result of recentEQExtractData_withIDs  is ",result.
 
 // call with region
 function recentEQExtractData() {
-window.console.log("XXX");
   if(recent_quake_count != 0) {
     clearRecentEQLayer();
     recentEQ_remove_bounding_rectangle_layer();

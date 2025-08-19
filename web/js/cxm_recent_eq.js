@@ -35,6 +35,9 @@ var eq_marker_colors = {
     abnormal: '#00FFFF',
 };
 
+var eq_marker_init_zoom=5.5;
+var eq_marker_init_radius= 3;
+
 var eq_marker_style = {
     normal: {
         color: "white",
@@ -162,6 +165,8 @@ function makeARecentEQMarker(data) {
   marker.bindTooltip(eq_info).openTooltip();
   let tmp=new Date(time).toLocaleString();
 
+  eq_marker_init_zoom = mymap.getZoom();
+window.console.log("Setting intial zoom", eq_marker_init_zoom);
 
   marker.bindPopup("<strong>Recent Earthquake</strong><br><strong>Location: </strong>"+loc+"<br><strong>When: </strong>"+ tmp +"<br><strong>Magnitude: </strong>"+mag+" ("+magtype+")<br><strong>Depth: </strong>"+depth+" (km)<br><strong>Location: </strong> ("+longitude+", "+latitude+")<br><strong>ID: </strong> <a href=\"https://earthquake.usgs.gov/earthquakes/eventpage/"+id+"/executive\" target=\"_blank\">"+id+"</a>",{maxWidth: 500});
 
@@ -183,34 +188,6 @@ function makeARecentEQMarker(data) {
                   };
 	
 
-/* convert to mw for everything
-   (for california)
-    Mw = 0.85 Ml + 0.33
-    Mw = 0.67 Md + 1.14
-
-   SKIP conversion and use given as comparable equals
-
-  let tmp_mag=parseFloat(mag);
-  let tmp_magtype= magtype;
-  { 
-    if(tmp_magtype == "ml") {
-       tmp_mag= (0.85 * tmp_mag)+ 0.33;
-       tmp_magtype = "mw";
-    } 
-    if(tmp_magtype == "md") {
-       tmp_mag= (0.67 * tmp_mag)+ 1.14;
-       tmp_magtype = "mw";
-    } 
-    if(tmp_magtype == "mw") {
-      if(RECENT_EQ_MAG_MIN == 0 || tmp_mag < RECENT_EQ_MAG_MIN) { RECENT_EQ_MAG_MIN=tmp_mag; }
-      if(tmp_mag > RECENT_EQ_MAG_MAX) {	RECENT_EQ_MAG_MAX=tmp_mag; }
-      marker.scec_properties.mag_mw=tmp_mag;  // magnitude in ml
-      } else {
-        window.console.log("  XXX can not process %s due to magtype\n",id); 
-        marker.scec_properties.mag_mw=0;  // magnitude in ???
-    }
-  }
-  ***********/
   let tmp_mag=parseFloat(mag);
   if(RECENT_EQ_MAG_MIN == 0 || tmp_mag < RECENT_EQ_MAG_MIN) { RECENT_EQ_MAG_MIN=tmp_mag; }
   if(tmp_mag > RECENT_EQ_MAG_MAX) { RECENT_EQ_MAG_MAX=tmp_mag; }
@@ -234,34 +211,32 @@ function makeARecentEQMarker(data) {
   }
 
   marker.on('mouseover', function (e) {
-      let normal=3;
-      let target = normal;
-      let zoom = get_zoom();
+      const zoom = mymap.getZoom();
+      const scaleFactor = Math.pow(2, zoom - eq_marker_init_zoom);
+      let target= (eq_marker_init_radius * scaleFactor);
+
+  // add lower/upper bounds
+      if(target < eq_marker_init_radius) target=eq_marker_init_radius;
       if(zoom > 6)  {
-        target = (zoom > 9) ? 7 : (zoom - 6)+target;
+          target = (zoom > 9) ? 7 : (zoom - 6)+eq_marker_init_radius;
       }
-      target = target *2;
-      window.console.log(" marker mouseover", target, "base zoom", zoom);
+      target=target * 3;
+//    window.console.log(" marker mouseover", target, "base zoom", zoom, "init zoom", eq_marker_init_zoom);
       this.setStyle( {radius:target});
   });
 
 
-	/*
-function updateRadius() {
-  const currentZoom = map.getZoom();
-  const scaleFactor = Math.pow(2, currentZoom - baseZoom);
-  marker.setRadius(baseRadius * scaleFactor);
-}
-         */
-
   marker.on('mouseout', function (e) {
-      let normal=3;
-      let target = normal;
-      let zoom = get_zoom();
+      const zoom = mymap.getZoom();
+      const scaleFactor = Math.pow(2, zoom - eq_marker_init_zoom);
+      let target= (eq_marker_init_radius * scaleFactor);
+
+      if(target < eq_marker_init_radius) target=eq_marker_init_radius;
       if(zoom > 6)  {
-        target = (zoom > 9) ? 7 : (zoom - 6)+target;
+         target = (zoom > 9) ? 7 : (zoom - 6)+eq_marker_init_radius;
       }
-      window.console.log(" marker mouseout", target, "base zoom", zoom);
+//      window.console.log(" marker mouseover", target, "base zoom", zoom, "init zoom", eq_marker_init_zoom);
+
       this.setStyle( {radius:target});
   });
 
@@ -272,11 +247,16 @@ function updateRadius() {
 function recentEQ_Zoomed(zoom) {
   if(recent_quake_count == 0) return;
 
-  let normal=3;
-  let target = normal;
+  const scaleFactor = Math.pow(2, zoom - eq_marker_init_zoom);
+  let target= (eq_marker_init_radius * scaleFactor);
+
+  // add lower/upper bounds
+  if(target < eq_marker_init_radius) target=eq_marker_init_radius;
   if(zoom > 6)  {
-    target = (zoom > 9) ? 7 : (zoom - 6)+target;
+      target = (zoom > 9) ? 7 : (zoom - 6)+eq_marker_init_radius;
+//      window.console.log("new target",target);
   }
+
   if(eq_marker_style.normal.radius == target) { // no changes..
     return;
   }

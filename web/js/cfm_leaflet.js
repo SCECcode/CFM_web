@@ -8,6 +8,7 @@ This is leaflet specific utilities
 var init_map_zoom_level = 5.5;
 var init_map_coordinates = [38, -122.0];
 var seismicity_map_zoom_level = 9;
+var init_circleMarker_radius = 3;
 
 var enable_seismicity=0; // retrieve local seismicity on zoom demand
 var fault_width_change=0;
@@ -511,7 +512,7 @@ function makeLeafletCircleMarker(latlng,description) {
   if(visibleMarkers.length > 0) {
 	return visibleMarkersGroup;
   }
-  let sz=3;
+  let sz=init_circleMarker_radius;
   let cnt=latlng.length;
   for(let i=0;i<cnt;i++) {
     let bounds = latlng[i];
@@ -531,7 +532,10 @@ function makeLeafletCircleMarker(latlng,description) {
                         marker.setRadius(sz*5);
                         },
                   mouseout: function(e) {
-                        marker.setRadius(sz);
+                        let currentZoom=mymap.getZoom();
+                        let zoomFactor = Math.pow(2, currentZoom - init_map_zoom_level);
+                        let nsz= sz / zoomFactor;
+                        marker.setRadius(nsz);
                         },
                 });
     visibleMarkers.push(marker);
