@@ -175,6 +175,7 @@ function toggleRecentEQMenu()
 // suppress region from map
         enableSearchFilter();
 	recentEQ_off_markLatlon();
+        recentEQ_off_bounding_rectangle_layer();
    }
 }
 

@@ -274,10 +274,13 @@ function toggleRecentEQ() {
    if(showing_recent_quake) {
      viewermap.removeLayer(cxm_recent_quake_layer);
      showing_recent_quake=false;
-     // 
+/* turn off region  */
+     recentEQ_off_bounding_rectangle_layer();
      } else {
        viewermap.addLayer(cxm_recent_quake_layer);
        showing_recent_quake=true;
+/* turn on region  */
+       recentEQ_on_bounding_rectangle_layer();
    }
 }
 
