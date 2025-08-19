@@ -1,3 +1,8 @@
+## 2025-08-19  Mei-Hui Su <mei@usc.edu>
+* Add Recent Earthquake query from USGS ComCat catalog and display on both 2D
+  and 3D view
+* Add option to display 2D mapview similar to display plot3D view from 'copy link'
+
 ## 2024-09-04  Mei-Hui Su <mei@usc.edu>
 * New Statewide styling <edric@usc.edu>
 * Replace EQ catalog (Wald & Hauksson) 
