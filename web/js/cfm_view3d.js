@@ -524,13 +524,13 @@ function toggleBounds3Dview() {
   track_bounds = ( track_bounds + 1 ) % 3;
   switch( track_bounds ) {
     case 0:
-      elt.innerHTML="Show All Bounds";
+      elt.innerHTML="Show Bounds";
       break;
     case 1:
-      elt.innerHTML="Hide Bounds";
+      elt.innerHTML="Show All Bounds";
       break;
     case 2:
-      elt.innerHTML="Show Bounds";
+      elt.innerHTML="Hide Bounds";
       break;
   }
 }
@@ -538,7 +538,7 @@ function toggleBounds3Dview() {
 function resetBounds3Dview() {
   track_bounds=0;
   let elt=document.getElementById("view3DToggleBoundsbtn");
-  elt.innerHTML="Show All Bounds";
+  elt.innerHTML="Show Bounds";
 }
 
 // footer is about 58px
