@@ -33,7 +33,7 @@ require_once("php/util.php");
     <script type='text/javascript' src='js/vendor/esri-leaflet.js'></script>
     <script type='text/javascript' src='js/vendor/esri-leaflet-vector.js' crossorigin=""></script>
 
-    <script type='text/javascript' src='js/vendor/FileSaver.js'></script
+    <script type='text/javascript' src='js/vendor/FileSaver.js'></script>
     <script type='text/javascript' src='js/vendor/jszip.js'></script>
     <script type='text/javascript' src='js/vendor/zlib.min.js'></script>
     <script type='text/javascript' src='js/vendor/zlib-util.js'></script>
