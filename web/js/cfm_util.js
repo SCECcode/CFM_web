@@ -1109,6 +1109,8 @@ function getPresetMode() {
   let myFullName=0;
   let myFullFileURL=0;
 
+// skip &amp; first
+  param = param.replace(/&amp;/g, "&");
   let searchParams = new URLSearchParams(param);
   myFullFileURL=searchParams.get("fullFileURL");
   myFullName=searchParams.get("fullName");
