@@ -199,7 +199,6 @@ function show3dView(urls,nstr,path,nlstr,eqstr) {
        share_params=share_params+"&eventid="+eqlist;
     }
     set_SHARE_PARAMS(share_params);
-window.console.log(" XXXX share_params is>> ",share_params);   
     } else {
       set_SHARE_PARAMS("");
   }
