@@ -8,6 +8,13 @@ var showing_key = false;
 var big_map=0; // 0,1(some control),2(none)
 
 var seismicity_loaded = false;
+
+/*
+ seismicity_from_cache switches between grabbing data from backend db (false)
+ or from data tarball from amazon w3 storage loc. Note: significant eq layer are
+ very different from 2 sources. One has alot of metadata but uncertain and so
+ by default should leave from_cache to be true
+*/
 var seismicity_from_cache = true;
 
 let currentModel = defaultModel;

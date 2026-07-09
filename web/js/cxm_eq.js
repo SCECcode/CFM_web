@@ -33,10 +33,10 @@ const EQ_QUAKE_TYPE_NAME_LIST=["hauksson","significant","bucket"];
 var showing_significant=false;
 
 // for tracking groups of earthquakes for SIGNIFICANT eq dataset
-var cxm_significant_quake_layer;
-var cxm_significant_quake_group_list=[];
-
 var cxm_significant_quake_layer=null;
+var cxm_significant_quake_group_list=[];
+var cxm_quake_significant_latlng=null;
+var cxm_quake_significant_description=null;
 
 // Not USED
 var cxm_quake_group=null;
@@ -179,10 +179,8 @@ function _loadFromFileLatlngSignificantSet() {
               var desc=jzdata['description'];
               var latlng=jzdata['latlng'];
 
-//XXX
-
-              let cxm_quake_significant_latlng=latlng;
-              let cxm_quake_significant_description=desc;
+              cxm_quake_significant_latlng=latlng;
+              cxm_quake_significant_description=desc;
 
               doneQuakeCounterWithVal();
               finishLoadSeismicity();
@@ -214,7 +212,7 @@ function _loadFromFileEQLatlngSet(tidx,tsz,sidx,ssz) {
 
           // Examine the text in the response
             response.arrayBuffer().then(function(zdata) {
-//window.console.log("processing incoming file-- "+fname);
+//window.console.log("XXX processing incoming file-- "+fname);
                 var fdata= _decompress2JSON(zdata);
 
                 _process_json(fdata,ttype,sidx);
@@ -223,7 +221,6 @@ function _loadFromFileEQLatlngSet(tidx,tsz,sidx,ssz) {
 
                 if(sidx+1 == ssz) {
                   if(tidx+1 == tsz) { // all done
-//window.console.log("XXX regular json data files : ALL DONE");
 // need to retrieve "significant_log.json"
                     _loadFromFileLatlngSignificantSet();
                     } else { // next set
@@ -525,8 +522,9 @@ function _processTimeString(t) {
     return str;
 }
 
+// adding from the db with rich meta
 function add2QuakePoints(quake_type,eqarray) {
-//window.console.log( "XXX add2QuakePoints quake_type(%d) with size %d\n", quake_type, Object.keys(eqarray).length);
+window.console.log( "??? XXX add2QuakePoints quake_type(%d) with size %d\n", quake_type, Object.keys(eqarray).length);
     eqarray.forEach(function(marker) {
         var id=marker['Id'];
         var lat=parseFloat(marker['Lat']);
@@ -550,21 +548,23 @@ function add2QuakePoints(quake_type,eqarray) {
 
           case QUAKE_TYPE_SIGNIFICANT: 
 window.console.log("FOUND a significant ",id);
-            if(cxm_significant_quake_layer==null) { makeSignificantEQLayer(); }
+            if(cxm_significant_quake_layer==null) { 
+              makeSignificantEQLayer();
+            }
 
             // create a marker and push into marker_layer
-            let utmCoords=fromLatLon(latitude, longitude);
+            let utmCoords=fromLatLon(lat, lng);
             let utmEasting=utmCoords.easting.toFixed(2);
             let utmNorthing=utmCoords.northing.toFixed(2);
             let utmZoneNum=utmCoords.zoneNum;
             let utmZoneLetter=utmCoords.zoneLetter;
 
-	    let marker = makeLeafletEQCircleMarker([lat, lng], site_marker_style.normal);
+	    let marker = makeLeafletEQCircleMarker([lat, lng], eq_marker_style.normal);
 
             let eq_info = `${id}`;
             marker.bindTooltip(eq_info).openTooltip(); 
 
-            marker.bindPopup("<strong>Significant Earthquake<strong><br>Location: </strong>"+loc+"<br><strong>When: </strong>"+ new Date(time).toLocaleString() +"<br><strong>Magnitude: </strong>"+mag+"<br><strong>Depth: </strong>"+depth+" (km)<br><strong>Location: </strong> ("+longitude+", "+latitude+")<br><strong>ID: </strong>"+id,{maxWidth: 500});
+            marker.bindPopup("<strong>Significant Earthquake<strong><br>Location: </strong>"+loc+"<br><strong>When: </strong>"+ new Date(otime).toLocaleString() +"<br><strong>Magnitude: </strong>"+mag+"<br><strong>Depth: </strong>"+depth+" (km)<br><strong>Location: </strong> ("+lng+", "+lat+")<br><strong>ID: </strong>"+id,{maxWidth: 500});
 
             marker.scec_properties = {
                     id: id,
@@ -573,7 +573,7 @@ window.console.log("FOUND a significant ",id);
                     "depth(km)": depth,
                     magnitude: mag,
                     loc: loc,
-                    time: time,
+                    time: otime,
                     utmeasting: utmEasting,
                     utmnorthing: utmNorthing,
                     utmzonenumber: utmZoneNum,
@@ -595,8 +595,8 @@ window.console.log("FOUND a significant ",id);
                if(zoom > 6)  { target = (zoom > 9) ? 7 : (zoom - 6)+target; }
                this.setStyle( {radius:target});
             });
-            xm_significant_quake_layer.addLayer(marker);
-            xm_significant_quake_group_list.push( {"id":id, "layer":marker});
+            cxm_significant_quake_layer.addLayer(marker);
+            cxm_significant_quake_group_list.push( {"id":id, "layer":marker});
 
             break;
         }
@@ -605,6 +605,7 @@ window.console.log("FOUND a significant ",id);
 
 
 function add2QuakePointsChunk(quake_type, eqarray, next_chunk, total_chunk, step) {
+window.console.log(" >>>> add2QuakePointsChunk");
     add2QuakePoints(quake_type,eqarray);
     // get next chunk
     _getAllQuakesByChunk(quake_type, next_chunk, total_chunk, step);
@@ -617,6 +618,62 @@ function showQuakePointsAndBound(eqarray,swlat,swlon,nelat,nelon) {
    // create a bounding area and add to the layergroup
    var layer=makeRectangleLayer(swlat,swlon,nelat,nelon);
    cxm_quake_group.addLayer(layer);
+}
+
+// quake point with minimum information
+/* format
+cxm_quake_significant_latlng
+[{lat: 36, lng: -120.5},{lat: 31.5, lng: -115},..]
+cxm_quake_significant_description
+["1901 M6.4","1903 M6.6",..]
+*/
+function add2SignificantQuakePoints() {
+    let cnt=cxm_quake_significant_latlng.length;
+    var latlng;
+    var desc;
+    for(let i=0; i<cnt; i++) {
+        latlng=cxm_quake_significant_latlng[i];
+        desc=cxm_quake_significant_description[i];
+        var lat=parseFloat(latlng['lat']);
+        var lng=parseFloat(latlng['lng']);
+        var tkn=desc.split(" ");
+        var year=tkn[0];
+        var mag=tkn[1];
+        if(cxm_significant_quake_layer==null) { makeSignificantEQLayer(); }
+	let marker = makeLeafletEQCircleMarker([lat, lng], eq_marker_style.normal);
+
+        let eq_info = `${mag}`;
+        marker.bindTooltip(eq_info).openTooltip(); 
+
+        marker.bindPopup("<strong>Significant Earthquake<strong><br><strong>When: </strong>"+ year +"<br><strong>Magnitude: </strong>"+mag+"<br><strong>Location: </strong> ("+lng+", "+lat+")<br>",{maxWidth: 500});
+
+        marker.scec_properties = {
+            id: i,
+            longitude: lng,
+            latitude: lat,
+            magnitude: mag,
+            time: year };
+
+        marker.on('mouseover', function (e) {
+           let normal=3;
+           let target = normal;
+           let zoom = get_zoom();
+           target = target *2;
+           window.console.log("MOUSE over..",target);
+           this.setStyle( {radius:target});
+        });
+
+        marker.on('mouseout', function (e) {
+           let normal=3;
+           let target = normal;
+           let zoom = get_zoom();
+           window.console.log("MOUSE out..",target);
+           this.setStyle( {radius:target});
+        });
+        cxm_significant_quake_layer.addLayer(marker);
+        cxm_significant_quake_group_list.push( {"id":i, "layer":marker});
+
+    }
 }
 
 /*********************************************************
@@ -645,14 +702,15 @@ function removeSignificantEQLayer() {
 }
 
 function addSignificantEQLayer() {
+window.console.log(" XXX addSignificantEQLayer");
     if(showing_significant)
       return;
 
     if(cxm_significant_quake_layer==null) {
       makeSignificantEQLayer();
-      } else {
-        viewermap.addLayer(cxm_significant_quake_layer);
+      add2SignificantQuakePoints();
     }
+    viewermap.addLayer(cxm_significant_quake_layer);
     showing_significant=true;
 }
 

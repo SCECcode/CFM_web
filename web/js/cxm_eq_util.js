@@ -125,10 +125,11 @@ function loadSeismicity() {
 // return to initial map view so don't get funny dots
      setupEQDatalist(); 
      if( seismicity_from_cache ) {
+window.console.log("  XXX --> loading from cache");
         loadFromFileEQMarkerLatlng();
         } else {
 // SIGNIFICANT are loaded as side-effect
-window.console.log("XXX --> loading from db and then chopped... slowww..");
+window.console.log("  XXX --> loading from db and then chopped... slowww..");
           getAllQuakes(QUAKE_TYPE_HAUKSSON);  
      }
    }
@@ -167,7 +168,6 @@ function _toFileLatlngSignificantSet() {
     var fname="significant_log.json";
 
 // iterate through all the marker and dump out structure..
-// XXX
 
     var fdata=cxm_quake_significant_latlng;
     var desc=cxm_quake_significant_description;
