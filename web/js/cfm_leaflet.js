@@ -41,6 +41,15 @@ var selectFaults = new L.FeatureGroup();
 var visibleMarkers= [];
 var visibleMarkersGroup;
 
+function wiggle_zoom()
+{
+  let zoom=viewermap.getZoom();
+  window.console.log("wiggle_zoom, ",zoom);
+  viewermap.zoomIn(0.1);
+  viewermap.zoomOut(0.1);
+}
+
+
 function clear_popup()
 {
   viewermap.closePopup();
@@ -161,7 +170,7 @@ function setup_viewer()
   currentLayer = esri_topographic;
 
 // ==> mymap <==
-  mymap = L.map('CFM_plot', { zoomSnap: 0.25, drawControl:false, layers: [esri_topographic, basemap], zoomControl:true} );
+  mymap = L.map('CFM_plot', { zoomSnap: 0.1, drawControl:false, layers: [esri_topographic, basemap], zoomControl:true} );
   mymap.setView( init_map_coordinates , init_map_zoom_level);
   mymap.attributionControl.addAttribution(scecAttribution);
 

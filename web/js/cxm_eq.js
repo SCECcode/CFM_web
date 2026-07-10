@@ -642,7 +642,7 @@ function add2SignificantQuakePoints() {
         if(cxm_significant_quake_layer==null) { makeSignificantEQLayer(); }
 	let marker = makeLeafletEQCircleMarker([lat, lng], eq_marker_style.normal);
 
-        let eq_info = `${mag}`;
+        let eq_info = `${year}, ${mag}`;
         marker.bindTooltip(eq_info).openTooltip(); 
 
         marker.bindPopup("<strong>Significant Earthquake<strong><br><strong>When: </strong>"+ year +"<br><strong>Magnitude: </strong>"+mag+"<br><strong>Location: </strong> ("+lng+", "+lat+")<br>",{maxWidth: 500});
@@ -702,7 +702,6 @@ function removeSignificantEQLayer() {
 }
 
 function addSignificantEQLayer() {
-window.console.log(" XXX addSignificantEQLayer");
     if(showing_significant)
       return;
 

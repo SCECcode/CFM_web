@@ -183,7 +183,6 @@ $('.container').css("padding-right", "15px");
 
 $('#searchResult').css("display", "");
 $('.leaflet-control-attribution').css("width", "35rem");
-$('#infoData').addClass('col-5').removeClass('col-0');
 $('#top-map').removeClass('row').addClass('col-7');
 $('#top-map').removeClass('pl-1').addClass('pl-0');
 $('#mapDataBig').removeClass('col-12').addClass('row');

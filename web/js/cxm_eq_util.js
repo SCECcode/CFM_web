@@ -136,7 +136,6 @@ window.console.log("  XXX --> loading from db and then chopped... slowww..");
 }
 
 function finishLoadSeismicity() {
-	
 //switch to different basemap
     document.getElementById('mapLayer').value='esri imagery';
     switchLayer('esri imagery');
@@ -144,6 +143,9 @@ function finishLoadSeismicity() {
     setup_pixi();
     changePixiOverlay("haukssondepth");
     addSignificantEQLayer();
+
+// zoom alittle to force the pixi layer to show up
+    wiggle_zoom();
 
 //printEQMarkerLatlngInfo(EQ_HAUKSSON_FOR_DEPTH);
 //printEQMarkerLatlngInfo(EQ_HAUKSSON_FOR_MAG);
