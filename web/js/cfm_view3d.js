@@ -600,7 +600,7 @@ function resetExpand3Dview() {
 function save3Dview() {
   document.getElementById("view3DIfram").contentDocument.getElementById("Downloadbtn").click();
   let cmd="cfm_3d.html?"+get_PARAMS();
-  window.console.log(cmd);
+  window.console.log("save3Dview:", cmd);
 }
 
 // pop up the notify model with a timeout
