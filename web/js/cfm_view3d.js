@@ -32,7 +32,7 @@ var VIEW3D_tb = {
          'name': 'Hide Legend',
          'description': 'Show/Hide the Legend<br>Colored boxes in the legend can be clicked on to change surface color<br>Slider bar controls opacity from 0.1 to 1.0<br>Click on the fault name in the legend to toggle on/off surface visibility'},
        { 'id':9,
-         'name': 'Show Mapview',ZZ
+         'name': 'Show Mapview',
          'description': 'Return to the original mapview orientation zoomed to selected faults'},
        { 'id':10,
          'name': 'Close',
