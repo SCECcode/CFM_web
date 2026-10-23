@@ -1,42 +1,36 @@
-FROM amazonlinux:2
+FROM amazonlinux:2023
 
 WORKDIR /app
 
 COPY . /app
 
+RUN dnf upgrade -y --releasever=latest && \
+    dnf install -y \
+        httpd wget tar proj vi \
+        php8.2 php8.2-cli php8.2-pgsql php8.2-fpm && \
+    dnf clean all && \
+    rm -rf /var/cache/dnf && \
+    php -v
 
-#RUN amazon-linux-extras enable epel && \
-#    yum install -y epel-release && \
-#    yum update && \
-#    yum install -y httpd && \
-#    amazon-linux-extras install -y php7.2 && \
-#    yum install -y php php-pgsql wget tar proj
+RUN mkdir -p /run/php-fpm && \
+    chown -R apache:apache /run/php-fpm
 
-
-RUN yum update -y && \
-    yum install -y amazon-linux-extras && \
-    amazon-linux-extras enable epel && \
-    yum install -y epel-release && \
-    yum install -y httpd wget tar proj && \
-    amazon-linux-extras enable php7.2 && \
-    yum clean metadata && \
-    yum install -y php php-pgsql
-
-
-#RUN sudo amazon-linux-extra enable epel && \
-#    yum install -y epel-release && \
-#    yum update && \
-#    yum install -y httpd && \
-#    yum install -y php7.2 && \
-#    yum install -y php php-pgsql wget tar proj
-    
+RUN sed -i 's/^listen.acl_users =.*/;listen.acl_users =/' /etc/php-fpm.d/www.conf && \
+    sed -i 's/^;listen.owner =.*/listen.owner = apache/' /etc/php-fpm.d/www.conf && \
+    sed -i 's/^;listen.group =.*/listen.group = apache/' /etc/php-fpm.d/www.conf && \
+    sed -i 's/^;listen.mode =.*/listen.mode = 0660/' /etc/php-fpm.d/www.conf
 
 #RUN cd /app/web/cfm_data && \
 #    wget https://files.scec.org/s3fs-public/projects/cfm/seismicity/cfm-v7.0-seismicity-utm.tar.gz &&\
 #    tar zxvf cfm-v7.0-seismicity-utm.tar.gz
 
+
 COPY ./doc/cfm.conf /etc/httpd/conf.d/
 COPY ./custom-php.ini /etc/php.d/custom-php.ini
 
-CMD ["apachectl", "-D", "FOREGROUND"]
+RUN echo -e '#!/bin/bash\nphp-fpm -D\nexec /usr/sbin/httpd -D FOREGROUND' > /usr/local/bin/entrypoint.sh && chmod +x /usr/local/bin/entrypoint.sh
+
+EXPOSE 80
+
+CMD ["/usr/local/bin/entrypoint.sh"]
 
