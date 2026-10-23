@@ -31,7 +31,7 @@ $header = getHeader("Contact");
     <div>
         <p>With funding from the National Science Foundation, U.S. Geological Survey, and other sources, <a href="https://www.scec.org">Statewide California Earthquake Center (SCEC)</a> collaborates with academic, government, industry, and other organizations to: (1) Gather and analyze data from field observations and laboratory experiments. (2) Develop system-level models and simulations of earthquake processes to synthesize knowledge as a physics-based understanding of seismic hazard. (3) Communicate that understanding to expand knowledge and reduce earthquake risk. Please visit <a href="https://www.scec.org/about">https://www.scec.org/about</a> to learn more about SCEC. </p>
         <p>
-         <strong>Questions about SCEC Community Models (CEM) Explorers?</strong> Contact us at <a href="mailto:software@scec.org">software@scec.org</a>.</p>
+         <strong>Questions about SCEC Community Models (CEM) Explorers?</strong> Contact us at <a href="mailto:scec-software@usc.edu">scec-software@usc.edu</a>.</p>
 
     </div>
 
