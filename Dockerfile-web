@@ -7,7 +7,7 @@ COPY . /app
 RUN dnf upgrade -y --releasever=latest && \
     dnf install -y \
         httpd wget tar proj vi \
-        php8.2 php8.2-cli php8.2-pgsql php8.2-fpm && \
+        php8.3 php8.3-cli php8.3-pgsql php8.3-fpm && \
     dnf clean all && \
     rm -rf /var/cache/dnf && \
     php -v

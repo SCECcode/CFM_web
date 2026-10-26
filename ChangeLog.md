@@ -1,5 +1,5 @@
 ## 2026-10-26  Mei-Hui Su <mei@usc.edu>
-* Release 2026.10, updated to amazonlinux 2023 and php 8+
+* Release 2026.10, updated to amazonlinux 2023 and php 8.3
 
 ## 2025-08-19  Mei-Hui Su <mei@usc.edu>
 * Add Recent Earthquake query from USGS ComCat catalog and display on both 2D
