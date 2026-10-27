@@ -3,4 +3,9 @@ pid=`docker ps | grep cfm_web_web | cut -f 1 -d ' '`
 
 docker container exec -it $pid /bin/bash
 
+## test the running container 
+###docker exec -it $pid php -v
+
+
+
 
